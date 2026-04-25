@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Newsroom — PanamaRealEstateGuide.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../styles.css"/>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="../data.js"></script>
+  <script type="text/babel" src="../components.jsx"></script>
+  <script type="text/babel" src="../detail-chrome.jsx"></script>
+
+  <script type="text/babel">
+    const MONTH_LABELS = {
+      '2026-04': 'April 2026', '2026-03': 'March 2026', '2026-02': 'February 2026', '2026-01': 'January 2026',
+      '2025-12': 'December 2025', '2025-11': 'November 2025', '2025-10': 'October 2025'
+    };
+    const TAG_COLORS = {
+      'Project update': 'var(--coral)',
+      'Press': 'var(--ocean-deep)',
+      'Infrastructure': 'var(--palm)',
+      'Residency': 'var(--sunset)',
+      'Regulatory': 'var(--coral-deep)',
+      'Market': 'var(--turquoise)'
+    };
+
+    const RANGES = [
+      { id: 'all', label: 'All time', months: 12 },
+      { id: '30d', label: 'Last 30 days', months: 1 },
+      { id: '90d', label: 'Last 90 days', months: 3 },
+      { id: '6m', label: 'Last 6 months', months: 6 },
+      { id: '2026', label: '2026 only', year: 2026 },
+      { id: '2025', label: '2025 only', year: 2025 }
+    ];
+
+    function isInRange(n, range) {
+      if (range.id === 'all') return true;
+      if (range.year) return n.iso.startsWith(String(range.year));
+      const [y, m, d] = n.iso.split('-').map(Number);
+      const itemDate = new Date(y, m - 1, d);
+      const now = new Date(2026, 3, 22); // "today" in this fictional timeline
+      const diffDays = (now - itemDate) / (1000 * 60 * 60 * 24);
+      return diffDays <= range.months * 30;
+    }
+
+    function NewsIndexPage() {
+      const allNews = window.PANAMA_DATA.news;
+      const allTags = [...new Set(allNews.map(n => n.tag))];
+      const [rangeId, setRangeId] = React.useState('all');
+      const [activeTags, setActiveTags] = React.useState(new Set());
+      const [query, setQuery] = React.useState('');
+
+      const range = RANGES.find(r => r.id === rangeId);
+      const filtered = allNews.filter(n => {
+        if (!isInRange(n, range)) return false;
+        if (activeTags.size > 0 && !activeTags.has(n.tag)) return false;
+        if (query && !n.title.toLowerCase().includes(query.toLowerCase())) return false;
+        return true;
+      });
+
+      // Group by month
+      const byMonth = {};
+      filtered.forEach(n => { (byMonth[n.month] ||= []).push(n); });
+      const months = Object.keys(byMonth).sort().reverse();
+
+      const toggleTag = (t) => {
+        const s = new Set(activeTags);
+        s.has(t) ? s.delete(t) : s.add(t);
+        setActiveTags(s);
+      };
+
+      // Stats for hero
+      const stats = {
+        total: allNews.length,
+        projectUpdates: allNews.filter(n => n.tag === 'Project update').length,
+        press: allNews.filter(n => n.tag === 'Press').length,
+        infra: allNews.filter(n => n.tag === 'Infrastructure').length
+      };
+
+      return (
+        <>
+          <DetailNav/>
+
+          {/* HERO — newsroom masthead */}
+          <section style={{ paddingTop: 128, paddingBottom: 56, background: 'var(--cream)', borderBottom: '1px solid var(--line)' }}>
+            <div className="container">
+              <div style={{ display: 'grid', gridTemplateColumns: '1.3fr 1fr', gap: 64, alignItems: 'end' }} className="news-hero-grid">
+                <div>
+                  <div style={{ marginBottom: 24 }}>
+                    <DetailBack label="Home" href="../Panama Caribbean Projects.html"/>
+                  </div>
+                  <div className="eyebrow" style={{ marginBottom: 20 }}>
+                    <span className="rule-coral"></span>The newsroom
+                  </div>
+                  <h1 className="display" style={{ fontSize: 'clamp(42px, 6.5vw, 96px)', margin: '0 0 32px', lineHeight: 1.02, letterSpacing: '-0.03em' }}>
+                    Panama property, <em>week by week.</em>
+                  </h1>
+                  <p style={{
+                    fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 300,
+                    fontSize: 'clamp(18px, 1.8vw, 22px)', color: 'var(--ink-soft)',
+                    margin: '28px 0 0', maxWidth: '54ch', lineHeight: 1.45
+                  }}>
+                    Project milestones, infrastructure, regulatory updates and press mentions — dated, sourced and searchable. Filter by time window, topic, or keyword.
+                  </p>
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20, paddingBottom: 8 }}>
+                  {[
+                    { n: stats.total, l: 'Dispatches' },
+                    { n: stats.projectUpdates, l: 'Project updates' },
+                    { n: stats.press, l: 'Press mentions' },
+                    { n: stats.infra, l: 'Infrastructure' }
+                  ].map((s, i) => (
+                    <div key={i} style={{ padding: '18px 20px', border: '1px solid var(--line)', borderRadius: 12, background: 'var(--paper)' }}>
+                      <div className="display" style={{ fontSize: 'clamp(28px, 3vw, 40px)', lineHeight: 1, color: 'var(--coral-deep)' }}>{s.n}</div>
+                      <div style={{ fontSize: 10.5, fontFamily: 'var(--font-mono)', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink-mute)', marginTop: 10 }}>{s.l}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* FILTER BAR — sticky */}
+          <div style={{ position: 'sticky', top: 72, zIndex: 30, background: 'rgba(255, 253, 245, 0.94)', backdropFilter: 'blur(14px) saturate(1.2)', borderBottom: '1px solid var(--line)' }}>
+            <div className="container" style={{ padding: '20px 24px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
+
+                {/* Time range pills */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+                  <div style={{ fontSize: 10.5, fontFamily: 'var(--font-mono)', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ink-mute)', fontWeight: 700, marginRight: 4 }}>
+                    Time range
+                  </div>
+                  {RANGES.map(r => (
+                    <button key={r.id} onClick={() => setRangeId(r.id)} style={{
+                      padding: '8px 14px', fontSize: 12, fontFamily: 'var(--font-mono)', letterSpacing: '0.06em',
+                      borderRadius: 999, cursor: 'pointer',
+                      border: '1px solid ' + (rangeId === r.id ? 'var(--coral-deep)' : 'var(--line)'),
+                      background: rangeId === r.id ? 'var(--coral-deep)' : 'transparent',
+                      color: rangeId === r.id ? 'var(--paper)' : 'var(--ink)',
+                      transition: 'all 0.2s var(--ease)', fontWeight: 600
+                    }}>
+                      {r.label}
+                    </button>
+                  ))}
+                </div>
+
+                <div style={{ flex: 1 }}/>
+
+                {/* Search */}
+                <div style={{ position: 'relative', minWidth: 240 }}>
+                  <input
+                    value={query}
+                    onChange={e => setQuery(e.target.value)}
+                    placeholder="Search headlines…"
+                    style={{
+                      width: '100%', padding: '10px 14px 10px 36px', fontSize: 13,
+                      fontFamily: 'var(--font-sans)',
+                      border: '1px solid var(--line)', borderRadius: 999,
+                      background: 'var(--paper)', color: 'var(--ink)', outline: 'none'
+                    }}
+                  />
+                  <div style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', fontSize: 14, opacity: 0.5 }}>⌕</div>
+                </div>
+              </div>
+
+              {/* Tag chips */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 14, flexWrap: 'wrap' }}>
+                <div style={{ fontSize: 10.5, fontFamily: 'var(--font-mono)', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ink-mute)', fontWeight: 700, marginRight: 4 }}>
+                  Topics
+                </div>
+                {allTags.map(t => {
+                  const active = activeTags.has(t);
+                  const color = TAG_COLORS[t] || 'var(--ink)';
+                  return (
+                    <button key={t} onClick={() => toggleTag(t)} style={{
+                      padding: '6px 12px', fontSize: 11, fontFamily: 'var(--font-mono)', letterSpacing: '0.08em',
+                      textTransform: 'uppercase', fontWeight: 700,
+                      border: '1px solid ' + (active ? color : 'var(--line)'),
+                      background: active ? color : 'transparent',
+                      color: active ? 'var(--paper)' : 'var(--ink)',
+                      borderRadius: 6, cursor: 'pointer', transition: 'all 0.2s var(--ease)'
+                    }}>
+                      {t}
+                    </button>
+                  );
+                })}
+                {(activeTags.size > 0 || query || rangeId !== 'all') && (
+                  <button onClick={() => { setActiveTags(new Set()); setQuery(''); setRangeId('all'); }} style={{
+                    padding: '6px 10px', fontSize: 11, fontFamily: 'var(--font-mono)', letterSpacing: '0.08em',
+                    textTransform: 'uppercase', border: 'none', background: 'transparent',
+                    color: 'var(--ink-mute)', cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: 3
+                  }}>
+                    Clear filters
+                  </button>
+                )}
+              </div>
+
+              {/* Result count */}
+              <div style={{ marginTop: 14, fontSize: 12, fontFamily: 'var(--font-mono)', letterSpacing: '0.08em', color: 'var(--ink-mute)', textTransform: 'uppercase' }}>
+                Showing <span style={{ color: 'var(--coral-deep)', fontWeight: 700 }}>{filtered.length}</span> of {allNews.length} dispatches
+              </div>
+            </div>
+          </div>
+
+          {/* TIMELINE */}
+          <section style={{ padding: '56px 0 120px', background: 'var(--cream)' }}>
+            <div className="container">
+              {filtered.length === 0 && (
+                <div style={{ padding: '80px 24px', textAlign: 'center', color: 'var(--ink-mute)' }}>
+                  <div className="display" style={{ fontSize: 42, color: 'var(--ink-soft)', marginBottom: 12 }}>
+                    No dispatches match.
+                  </div>
+                  <p style={{ fontSize: 14 }}>Try widening the time range or clearing topics.</p>
+                </div>
+              )}
+
+              {months.map((m, mi) => (
+                <div key={m} style={{ display: 'grid', gridTemplateColumns: '180px 1fr', gap: 48, marginBottom: 64, position: 'relative' }} className="month-row">
+
+                  {/* Month label column */}
+                  <div style={{ position: 'sticky', top: 220, alignSelf: 'start', paddingTop: 8 }} className="month-label">
+                    <div style={{
+                      fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.14em',
+                      textTransform: 'uppercase', color: 'var(--ink-mute)', fontWeight: 700, marginBottom: 6
+                    }}>
+                      {m.split('-')[0]}
+                    </div>
+                    <div className="display" style={{
+                      fontSize: 32, lineHeight: 1, color: 'var(--ocean-deep)', letterSpacing: '-0.02em'
+                    }}>
+                      {(MONTH_LABELS[m] || m).split(' ')[0]}
+                    </div>
+                    <div style={{
+                      marginTop: 14, padding: '4px 10px', display: 'inline-block',
+                      background: 'var(--coral-deep)', color: 'var(--paper)',
+                      borderRadius: 4, fontFamily: 'var(--font-mono)', fontSize: 11,
+                      fontWeight: 700, letterSpacing: '0.08em'
+                    }}>
+                      {byMonth[m].length} {byMonth[m].length === 1 ? 'story' : 'stories'}
+                    </div>
+                  </div>
+
+                  {/* Items column */}
+                  <div style={{ borderLeft: '1px solid var(--line)', paddingLeft: 36, position: 'relative' }}>
+                    {byMonth[m].map((n, i) => {
+                      const color = TAG_COLORS[n.tag] || 'var(--ink)';
+                      return (
+                        <a key={n.slug} href={`${n.slug}.html`} className="news-item" style={{
+                          display: 'block', padding: '22px 0', borderBottom: i < byMonth[m].length - 1 ? '1px solid var(--line-soft)' : 'none',
+                          textDecoration: 'none', color: 'inherit', position: 'relative'
+                        }}>
+                          {/* Timeline dot */}
+                          <div style={{
+                            position: 'absolute', left: -41, top: 32, width: 11, height: 11,
+                            borderRadius: '50%', background: color, border: '2px solid var(--cream)'
+                          }}/>
+                          <div style={{ display: 'grid', gridTemplateColumns: '100px 1fr auto', gap: 24, alignItems: 'start' }} className="item-inner">
+                            <div>
+                              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: color, letterSpacing: '0.12em', fontWeight: 700, textTransform: 'uppercase' }}>
+                                {n.date}
+                              </div>
+                              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--ink-mute)', letterSpacing: '0.08em', marginTop: 4 }}>
+                                {n.iso}
+                              </div>
+                            </div>
+                            <div>
+                              <div style={{
+                                fontFamily: 'var(--font-display)', fontSize: 'clamp(18px, 1.7vw, 26px)',
+                                fontWeight: 400, letterSpacing: '-0.008em', lineHeight: 1.25,
+                                color: 'var(--ink)', textWrap: 'pretty'
+                              }}>
+                                {n.title}
+                              </div>
+                              <div className="read-more" style={{
+                                marginTop: 10, fontSize: 11, fontFamily: 'var(--font-mono)',
+                                letterSpacing: '0.1em', textTransform: 'uppercase', color: color,
+                                fontWeight: 700, opacity: 0, transition: 'opacity 0.3s var(--ease)'
+                              }}>
+                                Read dispatch →
+                              </div>
+                            </div>
+                            <div style={{
+                              fontSize: 10.5, fontFamily: 'var(--font-mono)', color: 'var(--paper)',
+                              background: color, padding: '5px 10px', borderRadius: 4,
+                              letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 700,
+                              whiteSpace: 'nowrap', alignSelf: 'start'
+                            }} className="hide-mobile">
+                              {n.tag}
+                            </div>
+                          </div>
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Newsletter / subscribe strip */}
+          <section style={{ padding: '80px 0', background: 'var(--ocean-deep)', color: 'var(--cream)' }}>
+            <div className="container" style={{ maxWidth: 820, textAlign: 'center' }}>
+              <div className="eyebrow" style={{ color: 'var(--coral)', marginBottom: 24, justifyContent: 'center', display: 'inline-flex' }}>
+                <span className="rule-coral"></span>The weekly dispatch
+              </div>
+              <h2 className="display" style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', margin: 0, lineHeight: 1.05 }}>
+                One email, every Friday. <em>No fluff.</em>
+              </h2>
+              <p style={{ marginTop: 20, fontSize: 16, lineHeight: 1.6, opacity: 0.85 }}>
+                Project milestones, infrastructure, regulatory moves and press. Unsubscribe in one click.
+              </p>
+              <form onSubmit={e => e.preventDefault()} style={{
+                marginTop: 32, display: 'flex', gap: 10, maxWidth: 480, marginLeft: 'auto', marginRight: 'auto'
+              }}>
+                <input type="email" placeholder="you@domain.com" style={{
+                  flex: 1, padding: '14px 20px', borderRadius: 999, border: '1px solid rgba(255,249,236,0.25)',
+                  background: 'rgba(255,249,236,0.08)', color: 'var(--cream)', fontSize: 14, outline: 'none'
+                }}/>
+                <button className="btn btn-coral" style={{ padding: '14px 24px' }}>Subscribe</button>
+              </form>
+            </div>
+          </section>
+
+          <DetailFooter/>
+
+          <style>{`
+            .news-item:hover { background: var(--paper); padding-left: 16px !important; margin-left: -16px; border-radius: 8px; }
+            .news-item:hover .read-more { opacity: 1 !important; }
+            .news-item { transition: all 0.25s var(--ease); }
+            @media (max-width: 820px) {
+              .news-hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+              .month-row { grid-template-columns: 1fr !important; gap: 20px !important; }
+              .month-label { position: static !important; }
+              .item-inner { grid-template-columns: 1fr !important; gap: 8px !important; }
+              .hide-mobile { display: none !important; }
+            }
+          `}</style>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<NewsIndexPage/>);
+  </script>
+</body>
+</html>

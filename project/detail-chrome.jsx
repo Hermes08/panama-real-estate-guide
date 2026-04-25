@@ -1,0 +1,108 @@
+// Shared chrome for detail pages (project / article / news) — uses same design system
+// Exposes: window.DetailNav, window.DetailFooter, window.DetailBack, window.DetailCTA
+
+function DetailNav() {
+  const [scrolled, setScrolled] = React.useState(false);
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  return (
+    <header style={{
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
+      background: scrolled ? 'rgba(255, 253, 245, 0.92)' : 'var(--cream)',
+      backdropFilter: scrolled ? 'blur(14px) saturate(1.2)' : 'none',
+      borderBottom: '1px solid var(--line-soft)',
+      transition: 'all 0.4s var(--ease)'
+    }}>
+      <div className="container" style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        height: 72, gap: 16
+      }}>
+        <Logo onDark={false} size={18}/>
+        <nav className="nav-desktop" style={{ display: 'flex', gap: 28, fontSize: 13, fontWeight: 500 }}>
+          <a href="../Panama Caribbean Projects.html" style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>Projects</a>
+          <a href="../Panama Caribbean Projects.html#regions" style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>Regions</a>
+          <a href="../Panama Caribbean Projects.html#journal" style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>Journal</a>
+          <a href="../Panama Caribbean Projects.html#news" style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>News</a>
+          <a href="../Panama Caribbean Projects.html#about" style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>About</a>
+        </nav>
+        <div className="nav-cta-desktop" style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+          <LangSwitcher current="EN" onDark={false}/>
+          <a href="../Panama Caribbean Projects.html#reserve" className="btn btn-coral" style={{ padding: '11px 20px', fontSize: 11 }}>
+            Reserve a unit <Icon name="arrow" size={13}/>
+          </a>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function DetailBack({ label = 'All projects', href = '../Panama Caribbean Projects.html#projects' }) {
+  return (
+    <a href={href} style={{
+      display: 'inline-flex', alignItems: 'center', gap: 8,
+      fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.16em',
+      textTransform: 'uppercase', color: 'var(--coral-deep)', fontWeight: 700,
+      textDecoration: 'none'
+    }}>
+      <span style={{ transform: 'rotate(180deg)', display: 'inline-flex' }}><Icon name="arrow" size={13}/></span>
+      {label}
+    </a>
+  );
+}
+
+function DetailCTA({ kind = 'reserve' }) {
+  if (kind === 'reserve') {
+    return (
+      <section style={{
+        background: 'linear-gradient(160deg, #FFD8A8 0%, #FF9B6A 35%, #FF6B4A 70%, #C94628 100%)',
+        padding: 'clamp(60px, 8vw, 100px) 0', color: 'var(--cream)'
+      }}>
+        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 40, alignItems: 'center' }}
+             data-cta-grid>
+          <div>
+            <div className="eyebrow" style={{ color: 'rgba(255,249,236,0.9)', marginBottom: 16 }}>
+              <span className="rule-coral" style={{ background: 'var(--cream)' }}></span>
+              Reservations open · Refundable deposit
+            </div>
+            <h2 className="display" style={{ fontSize: 'clamp(34px, 5vw, 60px)', margin: 0, color: 'var(--cream)', lineHeight: 1.02 }}>
+              Reserve from <em>$5,000.</em> <br/>Hold for <em>thirty days.</em>
+            </h2>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-start' }}>
+            <a href="../Panama Caribbean Projects.html#reserve" className="btn"
+               style={{ background: 'var(--ink)', color: 'var(--cream)' }}>
+              Start a reservation <Icon name="arrow" size={14}/>
+            </a>
+            <a href="https://wa.me/50767610315" className="btn btn-ghost-light">WhatsApp +507 6761-0315</a>
+          </div>
+        </div>
+        <style>{`@media (max-width: 900px) { [data-cta-grid] { grid-template-columns: 1fr !important; } }`}</style>
+      </section>
+    );
+  }
+  return null;
+}
+
+function DetailFooter() {
+  return (
+    <footer style={{ background: 'var(--ink)', color: 'var(--cream)', padding: '48px 0 32px' }}>
+      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 20 }}>
+        <Logo onDark={true} size={16}/>
+        <div style={{ display: 'flex', gap: 24, fontSize: 12, opacity: 0.75, fontFamily: 'var(--font-mono)', letterSpacing: '0.12em', textTransform: 'uppercase', flexWrap: 'wrap' }}>
+          <a href="../Panama Caribbean Projects.html#projects" style={{ color: 'inherit', textDecoration: 'none' }}>Projects</a>
+          <a href="../Panama Caribbean Projects.html#journal" style={{ color: 'inherit', textDecoration: 'none' }}>Journal</a>
+          <a href="../Panama Caribbean Projects.html#news" style={{ color: 'inherit', textDecoration: 'none' }}>News</a>
+          <a href="../Panama Caribbean Projects.html#reserve" style={{ color: 'inherit', textDecoration: 'none' }}>Reserve</a>
+        </div>
+        <div style={{ fontSize: 11, opacity: 0.6, fontFamily: 'var(--font-mono)', letterSpacing: '0.12em' }}>
+          © 2026 PanamaRealEstateGuide.com
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+Object.assign(window, { DetailNav, DetailBack, DetailCTA, DetailFooter });

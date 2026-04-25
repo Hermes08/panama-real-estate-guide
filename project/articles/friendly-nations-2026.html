@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Article — PanamaRealEstateGuide.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../styles.css"/>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="../data.js"></script>
+  <script type="text/babel" src="../components.jsx"></script>
+  <script type="text/babel" src="../detail-chrome.jsx"></script>
+
+  <script type="text/babel">
+    const ARTICLE_ID = window.location.pathname.split('/').pop().replace('.html', '');
+    const a = window.PANAMA_DATA.articles.find(x => x.id === ARTICLE_ID) || window.PANAMA_DATA.articles[0];
+    const body = window.PANAMA_DATA.articleBodies[a.id] || [];
+    document.title = `${a.title} — PanamaRealEstateGuide.com`;
+
+    function ArticlePage() {
+      const related = window.PANAMA_DATA.articles.filter(x => x.id !== a.id).slice(0, 3);
+
+      React.useEffect(() => {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+        return () => io.disconnect();
+      }, []);
+
+      return (
+        <>
+          <DetailNav/>
+
+          {/* HERO — editorial masthead */}
+          <article>
+            <header style={{ paddingTop: 96, paddingBottom: 40, background: 'var(--cream)' }}>
+              <div className="container" style={{ maxWidth: 960 }}>
+                <div style={{ marginBottom: 28 }}>
+                  <DetailBack label="The Journal" href="../Panama Caribbean Projects.html#journal"/>
+                </div>
+                <div className="reveal" style={{
+                  display: 'inline-block', background: 'var(--coral)', color: 'var(--paper)',
+                  padding: '5px 12px', borderRadius: 999, fontSize: 10.5, fontFamily: 'var(--font-mono)',
+                  letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 24
+                }}>
+                  {a.category}
+                </div>
+                <h1 className="display reveal d1" style={{
+                  fontSize: 'clamp(36px, 5.4vw, 78px)', margin: 0, lineHeight: 1.02, paddingBottom: '0.08em', maxWidth: '22ch'
+                }}>
+                  {a.title}
+                </h1>
+                <p className="reveal d2" style={{
+                  fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 300,
+                  fontSize: 'clamp(18px, 1.8vw, 24px)', color: 'var(--ink-soft)',
+                  maxWidth: '58ch', marginTop: 28, marginBottom: 0, lineHeight: 1.45
+                }}>
+                  {a.excerpt}
+                </p>
+                <div className="reveal d3" style={{
+                  display: 'flex', alignItems: 'center', gap: 24, marginTop: 40, paddingTop: 28,
+                  borderTop: '1px solid var(--line)', flexWrap: 'wrap',
+                  fontSize: 12, fontFamily: 'var(--font-mono)', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ink-soft)'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <div style={{
+                      width: 32, height: 32, borderRadius: '50%', background: 'var(--palm)',
+                      color: 'var(--cream)', display: 'grid', placeItems: 'center',
+                      fontFamily: 'var(--font-display)', fontSize: 13, fontWeight: 500
+                    }}>
+                      {a.author.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <span>By {a.author}</span>
+                  </div>
+                  <span>·</span>
+                  <span>{a.date}</span>
+                  <span>·</span>
+                  <span>{a.read}</span>
+                </div>
+              </div>
+            </header>
+
+            {/* COVER IMAGE */}
+            <div className="container" style={{ marginBottom: 56 }}>
+              <div className={`ph ph-${a.cover} reveal`} data-label={a.category.toUpperCase()}
+                style={{ aspectRatio: '16/7', borderRadius: 20 }}/>
+            </div>
+
+            {/* BODY — single column editorial */}
+            <div className="container" style={{ maxWidth: 720, padding: '0 var(--gutter) 100px' }}>
+              {body.map((block, i) => {
+                if (typeof block === 'object' && block.h) {
+                  return (
+                    <h2 key={i} className="display reveal" style={{
+                      fontSize: 'clamp(26px, 2.8vw, 38px)', margin: '48px 0 20px', lineHeight: 1.15, color: 'var(--coral-deep)'
+                    }}>
+                      {block.h}
+                    </h2>
+                  );
+                }
+                // first paragraph gets drop-cap
+                const isFirst = i === 0;
+                return (
+                  <p key={i} className="reveal" style={{
+                    fontSize: 18, lineHeight: 1.8, color: 'var(--ink)',
+                    margin: '0 0 24px', textWrap: 'pretty'
+                  }}>
+                    {isFirst ? (
+                      <>
+                        <span style={{
+                          float: 'left', fontFamily: 'var(--font-display)', fontSize: 68, lineHeight: 0.9,
+                          marginRight: 10, marginTop: 6, color: 'var(--coral)', fontWeight: 500
+                        }}>
+                          {block[0]}
+                        </span>
+                        {block.slice(1)}
+                      </>
+                    ) : block}
+                  </p>
+                );
+              })}
+
+              {/* Pull quote */}
+              <div className="reveal" style={{
+                margin: '56px 0', padding: '40px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)'
+              }}>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--coral-deep)', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14, fontWeight: 700 }}>
+                  The takeaway
+                </div>
+                <p style={{
+                  fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 300,
+                  fontSize: 'clamp(22px, 2.6vw, 34px)', lineHeight: 1.3, color: 'var(--ink)', margin: 0,
+                  letterSpacing: '-0.01em'
+                }}>
+                  {a.excerpt}
+                </p>
+              </div>
+
+              {/* Author block */}
+              <div className="reveal" style={{ display: 'flex', gap: 20, alignItems: 'center', padding: '32px 0', borderTop: '1px solid var(--line)' }}>
+                <div style={{
+                  width: 64, height: 64, borderRadius: '50%', background: 'var(--palm)', color: 'var(--cream)',
+                  display: 'grid', placeItems: 'center', fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 500, flexShrink: 0
+                }}>
+                  {a.author.split(' ').map(n => n[0]).join('')}
+                </div>
+                <div>
+                  <div style={{ fontFamily: 'var(--font-display)', fontSize: 20, marginBottom: 4 }}>{a.author}</div>
+                  <div style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.5 }}>
+                    {a.author === 'Kent Davis'
+                      ? 'Founder & principal broker, PanamaRealEstateGuide.com. Writing from Panama City since 2017.'
+                      : 'Senior market analyst, PanamaRealEstateGuide.com. Bilingual legal research on Panamanian residency and tax.'}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          {/* Related */}
+          <section style={{ padding: 'clamp(64px, 8vw, 110px) 0', background: 'var(--sand)' }}>
+            <div className="container">
+              <div className="eyebrow reveal" style={{ marginBottom: 28 }}>
+                <span className="rule-coral"></span>Keep reading
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }} data-rel-grid>
+                {related.map((r, i) => (
+                  <a key={r.id} href={`${r.id}.html`} className="reveal" style={{
+                    textDecoration: 'none', color: 'inherit', transitionDelay: `${i * 0.06}s`, display: 'block'
+                  }}>
+                    <div className={`ph ph-${r.cover}`} data-label="" style={{ aspectRatio: '4/3', borderRadius: 12, marginBottom: 16 }}/>
+                    <div style={{ fontSize: 10.5, fontFamily: 'var(--font-mono)', color: 'var(--coral-deep)', letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 8 }}>
+                      {r.category}
+                    </div>
+                    <h4 className="display" style={{ fontSize: 22, margin: '0 0 8px', lineHeight: 1.2 }}>{r.title}</h4>
+                    <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--ink-mute)', letterSpacing: '0.1em' }}>{r.date} · {r.read}</div>
+                  </a>
+                ))}
+              </div>
+              <style>{`@media (max-width: 900px) { [data-rel-grid] { grid-template-columns: 1fr !important; } }`}</style>
+            </div>
+          </section>
+
+          <DetailCTA kind="reserve"/>
+          <DetailFooter/>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<ArticlePage/>);
+  </script>
+</body>
+</html>

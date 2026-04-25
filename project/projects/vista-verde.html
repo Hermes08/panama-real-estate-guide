@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Project — PanamaRealEstateGuide.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../styles.css"/>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="../data.js"></script>
+  <script type="text/babel" src="../components.jsx"></script>
+  <script type="text/babel" src="../detail-chrome.jsx"></script>
+
+  <script type="text/babel" data-plugins="transform-modules-umd">
+    const PROJECT_ID = window.location.pathname.split('/').pop().replace('.html', '');
+    const p = window.PANAMA_DATA.projects.find(x => x.id === PROJECT_ID) || window.PANAMA_DATA.projects[0];
+    document.title = `${p.name} — PanamaRealEstateGuide.com`;
+
+    function ProjectPage() {
+      const related = window.PANAMA_DATA.projects.filter(x => x.id !== p.id && x.region === p.region).slice(0, 3);
+      const fallback = window.PANAMA_DATA.projects.filter(x => x.id !== p.id).slice(0, 3);
+      const siblings = related.length >= 2 ? related : fallback;
+
+      React.useEffect(() => {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+        return () => io.disconnect();
+      }, []);
+
+      return (
+        <>
+          <DetailNav/>
+
+          {/* HERO — lifestyle split */}
+          <section style={{ paddingTop: 96, background: 'var(--cream)' }}>
+            <div className="container">
+              <div style={{ marginBottom: 32 }}><DetailBack label="All projects"/></div>
+
+              <div className="hero-split" style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 48, alignItems: 'end', marginBottom: 48 }}>
+                <div className="reveal">
+                  <div className="eyebrow" style={{ marginBottom: 16 }}>
+                    <span className="rule-coral"></span>{p.region} · {p.status}
+                  </div>
+                  <h1 className="display" style={{ fontSize: 'clamp(44px, 6.5vw, 104px)', margin: 0, lineHeight: 0.94, paddingBottom: '0.08em' }}>
+                    {p.name.split(' ').slice(0, -1).join(' ')} <em>{p.name.split(' ').slice(-1)}</em>
+                  </h1>
+                  <p style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: 'clamp(1.15rem, 1.7vw, 1.6rem)', color: 'var(--ink-soft)', maxWidth: '30ch', margin: '20px 0 0' }}>
+                    {p.tagline}
+                  </p>
+                </div>
+                <div className="reveal d1" style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--ink-soft)' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, padding: '24px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
+                    <div>
+                      <div style={{ opacity: 0.6, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 6 }}>Location</div>
+                      <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--ink)', fontWeight: 500 }}>{p.location}</div>
+                    </div>
+                    <div>
+                      <div style={{ opacity: 0.6, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 6 }}>Developer</div>
+                      <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--ink)', fontWeight: 500 }}>{p.developer}</div>
+                    </div>
+                    <div>
+                      <div style={{ opacity: 0.6, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 6 }}>From</div>
+                      <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--ink)', fontWeight: 500 }}>{p.fromLabel}</div>
+                    </div>
+                    <div>
+                      <div style={{ opacity: 0.6, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 6 }}>Delivery</div>
+                      <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--ink)', fontWeight: 500 }}>{p.delivery}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Primary image */}
+              <div className={`ph ph-${p.cover} reveal`} data-label={p.region.toUpperCase()}
+                style={{ aspectRatio: '16/7', borderRadius: 20, position: 'relative', overflow: 'hidden' }}>
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.3) 100%)' }}/>
+                <div style={{
+                  position: 'absolute', bottom: 24, left: 24,
+                  background: 'var(--coral)', color: 'var(--paper)',
+                  padding: '8px 16px', borderRadius: 999, fontSize: 11, fontWeight: 700,
+                  fontFamily: 'var(--font-mono)', letterSpacing: '0.14em', textTransform: 'uppercase'
+                }}>
+                  {p.priceFromLabel}
+                </div>
+              </div>
+
+              {/* Gallery strip */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12, marginTop: 12 }}>
+                {['ocean', 'palm', 'sand'].map((g, i) => (
+                  <div key={i} className={`ph ph-${g} reveal`} data-label="" style={{ aspectRatio: '4/3', borderRadius: 14, transitionDelay: `${i * 0.08}s` }}/>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* ABOUT + AMENITIES */}
+          <section style={{ padding: 'clamp(64px, 8vw, 110px) 0' }}>
+            <div className="container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 72 }} data-about-grid>
+              <div className="reveal">
+                <div className="eyebrow" style={{ marginBottom: 16 }}>
+                  <span className="rule-coral"></span>About the project
+                </div>
+                <h2 className="display" style={{ fontSize: 'clamp(32px, 4vw, 54px)', margin: '0 0 24px', lineHeight: 1.05 }}>
+                  A <em>considered</em> development on {p.region.toLowerCase()}.
+                </h2>
+                <p style={{ fontSize: 17, lineHeight: 1.75, color: 'var(--ink-soft)', maxWidth: '62ch', margin: 0 }}>
+                  {p.about}
+                </p>
+              </div>
+              <div className="reveal d1">
+                <div className="eyebrow" style={{ marginBottom: 16 }}>Amenities</div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                  {p.amenities.map((a, i) => (
+                    <li key={i} style={{
+                      padding: '14px 0', borderBottom: i < p.amenities.length - 1 ? '1px solid var(--line)' : 'none',
+                      display: 'flex', alignItems: 'center', gap: 12, fontSize: 14.5
+                    }}>
+                      <span style={{ color: 'var(--coral)', fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700, width: 32 }}>0{i+1}</span>
+                      <span>{a}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <style>{`@media (max-width: 900px) { [data-about-grid] { grid-template-columns: 1fr !important; gap: 40px !important; } }`}</style>
+            </div>
+          </section>
+
+          {/* UNITS TABLE */}
+          <section style={{ padding: 'clamp(64px, 8vw, 110px) 0', background: 'var(--sand)' }}>
+            <div className="container">
+              <div className="reveal" style={{ marginBottom: 40, maxWidth: 640 }}>
+                <div className="eyebrow" style={{ marginBottom: 16 }}><span className="rule-coral"></span>Unit types</div>
+                <h2 className="display" style={{ fontSize: 'clamp(32px, 4vw, 54px)', margin: 0 }}>
+                  {p.units.length} floorplans, <em>four decisions.</em>
+                </h2>
+              </div>
+              <div style={{ background: 'var(--paper)', borderRadius: 18, padding: 8, border: '1px solid var(--line)' }}>
+                <div className="reveal" style={{
+                  display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 120px', padding: '16px 24px', gap: 24,
+                  fontSize: 11, fontFamily: 'var(--font-mono)', letterSpacing: '0.14em', textTransform: 'uppercase',
+                  color: 'var(--ink-mute)', fontWeight: 700, borderBottom: '1px solid var(--line)'
+                }} data-units-head>
+                  <div>Unit Type</div>
+                  <div>Interior Size</div>
+                  <div>From</div>
+                  <div></div>
+                </div>
+                {p.units.map((u, i) => (
+                  <div key={i} className="reveal" data-units-row style={{
+                    display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 120px', padding: '22px 24px', gap: 24,
+                    alignItems: 'center', borderBottom: i < p.units.length - 1 ? '1px solid var(--line-soft)' : 'none',
+                    transitionDelay: `${i * 0.04}s`
+                  }}>
+                    <div style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 400 }}>{u.type}</div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13 }}>{u.size}</div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--coral-deep)', fontWeight: 700 }}>{u.from}</div>
+                    <a href="../Panama Caribbean Projects.html#reserve" className="btn btn-ghost" style={{ padding: '10px 16px', fontSize: 10 }}>Reserve</a>
+                  </div>
+                ))}
+              </div>
+              <style>{`@media (max-width: 760px) { [data-units-head] { display: none !important; } [data-units-row] { grid-template-columns: 1fr !important; gap: 8px !important; } }`}</style>
+            </div>
+          </section>
+
+          {/* RESERVATION TIMELINE */}
+          <section style={{ padding: 'clamp(64px, 8vw, 110px) 0', background: 'var(--ink)', color: 'var(--cream)' }}>
+            <div className="container">
+              <div className="reveal" style={{ marginBottom: 48, maxWidth: 640 }}>
+                <div className="eyebrow" style={{ marginBottom: 16, color: 'var(--aqua)' }}>
+                  <span className="rule-coral"></span>How the reservation works
+                </div>
+                <h2 className="display" style={{ fontSize: 'clamp(32px, 4vw, 54px)', margin: 0, color: 'var(--cream)', lineHeight: 1.05 }}>
+                  From first call <em style={{ color: 'var(--coral)' }}>to signed deed.</em>
+                </h2>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: `repeat(${p.timeline.length}, 1fr)`, gap: 20 }} data-tl-grid>
+                {p.timeline.map((t, i) => (
+                  <div key={i} className="reveal" style={{
+                    padding: '28px 24px', background: 'rgba(255, 249, 236, 0.04)',
+                    border: '1px solid rgba(255, 249, 236, 0.1)', borderRadius: 14,
+                    transitionDelay: `${i * 0.08}s`, position: 'relative'
+                  }}>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--coral)', letterSpacing: '0.16em', fontWeight: 700, marginBottom: 14 }}>
+                      STEP 0{i+1}
+                    </div>
+                    <div className="display" style={{ fontSize: 22, margin: '0 0 12px', color: 'var(--cream)' }}>{t.phase}</div>
+                    <div style={{ fontSize: 13.5, opacity: 0.8, lineHeight: 1.6 }}>{t.desc}</div>
+                  </div>
+                ))}
+              </div>
+              <style>{`@media (max-width: 900px) { [data-tl-grid] { grid-template-columns: 1fr !important; } }`}</style>
+            </div>
+          </section>
+
+          {/* Related */}
+          <section style={{ padding: 'clamp(64px, 8vw, 110px) 0' }}>
+            <div className="container">
+              <div className="eyebrow reveal" style={{ marginBottom: 24 }}>
+                <span className="rule-coral"></span>Also in our {p.region} collection
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }} data-rel-grid>
+                {siblings.map((s, i) => (
+                  <a key={s.id} href={`${s.id}.html`} className="reveal" style={{
+                    position: 'relative', borderRadius: 16, overflow: 'hidden', textDecoration: 'none', color: 'inherit',
+                    aspectRatio: '5/4', display: 'block', transitionDelay: `${i * 0.06}s`
+                  }}>
+                    <div className={`ph ph-${s.cover}`} data-label="" style={{ position: 'absolute', inset: 0 }}>
+                      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6))' }}/>
+                    </div>
+                    <div style={{ position: 'absolute', left: 18, right: 18, bottom: 18, color: 'var(--cream)' }}>
+                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.14em', textTransform: 'uppercase', opacity: 0.8, marginBottom: 6 }}>{s.location}</div>
+                      <div className="display" style={{ fontSize: 22, color: 'var(--cream)', lineHeight: 1.1 }}>{s.name}</div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+              <style>{`@media (max-width: 900px) { [data-rel-grid] { grid-template-columns: 1fr !important; } }`}</style>
+            </div>
+          </section>
+
+          <DetailCTA kind="reserve"/>
+          <DetailFooter/>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<ProjectPage/>);
+  </script>
+</body>
+</html>
