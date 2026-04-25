@@ -135,17 +135,18 @@ function buildWireframeOverlay(model, registries) {
   // Normal blending + deep coral — on a cream background, additive blending
   // just adds to white and the silhouette disappears. Normal blending lets the
   // coral line actually register as an outline.
+  // Ambient mascot — the jaguar sits behind editorial content, so it reads as texture
+  // rather than a subject. Lower opacity + CSS mask fade at top lets copy stay legible.
   const wireMat = new THREE.MeshBasicMaterial({
-    color: CORAL_DEEP, wireframe: true, transparent: true, opacity: 0.92,
+    color: CORAL_DEEP, wireframe: true, transparent: true, opacity: 0.55,
     depthWrite: false, blending: THREE.NormalBlending
   });
-  // Inner glow wire — slightly softer, inside the outline, adds depth without halo
   const wireMatBright = new THREE.MeshBasicMaterial({
-    color: CORAL, wireframe: true, transparent: true, opacity: 0.35,
+    color: CORAL, wireframe: true, transparent: true, opacity: 0.22,
     depthWrite: false, blending: THREE.NormalBlending
   });
   const pointMat = new THREE.PointsMaterial({
-    color: CORAL_SOFT, size: 0.02, transparent: true, opacity: 0.6,
+    color: CORAL_SOFT, size: 0.018, transparent: true, opacity: 0.45,
     sizeAttenuation: true, depthWrite: false, blending: THREE.NormalBlending
   });
 
@@ -207,9 +208,10 @@ window.JaguarScene = function(canvas) {
   const scene = new THREE.Scene();
   // No fog — we want the cream page color to show through cleanly
   const aspect = (canvas.clientWidth || 1) / (canvas.clientHeight || 1);
-  const camera = new THREE.PerspectiveCamera(36, aspect, 0.1, 100);
-  camera.position.set(4.2, 1.7, 6.0);
-  camera.lookAt(0, 0.95, 0);
+  // Wider FOV + look at mid-body so the full jaguar fits in the canvas.
+  const camera = new THREE.PerspectiveCamera(42, aspect, 0.1, 100);
+  camera.position.set(4.6, 2.2, 6.8);
+  camera.lookAt(0, 1.7, 0);
 
   // Post-processing: subtle bloom (much lower than reference)
   const composer = new EffectComposer(renderer);

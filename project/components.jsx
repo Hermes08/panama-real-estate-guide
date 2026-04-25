@@ -454,7 +454,11 @@ function HeroEditorial() {
           for our Caribbean / rainforest identity. */}
       <div className="hero-fauna" style={{
         position: 'absolute', right: 24, bottom: 24, width: 420, height: 420,
-        zIndex: 3, pointerEvents: 'none'
+        zIndex: 1, pointerEvents: 'none',
+        // Fade the top edge so the jaguar blends behind the news card text
+        // rather than hard-clipping against it.
+        WebkitMaskImage: 'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.35) 22%, rgba(0,0,0,0.85) 55%, #000 80%)',
+        maskImage:       'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.35) 22%, rgba(0,0,0,0.85) 55%, #000 80%)'
       }}>
         <canvas ref={jaguarRef} style={{ width: '100%', height: '100%', display: 'block' }}/>
         {/* species label — bottom right, mono caps, on-brand */}
