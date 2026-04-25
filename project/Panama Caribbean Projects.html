@@ -140,15 +140,15 @@ function buildWireframeOverlay(model, registries) {
   // is still perceivable because the canvas's dense subdivided wireframe gives it
   // thousands of tiny coral strokes concentrated where the body is.
   const wireMat = new THREE.MeshBasicMaterial({
-    color: CORAL_DEEP, wireframe: true, transparent: true, opacity: 0.22,
+    color: CORAL_DEEP, wireframe: true, transparent: true, opacity: 0.38,
     depthWrite: false, blending: THREE.NormalBlending
   });
   const wireMatBright = new THREE.MeshBasicMaterial({
-    color: CORAL, wireframe: true, transparent: true, opacity: 0.08,
+    color: CORAL, wireframe: true, transparent: true, opacity: 0.14,
     depthWrite: false, blending: THREE.NormalBlending
   });
   const pointMat = new THREE.PointsMaterial({
-    color: CORAL_SOFT, size: 0.016, transparent: true, opacity: 0.22,
+    color: CORAL_SOFT, size: 0.012, transparent: true, opacity: 0.32,
     sizeAttenuation: true, depthWrite: false, blending: THREE.NormalBlending
   });
 
@@ -276,7 +276,10 @@ window.JaguarScene = function(canvas) {
     const box = new THREE.Box3().setFromObject(model);
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
-    const target = 3.5;
+    // Scaled down to fit the user's locked camera view inside the 420x420 mascot
+    // canvas. The neon_jaguar reference used a full-window canvas with max-dim 3.5;
+    // we compress to ~1.4 so the whole animal fits at FOV 32 from pos (3.8, 2.4, 4.2).
+    const target = 1.4;
     const s = target / Math.max(size.x, size.y, size.z);
     model.scale.setScalar(s);
     model.position.x = -center.x * s;
