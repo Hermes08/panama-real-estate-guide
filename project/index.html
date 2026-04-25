@@ -278,13 +278,20 @@ window.JaguarScene = function(canvas) {
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
 
-    // The GLB bind pose is a rearing (vertical) jaguar. We lay it horizontal by
-    // rotating -90° around X — this drops the body forward so the back is up,
-    // belly down, and the paws point at the ground.
-    model.rotation.x = -Math.PI / 2;
+    // The GLB bind pose is a rearing (vertical) jaguar caused by Root_M_05 having
+    // a non-neutral Y/Z rotation in the rig. Reset that bone to identity so the
+    // body sits in a natural quadruped stand.
+    let rootBone = null;
+    model.traverse(n => {
+      if (n.isBone && n.name === 'Root_M_05') rootBone = n;
+    });
+    if (rootBone) {
+      rootBone.rotation.set(0, 0, 0);
+      // Force every skinned mesh in this clone to recalc with the new bind
+      model.traverse(n => { if (n.isSkinnedMesh) n.skeleton.update(); });
+    }
 
-    // Re-measure bounding box AFTER rotation so scale and ground placement use
-    // the new horizontal extents.
+    // Re-measure bounding box AFTER bone reset
     model.updateMatrixWorld(true);
     const rotBox = new THREE.Box3().setFromObject(model);
     const rotSize = rotBox.getSize(new THREE.Vector3());
