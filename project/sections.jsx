@@ -12,7 +12,7 @@ function Projects() {
               <span className="rule-coral"></span>Developer projects · 2026 collection
             </div>
             <h2 className="display" style={{ fontSize: 'clamp(36px, 6vw, 84px)', margin: 0 }}>
-              Twenty-four projects. <em>Six distinct coasts.</em> Zero resales.
+              Twenty-four projects. <em>Five distinct coasts.</em> Zero resales.
             </h2>
             <p className="lede" style={{ marginTop: 20 }}>
               Every unit here is sold directly by the developer. No individual owner resales,
