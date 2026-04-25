@@ -268,6 +268,26 @@ window.JaguarScene = function(canvas) {
   let mixer = null;
   let modelGroup = null;
 
+  /* Frame the model so its bounding sphere fills the canvas with a small margin.
+     Uses both vertical and horizontal FOVs so the model fits on any aspect. */
+  function fitCameraToModel(model) {
+    const box = new THREE.Box3().setFromObject(model);
+    const sphere = box.getBoundingSphere(new THREE.Sphere());
+    const fovV = THREE.MathUtils.degToRad(camera.fov);
+    const fovH = 2 * Math.atan(Math.tan(fovV / 2) * camera.aspect);
+    const distV = sphere.radius / Math.sin(fovV / 2);
+    const distH = sphere.radius / Math.sin(fovH / 2);
+    const dist = Math.max(distV, distH) * 1.18; // ~18% breathing room
+    // Fixed viewing angle — three-quarter front-right, slightly above the animal
+    const dir = new THREE.Vector3(0.55, 0.22, 0.80).normalize();
+    camera.position.copy(sphere.center).add(dir.multiplyScalar(dist));
+    camera.lookAt(sphere.center);
+    camera.near = Math.max(0.01, dist - sphere.radius * 2);
+    camera.far  = dist + sphere.radius * 4;
+    camera.updateProjectionMatrix();
+  }
+
+
   const loadingPromise = loadJaguarGLB().then(({ sceneClone, animations }) => {
     const model = sceneClone;
     const box = new THREE.Box3().setFromObject(model);
@@ -284,70 +304,43 @@ window.JaguarScene = function(canvas) {
     scene.add(model);
     modelGroup = model;
 
-    if (animations && animations.length) {
-      mixer = new THREE.AnimationMixer(model);
-      const action = mixer.clipAction(animations[0]);
-      action.play();
-    }
+    /* Auto-fit camera around the model's bounding sphere so the whole jaguar
+       is always in view, regardless of canvas aspect or model scale. */
+    fitCameraToModel(model);
+
+    // Intentionally do NOT play any animation — the user wants a static 4-legged
+    // stand pose. GLB bind pose for quadrupeds is a natural standing pose.
+    mixer = null;
   }).catch(err => console.error('jaguar load:', err));
 
   /* Animation loop */
   const clock = new THREE.Clock();
-  let mx = 0, tmx = 0;
-  const onPointerMove = (ev) => {
-    const r = canvas.getBoundingClientRect();
-    if (r.width === 0) return;
-    tmx = ((ev.clientX - r.left) / r.width - 0.5) * 2;
-  };
-  window.addEventListener('pointermove', onPointerMove);
+  // No pointer/scroll tracking — the jaguar is a static mascot.
 
   let raf;
+  let lastW = 0, lastH = 0;
   function tick() {
     raf = requestAnimationFrame(tick);
-    const dt = Math.min(clock.getDelta(), 0.05);
-    const t  = clock.getElapsedTime();
 
-    // Resize check
+    // Resize check — if the canvas changed size, update renderer AND re-fit the camera
+    // so the animal stays framed.
     const w = canvas.clientWidth, h = canvas.clientHeight;
-    if (w > 0 && h > 0 && (canvas.width !== Math.floor(w * renderer.getPixelRatio()) || canvas.height !== Math.floor(h * renderer.getPixelRatio()))) {
+    if (w > 0 && h > 0 && (w !== lastW || h !== lastH)) {
+      lastW = w; lastH = h;
       renderer.setSize(w, h, false);
       composer.setSize(w, h);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
+      if (modelGroup) fitCameraToModel(modelGroup);
     }
 
-    if (mixer) mixer.update(dt);
-
-    // Auto-rotate the whole model — slow, decorative
-    mx += (tmx - mx) * 0.04;
-    if (modelGroup) {
-      modelGroup.rotation.y = t * 0.18 + mx * 0.4;
-    }
-
-    // Pulse the wireframe opacities subtly
-    const pulse = 0.55 + Math.sin(t * 1.6) * 0.12;
-    registries.wires.forEach((m, i) => {
-      const base = i % 2 === 0 ? 0.55 : 0.32;
-      m.material.opacity = base + pulse * 0.18;
-    });
-
-    // Drift sparks
-    const sp = sparks.geometry.attributes.position.array;
-    for (let i = 0; i < sparkCount; i++) {
-      sp[i*3]     += sparkSpeed[i] * dt;
-      sp[i*3 + 1] += Math.sin(t * 0.6 + i) * dt * 0.08;
-      if (sp[i*3] > 4)  sp[i*3] = -4;
-    }
-    sparks.geometry.attributes.position.needsUpdate = true;
-
-    composer.render();
+    composer.render(); // single static render — no model motion, no mixer, no pulse
   }
   raf = requestAnimationFrame(tick);
 
   return {
     stop() {
       cancelAnimationFrame(raf);
-      window.removeEventListener('pointermove', onPointerMove);
       renderer.dispose();
       composer.dispose?.();
     }
