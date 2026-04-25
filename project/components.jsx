@@ -449,22 +449,25 @@ function HeroEditorial() {
         </div>
       </div>
 
-      {/* Ambient fauna — Panthera onca wireframe, decorative corner element.
-          Subtle, doesn't compete with the projects. */}
+      {/* Site mascot — Panthera onca wireframe in coral palette.
+          Prominent in the hero: the jaguar is Panama's apex cat and a visual anchor
+          for our Caribbean / rainforest identity. */}
       <div className="hero-fauna" style={{
-        position: 'absolute', right: 20, bottom: 16, width: 240, height: 240,
-        zIndex: 3, pointerEvents: 'none'
+        position: 'absolute', right: 24, bottom: 24, width: 420, height: 420,
+        zIndex: 3, pointerEvents: 'none',
+        filter: 'drop-shadow(0 18px 40px rgba(225, 79, 46, 0.28)) drop-shadow(0 2px 8px rgba(11, 39, 51, 0.18))'
       }}>
         <canvas ref={jaguarRef} style={{ width: '100%', height: '100%', display: 'block' }}/>
-        {/* species label — bottom right, mono caps, subtle */}
+        {/* species label — bottom right, mono caps, on-brand */}
         <div style={{
-          position: 'absolute', bottom: -2, right: 4,
-          fontFamily: 'var(--font-mono)', fontSize: 9, letterSpacing: '0.18em',
-          textTransform: 'uppercase', fontWeight: 600,
-          color: 'var(--ink-mute)', display: 'flex', gap: 8, alignItems: 'baseline'
+          position: 'absolute', bottom: 4, right: 8,
+          fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.22em',
+          textTransform: 'uppercase', fontWeight: 700,
+          color: 'var(--ink-soft)', display: 'flex', gap: 10, alignItems: 'baseline'
         }}>
-          <span style={{ color: 'var(--coral-deep)' }}>●</span>
+          <span style={{ color: 'var(--coral-deep)', fontSize: 12 }}>●</span>
           <span>Panthera onca</span>
+          <span style={{ opacity: 0.55, fontWeight: 500 }}>/ mascot</span>
         </div>
       </div>
 
@@ -477,7 +480,7 @@ function HeroEditorial() {
           .hero-ed-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
           .featured-card { min-height: 420px !important; }
           .hide-mobile { display: none !important; }
-          .hero-fauna { width: 160px !important; height: 160px !important; right: 12px !important; bottom: 12px !important; }
+          .hero-fauna { width: 280px !important; height: 280px !important; right: 12px !important; bottom: 12px !important; }
         }
         .featured-card:hover { transform: translateY(-4px); box-shadow: 0 40px 80px -24px rgba(11,39,51,0.45) !important; }
         .featured-card { transition: all 0.35s var(--ease); }

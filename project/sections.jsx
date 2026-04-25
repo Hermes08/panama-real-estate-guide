@@ -527,7 +527,7 @@ function ReserveCTA() {
             <Icon name="security" size={15}/> Full refund policy
           </span>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-            <Icon name="globe" size={15}/> EN · ES · PT · NL · FR · DE · IT
+            <Icon name="globe" size={15}/> EN · ES · PT · DE
           </span>
         </div>
       </div>
@@ -546,7 +546,7 @@ function Footer() {
             <Logo onDark={true} size={18}/>
             <p style={{ marginTop: 22, fontSize: 14, opacity: 0.75, maxWidth: '38ch', lineHeight: 1.6 }}>
               A boutique advisory representing Panama's best developer projects to
-              international buyers since 2016. Seven languages, one escrow, zero resales.
+              international buyers since 2016. Four languages, one escrow, zero resales.
             </p>
             <div style={{ display: 'flex', gap: 8, marginTop: 24, flexWrap: 'wrap' }}>
               {window.PANAMA_DATA.langs.map(l => (

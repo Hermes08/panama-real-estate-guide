@@ -12,10 +12,7 @@ window.PANAMA_DATA = {
     { code: 'EN', name: 'English' },
     { code: 'ES', name: 'Español' },
     { code: 'PT', name: 'Português' },
-    { code: 'NL', name: 'Nederlands' },
-    { code: 'FR', name: 'Français' },
-    { code: 'DE', name: 'Deutsch' },
-    { code: 'IT', name: 'Italiano' }
+    { code: 'DE', name: 'Deutsch' }
   ],
 
   stats: [
@@ -548,6 +545,6 @@ window.PANAMA_DATA = {
     { q: 'Can I reserve remotely?',
       a: 'Yes — every project we represent supports remote reservation via DocuSign and wire. We coordinate a site visit at your pace, before or after reservation, refundable either way.' },
     { q: 'What languages do you work in?',
-      a: 'English, Spanish, Portuguese, Dutch, French, German and Italian — both sales team and closing documents.' }
+      a: 'English, Spanish, Portuguese and German — both sales team and closing documents.' }
   ]
 };
