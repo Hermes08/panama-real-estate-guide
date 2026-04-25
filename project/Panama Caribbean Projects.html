@@ -135,19 +135,20 @@ function buildWireframeOverlay(model, registries) {
   // Normal blending + deep coral — on a cream background, additive blending
   // just adds to white and the silhouette disappears. Normal blending lets the
   // coral line actually register as an outline.
-  // Ambient mascot — v3. Meaningfully softer so it reads as page texture, never
-  // competes with editorial copy. The silhouette is still clearly a jaguar because
-  // the point cloud gives it form, even at this opacity.
+  // Ambient mascot — v4 (watermark). The jaguar is a texture, not a subject.
+  // Opacity set low enough that editorial copy reads first; the cat's silhouette
+  // is still perceivable because the canvas's dense subdivided wireframe gives it
+  // thousands of tiny coral strokes concentrated where the body is.
   const wireMat = new THREE.MeshBasicMaterial({
-    color: CORAL_DEEP, wireframe: true, transparent: true, opacity: 0.32,
+    color: CORAL_DEEP, wireframe: true, transparent: true, opacity: 0.22,
     depthWrite: false, blending: THREE.NormalBlending
   });
   const wireMatBright = new THREE.MeshBasicMaterial({
-    color: CORAL, wireframe: true, transparent: true, opacity: 0.12,
+    color: CORAL, wireframe: true, transparent: true, opacity: 0.08,
     depthWrite: false, blending: THREE.NormalBlending
   });
   const pointMat = new THREE.PointsMaterial({
-    color: CORAL_SOFT, size: 0.018, transparent: true, opacity: 0.32,
+    color: CORAL_SOFT, size: 0.016, transparent: true, opacity: 0.22,
     sizeAttenuation: true, depthWrite: false, blending: THREE.NormalBlending
   });
 
