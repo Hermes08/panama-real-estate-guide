@@ -210,10 +210,11 @@ window.JaguarScene = function(canvas) {
   const scene = new THREE.Scene();
   // No fog — we want the cream page color to show through cleanly
   const aspect = (canvas.clientWidth || 1) / (canvas.clientHeight || 1);
-  // Wider FOV + look at mid-body so the full jaguar fits in the canvas.
-  const camera = new THREE.PerspectiveCamera(42, aspect, 0.1, 100);
-  camera.position.set(4.6, 2.2, 6.8);
-  camera.lookAt(0, 1.7, 0);
+  // Locked camera — user-tuned three-quarter front view from the neon_jaguar reference.
+  // FOV 32 + elevated close position gives the compressed, telephoto feel.
+  const camera = new THREE.PerspectiveCamera(32, aspect, 0.1, 200);
+  camera.position.set(3.8, 2.4, 4.2);
+  camera.lookAt(0, 1.1, 0);
 
   // Post-processing: subtle bloom (much lower than reference)
   const composer = new EffectComposer(renderer);
@@ -268,24 +269,6 @@ window.JaguarScene = function(canvas) {
   let mixer = null;
   let modelGroup = null;
 
-  /* Frame the model so its bounding sphere fills the canvas with a small margin.
-     Uses both vertical and horizontal FOVs so the model fits on any aspect. */
-  function fitCameraToModel(model) {
-    const box = new THREE.Box3().setFromObject(model);
-    const sphere = box.getBoundingSphere(new THREE.Sphere());
-    const fovV = THREE.MathUtils.degToRad(camera.fov);
-    const fovH = 2 * Math.atan(Math.tan(fovV / 2) * camera.aspect);
-    const distV = sphere.radius / Math.sin(fovV / 2);
-    const distH = sphere.radius / Math.sin(fovH / 2);
-    const dist = Math.max(distV, distH) * 1.18; // ~18% breathing room
-    // Fixed viewing angle — three-quarter front-right, slightly above the animal
-    const dir = new THREE.Vector3(0.55, 0.22, 0.80).normalize();
-    camera.position.copy(sphere.center).add(dir.multiplyScalar(dist));
-    camera.lookAt(sphere.center);
-    camera.near = Math.max(0.01, dist - sphere.radius * 2);
-    camera.far  = dist + sphere.radius * 4;
-    camera.updateProjectionMatrix();
-  }
 
 
   const loadingPromise = loadJaguarGLB().then(({ sceneClone, animations }) => {
@@ -304,32 +287,10 @@ window.JaguarScene = function(canvas) {
     scene.add(model);
     modelGroup = model;
 
-    /* Auto-fit camera around the model's bounding sphere so the whole jaguar
-       is always in view, regardless of canvas aspect or model scale. */
-    fitCameraToModel(model);
-
-    // Play the first animation, then freeze on a single frame. The GLB's bind pose
-    // is a rearing (two-legged) pose, so we need the walk cycle to get a natural
-    // 4-leg stand. mixer.update(time) then mixer.update(0) keeps it pinned.
-    if (animations && animations.length) {
-      mixer = new THREE.AnimationMixer(model);
-      const action = mixer.clipAction(animations[0]);
-      action.play();
-      // Advance mixer to a frame where (empirically) all 4 paws are planted — we'll
-      // iterate this value until it looks right.
-      const FREEZE_AT = (window.__JAG_FREEZE_AT !== undefined) ? window.__JAG_FREEZE_AT : 0.35;
-      mixer.update(FREEZE_AT);
-      action.paused = true;
-      // Debug handle — lets us tune FREEZE_AT live from the console:
-      //   window.__JAG.setFrame(t)  OR  window.__JAG.action.time = t; window.__JAG.mixer.update(0);
-      window.__JAG = {
-        mixer, action, animations,
-        clipNames: animations.map(a => a.name + ' (' + a.duration.toFixed(2) + 's)'),
-        setFrame(t) { action.time = t; mixer.update(0); }
-      };
-    } else {
-      mixer = null;
-    }
+    // No animation — the GLB's only clip is a 14.67s locked-rearing idle
+    // (confirmed by scrubbing bone rotations), so we render the bind pose
+    // directly. No motion, no pulse, no parallax.
+    mixer = null;
   }).catch(err => console.error('jaguar load:', err));
 
   /* Animation loop */
@@ -350,7 +311,7 @@ window.JaguarScene = function(canvas) {
       composer.setSize(w, h);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
-      if (modelGroup) fitCameraToModel(modelGroup);
+      // Camera is locked — only aspect needs updating
     }
 
     composer.render(); // single static render — no model motion, no mixer, no pulse
