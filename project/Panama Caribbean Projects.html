@@ -45,6 +45,7 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 
 /* Palette — matches the website (coral primary, no pink) */
+const CORAL_DEEP  = new THREE.Color(0xE14F2E); // deep coral — same as --coral-deep
 const CORAL       = new THREE.Color(0xE37363);
 const CORAL_BR    = new THREE.Color(0xEC8F73); // brighter coral
 const CORAL_SOFT  = new THREE.Color(0xF6BBA0); // soft, for points
@@ -131,17 +132,21 @@ function subdivideTriangles(geometry, passes = 1) {
 
 /* Build wireframe + dust overlays on every mesh in the model, hide the solid mesh. */
 function buildWireframeOverlay(model, registries) {
+  // Normal blending + deep coral — on a cream background, additive blending
+  // just adds to white and the silhouette disappears. Normal blending lets the
+  // coral line actually register as an outline.
   const wireMat = new THREE.MeshBasicMaterial({
-    color: CORAL, wireframe: true, transparent: true, opacity: 0.7,
-    depthWrite: false, blending: THREE.AdditiveBlending
+    color: CORAL_DEEP, wireframe: true, transparent: true, opacity: 0.92,
+    depthWrite: false, blending: THREE.NormalBlending
   });
+  // Inner glow wire — slightly softer, inside the outline, adds depth without halo
   const wireMatBright = new THREE.MeshBasicMaterial({
-    color: CORAL_BR, wireframe: true, transparent: true, opacity: 0.4,
-    depthWrite: false, blending: THREE.AdditiveBlending
+    color: CORAL, wireframe: true, transparent: true, opacity: 0.35,
+    depthWrite: false, blending: THREE.NormalBlending
   });
   const pointMat = new THREE.PointsMaterial({
-    color: CORAL_SOFT, size: 0.022, transparent: true, opacity: 1.0,
-    sizeAttenuation: true, depthWrite: false, blending: THREE.AdditiveBlending
+    color: CORAL_SOFT, size: 0.02, transparent: true, opacity: 0.6,
+    sizeAttenuation: true, depthWrite: false, blending: THREE.NormalBlending
   });
 
   const targets = [];
@@ -167,13 +172,13 @@ function buildWireframeOverlay(model, registries) {
       wire.bind(child.skeleton, child.bindMatrix); wire.bindMode = child.bindMode;
       wireOuter = new THREE.SkinnedMesh(dense, wireMatBright.clone());
       wireOuter.bind(child.skeleton, child.bindMatrix); wireOuter.bindMode = child.bindMode;
-      wireOuter.scale.setScalar(1.005);
+      wireOuter.scale.setScalar(0.995);
       // Skinned points need bones too
       pts = new THREE.Points(dense, pointMat.clone());
     } else {
       wire = new THREE.Mesh(dense, wireMat.clone());
       wireOuter = new THREE.Mesh(dense, wireMatBright.clone());
-      wireOuter.scale.setScalar(1.005);
+      wireOuter.scale.setScalar(0.995);
       pts = new THREE.Points(dense, pointMat.clone());
     }
     wire.frustumCulled = false; wireOuter.frustumCulled = false; pts.frustumCulled = false;
@@ -211,9 +216,9 @@ window.JaguarScene = function(canvas) {
   composer.addPass(new RenderPass(scene, camera));
   const bloom = new UnrealBloomPass(
     new THREE.Vector2(canvas.clientWidth || 1, canvas.clientHeight || 1),
-    0.6, // strength — way less than the neon reference (was 2.4)
-    0.9, // radius
-    0.2  // threshold
+    0.18, // strength — barely-there kiss, keeps the coral from looking flat on cream
+    0.6,  // radius
+    0.65  // threshold (only the brightest pixels get any bloom at all)
   );
   composer.addPass(bloom);
   composer.addPass(new OutputPass());
@@ -228,9 +233,9 @@ window.JaguarScene = function(canvas) {
     }
     const geo = new THREE.BufferGeometry().setFromPoints(pts);
     const mat = new THREE.LineBasicMaterial({
-      color: CORAL, transparent: true,
-      opacity: 0.18 - Math.abs(i - 2) * 0.04,
-      blending: THREE.AdditiveBlending, depthWrite: false
+      color: CORAL_DEEP, transparent: true,
+      opacity: 0.12 - Math.abs(i - 2) * 0.03,
+      blending: THREE.NormalBlending, depthWrite: false
     });
     groundGroup.add(new THREE.Line(geo, mat));
   }
@@ -249,8 +254,8 @@ window.JaguarScene = function(canvas) {
   const sparkGeo = new THREE.BufferGeometry();
   sparkGeo.setAttribute('position', new THREE.BufferAttribute(sparkPos, 3));
   const sparks = new THREE.Points(sparkGeo, new THREE.PointsMaterial({
-    color: CORAL_SOFT, size: 0.03, transparent: true, opacity: 0.55,
-    sizeAttenuation: true, depthWrite: false, blending: THREE.AdditiveBlending
+    color: CORAL, size: 0.025, transparent: true, opacity: 0.32,
+    sizeAttenuation: true, depthWrite: false, blending: THREE.NormalBlending
   }));
   scene.add(sparks);
 

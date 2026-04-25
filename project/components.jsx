@@ -454,8 +454,7 @@ function HeroEditorial() {
           for our Caribbean / rainforest identity. */}
       <div className="hero-fauna" style={{
         position: 'absolute', right: 24, bottom: 24, width: 420, height: 420,
-        zIndex: 3, pointerEvents: 'none',
-        filter: 'drop-shadow(0 18px 40px rgba(225, 79, 46, 0.28)) drop-shadow(0 2px 8px rgba(11, 39, 51, 0.18))'
+        zIndex: 3, pointerEvents: 'none'
       }}>
         <canvas ref={jaguarRef} style={{ width: '100%', height: '100%', display: 'block' }}/>
         {/* species label — bottom right, mono caps, on-brand */}
