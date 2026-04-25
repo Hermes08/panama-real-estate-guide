@@ -409,7 +409,27 @@ window.JaguarScene = function(canvas) {
       );
     }
 
-    ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+    // Hydrate project data from the build-time Airtable snapshot, then render.
+    // If the snapshot can't be loaded, render with the data.js fallback already in memory.
+    function renderApp() {
+      ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+    }
+
+    fetch('airtable-projects.json', { cache: 'no-cache' })
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(data => {
+        if (data && Array.isArray(data.projects) && data.projects.length) {
+          window.PANAMA_DATA.projects = data.projects;
+          window.PANAMA_DATA._projectsSource = 'airtable';
+          window.PANAMA_DATA._projectsGeneratedAt = data.generatedAt;
+          window.PANAMA_DATA._projectsCount = data.count;
+        }
+      })
+      .catch(err => {
+        console.info('[projects] using data.js fallback —', err);
+        window.PANAMA_DATA._projectsSource = 'fallback';
+      })
+      .finally(renderApp);
   </script>
 </body>
 </html>

@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    # Refresh the site every 6 hours so Airtable data + signed image URLs stay fresh
+    - cron: '0 */6 * * *'
 
 permissions:
   contents: read
@@ -22,6 +25,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Sync Airtable -> static JSON + images
+        env:
+          AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+        run: |
+          if [ -z "$AIRTABLE_TOKEN" ]; then
+            echo "AIRTABLE_TOKEN not set — skipping Airtable sync (site will fall back to data.js)"
+          else
+            node scripts/sync-airtable.mjs
+          fi
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

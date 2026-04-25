@@ -1,0 +1,3 @@
+# Build-time outputs from scripts/sync-airtable.mjs — regenerated on every deploy
+project/airtable-assets/
+project/airtable-projects.json
