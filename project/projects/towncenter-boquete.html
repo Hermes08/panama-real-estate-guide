@@ -293,7 +293,8 @@
           for (const k in p) delete p[k];
           Object.assign(p, cur);
         }
-        // Update meta description with project specifics
+        // Update title + meta description with project specifics
+        document.title = `${p.name || 'Project'} — PanamaRealEstateGuide.com`;
         const m = document.getElementById('proj-meta-desc');
         if (m) m.setAttribute('content', `${p.name || 'Project'} in ${p.location || 'Panama'}. ${p.about ? p.about.slice(0, 140) : 'Developer-direct Panama real estate. Reserve from $5,000.'}`);
         _renderProj();
