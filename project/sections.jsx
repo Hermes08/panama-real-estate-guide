@@ -59,9 +59,20 @@ function ProjectCard({ p, i }) {
         transform: hover ? 'translateY(-4px)' : 'none',
         transition: 'transform 0.5s var(--ease), box-shadow 0.5s var(--ease)'
       }}>
-      <div className={`ph ph-${p.cover}`} data-label={p.cover.toUpperCase()} style={{ position: 'absolute', inset: 0 }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.72) 100%)' }}/>
-      </div>
+      {p.cover && p.cover.indexOf('/') !== -1 ? (
+        <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
+          <img src={p.cover} alt={p.name} loading="lazy" style={{
+            position: 'absolute', inset: 0, width: '100%', height: '100%',
+            objectFit: 'cover', transform: hover ? 'scale(1.04)' : 'scale(1)',
+            transition: 'transform 0.7s var(--ease)'
+          }}/>
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.72) 100%)' }}/>
+        </div>
+      ) : (
+        <div className={`ph ph-${p.cover}`} data-label={(p.cover||'').toUpperCase()} style={{ position: 'absolute', inset: 0 }}>
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.72) 100%)' }}/>
+        </div>
+      )}
 
       <div style={{
         position: 'absolute', top: 18, left: 18, right: 18, zIndex: 2,
@@ -74,13 +85,15 @@ function ProjectCard({ p, i }) {
         }}>
           <span style={{ color: 'var(--coral)', marginRight: 6 }}>●</span>{p.status}
         </span>
-        <span style={{
-          background: 'var(--coral)', color: 'var(--paper)',
-          padding: '5px 11px', borderRadius: 999, fontSize: 10, fontFamily: 'var(--font-mono)',
-          letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700
-        }}>
-          {p.highlight}
-        </span>
+        {p.highlight && (
+          <span style={{
+            background: 'var(--coral)', color: 'var(--paper)',
+            padding: '5px 11px', borderRadius: 999, fontSize: 10, fontFamily: 'var(--font-mono)',
+            letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700
+          }}>
+            {p.highlight}
+          </span>
+        )}
       </div>
 
       <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 'clamp(18px, 2vw, 26px)', zIndex: 2, color: 'var(--cream)' }}>
@@ -97,13 +110,15 @@ function ProjectCard({ p, i }) {
         }}>
           {p.name}
         </h3>
-        <div style={{
-          fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.14em',
-          textTransform: 'uppercase', opacity: 0.7, marginTop: 8
-        }}>
-          by {p.developer}
-        </div>
-        {p.size === 'large' && (
+        {p.developer && (
+          <div style={{
+            fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.14em',
+            textTransform: 'uppercase', opacity: 0.7, marginTop: 8
+          }}>
+            by {p.developer}
+          </div>
+        )}
+        {p.size === 'large' && p.tagline && (
           <p style={{
             fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: 'clamp(1.1rem, 1.5vw, 1.4rem)',
             opacity: 0.95, marginTop: 14, marginBottom: 0, maxWidth: '36ch'
