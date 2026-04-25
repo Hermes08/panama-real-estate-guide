@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="../styles.css"/>
+  <meta name="description" id="proj-meta-desc" content="Developer-direct Panama real estate. Reserve from $5,000 — refundable. EN · ES · PT · DE."/>
 
   <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
@@ -55,50 +56,84 @@
                   <h1 className="display" style={{ fontSize: 'clamp(44px, 6.5vw, 104px)', margin: 0, lineHeight: 0.94, paddingBottom: '0.08em' }}>
                     {p.name.split(' ').slice(0, -1).join(' ')} <em>{p.name.split(' ').slice(-1)}</em>
                   </h1>
-                  <p style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: 'clamp(1.15rem, 1.7vw, 1.6rem)', color: 'var(--ink-soft)', maxWidth: '30ch', margin: '20px 0 0' }}>
-                    {p.tagline}
-                  </p>
+                  {p.tagline && (
+                    <p style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: 'clamp(1.15rem, 1.7vw, 1.6rem)', color: 'var(--ink-soft)', maxWidth: '30ch', margin: '20px 0 0' }}>
+                      {p.tagline}
+                    </p>
+                  )}
                 </div>
                 <div className="reveal d1" style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--ink-soft)' }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, padding: '24px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
-                    <div>
-                      <div style={{ opacity: 0.6, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 6 }}>Location</div>
-                      <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--ink)', fontWeight: 500 }}>{p.location}</div>
-                    </div>
-                    <div>
-                      <div style={{ opacity: 0.6, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 6 }}>Developer</div>
-                      <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--ink)', fontWeight: 500 }}>{p.developer}</div>
-                    </div>
-                    <div>
-                      <div style={{ opacity: 0.6, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 6 }}>From</div>
-                      <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--ink)', fontWeight: 500 }}>{p.fromLabel}</div>
-                    </div>
-                    <div>
-                      <div style={{ opacity: 0.6, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 6 }}>Delivery</div>
-                      <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--ink)', fontWeight: 500 }}>{p.delivery}</div>
-                    </div>
+                    {p.location && (
+                      <div>
+                        <div style={{ opacity: 0.6, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 6 }}>Location</div>
+                        <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--ink)', fontWeight: 500 }}>{p.location}</div>
+                      </div>
+                    )}
+                    {p.developer && (
+                      <div>
+                        <div style={{ opacity: 0.6, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 6 }}>Developer</div>
+                        <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--ink)', fontWeight: 500 }}>{p.developer}</div>
+                      </div>
+                    )}
+                    {p.fromLabel && (
+                      <div>
+                        <div style={{ opacity: 0.6, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 6 }}>From</div>
+                        <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--ink)', fontWeight: 500 }}>{p.fromLabel}</div>
+                      </div>
+                    )}
+                    {p.delivery && (
+                      <div>
+                        <div style={{ opacity: 0.6, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 6 }}>Delivery</div>
+                        <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--ink)', fontWeight: 500 }}>{p.delivery}</div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
 
               {/* Primary image */}
-              <div className={`ph ph-${p.cover} reveal`} data-label={p.region.toUpperCase()}
-                style={{ aspectRatio: '16/7', borderRadius: 20, position: 'relative', overflow: 'hidden' }}>
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.3) 100%)' }}/>
-                <div style={{
-                  position: 'absolute', bottom: 24, left: 24,
-                  background: 'var(--coral)', color: 'var(--paper)',
-                  padding: '8px 16px', borderRadius: 999, fontSize: 11, fontWeight: 700,
-                  fontFamily: 'var(--font-mono)', letterSpacing: '0.14em', textTransform: 'uppercase'
-                }}>
-                  {p.priceFromLabel}
+              {p.cover && p.cover.indexOf('/') !== -1 ? (
+                <div className="reveal" style={{ aspectRatio: '16/7', borderRadius: 20, position: 'relative', overflow: 'hidden' }}>
+                  <img src={`../${p.cover}`} alt={p.name} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}/>
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.4) 100%)' }}/>
+                  {p.priceFromLabel && (
+                    <div style={{
+                      position: 'absolute', bottom: 24, left: 24,
+                      background: 'var(--coral)', color: 'var(--paper)',
+                      padding: '8px 16px', borderRadius: 999, fontSize: 11, fontWeight: 700,
+                      fontFamily: 'var(--font-mono)', letterSpacing: '0.14em', textTransform: 'uppercase'
+                    }}>{p.priceFromLabel}</div>
+                  )}
                 </div>
-              </div>
+              ) : (
+                <div className={`ph ph-${p.cover} reveal`} data-label={(p.region||'').toUpperCase()}
+                  style={{ aspectRatio: '16/7', borderRadius: 20, position: 'relative', overflow: 'hidden' }}>
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.3) 100%)' }}/>
+                  {p.priceFromLabel && (
+                    <div style={{
+                      position: 'absolute', bottom: 24, left: 24,
+                      background: 'var(--coral)', color: 'var(--paper)',
+                      padding: '8px 16px', borderRadius: 999, fontSize: 11, fontWeight: 700,
+                      fontFamily: 'var(--font-mono)', letterSpacing: '0.14em', textTransform: 'uppercase'
+                    }}>{p.priceFromLabel}</div>
+                  )}
+                </div>
+              )}
 
               {/* Gallery strip */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12, marginTop: 12 }}>
-                {['ocean', 'palm', 'sand'].map((g, i) => (
-                  <div key={i} className={`ph ph-${g} reveal`} data-label="" style={{ aspectRatio: '4/3', borderRadius: 14, transitionDelay: `${i * 0.08}s` }}/>
+                {(Array.isArray(p.images) && p.images.length > 1
+                  ? p.images.slice(1, 4)
+                  : ['ocean', 'palm', 'sand']
+                ).map((g, i) => (
+                  g.indexOf('/') !== -1 ? (
+                    <div key={i} className="reveal" style={{ aspectRatio: '4/3', borderRadius: 14, overflow: 'hidden', transitionDelay: `${i * 0.08}s` }}>
+                      <img src={`../${g}`} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }}/>
+                    </div>
+                  ) : (
+                    <div key={i} className={`ph ph-${g} reveal`} data-label="" style={{ aspectRatio: '4/3', borderRadius: 14, transitionDelay: `${i * 0.08}s` }}/>
+                  )
                 ))}
               </div>
             </div>
@@ -112,7 +147,7 @@
                   <span className="rule-coral"></span>About the project
                 </div>
                 <h2 className="display" style={{ fontSize: 'clamp(32px, 4vw, 54px)', margin: '0 0 24px', lineHeight: 1.05 }}>
-                  A <em>considered</em> development on {p.region.toLowerCase()}.
+                  A <em>considered</em> development{p.region ? ' on ' + p.region.toLowerCase() : ''}.
                 </h2>
                 <p style={{ fontSize: 17, lineHeight: 1.75, color: 'var(--ink-soft)', maxWidth: '62ch', margin: 0 }}>
                   {p.about}
@@ -142,7 +177,7 @@
               <div className="reveal" style={{ marginBottom: 40, maxWidth: 640 }}>
                 <div className="eyebrow" style={{ marginBottom: 16 }}><span className="rule-coral"></span>Unit types</div>
                 <h2 className="display" style={{ fontSize: 'clamp(32px, 4vw, 54px)', margin: 0 }}>
-                  {p.units.length} floorplans, <em>four decisions.</em>
+                  {p.units.length} floorplans, <em>your move.</em>
                 </h2>
               </div>
               <div style={{ background: 'var(--paper)', borderRadius: 18, padding: 8, border: '1px solid var(--line)' }}>
@@ -215,9 +250,16 @@
                     position: 'relative', borderRadius: 16, overflow: 'hidden', textDecoration: 'none', color: 'inherit',
                     aspectRatio: '5/4', display: 'block', transitionDelay: `${i * 0.06}s`
                   }}>
-                    <div className={`ph ph-${s.cover}`} data-label="" style={{ position: 'absolute', inset: 0 }}>
-                      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6))' }}/>
-                    </div>
+                    {s.cover && s.cover.indexOf('/') !== -1 ? (
+                      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
+                        <img src={`../${s.cover}`} alt={s.name} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}/>
+                        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6))' }}/>
+                      </div>
+                    ) : (
+                      <div className={`ph ph-${s.cover}`} data-label="" style={{ position: 'absolute', inset: 0 }}>
+                        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6))' }}/>
+                      </div>
+                    )}
                     <div style={{ position: 'absolute', left: 18, right: 18, bottom: 18, color: 'var(--cream)' }}>
                       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.14em', textTransform: 'uppercase', opacity: 0.8, marginBottom: 6 }}>{s.location}</div>
                       <div className="display" style={{ fontSize: 22, color: 'var(--cream)', lineHeight: 1.1 }}>{s.name}</div>
@@ -235,7 +277,27 @@
       );
     }
 
-    ReactDOM.createRoot(document.getElementById('root')).render(<ProjectPage/>);
+    function _renderProj() { ReactDOM.createRoot(document.getElementById('root')).render(<ProjectPage/>); }
+    fetch('../airtable-projects.json', { cache: 'no-cache' })
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(d => {
+        if (d && Array.isArray(d.projects) && d.projects.length) {
+          window.PANAMA_DATA.projects = d.projects;
+        }
+      })
+      .catch(()=>{})
+      .finally(() => {
+        // Re-bind p after potential hydration
+        const cur = window.PANAMA_DATA.projects.find(x => x.id === PROJECT_ID);
+        if (cur) {
+          for (const k in p) delete p[k];
+          Object.assign(p, cur);
+        }
+        // Update meta description with project specifics
+        const m = document.getElementById('proj-meta-desc');
+        if (m) m.setAttribute('content', `${p.name || 'Project'} in ${p.location || 'Panama'}. ${p.about ? p.about.slice(0, 140) : 'Developer-direct Panama real estate. Reserve from $5,000.'}`);
+        _renderProj();
+      });
   </script>
 </body>
 </html>

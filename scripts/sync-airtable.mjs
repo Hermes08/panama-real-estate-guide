@@ -200,6 +200,25 @@ async function main() {
   }, null, 2));
 
   console.log(`Wrote ${OUTPUT_JSON} with ${projects.length} projects`);
+
+  // Generate a detail page for every Airtable slug by copying the canonical template.
+  // The template (palma-blanca.html) reads the slug from the URL and looks up the
+  // project in window.PANAMA_DATA.projects (which is hydrated from the same JSON we
+  // just wrote), so a pure file copy is enough.
+  const { readFile, copyFile } = await import('node:fs/promises');
+  const TEMPLATE = path.join(PROJECT_DIR, 'projects', 'palma-blanca.html');
+  let pagesWritten = 0;
+  for (const proj of projects) {
+    const dest = path.join(PROJECT_DIR, 'projects', `${proj.id}.html`);
+    try {
+      await copyFile(TEMPLATE, dest);
+      pagesWritten++;
+    } catch (e) {
+      console.warn(`[warn] detail page for ${proj.id} failed: ${e.message}`);
+    }
+  }
+  console.log(`Wrote ${pagesWritten} project detail pages from template`);
+
   console.log('Sync done.');
 }
 
