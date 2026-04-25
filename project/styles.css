@@ -269,7 +269,7 @@ section { position: relative; }
   .nav-cta-desktop { display: none !important; }
   .nav-burger { display: inline-flex !important; }
   .hide-mobile { display: none !important; }
-  .show-mobile { display: block !important; }
+  .show-mobile { display: flex !important; flex-direction: column !important; }
   .mobile-stack { grid-template-columns: 1fr !important; gap: 32px !important; }
   section { padding-top: 64px; padding-bottom: 64px; }
   .btn { padding: 14px 22px; min-height: 48px; }
