@@ -457,8 +457,8 @@ function HeroEditorial() {
         zIndex: 1, pointerEvents: 'none',
         // Fade the top edge so the jaguar blends behind the news card text
         // rather than hard-clipping against it.
-        WebkitMaskImage: 'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.35) 22%, rgba(0,0,0,0.85) 55%, #000 80%)',
-        maskImage:       'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.35) 22%, rgba(0,0,0,0.85) 55%, #000 80%)'
+        WebkitMaskImage: 'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.65) 62%, #000 88%)',
+        maskImage:       'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.65) 62%, #000 88%)'
       }}>
         <canvas ref={jaguarRef} style={{ width: '100%', height: '100%', display: 'block' }}/>
         {/* species label — bottom right, mono caps, on-brand */}
