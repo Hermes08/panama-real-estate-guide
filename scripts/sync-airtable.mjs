@@ -188,7 +188,9 @@ async function main() {
       delivery: '',
       tagline: '',
       highlight: '',
-      size: 'regular'
+      size: 'regular',
+      timeline: [],
+      developer: ''
     });
   }
 
