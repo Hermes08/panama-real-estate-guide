@@ -308,9 +308,28 @@ window.JaguarScene = function(canvas) {
        is always in view, regardless of canvas aspect or model scale. */
     fitCameraToModel(model);
 
-    // Intentionally do NOT play any animation — the user wants a static 4-legged
-    // stand pose. GLB bind pose for quadrupeds is a natural standing pose.
-    mixer = null;
+    // Play the first animation, then freeze on a single frame. The GLB's bind pose
+    // is a rearing (two-legged) pose, so we need the walk cycle to get a natural
+    // 4-leg stand. mixer.update(time) then mixer.update(0) keeps it pinned.
+    if (animations && animations.length) {
+      mixer = new THREE.AnimationMixer(model);
+      const action = mixer.clipAction(animations[0]);
+      action.play();
+      // Advance mixer to a frame where (empirically) all 4 paws are planted — we'll
+      // iterate this value until it looks right.
+      const FREEZE_AT = (window.__JAG_FREEZE_AT !== undefined) ? window.__JAG_FREEZE_AT : 0.35;
+      mixer.update(FREEZE_AT);
+      action.paused = true;
+      // Debug handle — lets us tune FREEZE_AT live from the console:
+      //   window.__JAG.setFrame(t)  OR  window.__JAG.action.time = t; window.__JAG.mixer.update(0);
+      window.__JAG = {
+        mixer, action, animations,
+        clipNames: animations.map(a => a.name + ' (' + a.duration.toFixed(2) + 's)'),
+        setFrame(t) { action.time = t; mixer.update(0); }
+      };
+    } else {
+      mixer = null;
+    }
   }).catch(err => console.error('jaguar load:', err));
 
   /* Animation loop */
