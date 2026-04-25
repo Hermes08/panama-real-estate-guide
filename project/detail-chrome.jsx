@@ -3,11 +3,19 @@
 
 function DetailNav() {
   const [scrolled, setScrolled] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+  const links = [
+    { l: 'Projects', href: '../Panama Caribbean Projects.html#projects' },
+    { l: 'Regions', href: '../Panama Caribbean Projects.html#regions' },
+    { l: 'Journal', href: '../Panama Caribbean Projects.html#journal' },
+    { l: 'News', href: '../news/index.html' },
+    { l: 'About', href: '../Panama Caribbean Projects.html#about' },
+  ];
   return (
     <header style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
@@ -22,11 +30,9 @@ function DetailNav() {
       }}>
         <Logo onDark={false} size={18}/>
         <nav className="nav-desktop" style={{ display: 'flex', gap: 28, fontSize: 13, fontWeight: 500 }}>
-          <a href="../Panama Caribbean Projects.html" style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>Projects</a>
-          <a href="../Panama Caribbean Projects.html#regions" style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>Regions</a>
-          <a href="../Panama Caribbean Projects.html#journal" style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>Journal</a>
-          <a href="../Panama Caribbean Projects.html#news" style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>News</a>
-          <a href="../Panama Caribbean Projects.html#about" style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>About</a>
+          {links.map(({ l, href }) => (
+            <a key={l} href={href} style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>{l}</a>
+          ))}
         </nav>
         <div className="nav-cta-desktop" style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
           <LangSwitcher current="EN" onDark={false}/>
@@ -34,7 +40,25 @@ function DetailNav() {
             Reserve a unit <Icon name="arrow" size={13}/>
           </a>
         </div>
+        <button className="nav-burger" onClick={() => setOpen(!open)}
+          style={{ display: 'none', background: 'transparent', border: 'none', color: 'var(--ink)', padding: 8, cursor: 'pointer' }}>
+          <Icon name={open ? 'close' : 'menu'} size={22}/>
+        </button>
       </div>
+      {open && (
+        <div className="show-mobile" style={{
+          padding: '20px var(--gutter) 28px', background: 'var(--paper)',
+          borderTop: '1px solid var(--line-soft)', display: 'flex', flexDirection: 'column', gap: 14
+        }}>
+          {links.map(({ l, href }) => (
+            <a key={l} href={href} onClick={() => setOpen(false)}
+               style={{ fontSize: 22, fontFamily: 'var(--font-display)', color: 'var(--ink)', textDecoration: 'none' }}>{l}</a>
+          ))}
+          <div style={{ marginTop: 12 }}>
+            <a href="../Panama Caribbean Projects.html#reserve" className="btn btn-coral" style={{ justifyContent: 'center', width: '100%' }}>Reserve a unit</a>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

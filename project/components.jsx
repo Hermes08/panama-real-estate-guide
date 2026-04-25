@@ -126,7 +126,7 @@ function Navbar({ transparent }) {
         {['Projects', 'Regions', 'Journal', 'News', 'Residency', 'About'].map(l => {
           const href = l === 'Projects' ? 'projects/palma-blanca.html'
                      : l === 'Journal' ? 'articles/2026-outlook.html'
-                     : l === 'News' ? 'news/palma-blanca-phase-ii.html'
+                     : l === 'News' ? 'news/index.html'
                      : `#${l.toLowerCase()}`;
           return <a key={l} href={href} style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>{l}</a>;
         })}
