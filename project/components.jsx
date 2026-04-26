@@ -424,12 +424,13 @@ function HeroEditorial() {
             minHeight: 620,
             boxShadow: '0 24px 60px -20px rgba(11,39,51,0.55), inset 0 1px 0 rgba(255,249,236,0.04)'
           }}>
-            {/* Jaguar canvas — absolute, fills the BOTTOM 70% of the panel and
-                sits BEHIND the news content. Its neon glow rises up and bathes
-                the news headlines from below. */}
+            {/* Jaguar canvas — fills the ENTIRE panel so the background color is
+                uniform top-to-bottom. The cat itself only occupies the bottom
+                portion of the canvas (positioned via Three.js camera), so the
+                upper area is just the matching clearColor — visually identical
+                to the panel. News content sits on top via z-index 2. */}
             <div className="hero-fauna" style={{
-              position: 'absolute', left: 0, right: 0, bottom: 0,
-              height: '72%',
+              position: 'absolute', inset: 0,
               zIndex: 1,
               pointerEvents: 'none'
             }}>
