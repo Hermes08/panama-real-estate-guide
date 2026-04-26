@@ -148,6 +148,12 @@ function buildWireframeOverlay(model, registries) {
     color: CORAL, wireframe: true, transparent: true, opacity: 0.18,
     depthWrite: false, blending: THREE.NormalBlending
   });
+  // Outer neon halo — additive, brighter, slightly larger. Bloom turns this into
+  // the futuristic glow rim around the silhouette.
+  const wireMatHalo = new THREE.MeshBasicMaterial({
+    color: CORAL_BR, wireframe: true, transparent: true, opacity: 0.45,
+    depthWrite: false, blending: THREE.AdditiveBlending
+  });
   const pointMat = new THREE.PointsMaterial({
     color: CORAL_SOFT, size: 0.014, transparent: true, opacity: 0.45,
     sizeAttenuation: true, depthWrite: false, blending: THREE.NormalBlending
@@ -170,25 +176,30 @@ function buildWireframeOverlay(model, registries) {
     }
 
     const dense = subdivideTriangles(child.geometry, 2);
-    let wire, wireOuter, pts;
+    let wire, wireOuter, wireHalo, pts;
     if (child.isSkinnedMesh) {
       wire = new THREE.SkinnedMesh(dense, wireMat.clone());
       wire.bind(child.skeleton, child.bindMatrix); wire.bindMode = child.bindMode;
       wireOuter = new THREE.SkinnedMesh(dense, wireMatBright.clone());
       wireOuter.bind(child.skeleton, child.bindMatrix); wireOuter.bindMode = child.bindMode;
       wireOuter.scale.setScalar(0.995);
-      // Skinned points need bones too
+      wireHalo = new THREE.SkinnedMesh(dense, wireMatHalo.clone());
+      wireHalo.bind(child.skeleton, child.bindMatrix); wireHalo.bindMode = child.bindMode;
+      wireHalo.scale.setScalar(1.025);
       pts = new THREE.Points(dense, pointMat.clone());
     } else {
       wire = new THREE.Mesh(dense, wireMat.clone());
       wireOuter = new THREE.Mesh(dense, wireMatBright.clone());
       wireOuter.scale.setScalar(0.995);
+      wireHalo = new THREE.Mesh(dense, wireMatHalo.clone());
+      wireHalo.scale.setScalar(1.025);
       pts = new THREE.Points(dense, pointMat.clone());
     }
-    wire.frustumCulled = false; wireOuter.frustumCulled = false; pts.frustumCulled = false;
-    child.add(wire); child.add(wireOuter); child.add(pts);
+    wire.frustumCulled = false; wireOuter.frustumCulled = false;
+    wireHalo.frustumCulled = false; pts.frustumCulled = false;
+    child.add(wire); child.add(wireOuter); child.add(wireHalo); child.add(pts);
 
-    registries.wires.push(wire, wireOuter);
+    registries.wires.push(wire, wireOuter, wireHalo);
     registries.points.push(pts);
 
     // Hide the solid mesh
@@ -224,9 +235,9 @@ window.JaguarScene = function(canvas) {
   composer.addPass(new RenderPass(scene, camera));
   const bloom = new UnrealBloomPass(
     new THREE.Vector2(canvas.clientWidth || 1, canvas.clientHeight || 1),
-    0.18, // strength — barely-there kiss, keeps the coral from looking flat on cream
-    0.6,  // radius
-    0.65  // threshold (only the brightest pixels get any bloom at all)
+    0.55, // strength — proper neon glow on the silhouette and floor disc
+    0.85, // radius — softer falloff
+    0.35  // threshold — let the coral wireframe contribute to bloom
   );
   composer.addPass(bloom);
   composer.addPass(new OutputPass());
@@ -382,6 +393,37 @@ window.JaguarScene = function(canvas) {
     canvas.style.pointerEvents = 'auto';
     if (canvas.parentElement) canvas.parentElement.style.pointerEvents = 'auto';
   }
+
+  /* Neon floor disc — radial coral gradient flat on the ground, additive,
+     positioned under the jaguar so it reads as a halo of light on the floor. */
+  function makeNeonFloorTexture() {
+    const c = document.createElement('canvas');
+    c.width = 512; c.height = 512;
+    const ctx = c.getContext('2d');
+    const grad = ctx.createRadialGradient(256, 256, 24, 256, 256, 256);
+    grad.addColorStop(0,    'rgba(255, 143, 115, 0.85)');
+    grad.addColorStop(0.18, 'rgba(255, 107, 74, 0.55)');
+    grad.addColorStop(0.45, 'rgba(225, 79, 46, 0.20)');
+    grad.addColorStop(0.85, 'rgba(225, 79, 46, 0.04)');
+    grad.addColorStop(1,    'rgba(0,0,0,0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 512, 512);
+    const tex = new THREE.CanvasTexture(c);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    return tex;
+  }
+  const neonFloorMat = new THREE.MeshBasicMaterial({
+    map: makeNeonFloorTexture(),
+    transparent: true,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false,
+    side: THREE.DoubleSide
+  });
+  const neonFloor = new THREE.Mesh(new THREE.PlaneGeometry(5, 5), neonFloorMat);
+  neonFloor.rotation.x = -Math.PI / 2;
+  // Position roughly under the model (the user's tuned model.position is (1.79, -0.05, 0.27))
+  neonFloor.position.set(1.79, 0.01, 0.27);
+  scene.add(neonFloor);
 
   /* Ground — a few faint horizon lines (no full grid; subtler) */
   const groundGroup = new THREE.Group();
