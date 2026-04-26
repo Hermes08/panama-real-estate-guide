@@ -233,56 +233,154 @@ window.JaguarScene = function(canvas) {
   composer.addPass(bloom);
   composer.addPass(new OutputPass());
 
-  /* DEBUG: OrbitControls + camera tuner panel.
-     Activated when the URL has ?edit=1 (so the launched site stays locked).
-     Drag to orbit, scroll to zoom, right-click to pan. The overlay shows live
-     position/target/FOV/rotation with a Copy button. */
+  /* DEBUG: full slider control panel for camera + model.
+     Activated with ?edit=1. OrbitControls also wired so you can drag/scroll if
+     you want — the sliders stay in sync with whatever you do. */
   const params = new URLSearchParams(window.location.search);
   const EDIT = params.get('edit') === '1';
   let controls = null;
   let dbg = null;
+  // Live tuning state — these mirror the actual scene values and the panel
+  // both reads from and writes to them.
+  const tune = {
+    camX: 3.2, camY: 1.7, camZ: 3.6,
+    tgtX: 0,   tgtY: 1.4, tgtZ: 0,
+    fov: 36,
+    rotX: 0, rotY: 0.727, rotZ: 0,
+    posX: 0, posY: 0, posZ: 0,
+    scale: 1.0
+  };
   if (EDIT) {
+    // OrbitControls — fully unrestricted (any angle, any zoom)
     controls = new OrbitControls(camera, canvas);
     controls.enableDamping = true;
     controls.dampingFactor = 0.08;
-    controls.target.set(0, 1.4, 0); // matches the lookAt — keep in sync
+    controls.minDistance = 0.1;
+    controls.maxDistance = 50;
+    controls.minPolarAngle = 0;          // can look straight down
+    controls.maxPolarAngle = Math.PI;    // can look straight up
+    controls.target.set(tune.tgtX, tune.tgtY, tune.tgtZ);
     controls.update();
 
-    // Build a small fixed-position debug overlay
+    // Helper to make a slider row
+    function row(label, key, min, max, step) {
+      return (
+        '<div style="display:grid;grid-template-columns:60px 1fr 56px;gap:6px;align-items:center;margin:3px 0">' +
+          '<span style="color:#6E8A91;font-size:10px">' + label + '</span>' +
+          '<input data-tune="' + key + '" type="range" min="' + min + '" max="' + max + '" step="' + step + '" value="' + tune[key] + '" ' +
+            'style="width:100%;accent-color:#FF6B4A"/>' +
+          '<input data-tune-num="' + key + '" type="number" min="' + min + '" max="' + max + '" step="' + step + '" value="' + tune[key] + '" ' +
+            'style="width:56px;background:#0B2733;color:#FFF9EC;border:1px solid #254957;padding:2px 4px;border-radius:3px;font:10px ui-monospace"/>' +
+        '</div>'
+      );
+    }
+    function group(title, ...rowsHtml) {
+      return (
+        '<div style="margin-top:8px;padding-top:6px;border-top:1px solid rgba(255,249,236,0.1)">' +
+          '<div style="font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FF6B4A;font-size:9px;margin-bottom:4px">' + title + '</div>' +
+          rowsHtml.join('') +
+        '</div>'
+      );
+    }
+
     dbg = document.createElement('div');
-    dbg.style.cssText = 'position:fixed;left:16px;top:16px;z-index:9999;background:rgba(11,39,51,0.92);color:#FFF9EC;font:11px/1.4 ui-monospace,Menlo,Consolas,monospace;padding:14px 16px;border-radius:10px;width:340px;box-shadow:0 12px 28px -8px rgba(0,0,0,0.4)';
-    dbg.innerHTML = `
-      <div style="font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FF6B4A;margin-bottom:8px;font-size:10px">Jaguar tuner — drag/scroll the canvas</div>
-      <pre id="jag-snip" style="margin:0;white-space:pre-wrap;word-break:break-word;color:#FFF9EC"></pre>
-      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
-        <button id="jag-copy" style="background:#FF6B4A;color:#FFF9EC;border:0;padding:7px 12px;border-radius:6px;cursor:pointer;font:600 10px ui-monospace;letter-spacing:.1em;text-transform:uppercase">Copy snippet</button>
-        <button id="jag-rot-l" style="background:#254957;color:#FFF9EC;border:0;padding:7px 12px;border-radius:6px;cursor:pointer;font:600 10px ui-monospace;letter-spacing:.1em">Rot Y -</button>
-        <button id="jag-rot-r" style="background:#254957;color:#FFF9EC;border:0;padding:7px 12px;border-radius:6px;cursor:pointer;font:600 10px ui-monospace;letter-spacing:.1em">Rot Y +</button>
-      </div>
-      <div style="margin-top:8px;color:#6E8A91;font-size:10px">FOV: scroll wheel adjusts distance; for FOV use the field below.</div>
-      <label style="display:flex;align-items:center;gap:6px;margin-top:6px;color:#FFF9EC">FOV
-        <input id="jag-fov" type="number" min="10" max="90" step="1" value="${camera.fov}"
-          style="width:60px;background:#0B2733;color:#FFF9EC;border:1px solid #254957;padding:3px 6px;border-radius:4px;font:11px ui-monospace"/>
-      </label>`;
+    dbg.id = 'jag-tuner';
+    dbg.style.cssText = 'position:fixed;left:16px;top:16px;z-index:9999;background:rgba(11,39,51,0.95);color:#FFF9EC;font:11px/1.4 ui-monospace,Menlo,Consolas,monospace;padding:12px 14px;border-radius:10px;width:320px;max-height:92vh;overflow-y:auto;box-shadow:0 12px 28px -8px rgba(0,0,0,0.5)';
+    dbg.innerHTML =
+      '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">' +
+        '<span style="font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FF6B4A;font-size:10px">Jaguar tuner</span>' +
+        '<button id="jag-min" style="background:transparent;color:#FFF9EC;border:1px solid #254957;padding:2px 8px;border-radius:4px;cursor:pointer;font:10px ui-monospace">_</button>' +
+      '</div>' +
+      '<div id="jag-body">' +
+        group('Camera position',
+          row('X', 'camX', -10, 10, 0.05),
+          row('Y', 'camY', -10, 10, 0.05),
+          row('Z', 'camZ', -10, 10, 0.05)
+        ) +
+        group('Camera lookAt',
+          row('X', 'tgtX', -3, 3, 0.05),
+          row('Y', 'tgtY', -3, 3, 0.05),
+          row('Z', 'tgtZ', -3, 3, 0.05)
+        ) +
+        group('Camera FOV',
+          row('FOV', 'fov', 10, 90, 1)
+        ) +
+        group('Model rotation (rad)',
+          row('X', 'rotX', -3.15, 3.15, 0.01),
+          row('Y', 'rotY', -3.15, 3.15, 0.01),
+          row('Z', 'rotZ', -3.15, 3.15, 0.01)
+        ) +
+        group('Model position',
+          row('X', 'posX', -3, 3, 0.05),
+          row('Y', 'posY', -3, 3, 0.05),
+          row('Z', 'posZ', -3, 3, 0.05)
+        ) +
+        group('Model scale',
+          row('Scl', 'scale', 0.2, 4, 0.05)
+        ) +
+        '<div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap">' +
+          '<button id="jag-copy" style="background:#FF6B4A;color:#FFF9EC;border:0;padding:7px 10px;border-radius:6px;cursor:pointer;font:600 10px ui-monospace;letter-spacing:.1em;text-transform:uppercase">Copy snippet</button>' +
+          '<button id="jag-reset" style="background:#254957;color:#FFF9EC;border:0;padding:7px 10px;border-radius:6px;cursor:pointer;font:600 10px ui-monospace;letter-spacing:.1em;text-transform:uppercase">Reset</button>' +
+        '</div>' +
+        '<pre id="jag-snip" style="margin:8px 0 0;white-space:pre-wrap;word-break:break-word;color:#FFF9EC;font-size:10px;background:#0B2733;padding:8px;border-radius:5px"></pre>' +
+      '</div>';
     document.body.appendChild(dbg);
+
+    // Hookups: every slider AND its number input writes to `tune` and the live render
+    function applyTune() {
+      camera.position.set(tune.camX, tune.camY, tune.camZ);
+      camera.fov = tune.fov;
+      camera.updateProjectionMatrix();
+      controls.target.set(tune.tgtX, tune.tgtY, tune.tgtZ);
+      if (modelGroup) {
+        modelGroup.rotation.set(tune.rotX, tune.rotY, tune.rotZ);
+        // posX/Y/Z are OFFSETS on top of the original auto-centering
+        if (modelGroup.userData._origPos) {
+          const o = modelGroup.userData._origPos;
+          modelGroup.position.set(o.x + tune.posX, o.y + tune.posY, o.z + tune.posZ);
+        }
+        if (modelGroup.userData._origScale != null) {
+          modelGroup.scale.setScalar(modelGroup.userData._origScale * tune.scale);
+        }
+      }
+    }
+    function bindAll() {
+      const inputs = dbg.querySelectorAll('[data-tune], [data-tune-num]');
+      inputs.forEach(el => {
+        el.addEventListener('input', (e) => {
+          const key = el.dataset.tune || el.dataset.tuneNum;
+          tune[key] = parseFloat(el.value);
+          // Sync sibling sliders + number inputs
+          dbg.querySelectorAll('[data-tune="'+key+'"], [data-tune-num="'+key+'"]').forEach(sib => {
+            if (sib !== el) sib.value = tune[key];
+          });
+          applyTune();
+        });
+      });
+    }
+    bindAll();
 
     document.getElementById('jag-copy').addEventListener('click', () => {
       navigator.clipboard.writeText(document.getElementById('jag-snip').textContent.trim());
-      document.getElementById('jag-copy').textContent = 'Copied!';
-      setTimeout(() => { document.getElementById('jag-copy').textContent = 'Copy snippet'; }, 1200);
+      const b = document.getElementById('jag-copy');
+      const t = b.textContent; b.textContent = 'Copied!';
+      setTimeout(() => { b.textContent = t; }, 1200);
     });
-    document.getElementById('jag-rot-l').addEventListener('click', () => {
-      if (modelGroup) modelGroup.rotation.y -= Math.PI / 36; // -5°
+    document.getElementById('jag-reset').addEventListener('click', () => {
+      Object.assign(tune, { camX:3.2, camY:1.7, camZ:3.6, tgtX:0, tgtY:1.4, tgtZ:0, fov:36, rotX:0, rotY:0.727, rotZ:0, posX:0, posY:0, posZ:0, scale:1.0 });
+      dbg.querySelectorAll('[data-tune], [data-tune-num]').forEach(el => {
+        const k = el.dataset.tune || el.dataset.tuneNum;
+        el.value = tune[k];
+      });
+      applyTune();
     });
-    document.getElementById('jag-rot-r').addEventListener('click', () => {
-      if (modelGroup) modelGroup.rotation.y += Math.PI / 36; // +5°
-    });
-    document.getElementById('jag-fov').addEventListener('input', (e) => {
-      camera.fov = parseFloat(e.target.value) || 36;
-      camera.updateProjectionMatrix();
+    // Collapsible toggle
+    let collapsed = false;
+    document.getElementById('jag-min').addEventListener('click', () => {
+      collapsed = !collapsed;
+      document.getElementById('jag-body').style.display = collapsed ? 'none' : 'block';
     });
 
-    // Make the canvas itself accept pointer events even though hero-fauna had pointer-events:none
     canvas.style.pointerEvents = 'auto';
     if (canvas.parentElement) canvas.parentElement.style.pointerEvents = 'auto';
   }
@@ -350,6 +448,9 @@ window.JaguarScene = function(canvas) {
     // (~3.2, ~1.7, ~3.6), we rotate around Y by atan2(camX, camZ) so the GLB's
     // forward (+Z) lines up with the line of sight.
     model.rotation.y = Math.atan2(3.2, 3.6);
+    // Stash the auto-computed values so the tuner sliders can apply offsets/scales on top.
+    model.userData._origPos = model.position.clone();
+    model.userData._origScale = s;
 
     buildWireframeOverlay(model, registries);
     scene.add(model);
@@ -382,17 +483,30 @@ window.JaguarScene = function(canvas) {
       // Camera is locked — only aspect needs updating
     }
 
-    if (controls) controls.update();
+    if (controls) {
+      controls.update();
+      // OrbitControls drives camera & target — push back to tune so sliders stay in sync
+      tune.camX = camera.position.x; tune.camY = camera.position.y; tune.camZ = camera.position.z;
+      tune.tgtX = controls.target.x; tune.tgtY = controls.target.y; tune.tgtZ = controls.target.z;
+    }
     if (dbg) {
+      // Sync slider/number values back to whatever Orbit just changed
+      ['camX','camY','camZ','tgtX','tgtY','tgtZ'].forEach(k => {
+        dbg.querySelectorAll('[data-tune="'+k+'"], [data-tune-num="'+k+'"]').forEach(el => {
+          if (document.activeElement !== el) el.value = tune[k].toFixed(2);
+        });
+      });
       const sn = document.getElementById('jag-snip');
       if (sn) {
         const p = camera.position, t = controls ? controls.target : new THREE.Vector3();
-        const ry = modelGroup ? modelGroup.rotation.y : 0;
+        const m = modelGroup;
         sn.textContent =
-          `camera.position.set(${p.x.toFixed(2)}, ${p.y.toFixed(2)}, ${p.z.toFixed(2)});\n` +
-          `camera.lookAt(${t.x.toFixed(2)}, ${t.y.toFixed(2)}, ${t.z.toFixed(2)});\n` +
-          `camera.fov = ${camera.fov.toFixed(0)};\n` +
-          `model.rotation.y = ${ry.toFixed(3)};`;
+          'camera.position.set(' + p.x.toFixed(2) + ', ' + p.y.toFixed(2) + ', ' + p.z.toFixed(2) + ');\n' +
+          'camera.lookAt(' + t.x.toFixed(2) + ', ' + t.y.toFixed(2) + ', ' + t.z.toFixed(2) + ');\n' +
+          'camera.fov = ' + camera.fov.toFixed(0) + ';\n' +
+          (m ? ('model.rotation.set(' + m.rotation.x.toFixed(3) + ', ' + m.rotation.y.toFixed(3) + ', ' + m.rotation.z.toFixed(3) + ');\n' +
+                'model.position.set(' + m.position.x.toFixed(2) + ', ' + m.position.y.toFixed(2) + ', ' + m.position.z.toFixed(2) + ');\n' +
+                'model.scale.setScalar(' + m.scale.x.toFixed(3) + ');') : '');
       }
     }
     composer.render();
