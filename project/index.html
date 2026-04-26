@@ -28,8 +28,8 @@
 <body>
   <div id="root"></div>
 
-  <script src="data.js?v=9d3886e"></script>
-  <script src="webgl-rainforest.js?v=9d3886e"></script>
+  <script src="data.js?v=1777239033"></script>
+  <script src="webgl-rainforest.js?v=1777239033"></script>
   <script type="module">
 // Jaguar wireframe scene — adapted from neon_jaguar reference.
 // Loads assets/jaguar.glb, builds a wireframe + point-cloud render in the
@@ -141,22 +141,22 @@ function buildWireframeOverlay(model, registries) {
   // is still perceivable because the canvas's dense subdivided wireframe gives it
   // thousands of tiny coral strokes concentrated where the body is.
   const wireMat = new THREE.MeshBasicMaterial({
-    color: CORAL_DEEP, wireframe: true, transparent: true, opacity: 0.5,
+    color: CORAL_DEEP, wireframe: true, transparent: true, opacity: 0.75,
     depthWrite: false, blending: THREE.NormalBlending
   });
   const wireMatBright = new THREE.MeshBasicMaterial({
-    color: CORAL, wireframe: true, transparent: true, opacity: 0.18,
-    depthWrite: false, blending: THREE.NormalBlending
+    color: CORAL, wireframe: true, transparent: true, opacity: 0.5,
+    depthWrite: false, blending: THREE.AdditiveBlending
   });
-  // Outer neon halo — additive, brighter, slightly larger. Bloom turns this into
+  // Outer neon halo — additive, much brighter, larger. Bloom turns this into
   // the futuristic glow rim around the silhouette.
   const wireMatHalo = new THREE.MeshBasicMaterial({
-    color: CORAL_BR, wireframe: true, transparent: true, opacity: 0.45,
+    color: CORAL_BR, wireframe: true, transparent: true, opacity: 0.95,
     depthWrite: false, blending: THREE.AdditiveBlending
   });
   const pointMat = new THREE.PointsMaterial({
-    color: CORAL_SOFT, size: 0.014, transparent: true, opacity: 0.45,
-    sizeAttenuation: true, depthWrite: false, blending: THREE.NormalBlending
+    color: CORAL_SOFT, size: 0.022, transparent: true, opacity: 0.85,
+    sizeAttenuation: true, depthWrite: false, blending: THREE.AdditiveBlending
   });
 
   const targets = [];
@@ -185,14 +185,14 @@ function buildWireframeOverlay(model, registries) {
       wireOuter.scale.setScalar(0.995);
       wireHalo = new THREE.SkinnedMesh(dense, wireMatHalo.clone());
       wireHalo.bind(child.skeleton, child.bindMatrix); wireHalo.bindMode = child.bindMode;
-      wireHalo.scale.setScalar(1.025);
+      wireHalo.scale.setScalar(1.05);
       pts = new THREE.Points(dense, pointMat.clone());
     } else {
       wire = new THREE.Mesh(dense, wireMat.clone());
       wireOuter = new THREE.Mesh(dense, wireMatBright.clone());
       wireOuter.scale.setScalar(0.995);
       wireHalo = new THREE.Mesh(dense, wireMatHalo.clone());
-      wireHalo.scale.setScalar(1.025);
+      wireHalo.scale.setScalar(1.05);
       pts = new THREE.Points(dense, pointMat.clone());
     }
     wire.frustumCulled = false; wireOuter.frustumCulled = false;
@@ -235,9 +235,9 @@ window.JaguarScene = function(canvas) {
   composer.addPass(new RenderPass(scene, camera));
   const bloom = new UnrealBloomPass(
     new THREE.Vector2(canvas.clientWidth || 1, canvas.clientHeight || 1),
-    0.55, // strength — proper neon glow on the silhouette and floor disc
-    0.85, // radius — softer falloff
-    0.35  // threshold — let the coral wireframe contribute to bloom
+    1.6,  // strength — very visible neon glow
+    1.1,  // radius — wide halo
+    0.0   // threshold — everything contributes to bloom
   );
   composer.addPass(bloom);
   composer.addPass(new OutputPass());
@@ -398,16 +398,18 @@ window.JaguarScene = function(canvas) {
      positioned under the jaguar so it reads as a halo of light on the floor. */
   function makeNeonFloorTexture() {
     const c = document.createElement('canvas');
-    c.width = 512; c.height = 512;
+    c.width = 1024; c.height = 1024;
     const ctx = c.getContext('2d');
-    const grad = ctx.createRadialGradient(256, 256, 24, 256, 256, 256);
-    grad.addColorStop(0,    'rgba(255, 143, 115, 0.85)');
-    grad.addColorStop(0.18, 'rgba(255, 107, 74, 0.55)');
-    grad.addColorStop(0.45, 'rgba(225, 79, 46, 0.20)');
-    grad.addColorStop(0.85, 'rgba(225, 79, 46, 0.04)');
+    const grad = ctx.createRadialGradient(512, 512, 30, 512, 512, 512);
+    // Hot center -> coral -> faint outer. Higher alpha = much more visible glow.
+    grad.addColorStop(0,    'rgba(255, 230, 200, 1.0)');
+    grad.addColorStop(0.08, 'rgba(255, 143, 115, 0.95)');
+    grad.addColorStop(0.22, 'rgba(255, 107, 74, 0.78)');
+    grad.addColorStop(0.50, 'rgba(225, 79, 46, 0.45)');
+    grad.addColorStop(0.85, 'rgba(225, 79, 46, 0.10)');
     grad.addColorStop(1,    'rgba(0,0,0,0)');
     ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, 512, 512);
+    ctx.fillRect(0, 0, 1024, 1024);
     const tex = new THREE.CanvasTexture(c);
     tex.colorSpace = THREE.SRGBColorSpace;
     return tex;
@@ -419,11 +421,16 @@ window.JaguarScene = function(canvas) {
     depthWrite: false,
     side: THREE.DoubleSide
   });
-  const neonFloor = new THREE.Mesh(new THREE.PlaneGeometry(5, 5), neonFloorMat);
+  // Bigger plane and a second smaller hot core stacked on top for a brighter
+  // "puddle of light" look on the floor.
+  const neonFloor = new THREE.Mesh(new THREE.PlaneGeometry(8, 8), neonFloorMat);
   neonFloor.rotation.x = -Math.PI / 2;
-  // Position roughly under the model (the user's tuned model.position is (1.79, -0.05, 0.27))
   neonFloor.position.set(1.79, 0.01, 0.27);
   scene.add(neonFloor);
+  const neonCore = new THREE.Mesh(new THREE.PlaneGeometry(3, 3), neonFloorMat.clone());
+  neonCore.rotation.x = -Math.PI / 2;
+  neonCore.position.set(1.79, 0.02, 0.27);
+  scene.add(neonCore);
 
   /* Ground — a few faint horizon lines (no full grid; subtler) */
   const groundGroup = new THREE.Group();
@@ -551,8 +558,8 @@ window.JaguarScene = function(canvas) {
 };
 
 </script>
-  <script type="text/babel" src="components.jsx?v=9d3886e"></script>
-  <script type="text/babel" src="sections.jsx?v=9d3886e"></script>
+  <script type="text/babel" src="components.jsx?v=1777239033"></script>
+  <script type="text/babel" src="sections.jsx?v=1777239033"></script>
 
   <script type="text/babel">
     function App() {
