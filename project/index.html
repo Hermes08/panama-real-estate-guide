@@ -28,8 +28,8 @@
 <body>
   <div id="root"></div>
 
-  <script src="data.js?v=1777245885"></script>
-  <script src="webgl-rainforest.js?v=1777245885"></script>
+  <script src="data.js?v=1777246398"></script>
+  <script src="webgl-rainforest.js?v=1777246398"></script>
   <script type="module">
 // Jaguar wireframe scene — adapted from neon_jaguar reference.
 // Loads assets/jaguar.glb, builds a wireframe + point-cloud render in the
@@ -215,7 +215,9 @@ window.JaguarScene = function(canvas) {
     canvas, antialias: true, alpha: true, powerPreference: 'high-performance'
   });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.setClearColor(0x000000, 0); // transparent — cream background shows through
+  // Match the canvas clear color to the panel's #0B1F28 exactly so the canvas
+  // blends seamlessly into the dark news panel — no visible "square" edge.
+  renderer.setClearColor(0x0B1F28, 1.0);
   renderer.toneMapping = THREE.LinearToneMapping;
   renderer.toneMappingExposure = 1.0;
 
@@ -558,8 +560,8 @@ window.JaguarScene = function(canvas) {
 };
 
 </script>
-  <script type="text/babel" src="components.jsx?v=1777245885"></script>
-  <script type="text/babel" src="sections.jsx?v=1777245885"></script>
+  <script type="text/babel" src="components.jsx?v=1777246398"></script>
+  <script type="text/babel" src="sections.jsx?v=1777246398"></script>
 
   <script type="text/babel">
     function App() {
