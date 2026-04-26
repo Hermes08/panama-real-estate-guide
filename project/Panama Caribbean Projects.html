@@ -28,8 +28,8 @@
 <body>
   <div id="root"></div>
 
-  <script src="data.js?v=1777246757"></script>
-  <script src="webgl-rainforest.js?v=1777246757"></script>
+  <script src="data.js?v=1777246982"></script>
+  <script src="webgl-rainforest.js?v=1777246982"></script>
   <script type="module">
 // Jaguar wireframe scene — adapted from neon_jaguar reference.
 // Loads assets/jaguar.glb, builds a wireframe + point-cloud render in the
@@ -230,7 +230,9 @@ window.JaguarScene = function(canvas) {
   // User-tuned camera + pose (locked via the ?edit=1 tuner panel).
   const camera = new THREE.PerspectiveCamera(36, aspect, 0.1, 200);
   camera.position.set(2.80, 7.25, 3.00);
-  camera.lookAt(-0.70, -0.80, -0.70);
+  // Look at a point ABOVE the cat so it renders in the bottom portion of the
+  // (now full-height) canvas. Top of the canvas stays clean dark for news copy.
+  camera.lookAt(-0.70, 1.20, -0.70);
 
   // Post-processing: subtle bloom (much lower than reference)
   const composer = new EffectComposer(renderer);
@@ -255,7 +257,7 @@ window.JaguarScene = function(canvas) {
   // both reads from and writes to them.
   const tune = {
     camX: 2.80, camY: 7.25, camZ: 3.00,
-    tgtX: -0.70, tgtY: -0.80, tgtZ: -0.70,
+    tgtX: -0.70, tgtY: 1.20, tgtZ: -0.70,
     fov: 36,
     rotX: 0.850, rotY: 0.690, rotZ: -0.310,
     posX: 0, posY: 0, posZ: 0,
@@ -378,7 +380,7 @@ window.JaguarScene = function(canvas) {
       setTimeout(() => { b.textContent = t; }, 1200);
     });
     document.getElementById('jag-reset').addEventListener('click', () => {
-      Object.assign(tune, { camX:2.80, camY:7.25, camZ:3.00, tgtX:-0.70, tgtY:-0.80, tgtZ:-0.70, fov:36, rotX:0.850, rotY:0.690, rotZ:-0.310, posX:0, posY:0, posZ:0, scale:1.0 });
+      Object.assign(tune, { camX:2.80, camY:7.25, camZ:3.00, tgtX:-0.70, tgtY:1.20, tgtZ:-0.70, fov:36, rotX:0.850, rotY:0.690, rotZ:-0.310, posX:0, posY:0, posZ:0, scale:1.0 });
       dbg.querySelectorAll('[data-tune], [data-tune-num]').forEach(el => {
         const k = el.dataset.tune || el.dataset.tuneNum;
         el.value = tune[k];
@@ -560,8 +562,8 @@ window.JaguarScene = function(canvas) {
 };
 
 </script>
-  <script type="text/babel" src="components.jsx?v=1777246757"></script>
-  <script type="text/babel" src="sections.jsx?v=1777246757"></script>
+  <script type="text/babel" src="components.jsx?v=1777246982"></script>
+  <script type="text/babel" src="sections.jsx?v=1777246982"></script>
 
   <script type="text/babel">
     function App() {
