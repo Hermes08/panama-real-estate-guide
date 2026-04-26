@@ -28,8 +28,8 @@
 <body>
   <div id="root"></div>
 
-  <script src="data.js?v=1777239033"></script>
-  <script src="webgl-rainforest.js?v=1777239033"></script>
+  <script src="data.js?v=1777239310"></script>
+  <script src="webgl-rainforest.js?v=1777239310"></script>
   <script type="module">
 // Jaguar wireframe scene — adapted from neon_jaguar reference.
 // Loads assets/jaguar.glb, builds a wireframe + point-cloud render in the
@@ -141,22 +141,22 @@ function buildWireframeOverlay(model, registries) {
   // is still perceivable because the canvas's dense subdivided wireframe gives it
   // thousands of tiny coral strokes concentrated where the body is.
   const wireMat = new THREE.MeshBasicMaterial({
-    color: CORAL_DEEP, wireframe: true, transparent: true, opacity: 0.75,
+    color: CORAL_DEEP, wireframe: true, transparent: true, opacity: 0.7,
     depthWrite: false, blending: THREE.NormalBlending
   });
   const wireMatBright = new THREE.MeshBasicMaterial({
-    color: CORAL, wireframe: true, transparent: true, opacity: 0.5,
-    depthWrite: false, blending: THREE.AdditiveBlending
+    color: CORAL, wireframe: true, transparent: true, opacity: 0.28,
+    depthWrite: false, blending: THREE.NormalBlending
   });
-  // Outer neon halo — additive, much brighter, larger. Bloom turns this into
-  // the futuristic glow rim around the silhouette.
+  // Outer neon halo — additive, brighter, slightly larger. Bloom catches THIS
+  // and creates the futuristic neon rim around the silhouette without nuking the body.
   const wireMatHalo = new THREE.MeshBasicMaterial({
-    color: CORAL_BR, wireframe: true, transparent: true, opacity: 0.95,
+    color: CORAL_BR, wireframe: true, transparent: true, opacity: 0.7,
     depthWrite: false, blending: THREE.AdditiveBlending
   });
   const pointMat = new THREE.PointsMaterial({
-    color: CORAL_SOFT, size: 0.022, transparent: true, opacity: 0.85,
-    sizeAttenuation: true, depthWrite: false, blending: THREE.AdditiveBlending
+    color: CORAL_SOFT, size: 0.018, transparent: true, opacity: 0.55,
+    sizeAttenuation: true, depthWrite: false, blending: THREE.NormalBlending
   });
 
   const targets = [];
@@ -216,7 +216,7 @@ window.JaguarScene = function(canvas) {
   });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.setClearColor(0x000000, 0); // transparent — cream background shows through
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMapping = THREE.LinearToneMapping;
   renderer.toneMappingExposure = 1.0;
 
   const scene = new THREE.Scene();
@@ -235,9 +235,9 @@ window.JaguarScene = function(canvas) {
   composer.addPass(new RenderPass(scene, camera));
   const bloom = new UnrealBloomPass(
     new THREE.Vector2(canvas.clientWidth || 1, canvas.clientHeight || 1),
-    1.6,  // strength — very visible neon glow
-    1.1,  // radius — wide halo
-    0.0   // threshold — everything contributes to bloom
+    0.85, // strength — visible neon, no full white-out
+    0.9,  // radius
+    0.42  // threshold — only the brightest pixels (halo + floor disc) glow
   );
   composer.addPass(bloom);
   composer.addPass(new OutputPass());
@@ -558,8 +558,8 @@ window.JaguarScene = function(canvas) {
 };
 
 </script>
-  <script type="text/babel" src="components.jsx?v=1777239033"></script>
-  <script type="text/babel" src="sections.jsx?v=1777239033"></script>
+  <script type="text/babel" src="components.jsx?v=1777239310"></script>
+  <script type="text/babel" src="sections.jsx?v=1777239310"></script>
 
   <script type="text/babel">
     function App() {
