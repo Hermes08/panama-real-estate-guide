@@ -485,9 +485,7 @@ function HeroEditorial() {
           for our Caribbean / rainforest identity. */}
       <div className="hero-fauna" style={{
         position: 'absolute', right: 24, bottom: 24, width: 420, height: 420,
-        zIndex: 1, pointerEvents: 'none',
-        // Fade the top edge so the jaguar blends behind the news card text
-        // rather than hard-clipping against it.
+        zIndex: 5, pointerEvents: 'none',
         WebkitMaskImage: 'none',
         maskImage:       'none'
       }}>
