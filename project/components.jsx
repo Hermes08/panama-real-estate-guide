@@ -421,25 +421,41 @@ function HeroEditorial() {
             padding: '28px 26px 32px',
             position: 'relative',
             overflow: 'hidden',
+            minHeight: 620,
             boxShadow: '0 24px 60px -20px rgba(11,39,51,0.55), inset 0 1px 0 rgba(255,249,236,0.04)'
           }}>
-            {/* Coral spill — radial glow in the bottom-right where the jaguar sits.
-                Larger and stronger so it visibly lights the area behind the news. */}
+            {/* Jaguar canvas — absolute, fills the BOTTOM 70% of the panel and
+                sits BEHIND the news content. Its neon glow rises up and bathes
+                the news headlines from below. */}
+            <div className="hero-fauna" style={{
+              position: 'absolute', left: 0, right: 0, bottom: 0,
+              height: '72%',
+              zIndex: 1,
+              pointerEvents: 'none'
+            }}>
+              <canvas ref={jaguarRef} style={{ width: '100%', height: '100%', display: 'block' }}/>
+              <div style={{
+                position: 'absolute', bottom: 8, right: 14,
+                fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.22em',
+                textTransform: 'uppercase', fontWeight: 700,
+                color: 'var(--cream)', display: 'flex', gap: 10, alignItems: 'baseline',
+                opacity: 0.85
+              }}>
+                <span style={{ color: 'var(--coral)', fontSize: 12 }}>●</span>
+                <span>Panthera onca</span>
+                <span style={{ opacity: 0.6, fontWeight: 500 }}>/ mascot</span>
+              </div>
+            </div>
+            {/* Coral ambient glow — subtle, behind everything, helps the area
+                feel lit even before the WebGL paints. */}
             <div style={{
-              position: 'absolute', right: '-30%', bottom: '-40%',
-              width: '95%', height: '95%',
-              background: 'radial-gradient(circle, rgba(255,143,115,0.45) 0%, rgba(255,107,74,0.25) 30%, rgba(225,79,46,0.10) 60%, rgba(225,79,46,0) 80%)',
-              pointerEvents: 'none', zIndex: 0, filter: 'blur(2px)'
-            }}/>
-            {/* Soft secondary spill — a wider, fainter coral glow that lifts overall mood */}
-            <div style={{
-              position: 'absolute', right: '-10%', top: '40%',
-              width: '70%', height: '60%',
-              background: 'radial-gradient(circle, rgba(255,107,74,0.15) 0%, rgba(255,107,74,0) 70%)',
-              pointerEvents: 'none', zIndex: 0
+              position: 'absolute', right: '-20%', bottom: '-30%',
+              width: '90%', height: '90%',
+              background: 'radial-gradient(circle, rgba(255,143,115,0.35) 0%, rgba(255,107,74,0.15) 35%, rgba(225,79,46,0) 75%)',
+              pointerEvents: 'none', zIndex: 0, filter: 'blur(4px)'
             }}/>
 
-            <div style={{ position: 'relative', zIndex: 1 }}>
+            <div style={{ position: 'relative', zIndex: 2 }}>
               <div style={{
                 fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.14em',
                 textTransform: 'uppercase', color: 'var(--coral)', fontWeight: 700, marginBottom: 18,
@@ -476,35 +492,7 @@ function HeroEditorial() {
                 All dispatches →
               </a>
             </div>
-            {/* Jaguar canvas — lives INSIDE the same dark panel. We give the
-                wrapper a gradient that matches the panel's bottom-right area so
-                even if the WebGL render isn't fully alpha-clean, the canvas
-                blends seamlessly with the rest of the panel. Soft rounded
-                corners so the canvas doesn't read as a separate "square". */}
-            <div className="hero-fauna" style={{
-              position: 'relative', zIndex: 1, marginTop: 22,
-              width: '100%', aspectRatio: '5 / 4', minHeight: 240,
-              pointerEvents: 'none',
-              borderRadius: 12,
-              overflow: 'hidden',
-              background: 'linear-gradient(135deg, #0B2733 0%, #15293a 50%, #1a2f3a 100%)'
-            }}>
-              <canvas ref={jaguarRef} style={{
-                width: '100%', height: '100%', display: 'block',
-                borderRadius: 12
-              }}/>
-              <div style={{
-                position: 'absolute', bottom: 6, right: 10,
-                fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.22em',
-                textTransform: 'uppercase', fontWeight: 700,
-                color: 'var(--cream)', display: 'flex', gap: 10, alignItems: 'baseline',
-                opacity: 0.85
-              }}>
-                <span style={{ color: 'var(--coral)', fontSize: 12 }}>●</span>
-                <span>Panthera onca</span>
-                <span style={{ opacity: 0.6, fontWeight: 500 }}>/ mascot</span>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
