@@ -291,6 +291,10 @@ window.JaguarScene = function(canvas) {
     model.position.x = -center.x * s;
     model.position.z = -center.z * s;
     model.position.y = -box.min.y * s;
+    // Turn the jaguar so its face points toward the viewer (camera). With camera at
+    // (~3.2, ~1.7, ~3.6), we rotate around Y by atan2(camX, camZ) so the GLB's
+    // forward (+Z) lines up with the line of sight.
+    model.rotation.y = Math.atan2(3.2, 3.6);
 
     buildWireframeOverlay(model, registries);
     scene.add(model);
