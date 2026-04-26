@@ -140,15 +140,15 @@ function buildWireframeOverlay(model, registries) {
   // is still perceivable because the canvas's dense subdivided wireframe gives it
   // thousands of tiny coral strokes concentrated where the body is.
   const wireMat = new THREE.MeshBasicMaterial({
-    color: CORAL_DEEP, wireframe: true, transparent: true, opacity: 0.38,
+    color: CORAL_DEEP, wireframe: true, transparent: true, opacity: 0.5,
     depthWrite: false, blending: THREE.NormalBlending
   });
   const wireMatBright = new THREE.MeshBasicMaterial({
-    color: CORAL, wireframe: true, transparent: true, opacity: 0.14,
+    color: CORAL, wireframe: true, transparent: true, opacity: 0.18,
     depthWrite: false, blending: THREE.NormalBlending
   });
   const pointMat = new THREE.PointsMaterial({
-    color: CORAL_SOFT, size: 0.012, transparent: true, opacity: 0.32,
+    color: CORAL_SOFT, size: 0.014, transparent: true, opacity: 0.45,
     sizeAttenuation: true, depthWrite: false, blending: THREE.NormalBlending
   });
 
