@@ -28,8 +28,8 @@
 <body>
   <div id="root"></div>
 
-  <script src="data.js?v=1777246982"></script>
-  <script src="webgl-rainforest.js?v=1777246982"></script>
+  <script src="data.js?v=1777247774"></script>
+  <script src="webgl-rainforest.js?v=1777247774"></script>
   <script type="module">
 // Jaguar wireframe scene — adapted from neon_jaguar reference.
 // Loads assets/jaguar.glb, builds a wireframe + point-cloud render in the
@@ -545,7 +545,14 @@ window.JaguarScene = function(canvas) {
           'camera.fov = ' + camera.fov.toFixed(0) + ';\n' +
           (m ? ('model.rotation.set(' + m.rotation.x.toFixed(3) + ', ' + m.rotation.y.toFixed(3) + ', ' + m.rotation.z.toFixed(3) + ');\n' +
                 'model.position.set(' + m.position.x.toFixed(2) + ', ' + m.position.y.toFixed(2) + ', ' + m.position.z.toFixed(2) + ');\n' +
-                'model.scale.setScalar(' + m.scale.x.toFixed(3) + ');') : '');
+                'model.scale.setScalar(' + m.scale.x.toFixed(3) + ');\n') : '') +
+          '// glow\n' +
+          'bloom.strength = ' + tune.bloomStrength.toFixed(2) + ';\n' +
+          'bloom.radius = ' + tune.bloomRadius.toFixed(2) + ';\n' +
+          'bloom.threshold = ' + tune.bloomThreshold.toFixed(2) + ';\n' +
+          'wireOpacity = ' + tune.wireOpacity.toFixed(2) + ';\n' +
+          'haloOpacity = ' + tune.haloOpacity.toFixed(2) + ';\n' +
+          'floorOpacity = ' + tune.floorOpacity.toFixed(2) + ';';
       }
     }
     composer.render();
@@ -562,8 +569,8 @@ window.JaguarScene = function(canvas) {
 };
 
 </script>
-  <script type="text/babel" src="components.jsx?v=1777246982"></script>
-  <script type="text/babel" src="sections.jsx?v=1777246982"></script>
+  <script type="text/babel" src="components.jsx?v=1777247774"></script>
+  <script type="text/babel" src="sections.jsx?v=1777247774"></script>
 
   <script type="text/babel">
     function App() {
