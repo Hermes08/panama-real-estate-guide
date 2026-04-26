@@ -213,11 +213,12 @@ window.JaguarScene = function(canvas) {
   // Bird's-eye view, angled to the right — elevated enough to see the full body
   // including all four paws, but not pure top-down (the cat reads as a sculptural
   // creature, not a rug).
-  // Bird's-eye, angled to the right. Elevation high enough to see the full
-  // animal without flattening it into a top-down silhouette.
-  const camera = new THREE.PerspectiveCamera(40, aspect, 0.1, 200);
-  camera.position.set(3.0, 3.2, 1.8);
-  camera.lookAt(0, 0.6, 0);
+  // Side profile view. Camera at head height, on the right of the animal,
+  // with a small forward offset (a touch of 3/4 to give it volume rather than a
+  // flat silhouette). The face/whiskers/ears read in profile from this angle.
+  const camera = new THREE.PerspectiveCamera(34, aspect, 0.1, 200);
+  camera.position.set(4.4, 1.6, 1.2);
+  camera.lookAt(0, 1.0, 0);
 
   // Post-processing: subtle bloom (much lower than reference)
   const composer = new EffectComposer(renderer);
