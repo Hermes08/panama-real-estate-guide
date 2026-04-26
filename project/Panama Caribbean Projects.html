@@ -215,9 +215,9 @@ window.JaguarScene = function(canvas) {
   // including all four paws, but not pure top-down (the cat reads as a sculptural
   // creature, not a rug).
   // User-tuned camera + pose (locked via the ?edit=1 tuner panel).
-  const camera = new THREE.PerspectiveCamera(52, aspect, 0.1, 200);
-  camera.position.set(2.85, 4.05, 3.00);
-  camera.lookAt(-0.45, 0.65, -0.70);
+  const camera = new THREE.PerspectiveCamera(36, aspect, 0.1, 200);
+  camera.position.set(2.80, 7.25, 3.00);
+  camera.lookAt(-0.70, -0.80, -0.70);
 
   // Post-processing: subtle bloom (much lower than reference)
   const composer = new EffectComposer(renderer);
@@ -241,10 +241,10 @@ window.JaguarScene = function(canvas) {
   // Live tuning state — these mirror the actual scene values and the panel
   // both reads from and writes to them.
   const tune = {
-    camX: 2.85, camY: 4.05, camZ: 3.00,
-    tgtX: -0.45, tgtY: 0.65, tgtZ: -0.70,
-    fov: 52,
-    rotX: 0.850, rotY: 0.690, rotZ: -0.010,
+    camX: 2.80, camY: 7.25, camZ: 3.00,
+    tgtX: -0.70, tgtY: -0.80, tgtZ: -0.70,
+    fov: 36,
+    rotX: 0.850, rotY: 0.690, rotZ: -0.310,
     posX: 0, posY: 0, posZ: 0,
     scale: 1.0
   };
@@ -365,7 +365,7 @@ window.JaguarScene = function(canvas) {
       setTimeout(() => { b.textContent = t; }, 1200);
     });
     document.getElementById('jag-reset').addEventListener('click', () => {
-      Object.assign(tune, { camX:2.85, camY:4.05, camZ:3.00, tgtX:-0.45, tgtY:0.65, tgtZ:-0.70, fov:52, rotX:0.850, rotY:0.690, rotZ:-0.010, posX:0, posY:0, posZ:0, scale:1.0 });
+      Object.assign(tune, { camX:2.80, camY:7.25, camZ:3.00, tgtX:-0.70, tgtY:-0.80, tgtZ:-0.70, fov:36, rotX:0.850, rotY:0.690, rotZ:-0.310, posX:0, posY:0, posZ:0, scale:1.0 });
       dbg.querySelectorAll('[data-tune], [data-tune-num]').forEach(el => {
         const k = el.dataset.tune || el.dataset.tuneNum;
         el.value = tune[k];
@@ -430,7 +430,7 @@ window.JaguarScene = function(canvas) {
     const model = sceneClone;
     const box = new THREE.Box3().setFromObject(model);
     // User-tuned model placement (locked via the ?edit=1 tuner panel).
-    model.rotation.set(0.850, 0.690, -0.010);
+    model.rotation.set(0.850, 0.690, -0.310);
     model.position.set(1.79, -0.05, 0.27);
     model.scale.setScalar(33.843);
     // Stash the locked values so the tuner sliders can apply offsets on top
