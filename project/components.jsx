@@ -416,7 +416,7 @@ function HeroEditorial() {
               The jaguar mascot sits on top-right of this panel; its coral neon
               glow visually spills onto the news cards via the radial corner light. */}
           <div className="reveal in d3" style={{
-            background: 'linear-gradient(135deg, #07171f 0%, #0B2733 50%, #1a2f3a 100%)',
+            background: '#0B1F28',
             borderRadius: 18,
             padding: '28px 26px 32px',
             position: 'relative',
@@ -446,14 +446,7 @@ function HeroEditorial() {
                 <span style={{ opacity: 0.6, fontWeight: 500 }}>/ mascot</span>
               </div>
             </div>
-            {/* Coral ambient glow — subtle, behind everything, helps the area
-                feel lit even before the WebGL paints. */}
-            <div style={{
-              position: 'absolute', right: '-20%', bottom: '-30%',
-              width: '90%', height: '90%',
-              background: 'radial-gradient(circle, rgba(255,143,115,0.35) 0%, rgba(255,107,74,0.15) 35%, rgba(225,79,46,0) 75%)',
-              pointerEvents: 'none', zIndex: 0, filter: 'blur(4px)'
-            }}/>
+
 
             <div style={{ position: 'relative', zIndex: 2 }}>
               <div style={{
@@ -470,14 +463,16 @@ function HeroEditorial() {
                   textDecoration: 'none', color: 'inherit'
                 }}>
                   <div style={{
-                    fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--coral)',
-                    letterSpacing: '0.12em', fontWeight: 700, textTransform: 'uppercase', marginBottom: 6
+                    fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(255,196,170,0.95)',
+                    letterSpacing: '0.12em', fontWeight: 700, textTransform: 'uppercase', marginBottom: 6,
+                    textShadow: '0 0 12px rgba(11,31,40,0.6)'
                   }}>
                     {n.date} · {n.tag}
                   </div>
                   <div style={{
                     fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 400,
-                    lineHeight: 1.3, letterSpacing: '-0.005em', color: 'var(--cream)', textWrap: 'pretty'
+                    lineHeight: 1.3, letterSpacing: '-0.005em', color: 'var(--cream)', textWrap: 'pretty',
+                    textShadow: '0 1px 12px rgba(11,31,40,0.6)'
                   }}>
                     {n.title}
                   </div>
@@ -486,8 +481,9 @@ function HeroEditorial() {
               <a href="news/index.html" style={{
                 display: 'inline-block', marginTop: 18, fontSize: 11,
                 fontFamily: 'var(--font-mono)', letterSpacing: '0.12em', textTransform: 'uppercase',
-                color: 'var(--coral)', textDecoration: 'none', fontWeight: 700,
-                borderBottom: '1px solid var(--coral)', paddingBottom: 3
+                color: 'var(--cream)', textDecoration: 'none', fontWeight: 700,
+                borderBottom: '1px solid rgba(255,249,236,0.6)', paddingBottom: 3,
+                textShadow: '0 0 10px rgba(11,31,40,0.7)'
               }}>
                 All dispatches →
               </a>
