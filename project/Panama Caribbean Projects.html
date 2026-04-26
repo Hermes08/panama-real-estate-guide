@@ -28,8 +28,8 @@
 <body>
   <div id="root"></div>
 
-  <script src="data.js?v=1777239310"></script>
-  <script src="webgl-rainforest.js?v=1777239310"></script>
+  <script src="data.js?v=1777239437"></script>
+  <script src="webgl-rainforest.js?v=1777239437"></script>
   <script type="module">
 // Jaguar wireframe scene — adapted from neon_jaguar reference.
 // Loads assets/jaguar.glb, builds a wireframe + point-cloud render in the
@@ -151,7 +151,7 @@ function buildWireframeOverlay(model, registries) {
   // Outer neon halo — additive, brighter, slightly larger. Bloom catches THIS
   // and creates the futuristic neon rim around the silhouette without nuking the body.
   const wireMatHalo = new THREE.MeshBasicMaterial({
-    color: CORAL_BR, wireframe: true, transparent: true, opacity: 0.7,
+    color: CORAL_BR, wireframe: true, transparent: true, opacity: 0.55,
     depthWrite: false, blending: THREE.AdditiveBlending
   });
   const pointMat = new THREE.PointsMaterial({
@@ -185,14 +185,14 @@ function buildWireframeOverlay(model, registries) {
       wireOuter.scale.setScalar(0.995);
       wireHalo = new THREE.SkinnedMesh(dense, wireMatHalo.clone());
       wireHalo.bind(child.skeleton, child.bindMatrix); wireHalo.bindMode = child.bindMode;
-      wireHalo.scale.setScalar(1.05);
+      wireHalo.scale.setScalar(1.035);
       pts = new THREE.Points(dense, pointMat.clone());
     } else {
       wire = new THREE.Mesh(dense, wireMat.clone());
       wireOuter = new THREE.Mesh(dense, wireMatBright.clone());
       wireOuter.scale.setScalar(0.995);
       wireHalo = new THREE.Mesh(dense, wireMatHalo.clone());
-      wireHalo.scale.setScalar(1.05);
+      wireHalo.scale.setScalar(1.035);
       pts = new THREE.Points(dense, pointMat.clone());
     }
     wire.frustumCulled = false; wireOuter.frustumCulled = false;
@@ -235,9 +235,9 @@ window.JaguarScene = function(canvas) {
   composer.addPass(new RenderPass(scene, camera));
   const bloom = new UnrealBloomPass(
     new THREE.Vector2(canvas.clientWidth || 1, canvas.clientHeight || 1),
-    0.85, // strength — visible neon, no full white-out
-    0.9,  // radius
-    0.42  // threshold — only the brightest pixels (halo + floor disc) glow
+    0.65, // strength — visible glow, body detail preserved
+    0.85, // radius
+    0.6   // threshold — only the hottest pixels (halo + floor core) get bloom
   );
   composer.addPass(bloom);
   composer.addPass(new OutputPass());
@@ -402,11 +402,11 @@ window.JaguarScene = function(canvas) {
     const ctx = c.getContext('2d');
     const grad = ctx.createRadialGradient(512, 512, 30, 512, 512, 512);
     // Hot center -> coral -> faint outer. Higher alpha = much more visible glow.
-    grad.addColorStop(0,    'rgba(255, 230, 200, 1.0)');
-    grad.addColorStop(0.08, 'rgba(255, 143, 115, 0.95)');
-    grad.addColorStop(0.22, 'rgba(255, 107, 74, 0.78)');
-    grad.addColorStop(0.50, 'rgba(225, 79, 46, 0.45)');
-    grad.addColorStop(0.85, 'rgba(225, 79, 46, 0.10)');
+    grad.addColorStop(0,    'rgba(255, 200, 170, 0.85)');
+    grad.addColorStop(0.10, 'rgba(255, 143, 115, 0.7)');
+    grad.addColorStop(0.30, 'rgba(255, 107, 74, 0.45)');
+    grad.addColorStop(0.60, 'rgba(225, 79, 46, 0.18)');
+    grad.addColorStop(0.90, 'rgba(225, 79, 46, 0.04)');
     grad.addColorStop(1,    'rgba(0,0,0,0)');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, 1024, 1024);
@@ -558,8 +558,8 @@ window.JaguarScene = function(canvas) {
 };
 
 </script>
-  <script type="text/babel" src="components.jsx?v=1777239310"></script>
-  <script type="text/babel" src="sections.jsx?v=1777239310"></script>
+  <script type="text/babel" src="components.jsx?v=1777239437"></script>
+  <script type="text/babel" src="sections.jsx?v=1777239437"></script>
 
   <script type="text/babel">
     function App() {
