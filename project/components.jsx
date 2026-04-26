@@ -412,39 +412,70 @@ function HeroEditorial() {
             </div>
           </a>
 
-          {/* Right — news rail */}
-          <div className="reveal in d3" style={{ borderLeft: '1px solid var(--line)', paddingLeft: 28 }}>
+          {/* Right — news rail on a dark panel.
+              The jaguar mascot sits on top-right of this panel; its coral neon
+              glow visually spills onto the news cards via the radial corner light. */}
+          <div className="reveal in d3" style={{
+            background: 'linear-gradient(135deg, #07171f 0%, #0B2733 50%, #1a2f3a 100%)',
+            borderRadius: 18,
+            padding: '28px 26px 32px',
+            position: 'relative',
+            overflow: 'hidden',
+            boxShadow: '0 24px 60px -20px rgba(11,39,51,0.55), inset 0 1px 0 rgba(255,249,236,0.04)'
+          }}>
+            {/* Coral spill — radial glow in the bottom-right where the jaguar sits.
+                Larger and stronger so it visibly lights the area behind the news. */}
             <div style={{
-              fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.14em',
-              textTransform: 'uppercase', color: 'var(--coral-deep)', fontWeight: 700, marginBottom: 18
-            }}>
-              From the newsroom
-            </div>
-            {news.map((n, i) => (
-              <a key={n.slug} href={`news/${n.slug}.html`} style={{
-                display: 'block', padding: '14px 0',
-                borderBottom: i < news.length - 1 ? '1px solid var(--line-soft)' : 'none',
-                textDecoration: 'none', color: 'inherit'
+              position: 'absolute', right: '-30%', bottom: '-40%',
+              width: '95%', height: '95%',
+              background: 'radial-gradient(circle, rgba(255,143,115,0.45) 0%, rgba(255,107,74,0.25) 30%, rgba(225,79,46,0.10) 60%, rgba(225,79,46,0) 80%)',
+              pointerEvents: 'none', zIndex: 0, filter: 'blur(2px)'
+            }}/>
+            {/* Soft secondary spill — a wider, fainter coral glow that lifts overall mood */}
+            <div style={{
+              position: 'absolute', right: '-10%', top: '40%',
+              width: '70%', height: '60%',
+              background: 'radial-gradient(circle, rgba(255,107,74,0.15) 0%, rgba(255,107,74,0) 70%)',
+              pointerEvents: 'none', zIndex: 0
+            }}/>
+
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <div style={{
+                fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.14em',
+                textTransform: 'uppercase', color: 'var(--coral)', fontWeight: 700, marginBottom: 18,
+                textShadow: '0 0 14px rgba(255,107,74,0.5)'
               }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--coral-deep)', letterSpacing: '0.12em', fontWeight: 700, textTransform: 'uppercase', marginBottom: 6 }}>
-                  {n.date} · {n.tag}
-                </div>
-                <div style={{
-                  fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 400,
-                  lineHeight: 1.3, letterSpacing: '-0.005em', color: 'var(--ink)', textWrap: 'pretty'
+                From the newsroom
+              </div>
+              {news.map((n, i) => (
+                <a key={n.slug} href={`news/${n.slug}.html`} style={{
+                  display: 'block', padding: '14px 0',
+                  borderBottom: i < news.length - 1 ? '1px solid rgba(255,249,236,0.08)' : 'none',
+                  textDecoration: 'none', color: 'inherit'
                 }}>
-                  {n.title}
-                </div>
+                  <div style={{
+                    fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--coral)',
+                    letterSpacing: '0.12em', fontWeight: 700, textTransform: 'uppercase', marginBottom: 6
+                  }}>
+                    {n.date} · {n.tag}
+                  </div>
+                  <div style={{
+                    fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 400,
+                    lineHeight: 1.3, letterSpacing: '-0.005em', color: 'var(--cream)', textWrap: 'pretty'
+                  }}>
+                    {n.title}
+                  </div>
+                </a>
+              ))}
+              <a href="news/index.html" style={{
+                display: 'inline-block', marginTop: 18, fontSize: 11,
+                fontFamily: 'var(--font-mono)', letterSpacing: '0.12em', textTransform: 'uppercase',
+                color: 'var(--coral)', textDecoration: 'none', fontWeight: 700,
+                borderBottom: '1px solid var(--coral)', paddingBottom: 3
+              }}>
+                All dispatches →
               </a>
-            ))}
-            <a href="news/index.html" style={{
-              display: 'inline-block', marginTop: 18, fontSize: 11,
-              fontFamily: 'var(--font-mono)', letterSpacing: '0.12em', textTransform: 'uppercase',
-              color: 'var(--coral-deep)', textDecoration: 'none', fontWeight: 700,
-              borderBottom: '1px solid var(--coral-deep)', paddingBottom: 3
-            }}>
-              All dispatches →
-            </a>
+            </div>
           </div>
         </div>
       </div>
