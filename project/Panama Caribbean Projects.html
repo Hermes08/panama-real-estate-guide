@@ -28,8 +28,8 @@
 <body>
   <div id="root"></div>
 
-  <script src="data.js?v=1777247774"></script>
-  <script src="webgl-rainforest.js?v=1777247774"></script>
+  <script src="data.js?v=1777247985"></script>
+  <script src="webgl-rainforest.js?v=1777247985"></script>
   <script type="module">
 // Jaguar wireframe scene — adapted from neon_jaguar reference.
 // Loads assets/jaguar.glb, builds a wireframe + point-cloud render in the
@@ -261,7 +261,9 @@ window.JaguarScene = function(canvas) {
     fov: 36,
     rotX: 0.850, rotY: 0.690, rotZ: -0.310,
     posX: 0, posY: 0, posZ: 0,
-    scale: 1.0
+    scale: 1.0,
+    bloomStrength: 0.65, bloomRadius: 0.85, bloomThreshold: 0.6,
+    wireOpacity: 0.7, haloOpacity: 0.55, floorOpacity: 1.0
   };
   if (EDIT) {
     // OrbitControls — fully unrestricted (any angle, any zoom)
@@ -331,6 +333,14 @@ window.JaguarScene = function(canvas) {
         group('Model scale',
           row('Scl', 'scale', 0.2, 4, 0.05)
         ) +
+        group('Neon glow',
+          row('Bloom', 'bloomStrength', 0, 3, 0.05),
+          row('Radius', 'bloomRadius', 0, 2, 0.05),
+          row('Thresh', 'bloomThreshold', 0, 1, 0.02),
+          row('Wire α', 'wireOpacity', 0, 1, 0.02),
+          row('Halo α', 'haloOpacity', 0, 1, 0.02),
+          row('Floor α', 'floorOpacity', 0, 2, 0.05)
+        ) +
         '<div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap">' +
           '<button id="jag-copy" style="background:#FF6B4A;color:#FFF9EC;border:0;padding:7px 10px;border-radius:6px;cursor:pointer;font:600 10px ui-monospace;letter-spacing:.1em;text-transform:uppercase">Copy snippet</button>' +
           '<button id="jag-reset" style="background:#254957;color:#FFF9EC;border:0;padding:7px 10px;border-radius:6px;cursor:pointer;font:600 10px ui-monospace;letter-spacing:.1em;text-transform:uppercase">Reset</button>' +
@@ -356,6 +366,22 @@ window.JaguarScene = function(canvas) {
           modelGroup.scale.setScalar(modelGroup.userData._origScale * tune.scale);
         }
       }
+      // GLOW
+      if (typeof glowRefs !== 'undefined' && glowRefs.bloom) {
+        glowRefs.bloom.strength = tune.bloomStrength;
+        glowRefs.bloom.radius = tune.bloomRadius;
+        glowRefs.bloom.threshold = tune.bloomThreshold;
+      }
+      if (typeof glowRefs !== 'undefined' && glowRefs.registries) {
+        glowRefs.registries.wires.forEach(function(m, i){
+          var slot = i % 3;
+          if (slot === 0)      m.material.opacity = tune.wireOpacity;
+          else if (slot === 1) m.material.opacity = tune.wireOpacity * 0.4;
+          else                 m.material.opacity = tune.haloOpacity;
+        });
+      }
+      if (typeof glowRefs !== 'undefined' && glowRefs.neonFloor) glowRefs.neonFloor.material.opacity = tune.floorOpacity;
+      if (typeof glowRefs !== 'undefined' && glowRefs.neonCore)  glowRefs.neonCore.material.opacity = tune.floorOpacity;
     }
     function bindAll() {
       const inputs = dbg.querySelectorAll('[data-tune], [data-tune-num]');
@@ -380,7 +406,7 @@ window.JaguarScene = function(canvas) {
       setTimeout(() => { b.textContent = t; }, 1200);
     });
     document.getElementById('jag-reset').addEventListener('click', () => {
-      Object.assign(tune, { camX:2.80, camY:7.25, camZ:3.00, tgtX:-0.70, tgtY:1.20, tgtZ:-0.70, fov:36, rotX:0.850, rotY:0.690, rotZ:-0.310, posX:0, posY:0, posZ:0, scale:1.0 });
+      Object.assign(tune, { camX:2.80, camY:7.25, camZ:3.00, tgtX:-0.70, tgtY:1.20, tgtZ:-0.70, fov:36, rotX:0.850, rotY:0.690, rotZ:-0.310, posX:0, posY:0, posZ:0, scale:1.0, bloomStrength:0.65, bloomRadius:0.85, bloomThreshold:0.6, wireOpacity:0.7, haloOpacity:0.55, floorOpacity:1.0 });
       dbg.querySelectorAll('[data-tune], [data-tune-num]').forEach(el => {
         const k = el.dataset.tune || el.dataset.tuneNum;
         el.value = tune[k];
@@ -569,8 +595,8 @@ window.JaguarScene = function(canvas) {
 };
 
 </script>
-  <script type="text/babel" src="components.jsx?v=1777247774"></script>
-  <script type="text/babel" src="sections.jsx?v=1777247774"></script>
+  <script type="text/babel" src="components.jsx?v=1777247985"></script>
+  <script type="text/babel" src="sections.jsx?v=1777247985"></script>
 
   <script type="text/babel">
     function App() {
