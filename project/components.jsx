@@ -476,17 +476,25 @@ function HeroEditorial() {
                 All dispatches →
               </a>
             </div>
-            {/* Jaguar canvas — lives INSIDE this same dark panel so the news items
-                and the mascot read as one integrated piece. The coral neon glow
-                from the cat naturally illuminates the panel from within. */}
+            {/* Jaguar canvas — lives INSIDE the same dark panel. We give the
+                wrapper a gradient that matches the panel's bottom-right area so
+                even if the WebGL render isn't fully alpha-clean, the canvas
+                blends seamlessly with the rest of the panel. Soft rounded
+                corners so the canvas doesn't read as a separate "square". */}
             <div className="hero-fauna" style={{
-              position: 'relative', zIndex: 1, marginTop: 28,
-              width: '100%', aspectRatio: '1 / 1', minHeight: 320,
-              pointerEvents: 'none'
+              position: 'relative', zIndex: 1, marginTop: 22,
+              width: '100%', aspectRatio: '5 / 4', minHeight: 240,
+              pointerEvents: 'none',
+              borderRadius: 12,
+              overflow: 'hidden',
+              background: 'linear-gradient(135deg, #0B2733 0%, #15293a 50%, #1a2f3a 100%)'
             }}>
-              <canvas ref={jaguarRef} style={{ width: '100%', height: '100%', display: 'block' }}/>
+              <canvas ref={jaguarRef} style={{
+                width: '100%', height: '100%', display: 'block',
+                borderRadius: 12
+              }}/>
               <div style={{
-                position: 'absolute', bottom: 6, right: 8,
+                position: 'absolute', bottom: 6, right: 10,
                 fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.22em',
                 textTransform: 'uppercase', fontWeight: 700,
                 color: 'var(--cream)', display: 'flex', gap: 10, alignItems: 'baseline',
