@@ -349,3 +349,18 @@ section { position: relative; }
 .cursor-explore {
   cursor: pointer;
 }
+
+
+/* All Dispatches CTA — pill styling with hover lift */
+.all-dispatches-cta:hover {
+  background: rgba(255, 107, 74, 0.92) !important;
+  border-color: rgba(255, 107, 74, 0.92) !important;
+  color: var(--paper) !important;
+  box-shadow: 0 0 32px rgba(255, 107, 74, 0.55), 0 6px 18px -6px rgba(255, 107, 74, 0.4) !important;
+  transform: translateY(-1px);
+}
+.all-dispatches-cta:hover span:last-child {
+  color: var(--paper) !important;
+  transform: translateX(2px);
+  transition: transform 0.2s ease;
+}

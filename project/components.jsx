@@ -479,14 +479,22 @@ function HeroEditorial() {
                   </div>
                 </a>
               ))}
-              <a href="news/index.html" style={{
-                display: 'inline-block', marginTop: 18, fontSize: 11,
-                fontFamily: 'var(--font-mono)', letterSpacing: '0.12em', textTransform: 'uppercase',
+              <a href="news/index.html" className="all-dispatches-cta" style={{
+                display: 'inline-flex', alignItems: 'center', gap: 10,
+                marginTop: 22, fontSize: 11,
+                fontFamily: 'var(--font-mono)', letterSpacing: '0.16em', textTransform: 'uppercase',
                 color: 'var(--cream)', textDecoration: 'none', fontWeight: 700,
-                borderBottom: '1px solid rgba(255,249,236,0.6)', paddingBottom: 3,
-                textShadow: '0 0 10px rgba(11,31,40,0.7)'
+                padding: '11px 18px',
+                background: 'rgba(11, 31, 40, 0.78)',
+                backdropFilter: 'blur(8px)',
+                WebkitBackdropFilter: 'blur(8px)',
+                border: '1px solid rgba(255, 107, 74, 0.55)',
+                borderRadius: 999,
+                boxShadow: '0 0 24px rgba(255, 107, 74, 0.18), inset 0 0 0 1px rgba(255,249,236,0.04)',
+                transition: 'all 0.25s ease'
               }}>
-                All dispatches →
+                <span>All dispatches</span>
+                <span style={{ color: 'var(--coral)', fontWeight: 800 }}>→</span>
               </a>
             </div>
 
