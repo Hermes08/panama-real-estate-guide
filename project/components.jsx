@@ -262,7 +262,7 @@ function HeroEditorial() {
     if (featuredPool.length < 2) return;
     const id = setInterval(() => {
       setFeaturedIdx(i => (i + 1) % featuredPool.length);
-    }, 4500);
+    }, 5500);
     return () => clearInterval(id);
   }, [featuredPool.length]);
   const featured = featuredPool[featuredIdx] || window.PANAMA_DATA.projects[0];
