@@ -208,11 +208,29 @@ function Regions() {
   );
 }
 
-/* ── Journal (articles) — magazine editorial layout ── */
+/* ── Journal (articles) — TOP 5 curated · ad-ready · rest in articles/index.html ── */
 function Journal() {
   const articles = window.PANAMA_DATA.articles;
-  const featured = articles.filter(a => a.featured);
-  const rest = articles.filter(a => !a.featured);
+  // Curated top 5 — these are the ad-targeted "money pages"
+  // Filter by homepage_rank, sort ascending, take 5
+  const top = articles
+    .filter(a => typeof a.homepage_rank === 'number')
+    .sort((a, b) => a.homepage_rank - b.homepage_rank)
+    .slice(0, 5);
+  // Fallback to "featured" if homepage_rank not yet set on any article
+  const showcase = top.length === 5 ? top : articles.filter(a => a.featured).slice(0, 5);
+  const hero = showcase[0];
+  const others = showcase.slice(1);
+
+  // UTM helper for ad tracking — appends if absent
+  const utmFor = (a, slot) => {
+    const params = new URLSearchParams();
+    params.set('utm_source', 'home');
+    params.set('utm_medium', 'organic');
+    params.set('utm_campaign', a.utm_campaign || 'journal');
+    params.set('utm_content', `home-${slot}`);
+    return `articles/${a.id}.html?${params.toString()}`;
+  };
 
   return (
     <section id="journal" style={{ padding: 'clamp(72px, 10vw, 140px) 0', background: 'var(--cream)' }}>
@@ -220,96 +238,119 @@ function Journal() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 56, flexWrap: 'wrap', gap: 20 }}>
           <div className="reveal" style={{ maxWidth: 720 }}>
             <div className="eyebrow" style={{ marginBottom: 16 }}>
-              <span className="rule-coral"></span>The Journal · Issue 04 · April 2026
+              <span className="rule-coral"></span>Editor's picks · {articles.length} articles in the journal
             </div>
             <h2 className="display" style={{ fontSize: 'clamp(36px, 6vw, 84px)', margin: 0, lineHeight: 1.02, paddingBottom: '0.12em' }}>
-              Reporting, <em>from the ground.</em>
+              The five we'd <em>start with.</em>
             </h2>
             <p className="lede" style={{ marginTop: 32 }}>
-              Market reports, residency guides, neighborhood deep-dives and news from the
-              ground in Panama. Written by our team, not syndicated. Updated weekly.
+              Most-read, most-cited, most-actionable. Hand-picked for buyers who want
+              the data first and the prose second. The rest of the journal — over {articles.length}
+              long-form pieces — lives one click away.
             </p>
           </div>
-          <a href="articles/index.html" className="pill-link reveal d1">All articles <Icon name="arrowS" size={12}/></a>
+          <a href="articles/index.html" className="pill-link reveal d1">Browse all {articles.length} <Icon name="arrowS" size={12}/></a>
         </div>
 
-        {/* Featured — split magazine */}
-        <div className="featured-grid" style={{
-          display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 32, marginBottom: 72
-        }}>
-          {featured.map((a, i) => (
-            <a key={a.id} className="reveal" href={`articles/${a.id}.html`} style={{ transitionDelay: `${i * 0.1}s`, cursor: 'pointer', textDecoration: 'none', color: 'inherit', display: 'block' }}>
-              <div className={`ph ph-${a.cover}`} data-label="EDITORIAL" style={{
-                position: 'relative', aspectRatio: i === 0 ? '16/11' : '4/3', borderRadius: 14, overflow: 'hidden', marginBottom: 20
-              }}>
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.4) 100%)' }}/>
-                <div style={{
-                  position: 'absolute', top: 18, left: 18, background: 'var(--coral)', color: 'var(--paper)',
-                  padding: '5px 11px', borderRadius: 999, fontSize: 10, fontFamily: 'var(--font-mono)',
-                  letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700
-                }}>
-                  {a.category}
-                </div>
+        {/* Hero pick — full-width */}
+        {hero && (
+          <a className="reveal" href={utmFor(hero, 'hero')}
+             data-article-rank={hero.homepage_rank}
+             data-utm-campaign={hero.utm_campaign || 'journal'}
+             style={{
+               display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 40, marginBottom: 56,
+               textDecoration: 'none', color: 'inherit', alignItems: 'center'
+             }}>
+            <div className={`ph ph-${hero.cover}`} data-label="EDITOR'S PICK" style={{
+              position: 'relative', aspectRatio: '4/3', borderRadius: 16, overflow: 'hidden'
+            }}>
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.5) 100%)' }}/>
+              <div style={{
+                position: 'absolute', top: 18, left: 18, background: 'var(--coral)', color: 'var(--paper)',
+                padding: '5px 11px', borderRadius: 999, fontSize: 10, fontFamily: 'var(--font-mono)',
+                letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700
+              }}>{hero.category}</div>
+              <div style={{
+                position: 'absolute', top: 18, right: 18, background: 'var(--ink)', color: 'var(--cream)',
+                padding: '5px 11px', borderRadius: 999, fontSize: 10, fontFamily: 'var(--font-mono)',
+                letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700
+              }}>#1 · Most read</div>
+            </div>
+            <div>
+              <div style={{ fontSize: 12, fontFamily: 'var(--font-mono)', color: 'var(--ink-mute)', letterSpacing: '0.12em', marginBottom: 14 }}>
+                {hero.date} · {hero.read} · by {hero.author}
               </div>
-              <div style={{ fontSize: 12, fontFamily: 'var(--font-mono)', color: 'var(--ink-mute)', letterSpacing: '0.12em', marginBottom: 10 }}>
-                {a.date} · {a.read} · by {a.author}
-              </div>
-              <h3 className="display" style={{
-                fontSize: i === 0 ? 'clamp(28px, 3.4vw, 46px)' : 'clamp(24px, 2.4vw, 34px)',
-                margin: '0 0 14px', lineHeight: 1.05
-              }}>
-                {a.title}
+              <h3 className="display" style={{ fontSize: 'clamp(32px, 4vw, 56px)', margin: '0 0 18px', lineHeight: 1.04 }}>
+                {hero.title}
               </h3>
-              <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.65, margin: 0, maxWidth: '52ch' }}>
-                {a.excerpt}
+              <p style={{ color: 'var(--ink-soft)', fontSize: 17, lineHeight: 1.6, margin: 0, maxWidth: '50ch' }}>
+                {hero.excerpt}
               </p>
               <div style={{
-                display: 'inline-flex', alignItems: 'center', gap: 8, marginTop: 18,
+                display: 'inline-flex', alignItems: 'center', gap: 8, marginTop: 24,
                 fontSize: 12, fontFamily: 'var(--font-mono)', letterSpacing: '0.14em',
-                textTransform: 'uppercase', color: 'var(--coral-deep)', fontWeight: 600
+                textTransform: 'uppercase', color: 'var(--coral-deep)', fontWeight: 700
               }}>
-                Read the article <Icon name="arrow" size={13}/>
+                Read the editor's pick <Icon name="arrow" size={13}/>
               </div>
-            </a>
-          ))}
-        </div>
+            </div>
+          </a>
+        )}
 
-        {/* Rest — editorial list */}
-        <div className="article-list" style={{
+        {/* Other 4 picks — 4-up grid */}
+        <div className="picks-grid" style={{
           display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24,
           borderTop: '1px solid var(--line)', paddingTop: 48
         }}>
-          {rest.map((a, i) => (
-            <a key={a.id} className="reveal" href={`articles/${a.id}.html`} style={{ transitionDelay: `${i * 0.06}s`, cursor: 'pointer', textDecoration: 'none', color: 'inherit', display: 'block' }}>
+          {others.map((a, i) => (
+            <a key={a.id} className="reveal" href={utmFor(a, `pick-${i+2}`)}
+               data-article-rank={a.homepage_rank}
+               data-utm-campaign={a.utm_campaign || 'journal'}
+               style={{ transitionDelay: `${i * 0.06}s`, cursor: 'pointer', textDecoration: 'none', color: 'inherit', display: 'block' }}>
               <div className={`ph ph-${a.cover}`} data-label="" style={{
-                aspectRatio: '4/3', borderRadius: 10, overflow: 'hidden', marginBottom: 16
-              }}/>
+                position: 'relative', aspectRatio: '4/3', borderRadius: 12, overflow: 'hidden', marginBottom: 16
+              }}>
+                <div style={{
+                  position: 'absolute', top: 12, left: 12, background: 'var(--paper)', color: 'var(--ink)',
+                  padding: '4px 9px', borderRadius: 999, fontSize: 10, fontFamily: 'var(--font-mono)',
+                  letterSpacing: '0.16em', fontWeight: 700
+                }}>#{i + 2}</div>
+              </div>
               <div style={{
                 fontSize: 10.5, fontFamily: 'var(--font-mono)', color: 'var(--coral-deep)',
                 letterSpacing: '0.16em', textTransform: 'uppercase', marginBottom: 10, fontWeight: 700
-              }}>
-                {a.category}
-              </div>
+              }}>{a.category}</div>
               <h4 className="display" style={{
                 fontSize: 'clamp(18px, 1.4vw, 22px)', margin: '0 0 10px', lineHeight: 1.2
-              }}>
-                {a.title}
-              </h4>
+              }}>{a.title}</h4>
+              <p style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.5, margin: '0 0 12px' }}>
+                {a.excerpt.length > 110 ? a.excerpt.slice(0, 110) + '…' : a.excerpt}
+              </p>
               <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--ink-mute)', letterSpacing: '0.1em' }}>
                 {a.date} · {a.read}
               </div>
             </a>
           ))}
         </div>
+
+        {/* Browse-all CTA strip */}
+        <div className="reveal" style={{ marginTop: 56, paddingTop: 32, borderTop: '1px solid var(--line)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
+          <div style={{ fontSize: 14, color: 'var(--ink-soft)', fontFamily: 'var(--font-display)', fontStyle: 'italic' }}>
+            {articles.length - showcase.length}+ more long-form pieces in the journal — search by neighborhood, residency route, or country comparison.
+          </div>
+          <a href="articles/index.html" className="btn btn-coral" style={{ padding: '11px 20px', fontSize: 11 }}>
+            Browse the full journal <Icon name="arrow" size={13}/>
+          </a>
+        </div>
       </div>
 
       <style>{`
         @media (max-width: 900px) {
-          .featured-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
-          .article-list { grid-template-columns: 1fr 1fr !important; gap: 28px !important; }
+          #journal a[href*="utm_content=home-hero"] { grid-template-columns: 1fr !important; }
+          .picks-grid { grid-template-columns: 1fr 1fr !important; gap: 28px !important; }
         }
         @media (max-width: 560px) {
-          .article-list { grid-template-columns: 1fr !important; }
+          .picks-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>
