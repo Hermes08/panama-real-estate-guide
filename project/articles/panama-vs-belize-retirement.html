@@ -17,9 +17,9 @@
 <body>
   <div id="root"></div>
 
-  <script src="../data.js"></script>
-  <script type="text/babel" src="../components.jsx"></script>
-  <script type="text/babel" src="../detail-chrome.jsx"></script>
+  <script src="../data.js?v=1777312030"></script>
+  <script type="text/babel" src="../components.jsx?v=1777312030"></script>
+  <script type="text/babel" src="../detail-chrome.jsx?v=1777312030"></script>
 
   <script type="text/babel">
     const ARTICLE_ID = window.location.pathname.split('/').pop().replace('.html', '');
@@ -117,24 +117,87 @@
                     </h2>
                   );
                 }
+                if (typeof block === 'object' && block.chart) {
+                  return (
+                    <figure key={i} className="reveal" style={{ margin: '48px auto', maxWidth: 720 }}>
+                      <img src={`../assets/charts/${block.chart}`}
+                           alt={block.alt || ''}
+                           loading="lazy"
+                           style={{
+                             width: '100%', height: 'auto',
+                             borderRadius: 12,
+                             background: 'var(--paper)',
+                             border: '1px solid var(--line)',
+                             display: 'block'
+                           }}/>
+                      {block.caption && (
+                        <figcaption style={{
+                          fontFamily: 'var(--font-mono)', fontSize: 11.5,
+                          color: 'var(--ink-soft)', textAlign: 'center',
+                          marginTop: 14, letterSpacing: '0.1em',
+                          textTransform: 'uppercase', lineHeight: 1.6
+                        }}>
+                          {block.caption}
+                        </figcaption>
+                      )}
+                    </figure>
+                  );
+                }
+                if (typeof block === 'object' && block.quote) {
+                  return (
+                    <blockquote key={i} className="reveal" style={{
+                      margin: '32px 0', padding: '20px 28px', borderLeft: '3px solid var(--coral)',
+                      background: 'rgba(232, 110, 79, 0.06)', borderRadius: '0 8px 8px 0',
+                      fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 400,
+                      fontSize: 'clamp(17px, 1.6vw, 19px)', lineHeight: 1.65, color: 'var(--ink)'
+                    }}>{block.quote}</blockquote>
+                  );
+                }
+                if (typeof block === 'object' && block.table) {
+                  // Render markdown table — split rows by \n, cells by |
+                  const rows = block.table.split('\n').filter(r => r.trim() && !/^\s*\|?\s*-+/.test(r));
+                  const parsed = rows.map(r => r.replace(/^\||\|$/g, '').split('|').map(c => c.trim()));
+                  if (parsed.length < 2) return null;
+                  const [head, ...rest] = parsed;
+                  return (
+                    <div key={i} className="reveal" style={{ margin: '32px 0', overflowX: 'auto' }}>
+                      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14, fontFamily: 'var(--font-sans)' }}>
+                        <thead><tr>{head.map((h, j) => (
+                          <th key={j} style={{ background: 'var(--sand)', padding: '10px 12px', textAlign: 'left',
+                            fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.1em',
+                            textTransform: 'uppercase', color: 'var(--coral-deep)', borderBottom: '2px solid var(--line)'
+                          }}>{h}</th>
+                        ))}</tr></thead>
+                        <tbody>{rest.map((row, r) => (
+                          <tr key={r}>{row.map((c, j) => (
+                            <td key={j} style={{ padding: '10px 12px', borderBottom: '1px solid var(--line)',
+                              color: 'var(--ink)', verticalAlign: 'top', lineHeight: 1.5
+                            }}>{c}</td>
+                          ))}</tr>
+                        ))}</tbody>
+                      </table>
+                    </div>
+                  );
+                }
                 // first paragraph gets drop-cap
                 const isFirst = i === 0;
+                const text = typeof block === 'string' ? block : '';
                 return (
                   <p key={i} className="reveal" style={{
                     fontSize: 18, lineHeight: 1.8, color: 'var(--ink)',
                     margin: '0 0 24px', textWrap: 'pretty'
                   }}>
-                    {isFirst ? (
+                    {isFirst && text ? (
                       <>
                         <span style={{
                           float: 'left', fontFamily: 'var(--font-display)', fontSize: 68, lineHeight: 0.9,
                           marginRight: 10, marginTop: 6, color: 'var(--coral)', fontWeight: 500
                         }}>
-                          {block[0]}
+                          {text[0]}
                         </span>
-                        {block.slice(1)}
+                        {text.slice(1)}
                       </>
-                    ) : block}
+                    ) : text}
                   </p>
                 );
               })}

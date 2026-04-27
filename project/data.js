@@ -1814,6 +1814,7 @@ window.PANAMA_DATA = {
     'boquete-real-estate-investment-guide-2026': [
       "Expats are moving **$280 million annually into Boquete real estate**—a **340% increase from 2016**—because properties here appreciate **6-8% yearly while renting at 5-8% cap rates**. By the end of this guide, you'll know exactly why Valle Escondido is the top tier of Boquete's property zones, how to avoid the titled-vs.-ROP trap, and whether a $300k mountain home beats a $600k beach condo for long-term wealth.",
       { h: "Market Snapshot 2026: Why Boquete Wins" },
+      { chart: 'boquete-real-estate-investment-guide-2026-chart-1.svg', caption: 'Boquete · Median price per m² · 2018 → 2026', alt: 'Time-series line chart of Boquete real estate prices climbing from $1,150/m² in 2018 to $2,100/m² in 2026, with a +38% YoY callout at 2024 versus a flatter Panama City average.' },
       "Boquete is Panama's highest-appreciation real estate market outside the city center. At **1,200 meters elevation**, it offers what no other region delivers: temperate climate, expat infrastructure, and property appreciation that outpaces inflation.",
       "**The data:** - Average property price: **$4,200/m²** (vs. $7,000 in Panama City, $6,500 in Coronado) - YoY appreciation: **6.8%** (vs. 3% coast, 4% city) - Price per property: **$200k-$500k** (sweet spot for investors) - Foreign buyer share: **85%** (highest in Panama) - Occupancy rate (short-term rentals): **65-72%** (steady year-round)",
       "**Why?** Three factors align perfectly:",
@@ -2387,6 +2388,7 @@ window.PANAMA_DATA = {
     'condos-for-sale-panama-buyers-guide': [
       "Panama's condo market delivered **7.2% year-over-year appreciation in 2025**, with average prices climbing from $3,200/m² to $3,420/m² in prime neighborhoods. If you're evaluating a **$250k to $750k purchase** in Central America, this guide walks you through exactly what Panama's condo market offers today—from entry-level studios in Paitilla to high-yield oceanfront units in Costa del Este—and the legal, financial, and tax mechanics you need to close a deal by Q2 2026.",
       { h: "Market Snapshot 2026" },
+      { chart: 'condos-for-sale-panama-buyers-guide-chart-1.svg', caption: 'Where Panama prices the most · price per m² by zone · 2026', alt: 'Heatmap of Panama showing 7 zones color-coded by price per square meter: Panama City highest at $3,200/m², Boquete $2,100/m², Coronado $1,850/m², down to Volcán $1,150/m².' },
       "Panama's residential condo market remains the most liquid real estate vertical in Central America. Data from major brokers shows:",
       "- **Average price per square meter**: $3,420/m² in Punta Pacifica, Costa del Este (as of April 2026) - **Mid-market range**: $2,100–$2,800/m² in El Cangrejo, San Francisco, Casco Viejo - **Entry-level range**: $1,600–$2,200/m² in Avenida Balboa, Marbella - **Year-over-year growth**: 7.2% (2024–2025) - **Rental yields**: 5–7% gross annual on resale units; 6–8% on new builds with rental guarantees",
       "Foreigners account for **68% of condo purchases** by unit volume, yet less than 40% of total spend, meaning most international buyers gravitate toward mid-market developments ($300k–$500k) rather than ultra-luxury penthouses. The market favors **move-in-ready resales** (5–12 years old) and **pre-construction units** with 2–3 year completion timelines—both command price premiums over older inventory.",
@@ -2994,6 +2996,7 @@ window.PANAMA_DATA = {
     'panama-real-estate-investment-lifestyle-2026': [
       "Here's what most real estate investors don't realize about Panama: while US commercial real estate yields 4–6%, Panama's best-positioned properties are delivering **6–12% combined returns** (appreciation plus rental income) without the tenant headaches of residential apartments. We'll show you exactly which neighborhoods, property types, and visa pathways maximize your return and lifestyle while keeping your capital protected.",
       { h: "Market Snapshot 2026: Panama Real Estate Fundamentals" },
+      { chart: 'panama-real-estate-investment-lifestyle-2026-chart-1.svg', caption: 'Rental yield · gross to net · 12-month rolling · Panama City 2026', alt: 'Donut chart showing how an 8.5% gross rental yield in Panama City breaks down to a 5.2% net yield after 2.1% maintenance, 0.7% property tax, and 0.5% vacancy.' },
       "Panama's real estate market in 2026 reflects a matured but still-undervalued sector compared to Miami, Costa Rica, or Belize. Here's what the data shows:",
       "**Price Range by Zone (2026 market rates):** - **Panama City (metro, investment-grade):** $3,500–$6,500/m² - **Beachfront (Coronado, Pedasi):** $3,200–$4,800/m² - **Mountain communities (Boquete):** $2,200–$3,500/m² - **Emerging inland (Casco Viejo renovation projects):** $4,000–$7,000/m² - **Rural investment land (development-ready):** $800–$2,000/m² (hold-and-develop thesis)",
       "**Annual Price Appreciation:** **5–8% YoY** for stabilized properties; emerging areas (Casco Viejo, select beach towns) trending toward **8–12%** as infrastructure improves.",
@@ -4839,6 +4842,7 @@ window.PANAMA_DATA = {
     'panama-cost-of-living-2026': [
       "A couple living in Panama City can budget **$2,200–$3,500 monthly** for a comfortable lifestyle—30-50% cheaper than equivalent US cities. But the gap between realistic costs and what travel blogs advertise is where most first-time movers get blindsided. This breakdown gives you exact 2026 prices from Q1, real neighborhood rent ranges, and the hidden monthly costs nobody mentions until month four.",
       { h: "Real Prices Q1 2026 with USD Figures" },
+      { chart: 'panama-cost-of-living-2026-chart-1.svg', caption: 'Monthly cost of living, 2026 — Panama City vs Miami', alt: 'Bar chart comparing 6 monthly expense categories: Panama City costs $1,840 versus Miami $4,200 — 56% lower across rent, groceries, utilities, healthcare, transit, and dining.' },
       "Panama's cost structure shifted in 2026. The dollar-based economy means no inflation surprises, but new service fees and utility rate adjustments changed what locals actually pay. Here's what you'll spend in Panama City proper (Casco Viejo, El Cangrejo, San Francisco) versus the suburbs (Coronado, Boquete, David).",
       { h: "Rent by Neighborhood and Type" },
       "**Panama City (Central Districts)** - Studio apartment, unfurnished: **$600–$900** - 1-bedroom, unfurnished: **$900–$1,400** - 2-bedroom, unfurnished: **$1,200–$1,800** - 3-bedroom, unfurnished: **$1,600–$2,500**",
@@ -4999,6 +5003,7 @@ window.PANAMA_DATA = {
     'real-cost-of-moving-to-panama': [
       "Expats relocating to Panama often underestimate the true financial picture. The headline visa fee is $250, but that's just the beginning. Real 2026 data shows first-year costs ranging from **$12,000 to $28,000** depending on whether you ship household goods, need healthcare coverage, and which Panama City neighborhood you choose. This guide breaks down every expense category so you can budget accurately before the move.",
       { h: "Real Prices in Q1 2026" },
+      { chart: 'real-cost-of-moving-to-panama-chart-1.svg', caption: 'Real first-year cost of moving to Panama · 2026 · family of two', alt: 'Waterfall chart breaking down a $24,800 first-year expat cost into shipping, visa, rental deposit, furniture, vehicle, and buffer — with a dotted reference line at the often-quoted $16,000.' },
       "Panama's cost structure has shifted since 2024. Shipping costs remain stable, but residential deposits and healthcare insurance have increased. Here's what relocation actually costs right now:",
       "**International Shipping:** - Full-container household goods (1-bedroom): $3,200–$4,800 - Partial-container or airfreight: $2,100–$3,500 - Customs processing and delivery inside Panama City: $400–$800 - **Total door-to-door**: $4,500–$7,500",
       "**Residential Setup:** - Security deposit (1 month rent): $800–$2,000 in Casco Viejo; $1,200–$3,500 in Punta Pacifica - First month's rent: same as deposit - Furniture, kitchen basics, bedding (if not shipped): $2,000–$4,000 - Internet and utilities setup: $150–$300",
@@ -5831,6 +5836,7 @@ window.PANAMA_DATA = {
     'panama-vs-costa-rica-retirement': [
       "Panama vs Costa Rica Retirement 2026: Which is Better? Comparison",
       { h: 'About this article' },
+      { chart: 'panama-vs-costa-rica-retirement-chart-1.svg', caption: 'Panama vs Costa Rica · 6-metric retirement comparison · 2026', alt: 'Side-by-side card comparing Panama and Costa Rica across visa cost, rent, healthcare, capital gains tax, cost of living index, and English proficiency.' },
       "Written for: Pre-retirees and retirees, ages 55-70, with $2k-$5k/mo retirement income.",
       "This piece targets the search query \"panama vs costa rica retirement\".",
       { h: 'In the full article' },

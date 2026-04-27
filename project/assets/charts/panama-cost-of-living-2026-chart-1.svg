@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="chart-bar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" role="img" aria-labelledby="bar-title bar-desc">
+      <title id="bar-title">Monthly cost of living comparison: Panama City vs Miami, 2026</title>
+      <desc id="bar-desc">Bar chart showing 8 expense categories. Panama City costs $1,840 monthly, 56% lower than Miami at $4,200.</desc>
+      <rect width="720" height="480" fill="#FFFDF5"/>
+      <!-- Headline -->
+      <text x="48" y="74" font-family="Fraunces, Georgia, serif" font-size="48" font-weight="500" fill="#0B2733" letter-spacing="-1">$1,840</text>
+      <text x="48" y="100" font-family="Manrope, sans-serif" font-size="13" font-weight="500" fill="#3A4F58">Monthly cost of living, Panama City vs Miami · 2026</text>
+      <!-- Tag -->
+      <text x="48" y="34" font-family="JetBrains Mono, monospace" font-size="10" fill="#C2452A" letter-spacing="1.6">PANAMA CITY · 56% LOWER</text>
+
+      <!-- Bars: 8 categories, two bars each (Panama coral, Miami ink) -->
+      <g font-family="Manrope, sans-serif" font-size="12" fill="#3A4F58">
+        <!-- Rent 1BR center -->
+        <text x="48" y="148">Rent · 1BR center</text>
+        <rect x="200" y="138" width="140" height="14" fill="#E86E4F" rx="3"/>
+        <text x="346" y="148" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$1,100</text>
+        <rect x="200" y="156" width="356" height="14" fill="#0B2733" rx="3"/>
+        <text x="562" y="166" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$2,800</text>
+
+        <!-- Groceries -->
+        <text x="48" y="196">Groceries · monthly</text>
+        <rect x="200" y="186" width="78" height="14" fill="#E86E4F" rx="3"/>
+        <text x="284" y="196" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$320</text>
+        <rect x="200" y="204" width="156" height="14" fill="#0B2733" rx="3"/>
+        <text x="362" y="214" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$640</text>
+
+        <!-- Utilities -->
+        <text x="48" y="244">Utilities · 85m²</text>
+        <rect x="200" y="234" width="36" height="14" fill="#E86E4F" rx="3"/>
+        <text x="242" y="244" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$110</text>
+        <rect x="200" y="252" width="78" height="14" fill="#0B2733" rx="3"/>
+        <text x="284" y="262" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$240</text>
+
+        <!-- Healthcare -->
+        <text x="48" y="292">Healthcare · individual</text>
+        <rect x="200" y="282" width="48" height="14" fill="#E86E4F" rx="3"/>
+        <text x="254" y="292" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$140</text>
+        <rect x="200" y="300" width="186" height="14" fill="#0B2733" rx="3"/>
+        <text x="392" y="310" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$540</text>
+
+        <!-- Transit -->
+        <text x="48" y="340">Transit · monthly</text>
+        <rect x="200" y="330" width="20" height="14" fill="#E86E4F" rx="3"/>
+        <text x="226" y="340" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$60</text>
+        <rect x="200" y="348" width="46" height="14" fill="#0B2733" rx="3"/>
+        <text x="252" y="358" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$132</text>
+
+        <!-- Dining -->
+        <text x="48" y="388">Dining · couple, 12×</text>
+        <rect x="200" y="378" width="84" height="14" fill="#E86E4F" rx="3"/>
+        <text x="290" y="388" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$210</text>
+        <rect x="200" y="396" width="200" height="14" fill="#0B2733" rx="3"/>
+        <text x="406" y="406" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$498</text>
+      </g>
+
+      <!-- Legend -->
+      <g font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.4">
+        <rect x="48" y="436" width="10" height="10" fill="#E86E4F"/>
+        <text x="64" y="445" fill="#0B2733">PANAMA CITY</text>
+        <rect x="170" y="436" width="10" height="10" fill="#0B2733"/>
+        <text x="186" y="445" fill="#0B2733">MIAMI, FL</text>
+      </g>
+      <text x="672" y="445" font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" text-anchor="end" letter-spacing="1">Source · VIP Expats / Numbeo · Apr 2026</text>
+    </svg>
