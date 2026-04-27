@@ -17,9 +17,9 @@
 <body>
   <div id="root"></div>
 
-  <script src="../data.js?v=1777293993"></script>
-  <script type="text/babel" src="../components.jsx?v=1777293993"></script>
-  <script type="text/babel" src="../detail-chrome.jsx?v=1777293993"></script>
+  <script src="../data.js?v=1777312030"></script>
+  <script type="text/babel" src="../components.jsx?v=1777312030"></script>
+  <script type="text/babel" src="../detail-chrome.jsx?v=1777312030"></script>
 
   <script type="text/babel">
     const ARTICLE_ID = window.location.pathname.split('/').pop().replace('.html', '');
@@ -115,6 +115,32 @@
                     }}>
                       {block.h}
                     </h2>
+                  );
+                }
+                if (typeof block === 'object' && block.chart) {
+                  return (
+                    <figure key={i} className="reveal" style={{ margin: '48px auto', maxWidth: 720 }}>
+                      <img src={`../assets/charts/${block.chart}`}
+                           alt={block.alt || ''}
+                           loading="lazy"
+                           style={{
+                             width: '100%', height: 'auto',
+                             borderRadius: 12,
+                             background: 'var(--paper)',
+                             border: '1px solid var(--line)',
+                             display: 'block'
+                           }}/>
+                      {block.caption && (
+                        <figcaption style={{
+                          fontFamily: 'var(--font-mono)', fontSize: 11.5,
+                          color: 'var(--ink-soft)', textAlign: 'center',
+                          marginTop: 14, letterSpacing: '0.1em',
+                          textTransform: 'uppercase', lineHeight: 1.6
+                        }}>
+                          {block.caption}
+                        </figcaption>
+                      )}
+                    </figure>
                   );
                 }
                 if (typeof block === 'object' && block.quote) {
