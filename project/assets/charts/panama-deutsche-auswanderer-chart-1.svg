@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" role="img" aria-labelledby="t d">
+  <title id="t">Panama Steuerbelastung Deutsche Auswanderer</title>
+  <desc id="d">Donut chart der Steuerbelastung deutscher Auswanderer in Panama: 92% behaltenes Einkommen versus 51% in Deutschland.</desc>
+  <rect width="720" height="480" fill="#FFFDF5"/>
+  <text x="48" y="42" font-family="JetBrains Mono, monospace" font-size="10" fill="#C2452A" letter-spacing="1.6">DEUTSCHE EXPATS · STEUERN</text>
+  <text x="48" y="80" font-family="Fraunces, Georgia, serif" font-size="32" font-weight="500" fill="#0B2733" letter-spacing="-0.5">Bis zu <tspan font-style="italic" font-weight="300" fill="#6F8089">45%</tspan> sparen.</text>
+  <g transform="translate(240,280)">
+    <circle r="120" fill="none" stroke="#F3E4C1" stroke-width="42"/>
+    <circle r="120" fill="none" stroke="#E86E4F" stroke-width="42" stroke-dasharray="694 754" stroke-dashoffset="0" transform="rotate(-90)"/>
+<circle r="120" fill="none" stroke="#0B2733" stroke-width="42" stroke-dasharray="30 754" stroke-dashoffset="-694" transform="rotate(-90)"/>
+<circle r="120" fill="none" stroke="#1F4E45" stroke-width="42" stroke-dasharray="15 754" stroke-dashoffset="-724" transform="rotate(-90)"/>
+<circle r="120" fill="none" stroke="#3A4F58" stroke-width="42" stroke-dasharray="15 754" stroke-dashoffset="-739" transform="rotate(-90)"/>
+
+    <text y="-4" font-family="Fraunces, Georgia, serif" font-size="56" font-weight="500" fill="#0B2733" text-anchor="middle" letter-spacing="-1.5">92%</text>
+    <text y="22" font-family="Manrope, sans-serif" font-size="13" font-weight="500" fill="#3A4F58" text-anchor="middle">behalten</text>
+    <text y="42" font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" text-anchor="middle" letter-spacing="1">VS. 51% IN DEUTSCHLAND</text>
+  </g>
+  <g transform="translate(440, 180)" font-family="Manrope, sans-serif">
+        <rect x="0" y="0" width="14" height="14" fill="#E86E4F" rx="2"/>
+        <text x="24" y="11" font-size="14" font-weight="600" fill="#0B2733">Behaltenes Einkommen</text>
+        <text x="240" y="11" font-family="JetBrains Mono, monospace" font-size="13" font-weight="500" fill="#0B2733" text-anchor="end">92%</text>
+        <text x="24" y="28" font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" letter-spacing="0.8">92% · #E86E4F</text>
+        <rect x="0" y="56" width="14" height="14" fill="#0B2733" rx="2"/>
+        <text x="24" y="67" font-size="14" font-weight="600" fill="#0B2733">Panama Steuer</text>
+        <text x="240" y="67" font-family="JetBrains Mono, monospace" font-size="13" font-weight="500" fill="#0B2733" text-anchor="end">4%</text>
+        <text x="24" y="84" font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" letter-spacing="0.8">4% · #0B2733</text>
+        <rect x="0" y="112" width="14" height="14" fill="#1F4E45" rx="2"/>
+        <text x="24" y="123" font-size="14" font-weight="600" fill="#0B2733">Beratung/Compliance</text>
+        <text x="240" y="123" font-family="JetBrains Mono, monospace" font-size="13" font-weight="500" fill="#0B2733" text-anchor="end">2%</text>
+        <text x="24" y="140" font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" letter-spacing="0.8">2% · #1F4E45</text>
+        <rect x="0" y="168" width="14" height="14" fill="#3A4F58" rx="2"/>
+        <text x="24" y="179" font-size="14" font-weight="600" fill="#0B2733">Sonstige Abgaben</text>
+        <text x="240" y="179" font-family="JetBrains Mono, monospace" font-size="13" font-weight="500" fill="#0B2733" text-anchor="end">2%</text>
+        <text x="24" y="196" font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" letter-spacing="0.8">2% · #3A4F58</text></g>
+  <text x="48" y="450" font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" letter-spacing="1">Quelle · DGI / Bundeszentralamt für Steuern · Apr 2026</text>
+</svg>

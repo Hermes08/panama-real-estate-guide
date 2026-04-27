@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" role="img" aria-labelledby="t d">
+  <title id="t">Panama monthly rainfall by region</title>
+  <desc id="d">Time-series line of monthly rainfall in Panama City versus Bocas del Toro, showing the May to November wet season pattern.</desc>
+  <rect width="720" height="400" fill="#FFFDF5"/>
+  <text x="48" y="38" font-family="JetBrains Mono, monospace" font-size="10" fill="#C2452A" letter-spacing="1.6">RAINFALL · MM/MO · PANAMA CITY</text>
+  <text x="48" y="76" font-family="Fraunces, Georgia, serif" font-size="40" font-weight="500" fill="#0B2733" letter-spacing="-0.6">2,150 mm</text>
+  <text x="48" y="98" font-family="Manrope, sans-serif" font-size="13" fill="#3A4F58">Monthly rainfall · Panama City vs Bocas del Toro · 12-month avg</text>
+  <g font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" letter-spacing="1"><line x1="80" y1="160" x2="680" y2="160" stroke="#E8DECC"/>
+<text x="64" y="164" text-anchor="end">378 mm</text>
+<line x1="80" y1="220" x2="680" y2="220" stroke="#E8DECC"/>
+<text x="64" y="224" text-anchor="end">252 mm</text>
+<line x1="80" y1="280" x2="680" y2="280" stroke="#E8DECC"/>
+<text x="64" y="284" text-anchor="end">130 mm</text>
+<line x1="80" y1="340" x2="680" y2="340" stroke="#E8DECC"/>
+<text x="64" y="344" text-anchor="end">8 mm</text>
+</g>
+  <g font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" letter-spacing="1"><text x="80" y="362" text-anchor="middle">Jan</text>
+<text x="135" y="362" text-anchor="middle">Feb</text>
+<text x="189" y="362" text-anchor="middle">Mar</text>
+<text x="244" y="362" text-anchor="middle">Apr</text>
+<text x="298" y="362" text-anchor="middle">May</text>
+<text x="353" y="362" text-anchor="middle">Jun</text>
+<text x="407" y="362" text-anchor="middle">Jul</text>
+<text x="462" y="362" text-anchor="middle">Aug</text>
+<text x="516" y="362" text-anchor="middle">Sep</text>
+<text x="571" y="362" text-anchor="middle">Oct</text>
+<text x="625" y="362" text-anchor="middle">Nov</text>
+<text x="680" y="362" text-anchor="middle">Dec</text>
+</g>
+  <polyline points="80,232 135,256 189,266 244,247 298,198 353,183 407,193 462,178 516,193 571,178 625,169 680,203" fill="none" stroke="#0B2733" stroke-width="1.5" stroke-dasharray="3 4"/>
+  <polyline points="80,336 135,340 189,338 244,305 298,256 353,242 407,261 462,247 516,242 571,217 625,222 680,300" fill="none" stroke="#E86E4F" stroke-width="2.5" stroke-linejoin="round"/>
+  <g fill="#E86E4F"><circle cx="80" cy="336" r="3.5"/>
+<circle cx="135" cy="340" r="3.5"/>
+<circle cx="189" cy="338" r="3.5"/>
+<circle cx="244" cy="305" r="3.5"/>
+<circle cx="298" cy="256" r="3.5"/>
+<circle cx="353" cy="242" r="3.5"/>
+<circle cx="407" cy="261" r="3.5"/>
+<circle cx="462" cy="247" r="3.5"/>
+<circle cx="516" cy="242" r="3.5"/>
+<circle cx="571" cy="217" r="5" stroke="#FFFDF5" stroke-width="2"/>
+<circle cx="625" cy="222" r="3.5"/>
+<circle cx="680" cy="300" r="3.5"/>
+</g>
+  
+        <line x1="571" y1="207.34341252699784" x2="571" y2="159.34341252699784" stroke="#C2452A" stroke-width="1"/>
+        <rect x="511" y="137.34341252699784" width="120" height="22" fill="#C2452A" rx="2"/>
+        <text x="576" y="152.34341252699784" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500" fill="#FFF9EC" text-anchor="middle" letter-spacing="0.6">Wettest · 260mm</text>
+  <text x="688" y="300" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500" fill="#C2452A">90 mm</text>
+<text x="688" y="203" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">290 mm</text>
+  <g font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.4"><line x1="48" y1="386" x2="68" y2="386" stroke="#E86E4F" stroke-width="2.5"/><text x="74" y="389" fill="#0B2733">PANAMA CITY</text><line x1="160" y1="386" x2="180" y2="386" stroke="#0B2733" stroke-width="1.5" stroke-dasharray="3 4"/><text x="186" y="389" fill="#0B2733">BOCAS DEL TORO</text></g>
+  <text x="680" y="389" font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" text-anchor="end" letter-spacing="1">Source · ETESA / IMHPA · 2026 climatology</text>
+</svg>

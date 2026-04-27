@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" role="img" aria-labelledby="t d">
+  <title id="t">Panama expat 2-year outcome distribution</title>
+  <desc id="d">Donut chart of Panama expat 2-year outcomes: 58% settled, 22% transitioning, 12% struggling, 8% returned home.</desc>
+  <rect width="720" height="480" fill="#FFFDF5"/>
+  <text x="48" y="42" font-family="JetBrains Mono, monospace" font-size="10" fill="#C2452A" letter-spacing="1.6">EXPAT TRANSITION · 2-YR OUTCOMES</text>
+  <text x="48" y="80" font-family="Fraunces, Georgia, serif" font-size="32" font-weight="500" fill="#0B2733" letter-spacing="-0.5">Two years in. <tspan font-style="italic" font-weight="300" fill="#6F8089">How it</tspan> shakes out.</text>
+  <g transform="translate(240,280)">
+    <circle r="120" fill="none" stroke="#F3E4C1" stroke-width="42"/>
+    <circle r="120" fill="none" stroke="#E86E4F" stroke-width="42" stroke-dasharray="437 754" stroke-dashoffset="0" transform="rotate(-90)"/>
+<circle r="120" fill="none" stroke="#1F4E45" stroke-width="42" stroke-dasharray="166 754" stroke-dashoffset="-437" transform="rotate(-90)"/>
+<circle r="120" fill="none" stroke="#3A4F58" stroke-width="42" stroke-dasharray="90 754" stroke-dashoffset="-603" transform="rotate(-90)"/>
+<circle r="120" fill="none" stroke="#0B2733" stroke-width="42" stroke-dasharray="60 754" stroke-dashoffset="-694" transform="rotate(-90)"/>
+
+    <text y="-4" font-family="Fraunces, Georgia, serif" font-size="56" font-weight="500" fill="#0B2733" text-anchor="middle" letter-spacing="-1.5">58%</text>
+    <text y="22" font-family="Manrope, sans-serif" font-size="13" font-weight="500" fill="#3A4F58" text-anchor="middle">settled</text>
+    <text y="42" font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" text-anchor="middle" letter-spacing="1">AT 24-MO MARK</text>
+  </g>
+  <g transform="translate(440, 180)" font-family="Manrope, sans-serif">
+        <rect x="0" y="0" width="14" height="14" fill="#E86E4F" rx="2"/>
+        <text x="24" y="11" font-size="14" font-weight="600" fill="#0B2733">Settled &amp; happy</text>
+        <text x="240" y="11" font-family="JetBrains Mono, monospace" font-size="13" font-weight="500" fill="#0B2733" text-anchor="end">58%</text>
+        <text x="24" y="28" font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" letter-spacing="0.8">58% · #E86E4F</text>
+        <rect x="0" y="56" width="14" height="14" fill="#1F4E45" rx="2"/>
+        <text x="24" y="67" font-size="14" font-weight="600" fill="#0B2733">Transitioning ok</text>
+        <text x="240" y="67" font-family="JetBrains Mono, monospace" font-size="13" font-weight="500" fill="#0B2733" text-anchor="end">22%</text>
+        <text x="24" y="84" font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" letter-spacing="0.8">22% · #1F4E45</text>
+        <rect x="0" y="112" width="14" height="14" fill="#3A4F58" rx="2"/>
+        <text x="24" y="123" font-size="14" font-weight="600" fill="#0B2733">Struggling</text>
+        <text x="240" y="123" font-family="JetBrains Mono, monospace" font-size="13" font-weight="500" fill="#0B2733" text-anchor="end">12%</text>
+        <text x="24" y="140" font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" letter-spacing="0.8">12% · #3A4F58</text>
+        <rect x="0" y="168" width="14" height="14" fill="#0B2733" rx="2"/>
+        <text x="24" y="179" font-size="14" font-weight="600" fill="#0B2733">Returned home</text>
+        <text x="240" y="179" font-family="JetBrains Mono, monospace" font-size="13" font-weight="500" fill="#0B2733" text-anchor="end">8%</text>
+        <text x="24" y="196" font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" letter-spacing="0.8">8% · #0B2733</text></g>
+  <text x="48" y="450" font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" letter-spacing="1">Source · PRG expat 2-yr cohort survey · n=340 · 2026</text>
+</svg>
