@@ -230,7 +230,7 @@ function Journal() {
               ground in Panama. Written by our team, not syndicated. Updated weekly.
             </p>
           </div>
-          <a href="#all-articles" className="pill-link reveal d1">All articles <Icon name="arrowS" size={12}/></a>
+          <a href="articles/index.html" className="pill-link reveal d1">All articles <Icon name="arrowS" size={12}/></a>
         </div>
 
         {/* Featured — split magazine */}

@@ -134,7 +134,7 @@ function Navbar({ transparent }) {
         <nav className="nav-desktop" style={{ display: 'flex', gap: 28, fontSize: 13, fontWeight: 500 }}>
         {['Projects', 'Regions', 'Journal', 'News', 'Residency', 'About'].map(l => {
           const href = l === 'Projects' ? 'projects/palma-blanca.html'
-                     : l === 'Journal' ? 'articles/2026-outlook.html'
+                     : l === 'Journal' ? 'articles/index.html'
                      : l === 'News' ? 'news/index.html'
                      : `#${l.toLowerCase()}`;
           return <a key={l} href={href} style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>{l}</a>;
