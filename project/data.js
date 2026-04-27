@@ -433,7 +433,9 @@ window.PANAMA_DATA = {
       date: 'April 4, 2026',
       read: '13 min read',
       cover: 'ocean',
-      lang: 'en'
+      lang: 'en',
+      homepage_rank: 4,
+      utm_campaign: 'how-to-buy'
     },
     {
       id: 'panama-investment-opportunities',
@@ -499,7 +501,9 @@ window.PANAMA_DATA = {
       date: 'March 29, 2026',
       read: '20 min read',
       cover: 'ocean',
-      lang: 'en'
+      lang: 'en',
+      homepage_rank: 5,
+      utm_campaign: 'market-2026'
     },
     {
       id: 'panama-retirement-communities',
@@ -631,7 +635,9 @@ window.PANAMA_DATA = {
       date: 'March 17, 2026',
       read: '15 min read',
       cover: 'sunset',
-      lang: 'en'
+      lang: 'en',
+      homepage_rank: 1,
+      utm_campaign: 'cost-of-living-2026'
     },
     {
       id: 'real-cost-of-moving-to-panama',
@@ -983,7 +989,9 @@ window.PANAMA_DATA = {
       date: 'February 13, 2026',
       read: '6 min read',
       cover: 'palm',
-      lang: 'en'
+      lang: 'en',
+      homepage_rank: 2,
+      utm_campaign: 'retire-in-panama'
     },
     {
       id: 'safety-in-panama-2026-real-data-rumors',
@@ -1060,7 +1068,9 @@ window.PANAMA_DATA = {
       date: 'February 6, 2026',
       read: '6 min read',
       cover: 'palm',
-      lang: 'en'
+      lang: 'en',
+      homepage_rank: 3,
+      utm_campaign: 'panama-vs-cr'
     },
     {
       id: 'panama-vs-mexico-retirement',
