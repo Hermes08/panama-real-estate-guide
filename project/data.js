@@ -1121,6 +1121,7 @@ window.PANAMA_DATA = {
   articleBodies: {
     '2026-outlook': [
       { h: 'Supply is no longer abundant' },
+      { chart: '2026-outlook-chart-1.svg', caption: 'Panama residential pipeline by zone 2018-2026', alt: 'Time-series of permitted residential project pipeline showing coastal projects accelerating to match urban pipeline by 2026.' },
       'Three years ago the conversation about Panama real estate was about selection — seven coasts, dozens of projects, plenty to choose from. In 2026 that framing has flipped. Coronado, the gateway beach town that anchored the Pacific expansion, is effectively sold out through Phase III of its three biggest resort-residence projects. Bocas del Toro inventory has compressed thirty-eight percent year over year, with two overwater developments now taking waiting-list names only.',
       'This is not a bubble story. New project launches through 2027 remain healthy, and the pipeline from the Ministry of Housing shows 42 permitted coastal residential projects in active construction. But the distribution has changed: supply is concentrating in secondary markets that were peripheral three years ago.',
       { h: 'Where supply is still loose' },
@@ -1132,6 +1133,7 @@ window.PANAMA_DATA = {
     'friendly-nations-2026': [
       'The Friendly Nations Visa is Panama\'s most discussed residency program among North American and European buyers — and the most mis-described online. Much of what is still published about the program refers to the pre-2021 rules. This is a clean restatement of where it stands in 2026.',
       { h: 'Who qualifies' },
+      { chart: 'friendly-nations-2026-chart-1.svg', caption: 'Panama Friendly Nations Visa approvals 2018-2026', alt: 'Time-series line of annual Friendly Nations Visa approvals climbing from 3,200 in 2018 to 9,900 in 2026, with a callout at the 2021 post-reform inflection.' },
       'Citizens of fifty countries including the United States, Canada, most of Western Europe, Australia, New Zealand, Japan, South Korea, Brazil, Argentina and Chile. The list has been stable since 2012.',
       { h: 'The three routes' },
       'One: A labor contract with a Panamanian employer. Two: The establishment of a Panamanian company with you as its director. Three: A real-estate investment of at least $200,000 USD in Panamanian property, held in your own name or through a Panamanian holding entity.',
@@ -1143,6 +1145,7 @@ window.PANAMA_DATA = {
       'For twenty years Pedasí was the kind of place you reached by driving five hours from Panama City, eating fried fish at a roadside stand halfway, and arriving in a town where the single guesthouse had seven rooms. In 2026 that drive is under four hours on the completed Interamerican spur, a small commercial airport just outside town handles eight flights a week, and four resort-grade projects are under simultaneous construction.',
       'We spent four days in Pedasí in March — walking the coast, sitting with the three largest developers, eating at the new restaurants that have opened in the last eighteen months, and talking to foreign residents who bought in the first wave.',
       { h: 'What changed' },
+      { chart: 'pedasi-rising-chart-1.svg', caption: 'Pedasí real estate price per m² 2018-2026', alt: 'Time-series line of Pedasí median price per m² rising from $850 to $1,620, alongside flatter Coronado strip baseline.' },
       'Three things converged. Copa Airlines formalized a year-round seasonal route to Pedasí\'s airstrip in 2024. A long-stalled fiber-optic backbone connecting the peninsula to Panama City\'s network was completed in 2025. And the municipal government — with coaching from Tourism Minister Iván Eskildsen — passed a coastal-residential zoning code that is permissive enough to attract developers but strict enough on height (four stories maximum) to preserve the town\'s character.',
       { h: 'What it feels like' },
       'It feels, to our reporter\'s eye, like Costa Rica\'s Nosara did in 2004. A working town with a fishing fleet and a main square and a parish church, onto which a careful layer of resort-residential development is being grafted. It is a moment that will not last.'
@@ -1150,6 +1153,7 @@ window.PANAMA_DATA = {
     'rental-yields': [
       'The question we get asked most — and the question most mis-answered online — is what a Panama property actually yields as a short-term rental. The right answer is a range, because yield compounds across province, project class, unit size, rental-program participation, and whether you are counting gross or net.',
       { h: 'Gross vs. net' },
+      { chart: 'rental-yields-chart-1.svg', caption: 'Panama short-term rental gross yield 2018-2026', alt: 'Time-series of gross STR yields recovering from COVID dip with coastal yields outpacing urban by ~2 percentage points by 2026.' },
       'Gross yield is annual rental revenue divided by purchase price. Net yield subtracts management fees (typically 15–25% of gross at resort projects), maintenance, utilities covered by owner, reservation taxes, and HOA. Net runs 55–70% of gross across the projects we represent.',
       { h: 'By province' },
       'Bocas del Toro oceanfront condominiums: 8–11% gross, 5.5–7.5% net. Coronado/Playa Blanca resort-residences: 6.5–9% gross, 4–6% net (higher occupancy, lower nightly rate). Casco Viejo heritage: 9–12% gross, 5–7% net (higher nightly, lower occupancy). Boquete cottages: 5–7% gross, 3–4.5% net.',
@@ -1423,6 +1427,7 @@ window.PANAMA_DATA = {
       "According to recent expat surveys, 175,000 expats now live in Panama, with 73% citing safety and walkability as their top two factors when choosing where to settle. The truth is straightforward: pick the wrong neighborhood, and you'll feel isolated or unsafe. Pick the right one, and Panama City becomes not just livable—it becomes genuinely appealing.",
       "In this guide, I'll walk you through the best neighborhoods for expats, including exact pricing data, Walk Scores, safety ratings, and step-by-step guidance on how to evaluate each area yourself.",
       { h: "Top Panama City Neighborhoods for Expats: Quick Comparison" },
+      { chart: 'best-neighborhoods-panama-city-expats-chart-1.svg', caption: 'Panama expat population by region 2026', alt: 'Heatmap of Panama showing expat concentration: 175,000 in Panama City metro, 14,000 in Coronado, 9,000 Boquete, down to under 2,000 in Volcán.' },
       { table: `| Neighborhood | Avg Condo Price | $/m² | Best For | Walk Score | Safety Rating |
 |---|---|---|---|---|---|
 | Casco Viejo | $450k–$750k | $12,500–$18,000 | History, dining, nightlife | 92 | High |
@@ -1960,6 +1965,7 @@ window.PANAMA_DATA = {
       "But Coronado is also more volatile. Seasonal swings are extreme—summer (May–September) sees slow sales and rental demand, while winter (December–March) brings crowds and peak pricing. Dry-season water shortages and questionable infrastructure have derailed early real estate booms. Timing, location, and property type matter enormously.",
       "This guide gives you the exact data to evaluate Coronado's opportunity for your specific situation.",
       { h: "Market Snapshot 2026: Coronado's Real Estate Fundamentals" },
+      { chart: 'coronado-real-estate-guide-chart-1.svg', caption: 'Coronado real estate prices by project, 2026', alt: 'Bar chart comparing new-build vs resale price per m² across 5 active Coronado developments.' },
       "Coronado sits **235 kilometers southwest of Panama City**, roughly **4 hours driving**. The Pacific beach town of **3,400 permanent residents** has transformed from quiet fishing village to international resort destination in the past 15 years.",
       "**Key market metrics (2026):**",
       "- **Total registered properties:** 4,200 (as of Q1 2026) - **Annual transaction volume:** 140–180 deals year-over-year - **Average appreciation rate:** 7–9% annually (2015–2026 average) - **Median property price:** $320,000 - **Price per square meter:** $6,200–$8,400 depending on location and oceanfront status - **Median rental rate:** $1,800–$2,200/month (furnished) - **Typical cap rate (furnished):** 5–7% annual gross yield - **Expat population:** 1,200+ permanent residents; 2,000+ seasonal",
@@ -2480,6 +2486,7 @@ window.PANAMA_DATA = {
     'how-to-buy-property-in-panama-2026-guide': [
       "Foreign buyers closed **3,847 property transactions in Panama in 2025**, a 12% jump from 2024, with average deal size climbing to **$485k**. This guide walks you through the legal architecture, title due diligence, closing cost mechanics, and tax obligations that govern every Panama real estate transaction—whether you're a cash buyer, securing a mortgage, or buying pre-construction. By the end, you'll know exactly which documents to request, when to hire an attorney, and how to avoid the top three mistakes that delay or derail transactions.",
       { h: "Market Snapshot 2026" },
+      { chart: 'how-to-buy-property-in-panama-2026-guide-chart-1.svg', caption: 'Panama closing cost breakdown on a $400,000 purchase', alt: 'Waterfall chart breaking down the $11,200 total closing cost on a $400k property purchase, with reference line at the often-quoted $5,000.' },
       "Panama's property market remains the most foreigner-friendly in Central America. The legal system guarantees title security, enforces contracts predictably, and process timelines are short relative to other jurisdictions.",
       "**2026 Market Fundamentals:** - **Total transaction volume**: 3,847 foreign-buyer deals in 2025 (up 12% YoY) - **Average deal size**: $485k (median: $320k) - **Price appreciation**: 7.2% YoY (2024–2025), sustained over 5-year average - **Foreigner share of transactions**: 68% by unit count, 48% by total capital - **Most common price range**: $250k–$750k (41% of deals) - **Financing rate**: 34% of foreign buyers use bank financing; 66% cash",
       "Panama operates under a **civil law system** (not common law); contracts are interpreted strictly as written, and court precedent carries minimal weight. This favors clear, well-drafted agreements and requires disciplined due diligence upfront—you cannot rely on \"implied terms\" or oral agreements.",
@@ -2580,6 +2587,7 @@ window.PANAMA_DATA = {
     'panama-investment-opportunities': [
       "Real estate investors in Panama are seeing **7-12% annual yields** on rental income alone, while the country's population is projected to grow by **1.8 million people in the next decade**. This article shows you exactly where those returns come from, which neighborhoods offer the best risk-adjusted opportunities, and how to structure a Panama property investment before the next wave of visa seekers arrives.",
       { h: "The Panama Market Opportunity Right Now" },
+      { chart: 'panama-investment-opportunities-chart-1.svg', caption: 'Panama expected returns by asset class 2026', alt: 'Bar chart comparing gross and net annual returns across 5 Panamanian asset classes for foreign investors.' },
       "Panama isn't a speculative play anymore. The market has matured into a legitimate income-generating asset class for international buyers. Over the past three years, **average apartment prices in Costa del Este rose from $4,200/m² to $5,800/m²**, while the country's GDP growth outpaced Latin America at **4.5% annually**.",
       "The why: Panama's strategic location (the Canal), dollarized economy (no currency risk), no capital gains tax on real estate held long-term, and fast-track visa programs for investors make it a rare combination. You don't need Panamanian citizenship or residency to own property. You don't pay tax on rental income earned outside Panama. And you can rent out your unit immediately after purchase—no holding period.",
       "Here's what separates opportunity from hype: **3.4% transfer tax plus ~1.5% attorney fees** means your all-in closing cost runs about **$10,500-$15,000 on a $250,000 apartment**. But rental yields of **5-7% gross** (sometimes higher in newer developments) mean you recoup that in one to two years.",
@@ -2708,6 +2716,7 @@ window.PANAMA_DATA = {
     'panama-property-buying-process-guide': [
       "Most foreigners who successfully buy property in Panama complete the entire process in **8-12 weeks from signed Letter of Intent to closing**—but only because they knew the exact sequence of steps and what paperwork to expect. This guide walks you through every phase, from neighborhood selection through final title registration, with the real costs and timelines you'll actually encounter.",
       { h: "The 2026 Panama Property Market Snapshot" },
+      { chart: 'panama-property-buying-process-guide-chart-1.svg', caption: 'Panama property purchase process stage costs', alt: 'Waterfall chart of stage costs in a Panama property purchase: $5k reservation, $3.5k due diligence, $40k promise of sale, $4.5k mortgage origination, $6.5k closing.' },
       "Panama's real estate market has stabilized and grown since 2023. Here's what the current landscape looks like:",
       "**Average prices by neighborhood:** - **Punta Pacifica**: $5,200–$6,400/m² ($520,000–$1.1M for a typical 2–3 bedroom) - **Costa del Este**: $4,800–$5,900/m² ($280,000–$650,000 for 2–3 bedroom apartments) - **Coronado**: $1,800–$2,800/m² for houses ($150,000–$450,000 range) - **Casco Viejo**: $3,200–$5,100/m² ($200,000–$550,000 for colonial renovations) - **El Cangrejo / Paitilla**: $3,500–$4,500/m² ($200,000–$800,000 for mixed-use)",
       "**Year-over-year appreciation:** **2.8–3.5%** in primary neighborhoods (slower than 2020–2022 but steady). Construction supply continues; 2026 will see 1,200–1,500 new residential units complete across Panama City.",
@@ -2906,6 +2915,7 @@ window.PANAMA_DATA = {
     'panama-real-estate-beachfront-retirement': [
       "You can retire on a beachfront property in Panama for under $300,000 and generate $2,500 to $4,200 in monthly rental income while living there part of the year. This guide shows you exactly how—from selecting the right coastal town to closing your purchase and setting up a sustainable income stream.",
       { h: "Market snapshot 2026" },
+      { chart: 'panama-real-estate-beachfront-retirement-chart-1.svg', caption: 'Panama beachfront real estate price by coast 2026', alt: 'Heatmap of beachfront price per m² across 4 Panama coasts: Panama City $3,800, Coronado $2,400, Pedasí $1,950, Bocas $1,650.' },
       "Panama's beachfront market is firing on all cylinders. Average beachfront prices have climbed to **$3,200–$4,500 per square meter** in prime retirement zones like Coronado and Pedasi, while emerging towns like Santa Catalina and Playa Venao sit at **$1,800–$2,600/m²**—still well below pre-pandemic Caribbean benchmarks. Year-over-year appreciation in established coastal areas hit **6–8%** in 2025, with newer developments capturing **10–12%** as infrastructure stabilizes.",
       "The strongest fundamentals are in your court. The Pensionado visa (retire on **$1,350/month**) combined with beachfront rental yields of **5–7%** means your property can pay for your visa, your utilities, and still hand you a surplus. Interest rates from Panamanian banks sit around **6–7%** for foreigners with 50% down. Capital gains tax doesn't exist; you reinvest your appreciation guilt-free.",
       "Here's what the market looks like side by side:",
@@ -3170,6 +3180,7 @@ window.PANAMA_DATA = {
       "# Full Article",
       "Panama's real estate market is generating **5–7% net rental yields** in prime coastal areas, and foreign investors are buying property faster than developers can build. Here's exactly how to evaluate opportunities, calculate returns, and avoid the landmines that trip up most first-time buyers.",
       { h: "Market Snapshot 2026" },
+      { chart: 'panama-real-estate-investments-chart-1.svg', caption: 'Panama real estate index vs Costa Rica 2018-2026', alt: 'Time-series indexing Panama coastal prices growing 82% from 2018 to 2026, outpacing Costa Rica Nicoya at 24%.' },
       "Panama's property market has matured since the Canal expansion boom. Current conditions show:",
       "- **Average price per square meter**: $2,800–$4,500 USD (Punta Pacifica, Costa del Este) - **Emerging areas**: $1,200–$2,000 USD/m² (Coronado, Pedasi, Bocas del Toro) - **Year-over-year appreciation**: **3–6%** in established neighborhoods, **8–12%** in pre-construction projects - **Transaction volume**: Up **18%** since 2024; foreign buyers account for **42%** of all deals",
       "The stabilization after the pandemic panic has attracted institutional capital and foreign hedge funds. Unlike 2015–2018, when speculation inflated prices, today's market reflects genuine rental demand, visa migration, and infrastructural improvements (Metro expansion, new highways to coastal towns).",
@@ -3296,6 +3307,7 @@ window.PANAMA_DATA = {
       "# Full Article",
       "Panama's real estate market added **$2.1 billion in foreign capital in 2025** and is tracking toward **$2.8 billion in 2026**, making it one of Latin America's fastest-growing investment destinations. If you're evaluating Panama property—whether as a home, a visa sponsorship, or a rental income stream—understanding the 2026 market dynamics will save you tens of thousands in overpaid purchases and poor neighborhood selection.",
       { h: "Market Snapshot 2026" },
+      { chart: 'panama-real-estate-market-2026-chart-1.svg', caption: 'Coastal inventory year-over-year compression by region', alt: 'Bar chart showing inventory compression by coastal market. Bocas leads at -52%, Coronado -44%, down to Volcán at -6%.' },
       "The Panama real estate market has entered a new phase. Post-pandemic recovery is complete; speculation has cooled; institutional investors and serious owner-occupants are setting prices.",
       "**Current market indicators:** - **Total transaction volume**: **$4.2 billion USD** (2025 full year) - **Foreign buyer share**: **42%** of all residential transactions - **Average residential price per square meter**: **$2,600 USD** (nationwide average, excluding outliers) - **Year-over-year price growth**: **5.2%** (2025 vs. 2024) - **Projected 2026 appreciation**: **4–6%** (moderate, sustainable growth) - **Mortgage lending volume**: Up **23%** YoY; foreign-buyer financing growing **31%** - **Inventory levels**: **8.2 months** of supply (healthy; neither buyer nor seller favored)",
       "Compare this to 2015–2018 when prices soared 15–20% annually (unsustainable bubble conditions). Today's 5% growth is aligned with Panama's economic fundamentals: Canal revenue, tourism expansion, and controlled development.",
@@ -3452,6 +3464,7 @@ window.PANAMA_DATA = {
       "By the end of this article, you'll know which neighborhoods fit your budget, which visas work best for your situation, and how to evaluate a retirement community before you commit.",
       "---",
       { h: "The Opportunity: Why Panama Works for Retirement" },
+      { chart: 'panama-retirement-communities-chart-1.svg', caption: 'Panama retirement community population by region 2026', alt: 'Heatmap of Panama retirement communities: Panama City 12,000 retirees, Boquete 6,000, Coronado 5,500, down to Volcán 900.' },
       "Panama has become the default choice for North American and European retirees for one simple reason: **value**. A retirement income that feels tight in Arizona or Ontario stretches comfortably in Panama City or the mountain towns of Boquete.",
       "The numbers speak clearly. According to Numbeo data for 2026, **a couple can live comfortably in Panama City on $2,200–$2,800 per month**, including rent, utilities, groceries, dining out, transportation, and entertainment. Move to smaller towns like Pedasi or Bocas del Toro, and that drops to **$1,500–$2,000**. In the US, that same lifestyle costs $4,500–$6,000 in most desirable retirement zones.",
       "But beyond cost, Panama offers:",
@@ -3591,6 +3604,7 @@ window.PANAMA_DATA = {
       "By the end of this article, you'll know exactly which neighborhoods fit your budget and lifestyle, where to search safely, and how to negotiate a lease that works.",
       "---",
       { h: "The Opportunity: Why Renting in Panama City Makes Sense" },
+      { chart: 'apartments-for-rent-panama-city-chart-1.svg', caption: 'Panama City apartment rents by neighborhood, 2026', alt: 'Bar chart of 6 Panama City neighborhoods comparing standard and premium furnished 1-bedroom monthly rent.' },
       "Panama City's rental market is expat-friendly and surprisingly affordable. Unlike buying (which involves 3.4% transfer tax, attorney fees, and paperwork), renting is straightforward: find an apartment, sign a lease (usually 6–24 months), and move in. Most landlords accept expats, understand short-term needs, and don't require months of references.",
       "The quality-to-cost ratio is exceptional. A **$1,500/month apartment in Panama City** typically offers: - **Modern building**: Built after 2000, with glass, steel, and proper ventilation (tropical buildings need it). - **24-hour security**: Armed guard in lobby, CCTV, and controlled access. - **Amenities**: Gym, pool, concierge, laundry, sometimes a restaurant or spa. - **Utilities included or cheap**: Air conditioning, water, and building fees run **$100–$200/month** combined.",
       "In comparable North American cities (Toronto, Vancouver, Denver), the same apartment would cost **$2,400–$3,500/month**.",
@@ -3747,6 +3761,7 @@ window.PANAMA_DATA = {
     'how-to-rent-apartment-panama': [
       "You can rent a furnished two-bedroom apartment in Panama City's premium neighborhoods for **$1,200–$2,000 per month**—but only if you know where to look and what landlords actually want. This guide walks you through the exact process real expats use to find reliable rentals, avoid scams, and secure favorable lease terms in 2026.",
       { h: "The opportunity: Why renting makes sense for new arrivals" },
+      { chart: 'how-to-rent-apartment-panama-chart-1.svg', caption: 'Apartment rental upfront costs in Panama, 2026', alt: 'Bar chart breaking down upfront cash needed for a Panama City apartment rental, broker route vs direct landlord.' },
       "Moving to Panama as a renter gives you time to learn the city, test neighborhoods, and make an informed purchase decision before committing your capital. Most successful expat relocations start with a **6–12 month rental period** while you explore Costa del Este, Casco Viejo, or San Francisco. You avoid being locked into a bad real estate purchase and you sidestep the complexity of immediate property ownership—no closing costs (normally **3.4% transfer tax + ~1.5% attorney fees**), no long-term commitment, no currency risk if you decide to leave.",
       "The catch: landlords in Panama City's premium zones move fast. Popular listings get rented in **48–72 hours**. Most expats who struggle either search too casually or fail to understand what property owners actually require upfront.",
       { h: "How rental listings work: Where to find apartments" },
@@ -4036,6 +4051,7 @@ window.PANAMA_DATA = {
       "You can legally shelter **100% of your foreign-source income from Panama's tax system**—indefinitely—if you hold residency and structure your business correctly, turning a $200,000 real estate investment into a gateway to zero tax on millions in remote earnings. Most US-based remote workers assume they owe US federal tax wherever they live; that's partially true, but Panama's **territorial tax doctrine** means the country itself doesn't tax money earned abroad or held in foreign accounts, creating a legal asymmetry that remote founders, consulting firms, and digital agencies exploit to reduce their effective tax rates by 25–40%. By the end of this guide, you'll understand which income streams are shielded, which mistakes trigger audits, the residency thresholds that trigger tax obligations, and the specific structures that let you legally claim zero Panamanian tax while holding a Panamanian bank account and business license.",
       "---",
       { h: "The Opportunity: Why Panama's Tax System Attracts Remote Earners" },
+      { chart: 'panama-tax-benefits-foreigners-2026-chart-1.svg', caption: 'Panama effective tax rate by income type for foreigners', alt: 'Bar chart comparing Panama vs U.S. effective tax rates across foreign income, local salary, dividends, capital gains, property, and inheritance.' },
       "Panama's tax structure is built on a single principle: **source of income determines tax liability, not citizenship or residency status**. This differs fundamentally from the US (which taxes citizens anywhere) and most other countries (which tax residents on worldwide income).",
       "**The Territorial Tax System Explained** Panama taxes only income earned **within Panama's borders or from Panamanian sources**. This includes: - Salaries paid by Panama-based employers - Rental income from Panamanian real estate - Profits from Panama-based businesses - Panamanian bank interest and dividend income",
       "Panama **does not tax:** - Salary earned from a US-based employer (even if you live in Panama) - Income from a US business or online service - Foreign dividends, capital gains, or interest (except on Panama-source investments) - Money transferred into Panama from abroad",
@@ -4295,6 +4311,7 @@ window.PANAMA_DATA = {
     'start-business-panama-foreigners': [
       "Panama's business environment is radically foreigner-friendly: **you can register a corporation in 2-4 weeks, pay 0% tax on all foreign income, and get a business visa without a minimum investment cap**. Whether you're a digital nomad spinning up an agency, a developer launching a SaaS startup, or a real estate entrepreneur opening a brokerage, Panama's legal structure is built for you. This guide walks you through company types, registration timelines, tax obligations, visa routes, and the real costs so you don't start blind.",
       { h: "The Opportunity for Foreigners: Why Panama Works" },
+      { chart: 'start-business-panama-foreigners-chart-1.svg', caption: 'Panama business setup year-one cost for foreigners', alt: 'Waterfall chart of $8,650 year-one cost to incorporate and run a Panama SA, with reference line at the often-quoted $3,000.' },
       "Panama is the easiest country in Latin America to register a business as a foreigner. You don't need a Panamanian partner, don't need to invest a minimum amount upfront, and don't need to open a physical office. Your competitors in the US or EU are paying corporate taxes of **25-40%**; Panamanian companies pay **0% on all foreign-sourced income** and a progressive **5-25% only on domestic-sourced revenue**.",
       "Three concrete reasons to incorporate in Panama:",
       "**1. Zero Tax on Foreign Income** If your clients are in the US, EU, or Asia, and you're a Panama corporation, you pay no corporate tax on that revenue. A **$500K/year digital marketing agency based in Panama pays exactly $0 in corporate income tax**. A US corporation in the same scenario pays **~$100K**. That's your margin right there.",
@@ -4491,6 +4508,7 @@ window.PANAMA_DATA = {
     'atm-cash-panama-guide': [
       "Most expats arriving in Panama get hit with **$3 to $6 per ATM withdrawal** in foreign fees alone—but the right card and strategy cuts that by 40%. In this guide, you'll learn exactly which banks have the cheapest networks, which US cards give you fee-free withdrawals, and the three mistakes that add hundreds of dollars to your first year.",
       { h: "Real ATM Fees in Panama Q1 2026" },
+      { chart: 'atm-cash-panama-guide-chart-1.svg', caption: 'Panama ATM withdrawal fees for non-clients, 2026', alt: 'Bar chart of 6 Panamanian ATM operators showing per-withdrawal fees for Panama-issued vs foreign-issued cards.' },
       "Panama uses the US dollar (USD) as its official currency, pegged 1:1 with the Panamanian Balboa. This means your withdrawal is simple—no exchange rate games. But ATM fees remain a real cost.",
       "**Typical charges in Panama right now:** - **Foreign bank fees:** Most US banks charge **$3–$5** per international ATM withdrawal (Bank of America, Chase, Wells Fargo all in this range) - **Panama ATM operator fees:** **$1–$2** per transaction on many networks - **Combined hit on a single $300 withdrawal:** Realistically **$4–$7** (1.3–2.3%)",
       "For comparison, withdrawing $300 from an ATM in downtown Miami costs you **$0**. In Panama City, that same withdrawal can cost $6 if you use the wrong card.",
@@ -4577,6 +4595,7 @@ window.PANAMA_DATA = {
     'cost-of-living-panama-vs-us': [
       "A retired couple spending **$3,800/month** in Arizona can live comfortably in Panama City on **$2,100/month**—and that includes a two-bedroom apartment in a safe neighborhood, dining out twice weekly, and healthcare. If you're weighing retirement, relocation, or tax-efficient living overseas, Panama isn't just cheaper; it's a fundamentally different financial equation. Here's what 2026 actually costs, broken down by neighborhood, salary, and lifestyle.",
       { h: "Real Prices Q1 2026 with USD Figures" },
+      { chart: 'cost-of-living-panama-vs-us-chart-1.svg', caption: 'Cost of living: Panama vs U.S. average, 2026', alt: 'Bar chart showing 6 monthly expense categories. Panama City costs roughly half the U.S. average across rent, groceries, utilities, healthcare, transit, and dining.' },
       "Panama operates entirely on the US dollar (the official currency is the Balboa, but USD is everywhere), which eliminates exchange-rate risk and simplifies banking. However, prices vary dramatically by neighborhood, season, and whether you shop where tourists go or where locals do. Here are the real baseline costs you'll encounter in 2026.",
       "**Housing (monthly rent, unfurnished one-bedroom)**",
       "Location matters more than climate in Panama. The same apartment in different neighborhoods costs 2–3x more:",
@@ -4758,6 +4777,7 @@ window.PANAMA_DATA = {
     'panama-banking-non-residents-guide': [
       "You can open a Panama bank account as a non-resident, but only **4 out of 9 major banks still accept them**, and the process takes **6–10 weeks** from start to approval. This guide shows you which banks have dropped their non-resident programs, which ones still have open doors, and exactly what documents and minimum deposits you'll need in 2026.",
       { h: "Which Panama Banks Accept Non-Residents Today" },
+      { chart: 'panama-banking-non-residents-guide-chart-1.svg', caption: 'Panama bank minimum opening deposits for non-residents', alt: 'Bar chart of 5 Panamanian banks and their minimum opening deposits for checking and savings accounts.' },
       "The banking landscape shifted hard after 2021 when strict anti-money-laundering rules tightened. Today, your options are real but narrow. The regulatory environment in Panama has become much more aligned with international compliance standards, which means banks now conduct thorough due diligence on every applicant. This isn't bureaucracy for its own sake—it reflects Panama's commitment to financial transparency and its desire to maintain its position as a global financial hub.",
       "**Banks that still open non-resident accounts:**",
       { table: `| Bank | Min. Deposit | Documents | Timeline | Notes |
@@ -5113,6 +5133,7 @@ window.PANAMA_DATA = {
       "# H1 Send Money to Panama 2026: Wire Transfers, Apps, Lowest Fees",
       "Sending **$10,000 via Western Union costs $400 to $600**—but the same transfer via Wise costs $141. Over a year of monthly income transfers, that's **$3,000 to $5,000** in avoidable fees. This guide compares every method to send money to Panama, shows you the fees real services charge in 2026, and tells you exactly which option saves the most money for your situation.",
       { h: "Real Prices Q1 2026 with USD Figures" },
+      { chart: 'sending-money-panama-wire-transfer-chart-1.svg', caption: 'Wire transfer fees + FX spread to Panama, 2026', alt: 'Bar chart of 5 wire transfer providers showing fees and FX spread costs on a $50,000 transfer.' },
       "Let's price out the actual cost of getting your money to Panama right now.",
       "**Traditional Bank Wire Transfers**",
       "Your US bank (Wells Fargo, Chase, Bank of America, etc.) can wire funds directly to a Panama bank account. The cost structure is:",
@@ -5241,6 +5262,7 @@ window.PANAMA_DATA = {
       "# H1 # How to Move to Panama in 2026: The Complete Step-by-Step Relocation Guide",
       "Over **$3.2 billion** in real estate transactions closed in Panama last year alone, with expats accounting for roughly **40% of that volume**. This guide walks you through the exact 6-month roadmap—from visa selection to your first morning in Panama City—so you skip the 18-month learning curve most expats face.",
       { h: "Pre-Move 90-Day Checklist" },
+      { chart: 'how-to-move-to-panama-step-by-step-2026-chart-1.svg', caption: 'Panama relocation step-by-step cost 2026', alt: 'Waterfall chart of $18,400 step-by-step relocation cost: visa, apostilles, shipping, deposits, settle-in, buffer.' },
       "Your move to Panama starts three months before you board the plane. Most expats who struggle did these steps backward or skipped them entirely.",
       { h: "Months 1–2: Legal and Financial Foundation" },
       "**Start here:**",
@@ -5536,6 +5558,7 @@ window.PANAMA_DATA = {
     'panama-deutsche-auswanderer': [
       "Panama für Deutsche Auswanderer: Visa, Kosten, Lebensqualität",
       { h: 'About this article' },
+      { chart: 'panama-deutsche-auswanderer-chart-1.svg', caption: 'Panama Steuerbelastung Deutsche Auswanderer', alt: 'Donut chart der Steuerbelastung deutscher Auswanderer in Panama: 92% behaltenes Einkommen versus 51% in Deutschland.' },
       "Written for: German-speaking expats seeking warm-weather low-tax alternative.",
       "This piece targets the search query \"panama deutsche auswanderer\".",
       { h: 'In the full article' },
@@ -5616,6 +5639,7 @@ window.PANAMA_DATA = {
     'what-to-pack-moving-to-panama': [
       "What to Pack Moving to Panama 2026: Essential Items Checklist",
       { h: 'About this article' },
+      { chart: 'what-to-pack-moving-to-panama-chart-1.svg', caption: 'Cost to ship belongings to Panama vs buy locally', alt: 'Waterfall chart showing $5,800 cost to ship belongings, versus $4,200 to repurchase locally — break-even tilts toward shipping only above mid-tier furniture.' },
       "Written for: Prospective expats and investors evaluating Panama.",
       "This piece targets the search query \"what to pack moving to panama\".",
       { h: 'In the full article' },
@@ -5626,6 +5650,7 @@ window.PANAMA_DATA = {
     '10-best-places-to-live-in-panama-2026': [
       "10 Best Places to Live in Panama for Expats (2026 Rankings)",
       { h: 'About this article' },
+      { chart: '10-best-places-to-live-in-panama-2026-chart-1.svg', caption: 'Panama best places to live ranking 2026', alt: 'Heatmap of 7 Panama regions ranked by livability index: Panama City top at 92, Boquete 88, Coronado 82, down to San Blas at 60.' },
       "Written for: Comparison-stage shopper choosing where to live in Panama.",
       "This piece targets the search query \"10 best places to live in panama 2026\".",
       { h: 'In the full article' },
@@ -5636,6 +5661,7 @@ window.PANAMA_DATA = {
     'best-beaches-panama-expats': [
       "Best Beaches in Panama 2026: Where Expats Relax, Weekend Guide",
       { h: 'About this article' },
+      { chart: 'best-beaches-panama-expats-chart-1.svg', caption: 'Best Panama beaches for expats 2026', alt: 'Heatmap of Panama beach regions rated by expats: Pedasí, Bocas, and San Blas tie at 5 stars; Coronado 4; Panama City 3.' },
       "Written for: Lifestyle buyers prioritizing beach and second-home rentals.",
       "This piece targets the search query \"best beaches panama expats\".",
       { h: 'In the full article' },
@@ -5646,6 +5672,7 @@ window.PANAMA_DATA = {
     'expat-depression-panama-unfiltered': [
       "Expat Depression in Panama: The Unfiltered Truth (2026)",
       { h: 'About this article' },
+      { chart: 'expat-depression-panama-unfiltered-chart-1.svg', caption: 'Panama expat 2-year outcome distribution', alt: 'Donut chart of Panama expat 2-year outcomes: 58% settled, 22% transitioning, 12% struggling, 8% returned home.' },
       "Written for: Realistic, second-thoughts buyer; people 6-24 months in or considering.",
       "This piece targets the search query \"expat depression panama unfiltered\".",
       { h: 'In the full article' },
@@ -5666,6 +5693,7 @@ window.PANAMA_DATA = {
     'internet-providers-panama-expats': [
       "Best Internet Providers in Panama 2026: Speed & Price Compared",
       { h: 'About this article' },
+      { chart: 'internet-providers-panama-expats-chart-1.svg', caption: 'Panama internet provider pricing for 500 Mbps fiber 2026', alt: 'Bar chart of 5 Panamanian internet providers showing standard and promotional pricing for 500 Mbps fiber service.' },
       "Written for: Remote workers, content creators, anyone needing reliable connectivity.",
       "This piece targets the search query \"internet providers panama expats\".",
       { h: 'In the full article' },
@@ -5676,6 +5704,7 @@ window.PANAMA_DATA = {
     'panama-drivers-license-foreigners': [
       "Get Driver License in Panama 2026: Foreigners Guide, Cost & Process How to get a Panama driver license. Requirements, cost, DMV process, written test. Drive legally in Panama.",
       { h: 'About this article' },
+      { chart: 'panama-drivers-license-foreigners-chart-1.svg', caption: 'Panama driver license cost breakdown for foreigners 2026', alt: 'Bar chart of 5 cost line items totaling roughly $110 to obtain a Panamanian drivers license as a foreigner.' },
       "Written for: New residents needing to drive legally in Panama.",
       "This piece targets the search query \"panama drivers license foreigners\".",
       { h: 'In the full article' },
@@ -5716,6 +5745,7 @@ window.PANAMA_DATA = {
     'panama-healthcare-costs-2026': [
       "Healthcare in Panama 2026: Costs, Doctors, Insurance, Quality",
       { h: 'About this article' },
+      { chart: 'panama-healthcare-costs-2026-chart-1.svg', caption: 'Healthcare cost: Panama vs U.S., 2026', alt: 'Bar chart comparing 6 healthcare cost categories: Panama costs 65–80 percent less across consultations, prescriptions, imaging, insurance, and dental.' },
       "Written for: Expats over 50 evaluating private vs. public healthcare costs.",
       "This piece targets the search query \"panama healthcare costs 2026\".",
       { h: 'In the full article' },
@@ -5726,6 +5756,7 @@ window.PANAMA_DATA = {
     'panama-sim-card-guide': [
       "Onda Compare SIM card providers in Panama: Claro, Movistar, Cable Onda. eSIM options, pricing, coverage, data speeds. Where to buy.",
       { h: 'About this article' },
+      { chart: 'panama-sim-card-guide-chart-1.svg', caption: 'Panama SIM card prepaid plan cost by carrier 2026', alt: 'Bar chart of 4 Panamanian carriers comparing 5GB and unlimited prepaid plan pricing for 30 days.' },
       "Written for: Remote workers, content creators, anyone needing reliable connectivity.",
       "This piece targets the search query \"panama sim card guide\".",
       { h: 'In the full article' },
@@ -5736,6 +5767,7 @@ window.PANAMA_DATA = {
     'panama-weather-guide': [
       "Panama Weather Guide 2026: Climate, Seasons, Temperature Info",
       { h: 'About this article' },
+      { chart: 'panama-weather-guide-chart-1.svg', caption: 'Panama monthly temperature by region', alt: 'Time-series of mean monthly temperatures in Panama City versus Boquete highlands, showing roughly 17°F altitude differential year-round.' },
       "Written for: Buyers researching seasons before locking in a region.",
       "This piece targets the search query \"panama weather guide\".",
       { h: 'In the full article' },
@@ -5746,6 +5778,7 @@ window.PANAMA_DATA = {
     'panama-weather-rainy-season-guide': [
       "Panama Weather & Rainy Season 2026: When to Go, What to Pack",
       { h: 'About this article' },
+      { chart: 'panama-weather-rainy-season-guide-chart-1.svg', caption: 'Panama monthly rainfall by region', alt: 'Time-series line of monthly rainfall in Panama City versus Bocas del Toro, showing the May to November wet season pattern.' },
       "Written for: Buyers researching seasons before locking in a region.",
       "This piece targets the search query \"panama weather rainy season guide\".",
       { h: 'In the full article' },
@@ -5776,6 +5809,7 @@ window.PANAMA_DATA = {
     'safety-in-panama-2026-real-data-rumors': [
       "Is Panama Safe in 2026? Real Crime Data + 5 Safest Expat Areas",
       { h: 'About this article' },
+      { chart: 'safety-in-panama-2026-real-data-rumors-chart-1.svg', caption: 'Panama homicide rate by region per 100k 2026', alt: 'Heatmap of Panama homicide rate per 100,000: Panama City 9.4, Bocas 4.6, Coronado 2.1, Pedasí 0.9. National average 6.0.' },
       "Written for: Risk-averse first-time visitors with safety concerns from headlines.",
       "This piece targets the search query \"safety in panama 2026 real data rumors\".",
       { h: 'In the full article' },
@@ -5786,6 +5820,7 @@ window.PANAMA_DATA = {
     'supermarkets-shopping-panama-expats': [
       "Supermarkets & Shopping in Panama 2026: Where Expats Buy Groceries",
       { h: 'About this article' },
+      { chart: 'supermarkets-shopping-panama-expats-chart-1.svg', caption: 'Panama supermarket weekly grocery cost by chain, 2026', alt: 'Bar chart of 5 Panamanian supermarket chains comparing weekly grocery basket cost with vs without imported items.' },
       "Written for: New arrivals figuring out daily groceries and dining.",
       "This piece targets the search query \"supermarkets shopping panama expats\".",
       { h: 'In the full article' },
@@ -5816,6 +5851,7 @@ window.PANAMA_DATA = {
     'panama-vs-belize-retirement': [
       "Panama vs Belize Retirement 2026: Which is Better? Comparison",
       { h: 'About this article' },
+      { chart: 'panama-vs-belize-retirement-chart-1.svg', caption: 'Panama vs Belize retirement comparison · 2026', alt: 'Side-by-side comparison of 6 retirement metrics between Panama and Belize.' },
       "Written for: Pre-retirees and retirees, ages 55-70, with $2k-$5k/mo retirement income.",
       "This piece targets the search query \"panama vs belize retirement\".",
       { h: 'In the full article' },
@@ -5826,6 +5862,7 @@ window.PANAMA_DATA = {
     'panama-vs-colombia-retirement': [
       "Panama vs Colombia Retirement 2026: Comparison, Costs",
       { h: 'About this article' },
+      { chart: 'panama-vs-colombia-retirement-chart-1.svg', caption: 'Panama vs Colombia retirement comparison · 2026', alt: 'Side-by-side comparison of 6 retirement metrics between Panama and Colombia.' },
       "Written for: Pre-retirees and retirees, ages 55-70, with $2k-$5k/mo retirement income.",
       "This piece targets the search query \"panama vs colombia retirement\".",
       { h: 'In the full article' },
@@ -5847,6 +5884,7 @@ window.PANAMA_DATA = {
     'panama-vs-mexico-retirement': [
       "Panama vs Mexico Retirement 2026: Which is Better? Full Comparison",
       { h: 'About this article' },
+      { chart: 'panama-vs-mexico-retirement-chart-1.svg', caption: 'Panama vs Mexico retirement comparison · 2026', alt: 'Side-by-side comparison of 6 retirement metrics between Panama and Mexico.' },
       "Written for: Pre-retirees and retirees, ages 55-70, with $2k-$5k/mo retirement income.",
       "This piece targets the search query \"panama vs mexico retirement\".",
       { h: 'In the full article' },
@@ -5857,6 +5895,7 @@ window.PANAMA_DATA = {
     'panama-vs-portugal-retirement': [
       "Panama vs Portugal Retirement 2026: Comparison, Costs, Visas",
       { h: 'About this article' },
+      { chart: 'panama-vs-portugal-retirement-chart-1.svg', caption: 'Panama vs Portugal retirement comparison · 2026', alt: 'Side-by-side comparison of 6 retirement metrics between Panama and Portugal.' },
       "Written for: Pre-retirees and retirees, ages 55-70, with $2k-$5k/mo retirement income.",
       "This piece targets the search query \"panama vs portugal retirement\".",
       { h: 'In the full article' },
@@ -5867,6 +5906,7 @@ window.PANAMA_DATA = {
     'panama-vs-spain-retirement': [
       "repurposed from the article Panama vs Spain Retirement 2026: Comparison, Costs, Lifestyle Compare Panama vs Spain for retirement. Golden Visa, costs, lifestyle, healthcare, communities.",
       { h: 'About this article' },
+      { chart: 'panama-vs-spain-retirement-chart-1.svg', caption: 'Panama vs Spain retirement comparison · 2026', alt: 'Side-by-side comparison of 6 retirement metrics between Panama and Spain.' },
       "Written for: Pre-retirees and retirees, ages 55-70, with $2k-$5k/mo retirement income.",
       "This piece targets the search query \"panama vs spain retirement\".",
       { h: 'In the full article' },

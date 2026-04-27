@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-labelledby="t d">
+  <title id="t">Panama vs Portugal retirement comparison · 2026</title>
+  <desc id="d">Side-by-side comparison of 6 retirement metrics between Panama and Portugal.</desc>
+  <rect width="720" height="720" fill="#FFFDF5"/>
+  <text x="48" y="48" font-family="JetBrains Mono, monospace" font-size="10" fill="#C2452A" letter-spacing="1.6">RETIREMENT COMPARISON · 2026</text>
+  <text x="48" y="84" font-family="Fraunces, Georgia, serif" font-size="34" font-weight="500" fill="#0B2733" letter-spacing="-0.5">Panama <tspan font-style="italic" font-weight="300" fill="#6F8089">vs.</tspan> Portugal</text>
+  <g font-family="Fraunces, Georgia, serif">
+    <text x="200" y="160" font-size="22" font-weight="500" fill="#0B2733" text-anchor="middle">Panama</text>
+    <text x="200" y="182" font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" text-anchor="middle" letter-spacing="1.4">PA · 4.4M POP</text>
+    <text x="520" y="160" font-size="22" font-weight="500" fill="#0B2733" text-anchor="middle">Portugal</text>
+    <text x="520" y="182" font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" text-anchor="middle" letter-spacing="1.4">PT · 10.3M POP</text>
+  </g>
+  <line x1="360" y1="200" x2="360" y2="640" stroke="#0B2733" stroke-width="1"/>
+  <g font-family="Manrope, sans-serif">
+        <text x="360" y="232" font-size="11" font-weight="600" fill="#3A4F58" text-anchor="middle" letter-spacing="0.5">VISA COST</text>
+        <text x="200" y="262" font-family="Fraunces, serif" font-size="28" font-weight="500" fill="#0B2733" text-anchor="middle">$5,000</text>
+        <text x="520" y="262" font-family="Fraunces, serif" font-size="28" font-weight="500" fill="#0B2733" text-anchor="middle">$8,500</text>
+        <rect x="167" y="244" width="6" height="22" fill="#E86E4F" rx="3"/>
+        <line x1="48" y1="284" x2="672" y2="284" stroke="#E8DECC"/>
+        <text x="360" y="306" font-size="11" font-weight="600" fill="#3A4F58" text-anchor="middle" letter-spacing="0.5">RENT · CAPITAL 1BR</text>
+        <text x="200" y="336" font-family="Fraunces, serif" font-size="28" font-weight="500" fill="#0B2733" text-anchor="middle">$1,100</text>
+        <text x="520" y="336" font-family="Fraunces, serif" font-size="28" font-weight="500" fill="#0B2733" text-anchor="middle">$1,400</text>
+        <rect x="167" y="318" width="6" height="22" fill="#E86E4F" rx="3"/>
+        <line x1="48" y1="358" x2="672" y2="358" stroke="#E8DECC"/>
+        <text x="360" y="380" font-size="11" font-weight="600" fill="#3A4F58" text-anchor="middle" letter-spacing="0.5">HEALTHCARE · MO.</text>
+        <text x="200" y="410" font-family="Fraunces, serif" font-size="28" font-weight="500" fill="#0B2733" text-anchor="middle">$140</text>
+        <text x="520" y="410" font-family="Fraunces, serif" font-size="28" font-weight="500" fill="#0B2733" text-anchor="middle">$80</text>
+        <rect x="487" y="392" width="6" height="22" fill="#E86E4F" rx="3"/>
+        <line x1="48" y1="432" x2="672" y2="432" stroke="#E8DECC"/>
+        <text x="360" y="454" font-size="11" font-weight="600" fill="#3A4F58" text-anchor="middle" letter-spacing="0.5">CAP GAINS TAX</text>
+        <text x="200" y="484" font-family="Fraunces, serif" font-size="28" font-weight="500" fill="#0B2733" text-anchor="middle">10%</text>
+        <text x="520" y="484" font-family="Fraunces, serif" font-size="28" font-weight="500" fill="#0B2733" text-anchor="middle">28%</text>
+        <rect x="167" y="466" width="6" height="22" fill="#E86E4F" rx="3"/>
+        <line x1="48" y1="506" x2="672" y2="506" stroke="#E8DECC"/>
+        <text x="360" y="528" font-size="11" font-weight="600" fill="#3A4F58" text-anchor="middle" letter-spacing="0.5">COST OF LIVING IDX</text>
+        <text x="200" y="558" font-family="Fraunces, serif" font-size="28" font-weight="500" fill="#0B2733" text-anchor="middle">42.6</text>
+        <text x="520" y="558" font-family="Fraunces, serif" font-size="28" font-weight="500" fill="#0B2733" text-anchor="middle">52.1</text>
+        <rect x="167" y="540" width="6" height="22" fill="#E86E4F" rx="3"/>
+        <line x1="48" y1="580" x2="672" y2="580" stroke="#E8DECC"/>
+        <text x="360" y="602" font-size="11" font-weight="600" fill="#3A4F58" text-anchor="middle" letter-spacing="0.5">TIME ZONE</text>
+        <text x="200" y="632" font-family="Fraunces, serif" font-size="28" font-weight="500" fill="#0B2733" text-anchor="middle">EST</text>
+        <text x="520" y="632" font-family="Fraunces, serif" font-size="28" font-weight="500" fill="#0B2733" text-anchor="middle">WET</text>
+        <rect x="167" y="614" width="6" height="22" fill="#E86E4F" rx="3"/>
+        <line x1="48" y1="654" x2="672" y2="654" stroke="#E8DECC"/></g>
+  <text x="48" y="688" font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" letter-spacing="1">Source · World Bank · Numbeo · EF EPI · Apr 2026</text>
+  <text x="672" y="688" font-family="JetBrains Mono, monospace" font-size="10" fill="#C2452A" text-anchor="end" letter-spacing="1.4">SEE FULL COMPARISON →</text>
+</svg>

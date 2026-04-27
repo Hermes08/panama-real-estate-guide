@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 450" role="img" aria-labelledby="t d">
+  <title id="t">Panama driver license cost breakdown for foreigners 2026</title>
+  <desc id="d">Bar chart of 5 cost line items totaling roughly $110 to obtain a Panamanian drivers license as a foreigner.</desc>
+  <rect width="720" height="450" fill="#FFFDF5"/>
+  <text x="48" y="34" font-family="JetBrains Mono, monospace" font-size="10" fill="#C2452A" letter-spacing="1.6">PANAMA LICENSE · TOTAL COST</text>
+  <text x="48" y="74" font-family="Fraunces, Georgia, serif" font-size="48" font-weight="500" fill="#0B2733" letter-spacing="-1">$80</text>
+  <text x="48" y="100" font-family="Manrope, sans-serif" font-size="13" font-weight="500" fill="#3A4F58">All-in cost to obtain Panamanian driver license as foreigner · 2026</text>
+  <g font-family="Manrope, sans-serif">
+        <text x="48" y="148" font-size="12" fill="#3A4F58">Apostilled home license</text>
+        <rect x="200" y="138" width="237" height="14" fill="#E86E4F" rx="3"/>
+        <text x="443" y="148" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$25</text>
+        <rect x="200" y="156" width="237" height="14" fill="#0B2733" rx="3"/>
+        <text x="443" y="166" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$25</text>
+        <text x="48" y="196" font-size="12" fill="#3A4F58">Translation</text>
+        <rect x="200" y="186" width="142" height="14" fill="#E86E4F" rx="3"/>
+        <text x="348" y="196" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$15</text>
+        <rect x="200" y="204" width="142" height="14" fill="#0B2733" rx="3"/>
+        <text x="348" y="214" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$15</text>
+        <text x="48" y="244" font-size="12" fill="#3A4F58">Vision exam</text>
+        <rect x="200" y="234" width="190" height="14" fill="#E86E4F" rx="3"/>
+        <text x="396" y="244" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$20</text>
+        <rect x="200" y="252" width="190" height="14" fill="#0B2733" rx="3"/>
+        <text x="396" y="262" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$20</text>
+        <text x="48" y="292" font-size="12" fill="#3A4F58">Blood type test</text>
+        <rect x="200" y="282" width="95" height="14" fill="#E86E4F" rx="3"/>
+        <text x="301" y="292" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$10</text>
+        <rect x="200" y="300" width="95" height="14" fill="#0B2733" rx="3"/>
+        <text x="301" y="310" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$10</text>
+        <text x="48" y="340" font-size="12" fill="#3A4F58">Issuance fee</text>
+        <rect x="200" y="330" width="380" height="14" fill="#E86E4F" rx="3"/>
+        <text x="586" y="340" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$40</text>
+        <rect x="200" y="348" width="380" height="14" fill="#0B2733" rx="3"/>
+        <text x="586" y="358" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B2733">$40</text>
+  </g>
+  <g font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.4">
+    <rect x="48" y="406" width="10" height="10" fill="#E86E4F"/>
+    <text x="64" y="415" fill="#0B2733">EXPRESS</text>
+    <rect x="180" y="406" width="10" height="10" fill="#0B2733"/>
+    <text x="196" y="415" fill="#0B2733">STANDARD</text>
+  </g>
+  <text x="672" y="415" font-family="JetBrains Mono, monospace" font-size="10" fill="#6F8089" text-anchor="end" letter-spacing="1">Source · ATTT · Apr 2026</text>
+</svg>
