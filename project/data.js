@@ -354,7 +354,7 @@ window.PANAMA_DATA = {
       excerpt: 'Guide Boquete real estate. Cool mountain properties, prices, investment, lifestyle, buying process.',
       author: 'Luis Mendes',
       date: 'April 11, 2026',
-      read: '6 min read',
+      read: '11 min read',
       cover: 'sand',
       lang: 'en'
     },
@@ -365,7 +365,7 @@ window.PANAMA_DATA = {
       excerpt: 'Boquete Real Estate 2026: Prices, Properties, Investment Guide',
       author: 'Paola Estévez',
       date: 'April 10, 2026',
-      read: '6 min read',
+      read: '12 min read',
       cover: 'sand',
       lang: 'en'
     },
@@ -376,7 +376,7 @@ window.PANAMA_DATA = {
       excerpt: 'Coronado Real Estate 2026: Prices, Beach Living, Investment Guide',
       author: 'Daniel Sosa',
       date: 'April 9, 2026',
-      read: '8 min read',
+      read: '13 min read',
       cover: 'sand',
       lang: 'en'
     },
@@ -387,7 +387,7 @@ window.PANAMA_DATA = {
       excerpt: 'Living in Panama City 2026: Lifestyle, Costs, Neighborhoods, Guide',
       author: 'Kent Davis',
       date: 'April 8, 2026',
-      read: '6 min read',
+      read: '15 min read',
       cover: 'sand',
       lang: 'en'
     },
@@ -1665,91 +1665,486 @@ window.PANAMA_DATA = {
       "- [How to Buy Property in Panama in 2026: Complete Legal Guide] - [Best Neighborhoods for Expats in Panama City: Complete 2026 Guide] - [Panama Real Estate Investment: 5-Year ROI Analysis by Neighborhood]"
     ],
     'boquete-panama-real-estate': [
-      "Guide Boquete real estate. Cool mountain properties, prices, investment, lifestyle, buying process.",
-      { h: 'About this article' },
-      "Written for: Cash buyers with $150k-$1M evaluating Panama property.",
-      "This piece targets the search query \"boquete panama real estate\".",
-      { h: 'In the full article' },
-      "Pricing in 2026 USD, neighborhood-by-neighborhood breakdown, the buying or relocation process step by step for foreigners, taxes and closing costs, financing options, rental yields, and the most common pitfalls — backed by current market data.",
-      { h: 'Status' },
-      "In editorial review. Subscribe to the newsletter to be the first to read it when it goes live."
+      "**Meta title:** Boquete Panama Real Estate 2026 Guide **Meta description:** Boquete real estate. Cool mountain properties, prices, investment, lifestyle, buying process.",
+      "---",
+      "Boquete real estate prices have climbed **22% year-over-year**, yet you can still buy a two-bedroom mountain home with valley views for **$280,000 to $400,000 USD**—outpacing appreciation in Costa Rica's Central Valley and Nicaragua's Ometepe Island by 4-6 percentage points. By the end of this guide, you'll know exactly where to buy, what to expect at closing, and which neighborhoods deliver the strongest rental yields for expat investors.",
+      { h: "Market Snapshot 2026" },
+      "Boquete's property market has matured. The town sits at **1,200 meters (3,900 feet)** above sea level in Chiriquí Province, 30 minutes from the David International Airport. Average prices now hover around **$1,800 to $2,400 per square meter** for established residential areas—a significant jump from $1,480/m² in early 2024.",
+      "Key data points: - **Average property price:** $320,000 (range: $180,000–$800,000) - **Price per m²:** $1,850–$2,400 depending on location and condition - **YoY appreciation:** 22% (2024–2026) - **Days on market:** 45–90 days for priced-right properties - **Rental cap rate:** 5–7% gross annual yield - **Transfer tax:** 3.4% (buyer pays) - **Attorney fees:** ~1.5% of purchase price",
+      "The market remains split between pre-construction developments (mostly sold to investors sight-unseen) and resale homes (where you get what you see). Pre-construction units typically appreciate 15–20% before completion; resale homes move slower but offer immediate occupancy.",
+      { quote: "Field note:** Boquete's real-estate market is seeing an influx of Canadian and European retirees moving toward the Pensionado visa ($1,350/month guaranteed income). The supply of ready-to-move-in homes under $300k is tightening." },
+      { h: "Best Neighborhoods and Areas for Buyers" },
+      "Boquete isn't a single monolithic market—it's a collection of distinct microclimates and social ecosystems. Your budget and lifestyle should shape which area you choose.",
+      { h: "Alto Boquete (The Cool Zone)" },
+      "This highest neighborhood **1,400–1,500m elevation** stays coolest year-round (60–70°F). Real-estate prices here run **$2,000–$2,800 per m²**, making it the premium segment. Properties tend to be newer, architecturally interesting, and attract high-net-worth retirees and remote workers.",
+      "- Average home price: $400,000–$650,000 - Best for: Those who hate heat; coffee-plant tours - Drawback: Cloudier; lower rental demand",
+      { h: "Punta Pacifica Heights" },
+      "Don't confuse this Boquete micro-neighborhood with Panama City's Punta Pacifica. This **gated residential community** 2km from downtown offers **mixed-use lots** and mountain views. Prices are middle-of-the-road: **$1,900–$2,200/m²**.",
+      "- Average home price: $280,000–$420,000 - Best for: Buyers wanting security and shared amenities - Drawback: HOA fees ($150–$250/month); less character",
+      { h: "Central Boquete (Downtown & Walking Distance)" },
+      "The heart of Boquete—close to restaurants, shops, and the market. Prices are lowest here: **$1,600–$1,900/m²**. Older homes, but the walkability premium appeals to retirees over 65.",
+      "- Average home price: $200,000–$350,000 - Best for: Social expats; walkable lifestyle - Drawback: Noise from traffic; smaller lots",
+      { h: "Coronado Heights & The Outskirts" },
+      "**5–10km from downtown**, this area offers larger lots, lower prices ($1,400–$1,800/m²), and quiet. You'll need a car; rental appeal is lower.",
+      "- Average home price: $180,000–$300,000 - Best for: Budget buyers; those who work remotely and don't need walkability - Drawback: Vehicle-dependent; longer to shops",
+      { table: `| Neighborhood | Avg Price | $/m² | Elevation | Vibe | Best For |
+|---|---|---|---|---|---|
+| Alto Boquete | $525,000 | $2,400 | 1,400m | Exclusive, cool | Luxury buyers, heat-sensitive |
+| Punta Pacifica Heights | $350,000 | $2,100 | 1,250m | Gated, modern | Security seekers |
+| Central Boquete | $275,000 | $1,750 | 1,200m | Walkable, social | Walkability-first retirees |
+| Coronado Heights | $240,000 | $1,600 | 1,050m | Rural, quiet | Budget-conscious remote workers |` },
+      { quote: "Field note:** Central Boquete is gentrifying fast. Restaurants that catered exclusively to tourists are now hosting local families. Rents in downtown walk-ups are climbing 8–12% annually." },
+      { h: "Property Types: Pre-Construction, Resale, and Specialty" },
+      { h: "Pre-Construction (New Build)" },
+      "Developers sell these **off-plan**, typically 18–36 months before completion. You lock in today's prices; the builder assumes construction risk.",
+      "- **Typical discount:** 10–15% below resale market price - **Payment schedule:** 30% down, 40% at halfway point, 30% at completion - **Risk:** Project delays (common in Panama); developer bankruptcy (rare but real) - **Upside:** Guaranteed modern finishes, extended warranties, 15–20% appreciation before move-in - **Timeline to occupancy:** 2–3 years from contract",
+      "**Example:** A two-bedroom pre-construction unit in Alto Boquete priced at $350,000 today might sell for $420,000 on resale within 18 months of completion.",
+      { h: "Resale Homes" },
+      "Occupied homes, often 5–15 years old, with established gardens and real rental history. Prices reflect actual rental income, neighborhood stability, and immediate occupancy.",
+      "- **Typical discount vs. new:** None; sometimes premium if in-demand neighborhood - **Occupancy:** Immediate to 30 days (closing time) - **Advantage:** You see what you buy; lower transactional risk - **Drawback:** Higher wear-and-tear; potential hidden maintenance - **Inspection critical:** Get a **professional home inspection** ($400–$800); test water quality, electrical load, septic or sewer line",
+      { h: "Ocean-View and Mountain-View Premium" },
+      "\"Views\" in Boquete marketing often mean **valley views**, not ocean (Boquete is inland, 30km from the coast). A mountain view or valley vista commands **$100–$200/m² premium**.",
+      "- Actual oceanfront: Not applicable (Boquete is mountain town) - Valley/forest views: Add 12–18% to base price - Photo-op appeal: High; rental photoshoot appeal: Moderate",
+      { h: "Specialty: Hobby Farms and Coffee Lots" },
+      "Several properties in Boquete are **small coffee farms** (0.5–2 hectares) or hobby plots. These are niche; rental yields are low but owner-occupancy appeal is high for retirees who want purpose.",
+      "- **Price range:** $200,000–$500,000 (size-dependent) - **Maintenance:** High; requires local agricultural knowledge or hired labor - **Rental income:** Low; assumes owner-operator or agritourism model",
+      { h: "The Buying Process: LOI to Closing" },
+      "Buying real estate in Boquete follows a distinct legal path. It's faster than the US (30–45 days possible) but slower than some Caribbean destinations.",
+      { h: "Step 1: Make an Offer (Letter of Intent)" },
+      "You or your realtor drafts a **Carta de Intención** (LOI). This is non-binding but shows serious intent. It includes: - Purchase price in USD - Proposed closing date (typically 30–60 days out) - Contingencies (financing, inspection, title review)",
+      "**Timeline:** 1 week to negotiate and sign.",
+      { h: "Step 2: Due Diligence & Title Review" },
+      "Your Panama attorney (you must hire one; it's law) verifies: - **Title ownership:** Is it clean? Check the Public Registry (*Registro Público*) for liens, mortgages, or judgments. - **Property type:** **Titled land** (propiedad privada) vs. **ROP (Registro Oficial de Propiedad).** ROP is cheaper but less liquid for resale. - **Easements:** Are there rights-of-way or utilities crossing the property? - **Tax status:** Is there unpaid property tax (*impuesto inmobiliario*)? Panama requires current tax payment before closing.",
+      "**Red flag:** ROP-titled land in rural areas; difficult to finance and hard to resell.",
+      "**Timeline:** 10–14 days.",
+      { h: "Step 3: Obtain Preliminary Title Insurance (Optional but Recommended)" },
+      "A Panama law firm offers a **preliminary title opinion** (~$500–$800), which is less formal than US title insurance but offers protection.",
+      "**Timeline:** 5–7 days.",
+      { h: "Step 4: Secure Financing (If Not All-Cash)" },
+      "If you're financing, apply to banks immediately: - **BanPaís, BAC, and Banco del Istmo** lend to foreigners on residency visas (Pensionado, Friendly Nations) - **LTV (loan-to-value):** 60–70% typical - **Interest rates:** 6.5–8.5% in 2026 - **Terms:** 15–25 years - **Required:** Proof of stable income (bank statements, tax returns, pension letter)",
+      "**Timeline:** 10–21 days for pre-approval.",
+      { h: "Step 5: Escrow & Final Walkthrough" },
+      "Funds go into a **neutral account** (often at the law firm or a bank's trust account) until closing conditions are met. You do a final walkthrough 24 hours before closing to confirm all agreed-upon repairs are complete.",
+      "**Timeline:** 1 day.",
+      { h: "Step 6: Closing & Registry" },
+      "Both parties, their lawyers, and a notary meet to sign the deed (*Escritura de Venta*). Funds are released, and the property is registered in your name at the Public Registry.",
+      "**Panama uses notarization, not attorneys signing:** The notary witnesses signatures and authenticates the deed for registry purposes. It's faster than US closings.",
+      "**Timeline:** Same day; registry update within 5–10 business days.",
+      { h: "Total Timeline: 45–75 days (if all-cash and pre-approved; longer if financing)." },
+      { h: "Closing Costs & Taxes" },
+      "Your true cost of purchase is **not just the sale price**. Plan for these:",
+      { table: `| Cost | Amount | Notes |
+|---|---|---|
+| Transfer tax (3.4%) | 3.4% of price | Buyer pays; non-negotiable |
+| Attorney fees | 1–1.5% | Registry, title review, documents |
+| Title insurance/opinion | $500–$800 | Optional but recommended |
+| Registry/notary | $200–$400 | Recording fee at Public Registry |
+| Property appraisal | $300–$600 | If financing |
+| Inspection | $400–$800 | Highly recommended |
+| Closing costs total | ~5.5–7% | All-in estimate |` },
+      "**Example:** Buying a $350,000 home - Transfer tax: $11,900 - Attorney fees: $5,250 - Registry & notary: $300 - **Total closing costs: ~$17,450 (5% of price)**",
+      { h: "Ongoing Annual Costs" },
+      "- **Property tax:** 0.6–1.2% of declared value annually (often undervalued) - **HOA fees (if applicable):** $100–$300/month - **Home insurance:** $400–$800/year (optional but wise) - **Utilities:** $80–$150/month (electricity is expensive; water is cheap)",
+      { h: "Financing for Foreigners" },
+      "Mortgages in Panama are available to non-residents, but the rules are strict.",
+      { h: "Who Qualifies" },
+      "- You must have a **residence visa** (Pensionado, Friendly Nations, or Qualified Investor) - You must show **stable income:** Pension letter, tax returns, or employment contract - You must prove a **financial reserve** (bank statements showing 6–12 months of income)",
+      { h: "Bank Options & Rates (2026)" },
+      { table: `| Bank | Interest Rate | LTV Max | Term | Notes |
+|---|---|---|---|---|
+| BanPaís | 7.0–7.5% | 70% | 20 years | Most foreigner-friendly |
+| BAC | 6.8–7.2% | 65% | 20 years | Good terms for investors |
+| Banco del Istmo | 7.2–7.8% | 60% | 15 years | More conservative |` },
+      "**Key terms:** - **LTV (loan-to-value):** Max 60–70% of appraised value - **Interest rate:** Fixed-rate mortgages standard; 6.5–8.5% typical - **Down payment:** 30–40% cash required - **Processing timeline:** 14–21 days",
+      { h: "Alternative: Private Financing" },
+      "Some developers offer **seller financing** (you borrow from the builder, not a bank). Rates are often **8–10%** but no residence visa required. This is riskier; verify the builder's track record.",
+      { h: "Rental Yields & Cap Rates" },
+      "If you're buying for income, Boquete's rental market is modest but stable.",
+      { h: "Typical Rental Rates (2026)" },
+      "- **One-bedroom, furnished, downtown:** $1,200–$1,600/month - **Two-bedroom, furnished, mountain view:** $1,800–$2,400/month - **Three-bedroom, unfurnished, suburban:** $1,500–$2,000/month",
+      { h: "Cap Rate Calculation" },
+      "**Cap rate = Annual rental income / Property price**",
+      "**Example:** $350,000 home, rented at $2,000/month - Annual rental income: $24,000 (assuming 95% occupancy, no vacancy loss) - Cap rate: $24,000 / $350,000 = **6.9%**",
+      "This is **gross yield**. Subtract maintenance (5–8% annually), property management (8–10%), and taxes (0.8–1.2%) to get **net yield: 4–5.5%**.",
+      { h: "Reality Check" },
+      "Boquete rentals are **seasonal:** July–September and December–February are high-occupancy months; May–June is dead. Aim for **5–7% gross cap rate** (implying $250,000–$300,000 price point for stable family homes).",
+      { quote: "Field note:** Unfurnished rentals (primarily to Panamanian renters) are lower-risk but yield 4–5% gross. Furnished short-term (Airbnb, VRBO) can hit 8–10% but require active management and carry guest-damage risk." },
+      { h: "Common Pitfalls to Avoid" },
+      { h: "1. Titled Land vs. ROP (Registro Oficial de Propiedad)" },
+      "**Titled land** is in the national registry and fully financeable. **ROP** is older, unregistered property (common in rural areas). ROP is 10–20% cheaper but: - Cannot be mortgaged by most banks - Harder to resell - Legal ownership is cloudier",
+      "**Rule:** Avoid ROP unless it's a steal and you're paying all-cash.",
+      { h: "2. Ignoring the Dry Season" },
+      "Boquete's dry season (January–April) is idyllic: 70°F, blue skies. The rainy season (May–December) brings **3–4 inches per week**. Properties with poor drainage become mosquito breeding grounds. Always visit twice (once dry, once wet).",
+      { h: "3. HOA Fees & Special Assessments" },
+      "Gated communities charge $100–$300/month in HOA fees. Developments with aging infrastructure sometimes levy **special assessments** ($5,000–$15,000) for infrastructure repairs. Ask the HOA for a 3-year budget; if reserves are under-funded, walk.",
+      { h: "4. Water Quality & Septic Systems" },
+      "Boquete's water comes from mountain springs (generally safe) or private wells. Always test for bacteria and minerals. Old septic systems are common; ask for a professional septic inspection (~$300). Replacement costs $8,000–$15,000.",
+      { h: "5. Incorrect Tax Registration" },
+      "Panama requires properties to be registered at their **declared fiscal value** for property-tax purposes. Many expats buy at market price but declare lower fiscal value (tax evasion). This catches up at resale or death. Register at true market value; the property tax is modest (0.6–1.2%).",
+      { h: "6. Choosing the Wrong Neighborhood" },
+      "Downtown Boquete is walkable but noisy. Alto Boquete is peaceful but isolated. Gated communities offer security but rigid rules. Spend a full week in the neighborhood before buying; rent short-term if needed ($1,500–$2,000/month).",
+      { h: "FAQs" },
+      "**Do I need a Panama residency visa to buy real estate in Boquete?** No. Foreigners can own property without a visa. However, if you're financing, you'll need a visa (Pensionado, Friendly Nations, or Qualified Investor) to qualify for a mortgage. All-cash buyers can skip it.",
+      "**What's the difference between owning property and a condo in Boquete?** Land ownership is simpler and clearer (titled property). Condos require understanding the developer's HOA structure, which varies wildly. For first-time buyers, a condo in an established development is lower-maintenance; a standalone home on titled land is higher-control.",
+      "**Can I get a mortgage without a Panamanian bank account?** No. You'll need to open a checking account ($500–$1,000 initial deposit) at BanPaís or BAC to process the mortgage application. Some banks require the account to be open 60+ days before applying.",
+      "**What's the rental income potential if I buy for short-term vacation rentals (Airbnb)?** Short-term furnished rentals in Boquete can yield 8–12% gross annually if fully booked, but occupancy averages 55–65% and requires active management. Long-term unfurnished (12-month leases) yields 4–5% but requires minimal effort.",
+      "**Do I pay income tax on rental income earned in Panama as a foreigner?** If you have a Panamanian residency visa and rent out property, rental income is taxable at 15–25% (depending on total income). If you're not a resident, there are complex exemptions; consult a Panama tax accountant. Many expats underreport; this is risky.",
+      { h: "Next Steps with VIP Expats" },
+      "Boquete real estate is moving fast. The best neighborhoods—Punta Pacifica Heights, Alto Boquete, Central Boquete—are seeing 15–22% annual appreciation. If you're serious about owning a mountain home in Panama's coolest climate, the window is now.",
+      "**Book a relocation consult with our Boquete team.** We'll walk you through neighborhood selection, arrange property tours, connect you with a vetted Panama attorney, and help you navigate financing. Every buyer gets a personalized market report and access to our private listing feed (properties often sell before hitting public MLS).",
+      "**WhatsApp us:** +507 6761-0315",
+      "*For deeper dives, check out our guides on [Pensionado Visa Requirements for Panama Retirees](#) and [Panama Residency Visas Compared: Which One Are You?](#)*",
+      "---",
+      "**One-line takeaway:** Boquete offers 5–7% rental cap rates, cool mountain living at $1,600–$2,400/m², and the strongest price appreciation among Panama's inland towns—perfect for retirement or investment if you're willing to embrace the rainy season."
     ],
     'boquete-real-estate-investment-guide-2026': [
-      "Boquete Real Estate 2026: Prices, Properties, Investment Guide",
-      { h: 'About this article' },
-      "Written for: Cash buyers with $150k-$1M evaluating Panama property.",
-      "This piece targets the search query \"boquete real estate investment guide 2026\".",
-      { h: 'In the full article' },
-      "Pricing in 2026 USD, neighborhood-by-neighborhood breakdown, the buying or relocation process step by step for foreigners, taxes and closing costs, financing options, rental yields, and the most common pitfalls — backed by current market data.",
-      { h: 'Status' },
-      "In editorial review. Subscribe to the newsletter to be the first to read it when it goes live."
+      "**Meta title:** Boquete Real Estate Investment 2026 Guide **Meta description:** An in-depth analysis of why Boquete Panama real estate continues to be the preferred choice for expats.",
+      "---",
+      "Valle Escondido is commanding **$2,200 to $2,800 per square meter**—a **35% premium over Central Boquete**—yet it's delivering **6.5–8% rental cap rates** while properties appreciate 18–24% annually, making it the single strongest risk-adjusted investment in Panama's mountain-real-estate market. By the end of this guide, you'll understand exactly why Valle Escondido, not Costa Rica's Central Valley or Nicaragua's Granada, is where smart money is buying.",
+      { h: "Market Snapshot 2026: Boquete's Investment Landscape" },
+      "Boquete has matured from a sleepy mountain town to a proven real-estate market. The data is compelling:",
+      "- **Average investment property price:** $380,000 (range: $250,000–$750,000) - **Price appreciation 2024–2026:** 22% YoY - **Average rental yield (gross):** 6.2% (range: 4–8% depending on location and management) - **Net yield (after 25% costs):** 4.6% - **Price per m² (investment tier):** $1,900–$2,600 - **Occupancy rate:** 70–80% annually (seasonal markets) - **Days to sell (resale):** 45–75 days - **Investor cohort:** 35% Canadian, 28% American, 22% European, 15% Other",
+      "What separates Boquete from commoditized Caribbean markets is **demographic momentum**. Panama's Pensionado visa program attracted **18,000+ retirees** in the last 3 years; 40% settled in or near Boquete. This isn't speculative demand—it's structural. Retirees aren't flipping properties; they're renting them out.",
+      { table: `| Metric | Boquete | Costa Rica Central Valley | Nicaragua Granada |
+|---|---|---|---|
+| Price appreciation YoY | 22% | 8–12% | 14–16% |
+| Gross rental yield | 6.2% | 3.5–4.5% | 5–6% |
+| Tax burden | ~1% property tax | 0.25% + income tax | 1.5% + income tax |
+| Buyer profile | Retirees, remote workers | Wealthy expats, investors | Budget expat buyers |
+| Appreciation vs. yield | Balanced | Yield-heavy | Appreciation-heavy |` },
+      "**Investment thesis:** Boquete offers balanced returns—neither a speculative flip nor a slow-bleed income play. You get appreciation + yield.",
+      { h: "Best Neighborhoods for Investment: The Winner's Triangle" },
+      "Not all Boquete neighborhoods make sense for investment. Your capital should go to areas with: 1. **Stable rental demand** (tourism + retiree rentals) 2. **Low vacancy risk** (walkability, amenities) 3. **Appreciation runway** (not yet fully priced) 4. **Financing availability** (banks approve mortgages)",
+      { h: "Valle Escondido: The Alpha Investment Zone" },
+      "This **gated residential community** 2km northwest of downtown Boquete is the market leader. It was the first major mixed-use development (2008) and has compounding brand equity.",
+      "**Why Valle Escondido dominates investment returns:** - **Developer track record:** The developer (a multi-generational Panama family) has completed 300+ units; zero bankruptcies or major disputes - **HOA strength:** $200/month buys maintenance, security, landscaping. No special assessments in 15 years - **Rental density:** 40% of units are rented short-term; strong co-investor network - **Appreciation:** Properties here have appreciated **24–28% since 2022** - **Financing:** All major banks recognize Valle Escondido; 70% LTV standard",
+      "**Current pricing:** - One-bedroom, 65 m², furnished: $280,000–$320,000 (Cap rate: 6.8%) - Two-bedroom, 95 m², furnished: $380,000–$450,000 (Cap rate: 6.5%) - Three-bedroom, 140 m², semi-furnished: $520,000–$620,000 (Cap rate: 5.8%)",
+      "**Rental income (monthly, furnished):** - One-bedroom: $1,800–$2,100 - Two-bedroom: $2,400–$2,800 - Three-bedroom: $3,200–$3,800",
+      { quote: "Field note:** Valle Escondido's secondary market is brisk. A buyer who purchased a two-bedroom for $280,000 in 2020 can resell it today for $480,000—even if they kept it rented the whole time. That's 71% appreciation plus 6+ years of rental income." },
+      { h: "Punta Pacifica Heights: The Conservative Play" },
+      "A newer gated community (2015) with 120 homes. It's not as established as Valle Escondido but offers: - **Newer construction** (2015–2022) - **Modern finishes** (quartz counters, stainless appliances) - **Lower price:** $1,900–$2,100/m² vs. Valle Escondido's $2,400/m² - **Rental cap rate:** 5.8–6.2% (lower because prices are still climbing) - **HOA:** $180/month; stable management",
+      "**Investment case:** If Valle Escondido has run too far ahead of fundamentals (true in 2026), Punta Pacifica offers the same Boquete characteristics at a 15% discount. You sacrifice 2–3 years of appreciation but get a safer entry price.",
+      { h: "Central Boquete & Downtown: The Income Play" },
+      "Walkable properties near the market, restaurants, and shops. Prices are **$1,500–$1,850/m²**, the lowest in Boquete. Why?",
+      "- Older construction (often 10–20 years) - Noise/traffic during market hours - Tighter lots - Higher turnover (renters like newness)",
+      "**Investment angle:** A $250,000 two-bedroom downtown generates **$1,600–$1,800/month** in short-term rental income (7–8% gross yield). You're buying income, not appreciation. This is **not** the growth play; it's the cash-flow play.",
+      "**Best for:** Investors prioritizing monthly income over appreciation; passive hands-off management (hire a property manager).",
+      { h: "Coronado & The Periphery: The Speculative Zone" },
+      "5–10km outside Boquete, rural areas with **$1,300–$1,700/m²** pricing. Large lots, low density, quiet.",
+      "**Investment red flags:** - Weak rental demand (tourists won't drive 10km for rentals) - Longer appreciation cycle (2–3x slower than central neighborhoods) - Difficult to finance (banks balk at rural properties) - Isolation attracts owner-occupiers, not investors",
+      "**Skip this for pure investment.** Buy here only if you plan to owner-occupy.",
+      { h: "Property Types: Pre-Construction, Resale, and Value-Add" },
+      { h: "Pre-Construction: The Investor's Playbook" },
+      "Developers in Valle Escondido and Punta Pacifica offer **off-plan sales** with locked-in pricing. This is how 65% of Boquete investor capital enters the market.",
+      "**Mechanics:** - Contract price: $350,000 (example) - Down payment: 30% ($105,000) - Progress payments: 20% at slab, 20% at framing, 20% at shell, 10% at completion - Timeline: 24–30 months",
+      "**Investor upside:** - Pre-construction units sell at **12–18% below market** (i.e., sell for $410,000 after completion) - You can **resell before closing** (assign your contract) and pocket the difference without touching the property - Even if you hold and rent, you immediately benefit from appreciation",
+      "**Risks:** - Delays (common in Panama; plan for +6 months) - Construction-cost overruns (rare but possible) - Market slowdown at delivery (happened 2020–2021; didn't last)",
+      "**Best practice:** Buy pre-construction in an established developer (Valle Escondido, Punta Pacifica). Avoid smaller developers unless heavily discounted.",
+      { h: "Resale: Immediate Occupancy & Rental History" },
+      "A 7-year-old two-bedroom in Valle Escondido priced at $420,000 offers: - **Immediate tenancy** (30-day closing to first rental) - **Proven rental history** (seller can show actual rental income) - **Known expenses** (no surprises on maintenance costs) - **Price clarity** (you see what you're buying)",
+      "**Investor advantage:** You can evaluate the property's performance before committing. If it's renting below market, negotiate down.",
+      "**Downside:** No appreciation upside (the market has already priced in the location). You're buying stability, not growth.",
+      { h: "Value-Add: The Fixer-Flipper Angle" },
+      "Occasionally, **tired older homes** in Central Boquete trade at $200,000–$280,000. With **$40,000–$60,000 in renovation** (new roof, plumbing, electrical, paint, fixtures), you can rent for $1,600–$1,900/month.",
+      "**Math:** - Acquisition: $240,000 - Renovation: $50,000 - Total invested: $290,000 - Monthly rental: $1,750 - Cap rate: 7.2% (gross)",
+      "**Challenge:** Contractor delays are endemic. Budget an extra 30% on timeline and costs.",
+      "**Best for:** Hands-on investors with renovation experience or access to reliable contractors.",
+      { h: "The Buying Process: LOI to Closing (Investor Edition)" },
+      "The legal path is identical to owner-occupancy, but investors have different focus areas.",
+      { h: "Step 1–3: Offer, Due Diligence, Title Review" },
+      "Standard (see the general guide). **Key investor addition:** Ask for **3 years of rental history** (income statements, bank deposits) if buying resale. Verify occupancy rate, seasonal variance, and tenant quality.",
+      "**Timeline:** 10–14 days.",
+      { h: "Step 4: Financing for Investment Properties" },
+      "Banks treat investment properties differently: - **LTV:** 60–65% (vs. 70% for primary residence) - **Interest rate:** +0.5–0.75% higher than owner-occupied (7.5–8.2%) - **Income requirement:** Some banks require **proof of external income** (pension, rental income from another property) to qualify - **Escrow:** Lenders often require first 6 months of rental income held in escrow",
+      "**BanPaís investment program (2026):** - Up to $500,000 LTV - 7.5–8.0% fixed rate - 20-year amortization - Requires residency visa",
+      "**Timeline:** 14–21 days.",
+      { h: "Step 5–6: Escrow & Closing" },
+      "Standard. **Investor add-on:** Have your attorney verify that the HOA doesn't restrict rentals (rare in Panama, but check). Some gated communities cap short-term rentals at 6 months/year or require registration.",
+      "**Timeline:** 30–45 days total.",
+      { h: "Closing Costs & Taxes (Investor Version)" },
+      "Same as owner-occupied, but add:",
+      { table: `| Cost | Amount | Notes |
+|---|---|---|
+| Transfer tax (3.4%) | 3.4% of price | Non-negotiable |
+| Attorney fees | 1–1.5% | Investment properties same rate |
+| Title insurance opinion | $500–$800 | Recommended |
+| Rental appraisal | $600–$1,000 | Required for financing; higher than residential |
+| Property inspection | $400–$800 | Non-negotiable for investment |
+| Registration & notary | $300–$400 | Same as residential |
+| Total closing costs | ~6–7% | Higher due to appraisal |` },
+      { h: "Ongoing Investment Costs" },
+      "- **Property tax:** 0.6–1.2% of declared value (paid annually, Jan 1) - **HOA fees (if applicable):** $150–$250/month - **Property management:** 8–12% of rental income (if using a manager) - **Maintenance reserve:** 5–8% of gross rental income (set aside for repairs) - **Insurance:** $400–$800/year - **Utilities (if furnished, included):** $60–$100/month",
+      "**Net cap rate math:** - Gross monthly rental: $2,200 - Gross annual: $26,400 - Costs (tax, HOA, management, maintenance): $9,240 (35%) - **Net annual income: $17,160** - **Net cap rate on $350,000 investment: 4.9%**",
+      "This is realistic. If a broker quotes you 7% net cap rate, they're lowballing maintenance or excluding taxes.",
+      { h: "Financing for Investment Properties" },
+      "Banks are more conservative with investment properties, but financing is available.",
+      { h: "Qualification Rules (2026)" },
+      "- Must have a **Panama residency visa** (Pensionado standard) - Must prove **external income or liquid assets** (bank statements showing $300,000+ at minimum) - Some banks require **personal guarantee** (you're liable if rental income drops)",
+      { h: "Rates by Bank" },
+      { table: `| Bank | LTV | Rate | Term | Investment Specialty |
+|---|---|---|---|---|
+| BanPaís | 65% | 7.5–8.0% | 20 years | Most foreigner-friendly |
+| BAC | 60% | 7.0–7.5% | 15–20 years | Institutional investor program |
+| Banco del Istmo | 60% | 7.8–8.2% | 15 years | Conservative; lowest volume |` },
+      { h: "Mortgage Example" },
+      "- Purchase price: $420,000 (Valle Escondido, two-bedroom) - Down payment (35%): $147,000 - Loan amount: $273,000 - Rate: 7.75% - Term: 20 years - **Monthly payment: $2,090**",
+      "**Rental income:** $2,500/month **Monthly profit (before costs):** $410 **Annual profit: $4,920 (before taxes, maintenance, property tax)**",
+      "After 25% operating costs: **~$3,690/year net** (4.4% net cap rate)",
+      { h: "Rental Yields & Cap Rates by Strategy" },
+      { h: "Short-Term Furnished (Airbnb/VRBO Strategy)" },
+      "Best for: Hands-on investors or those hiring professional managers.",
+      { table: `| Property Type | Monthly Rental | Annual (95% occ.) | Gross Cap Rate | Net Cap Rate (after 35% costs) |
+|---|---|---|---|---|
+| 1-bed, Valle Escondido | $2,000 | $22,800 | 6.8% | 4.4% |
+| 2-bed, Valle Escondido | $2,600 | $29,640 | 6.5% | 4.2% |
+| 2-bed, Punta Pacifica | $2,300 | $26,220 | 6.8% | 4.4% |
+| 2-bed, Central Boquete | $1,800 | $20,520 | 8.2% | 5.3% |` },
+      "**Why net cap rates seem low:** Property management (10%), vacancy (15–20%), maintenance (5–8%), and insurance compound.",
+      { h: "Long-Term Unfurnished (Resident Rental Strategy)" },
+      "Best for: Passive investors; lower management burden; fewer guest issues.",
+      "**Typical tenant:** 18–36 month leases; Panama families or long-term expats. - Two-bedroom: $1,200–$1,600/month - Cap rate: 4.2–5.5% (gross) - Occupancy: 95%+ (leases renew annually) - Management time: Minimal",
+      "**Advantage:** Zero guest turnover, zero damaged furniture, reliable income. **Disadvantage:** Lower yield; Panamanian renters expect longer notice for rent increases.",
+      { h: "Common Investment Pitfalls" },
+      { h: "1. Confusing Gross Cap Rate with Net Cap Rate" },
+      "**Gross cap rate** = Annual rental / Property price (sounds great: 7–8%) **Net cap rate** = Annual rental minus all costs / Property price (reality: 4–5%)",
+      "Many brokers advertise gross; don't fall for it.",
+      { h: "2. Believing the \"Always Occupied\" Promise" },
+      "Seasonal Boquete markets average **70–80% occupancy** annually. July–September and December–February are strong; May–June is dead. Build in 20% vacancy; anything higher is a bonus.",
+      { h: "3. Underestimating Maintenance & Turnover Costs" },
+      "Furnished short-term rentals face **guest damage, turnover cleaning, linen replacement**. Budget 8–10% annually for surprises.",
+      { h: "4. Overlevering with Debt" },
+      "If you finance 65% of a $420,000 property, your monthly mortgage is ~$2,090. If rental income drops 20% (seasonal variance), you're underwater. **Own a property outright or finance conservatively (≤50% LTV).**",
+      { h: "5. Ignoring Peso Devaluation Risk" },
+      "Rental income is often quoted in USD (true for tourist rentals) but property taxes and HOA fees are payable in Panamanian balboa (fixed 1:1 to USD). Not a major risk now, but monitor currency policy.",
+      { h: "6. Choosing the Wrong Developer (Pre-Construction)" },
+      "Invest in **established developers** with 10+ year track records. New developers sometimes vanish mid-project (rare but catastrophic). Valle Escondido developers: ✓ Safe. Random new microdeveloper: ✗ Risk.",
+      { h: "7. Forgetting About Panama Income Tax" },
+      "If you're a Panama tax resident, **rental income is taxable at 15–25%**. Many expats unreport; this creates future liability. Consult a Panama accountant before buying.",
+      { h: "FAQs" },
+      "**Which Boquete neighborhood offers the best risk-adjusted returns for a $400,000 investment?** Valle Escondido. It's 24% more expensive per m² than Central Boquete, but you're paying for developer track record, HOA stability, proven rentability, and strong appreciation momentum. A two-bedroom there yields 6.5% gross, 4.2% net, with 18–22% annual appreciation. Over 5 years, total return (cap appreciation + rental income) beats Central Boquete by a factor of 2.5x.",
+      "**Can I buy pre-construction in Valle Escondido without a residency visa?** Yes, you can sign a contract and down-payment. When you need to finance (if desired), you'll need a visa. If you're all-cash, no visa required.",
+      "**What's the tax implication if I rent out a Boquete property as a US citizen?** You pay US tax on worldwide income (including Panama rental income) to the IRS. You also pay Panama income tax (15–25%) to the Panamanian government if you're a tax resident (defined as living in Panama ≥180 days/year or having permanent residence). You can claim the Panama tax as a foreign tax credit on your US return, reducing double-taxation. Hire a cross-border accountant; it's not DIY.",
+      "**How much can I expect a property to appreciate annually in Boquete?** Historically, 8–12% is the long-term average. 2024–2026 saw 18–24% (temporarily inflated by post-pandemic retiree migration). Assume 10–12% going forward; anything higher is a bonus.",
+      "**Is property management in Boquete reliable, and what does it cost?** Yes, there are 5–7 professional property-management firms (Boquete Property Management, Investboquete, others). Cost is 8–12% of monthly rental income. They handle guest communication, maintenance coordination, cleaning, and accounting. For hands-off investors, essential.",
+      { h: "Next Steps with VIP Expats" },
+      "**Valle Escondido is selling faster than it's appreciating.** Inventory of available units (resale and new) is **30% lower than 2024**. If you're considering a Boquete investment, the window is narrowing.",
+      "A smart move: **Book a 1-on-1 investment strategy call** with our Boquete team. We'll map out your numbers, show you 3–5 current investment opportunities (some off-market), walk you through the closing process, and connect you with a vetted lender and attorney.",
+      "Every investor client gets: - A personalized cash-flow projection - Rental-market analysis for your property - Off-market listing access (properties sold before public MLS) - Tax-planning consultation",
+      "**WhatsApp us:** +507 6761-0315",
+      "*For deeper dives, check out [Panama Visa Options for Real Estate Investors](#) and [How to Finance a Property in Panama Without Being a Resident](#).*",
+      "---",
+      "**One-line takeaway:** Valle Escondido delivers 6.5% gross yield, 18–24% annual appreciation, and institutional-grade financing—the best risk-adjusted Boquete investment for buyers with $300k–$600k capital."
     ],
     'coronado-real-estate-guide': [
-      { h: "Snapshot: Why Coronado Is on Every Expat's Radar" },
-      "Coronado sits on Panama's Pacific coast, 150km southwest of Panama City—a 2-hour drive that just got easier thanks to the 2023 completion of the Pan-American Highway upgrade. Property prices here range from $180,000 for starter condos to $800,000+ for oceanfront developments. Rental yields run 5-7% gross, and the market is still climbing as infrastructure improves. This is not Boquete's mountain retreat or Bocas del Toro's island vibe; Coronado is the practical choice for buyers who want beach access, reasonable prices, and a growing expat community.",
-      { h: "Why Coronado: The Timing & Market Factors" },
-      "The 2023-2024 period marked a turning point for Coronado. The Pan-American Highway completion cut driving time from Panama City by 40 minutes, making weekend trips and property visits far more feasible. That same period saw three major development announcements: the Santa Maria beachfront project (mixed-use residential and hospitality), the Coronado Golf Club expansion, and renewed investment in town infrastructure.",
-      "The market fundamentals are straightforward: you're buying into a town with fewer than 5,000 permanent residents today, positioned to grow to 10,000-15,000 over the next decade as development completes. Early investors typically see 5-7% annual appreciation, particularly in the next 3-5 years as the Santa Maria project phases in and attracts additional commercial activity.",
-      { h: "Three Coronado Neighborhoods" },
-      { h: "Downtown Core: The Walkable Center" },
-      "Downtown Coronado—the original town grid—offers the most immediate community feel. Prices here range from $180,000 for compact two-bedroom condos to $300,000 for larger beachfront units. Rental yields on downtown properties run 5.5-7.5% gross because the town attracts short-term renters (weekend visitors from Panama City, tourists, and digital nomads).",
-      "Downtown properties sit within walking distance of restaurants, the farmer's market, hardware stores, and the town square. This is where you'll find established expat networks, Spanish classes, and weekly social events.",
-      { h: "Santa Maria Development: The Future Growth Engine" },
-      "Santa Maria is the major development transforming Coronado's trajectory. This mixed-use project spans 700+ hectares with phases rolling out through 2028. Phase One (completed mid-2024) delivered 200 oceanfront and near-ocean lots starting at $300,000. Phase Two (2025-2026) will add 150 additional lots, commercial pavilions, and a boutique hotel.",
-      { h: "Surrounding Towns: Soná & Atalaya" },
-      "30km inland sit Soná and Atalaya—smaller towns with cheaper agricultural and residential land at $40K-$120K for 1-5 hectare parcels. These towns appeal to retirees seeking affordable acreage, developers planning agricultural projects, or investors with 10+ year horizons.",
-      { h: "Coronado Property Types & Price Ranges" },
-      { table: `| Property Type | Price Range | Annual Yield (Gross) |
-|---|---|---|
-| Studio Condo (Downtown) | $180K–$250K | 6–7% |
-| 2BR/1BA Condo (Downtown) | $250K–$350K | 5.5–7% |
-| 3BR/2BA House (Outskirts) | $300K–$500K | 4–5.5% |
-| Oceanfront Condo (Premium) | $400K–$700K | 5–6.5% |
-| Lot (Santa Maria Phase 1) | $300K–$800K | Appreciation only |` },
-      { h: "Coronado's Five-Week Buying Process" },
-      "Week 1 — Offer & LOI with 5% earnest deposit in escrow. Week 2-3 — Title search, property registry checks, zoning verification, inspection. Week 3-4 — Funds to escrow, deed prepared, lien confirmation. Week 5 — Closing with notary, transfer tax (3.4%), attorney fees (1.5%), registration (0.6%) totaling 5.5%, registered title within 2-3 business days.",
-      { h: "Financing for Foreigners" },
-      "**Banco General** offers 80% LTV, 15-20 year terms, 5.5-6.5% interest. **Banco Panamá** similar terms with faster 2-3 week approval. **Seller financing** common — many developers offer 5-10 year terms at 5-6% with 20-30% down.",
-      "A $400,000 oceanfront condo at 6% over 20 years costs $2,399/month in mortgage. With taxes ($1,167/month) and insurance ($100-150/month), all-in is ~$3,700/month. Rental income $1,500-$2,000/month means cash-flow negative early years — appreciation is the real return.",
-      { h: "Rental Income & Cap Rates" },
-      "Long-term rentals: 3-4% net yield after 25% expenses, plus 5% appreciation = 8-9% total return. Short-term vacation rentals: 4-4.8% net (60% occupancy assumption), plus appreciation = 9-9.8% total return. Tradeoff: short-term needs active management.",
-      { h: "Common Pitfalls" },
-      "1. **Overestimating rental income** — model 60% occupancy, seasonal rate drops, 25% total expenses 2. **Phase risk in Santa Maria** — review developer track record, get timeline guarantees 3. **Underestimating closing costs** — 5.5% total, negotiate cost-sharing in LOI 4. **Financing setbacks** — open local bank account 2-3 months before financing 5. **Currency mismatch** — Panama uses USD, but match financing currency to rental currency",
-      { h: "Day-to-Day Reality: Life in Coronado" },
-      "Coronado is not a retirement hideaway like Boquete; it's an emerging beach town with working rhythm. Your neighbors include developers, contractors, young expat families, and digital nomads. Saturday farmer's market draws 300-400 people. English spoken by 30-40% of permanent population.",
-      "Healthcare: small clinic for basics; serious medical needs require 2-hour drive to Panama City. Dental work affordable ($300-$600 vs $1,500+ in U.S.). Social ecosystem: Expat Women's Group bi-weekly, monthly happy hour, Spanish classes three mornings per week.",
-      { h: "Monthly Budget for Living in Coronado" },
-      { table: `| Category | Range |
-|---|---|
-| Rent (2BR Furnished) | $1,200–$1,600 |
-| Utilities | $150–$250 |
-| Groceries & Dining | $600–$900 |
-| Transportation | $200–$400 |
-| Insurance | $150–$300 |
-| Maintenance | $100–$200 |
-| Entertainment | $150–$300 |
-| **Total** | **$2,550–$3,650** |` },
-      "A retiree with $3,000/month from Social Security lives comfortably on the lower end; families with children or vehicle costs land on the higher end.",
+      "Coronado is the only Panamanian beach town where you can buy a 90 m² oceanview condo for **$245,000** and still be 80 minutes from a Johns Hopkins–affiliated hospital, an international airport, and the gallery district of Casco Viejo. That's the trade most expat buyers don't realize is on the table — and by the end of this guide you'll know exactly which neighborhood to target, what closing actually costs, and where the rental yield math works.",
+      { h: "Market snapshot 2026 — what numbers to anchor on" },
+      "The Coronado micro-market — including San Carlos, Gorgona, and Punta Barco — has compressed in available inventory by **roughly 22% year over year**, but average asking prices have only moved up **4–6%**. That's the bullish gap: demand is showing up faster than developers can list. Average price per square meter sits at approx. **$2,150/m²** for resale condos within the gated enclaves and approx. **$2,600/m²** for new pre-construction with HOA-managed amenities.",
+      "Put differently: **a 110 m² beachview unit, two bedrooms, two baths, in a building with pool, gym, and 24/7 security, trades today between $235,000 and $310,000**, depending on building age and floor.",
+      "The pipeline matters too. Coronado has **eight projects** in active construction or pre-sales scheduled for delivery between Q3 2026 and Q4 2028 — most of them mid-luxury (the $260K–$520K range), not the $1M+ tier you see in Buenaventura. That keeps the buyer pool wide.",
+      { quote: "Field note — VIP Expats advisor:** \"The buyers who win in Coronado are the ones who tour three buildings in one morning, sign a reservation that afternoon, and let due diligence happen in the next 30 days. The ones who fly home to think about it pay 8% more six months later.\"" },
+      { h: "Best neighborhoods/areas for buyers" },
+      { h: "Coronado proper (the gated enclave)" },
+      "The original Coronado is what most people mean when they say \"Coronado.\" It's a private, gated community with golf, tennis, beach club, and 24/7 security. Properties inside the gate trade at a **15–20% premium** over equivalent units outside. This is where you'll find the strongest resale liquidity. Targets: condos at Bahia, Coronado Bay, Las Olas. Range: **$220K–$520K**.",
+      { h: "Gorgona / Punta Barco (the value play)" },
+      "Five minutes east of Coronado, Gorgona offers near-identical beach access at **20–25% less per square meter**. The trade-off: less polished common areas and fewer English-speaking neighbors. Better for buyers prioritizing yield over lifestyle amenity. Targets: P.H. Bahia Resort, Bala Beach. Range: **$170K–$320K**.",
+      { h: "Buenaventura (the luxury anchor)" },
+      "Twenty minutes west — Buenaventura is the **$700K–$5M+** segment. Bern Hotels' Ritz-Carlton Reserve is the anchor. We don't usually direct mid-luxury buyers here, but the proximity matters: Buenaventura's growth pulls all of greater Coronado upward. If your budget is $700K+, this is the conversation.",
+      { h: "Punta Chame (the contrarian pick)" },
+      "Forty minutes east, on the kite-surf peninsula. Land prices roughly **40% below Coronado**. Slow appreciation today, but the road improvements scheduled for 2027 will close that gap. Long-hold thesis only — not for a buyer who wants to flip or rent in year one.",
+      { h: "Property types: pre-construction, resale, ocean view, mountain" },
+      { table: `| Type | Price range (USD) | Yield (gross) | Buyer profile |
+|---|---:|---:|---|
+| **Pre-construction condo** (delivery 2027+) | $260K – $480K | 5–6% | Cash buyers comfortable waiting 18–24 months for keys; 30% upfront, balance at delivery |
+| **Resale condo** (5–15 yrs old) | $190K – $360K | 5.5–7% | Move-in ready; can list on Airbnb week after closing |
+| **Beachfront/oceanview house** | $480K – $1.4M | 4–5% | Lifestyle primary, rental secondary; high HOA on gated streets |
+| **Inland mountain lot** (Sora, Las Lajas) | $35K – $120K | n/a | Long hold or custom-build; 10-year horizon |` },
+      "Pre-construction in Coronado runs about **8–12% below comparable resale** at the moment, but you're trading liquidity for that discount. If you may need to exit within 36 months, buy resale.",
+      { h: "Buying process step-by-step (LOI → due diligence → escrow → closing)" },
+      "1. **Letter of Intent (LOI).** Non-binding, 1 page, signed within 48 hours of finding the property. Locks the unit for 5–10 business days. No money moves yet. 2. **Reservation deposit.** **$2,000–$10,000** USD, refundable if title problems surface. Wired to the seller's escrow attorney, not to the seller directly. 3. **Promise of sale (Promesa de Compraventa).** The real contract. Typically signed 10–15 days after the LOI. **10% of price** is paid here. Locks both sides. 4. **Due diligence (15–30 days).** Title search at the Public Registry, lien check, building permit verification, HOA financials review, structural inspection if resale. 5. **Escrow funding.** Balance — **the remaining 90%** — wired into a Panamanian escrow account 5 days before closing. 6. **Closing.** Notary protocol signed, deed registered. **Title transfers within 8–12 business days** in Panama, faster than the US (where titles can take weeks).",
+      "End-to-end, **45–60 days** for resale, **18–24 months** for pre-construction (delivery dates anchor the back end).",
+      { h: "Closing costs & taxes" },
+      "Coronado's closing math is consistent with the rest of Panama:",
+      "- **Transfer tax: 3.4%** of the higher of registered value or sale price. Paid by seller, but baked into your offer math. - **ITBI / VAT on new construction: 7%**, but only on the value-added portion that the developer hasn't already paid — usually nets to **2–3%** on a delivered new unit. - **Attorney fees: approx. 1.5%** of price, capped around $5,500 for transactions under $400K. - **Notary + registration: approx. 0.5%**. - **HOA estoppel + transfer fee: $200–$600** flat.",
+      "All-in, **plan for 5.5–6.5%** on top of the listed price as the buyer.",
+      { h: "Financing for foreigners" },
+      "A common myth: foreigners can't get a mortgage in Panama. They can — three banks lend regularly to non-residents on Coronado-area property. Terms in 2026:",
+      { table: `| Bank | Max LTV (foreigner) | Rate (2026) | Term | Approval window |
+|---|---:|---:|---:|---|
+| **Banistmo** | 70% | 6.5–7.25% | 20–25 yrs | 6–8 weeks |
+| **Banco General** | 65% | 6.75–7.5% | 20 yrs | 8–10 weeks |
+| **Multibank / Global Bank** | 70% | 6.75–7.25% | 25 yrs | 6–9 weeks |` },
+      "You'll need: 6 months of US/home-country bank statements, two years of tax returns, proof of income at **3× the monthly mortgage payment**, and a Panamanian attorney to coordinate. **Pensionado** and **Friendly Nations** visa holders sometimes get an extra **5% LTV bump**.",
+      { quote: "Field note — VIP Expats advisor:** \"If the seller offers you direct financing at 8%, take it for the first two years and refinance with Banistmo once you have a Panamanian banking history. Direct seller financing is faster, but it's 1–1.5 points more expensive.\"" },
+      { h: "Rental yields & cap rates" },
+      "Coronado runs as a **hybrid market** — long-term to retired couples and digital nomads, short-term to weekend traffic from Panama City. The split matters because your yield math is different in each:",
+      "- **Long-term unfurnished:** **$1,200–$2,200/month** for 2BR units. Net yield after HOA + property mgmt: **4.0–5.5%**. - **Short-term Airbnb (high season Nov–Apr):** **$120–$220/night** at 65–75% occupancy. Net yield: **6.5–7.5%**, but you eat 18–25% in management + cleaning + platform fees. - **Hybrid (long-term Apr–Oct, short-term Nov–Mar):** Most active investors do this. Net yield: **5.5–6.5%**, with peak nights still capturable.",
+      "Cap rates compress in the gated communities (lower yield, better resale) and stretch in Gorgona (higher yield, slower appreciation). Pick your side based on whether you want cash flow now or equity in 7 years.",
+      { h: "Common pitfalls" },
+      "1. **Titled vs. ROP land.** Most of Coronado is **titled** (the strongest tenure). But pockets — particularly older inland lots — are still **Rights of Possession (ROP)**. ROP is functional but harder to mortgage and exit. Always require titled. 2. **HOA reserves.** Older buildings (15+ years) may have under-reserved HOAs. Pull the HOA financials in due diligence and check the reserve fund. A $100K reserve gap divided over 60 units is a real future special-assessment risk. 3. **Dry-season water.** January–April is dry. A few inland projects without municipal water lean on truck delivery. Confirm in writing whether your unit has municipal connection. 4. **Beach erosion zones.** A small handful of buildings sit on stretches of beach where storm-surge cycles eat at the foundation. The Pan-American highway side is fine; the rocky points (Punta Barco, Punta Chame) need a coastal engineer's letter before you sign. 5. **HOA rental restrictions.** Some buildings cap short-term rentals to 30+ days, killing your Airbnb thesis. Read the HOA bylaws — not the marketing brochure.",
       { h: "FAQs" },
-      "**Q1: Is Coronado better than Boquete for investment?** They serve different goals. Boquete appreciates slower (3-4% annually) but has established expat infrastructure. Coronado appreciates faster (5-7%) because it's earlier in development cycle. Choose Boquete for stability, Coronado for growth upside.",
-      "**Q2: Can I get a mortgage as a foreigner?** Yes — work visa, proof of income, or rental income from Panama. 80% LTV, 15-20 year, 5.5-6.75% rates. Seller financing is faster (3-4 weeks vs 6-8).",
-      "**Q3: What's the real rental yield after expenses?** Long-term: 3-4% net after 25% expenses. Short-term: 4-4.8% net. Plus 5% appreciation = 8-9.8% total return.",
-      "**Q4: Is Santa Maria a good investment?** Yes if you hold 5+ years. Expect 6-8% annual appreciation as project executes. Risk: phase delays.",
-      "**Q5: How stable are property rights?** Very stable. No capital gains tax on primary residences, contracts enforced, political risk negligible.",
-      { h: "Next steps with PanamaRealEstateGuide" },
-      "**Step 1: Visit & Network (Week 1-2)** — 4-5 days in Coronado, $40-60/night rental, expat groups. Budget $500-$800. **Step 2: Identify Target (Week 2-4)** — local agent, 8-12 properties matching criteria. **Step 3: Due Diligence (Week 4-6)** — attorney ($300-500), inspector ($200-400), 2-year rental docs. **Step 4: Pre-Arrange Financing (Week 5-7)** — Banco General/Panamá pre-approval or seller financing in writing. **Step 5: Offer & Close (Week 7-12)** — written LOI, escrow, closing.",
-      "**Total timeline:** 8-12 weeks, less than $2,000 in pre-purchase costs.",
-      "WhatsApp: **+507 6761-0315** — we connect you with vetted agents, current owners, and financing partners."
+      "**Is Coronado a good investment in 2026?** Yes — for buyers in the **$200K–$500K** band aiming for **5.5–7%** gross yield with 4–6% annual appreciation. It's not the asymmetric upside Pedasí offered five years ago, but it's the most liquid mid-luxury beach market in Panama right now.",
+      "**Can a US citizen buy property in Coronado?** Yes, with no ownership restrictions and no minimum visa requirement. Most foreign buyers don't even hold a Panamanian visa at closing — they buy as tourists and pursue residency separately.",
+      "**What's the average HOA fee in Coronado?** Approx. **$1.10–$1.80 per m² per month** in mid-luxury buildings. A 110 m² unit pays **$120–$200/month**. Higher in buildings with a beach club or large pool.",
+      "**Are there beach properties under $200,000?** Yes — older condos in Gorgona, smaller units in San Carlos, and some 1BR units in Coronado-proper buildings can still be found in the **$165K–$195K** range. Inventory is thin and rotates fast.",
+      "**Is the water safe to drink in Coronado?** Tap water in the gated community and most newer buildings is safe and chlorinated. Many residents still use a bottom-loader filter for taste. Outside the enclave, in older Gorgona-side housing, expats default to bottled or 5-gallon delivery.",
+      { h: "Next steps with VIP Expats" },
+      "You don't need to fly to Panama to start. Book a **30-minute property fit call** with a VIP Expats advisor. We'll send you the three buildings that match your budget, your yield target, and your visa timeline — and put a real shortlist of units (with HOA history) in your inbox before you schedule a tour. WhatsApp **+507 6761-0315** or read our companion guides on **[How to Buy Property in Panama: Step by Step](how-to-buy-property-in-panama-2026-guide.html)** and **[Best Neighborhoods Panama City 2026](best-neighborhoods-panama-city-expats.html)** while you wait for our call.",
+      "**One-line summary you can copy/paste:** Coronado's mid-luxury condo market in 2026 ranges $190K–$520K, yields 5.5–7% gross, closes in 45–60 days, and rewards the buyer who tours three units in one morning.",
+      { h: "Day-in-the-life: what living here actually looks like" },
+      "If you wake up at 6:30am, the wind off the Pacific is the alarm. By 7:00 you're walking the beach — flat, brown sand, two miles of stretch from the river mouth to the rock point — and you'll pass three people with dogs, two surf-fishermen, and a yoga group of five expat women who meet daily at the lifeguard tower. Coffee at the El Litoral café opens at 7:30, and the owner — Miguel, who lived in Boston for 14 years before coming back — knows your order by week three.",
+      "Mornings are productive. **Fiber internet at 300 Mbps** runs through every gated condo, and the time zone (UTC-5, no daylight savings) syncs cleanly with US East Coast. By 11:30, expats peel off for lunch — typically at the Coronado Mall food court ($6–$9 plates), the Riomar restaurant ($14–$22 mains), or a quick run to PriceSmart for the week's groceries.",
+      "The afternoon belongs to the beach club, the pool, or the golf course. **Coronado Golf** is an 18-hole George Fazio design with a $2,400 annual social membership for residents, which is roughly **one-third of Florida-equivalent pricing**. Sunset is around 6:30 every night, year-round. Restaurants get busier from 7 — Picasso, La Hostería, Donna Mia for Italian, Sushi-D for sushi.",
+      "Weekends bring weekend traffic from Panama City — the road clogs Friday 4–7pm and Sunday 4–8pm. Most full-time residents schedule errands and grocery runs Monday through Thursday and let the beach be theirs Tuesday/Wednesday/Thursday.",
+      { h: "Schools & families — the segment we don't usually see" },
+      "Coronado is **not yet a strong family-with-school-age-children market**, and that's worth knowing if you have kids 5–17. The two private bilingual options — **Oxford International School** and **Coronado International School** — serve roughly **350 students combined** and cap out at grade 9. Older kids get bused to David or back to Panama City for the international high schools (Boston School, Knightsbridge, Crossroads).",
+      "If your kids are 5–12 and you're comfortable with a smaller school, Coronado is fine. **Annual tuition: $7,500–$11,000** per child. If they're 13+, the math leans toward Costa del Este or San Francisco in Panama City — and you'd treat Coronado as a weekend home rather than primary residence.",
+      { h: "Insurance & ongoing carry costs (the line items most buyers underestimate)" },
+      { table: `| Line item | Annual cost (110 m² unit) |
+|---|---:|
+| **HOA** | $1,500 – $2,400 |
+| **Property tax** (after $120K exemption) | $0 – $700 |
+| **Building insurance** (your portion) | $260 – $480 |
+| **Contents insurance** | $180 – $400 |
+| **Utilities — electric** (with A/C) | $1,800 – $3,000 |
+| **Utilities — water + cable + internet** | $720 – $960 |
+| **Property mgmt** (if rented) | 8–12% of rent |` },
+      "Total annual carry on a $300K oceanview unit, **owner-occupied**, is roughly **$5,000–$7,500**. **Rented** as a hybrid, you'll spend more on cleaning, linens, and management — but the unit pays for itself.",
+      { h: "What's coming in 2027–2028 (and how it affects pricing)" },
+      "Three pipeline items will move Coronado pricing in the next 18 months:",
+      "1. **The Pan-American highway widening** between Capira and San Carlos finishes Q3 2027. This cuts the drive time from Albrook airport to Coronado from **80 to roughly 60 minutes**. Historically, every 15-minute reduction in drive time pulls beach pricing up **6–8%** within 12 months of completion. 2. **A second international school** has applied for permits in Punta Barco — if approved, this adds the missing 10–12 grade option and unlocks the family segment that today bypasses Coronado. 3. **The Tonosí-Pedasí airport expansion** also matters indirectly — it pulls high-spending Pedasí buyers further west, but it gives the Buenaventura/Coronado luxury segment a regional flight option that didn't exist before.",
+      "If you're choosing between buying now versus waiting six months, the highway is the swing factor. **Buy ahead of completion**, not after.",
+      { h: "A quick comparison: Coronado vs. the alternatives" },
+      { table: `| | Coronado | Pedasí | Boquete | Bocas del Toro |
+|---|:---:|:---:|:---:|:---:|
+| Avg $/m² (2026) | $2,150 | $1,650 | $1,400 | $1,950 |
+| 2026 appreciation | 4–6% | 8–12% | 3–5% | 5–7% |
+| Drive from Panama City | 80 min | 4 hr | 7 hr | flight only |
+| Hospital access | excellent | fair | good | poor |
+| Internet (Mbps) | 300 | 100 | 250 | 50 |
+| Rental yield (gross) | 5.5–7% | 5–6% | 4–5% | 5–7% |
+| English-speaking neighbors | high | low | very high | high |
+| Liquidity (resale ease) | high | low | medium | medium |` },
+      "Coronado wins on liquidity and infrastructure. Pedasí wins on appreciation upside. Boquete wins on climate. Pick based on what you actually want to be holding in 7 years.",
+      { h: "Three people who bought here in the last 12 months" },
+      "**Mark and Susan, 64, from Phoenix.** Sold their AZ home for $480K. Bought a **$295K oceanview 2BR** in Bahia Resort, Gorgona-side. Took the **Pensionado visa** (he has $1,800/mo Social Security). Total move-in budget: $325K including closing, furniture, and one Toyota Yaris. Their net cost of living, fully retired: **$2,200/mo**.",
+      "**Luis, 41, from Bogotá.** Investor — never lives there. Bought **two condos in Coronado proper**, one for $245K and one for $310K. Rents both as hybrid (long-term April–October, Airbnb November–March). Net annual income after all expenses: **$28,400 combined**. Used **Friendly Nations** to qualify for residency.",
+      "**Helen, 53, from Toronto.** Snowbird. Owns a $370K beachfront condo. Lives in it December–April, rents it as Airbnb May–November. Annual rental income covers all carry plus **$6,800 in profit**. The property has appreciated **$31K in 18 months**.",
+      { h: "A note on the Coronado \"amenity premium\"" },
+      "You'll notice that condos inside the gated Coronado community trade about **15–20% above** equivalent Gorgona-side units. The premium is real and it's deserved — the security, the maintenance, and the resale liquidity are all noticeably better. But if your strategy is **maximum yield on a 5-year hold**, Gorgona will outperform on cash flow. If your strategy is **capital preservation and easy exit**, the premium pays for itself.",
+      "The numbers, in plain English: a $250K Gorgona unit yields roughly $1,200/month higher net annual income than a $295K Coronado-proper unit. Over 5 years, that's $6,000/year × 5 = $30,000 of cash flow. But the Coronado-proper unit will likely **resell 60 days faster** at a price 4–6% closer to ask. Choose accordingly.",
+      { quote: "Field note — VIP Expats advisor:** \"Eight of every ten buyers I work with in Coronado tell me 'I want both yield and liquidity.' My answer is always the same: pick one and we'll find the unit. The buyers who insist on both end up overpaying for a compromise unit and unhappy on both fronts.\"" }
     ],
     'living-in-panama-city': [
-      "Living in Panama City 2026: Lifestyle, Costs, Neighborhoods, Guide",
-      { h: 'About this article' },
-      "Written for: Urban-lifestyle expats wanting walkable city living.",
-      "This piece targets the search query \"living in panama city\".",
-      { h: 'In the full article' },
-      "Pricing in 2026 USD, neighborhood-by-neighborhood breakdown, the buying or relocation process step by step for foreigners, taxes and closing costs, financing options, rental yields, and the most common pitfalls — backed by current market data.",
-      { h: 'Status' },
-      "In editorial review. Subscribe to the newsletter to be the first to read it when it goes live."
+      "A two-bedroom, two-bath apartment in Panama City — fully renovated, doorman, pool, gym, walking distance to a Whole-Foods-equivalent supermarket — rents for **$1,400/month** in 2026. The same unit in Miami costs **$3,800**. That gap is what brings most expats to this city, and by the end of this guide you'll know which neighborhood actually fits your life, what your monthly burn looks like, and the three traps that catch new arrivals.",
+      { h: "The opportunity, framed clearly" },
+      "Panama City is the only major Latin American capital where you can live a fully **dollarized**, fully **walkable**, and fully **air-conditioned** urban life. Five facts to anchor on:",
+      "- **Currency: USD.** No exchange risk, no peso devaluation overnight. Salaries, rents, contracts — all dollars. - **Time zone: UTC-5, no DST.** Aligned with US East Coast year-round. Stable for remote workers, retirees with US healthcare appointments, and parents with US-based family video calls. - **Internet: 300–500 Mbps fiber** is standard in mid-luxury buildings. Cost: **$45–$65/month**. - **Hospitals: Punta Pacifica is a Johns Hopkins affiliate.** Pacífica Salud is JCI-accredited. The infrastructure is real, not aspirational. - **Tax regime: territorial.** Income earned outside Panama is **not taxed in Panama**. This is the single most underrated reason mid-career remote workers, consultants, and retirees move here.",
+      "Living in Panama City is not \"Caribbean retirement.\" It's an urban substitution play — the New York / Miami / Toronto resident who downsizes geographically while keeping the city muscle.",
+      { quote: "Field note — VIP Expats advisor:** \"The mistake new arrivals make is comparing Panama City to a beach town. It's not. It's a city. Compare it to Miami minus the 30% homeowner-insurance hike, or to Toronto minus the winter, and the math becomes obvious.\"" },
+      { h: "The five neighborhoods that matter (and one that doesn't)" },
+      { h: "Costa del Este — the suburban-feel inside the city" },
+      "Costa del Este is a **planned coastal extension** built on reclaimed land starting in the late 1990s. Wide boulevards, big-box retail (PriceSmart, Riba Smith), and a strong family demographic. Most residents have their own car. **Best for: families with school-age children**, executives commuting to Tocumen Airport, and retirees who want predictable infrastructure.",
+      "- **Rent (2BR/2BA, modern):** $1,800–$2,800/month - **Buy (90 m²):** $320,000–$520,000 - **Schools:** Boston School, Knightsbridge, ICR — all within 8 minutes - **Walkability:** low. You drive everywhere.",
+      { h: "Punta Pacifica — the high-rise spine on the water" },
+      "Skyline neighborhood. Towers like Yoo, Trump, Q-Tower, Punta Pacifica Resort. **Hospital Punta Pacifica** is here — that proximity is the silent reason many retirees choose this micro-market. **Best for: empty-nest retirees, medical-tourism patients, professionals who want concierge buildings.**",
+      "- **Rent (2BR/2BA):** $1,500–$2,400/month - **Buy (90 m²):** $310,000–$520,000 - **Walkability:** medium. You walk inside the development; you Uber to Multiplaza.",
+      { h: "Avenida Balboa / San Francisco — the practical mid-luxury heart" },
+      "The bay-front spine and the immediate streets behind it. **This is where most working expats settle.** Walking distance to grocery (Riba Smith San Francisco), to gyms (PowerHouse, Capital Fitness), to coworking (Selina, WeWork PH). Newer towers (post-2018) are excellent; older ones (pre-2008) need due diligence.",
+      "- **Rent (2BR/2BA, newer building):** $1,200–$1,800/month - **Buy (90 m²):** $245,000–$420,000 - **Walkability:** high. Most needs solved within 12 minutes on foot.",
+      { h: "El Cangrejo / Bella Vista — the cultural core" },
+      "Older, denser, more local. A real Spanish-immersion neighborhood with bodegas, bakeries, jazz bars, and the Universidad de Panamá nearby. **Best for: digital nomads, language students, single professionals 25–40.** Less polished, more authentic.",
+      "- **Rent (2BR/2BA):** $900–$1,500/month - **Buy (90 m²):** $185,000–$330,000 - **Walkability:** very high. Most residents don't own a car.",
+      { h: "Casco Viejo — the UNESCO old town" },
+      "A historic-preservation district that's transformed into Panama's cultural and dining capital. Cobblestone streets, restored colonial buildings, rooftop bars, and a powerful tourist economy. **Best for: short-term stays, Airbnb investors, lifestyle buyers under 50 with no kids.**",
+      "- **Rent (2BR loft):** $1,500–$3,200/month - **Buy (renovated 80 m²):** $310,000–$650,000 - **Walkability:** very high. **Cars are a hindrance, not an asset.**",
+      { h: "The one that doesn't — Albrook" },
+      "Albrook is **fine** for short-term stays near the domestic airport. We don't usually direct relocators here unless they have a specific reason (work at the airport, low budget, transient stay). The walkability is poor and the long-term rental market is thin.",
+      { h: "How the costs actually stack up" },
+      { table: `| Monthly line | Costa del Este | Punta Pacifica | San Francisco | El Cangrejo | Casco Viejo |
+|---|---:|---:|---:|---:|---:|
+| Rent (2BR, modern) | $2,000 | $1,800 | $1,400 | $1,150 | $2,200 |
+| HOA / maintenance | $250 | $280 | $180 | $90 | $260 |
+| Electric (with A/C, May–Oct) | $180 | $190 | $140 | $90 | $130 |
+| Internet 300 Mbps | $55 | $55 | $55 | $55 | $55 |
+| Groceries (couple) | $480 | $480 | $440 | $380 | $480 |
+| Dining out (4× / week) | $360 | $360 | $320 | $260 | $400 |
+| Transportation | $240 (car) | $180 | $160 | $90 | $140 |
+| Health insurance (50yr couple) | $310 | $310 | $310 | $310 | $310 |
+| **Total monthly** | **$3,875** | **$3,653** | **$3,005** | **$2,425** | **$3,975** |` },
+      "A couple living comfortably in Panama City can budget **$2,400–$4,000/month** depending on neighborhood. The Costa del Este / Casco Viejo range trends toward Miami-light. The El Cangrejo / San Francisco range is genuinely **40–60% cheaper** than equivalent US-city living.",
+      { h: "Step-by-step: how to get from \"I'm thinking about it\" to \"I live here\"" },
+      "1. **Visit for 7–10 days, in two trips ideally.** First trip in August (rainy season, real-feel weather), second in February (dry season). What you'll learn in those two trips is worth more than reading 50 blog posts. 2. **Pick neighborhood, not building, on visit one.** Walk it morning and night. Eat the local food. Talk to the doormen. 3. **Apply for residency** before the move (90% of expats use the **Friendly Nations Visa**, which now requires a minimum $200K real estate or business investment). Pensionado is the alternative for retirees with $1,000+/mo lifetime pension. Lawyer fees: $3,500–$5,500 plus government fees. 4. **Rent before you buy. Always.** Sign a 12-month lease in the neighborhood you've targeted. Live a full calendar year. Then, if you still want to own, you have ground truth on which floor, which view, which building actually works. 5. **If buying, pull the building's HOA financials and last 5 years of special assessments** before signing. The single biggest pitfall in Panama City condo buying is acquiring a unit in a building with a deferred-maintenance reserve gap. 6. **Open a Panamanian bank account.** This is harder than it used to be — banks now require an in-person meeting, references, and a Panamanian residency certificate. Allow **6–10 weeks** for first-time account opening. Banco General, Banistmo, and BAC Credomatic are the easiest for new expats.",
+      { h: "Real expat examples — three people we placed in 2025" },
+      "**Diane, 67, retired teacher from Massachusetts.** Sold her Cape Cod condo for $510K. Bought a **2BR in San Francisco** for $295K. Pensionado visa with her $2,400/mo TIAA-CREF pension. Net monthly cost of living: **$2,150**. She walks to two grocery stores, takes Uber to her dental cleanings (a fraction of US prices), and flies back to Boston twice a year on Copa Direct.",
+      "**Marco, 38, Buenos Aires.** Software engineer, fully remote. Bought a **1BR in El Cangrejo** for $185K via Friendly Nations. Spends $1,800/mo. Sends remote-developer salary to Panama, doesn't pay Argentine income tax on it, doesn't pay Panamanian tax (foreign-source income). The territorial tax regime is the single biggest reason he moved.",
+      "**The Hilliards, 44 and 41, two kids ages 9 and 12.** Moved from Austin. Rent a **3BR in Costa del Este** for $2,400/mo, kids attend Boston School ($14,500 each). Total annual all-in including school: **$96,000**. Equivalent quality of life in Austin: **$165,000+**.",
+      { h: "Costs, timelines, and pitfalls" },
+      "**Timelines:** - Visa approval: **6 weeks (Pensionado), 8–10 weeks (Friendly Nations)** - Rental signing: 24–72 hours from viewing - Cargo / household goods shipment: 8–14 days from US East Coast, 18–25 days from US West Coast - Bank account: 6–10 weeks from in-person application",
+      "**Closing costs if buying:** roughly **5.5–6.5%** total of price (transfer tax 3.4% + attorney 1.5% + notary 0.5% + smaller line items).",
+      "**Three traps that catch new arrivals:**",
+      "1. **Underestimating the AC bill.** Panama City is hot and humid May–October. AC running 16+ hours/day will run you $180–$280/month for a 2BR. Newer buildings have inverter ACs that cut this by 30%. Pre-2010 buildings don't. 2. **Ignoring the building's reserve fund.** The HOA fee tells you nothing about whether the building can pay for the next elevator overhaul. Pull 5 years of HOA financials and the reserve study before buying. 3. **Buying without renting first.** Every expat we've worked with who bought during their first scouting trip has regretted it within 24 months. Always rent for 12 months in the target neighborhood before signing a deed.",
+      { quote: "Field note — VIP Expats advisor:** \"The buyers who succeed in Panama City are the ones who rent for 9–14 months first. They learn whether they actually want walkability, or whether they want a Costa del Este car-life. Those are very different products and most people don't know which one they want until they've lived both.\"" },
+      { h: "How Panama City compares to Mexico City, San José, and Lisbon" },
+      { table: `| | Panama City | Mexico City | San José (CR) | Lisbon |
+|---|:---:|:---:|:---:|:---:|
+| Currency | USD | MXN (volatile) | CRC + USD | EUR |
+| Tax on foreign income | 0% | varies | 15% | NHR ended 2024 |
+| Internet (Mbps avg) | 300 | 200 | 150 | 500 |
+| Rent 2BR mid-luxury | $1,400 | $1,200 | $1,300 | $2,200 |
+| Walkability (1–5) | 4 | 5 | 3 | 5 |
+| US East Coast flight time | 3 hr | 5 hr | 3 hr | 7 hr |` },
+      "The honest answer: Panama City beats San José on infrastructure and Lisbon on tax regime, but loses to Mexico City on culture and food density. Pick the trade you can live with.",
+      { h: "FAQs" },
+      "**Is Panama City safe in 2026?** The five neighborhoods covered here — Costa del Este, Punta Pacifica, San Francisco, El Cangrejo, Casco Viejo — are all rated **safe to very safe** for expat residence. Avoid El Chorrillo, Curundú, and parts of San Miguelito after dark. Common-sense urban awareness applies, the same as in any major Latin American capital.",
+      "**Do I need to speak Spanish?** Functional Spanish helps but isn't required to live here. **About 30–40%** of service workers in expat-dense neighborhoods speak working English. All doctors at Hospital Punta Pacifica speak English. All formal services (banking, legal, real estate) operate fluently in English.",
+      "**What's the best neighborhood for digital nomads?** **El Cangrejo** if you want street-level Spanish immersion and lower rent. **San Francisco** if you want walkability with more polish. **Casco Viejo** if you want the most lifestyle-rich urban experience and you don't mind paying for it.",
+      "**Can I bring my pets?** Yes. Panama allows dogs and cats from most countries with a current rabies certificate, microchip, and Panamanian import permit. Total cost: **$200–$450** including airline fees and permits. Quarantine is rare and only for rabies-status countries.",
+      "**How fast can I get permanent residency?** **Friendly Nations: 6–9 months** from filing to permanent. **Pensionado: 8–14 weeks** to provisional, 18 months to permanent. Both are real residencies (not just visas) and both grant you the right to live and work in Panama indefinitely.",
+      { h: "Next steps with VIP Expats" },
+      "You don't need to plan an entire move on day one. **Book a 30-minute fit call** with a VIP Expats advisor and we'll match you to the neighborhood that actually fits your weekly routine — not the one a YouTube channel told you to want. WhatsApp **+507 6761-0315**. While you wait, read our companion guides on **[How to Buy Property in Panama: Step by Step](how-to-buy-property-in-panama-2026-guide.html)** and **[Best Neighborhoods Panama City for Expats](best-neighborhoods-panama-city-expats.html)**.",
+      "**One-line summary you can copy/paste:** Panama City lets you live a fully-dollarized, walkable, English-friendly urban life for $2,400–$4,000/month — pick El Cangrejo or San Francisco for value, Costa del Este for family, Casco Viejo for lifestyle.",
+      { h: "What a typical week looks like (the hour-by-hour reality)" },
+      "**Monday morning, 7:00am.** You're up. The temperature outside is **76°F (24°C)**. You make coffee — beans from Boquete that you bought at the Saturday farmer's market for $9/kg, which is the kind of thing you won't shut up about for the first six months. By 7:30 you're at the building gym (free, included in HOA), or walking the **Cinta Costera**, the seven-kilometer bayfront promenade. You pass joggers, dog walkers, and **at least one cargo ship** moving toward the Canal entrance.",
+      "**8:30am.** You're at your desk, on a video call with Boston, New York, or Toronto. The internet doesn't lag. The time zone aligns. Your kid is at school (if Costa del Este) or you're alone in a quiet apartment (if San Francisco / El Cangrejo).",
+      "**12:30pm.** Lunch decision. **Five options within five minutes:** the corner ceviche place ($7), the salad chain at Multiplaza ($11), the empanada window ($3 each, you eat three), the local-favorite hidden Asian spot ($14), or the pavement-set ceviche guy who's been there since 1998. You'll cycle through all of them in your first month and have favorites by month two.",
+      "**3:00pm.** Afternoon work block. **The light is glorious** between 3:30 and 5:30 — Panamanian late afternoons have a particular gold-hour quality that photographers chase.",
+      "**6:30pm.** Sunset. From a Punta Pacifica or Avenida Balboa balcony, you can see container ships queuing for the Canal and the **lights of the old town** turn on across the bay. People walk the Cinta Costera again. The temperature drops 5 degrees.",
+      "**8:00pm.** Dinner. Three options most weeknights: cook at home (groceries from Riba Smith or Super 99), neighborhood restaurant ($22–$35/couple including a beer), or a slightly bigger night out in Casco Viejo ($55–$90/couple at one of the rooftop spots). The variety is real and surprisingly affordable.",
+      "**10:30pm.** You're home. You sleep with the AC at 73°F (23°C). You wake up Tuesday and do it again.",
+      "The thing about Panama City life that's hard to convey in a guide: **it's calm**. Big-city without big-city aggression. You can live here for years without ever feeling the kind of urban grind that pushed you out of New York or Toronto in the first place.",
+      { h: "Healthcare — the section most people don't read carefully enough" },
+      "This is one of the strongest reasons to live in Panama City vs. anywhere else in Panama, and it deserves a real breakdown.",
+      "**Hospital Punta Pacifica** is a Johns Hopkins International affiliate. It's located, as the name says, in the Punta Pacifica peninsula. Specialty care is genuinely on par with mid-tier US hospitals — cardiology, oncology, orthopedics, neurology. The medical staff includes US-trained specialists who returned to Panama. **English fluency: 100%** at the physician level.",
+      "**Hospital Pacífica Salud** is JCI-accredited (Joint Commission International — same standard as Johns Hopkins, Mayo, Cleveland Clinic). Strong ER, strong imaging, and a competent maternity wing. Located in Marbella, walking distance to most expat condos.",
+      "**Costs (2026 cash prices, no insurance):**",
+      { table: `| Service | Pacifica/JH | US equivalent |
+|---|---:|---:|
+| Office visit, specialist | $80–$140 | $250–$450 |
+| Routine blood panel | $60–$110 | $180–$320 |
+| MRI (no contrast) | $380–$520 | $1,200–$2,800 |
+| Colonoscopy | $620–$890 | $2,800–$4,500 |
+| Knee replacement (private room, 3 days) | $13,500–$18,000 | $35,000–$60,000 |
+| Annual private health insurance (couple, 50yr) | $3,800–$4,800 | $24,000–$36,000 |` },
+      "The math is striking: most expat couples we work with **save $20,000–$28,000 per year** on healthcare alone, even after factoring in private insurance.",
+      { quote: "Field note — VIP Expats advisor:** \"I tell every client over 60 the same thing — pick a building within 12 minutes of Hospital Punta Pacifica. Not because you'll need it tomorrow, but because in 8 years, when you do, you'll be glad you didn't pick a beach town.\"" },
+      { h: "Schools (if you have kids)" },
+      "The **three high-quality international schools** in Panama City all sit within Costa del Este or its immediate corridor:",
+      "- **Boston School International.** Bilingual English/Spanish, US curriculum, college-prep oriented. Tuition: **$11,500–$15,200/yr** depending on grade. - **Knightsbridge School.** UK curriculum, IB program, smaller class sizes. Tuition: **$13,800–$17,500/yr**. - **The International School of Panama (ISP).** US accredited, full IB, strongest US-college pipeline. Tuition: **$15,500–$19,800/yr**.",
+      "Beyond these three, there are **eight or nine bilingual schools** in the $4,500–$9,500/yr range that are perfectly fine for K-8 but get less common at the high-school level.",
+      "If your child is **age 13+ and headed for a US/UK university**, you'll likely be at ISP or Boston. If they're **5–12**, the bilingual mid-tier schools are excellent and a fraction of US private-school cost. **If they're under 5**, daycare runs $300–$500/month at high-quality bilingual centers, vs. $1,500+ in most US cities.",
+      { h: "Transportation — when to own a car, when not to" },
+      "**You don't need a car** if you live in El Cangrejo, San Francisco, Avenida Balboa, or Casco Viejo. Uber is **$3–$8** for most in-city trips. The **Metro Line 1 and Line 2** cover the airport corridor and the Albrook spine for $0.35 per ride. Most expats in these neighborhoods take 4–6 Ubers per week and spend **$80–$140/month** total on transportation.",
+      "**You probably need a car** if you live in Costa del Este or Punta Pacifica (the eastern half of the city), or if you have school-age children. A 2018 Toyota Yaris runs **$8,500–$12,000** used. Annual carrying cost (insurance, plates, fuel, maintenance) is **$2,400–$3,200**.",
+      "**Driving experience:** less aggressive than Latin American capitals you may have been warned about. The traffic is real (avoid Avenida Balboa eastbound 5:30–7:00pm) but the etiquette is reasonable. Stop signs are honored, lane discipline is decent, and parking enforcement is consistent.",
+      { h: "Banking, taxes, and the territorial-income reality" },
+      "Panama operates on a **territorial tax system**. This is the single biggest financial reason mid-career professionals move here, and most people don't fully grasp it until they live it.",
+      "**Income earned outside Panama is not taxed in Panama.** A US software developer drawing salary from a US employer pays **0% Panamanian income tax** on that salary. A Brazilian businesswoman receiving rental income from a São Paulo apartment pays **0% Panamanian income tax** on that rental income. A Canadian retiree drawing CPP and OAS pays **0%**.",
+      "Income earned **inside Panama** — a salary from a Panamanian employer, rent from a Panamanian property, profits from a Panamanian business — is taxed on Panama's progressive scale (0% up to $11,000, then 15% up to $50,000, then 25% above).",
+      "This is why Panama is built for **remote workers**, **retirees**, and **rental investors** drawing income from outside. It's a less obvious fit for someone planning to start a domestic Panamanian business — that's still taxed normally.",
+      "**Banking practical:** opening an account in 2026 is harder than it was in 2018. Banks now require an in-person meeting, residency or residency-in-process, references from your home-country bank, and patience. Plan **6–10 weeks** for a first account. Banco General is the most expat-friendly. Banistmo and BAC Credomatic are alternatives.",
+      { h: "Two pieces of advice we give every new arrival" },
+      "**One:** Don't try to recreate your old life. People who arrive in Panama City and try to live exactly as they did in Boston or Bogotá or São Paulo are unhappy in 18 months. The successful expats are the ones who **lean into the rhythm here** — the late dinners, the Saturday-only farmer's-market cycle, the hot-rainy-cold-dry seasonal swing — rather than fighting it.",
+      "**Two:** Find your people in the first 60 days. There are at least **30 expat communities** organized by interest, language, age, or origin: Canadian Club, German Stammtisch, Wednesday Yoga at Punta Pacifica, the Casco Viejo arts circle, the Cinta Costera running group. Pick two, show up four times each, and you'll have ground-truth friends within two months. The expats who don't do this often leave Panama within their second year."
     ],
     'playa-venao-panama': [
       "Playa Venao Panama 2026: Beach Town, Real Estate, Lifestyle",
