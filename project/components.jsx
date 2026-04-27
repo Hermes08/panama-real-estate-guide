@@ -39,8 +39,17 @@ function Logo({ onDark = false, size = 22 }) {
   const shadowColor = onDark ? 'var(--cream)' : 'var(--ink)';
 
   return (
-    <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-       aria-label="PanamaRealEstateGuide.com"
+    <a href={(typeof window !== 'undefined' && /\/(projects|articles|news|qa)\//.test(window.location.pathname)) ? '../' : './'}
+       onClick={(e) => {
+         const onSub = /\/(projects|articles|news|qa)\//.test(window.location.pathname);
+         if (!onSub) {
+           // Already on home — just smooth-scroll up instead of reloading
+           e.preventDefault();
+           window.scrollTo({ top: 0, behavior: 'smooth' });
+         }
+         // On subpages: let the default navigation happen (go to ../)
+       }}
+       aria-label="PanamaRealEstateGuide.com — home"
        style={{
          display: 'inline-flex', alignItems: 'center', textDecoration: 'none',
          fontFamily: "'Manrope', sans-serif", fontWeight: 700, fontSize: size,
