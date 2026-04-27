@@ -256,7 +256,16 @@ function Hero() {
 
 /* ── Hero (Editorial variant) — magazine-style with giant wordmark headline + featured project card ── */
 function HeroEditorial() {
-  const featured = window.PANAMA_DATA.projects[0]; // Palma Blanca
+  const featuredPool = window.PANAMA_DATA.projects.slice(0, 5);
+  const [featuredIdx, setFeaturedIdx] = useState(0);
+  React.useEffect(() => {
+    if (featuredPool.length < 2) return;
+    const id = setInterval(() => {
+      setFeaturedIdx(i => (i + 1) % featuredPool.length);
+    }, 4500);
+    return () => clearInterval(id);
+  }, [featuredPool.length]);
+  const featured = featuredPool[featuredIdx] || window.PANAMA_DATA.projects[0];
   const news = window.PANAMA_DATA.news.slice(0, 3);
   const jaguarRef = React.useRef();
 
@@ -357,13 +366,31 @@ function HeroEditorial() {
             textDecoration: 'none', display: 'block', minHeight: 520,
             boxShadow: '0 30px 60px -24px rgba(11,39,51,0.35)'
           }}>
-            <div className={`ph ph-${featured.cover}`} style={{
-              position: 'absolute', inset: 0
-            }}/>
+            {featured.cover && featured.cover.indexOf('/') !== -1 ? (
+              <img key={featured.id} src={featured.cover} alt={featured.name} style={{
+                position: 'absolute', inset: 0, width: '100%', height: '100%',
+                objectFit: 'cover', animation: 'feat-fade 0.6s ease'
+              }}/>
+            ) : (
+              <div className={`ph ph-${featured.cover}`} style={{ position: 'absolute', inset: 0 }}/>
+            )}
             <div style={{
               position: 'absolute', inset: 0,
               background: 'linear-gradient(180deg, transparent 0%, transparent 40%, rgba(11,39,51,0.85) 100%)'
             }}/>
+            {/* Pagination dots */}
+            <div style={{
+              position: 'absolute', top: 56, left: 20, right: 20,
+              display: 'flex', gap: 6, zIndex: 3, pointerEvents: 'none'
+            }}>
+              {featuredPool.map((_, i) => (
+                <div key={i} style={{
+                  flex: 1, height: 2,
+                  background: i === featuredIdx ? 'var(--coral)' : 'rgba(255,249,236,0.25)',
+                  borderRadius: 1, transition: 'background 0.4s ease'
+                }}/>
+              ))}
+            </div>
             <div style={{
               position: 'absolute', top: 20, left: 20,
               display: 'inline-block', padding: '6px 12px',
