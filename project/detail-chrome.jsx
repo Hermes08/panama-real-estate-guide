@@ -130,3 +130,74 @@ function DetailFooter() {
 }
 
 Object.assign(window, { DetailNav, DetailBack, DetailCTA, DetailFooter });
+
+
+/* Photo lightbox — click any project image to view it big.
+   Pass an array of image URLs and the index to start at. */
+function Lightbox({ images, startIndex, onClose }) {
+  const [idx, setIdx] = React.useState(startIndex || 0);
+  React.useEffect(() => {
+    function key(e) {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowRight') setIdx(i => (i + 1) % images.length);
+      if (e.key === 'ArrowLeft')  setIdx(i => (i - 1 + images.length) % images.length);
+    }
+    window.addEventListener('keydown', key);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', key);
+      document.body.style.overflow = '';
+    };
+  }, [images.length, onClose]);
+  if (!images || !images.length) return null;
+  const next = () => setIdx(i => (i + 1) % images.length);
+  const prev = () => setIdx(i => (i - 1 + images.length) % images.length);
+  return (
+    <div onClick={onClose} style={{
+      position: 'fixed', inset: 0, zIndex: 9999,
+      background: 'rgba(7, 23, 31, 0.94)', backdropFilter: 'blur(8px)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      padding: 'clamp(20px, 4vw, 60px)', cursor: 'zoom-out'
+    }}>
+      <img src={`../${images[idx]}`} onClick={e => e.stopPropagation()}
+        alt="" style={{
+          maxWidth: '100%', maxHeight: '100%', objectFit: 'contain',
+          borderRadius: 6, boxShadow: '0 40px 80px -20px rgba(0,0,0,0.6)',
+          cursor: 'default'
+        }}/>
+      {/* close button */}
+      <button onClick={onClose} aria-label="Close" style={{
+        position: 'absolute', top: 24, right: 24,
+        width: 44, height: 44, border: 'none', borderRadius: '50%',
+        background: 'rgba(255,249,236,0.12)', color: 'var(--cream)',
+        fontSize: 22, cursor: 'pointer', display: 'flex',
+        alignItems: 'center', justifyContent: 'center'
+      }}>&times;</button>
+      {/* prev / next */}
+      {images.length > 1 && (
+        <>
+          <button onClick={e => { e.stopPropagation(); prev(); }} aria-label="Previous" style={{
+            position: 'absolute', left: 24, top: '50%', transform: 'translateY(-50%)',
+            width: 52, height: 52, border: 'none', borderRadius: '50%',
+            background: 'rgba(255,249,236,0.12)', color: 'var(--cream)',
+            fontSize: 22, cursor: 'pointer'
+          }}>&#8592;</button>
+          <button onClick={e => { e.stopPropagation(); next(); }} aria-label="Next" style={{
+            position: 'absolute', right: 24, top: '50%', transform: 'translateY(-50%)',
+            width: 52, height: 52, border: 'none', borderRadius: '50%',
+            background: 'rgba(255,249,236,0.12)', color: 'var(--cream)',
+            fontSize: 22, cursor: 'pointer'
+          }}>&#8594;</button>
+          {/* counter */}
+          <div style={{
+            position: 'absolute', bottom: 24, left: '50%', transform: 'translateX(-50%)',
+            fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.14em',
+            color: 'rgba(255,249,236,0.7)', textTransform: 'uppercase'
+          }}>
+            {String(idx + 1).padStart(2, '0')} / {String(images.length).padStart(2, '0')}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
