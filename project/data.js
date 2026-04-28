@@ -37,7 +37,7 @@ window.PANAMA_DATA = {
       delivery: 'Phase II · 2027',
       status: 'Pre-construction',
       highlight: 'Reservations open',
-      cover: 'ocean',
+      cover: 'https://images.pexels.com/photos/34721541/pexels-photo-34721541.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       size: 'large',
       about: `Palma Blanca Resort & Residences sits on 1.2 km of uninterrupted white-sand Pacific beach, 90 minutes west of Panama City. Phase II releases 186 units across low-rise condominium buildings, four-bedroom beach villas and a limited collection of oceanfront townhomes. The project is operated as a hotel-residence — owners may place units in the rental program, self-manage, or simply live there.`,
       units: [
@@ -65,7 +65,7 @@ window.PANAMA_DATA = {
       delivery: 'Phase I · Q3 2026',
       status: 'Selling now',
       highlight: 'Limited release',
-      cover: 'ocean',
+      cover: 'https://images.pexels.com/photos/14185401/pexels-photo-14185401.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       size: 'medium',
       region: 'Caribbean',
       about: 'Coral Cove Bocas brings barefoot-luxury Caribbean living to Isla Colón — 42 overwater bungalows and beachfront lofts facing the mangrove cays. The resort operates on 100% solar with a dedicated desalination plant, a working marina, and a direct speedboat line to Bocas Town.',
@@ -93,7 +93,7 @@ window.PANAMA_DATA = {
       delivery: 'Move-in ready',
       status: 'Move-in ready',
       highlight: 'Final units',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/34205250/pexels-photo-34205250.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       size: 'medium',
       region: 'Azuero Peninsula',
       about: 'Azuero Shores sits on the last undeveloped stretch of the Azuero Peninsula — a fishing town called Pedasí with three-thousand inhabitants, two direct weekly flights from Panama City, and a surf coast that has only just begun to attract resort-grade development. Final units in Phase I are move-in ready.',
@@ -120,7 +120,7 @@ window.PANAMA_DATA = {
       delivery: 'Ready Q4 2026',
       status: 'Near completion',
       highlight: 'Restoration',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/14840759/pexels-photo-14840759.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       size: 'small',
       region: 'Panama City',
       about: 'Malecón Casco is a restored 1870s colonial building at the edge of the UNESCO-listed Casco Viejo quarter, directly overlooking Panama Bay. Original ironwork, coral-stone facades and hand-laid tile are preserved. Twenty-two residences across four stories, delivered with modern systems and a private rooftop pool.',
@@ -147,7 +147,7 @@ window.PANAMA_DATA = {
       delivery: 'Phase II · 2027',
       status: 'Pre-construction',
       highlight: 'Cloud forest',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/9246451/pexels-photo-9246451.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       size: 'small',
       region: 'Highlands',
       about: 'Vista Verde Boquete sits in the coffee-country highlands of Chiriquí, 1,600 meters above sea level, with year-round spring weather and cloud-forest hiking at the doorstep. Phase II releases 48 mountain-view cottages and two boutique lodges.',
@@ -174,7 +174,7 @@ window.PANAMA_DATA = {
       delivery: 'Ready 2026',
       status: 'Move-in ready',
       highlight: 'Skyline',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/14840817/pexels-photo-14840817.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       size: 'small',
       region: 'Panama City',
       about: 'Bay Tower 47 is a forty-seven-story glass residential tower on Avenida Balboa, with every unit facing the bay. Full-floor penthouses, sky-garden amenity levels at 20 and 45, and direct pedestrian access to the Cinta Costera seafront park.',
@@ -210,7 +210,7 @@ window.PANAMA_DATA = {
       author: 'Kent Davis',
       date: 'April 22, 2026',
       read: '8 min read',
-      cover: 'ocean',
+      cover: 'https://images.pexels.com/photos/33803472/pexels-photo-33803472.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       featured: true
     },
     {
@@ -221,7 +221,7 @@ window.PANAMA_DATA = {
       author: 'Paola Estévez',
       date: 'April 18, 2026',
       read: '11 min read',
-      cover: 'sand',
+      cover: 'https://images.pexels.com/photos/8061949/pexels-photo-8061949.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       featured: true
     },
     {
@@ -232,7 +232,7 @@ window.PANAMA_DATA = {
       author: 'Kent Davis',
       date: 'April 12, 2026',
       read: '13 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/22239753/pexels-photo-22239753.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       featured: false
     },
     {
@@ -243,7 +243,7 @@ window.PANAMA_DATA = {
       author: 'Paola Estévez',
       date: 'April 3, 2026',
       read: '9 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/16110999/pexels-photo-16110999.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       featured: false
     },
     {
@@ -254,7 +254,7 @@ window.PANAMA_DATA = {
       author: 'Kent Davis',
       date: 'March 28, 2026',
       read: '7 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/10905773/pexels-photo-10905773.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       featured: false
     },
     {
@@ -265,7 +265,7 @@ window.PANAMA_DATA = {
       author: 'Paola Estévez',
       date: 'March 20, 2026',
       read: '6 min read',
-      cover: 'sand',
+      cover: 'https://images.pexels.com/photos/6928994/pexels-photo-6928994.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       featured: false
     }
   ,
@@ -277,7 +277,7 @@ window.PANAMA_DATA = {
       author: 'Kent Davis',
       date: 'April 24, 2026',
       read: '8 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/35113473/pexels-photo-35113473.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -288,7 +288,7 @@ window.PANAMA_DATA = {
       author: 'Carolina Ríos',
       date: 'April 23, 2026',
       read: '8 min read',
-      cover: 'ocean',
+      cover: 'https://images.pexels.com/photos/4626418/pexels-photo-4626418.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'es'
     },
     {
@@ -299,7 +299,7 @@ window.PANAMA_DATA = {
       author: 'Luis Mendes',
       date: 'April 22, 2026',
       read: '8 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/31433501/pexels-photo-31433501.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'pt'
     },
     {
@@ -310,7 +310,7 @@ window.PANAMA_DATA = {
       author: 'Carolina Ríos',
       date: 'April 21, 2026',
       read: '9 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/33703911/pexels-photo-33703911.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'es'
     },
     {
@@ -321,7 +321,7 @@ window.PANAMA_DATA = {
       author: 'Carolina Ríos',
       date: 'April 20, 2026',
       read: '9 min read',
-      cover: 'sand',
+      cover: 'https://images.pexels.com/photos/36589059/pexels-photo-36589059.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'es'
     }
   ,
@@ -333,7 +333,7 @@ window.PANAMA_DATA = {
       author: 'Kent Davis',
       date: 'April 13, 2026',
       read: '12 min read',
-      cover: 'sand',
+      cover: 'https://images.pexels.com/photos/33803480/pexels-photo-33803480.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -344,7 +344,7 @@ window.PANAMA_DATA = {
       author: 'Carolina Ríos',
       date: 'April 12, 2026',
       read: '12 min read',
-      cover: 'sand',
+      cover: 'https://images.pexels.com/photos/15072766/pexels-photo-15072766.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -355,7 +355,7 @@ window.PANAMA_DATA = {
       author: 'Luis Mendes',
       date: 'April 11, 2026',
       read: '13 min read',
-      cover: 'sand',
+      cover: 'https://images.pexels.com/photos/2380342/pexels-photo-2380342.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -366,7 +366,7 @@ window.PANAMA_DATA = {
       author: 'Paola Estévez',
       date: 'April 10, 2026',
       read: '13 min read',
-      cover: 'sand',
+      cover: 'https://images.pexels.com/photos/33803474/pexels-photo-33803474.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -377,7 +377,7 @@ window.PANAMA_DATA = {
       author: 'Daniel Sosa',
       date: 'April 9, 2026',
       read: '18 min read',
-      cover: 'sand',
+      cover: 'https://images.pexels.com/photos/34697725/pexels-photo-34697725.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -388,7 +388,7 @@ window.PANAMA_DATA = {
       author: 'Kent Davis',
       date: 'April 8, 2026',
       read: '16 min read',
-      cover: 'sand',
+      cover: 'https://images.pexels.com/photos/33803479/pexels-photo-33803479.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -399,7 +399,7 @@ window.PANAMA_DATA = {
       author: 'Carolina Ríos',
       date: 'April 7, 2026',
       read: '13 min read',
-      cover: 'sand',
+      cover: 'https://images.pexels.com/photos/33803470/pexels-photo-33803470.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -410,7 +410,7 @@ window.PANAMA_DATA = {
       author: 'Luis Mendes',
       date: 'April 6, 2026',
       read: '14 min read',
-      cover: 'sand',
+      cover: 'https://images.pexels.com/photos/14840760/pexels-photo-14840760.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -421,7 +421,7 @@ window.PANAMA_DATA = {
       author: 'Paola Estévez',
       date: 'April 5, 2026',
       read: '13 min read',
-      cover: 'ocean',
+      cover: 'https://images.pexels.com/photos/29174533/pexels-photo-29174533.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -432,7 +432,7 @@ window.PANAMA_DATA = {
       author: 'Daniel Sosa',
       date: 'April 4, 2026',
       read: '13 min read',
-      cover: 'ocean',
+      cover: 'https://images.pexels.com/photos/7736029/pexels-photo-7736029.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en',
       homepage_rank: 4,
       utm_campaign: 'how-to-buy'
@@ -445,7 +445,7 @@ window.PANAMA_DATA = {
       author: 'Kent Davis',
       date: 'April 3, 2026',
       read: '14 min read',
-      cover: 'ocean',
+      cover: 'https://images.pexels.com/photos/97080/pexels-photo-97080.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -456,7 +456,7 @@ window.PANAMA_DATA = {
       author: 'Carolina Ríos',
       date: 'April 2, 2026',
       read: '19 min read',
-      cover: 'ocean',
+      cover: 'https://images.pexels.com/photos/30139610/pexels-photo-30139610.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -467,7 +467,7 @@ window.PANAMA_DATA = {
       author: 'Luis Mendes',
       date: 'April 1, 2026',
       read: '12 min read',
-      cover: 'ocean',
+      cover: 'https://images.pexels.com/photos/28914932/pexels-photo-28914932.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -478,7 +478,7 @@ window.PANAMA_DATA = {
       author: 'Paola Estévez',
       date: 'March 31, 2026',
       read: '15 min read',
-      cover: 'ocean',
+      cover: 'https://images.pexels.com/photos/32045959/pexels-photo-32045959.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -489,7 +489,7 @@ window.PANAMA_DATA = {
       author: 'Daniel Sosa',
       date: 'March 30, 2026',
       read: '13 min read',
-      cover: 'ocean',
+      cover: 'https://images.pexels.com/photos/29726512/pexels-photo-29726512.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -500,7 +500,7 @@ window.PANAMA_DATA = {
       author: 'Kent Davis',
       date: 'March 29, 2026',
       read: '20 min read',
-      cover: 'ocean',
+      cover: 'https://images.pexels.com/photos/7579354/pexels-photo-7579354.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en',
       homepage_rank: 5,
       utm_campaign: 'market-2026'
@@ -513,7 +513,7 @@ window.PANAMA_DATA = {
       author: 'Carolina Ríos',
       date: 'March 28, 2026',
       read: '12 min read',
-      cover: 'ocean',
+      cover: 'https://images.pexels.com/photos/33305255/pexels-photo-33305255.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -524,7 +524,7 @@ window.PANAMA_DATA = {
       author: 'Luis Mendes',
       date: 'March 27, 2026',
       read: '14 min read',
-      cover: 'ocean',
+      cover: 'https://images.pexels.com/photos/19651145/pexels-photo-19651145.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -535,7 +535,7 @@ window.PANAMA_DATA = {
       author: 'Paola Estévez',
       date: 'March 26, 2026',
       read: '12 min read',
-      cover: 'ocean',
+      cover: 'https://images.pexels.com/photos/7489107/pexels-photo-7489107.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -546,7 +546,7 @@ window.PANAMA_DATA = {
       author: 'Daniel Sosa',
       date: 'March 25, 2026',
       read: '14 min read',
-      cover: 'sand',
+      cover: 'https://images.pexels.com/photos/9858904/pexels-photo-9858904.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -557,7 +557,7 @@ window.PANAMA_DATA = {
       author: 'Kent Davis',
       date: 'March 24, 2026',
       read: '14 min read',
-      cover: 'sand',
+      cover: 'https://images.pexels.com/photos/4922356/pexels-photo-4922356.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -568,7 +568,7 @@ window.PANAMA_DATA = {
       author: 'Carolina Ríos',
       date: 'March 23, 2026',
       read: '15 min read',
-      cover: 'sand',
+      cover: 'https://images.pexels.com/photos/7111556/pexels-photo-7111556.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -579,7 +579,7 @@ window.PANAMA_DATA = {
       author: 'Luis Mendes',
       date: 'March 22, 2026',
       read: '13 min read',
-      cover: 'sand',
+      cover: 'https://images.pexels.com/photos/33497885/pexels-photo-33497885.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -590,7 +590,7 @@ window.PANAMA_DATA = {
       author: 'Paola Estévez',
       date: 'March 21, 2026',
       read: '19 min read',
-      cover: 'sand',
+      cover: 'https://images.pexels.com/photos/29485311/pexels-photo-29485311.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -601,7 +601,7 @@ window.PANAMA_DATA = {
       author: 'Daniel Sosa',
       date: 'March 20, 2026',
       read: '11 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/33307521/pexels-photo-33307521.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -612,7 +612,7 @@ window.PANAMA_DATA = {
       author: 'Kent Davis',
       date: 'March 19, 2026',
       read: '14 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/8422701/pexels-photo-8422701.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -623,7 +623,7 @@ window.PANAMA_DATA = {
       author: 'Carolina Ríos',
       date: 'March 18, 2026',
       read: '13 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/10958528/pexels-photo-10958528.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -634,7 +634,7 @@ window.PANAMA_DATA = {
       author: 'Luis Mendes',
       date: 'March 17, 2026',
       read: '15 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/210367/pexels-photo-210367.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en',
       homepage_rank: 1,
       utm_campaign: 'cost-of-living-2026'
@@ -647,7 +647,7 @@ window.PANAMA_DATA = {
       author: 'Paola Estévez',
       date: 'March 16, 2026',
       read: '12 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/35861250/pexels-photo-35861250.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -658,7 +658,7 @@ window.PANAMA_DATA = {
       author: 'Daniel Sosa',
       date: 'March 15, 2026',
       read: '13 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/14820470/pexels-photo-14820470.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -669,7 +669,7 @@ window.PANAMA_DATA = {
       author: 'Kent Davis',
       date: 'March 14, 2026',
       read: '12 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/7464492/pexels-photo-7464492.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -680,7 +680,7 @@ window.PANAMA_DATA = {
       author: 'Carolina Ríos',
       date: 'March 13, 2026',
       read: '16 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/7464477/pexels-photo-7464477.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -691,7 +691,7 @@ window.PANAMA_DATA = {
       author: 'Luis Mendes',
       date: 'March 12, 2026',
       read: '6 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/7464710/pexels-photo-7464710.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -702,7 +702,7 @@ window.PANAMA_DATA = {
       author: 'Paola Estévez',
       date: 'March 11, 2026',
       read: '6 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/15161974/pexels-photo-15161974.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -713,7 +713,7 @@ window.PANAMA_DATA = {
       author: 'Daniel Sosa',
       date: 'March 10, 2026',
       read: '6 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/36145597/pexels-photo-36145597.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -724,7 +724,7 @@ window.PANAMA_DATA = {
       author: 'Kent Davis',
       date: 'March 9, 2026',
       read: '6 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/30981181/pexels-photo-30981181.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -735,7 +735,7 @@ window.PANAMA_DATA = {
       author: 'Carolina Ríos',
       date: 'March 8, 2026',
       read: '6 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/33710699/pexels-photo-33710699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -746,7 +746,7 @@ window.PANAMA_DATA = {
       author: 'Luis Mendes',
       date: 'March 7, 2026',
       read: '6 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/12717357/pexels-photo-12717357.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -757,7 +757,7 @@ window.PANAMA_DATA = {
       author: 'Paola Estévez',
       date: 'March 6, 2026',
       read: '6 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/6726195/pexels-photo-6726195.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -768,7 +768,7 @@ window.PANAMA_DATA = {
       author: 'Daniel Sosa',
       date: 'March 5, 2026',
       read: '6 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/4164546/pexels-photo-4164546.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -779,7 +779,7 @@ window.PANAMA_DATA = {
       author: 'Kent Davis',
       date: 'March 4, 2026',
       read: '6 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/746500/pexels-photo-746500.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -790,7 +790,7 @@ window.PANAMA_DATA = {
       author: 'Carolina Ríos',
       date: 'March 3, 2026',
       read: '6 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/7446963/pexels-photo-7446963.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -801,7 +801,7 @@ window.PANAMA_DATA = {
       author: 'Luis Mendes',
       date: 'March 2, 2026',
       read: '6 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/18743908/pexels-photo-18743908.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -812,7 +812,7 @@ window.PANAMA_DATA = {
       author: 'Paola Estévez',
       date: 'March 1, 2026',
       read: '6 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/31167083/pexels-photo-31167083.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -823,7 +823,7 @@ window.PANAMA_DATA = {
       author: 'Daniel Sosa',
       date: 'February 28, 2026',
       read: '6 min read',
-      cover: 'sunset',
+      cover: 'https://images.pexels.com/photos/12717174/pexels-photo-12717174.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -834,7 +834,7 @@ window.PANAMA_DATA = {
       author: 'Kent Davis',
       date: 'February 27, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/13110362/pexels-photo-13110362.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -845,7 +845,7 @@ window.PANAMA_DATA = {
       author: 'Carolina Ríos',
       date: 'February 26, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/5876967/pexels-photo-5876967.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -856,7 +856,7 @@ window.PANAMA_DATA = {
       author: 'Luis Mendes',
       date: 'February 25, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/8588471/pexels-photo-8588471.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -867,7 +867,7 @@ window.PANAMA_DATA = {
       author: 'Paola Estévez',
       date: 'February 24, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/18193357/pexels-photo-18193357.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -878,7 +878,7 @@ window.PANAMA_DATA = {
       author: 'Daniel Sosa',
       date: 'February 23, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/32698507/pexels-photo-32698507.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -889,7 +889,7 @@ window.PANAMA_DATA = {
       author: 'Kent Davis',
       date: 'February 22, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/15024809/pexels-photo-15024809.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -900,7 +900,7 @@ window.PANAMA_DATA = {
       author: 'Carolina Ríos',
       date: 'February 21, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/1681453/pexels-photo-1681453.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -911,7 +911,7 @@ window.PANAMA_DATA = {
       author: 'Luis Mendes',
       date: 'February 20, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/6369282/pexels-photo-6369282.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -922,7 +922,7 @@ window.PANAMA_DATA = {
       author: 'Paola Estévez',
       date: 'February 19, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/9122911/pexels-photo-9122911.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -933,7 +933,7 @@ window.PANAMA_DATA = {
       author: 'Daniel Sosa',
       date: 'February 18, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/14840824/pexels-photo-14840824.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -944,7 +944,7 @@ window.PANAMA_DATA = {
       author: 'Kent Davis',
       date: 'February 17, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/6369362/pexels-photo-6369362.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -955,7 +955,7 @@ window.PANAMA_DATA = {
       author: 'Carolina Ríos',
       date: 'February 16, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/15748451/pexels-photo-15748451.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -966,7 +966,7 @@ window.PANAMA_DATA = {
       author: 'Luis Mendes',
       date: 'February 15, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/6503998/pexels-photo-6503998.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -977,7 +977,7 @@ window.PANAMA_DATA = {
       author: 'Paola Estévez',
       date: 'February 14, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/15075327/pexels-photo-15075327.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -988,7 +988,7 @@ window.PANAMA_DATA = {
       author: 'Daniel Sosa',
       date: 'February 13, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/6369494/pexels-photo-6369494.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en',
       homepage_rank: 2,
       utm_campaign: 'retire-in-panama'
@@ -1001,7 +1001,7 @@ window.PANAMA_DATA = {
       author: 'Kent Davis',
       date: 'February 12, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/33803477/pexels-photo-33803477.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -1012,7 +1012,7 @@ window.PANAMA_DATA = {
       author: 'Carolina Ríos',
       date: 'February 11, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/11962301/pexels-photo-11962301.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -1023,7 +1023,7 @@ window.PANAMA_DATA = {
       author: 'Luis Mendes',
       date: 'February 10, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/13842831/pexels-photo-13842831.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -1034,7 +1034,7 @@ window.PANAMA_DATA = {
       author: 'Paola Estévez',
       date: 'February 9, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/15088493/pexels-photo-15088493.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -1045,7 +1045,7 @@ window.PANAMA_DATA = {
       author: 'Daniel Sosa',
       date: 'February 8, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/2473986/pexels-photo-2473986.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -1056,7 +1056,7 @@ window.PANAMA_DATA = {
       author: 'Kent Davis',
       date: 'February 7, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/6226361/pexels-photo-6226361.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -1067,7 +1067,7 @@ window.PANAMA_DATA = {
       author: 'Carolina Ríos',
       date: 'February 6, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/6138491/pexels-photo-6138491.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en',
       homepage_rank: 3,
       utm_campaign: 'panama-vs-cr'
@@ -1080,7 +1080,7 @@ window.PANAMA_DATA = {
       author: 'Luis Mendes',
       date: 'February 5, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/31899581/pexels-photo-31899581.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -1091,7 +1091,7 @@ window.PANAMA_DATA = {
       author: 'Paola Estévez',
       date: 'February 4, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/35564830/pexels-photo-35564830.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     },
     {
@@ -1102,7 +1102,7 @@ window.PANAMA_DATA = {
       author: 'Daniel Sosa',
       date: 'February 3, 2026',
       read: '6 min read',
-      cover: 'palm',
+      cover: 'https://images.pexels.com/photos/19528668/pexels-photo-19528668.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
       lang: 'en'
     }
   ],
