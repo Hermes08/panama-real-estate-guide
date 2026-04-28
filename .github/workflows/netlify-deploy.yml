@@ -1,0 +1,52 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    # Refresh the site every 6 hours so Airtable data + signed image URLs stay fresh
+    - cron: '0 */6 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: netlify-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Sync Airtable -> static JSON + images (optional)
+        env:
+          AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+        run: |
+          if [ -z "$AIRTABLE_TOKEN" ]; then
+            echo "AIRTABLE_TOKEN not set — skipping Airtable sync (site will fall back to data.js)"
+          else
+            node scripts/sync-airtable.mjs
+          fi
+
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli@17
+
+      - name: Deploy project/ to Netlify (production)
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          netlify deploy \
+            --dir=project \
+            --site="$NETLIFY_SITE_ID" \
+            --auth="$NETLIFY_AUTH_TOKEN" \
+            --prod \
+            --message="GH Actions: ${{ github.sha }} on ${{ github.ref_name }}"
