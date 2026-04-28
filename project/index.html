@@ -212,7 +212,8 @@ function buildWireframeOverlay(model, registries) {
 /* Main entry — exposed on window for the React component to call. */
 window.JaguarScene = function(canvas) {
   const renderer = new THREE.WebGLRenderer({
-    canvas, antialias: true, alpha: true, powerPreference: 'high-performance'
+    canvas, antialias: true, alpha: true, powerPreference: 'high-performance',
+    preserveDrawingBuffer: true
   });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   // Match the canvas clear color to the panel's #0B1F28 exactly so the canvas
