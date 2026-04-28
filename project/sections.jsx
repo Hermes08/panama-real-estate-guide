@@ -612,6 +612,59 @@ function Footer() {
                 }}>{l.code}</span>
               ))}
             </div>
+            {/* Social media links — Facebook, Instagram, TikTok, YouTube, WhatsApp */}
+            <div className="footer-social" style={{ display: 'flex', gap: 10, marginTop: 24, flexWrap: 'wrap' }}>
+              {[
+                {
+                  name: 'Facebook',
+                  href: 'https://www.facebook.com/profile.php?id=61588824691120',
+                  path: 'M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z'
+                },
+                {
+                  name: 'Instagram',
+                  href: 'https://www.instagram.com/panamarealestateguide/',
+                  path: 'M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.9.9 1.4.2.4.4 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.9.7-1.4.9-.4.2-1 .4-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.9-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.9-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.2-.1 1.6-.1 4.8-.1zm0 2.2c-3.2 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.3-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.1.4-.3 1-.3 2.1-.1 1.2-.1 1.5-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.3 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.1 1 .3 2.1.3 1.2.1 1.5.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.3.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.1-.4.3-1 .3-2.1.1-1.2.1-1.5.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.3-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.1-1-.3-2.1-.3-1.2-.1-1.5-.1-4.7-.1zm0 3.7a3.9 3.9 0 1 1 0 7.8 3.9 3.9 0 0 1 0-7.8zm0 6.4a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm5-6.6a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0z'
+                },
+                {
+                  name: 'TikTok',
+                  href: 'https://www.tiktok.com/@panamarealestateguide.com',
+                  path: 'M19.6 6.7a4.7 4.7 0 0 1-2.7-1 4.6 4.6 0 0 1-1.8-3h-3.4v12a2.7 2.7 0 1 1-2-2.6V8.7a6 6 0 1 0 5.4 6V9.6a8 8 0 0 0 4.5 1.4V7.6c-.3 0-.5-.4 0-.9z'
+                },
+                {
+                  name: 'YouTube',
+                  href: 'https://www.youtube.com/@panamarealestateguide.com',
+                  path: 'M23 7.2s-.2-1.6-.9-2.3c-.9-.9-1.8-.9-2.3-1C16.5 3.5 12 3.5 12 3.5s-4.5 0-7.8.4c-.5.1-1.4.1-2.3 1-.7.7-.9 2.3-.9 2.3S.8 9 .8 10.9v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.9.9 2.1.9 2.6 1 1.9.2 8 .3 8 .3s4.5 0 7.8-.4c.5-.1 1.4-.1 2.3-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15V8.3l5.8 3.4L9.7 15z'
+                },
+                {
+                  name: 'WhatsApp',
+                  href: 'https://wa.me/50767610315',
+                  path: 'M12 2a10 10 0 0 0-8.7 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.7-1.2 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1a16 16 0 0 1-4.2-2.1 12 12 0 0 1-3.1-3.7c-.4-.6-.9-1.6-.9-2.5s.5-1.4.7-1.6c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5c-.1.1-.3.3-.1.6a9 9 0 0 0 1.6 2 8 8 0 0 0 2.3 1.4c.3.1.5.1.6 0l.6-.7c.2-.3.5-.2.7-.1l2 .9c.2.1.4.2.5.3 0 .1 0 .7-.2 1.5Z'
+                }
+              ].map(s => (
+                <a
+                  key={s.name}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.name}
+                  title={s.name}
+                  style={{
+                    width: 38, height: 38, borderRadius: '50%',
+                    border: '1px solid rgba(255,249,236,0.2)',
+                    color: 'var(--cream)',
+                    display: 'grid', placeItems: 'center',
+                    textDecoration: 'none',
+                    transition: 'all 0.2s var(--ease)'
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--coral)'; e.currentTarget.style.borderColor = 'var(--coral)'; e.currentTarget.style.color = 'var(--paper)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(255,249,236,0.2)'; e.currentTarget.style.color = 'var(--cream)'; }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                    <path d={s.path}/>
+                  </svg>
+                </a>
+              ))}
+            </div>
           </div>
           {[
             { t: 'Projects', links: ['Pacific Coast', 'Bocas del Toro', 'Azuero', 'Highlands', 'Panama City'] },
