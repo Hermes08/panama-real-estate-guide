@@ -596,15 +596,16 @@ function ReserveCTA() {
 /* ── Book Consultation (Calendly inline embed) ── */
 function BookConsultation() {
   const ref = window.React.useRef(null);
+  const sectionRef = window.React.useRef(null);
   const [mounted, setMounted] = window.React.useState(false);
   const url = (typeof window !== 'undefined') ? window.PREG_CALENDLY_URL : null;
 
+  // Mount the Calendly inline widget once the script is loaded
   window.React.useEffect(() => {
     if (!url) return;
     let attempts = 0;
     const tryInit = () => {
       if (window.Calendly && ref.current) {
-        // Clear in case of hot-reload
         ref.current.innerHTML = '';
         window.Calendly.initInlineWidget({
           url: url + '?hide_event_type_details=0&hide_gdpr_banner=1',
@@ -626,12 +627,35 @@ function BookConsultation() {
     tryInit();
   }, [url]);
 
+  // When URL hash is #book (or user clicks an in-page #book link),
+  // scroll the CALENDAR into view — not the section title.
+  window.React.useEffect(() => {
+    if (!url) return;
+    const scrollToCalendar = () => {
+      if (!ref.current) return;
+      // Wait briefly for Calendly iframe to lay out, then scroll
+      setTimeout(() => {
+        ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 350);
+    };
+    if (window.location.hash === '#book') {
+      // Re-scroll after mount so anchor lands on the calendar, not the eyebrow
+      const t = mounted ? 0 : 700;
+      setTimeout(scrollToCalendar, t);
+    }
+    const onHash = () => {
+      if (window.location.hash === '#book') scrollToCalendar();
+    };
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, [mounted, url]);
+
   if (!url) return null;
 
   return (
-    <section id="book" style={{ background: 'var(--paper)', padding: '96px 0 80px', borderTop: '1px solid var(--line)' }}>
+    <section ref={sectionRef} style={{ background: 'var(--paper)', padding: '56px 0 60px', borderTop: '1px solid var(--line)' }}>
       <div className="container">
-        <div style={{ textAlign: 'center', maxWidth: 720, margin: '0 auto 36px' }}>
+        <div style={{ textAlign: 'center', maxWidth: 720, margin: '0 auto 24px' }}>
           <div className="eyebrow" style={{ color: 'var(--coral)', marginBottom: 14 }}>Free Discovery Call</div>
           <h2 style={{
             fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 5vw, 56px)',
@@ -645,7 +669,7 @@ function BookConsultation() {
             three projects in our portfolio that fit best — and exactly what to ask before reserving.
           </p>
         </div>
-        <div ref={ref} className="calendly-inline-widget" style={{ minWidth: 320, height: 720, borderRadius: 14, overflow: 'hidden', border: '1px solid var(--line)' }}/>
+        <div ref={ref} id="book" className="calendly-inline-widget" style={{ minWidth: 320, height: 720, borderRadius: 14, overflow: 'hidden', border: '1px solid var(--line)', scrollMarginTop: 90 }}/>
         {!mounted && (
           <div style={{ textAlign: 'center', marginTop: 12, fontSize: 13, opacity: 0.6, fontFamily: 'var(--font-mono)', letterSpacing: '0.08em' }}>
             Loading calendar&hellip;
