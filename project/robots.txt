@@ -1,0 +1,13 @@
+# robots.txt for panamarealestateguide.com
+# Allow all crawlers, point to sitemap
+
+User-agent: *
+Allow: /
+
+# Disallow internal/scraps directories that may exist
+Disallow: /scraps/
+Disallow: /qa/
+Disallow: /uploads/
+Disallow: /screenshots/
+
+Sitemap: https://panamarealestateguide.com/sitemap.xml

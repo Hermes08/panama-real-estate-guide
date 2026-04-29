@@ -1,3 +1,45 @@
 # Build-time outputs from scripts/sync-airtable.mjs — regenerated on every deploy
 project/airtable-assets/
 project/airtable-projects.json
+
+# Environment variables (NEVER commit secrets)
+.env
+.env.local
+.env.*.local
+*.env
+.env.production
+.env.development
+.env.staging
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node (if/when build tooling is added)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs / temp
+.cache/
+dist/
+build/
+.tmp/
+
+# Testing / logs
+coverage/
+*.log
