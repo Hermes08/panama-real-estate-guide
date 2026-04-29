@@ -27,6 +27,10 @@ const BODY_END   = '<!-- END_TRACKING_BODY -->';
 function buildHeadTags(env) {
   const parts = [HEAD_START];
 
+  // Cookie consent banner — MUST load before GTM/Pixel so default consent is "denied"
+  // until user accepts. Implements Google Consent Mode v2.
+  parts.push(`<script src="/cookie-banner.js?v=1"></script>`);
+
   // Google Tag Manager (covers GA4 + Google Ads + TikTok via GTM)
   if (env.GTM_CONTAINER_ID) {
     parts.push(`<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

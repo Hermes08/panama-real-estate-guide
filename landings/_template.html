@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- ============================================================ -->
+  <!-- REPLACE these meta tags with hook-specific copy:            -->
+  <!-- ============================================================ -->
+  <title>{{LANDING_TITLE}} — Panama Real Estate Guide</title>
+  <meta name="description" content="{{LANDING_DESCRIPTION}}">
+  <link rel="canonical" href="https://panamarealestateguide.com/{{LANDING_PATH}}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{LANDING_TITLE}}">
+  <meta property="og:description" content="{{LANDING_DESCRIPTION}}">
+  <meta property="og:url" content="https://panamarealestateguide.com/{{LANDING_PATH}}">
+  <meta property="og:image" content="https://panamarealestateguide.com/og-{{LANDING_SLUG}}.jpg">
+  <meta property="og:locale" content="{{OG_LOCALE}}">
+  <meta property="og:site_name" content="PanamaRealEstateGuide.com">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{LANDING_TITLE}}">
+  <meta name="twitter:description" content="{{LANDING_DESCRIPTION}}">
+
+  <!-- Hreflang alternates -->
+  <link rel="alternate" hreflang="es-co" href="https://panamarealestateguide.com/co/{{LANDING_SLUG_CO}}">
+  <link rel="alternate" hreflang="es-es" href="https://panamarealestateguide.com/es/{{LANDING_SLUG_ES}}">
+  <link rel="alternate" hreflang="x-default" href="https://panamarealestateguide.com/">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">{{SCHEMA_JSON}}</script>
+
+  <!-- Performance: preload hero + key font -->
+  <link rel="preload" as="image" href="/img/{{HERO_IMAGE}}" fetchpriority="high">
+  <link rel="preconnect" href="https://assets.calendly.com">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body{font-family:'Manrope',system-ui,-apple-system,sans-serif;color:#0B1F28;background:#FFF9EC;margin:0;line-height:1.6}
+    .container{max-width:1100px;margin:0 auto;padding:0 24px}
+    .eyebrow{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#E37363;font-weight:700}
+    h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(40px,6vw,72px);font-weight:300;letter-spacing:-0.025em;line-height:1.05;margin:14px 0 18px}
+    h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3.5vw,42px);font-weight:300;letter-spacing:-0.015em;line-height:1.15;margin:0 0 24px}
+    h3{font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:400;margin:0 0 12px}
+    p{margin:0 0 14px}
+    a{color:#E37363}
+
+    /* Hero */
+    .hero{padding:80px 0 60px;background:linear-gradient(180deg,#FFF9EC 0%,rgba(255,249,236,0) 100%)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
+    .hero-img{width:100%;height:auto;border-radius:14px;object-fit:cover;aspect-ratio:4/3;background:linear-gradient(135deg,#E37363,#FBBF24)}
+    .hero-cta{display:inline-flex;align-items:center;gap:10px;background:#0B1F28;color:#FFF9EC;padding:14px 26px;border-radius:999px;font-weight:600;text-decoration:none;font-size:15px;letter-spacing:0.03em;transition:transform 0.2s}
+    .hero-cta:hover{transform:translateY(-2px)}
+    @media(max-width:760px){.hero-grid{grid-template-columns:1fr;gap:32px}}
+
+    /* Sections */
+    section{padding:60px 0;border-top:1px solid rgba(11,31,40,0.08)}
+    .section-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:32px}
+    .card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 16px -4px rgba(11,31,40,0.08)}
+
+    /* Form */
+    form{display:grid;gap:14px;max-width:520px;margin-top:24px}
+    form input,form select,form textarea{padding:13px 16px;border:1px solid rgba(11,31,40,0.18);border-radius:10px;font:inherit;background:#fff;width:100%;box-sizing:border-box}
+    form input:focus,form select:focus,form textarea:focus{outline:none;border-color:#E37363;box-shadow:0 0 0 3px rgba(227,115,99,0.12)}
+    form textarea{min-height:90px;resize:vertical;font-family:inherit}
+    form label.checkbox{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.45;color:#0B1F28;opacity:0.85;cursor:pointer}
+    form label.checkbox input{width:auto;margin-top:2px}
+    form button{padding:14px 20px;background:#E37363;color:#fff;border:none;border-radius:10px;font:inherit;font-weight:700;letter-spacing:0.04em;cursor:pointer;transition:transform 0.15s}
+    form button:hover{transform:translateY(-1px);background:#D8623F}
+    form button[disabled]{opacity:0.5;cursor:not-allowed;transform:none}
+    .form-feedback{margin-top:14px;padding:12px 16px;border-radius:8px;font-size:14px;display:none}
+    .form-feedback.success{background:#dcfce7;color:#15803d;display:block}
+    .form-feedback.error{background:#fee2e2;color:#b91c1c;display:block}
+
+    /* Footer */
+    footer{background:#0B1F28;color:#FFF9EC;padding:48px 0 32px;margin-top:80px}
+    footer a{color:#FFF9EC;text-decoration:none;opacity:0.85}
+    footer a:hover{opacity:1}
+    .legal{font-size:11px;opacity:0.55;font-family:ui-monospace,monospace;letter-spacing:0.1em;text-transform:uppercase}
+    .disclaimer{background:rgba(227,115,99,0.08);border-left:3px solid #E37363;padding:14px 18px;border-radius:0 8px 8px 0;font-size:13px;line-height:1.5;margin:24px 0;color:#0B1F28}
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================ -->
+  <!-- HERO -->
+  <!-- ============================================================ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">{{HOOK_EYEBROW}}</div>
+          <h1>{{HOOK_HEADLINE}}</h1>
+          <p style="font-size:18px;line-height:1.55;max-width:48ch;opacity:0.85">{{HOOK_SUBHEADLINE}}</p>
+          <a href="#form" class="hero-cta">{{HERO_CTA_TEXT}} <span>→</span></a>
+        </div>
+        <img class="hero-img" src="/img/{{HERO_IMAGE}}" alt="{{HERO_ALT}}" width="640" height="480" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CONTEXTO (300-500 palabras) -->
+  <!-- ============================================================ -->
+  <section>
+    <div class="container" style="max-width:760px">
+      <div class="eyebrow">El contexto</div>
+      <h2>{{CONTEXT_HEADING}}</h2>
+      <div>{{CONTEXT_BODY_HTML}}</div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- LA SOLUCIÓN (4-6 razones) -->
+  <!-- ============================================================ -->
+  <section>
+    <div class="container">
+      <div class="eyebrow">Por qué Panamá</div>
+      <h2>{{SOLUTION_HEADING}}</h2>
+      <div class="section-cards">{{SOLUTION_CARDS_HTML}}</div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- PROYECTOS DESTACADOS (3-4 cards) -->
+  <!-- ============================================================ -->
+  <section>
+    <div class="container">
+      <div class="eyebrow">Proyectos destacados</div>
+      <h2>Tres opciones que encajan con este perfil</h2>
+      <div class="section-cards">{{PROJECT_CARDS_HTML}}</div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- LEAD MAGNET FORM -->
+  <!-- ============================================================ -->
+  <section id="form" style="background:#fff">
+    <div class="container" style="max-width:760px">
+      <div class="eyebrow">Recibe el dossier completo</div>
+      <h2>{{FORM_HEADING}}</h2>
+      <p style="max-width:48ch">{{FORM_DESCRIPTION}}</p>
+
+      <form id="lead-form-{{LANDING_SLUG}}" data-source="{{LANDING_SLUG}}">
+        <input type="text" name="full_name" required placeholder="Nombre completo" autocomplete="name">
+        <input type="email" name="email" required placeholder="Email" autocomplete="email">
+        <input type="tel" name="whatsapp" required placeholder="+57 300 1234567" autocomplete="tel" pattern="^\+?[0-9\s\-]{8,}$">
+
+        <select name="budget" required>
+          <option value="">Presupuesto disponible</option>
+          <option value="100k_250k">$100K - $250K</option>
+          <option value="250k_500k">$250K - $500K</option>
+          <option value="500k_1m">$500K - $1M</option>
+          <option value="1m_plus">$1M+</option>
+          <option value="exploring">Aún explorando</option>
+        </select>
+
+        <select name="timing" required>
+          <option value="">Cuándo quieres invertir</option>
+          <option value="0_3_months">Inmediato (0-3 meses)</option>
+          <option value="3_6_months">Próximo trimestre</option>
+          <option value="6_12_months">Próximos 12 meses</option>
+          <option value="exploring">Solo investigando</option>
+        </select>
+
+        <textarea name="message" placeholder="Comentario o pregunta (opcional)"></textarea>
+
+        <label class="checkbox">
+          <input type="checkbox" name="data_consent" required>
+          Acepto el tratamiento de mis datos según la <a href="/privacidad" target="_blank" rel="noopener">política de privacidad</a> (RGPD · Habeas Data · LFPDPPP).
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" name="marketing_consent">
+          Acepto recibir comunicaciones por email y WhatsApp sobre nuevos proyectos y oportunidades.
+        </label>
+
+        <!-- Hidden UTM inputs — auto-populated by tracking.js -->
+        <input type="hidden" name="utm_source" value="">
+        <input type="hidden" name="utm_medium" value="">
+        <input type="hidden" name="utm_campaign" value="">
+        <input type="hidden" name="utm_content" value="">
+        <input type="hidden" name="utm_term" value="">
+        <input type="hidden" name="fbclid" value="">
+        <input type="hidden" name="gclid" value="">
+        <input type="hidden" name="referrer" value="">
+        <input type="hidden" name="landing_url" value="">
+        <input type="hidden" name="zone_project" value="{{ZONE_HINT}}">
+        <input type="hidden" name="interest_category" value="{{INTEREST_CATEGORY}}">
+
+        <button type="submit">Recibir el dossier por WhatsApp</button>
+        <div class="form-feedback" role="status"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FAQ -->
+  <!-- ============================================================ -->
+  <section>
+    <div class="container" style="max-width:760px">
+      <div class="eyebrow">Preguntas frecuentes</div>
+      <h2>Lo que más nos preguntan</h2>
+      <div>{{FAQ_HTML}}</div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CALENDLY EMBED -->
+  <!-- ============================================================ -->
+  <section id="book" style="background:#fff">
+    <div class="container" style="max-width:760px">
+      <div class="eyebrow">Llamada de descubrimiento</div>
+      <h2>O agenda 30 min directamente</h2>
+      <p>Cuéntanos tu timeline, tu objetivo y tu presupuesto. Te responderemos con los 3 proyectos que mejor encajan.</p>
+      <div id="calendly-inline" data-url="" style="min-height:720px;border:1px solid rgba(11,31,40,0.12);border-radius:14px;overflow:hidden;margin-top:24px"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- LEGAL DISCLAIMER + FOOTER -->
+  <!-- ============================================================ -->
+  <footer>
+    <div class="container">
+      <div class="disclaimer" style="background:rgba(255,249,236,0.08);color:#FFF9EC;border-left-color:#E37363;margin-bottom:32px">
+        <strong>Aviso importante:</strong> Esta información tiene fines educativos. No constituye asesoría financiera, legal ni de inversión personalizada. Antes de decidir, consulta con un asesor independiente de tu jurisdicción. Ver <a href="/terminos" style="color:#E37363">términos completos</a>.
+      </div>
+      <p style="font-size:13px;opacity:0.85;margin-bottom:16px">© 2026 PanamaRealEstateGuide.com · VIP Expats Panama S.A.</p>
+      <p class="legal">
+        <a href="/privacidad">Privacidad</a> · <a href="/terminos">Términos</a> · <a href="mailto:hello@digitalsecretary.io">Contacto</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ============================================================ -->
+  <!-- SCRIPTS — order matters: tracking helpers FIRST, then GTM/Pixel injected by build, then Calendly -->
+  <!-- Cookie banner loads first to set consent defaults before trackers -->
+  <!-- ============================================================ -->
+  <script src="/cookie-banner.js?v=1"></script>
+  <script src="/tracking.js?v=1"></script>
+  <script async src="https://assets.calendly.com/assets/external/widget.js"></script>
+
+  <!-- Form submit handler -->
+  <script>
+    (function () {
+      var form = document.getElementById('lead-form-{{LANDING_SLUG}}');
+      var feedback = form && form.querySelector('.form-feedback');
+      if (!form) return;
+
+      // Whatsapp pattern UX hint
+      form.querySelector('[name=whatsapp]').addEventListener('blur', function () {
+        if (this.value && !this.value.startsWith('+')) this.value = '+' + this.value.replace(/^\+*/, '');
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type=submit]');
+        btn.disabled = true; btn.textContent = 'Enviando…';
+
+        // Build payload from form
+        var payload = {};
+        Array.from(new FormData(form).entries()).forEach(function (kv) { payload[kv[0]] = kv[1]; });
+        payload.page_path = window.location.pathname;
+
+        // Fire InitiateCheckout (focus on email field already does this, but submit confirms)
+        if (window.preg && window.preg.trackEvent) {
+          window.preg.trackEvent('lead_form_submit', {
+            fb_event: 'Lead', currency: 'USD', value: 50,
+            content_name: payload.zone_project || 'website_lead',
+            content_category: payload.interest_category || 'real_estate'
+          });
+        }
+
+        fetch('/api/lead-submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(function (r) { return r.json(); }).then(function (d) {
+          if (d.success) {
+            feedback.className = 'form-feedback success';
+            feedback.textContent = '¡Recibido! Te contactaremos por WhatsApp en menos de 24h con el dossier.';
+            form.reset();
+            // Optional thank-you redirect:
+            // window.location.href = '/gracias?id=' + d.event_id;
+          } else {
+            feedback.className = 'form-feedback error';
+            feedback.textContent = 'Hubo un problema. Intenta de nuevo o escríbenos a hello@digitalsecretary.io.';
+          }
+        }).catch(function () {
+          feedback.className = 'form-feedback error';
+          feedback.textContent = 'Sin conexión. Verifica tu internet y reintenta.';
+        }).finally(function () {
+          btn.disabled = false; btn.textContent = 'Recibir el dossier por WhatsApp';
+        });
+      });
+    })();
+  </script>
+
+  <!-- Calendly inline init -->
+  <script>
+    (function init() {
+      var url = window.PREG_CALENDLY_URL;
+      var el = document.getElementById('calendly-inline');
+      if (!url || !el) return;
+      el.dataset.url = url;
+      var attempts = 0;
+      function tryInit() {
+        if (window.Calendly) {
+          window.Calendly.initInlineWidget({
+            url: url + '?hide_event_type_details=0&hide_gdpr_banner=1',
+            parentElement: el,
+            prefill: {},
+            utm: window.preg ? {
+              utmSource: window.preg.getUTM('utm_source') || 'website',
+              utmMedium: window.preg.getUTM('utm_medium') || 'organic',
+              utmCampaign: window.preg.getUTM('utm_campaign') || '',
+              utmContent: window.preg.getUTM('utm_content') || '{{LANDING_SLUG}}'
+            } : {}
+          });
+        } else if (attempts++ < 30) setTimeout(tryInit, 250);
+      }
+      if (document.readyState !== 'loading') tryInit();
+      else document.addEventListener('DOMContentLoaded', tryInit);
+    })();
+  </script>
+
+  <!-- BEGIN_TRACKING_HEAD --><!-- END_TRACKING_HEAD -->
+  <!-- BEGIN_TRACKING_BODY --><!-- END_TRACKING_BODY -->
+</body>
+</html>
