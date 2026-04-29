@@ -1,22 +1,24 @@
-name: Deploy to Netlify
+name: Deploy staging to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [staging]
   workflow_dispatch:
-  schedule:
-    # Refresh the site every 6 hours so Airtable data + signed image URLs stay fresh
-    - cron: '0 */6 * * *'
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 concurrency:
-  group: netlify-deploy
-  cancel-in-progress: false
+  group: gh-pages-staging
+  cancel-in-progress: true
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -31,7 +33,7 @@ jobs:
           AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
         run: |
           if [ -z "$AIRTABLE_TOKEN" ]; then
-            echo "AIRTABLE_TOKEN not set — skipping Airtable sync (site will fall back to data.js)"
+            echo "AIRTABLE_TOKEN not set — skipping Airtable sync"
           else
             node scripts/sync-airtable.mjs
           fi
@@ -44,17 +46,9 @@ jobs:
           TIKTOK_PIXEL_ID: ${{ secrets.TIKTOK_PIXEL_ID }}
         run: node scripts/inject-tags.mjs
 
-      - name: Install Netlify CLI
-        run: npm install -g netlify-cli@17
-
-      - name: Deploy project/ to Netlify (production)
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        run: |
-          netlify deploy \
-            --dir=project \
-            --site="$NETLIFY_SITE_ID" \
-            --auth="$NETLIFY_AUTH_TOKEN" \
-            --prod \
-            --message="GH Actions: ${{ github.sha }} on ${{ github.ref_name }}"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./project
+      - id: deployment
+        uses: actions/deploy-pages@v4
