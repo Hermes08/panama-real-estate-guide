@@ -592,6 +592,70 @@ function ReserveCTA() {
   );
 }
 
+
+/* ── Book Consultation (Calendly inline embed) ── */
+function BookConsultation() {
+  const ref = window.React.useRef(null);
+  const [mounted, setMounted] = window.React.useState(false);
+  const url = (typeof window !== 'undefined') ? window.PREG_CALENDLY_URL : null;
+
+  window.React.useEffect(() => {
+    if (!url) return;
+    let attempts = 0;
+    const tryInit = () => {
+      if (window.Calendly && ref.current) {
+        // Clear in case of hot-reload
+        ref.current.innerHTML = '';
+        window.Calendly.initInlineWidget({
+          url: url + '?hide_event_type_details=0&hide_gdpr_banner=1',
+          parentElement: ref.current,
+          prefill: {},
+          utm: {
+            utmSource: window.preg && window.preg.getUTM('utm_source') || 'website',
+            utmMedium: window.preg && window.preg.getUTM('utm_medium') || 'organic',
+            utmCampaign: window.preg && window.preg.getUTM('utm_campaign') || '',
+            utmContent: window.preg && window.preg.getUTM('utm_content') || 'home_book_section',
+            utmTerm: window.preg && window.preg.getUTM('utm_term') || ''
+          }
+        });
+        setMounted(true);
+      } else if (attempts++ < 40) {
+        setTimeout(tryInit, 250);
+      }
+    };
+    tryInit();
+  }, [url]);
+
+  if (!url) return null;
+
+  return (
+    <section id="book" style={{ background: 'var(--paper)', padding: '96px 0 80px', borderTop: '1px solid var(--line)' }}>
+      <div className="container">
+        <div style={{ textAlign: 'center', maxWidth: 720, margin: '0 auto 36px' }}>
+          <div className="eyebrow" style={{ color: 'var(--coral)', marginBottom: 14 }}>Free Discovery Call</div>
+          <h2 style={{
+            fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 5vw, 56px)',
+            fontWeight: 300, lineHeight: 1.05, letterSpacing: '-0.02em',
+            color: 'var(--ink)', marginBottom: 18
+          }}>
+            Book a 30-min consultation
+          </h2>
+          <p style={{ fontSize: 17, lineHeight: 1.55, opacity: 0.78, color: 'var(--ink)', maxWidth: '52ch', margin: '0 auto' }}>
+            Walk us through your timeline, residency goals, and budget. We&rsquo;ll respond with the
+            three projects in our portfolio that fit best — and exactly what to ask before reserving.
+          </p>
+        </div>
+        <div ref={ref} className="calendly-inline-widget" style={{ minWidth: 320, height: 720, borderRadius: 14, overflow: 'hidden', border: '1px solid var(--line)' }}/>
+        {!mounted && (
+          <div style={{ textAlign: 'center', marginTop: 12, fontSize: 13, opacity: 0.6, fontFamily: 'var(--font-mono)', letterSpacing: '0.08em' }}>
+            Loading calendar&hellip;
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
 /* ── Footer ── */
 function Footer() {
   return (
@@ -695,4 +759,4 @@ function Footer() {
   );
 }
 
-Object.assign(window, { Projects, Regions, Journal, News, Testimonials, FAQ, ReserveCTA, Footer });
+Object.assign(window, { Projects, Regions, Journal, News, Testimonials, FAQ, ReserveCTA, BookConsultation, Footer });

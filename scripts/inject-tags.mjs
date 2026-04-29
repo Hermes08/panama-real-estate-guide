@@ -65,6 +65,14 @@ ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js"
 ttq.load('${env.TIKTOK_PIXEL_ID}');ttq.page();}(window,document,'ttq');</script>`);
   }
 
+
+  // Calendly inline embed widget (loads asynchronously)
+  if (env.CALENDLY_BOOKING_URL) {
+    parts.push(`<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+<script async src="https://assets.calendly.com/assets/external/widget.js"></script>
+<script>window.PREG_CALENDLY_URL=${JSON.stringify(env.CALENDLY_BOOKING_URL)};</script>`);
+  }
+
   parts.push(HEAD_END);
   return parts.join('\n  ');
 }
@@ -124,7 +132,8 @@ async function main() {
     !!env.GTM_CONTAINER_ID ||
     !!env.META_PIXEL_ID ||
     !!env.GA4_MEASUREMENT_ID ||
-    !!env.TIKTOK_PIXEL_ID;
+    !!env.TIKTOK_PIXEL_ID ||
+    !!env.CALENDLY_BOOKING_URL;
 
   const files = await walkHtml(PROJECT_DIR);
   let modified = 0;
@@ -144,6 +153,7 @@ async function main() {
       env.META_PIXEL_ID && `MetaPixel(${env.META_PIXEL_ID})`,
       env.GA4_MEASUREMENT_ID && !env.GTM_CONTAINER_ID && `GA4(${env.GA4_MEASUREMENT_ID})`,
       env.TIKTOK_PIXEL_ID && !env.GTM_CONTAINER_ID && `TikTok(${env.TIKTOK_PIXEL_ID})`,
+      env.CALENDLY_BOOKING_URL && `Calendly(${env.CALENDLY_BOOKING_URL.split('/').slice(-2).join('/')})`,
     ].filter(Boolean).join(', ');
     console.log(`inject-tags: active tags → ${tagsActive}`);
   } else {
