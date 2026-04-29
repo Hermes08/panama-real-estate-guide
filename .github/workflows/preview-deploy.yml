@@ -1,0 +1,69 @@
+name: Preview deploy (feature branches only)
+
+on:
+  push:
+    branches:
+      - 'feat/**'
+      - 'fix/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: netlify-preview-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Sync Airtable -> static JSON + images (optional)
+        env:
+          AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+        run: |
+          if [ -z "$AIRTABLE_TOKEN" ]; then
+            echo "AIRTABLE_TOKEN not set — skipping Airtable sync"
+          else
+            node scripts/sync-airtable.mjs
+          fi
+
+      - name: Inject tracking tags
+        env:
+          GTM_CONTAINER_ID: ${{ secrets.GTM_CONTAINER_ID }}
+          META_PIXEL_ID: ${{ secrets.META_PIXEL_ID }}
+          GA4_MEASUREMENT_ID: ${{ secrets.GA4_MEASUREMENT_ID }}
+          TIKTOK_PIXEL_ID: ${{ secrets.TIKTOK_PIXEL_ID }}
+          CALENDLY_BOOKING_URL: ${{ secrets.CALENDLY_BOOKING_URL }}
+        run: node scripts/inject-tags.mjs
+
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli@17
+
+      - name: Deploy preview to Netlify (non-prod, alias = branch slug)
+        id: deploy
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          # Sanitize branch name -> alias-safe slug
+          ALIAS=$(echo "${{ github.ref_name }}" | tr '/' '-' | tr -cd 'a-zA-Z0-9-' | head -c 30)
+          echo "Deploy alias: $ALIAS"
+          netlify deploy \
+            --dir=project \
+            --site="$NETLIFY_SITE_ID" \
+            --auth="$NETLIFY_AUTH_TOKEN" \
+            --alias="$ALIAS" \
+            --message="Preview: ${{ github.sha }} on ${{ github.ref_name }}" \
+            | tee deploy_output.txt
+          DEPLOY_URL=$(grep -oE 'https://[a-z0-9.-]+--panamarealestateguide.netlify.app' deploy_output.txt | head -1)
+          echo "deploy_url=$DEPLOY_URL" >> $GITHUB_OUTPUT
+          echo "::notice title=Preview deployed::$DEPLOY_URL"
