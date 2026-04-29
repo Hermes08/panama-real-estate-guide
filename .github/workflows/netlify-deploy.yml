@@ -42,6 +42,7 @@ jobs:
           META_PIXEL_ID: ${{ secrets.META_PIXEL_ID }}
           GA4_MEASUREMENT_ID: ${{ secrets.GA4_MEASUREMENT_ID }}
           TIKTOK_PIXEL_ID: ${{ secrets.TIKTOK_PIXEL_ID }}
+          CALENDLY_BOOKING_URL: ${{ secrets.CALENDLY_BOOKING_URL }}
         run: node scripts/inject-tags.mjs
 
       - name: Install Netlify CLI
