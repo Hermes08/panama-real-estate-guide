@@ -1,0 +1,10 @@
+# Netlify config for panamarealestateguide.com static site + serverless functions
+
+[build]
+  publish = "project"
+
+[functions]
+  # Functions live under /netlify/functions/ and are deployed as serverless lambdas.
+  # Routed via `export const config = { path: '...' }` inside each .mjs.
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
