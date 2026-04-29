@@ -173,10 +173,83 @@
     });
   });
 
+
+  // ── 6b. Calendly inline embed listener ────────────────────────────────
+  // Calendly's embed widget posts messages of the shape:
+  //   { event: 'calendly.event_scheduled', payload: { event: {uri}, invitee: {uri} } }
+  // We catch event_scheduled and fire a 'calendly_booked' dataLayer event
+  // (worth $200 — highest in the funnel). GTM forwards to Meta `Schedule`
+  // and GA4 `calendly_booked`.
+  function isCalendlyEvent(e) {
+    return e && e.data && typeof e.data === 'object' &&
+           typeof e.data.event === 'string' &&
+           e.data.event.indexOf('calendly') === 0;
+  }
+  window.addEventListener('message', function (e) {
+    if (!isCalendlyEvent(e)) return;
+    var name = e.data.event;
+    if (name === 'calendly.event_scheduled') {
+      var payload = e.data.payload || {};
+      trackEvent('calendly_booked', {
+        fb_event: 'Schedule',
+        currency: 'USD',
+        value: 200,
+        content_name: 'discovery_call',
+        content_category: 'real_estate_consultation',
+        event_uri: (payload.event && payload.event.uri) || '',
+        invitee_uri: (payload.invitee && payload.invitee.uri) || '',
+        utm_source: getUTM('utm_source'),
+        utm_campaign: getUTM('utm_campaign'),
+        utm_content: getUTM('utm_content')
+      });
+    } else if (name === 'calendly.event_type_viewed') {
+      trackEvent('calendly_viewed', {
+        fb_event: 'ViewContent',
+        currency: 'USD',
+        value: 5,
+        content_name: 'calendar_widget'
+      });
+    } else if (name === 'calendly.date_and_time_selected') {
+      trackEvent('calendly_time_selected', {
+        fb_event: 'AddToCart',
+        currency: 'USD',
+        value: 50,
+        content_name: 'time_selected'
+      });
+    }
+  }, false);
+
+  // Helper: open Calendly popup with UTM prefill (used by CTA buttons)
+  function openCalendly(opts) {
+    opts = opts || {};
+    if (typeof window.Calendly === 'undefined') {
+      console.warn('Calendly widget not loaded yet');
+      return;
+    }
+    var url = opts.url || window.PREG_CALENDLY_URL || '';
+    if (!url) { console.warn('No Calendly URL set'); return; }
+    var utmObj = {
+      utmSource: getUTM('utm_source') || 'website',
+      utmMedium: getUTM('utm_medium') || 'cta',
+      utmCampaign: getUTM('utm_campaign') || '',
+      utmContent: getUTM('utm_content') || (opts.source || ''),
+      utmTerm: getUTM('utm_term') || ''
+    };
+    window.Calendly.initPopupWidget({ url: url, utm: utmObj });
+    trackEvent('calendly_cta_click', {
+      fb_event: 'InitiateCheckout',
+      currency: 'USD',
+      value: 30,
+      content_name: opts.source || 'cta'
+    });
+    return false; // for inline onclick
+  }
+
   // ── 7. Public API ──────────────────────────────────────────────────────
   window.preg = window.preg || {};
   window.preg.getUTM = getUTM;
   window.preg.trackEvent = trackEvent;
   window.preg.trackWhatsApp = trackWhatsApp;
   window.preg.captureUTMs = captureUTMs;
+  window.preg.openCalendly = openCalendly;
 })();
