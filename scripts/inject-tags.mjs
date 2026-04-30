@@ -58,8 +58,10 @@ fbq('init','${env.META_PIXEL_ID}');fbq('track','PageView');</script>
 gtag('js',new Date());gtag('config','${env.GA4_MEASUREMENT_ID}');</script>`);
   }
 
-  // TikTok Pixel direct (in case GTM is not configured)
-  if (env.TIKTOK_PIXEL_ID && !env.GTM_CONTAINER_ID) {
+  // TikTok Pixel — always injected directly when TIKTOK_PIXEL_ID is set.
+  // (GTM container does not include a TikTok tag, so direct injection is the
+  // only way to fire ttq events. Remove if you later configure TikTok in GTM.)
+  if (env.TIKTOK_PIXEL_ID) {
     parts.push(`<script>!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
 ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
 ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
@@ -156,7 +158,7 @@ async function main() {
       env.GTM_CONTAINER_ID && `GTM(${env.GTM_CONTAINER_ID})`,
       env.META_PIXEL_ID && `MetaPixel(${env.META_PIXEL_ID})`,
       env.GA4_MEASUREMENT_ID && !env.GTM_CONTAINER_ID && `GA4(${env.GA4_MEASUREMENT_ID})`,
-      env.TIKTOK_PIXEL_ID && !env.GTM_CONTAINER_ID && `TikTok(${env.TIKTOK_PIXEL_ID})`,
+      env.TIKTOK_PIXEL_ID && `TikTok(${env.TIKTOK_PIXEL_ID})`,
       env.CALENDLY_BOOKING_URL && `Calendly(${env.CALENDLY_BOOKING_URL.split('/').slice(-2).join('/')})`,
     ].filter(Boolean).join(', ');
     console.log(`inject-tags: active tags → ${tagsActive}`);
