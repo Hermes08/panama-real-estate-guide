@@ -101,6 +101,36 @@
     if (typeof window.ttq === 'object' && window.ttq.track) {
       window.ttq.track(eventName, props);
     }
+
+    // Google Ads conversion (no-op unless PREG_GADS configured by inject-tags.mjs)
+    fireGoogleAdsConversion(eventName, props);
+  }
+
+
+  // ── 3b. Google Ads conversion firing ───────────────────────────────────
+  // When a known revenue event fires, also fire gtag('event','conversion',...)
+  // pointed at the Google Ads conversion action. Configured at build time by
+  // inject-tags.mjs which writes window.PREG_GADS with the conversion_id and
+  // a labels map. If either is missing, this is a silent no-op.
+  var GADS_EVENT_MAP = {
+    'lead_form_submit': { label: 'lead',     value: 50  },
+    'whatsapp_click':   { label: 'whatsapp', value: 30  },
+    'calendly_booked':  { label: 'calendly', value: 200 }
+  };
+  function fireGoogleAdsConversion(eventName, props) {
+    var cfg = window.PREG_GADS;
+    if (!cfg || !cfg.conversion_id) return;
+    var entry = GADS_EVENT_MAP[eventName];
+    if (!entry) return;
+    var label = cfg.labels && cfg.labels[entry.label];
+    if (!label) return;
+    if (typeof window.gtag !== 'function') return;
+    var value = (props && typeof props.value === 'number') ? props.value : entry.value;
+    window.gtag('event', 'conversion', {
+      send_to: cfg.conversion_id + '/' + label,
+      value: value,
+      currency: 'USD'
+    });
   }
 
   // ── 4. WhatsApp click tracker (used by floating button + footer link) ──
