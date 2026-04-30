@@ -36,6 +36,9 @@ jobs:
             node scripts/sync-airtable.mjs
           fi
 
+      - name: Inject per-project meta + schema into /projects/*.html
+        run: node scripts/inject-project-meta.mjs
+
       - name: Inject tracking tags (only if env vars are set)
         env:
           GTM_CONTAINER_ID: ${{ secrets.GTM_CONTAINER_ID }}
