@@ -42,6 +42,10 @@ jobs:
           META_PIXEL_ID: ${{ secrets.META_PIXEL_ID }}
           GA4_MEASUREMENT_ID: ${{ secrets.GA4_MEASUREMENT_ID }}
           TIKTOK_PIXEL_ID: ${{ secrets.TIKTOK_PIXEL_ID }}
+          GOOGLE_ADS_CONVERSION_ID: ${{ secrets.GOOGLE_ADS_CONVERSION_ID }}
+          GOOGLE_ADS_CONVERSION_LABEL_LEAD: ${{ secrets.GOOGLE_ADS_CONVERSION_LABEL_LEAD }}
+          GOOGLE_ADS_CONVERSION_LABEL_WHATSAPP: ${{ secrets.GOOGLE_ADS_CONVERSION_LABEL_WHATSAPP }}
+          GOOGLE_ADS_CONVERSION_LABEL_CALENDLY: ${{ secrets.GOOGLE_ADS_CONVERSION_LABEL_CALENDLY }}
           CALENDLY_BOOKING_URL: ${{ secrets.CALENDLY_BOOKING_URL }}
         run: node scripts/inject-tags.mjs
 
@@ -67,3 +71,4 @@ jobs:
           DEPLOY_URL=$(grep -oE 'https://[a-z0-9.-]+--panamarealestateguide.netlify.app' deploy_output.txt | head -1)
           echo "deploy_url=$DEPLOY_URL" >> $GITHUB_OUTPUT
           echo "::notice title=Preview deployed::$DEPLOY_URL"
+

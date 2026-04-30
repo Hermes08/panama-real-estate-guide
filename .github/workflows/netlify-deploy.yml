@@ -42,6 +42,10 @@ jobs:
           META_PIXEL_ID: ${{ secrets.META_PIXEL_ID }}
           GA4_MEASUREMENT_ID: ${{ secrets.GA4_MEASUREMENT_ID }}
           TIKTOK_PIXEL_ID: ${{ secrets.TIKTOK_PIXEL_ID }}
+          GOOGLE_ADS_CONVERSION_ID: ${{ secrets.GOOGLE_ADS_CONVERSION_ID }}
+          GOOGLE_ADS_CONVERSION_LABEL_LEAD: ${{ secrets.GOOGLE_ADS_CONVERSION_LABEL_LEAD }}
+          GOOGLE_ADS_CONVERSION_LABEL_WHATSAPP: ${{ secrets.GOOGLE_ADS_CONVERSION_LABEL_WHATSAPP }}
+          GOOGLE_ADS_CONVERSION_LABEL_CALENDLY: ${{ secrets.GOOGLE_ADS_CONVERSION_LABEL_CALENDLY }}
           CALENDLY_BOOKING_URL: ${{ secrets.CALENDLY_BOOKING_URL }}
         run: node scripts/inject-tags.mjs
 
@@ -59,3 +63,4 @@ jobs:
             --auth="$NETLIFY_AUTH_TOKEN" \
             --prod \
             --message="GH Actions: ${{ github.sha }} on ${{ github.ref_name }}"
+
