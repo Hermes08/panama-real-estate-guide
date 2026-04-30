@@ -92,7 +92,7 @@ jobs:
               -d "$body")
             if [ "$code" = "201" ] || [ "$code" = "200" ]; then
               echo "  ✓ $name created"
-            elif [ "$code" = "400" ] && grep -q "already exists" /tmp/r.json; then
+            elif { [ "$code" = "400" ] || [ "$code" = "422" ]; } && grep -q "already exists" /tmp/r.json; then
               local pbody
               pbody=$(VAL="$value" python3 -c "import os,json; print(json.dumps({'context':'production','value':os.environ['VAL']}))")
               local code2
