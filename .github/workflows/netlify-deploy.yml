@@ -83,7 +83,7 @@ jobs:
             local name="$1" value="$2"
             if [ -z "$value" ]; then echo "  - $name skipped"; return 0; fi
             local body
-            body=$(VAL="$value" KEY="$name" python3 -c "import os,json; print(json.dumps([{'key':os.environ['KEY'],'values':[{'value':os.environ['VAL'],'context':'production'}],'scopes':['functions','runtime']}]))")
+            body=$(VAL="$value" KEY="$name" python3 -c "import os,json; print(json.dumps([{'key':os.environ['KEY'],'values':[{'value':os.environ['VAL'],'context':'production'}]}]))")
             local code
             code=$(curl -s -o /tmp/r.json -w "%{http_code}" -X POST \
               -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
