@@ -774,8 +774,8 @@ function Footer() {
           display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 14,
           fontSize: 11, fontFamily: 'var(--font-mono)', letterSpacing: '0.1em', opacity: 0.6, textTransform: 'uppercase'
         }}>
-          <span>© 2026 PanamaRealEstateGuide.com · VIP Expats Panama S.A.</span>
-          <span>Panama City · Oceania Business Plaza, T-2000</span>
+          <span>© 2026 PanamaRealEstateGuide.com · Operated by Top Deals Investments Inc. (Delaware C-Corp)</span>
+          <span>Wilmington, DE · Liaison office Panama City — Oceania Business Plaza, T-2000</span>
         </div>
       </div>
       <style>{`@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; } } @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr !important; } }`}</style>

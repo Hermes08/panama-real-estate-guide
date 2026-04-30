@@ -11,6 +11,8 @@
  *   window.preg.getUTM(name)    — read a UTM param from URL or sessionStorage
  *   window.preg.trackEvent(name, props) — push to dataLayer + direct tracker fallbacks
  *   window.preg.trackWhatsApp() — for inline onclick on wa.me links
+ *   window.preg.trackAddToWishlist({project}) — for "Save project" buttons (Meta AddToWishlist, $15)
+ *   window.preg.trackCompleteRegistration({event_name}) — for event RSVP confirmations (Meta CompleteRegistration, $400)
  *   window.preg.captureUTMs()   — auto-populate hidden inputs in any <form>
  *
  * Loaded BEFORE the GTM/Pixel scripts inserted by inject-tags.mjs, so the
@@ -190,6 +192,36 @@
     }
   });
 
+
+  // ── 5b. AddToWishlist helper ────────────────────────────────────────────
+  // Call from "Save project" / bookmark icon clicks. Maps to Meta AddToWishlist.
+  function trackAddToWishlist(opts) {
+    opts = opts || {};
+    trackEvent('add_to_wishlist', {
+      fb_event: 'AddToWishlist',
+      currency: 'USD',
+      value: 15,
+      content_name: opts.project || opts.content_name || 'unknown_project',
+      content_category: 'real_estate_project',
+      page_path: window.location.pathname
+    });
+  }
+
+  // ── 5c. CompleteRegistration helper ─────────────────────────────────────
+  // Call from event RSVP / encuentro booking confirmations. Maps to Meta
+  // CompleteRegistration ($400 — high signal, used for retargeting + lookalikes).
+  function trackCompleteRegistration(opts) {
+    opts = opts || {};
+    trackEvent('event_rsvp_confirmed', {
+      fb_event: 'CompleteRegistration',
+      currency: 'USD',
+      value: 400,
+      content_name: opts.event_name || 'encuentro_privado',
+      content_category: 'event_rsvp',
+      registration_method: opts.method || 'form'
+    });
+  }
+
   // ── 6. Page view (explicit, in addition to GTM auto pageview) ──────────
   // Pushes a custom event so dataLayer-only consumers (without a GA4 tag)
   // still get a structured page_view.
@@ -280,6 +312,8 @@
   window.preg.getUTM = getUTM;
   window.preg.trackEvent = trackEvent;
   window.preg.trackWhatsApp = trackWhatsApp;
+  window.preg.trackAddToWishlist = trackAddToWishlist;
+  window.preg.trackCompleteRegistration = trackCompleteRegistration;
   window.preg.captureUTMs = captureUTMs;
   window.preg.openCalendly = openCalendly;
 })();
