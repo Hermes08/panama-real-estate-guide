@@ -35,11 +35,20 @@ function verifyCalendlySignature(rawBody, header) {
     return acc;
   }, {});
   if (!parts.t || !parts.v1) return false;
-  const expected = crypto
-    .createHmac('sha256', CALENDLY_WEBHOOK_SIGNING_KEY)
-    .update(`${parts.t}.${rawBody}`)
-    .digest('hex');
-  return crypto.timingSafeEqual(Buffer.from(expected, 'hex'), Buffer.from(parts.v1, 'hex'));
+  // Defensive: timingSafeEqual throws on length mismatch and Buffer.from('hex')
+  // produces unpredictable lengths for malformed input. Wrap.
+  try {
+    const expected = crypto
+      .createHmac('sha256', CALENDLY_WEBHOOK_SIGNING_KEY)
+      .update(`${parts.t}.${rawBody}`)
+      .digest('hex');
+    const expectedBuf = Buffer.from(expected, 'hex');
+    const actualBuf = Buffer.from(parts.v1, 'hex');
+    if (actualBuf.length !== expectedBuf.length) return false;
+    return crypto.timingSafeEqual(expectedBuf, actualBuf);
+  } catch (_e) {
+    return false;
+  }
 }
 
 async function pushToCrm(invitee, scheduledEvent, eventType) {
