@@ -15,39 +15,66 @@ jobs:
           WEBHOOK_URL: https://panamarealestateguide.com/api/calendly-webhook
         run: |
           set -euo pipefail
-          if [ -z "$CAL_TOKEN" ] || [ -z "$CAL_USER" ] || [ -z "$CAL_SIGN" ]; then
-            echo "::error::Missing CALENDLY_PERSONAL_ACCESS_TOKEN / _USER_URI / _WEBHOOK_SIGNING_KEY"
+          if [ -z "$CAL_TOKEN" ]; then
+            echo "::error::CALENDLY_PERSONAL_ACCESS_TOKEN is empty"
+            exit 1
+          fi
+          echo "Token length: ${#CAL_TOKEN}"
+          echo "User URI:     ${CAL_USER:-<empty>}"
+          echo "Signing key length: ${#CAL_SIGN}"
+
+          echo ""
+          echo "=== GET /users/me (verify token works) ==="
+          HTTP=$(curl -s -o /tmp/me.json -w "%{http_code}" \
+            -H "Authorization: Bearer $CAL_TOKEN" \
+            -H "Content-Type: application/json" \
+            https://api.calendly.com/users/me)
+          echo "HTTP: $HTTP"
+          echo "Body (first 500 chars):"
+          head -c 500 /tmp/me.json
+          echo ""
+
+          if [ "$HTTP" != "200" ]; then
+            echo "::error::Calendly /users/me returned HTTP $HTTP — token invalid or expired"
             exit 1
           fi
 
-          echo "Reading Calendly user / organization..."
-          curl -s -H "Authorization: Bearer $CAL_TOKEN" https://api.calendly.com/users/me > /tmp/me.json
           ORG=$(python3 -c 'import json; print(json.load(open("/tmp/me.json"))["resource"]["current_organization"])')
-          echo "  organization: $ORG"
-          echo "  user: $CAL_USER"
+          ME_URI=$(python3 -c 'import json; print(json.load(open("/tmp/me.json"))["resource"]["uri"])')
+          echo ""
+          echo "Organization: $ORG"
+          echo "Token's user URI: $ME_URI"
+          # If CAL_USER is empty, default to the token's own user URI
+          USER_URI="${CAL_USER:-$ME_URI}"
+          echo "Using USER_URI: $USER_URI"
 
-          echo "Listing existing subscriptions..."
+          echo ""
+          echo "=== List existing subscriptions ==="
           curl -s -G \
             -H "Authorization: Bearer $CAL_TOKEN" \
             --data-urlencode "organization=$ORG" \
-            --data-urlencode "user=$CAL_USER" \
+            --data-urlencode "user=$USER_URI" \
             --data-urlencode "scope=user" \
             "https://api.calendly.com/webhook_subscriptions" > /tmp/existing.json
+          python3 -m json.tool < /tmp/existing.json | head -30
 
           MATCH=$(WEBHOOK="$WEBHOOK_URL" python3 -c 'import json,os; d=json.load(open("/tmp/existing.json")); h=[s for s in d.get("collection",[]) if s.get("callback_url")==os.environ["WEBHOOK"]]; print(h[0]["uri"] if h else "")')
 
           if [ -n "$MATCH" ]; then
+            echo ""
             echo "Already subscribed: $MATCH"
             exit 0
           fi
 
-          echo "Creating new webhook subscription..."
-          URL="$WEBHOOK_URL" ORG="$ORG" USER="$CAL_USER" SIGN="$CAL_SIGN" python3 -c 'import os,json; print(json.dumps({"url":os.environ["URL"],"events":["invitee.created","invitee.canceled"],"organization":os.environ["ORG"],"user":os.environ["USER"],"scope":"user","signing_key":os.environ["SIGN"]}))' > /tmp/body.json
+          echo ""
+          echo "=== Create new webhook subscription ==="
+          URL="$WEBHOOK_URL" ORG="$ORG" USER="$USER_URI" SIGN="$CAL_SIGN" python3 -c 'import os,json; print(json.dumps({"url":os.environ["URL"],"events":["invitee.created","invitee.canceled"],"organization":os.environ["ORG"],"user":os.environ["USER"],"scope":"user","signing_key":os.environ["SIGN"]}))' > /tmp/body.json
 
-          curl -s -X POST https://api.calendly.com/webhook_subscriptions \
+          HTTP=$(curl -s -o /tmp/resp.json -w "%{http_code}" -X POST https://api.calendly.com/webhook_subscriptions \
             -H "Authorization: Bearer $CAL_TOKEN" \
             -H "Content-Type: application/json" \
-            -d @/tmp/body.json > /tmp/resp.json
+            -d @/tmp/body.json)
+          echo "HTTP: $HTTP"
           python3 -m json.tool < /tmp/resp.json
-          python3 -c 'import sys,json; d=json.load(open("/tmp/resp.json")); sys.exit(0 if d.get("resource") else 1)'
+          [ "$HTTP" = "201" ] || { echo "::error::Calendly subscription failed HTTP $HTTP"; exit 1; }
           echo "Subscription created."
