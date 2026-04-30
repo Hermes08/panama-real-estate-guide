@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // =============================================================================
-// inject-project-meta.mjs — per-project SEO meta + RealEstateListing schema
+// inject-project-meta.mjs v2 — per-project SEO meta + schema + airtable hydrate
 // =============================================================================
 // Reads project metadata from project/data.js (PANAMA_DATA.projects) and
 // optionally project/airtable-projects.json, then for each /projects/*.html
@@ -118,6 +118,57 @@ function buildHeadInjection(project, slug) {
   return lines.join('\n  ');
 }
 
+
+// =============================================================================
+// PHASE 2: hydrate /projects/*.html with airtable projects BEFORE the inline
+// Babel render runs. Synchronous XHR merges airtable-projects.json into the
+// existing PANAMA_DATA.projects (loaded from data.js). Airtable entries take
+// precedence on duplicate id; demo-only projects (palma-blanca, coral-cove,
+// etc., 6 entries from data.js) are preserved so their /projects/*.html shells
+// still resolve.
+// =============================================================================
+const HYDRATE_START = '<!-- BEGIN_DETAIL_HYDRATE -->';
+const HYDRATE_END   = '<!-- END_DETAIL_HYDRATE -->';
+
+function buildHydrateBlock() {
+  return `${HYDRATE_START}
+<script>
+(function () {
+  if (!window.PANAMA_DATA || !Array.isArray(window.PANAMA_DATA.projects)) return;
+  try {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '../airtable-projects.json', false);
+    xhr.send();
+    if (xhr.status !== 200) return;
+    var data = JSON.parse(xhr.responseText);
+    if (!data || !Array.isArray(data.projects) || !data.projects.length) return;
+    // Merge: airtable wins on duplicate id; demo-only projects are preserved
+    var byId = {};
+    window.PANAMA_DATA.projects.forEach(function (p) { byId[p.id] = p; });
+    data.projects.forEach(function (p) { byId[p.id || p.slug] = Object.assign({}, byId[p.id || p.slug] || {}, p); });
+    window.PANAMA_DATA.projects = Object.values(byId);
+    window.PANAMA_DATA._projectsSource = 'airtable+demo';
+    window.PANAMA_DATA._projectsCount = window.PANAMA_DATA.projects.length;
+  } catch (e) {
+    /* keep data.js fallback silently */
+  }
+})();
+</script>
+${HYDRATE_END}`;
+}
+
+function injectHydrateBlock(html) {
+  const re = new RegExp(`${HYDRATE_START}[\\s\\S]*?${HYDRATE_END}`);
+  const block = buildHydrateBlock();
+  if (re.test(html)) return html.replace(re, block);
+  const anchor = '<script src="../data.js"></script>';
+  if (html.includes(anchor)) {
+    return html.replace(anchor, anchor + '\n  ' + block);
+  }
+  return html.replace(/<\/body>/i, block + '\n</body>');
+}
+
+
 function applyToHtml(html, headBlock) {
   const re = new RegExp(`${HEAD_START}[\\s\\S]*?${HEAD_END}`);
   if (re.test(html)) return html.replace(re, headBlock);
@@ -168,7 +219,8 @@ async function main() {
     const filePath = path.join(PROJECTS_DIR, f);
     const original = await fs.readFile(filePath, 'utf8');
     const headBlock = buildHeadInjection(proj, slug);
-    const next = applyToHtml(original, headBlock);
+    let next = applyToHtml(original, headBlock);
+    next = injectHydrateBlock(next);
     if (next !== original) {
       await fs.writeFile(filePath, next, 'utf8');
       modified++;
