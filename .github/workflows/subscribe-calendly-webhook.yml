@@ -1,0 +1,66 @@
+name: Subscribe Calendly webhook (one-shot)
+
+# Run manually via "Actions → Subscribe Calendly webhook → Run workflow".
+# Subscribes the production /api/calendly-webhook endpoint to Calendly's
+# invitee.created + invitee.canceled events. Idempotent — checks for an
+# existing subscription before creating.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  subscribe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Subscribe webhook
+        env:
+          CAL_TOKEN: ${{ secrets.CALENDLY_PERSONAL_ACCESS_TOKEN }}
+          CAL_USER:  ${{ secrets.CALENDLY_USER_URI }}
+          CAL_SIGN:  ${{ secrets.CALENDLY_WEBHOOK_SIGNING_KEY }}
+          WEBHOOK_URL: https://panamarealestateguide.com/api/calendly-webhook
+        run: |
+          set -euo pipefail
+          if [ -z "$CAL_TOKEN" ] || [ -z "$CAL_USER" ]; then
+            echo "::error::CALENDLY_PERSONAL_ACCESS_TOKEN or CALENDLY_USER_URI missing"
+            exit 1
+          fi
+          if [ -z "$CAL_SIGN" ]; then
+            echo "::warning::CALENDLY_WEBHOOK_SIGNING_KEY missing — generating one and asking you to add it"
+            CAL_SIGN=$(openssl rand -hex 32)
+            echo "Generated key: $CAL_SIGN"
+            echo "Add it to GitHub Secrets as CALENDLY_WEBHOOK_SIGNING_KEY before next deploy"
+          fi
+
+          # 1. Check existing subscriptions
+          echo "→ Listing existing webhook_subscriptions for user $CAL_USER..."
+          existing=$(curl -s "https://api.calendly.com/webhook_subscriptions?organization=$(curl -s -H "Authorization: Bearer $CAL_TOKEN" https://api.calendly.com/users/me | python3 -c "import sys,json; print(json.load(sys.stdin)['resource']['current_organization'])")&scope=user&user=$CAL_USER" \
+            -H "Authorization: Bearer $CAL_TOKEN")
+          match=$(echo "$existing" | python3 -c "
+import sys, json
+d = json.load(sys.stdin)
+hits = [s for s in d.get('collection', []) if s.get('callback_url') == '$WEBHOOK_URL']
+print(hits[0]['uri'] if hits else '')
+")
+          if [ -n "$match" ]; then
+            echo "✓ Already subscribed: $match"
+            exit 0
+          fi
+
+          # 2. Create new subscription
+          echo "→ Creating new webhook subscription..."
+          ORG=$(curl -s -H "Authorization: Bearer $CAL_TOKEN" https://api.calendly.com/users/me | python3 -c "import sys,json; print(json.load(sys.stdin)['resource']['current_organization'])")
+
+          curl -s -X POST https://api.calendly.com/webhook_subscriptions \
+            -H "Authorization: Bearer $CAL_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "$(python3 -c "
+import json, os
+print(json.dumps({
+  'url': os.environ['WEBHOOK_URL'],
+  'events': ['invitee.created', 'invitee.canceled'],
+  'organization': '$ORG',
+  'user': os.environ['CAL_USER'],
+  'scope': 'user',
+  'signing_key': os.environ['CAL_SIGN']
+}))
+")" | python3 -m json.tool
