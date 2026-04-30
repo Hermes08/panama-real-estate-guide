@@ -133,7 +133,7 @@ function Navbar({ transparent }) {
         <Logo onDark={isDark} size={18}/>
         <nav className="nav-desktop" style={{ display: 'flex', gap: 28, fontSize: 13, fontWeight: 500 }}>
         {['Projects', 'Regions', 'Journal', 'News', 'Residency', 'About'].map(l => {
-          const href = l === 'Projects' ? 'projects/palma-blanca.html'
+          const href = l === 'Projects' ? '#projects'
                      : l === 'Journal' ? 'articles/index.html'
                      : l === 'News' ? 'news/index.html'
                      : `#${l.toLowerCase()}`;
