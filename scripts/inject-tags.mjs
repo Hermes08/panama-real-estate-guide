@@ -58,6 +58,16 @@ fbq('init','${env.META_PIXEL_ID}');fbq('track','PageView');</script>
 gtag('js',new Date());gtag('config','${env.GA4_MEASUREMENT_ID}');</script>`);
   }
 
+  // Google Ads conversion tracking — sets up gtag config for the AW account
+  // and exposes labels via window.PREG_GADS so tracking.js can fire conversions
+  // when matching events (lead_form_submit, whatsapp_click, calendly_booked) hit.
+  if (env.GOOGLE_ADS_CONVERSION_ID) {
+    parts.push(`<script async src="https://www.googletagmanager.com/gtag/js?id=${env.GOOGLE_ADS_CONVERSION_ID}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','${env.GOOGLE_ADS_CONVERSION_ID}');
+window.PREG_GADS={conversion_id:${JSON.stringify(env.GOOGLE_ADS_CONVERSION_ID)},labels:{lead:${JSON.stringify(env.GOOGLE_ADS_CONVERSION_LABEL_LEAD || '')},whatsapp:${JSON.stringify(env.GOOGLE_ADS_CONVERSION_LABEL_WHATSAPP || '')},calendly:${JSON.stringify(env.GOOGLE_ADS_CONVERSION_LABEL_CALENDLY || '')}}};</script>`);
+  }
+
   // TikTok Pixel direct (in case GTM is not configured)
   if (env.TIKTOK_PIXEL_ID && !env.GTM_CONTAINER_ID) {
     parts.push(`<script>!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
@@ -137,6 +147,7 @@ async function main() {
     !!env.META_PIXEL_ID ||
     !!env.GA4_MEASUREMENT_ID ||
     !!env.TIKTOK_PIXEL_ID ||
+    !!env.GOOGLE_ADS_CONVERSION_ID ||
     !!env.CALENDLY_BOOKING_URL;
 
   const files = await walkHtml(PROJECT_DIR);
@@ -155,6 +166,7 @@ async function main() {
     const tagsActive = [
       env.GTM_CONTAINER_ID && `GTM(${env.GTM_CONTAINER_ID})`,
       env.META_PIXEL_ID && `MetaPixel(${env.META_PIXEL_ID})`,
+      env.GOOGLE_ADS_CONVERSION_ID && `GoogleAds(${env.GOOGLE_ADS_CONVERSION_ID})`,
       env.GA4_MEASUREMENT_ID && !env.GTM_CONTAINER_ID && `GA4(${env.GA4_MEASUREMENT_ID})`,
       env.TIKTOK_PIXEL_ID && !env.GTM_CONTAINER_ID && `TikTok(${env.TIKTOK_PIXEL_ID})`,
       env.CALENDLY_BOOKING_URL && `Calendly(${env.CALENDLY_BOOKING_URL.split('/').slice(-2).join('/')})`,
