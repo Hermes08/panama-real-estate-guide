@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // =============================================================================
-// inject-project-meta.mjs v3 — per-project SEO meta + schema + template-merge patch
+// inject-project-meta.mjs v4 — per-project SEO meta + schema + merge + finally guard
 // =============================================================================
 // Reads project metadata from project/data.js (PANAMA_DATA.projects) and
 // optionally project/airtable-projects.json, then for each /projects/*.html
@@ -136,6 +136,26 @@ function buildHeadInjection(project, slug) {
 const TEMPLATE_REPLACE_LINE  = 'window.PANAMA_DATA.projects = d.projects;';
 const TEMPLATE_MERGE_LINE    = '(function(){var byId={};window.PANAMA_DATA.projects.forEach(function(p){byId[p.id]=p;});d.projects.forEach(function(p){byId[p.id||p.slug]=Object.assign({},byId[p.id||p.slug]||{},p);});window.PANAMA_DATA.projects=Object.values(byId);window.PANAMA_DATA._projectsSource=\'airtable+demo\';})();';
 
+
+// Also patch the .finally() mutation cycle so it doesn't clobber demo project
+// objects when `p` and `cur` are the same reference.
+const TEMPLATE_FINALLY_BAD = `        if (cur) {
+          for (const k in p) delete p[k];
+          Object.assign(p, cur);
+        }`;
+const TEMPLATE_FINALLY_GOOD = `        if (cur && cur !== p) {
+          for (const k in p) delete p[k];
+          Object.assign(p, cur);
+        }`;
+
+function patchTemplateFinally(html) {
+  if (html.includes(TEMPLATE_FINALLY_GOOD)) return html;
+  if (html.includes(TEMPLATE_FINALLY_BAD)) {
+    return html.replace(TEMPLATE_FINALLY_BAD, TEMPLATE_FINALLY_GOOD);
+  }
+  return html;
+}
+
 function patchTemplateMerge(html) {
   if (html.includes(TEMPLATE_MERGE_LINE)) return html; // already patched
   if (html.includes(TEMPLATE_REPLACE_LINE)) {
@@ -209,6 +229,7 @@ async function main() {
     let next = applyToHtml(original, headBlock);
     next = stripLegacyHydrateBlock(next);
     next = patchTemplateMerge(next);
+    next = patchTemplateFinally(next);
     if (next !== original) {
       await fs.writeFile(filePath, next, 'utf8');
       modified++;
