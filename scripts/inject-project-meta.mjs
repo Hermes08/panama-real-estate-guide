@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // =============================================================================
-// inject-project-meta.mjs v2 — per-project SEO meta + schema + airtable hydrate
+// inject-project-meta.mjs v3 — per-project SEO meta + schema + template-merge patch
 // =============================================================================
 // Reads project metadata from project/data.js (PANAMA_DATA.projects) and
 // optionally project/airtable-projects.json, then for each /projects/*.html
@@ -120,52 +120,39 @@ function buildHeadInjection(project, slug) {
 
 
 // =============================================================================
-// PHASE 2: hydrate /projects/*.html with airtable projects BEFORE the inline
-// Babel render runs. Synchronous XHR merges airtable-projects.json into the
-// existing PANAMA_DATA.projects (loaded from data.js). Airtable entries take
-// precedence on duplicate id; demo-only projects (palma-blanca, coral-cove,
-// etc., 6 entries from data.js) are preserved so their /projects/*.html shells
-// still resolve.
+// PHASE 2: patch the existing inline-Babel template at the bottom of every
+// /projects/*.html so that its airtable fetch MERGES into data.js demos
+// instead of REPLACING them. The original template did:
+//
+//   window.PANAMA_DATA.projects = d.projects;          // drops 6 demos
+//
+// We replace it with a merge that preserves the 6 demo slugs (palma-blanca,
+// coral-cove, etc.) so their detail pages keep working AND the 13 airtable
+// projects get hydrated into PANAMA_DATA so altos-del-maria etc. resolve.
+//
+// Also: removes the BEGIN_DETAIL_HYDRATE block from a previous version of
+// this script (the merge now lives in the existing template instead).
 // =============================================================================
-const HYDRATE_START = '<!-- BEGIN_DETAIL_HYDRATE -->';
-const HYDRATE_END   = '<!-- END_DETAIL_HYDRATE -->';
+const TEMPLATE_REPLACE_LINE  = 'window.PANAMA_DATA.projects = d.projects;';
+const TEMPLATE_MERGE_LINE    = '(function(){var byId={};window.PANAMA_DATA.projects.forEach(function(p){byId[p.id]=p;});d.projects.forEach(function(p){byId[p.id||p.slug]=Object.assign({},byId[p.id||p.slug]||{},p);});window.PANAMA_DATA.projects=Object.values(byId);window.PANAMA_DATA._projectsSource=\'airtable+demo\';})();';
 
-function buildHydrateBlock() {
-  return `${HYDRATE_START}
-<script>
-(function () {
-  if (!window.PANAMA_DATA || !Array.isArray(window.PANAMA_DATA.projects)) return;
-  try {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '../airtable-projects.json', false);
-    xhr.send();
-    if (xhr.status !== 200) return;
-    var data = JSON.parse(xhr.responseText);
-    if (!data || !Array.isArray(data.projects) || !data.projects.length) return;
-    // Merge: airtable wins on duplicate id; demo-only projects are preserved
-    var byId = {};
-    window.PANAMA_DATA.projects.forEach(function (p) { byId[p.id] = p; });
-    data.projects.forEach(function (p) { byId[p.id || p.slug] = Object.assign({}, byId[p.id || p.slug] || {}, p); });
-    window.PANAMA_DATA.projects = Object.values(byId);
-    window.PANAMA_DATA._projectsSource = 'airtable+demo';
-    window.PANAMA_DATA._projectsCount = window.PANAMA_DATA.projects.length;
-  } catch (e) {
-    /* keep data.js fallback silently */
+function patchTemplateMerge(html) {
+  if (html.includes(TEMPLATE_MERGE_LINE)) return html; // already patched
+  if (html.includes(TEMPLATE_REPLACE_LINE)) {
+    return html.replace(TEMPLATE_REPLACE_LINE, TEMPLATE_MERGE_LINE);
   }
-})();
-</script>
-${HYDRATE_END}`;
+  return html;
 }
 
-function injectHydrateBlock(html) {
-  const re = new RegExp(`${HYDRATE_START}[\\s\\S]*?${HYDRATE_END}`);
-  const block = buildHydrateBlock();
-  if (re.test(html)) return html.replace(re, block);
-  const anchor = '<script src="../data.js"></script>';
-  if (html.includes(anchor)) {
-    return html.replace(anchor, anchor + '\n  ' + block);
-  }
-  return html.replace(/<\/body>/i, block + '\n</body>');
+// Strip a leftover BEGIN_DETAIL_HYDRATE block from the previous version of
+// this script — it was a duplicate hydrate that ran before the template's
+// own fetch (which then overwrote it). Now we patch the template directly
+// so the duplicate is unnecessary.
+function stripLegacyHydrateBlock(html) {
+  return html.replace(
+    /[ \t]*<!-- BEGIN_DETAIL_HYDRATE -->[\s\S]*?<!-- END_DETAIL_HYDRATE -->\n?/,
+    ''
+  );
 }
 
 
@@ -220,7 +207,8 @@ async function main() {
     const original = await fs.readFile(filePath, 'utf8');
     const headBlock = buildHeadInjection(proj, slug);
     let next = applyToHtml(original, headBlock);
-    next = injectHydrateBlock(next);
+    next = stripLegacyHydrateBlock(next);
+    next = patchTemplateMerge(next);
     if (next !== original) {
       await fs.writeFile(filePath, next, 'utf8');
       modified++;
