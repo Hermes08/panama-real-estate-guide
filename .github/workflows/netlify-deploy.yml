@@ -56,7 +56,7 @@ jobs:
       # calendly-webhook.mjs) can read META_CAPI_TOKEN, CRM_API_*, CALENDLY_*.
       # These are runtime env (not build env) — the inject-tags step above only
       # uses the *_CONVERSION_*/PIXEL_ID secrets at build time.
-      - name: Sync function env vars to Netlify
+      - name: Sync function env vars to Netlify (via API)
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
@@ -66,21 +66,52 @@ jobs:
           CRM_API_KEY: ${{ secrets.CRM_API_KEY }}
           CALENDLY_WEBHOOK_SIGNING_KEY: ${{ secrets.CALENDLY_WEBHOOK_SIGNING_KEY }}
         run: |
-          set_if_present() {
-            local name="$1"
-            local value="$2"
-            if [ -n "$value" ]; then
-              netlify env:set "$name" "$value" --site="$NETLIFY_SITE_ID" --auth="$NETLIFY_AUTH_TOKEN" --context production --secret >/dev/null
-              echo "  ✓ $name set"
+          # Use the Netlify REST API directly. The env:set CLI subcommand does
+          # not accept --site / --filter, so we POST to /accounts/{slug}/env
+          # with a site_id query param. Idempotent — falls back to PATCH on
+          # 400 "key already exists".
+          ACCOUNT=$(curl -s -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
+            "https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID" | \
+            python3 -c "import sys,json; print(json.load(sys.stdin).get('account_slug',''))")
+          if [ -z "$ACCOUNT" ]; then
+            echo "::error::Could not resolve account_slug from NETLIFY_SITE_ID"
+            exit 1
+          fi
+          echo "account_slug=$ACCOUNT, site=$NETLIFY_SITE_ID"
+
+          set_env() {
+            local name="$1" value="$2"
+            if [ -z "$value" ]; then echo "  - $name skipped"; return 0; fi
+            local body
+            body=$(VAL="$value" KEY="$name" python3 -c "import os,json; print(json.dumps([{'key':os.environ['KEY'],'values':[{'value':os.environ['VAL'],'context':'production'}],'scopes':['functions','runtime']}]))")
+            local code
+            code=$(curl -s -o /tmp/r.json -w "%{http_code}" -X POST \
+              -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
+              -H "Content-Type: application/json" \
+              "https://api.netlify.com/api/v1/accounts/$ACCOUNT/env?site_id=$NETLIFY_SITE_ID" \
+              -d "$body")
+            if [ "$code" = "201" ] || [ "$code" = "200" ]; then
+              echo "  ✓ $name created"
+            elif [ "$code" = "400" ] && grep -q "already exists" /tmp/r.json; then
+              local pbody
+              pbody=$(VAL="$value" python3 -c "import os,json; print(json.dumps({'context':'production','value':os.environ['VAL']}))")
+              local code2
+              code2=$(curl -s -o /tmp/r2.json -w "%{http_code}" -X PATCH \
+                -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
+                -H "Content-Type: application/json" \
+                "https://api.netlify.com/api/v1/accounts/$ACCOUNT/env/$name?site_id=$NETLIFY_SITE_ID" \
+                -d "$pbody")
+              [ "$code2" = "200" ] && echo "  ↻ $name updated" || echo "  ✗ $name PATCH HTTP $code2: $(cat /tmp/r2.json)"
             else
-              echo "  - $name skipped (empty secret)"
+              echo "  ✗ $name HTTP $code: $(cat /tmp/r.json)"
             fi
           }
-          set_if_present META_PIXEL_ID         "$META_PIXEL_ID"
-          set_if_present META_CAPI_TOKEN       "$META_CAPI_TOKEN"
-          set_if_present CRM_API_URL           "$CRM_API_URL"
-          set_if_present CRM_API_KEY           "$CRM_API_KEY"
-          set_if_present CALENDLY_WEBHOOK_SIGNING_KEY "$CALENDLY_WEBHOOK_SIGNING_KEY"
+
+          set_env META_PIXEL_ID                "$META_PIXEL_ID"
+          set_env META_CAPI_TOKEN              "$META_CAPI_TOKEN"
+          set_env CRM_API_URL                  "$CRM_API_URL"
+          set_env CRM_API_KEY                  "$CRM_API_KEY"
+          set_env CALENDLY_WEBHOOK_SIGNING_KEY "$CALENDLY_WEBHOOK_SIGNING_KEY"
 
       - name: Deploy project/ to Netlify (production)
         env:
