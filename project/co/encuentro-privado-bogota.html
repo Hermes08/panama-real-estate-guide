@@ -311,13 +311,13 @@
   <!-- Calendly inline init -->
   <script>
     (function init() {
-      var url = window.PREG_CALENDLY_URL;
       var el = document.getElementById('calendly-inline');
-      if (!url || !el) return;
-      el.dataset.url = url;
+      if (!el) return;
       var attempts = 0;
       function tryInit() {
-        if (window.Calendly) {
+        var url = window.PREG_CALENDLY_URL;
+        if (window.Calendly && url) {
+          el.dataset.url = url;
           window.Calendly.initInlineWidget({
             url: url + '?hide_event_type_details=0&hide_gdpr_banner=1',
             parentElement: el,
@@ -329,7 +329,7 @@
               utmContent: window.preg.getUTM('utm_content') || 'encuentro-privado-bogota'
             } : {}
           });
-        } else if (attempts++ < 30) setTimeout(tryInit, 250);
+        } else if (attempts++ < 60) setTimeout(tryInit, 250);
       }
       if (document.readyState !== 'loading') tryInit();
       else document.addEventListener('DOMContentLoaded', tryInit);
