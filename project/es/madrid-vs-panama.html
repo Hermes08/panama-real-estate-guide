@@ -15,7 +15,7 @@
   <meta property="og:title" content="Madrid Vs Panama — Panama Real Estate Guide">
   <meta property="og:description" content="Si tienes USD $400K, ¿qué te conviene? Comparamos rentabilidad, riesgo cambiario, fiscalidad y calidad de vida. Sin spin: las dos opciones tienen sentido e">
   <meta property="og:url" content="https://panamarealestateguide.com/es/madrid-vs-panama">
-  <meta property="og:image" content="https://panamarealestateguide.com/airtable-assets/bioma-costa-del-este/00.jpg">
+  <meta property="og:image" content="https://panamarealestateguide.com/airtable-assets/bioma-costa-del-este/00.png">
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="PanamaRealEstateGuide.com">
 
@@ -33,7 +33,7 @@
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Madrid vs. Panam\u00e1: el an\u00e1lisis honesto.", "url": "https://panamarealestateguide.com/es/madrid-vs-panama", "inLanguage": "es-ES", "audience": {"@type": "Audience", "audienceType": "Inversionistas inmobiliarios LATAM/Espa\u00f1a"}}</script>
 
   <!-- Performance: preload hero + key font -->
-  <link rel="preload" as="image" href="/airtable-assets/bioma-costa-del-este/00.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="/airtable-assets/bioma-costa-del-este/00.png" fetchpriority="high">
   <link rel="preconnect" href="https://assets.calendly.com">
 
   <!-- Stylesheet -->
@@ -81,7 +81,17 @@
     footer a:hover{opacity:1}
     .legal{font-size:11px;opacity:0.55;font-family:ui-monospace,monospace;letter-spacing:0.1em;text-transform:uppercase}
     .disclaimer{background:rgba(227,115,99,0.08);border-left:3px solid #E37363;padding:14px 18px;border-radius:0 8px 8px 0;font-size:13px;line-height:1.5;margin:24px 0;color:#0B1F28}
-  </style>
+  
+    /* Calendly iframe height fix — force iframe to fill its 720px container */
+    #calendly-inline { position: relative; min-height: 720px; }
+    #calendly-inline iframe {
+      width: 100% !important;
+      height: 720px !important;
+      min-height: 720px !important;
+      border: 0 !important;
+      display: block !important;
+    }
+</style>
 </head>
 <body>
 
@@ -97,7 +107,7 @@
           <p style="font-size:18px;line-height:1.55;max-width:48ch;opacity:0.85">Si tienes USD $400K, ¿qué te conviene? Comparamos rentabilidad, riesgo cambiario, fiscalidad y calidad de vida. Sin spin: las dos opciones tienen sentido en escenarios distintos.</p>
           <a href="#form" class="hero-cta">Recibir el dossier · 24 pp <span>→</span></a>
         </div>
-        <img class="hero-img" src="/airtable-assets/bioma-costa-del-este/00.jpg" alt="Madrid vs. Panamá: el análisis honesto." width="640" height="480" fetchpriority="high">
+        <img class="hero-img" src="/airtable-assets/bioma-costa-del-este/00.png" alt="Madrid vs. Panamá: el análisis honesto." width="640" height="480" fetchpriority="high">
       </div>
     </div>
   </section>
@@ -215,7 +225,7 @@
       <div class="eyebrow">Llamada de descubrimiento</div>
       <h2>O agenda 30 min directamente</h2>
       <p>Cuéntanos tu timeline, tu objetivo y tu presupuesto. Te responderemos con los 3 proyectos que mejor encajan.</p>
-      <div id="calendly-inline" data-url="" style="min-height:720px;border:1px solid rgba(11,31,40,0.12);border-radius:14px;overflow:hidden;margin-top:24px"></div>
+      <div id="calendly-inline" data-url="" style="min-height:720px;border:1px solid rgba(11,31,40,0.12);border-radius:14px;margin-top:24px"></div>
     </div>
   </section>
 
