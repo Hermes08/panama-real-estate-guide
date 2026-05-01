@@ -1,6 +1,24 @@
 // Sections 2 — Projects, Regions, Journal (articles), News ticker, Testimonials, Reserve CTA, Footer
 
 /* ── Projects (developer-only) ── */
+
+// Helper: pick a Pexels cover image for an article based on its slug + category
+const pickCoverImg = (a) => {
+  if (!a || !a.id) return null;
+  const POOLS = {
+    sunset: [18185251, 1787057, 18027952],
+    palm:   [4604439, 12858513, 29464869, 37120933],
+    sand:   [11897606, 20891029, 16519714, 7938714],
+    ocean:  [7938842, 8170288, 7233094, 31817155]
+  };
+  const pool = POOLS[a.cover] || POOLS.sunset;
+  let h = 0;
+  const id = String(a.id);
+  for (let i = 0; i < id.length; i++) h = ((h << 5) - h + id.charCodeAt(i)) | 0;
+  const idx = Math.abs(h) % pool.length;
+  return `https://images.pexels.com/photos/${pool[idx]}/pexels-photo-${pool[idx]}.jpeg?auto=compress&cs=tinysrgb&w=1600`;
+};
+
 function Projects() {
   const projects = window.PANAMA_DATA.projects;
   return (
@@ -261,7 +279,7 @@ function Journal() {
                display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 40, marginBottom: 56,
                textDecoration: 'none', color: 'inherit', alignItems: 'center'
              }}>
-            <div className={`ph ph-${hero.cover}`} data-label="EDITOR'S PICK" style={{
+            <div className={`ph ph-${hero.cover}`} data-label="EDITOR'S PICK" style={{ backgroundImage: `url(${pickCoverImg(hero)})`, backgroundSize: 'cover', backgroundPosition: 'center',
               position: 'relative', aspectRatio: '4/3', borderRadius: 16, overflow: 'hidden'
             }}>
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.5) 100%)' }}/>
@@ -307,7 +325,7 @@ function Journal() {
                data-article-rank={a.homepage_rank}
                data-utm-campaign={a.utm_campaign || 'journal'}
                style={{ transitionDelay: `${i * 0.06}s`, cursor: 'pointer', textDecoration: 'none', color: 'inherit', display: 'block' }}>
-              <div className={`ph ph-${a.cover}`} data-label="" style={{
+              <div className={`ph ph-${a.cover}`} data-label="" style={{ backgroundImage: `url(${pickCoverImg(a)})`, backgroundSize: 'cover', backgroundPosition: 'center',
                 position: 'relative', aspectRatio: '4/3', borderRadius: 12, overflow: 'hidden', marginBottom: 16
               }}>
                 <div style={{
