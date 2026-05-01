@@ -79,7 +79,17 @@
     details summary::after{content:'+';color:#E37363;font-size:24px;font-weight:300;line-height:1}
     details[open] summary::after{content:'−'}
     details p{margin-top:14px;color:rgba(11,31,40,0.78);font-size:15px}
-  </style>
+  
+    /* Calendly iframe height fix — force iframe to fill its 720px container */
+    #calendly-inline { position: relative; min-height: 720px; }
+    #calendly-inline iframe {
+      width: 100% !important;
+      height: 720px !important;
+      min-height: 720px !important;
+      border: 0 !important;
+      display: block !important;
+    }
+</style>
 </head>
 <body>
 
@@ -247,7 +257,7 @@
       <div class="eyebrow">Llamada de descubrimiento</div>
       <h2>O agenda 30 min directamente.</h2>
       <p>Cuéntanos tu timeline, tu objetivo y tu presupuesto. Te respondemos con los 3 proyectos que mejor encajan, sin compromiso.</p>
-      <div id="calendly-inline" style="min-height:720px;border:1px solid rgba(11,31,40,0.12);border-radius:14px;overflow:hidden;margin-top:24px"></div>
+      <div id="calendly-inline" style="min-height:720px;border:1px solid rgba(11,31,40,0.12);border-radius:14px;margin-top:24px"></div>
     </div>
   </section>
 
