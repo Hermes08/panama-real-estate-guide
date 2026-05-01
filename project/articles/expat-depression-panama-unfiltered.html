@@ -23,6 +23,21 @@
 
   <script type="text/babel">
     const ARTICLE_ID = window.location.pathname.split('/').pop().replace('.html', '');
+    const pickCoverImg = (a) => {
+      if (!a || !a.id) return null;
+      const POOLS = {
+        sunset: [18185251, 1787057, 18027952],
+        palm:   [4604439, 12858513, 29464869, 37120933],
+        sand:   [11897606, 20891029, 16519714, 7938714],
+        ocean:  [7938842, 8170288, 7233094, 31817155]
+      };
+      const pool = POOLS[a.cover] || POOLS.sunset;
+      let h = 0;
+      const id = String(a.id);
+      for (let i = 0; i < id.length; i++) h = ((h << 5) - h + id.charCodeAt(i)) | 0;
+      const idx = Math.abs(h) % pool.length;
+      return `https://images.pexels.com/photos/${pool[idx]}/pexels-photo-${pool[idx]}.jpeg?auto=compress&cs=tinysrgb&w=1600`;
+    };
     const a = window.PANAMA_DATA.articles.find(x => x.id === ARTICLE_ID) || window.PANAMA_DATA.articles[0];
     const body = window.PANAMA_DATA.articleBodies[a.id] || [];
     document.title = `${a.title} — PanamaRealEstateGuide.com`;
@@ -102,7 +117,7 @@
             {/* COVER IMAGE */}
             <div className="container" style={{ marginBottom: 56 }}>
               <div className={`ph ph-${a.cover} reveal`} data-label={a.category.toUpperCase()}
-                style={{ aspectRatio: '16/7', borderRadius: 20 }}/>
+                style={{ aspectRatio: '16/7', borderRadius: 20, backgroundImage: `url(${pickCoverImg(a)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}/>
             </div>
 
             {/* BODY — single column editorial */}
@@ -249,7 +264,7 @@
                   <a key={r.id} href={`${r.id}.html`} className="reveal" style={{
                     textDecoration: 'none', color: 'inherit', transitionDelay: `${i * 0.06}s`, display: 'block'
                   }}>
-                    <div className={`ph ph-${r.cover}`} data-label="" style={{ aspectRatio: '4/3', borderRadius: 12, marginBottom: 16 }}/>
+                    <div className={`ph ph-${r.cover}`} data-label="" style={{ aspectRatio: '4/3', borderRadius: 12, marginBottom: 16, backgroundImage: `url(${pickCoverImg(r)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}/>
                     <div style={{ fontSize: 10.5, fontFamily: 'var(--font-mono)', color: 'var(--coral-deep)', letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 8 }}>
                       {r.category}
                     </div>
