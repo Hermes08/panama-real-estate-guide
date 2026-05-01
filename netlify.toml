@@ -8,3 +8,40 @@
   # Routed via `export const config = { path: '...' }` inside each .mjs.
   directory = "netlify/functions"
   node_bundler = "esbuild"
+
+# 301 — retired demo project pages → home
+[[redirects]]
+  from = "/projects/palma-blanca.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/projects/coral-cove.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/projects/azuero-shores.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/projects/casco-malecon.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/projects/vista-verde.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/projects/bay-tower-47.html"
+  to = "/"
+  status = 301
+  force = true
