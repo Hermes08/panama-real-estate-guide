@@ -562,7 +562,7 @@ function ReserveCTA() {
         }}>
           <div>
             <div className="eyebrow" style={{ color: 'var(--aqua)', marginBottom: 10 }}>WhatsApp / Phone</div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontStyle: 'italic' }}>+507 6761-0315</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontStyle: 'italic' }}>+507 6253-4802</div>
           </div>
           <div>
             <div className="eyebrow" style={{ color: 'var(--aqua)', marginBottom: 10 }}>Email</div>
@@ -725,7 +725,7 @@ function Footer() {
                 },
                 {
                   name: 'WhatsApp',
-                  href: 'https://wa.me/50767610315',
+                  href: 'https://wa.me/50762534802',
                   path: 'M12 2a10 10 0 0 0-8.7 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.7-1.2 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1a16 16 0 0 1-4.2-2.1 12 12 0 0 1-3.1-3.7c-.4-.6-.9-1.6-.9-2.5s.5-1.4.7-1.6c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5c-.1.1-.3.3-.1.6a9 9 0 0 0 1.6 2 8 8 0 0 0 2.3 1.4c.3.1.5.1.6 0l.6-.7c.2-.3.5-.2.7-.1l2 .9c.2.1.4.2.5.3 0 .1 0 .7-.2 1.5Z'
                 }
               ].map(s => (
