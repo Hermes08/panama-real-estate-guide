@@ -23,35 +23,7 @@ window.PANAMA_DATA = {
   ],
 
   // Developer-sold projects only — no individual resales
-  projects: [
-    {
-      id: 'bay-tower-47',
-      name: 'Bay Tower 47',
-      developer: 'Balboa Developments',
-      location: 'Avenida Balboa · Panama City',
-      tagline: 'The city at your feet, the bay at your door.',
-      priceFromLabel: 'Reserve from $12,000',
-      fromLabel: 'From $720,000',
-      delivery: 'Ready 2026',
-      status: 'Move-in ready',
-      highlight: 'Skyline',
-      cover: 'sunset',
-      size: 'small',
-      region: 'Panama City',
-      about: 'Bay Tower 47 is a forty-seven-story glass residential tower on Avenida Balboa, with every unit facing the bay. Full-floor penthouses, sky-garden amenity levels at 20 and 45, and direct pedestrian access to the Cinta Costera seafront park.',
-      units: [
-        { type: '2-Bed High-Floor', size: '120 m²', from: '$720,000' },
-        { type: '3-Bed Corner',     size: '180 m²', from: '$1,150,000' },
-        { type: 'Penthouse',        size: '420 m²', from: '$3,800,000' }
-      ],
-      amenities: ['Sky gym at floor 45', 'Infinity pool', 'Wine lounge', 'Co-working floor', 'Private valet', '24/7 concierge'],
-      timeline: [
-        { phase: 'Reservation', desc: 'Refundable $12,000 deposit.' },
-        { phase: 'Promise-of-sale', desc: '20% down (ready stock).' },
-        { phase: 'Title transfer', desc: '80% on closing.' }
-      ]
-    }
-  ],
+  projects: [],
 
   regions: [
     { id: 'pacific', name: 'Pacific Coast', sub: 'Playa Blanca · Coronado', count: 8, blurb: 'White-sand beaches 60–90 minutes from the capital.' },
