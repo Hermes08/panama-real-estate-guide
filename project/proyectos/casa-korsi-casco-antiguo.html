@@ -81,7 +81,17 @@
     footer a:hover{opacity:1}
     .legal{font-size:11px;opacity:0.55;font-family:ui-monospace,monospace;letter-spacing:0.1em;text-transform:uppercase}
     .disclaimer{background:rgba(227,115,99,0.08);border-left:3px solid #E37363;padding:14px 18px;border-radius:0 8px 8px 0;font-size:13px;line-height:1.5;margin:24px 0;color:#0B1F28}
-  </style>
+  
+    /* Calendly iframe height fix — force iframe to fill its 720px container */
+    #calendly-inline { position: relative; min-height: 720px; }
+    #calendly-inline iframe {
+      width: 100% !important;
+      height: 720px !important;
+      min-height: 720px !important;
+      border: 0 !important;
+      display: block !important;
+    }
+</style>
 </head>
 <body>
 
@@ -215,7 +225,7 @@
       <div class="eyebrow">Llamada de descubrimiento</div>
       <h2>O agenda 30 min directamente</h2>
       <p>Cuéntanos tu timeline, tu objetivo y tu presupuesto. Te responderemos con los 3 proyectos que mejor encajan.</p>
-      <div id="calendly-inline" data-url="" style="min-height:720px;border:1px solid rgba(11,31,40,0.12);border-radius:14px;overflow:hidden;margin-top:24px"></div>
+      <div id="calendly-inline" data-url="" style="min-height:720px;border:1px solid rgba(11,31,40,0.12);border-radius:14px;margin-top:24px"></div>
     </div>
   </section>
 
