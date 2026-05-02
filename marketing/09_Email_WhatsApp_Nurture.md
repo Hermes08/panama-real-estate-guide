@@ -159,7 +159,7 @@ por WhatsApp.</p>
 
 <p><strong>David Aguirre</strong><br>
 Panama Real Estate Guide<br>
-<a href="https://wa.me/50767610315">+507 6761-0315</a><br>
+<a href="https://wa.me/50762534802">+507 6253-4802</a><br>
 <a href="https://panamarealestateguide.com">panamarealestateguide.com</a></p>
 
 <p style="font-size:11px;color:#888">
@@ -218,7 +218,7 @@ agenda en Panamá).</p>
 
 <p><strong>David Aguirre</strong><br>
 Panama Real Estate Guide<br>
-<a href="https://wa.me/50767610315">WhatsApp +507 6761-0315</a><br>
+<a href="https://wa.me/50762534802">WhatsApp +507 6253-4802</a><br>
 <a href="https://panamarealestateguide.com">panamarealestateguide.com</a></p>
 ```
 
