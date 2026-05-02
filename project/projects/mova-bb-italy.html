@@ -23,8 +23,10 @@
 
   <script type="text/babel" data-plugins="transform-modules-umd">
     const PROJECT_ID = window.location.pathname.split('/').pop().replace('.html', '');
-    const p = window.PANAMA_DATA.projects.find(x => x.id === PROJECT_ID) || window.PANAMA_DATA.projects[0];
-    document.title = `${p.name} — PanamaRealEstateGuide.com`;
+    const p = window.PANAMA_DATA.projects.find(x => x.id === PROJECT_ID) 
+              || window.PANAMA_DATA.projects[0]
+              || { id: PROJECT_ID, name: '', location: '', region: '', about: '', images: [], cover: '', units: [], amenities: [], timeline: [] };
+    if (p.name) document.title = `${p.name} — PanamaRealEstateGuide.com`;
 
     function ProjectPage() {
       const related = window.PANAMA_DATA.projects.filter(x => x.id !== p.id && x.region === p.region).slice(0, 3);
