@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <title>Proyectos destacados — PanamaRealEstateGuide.com</title>
+  <meta name="description" content="Cuatro proyectos exclusivos en Panamá: Euphoria Art District, Sanctuary Residences, Casa Korsi Casco Antiguo y Buenaventura · Ritz-Carlton Reserve."/>
+  <meta property="og:title" content="Proyectos destacados — PanamaRealEstateGuide.com"/>
+  <meta property="og:description" content="Inversión inmobiliaria curada en Panamá — desde USD $245K hasta USD $1.2M+. Pre-venta con fideicomiso bancario."/>
+  <meta property="og:url" content="https://panamarealestateguide.com/proyectos/"/>
+  <meta property="og:type" content="website"/>
+  <link rel="canonical" href="https://panamarealestateguide.com/proyectos/"/>
+  <!-- BEGIN_TRACKING_HEAD -->
+  <!-- END_TRACKING_HEAD -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="stylesheet" href="../styles.css"/>
+  <script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+  <script src="../data.js"></script>
+  <script type="text/babel" src="../components.jsx"></script>
+</head>
+<body>
+  <!-- BEGIN_TRACKING_BODY -->
+  <!-- END_TRACKING_BODY -->
+  <div id="root"></div>
+
+  <script type="text/babel" data-plugins="transform-modules-umd">
+    const PROYECTOS = [
+      {
+        slug: 'euphoria-art-district',
+        title: 'Euphoria Art District',
+        eyebrow: 'Pre-venta · 18 meses obra',
+        location: 'Panama City · Distrito Artístico',
+        priceFrom: 'Desde USD $285,000',
+        tagline: 'Lock-off 2BR / 80m² · plusvalía 25% pre-entrega + Airbnb 7-9% USD',
+        heroImage: '/airtable-assets/cavarossa-amador/00.jpg'
+      },
+      {
+        slug: 'sanctuary-residences',
+        title: 'Sanctuary Residences',
+        eyebrow: 'Pre-venta · 24 meses obra',
+        location: 'Punta Pacífica · Ciudad de Panamá',
+        priceFrom: 'Desde USD $385,000',
+        tagline: '2BR / 95m² · vista al océano · renta tradicional 5-6% USD',
+        heroImage: '/airtable-assets/allure-punta-pacifica/00.jpg'
+      },
+      {
+        slug: 'casa-korsi-casco-antiguo',
+        title: 'Casa Korsi · Casco Antiguo',
+        eyebrow: 'Pre-venta · entrega Q4 2026',
+        location: 'Casco Antiguo · UNESCO',
+        priceFrom: 'Desde USD $245,000',
+        tagline: 'Studio 45m² histórico restaurado · Airbnb premium 7-9% USD',
+        heroImage: '/airtable-assets/cavarossa-amador/00.jpg'
+      },
+      {
+        slug: 'buenaventura-ritz-reserve',
+        title: 'Buenaventura · Ritz-Carlton Reserve',
+        eyebrow: 'Resort · Ritz-Carlton Reserve',
+        location: 'Río Hato · Pacífico',
+        priceFrom: 'Desde USD $1,200,000',
+        tagline: 'Villas oceanfront · programa hotelero Ritz 5-7% USD net',
+        heroImage: '/airtable-assets/buenaventura-resort-cocle/00.jpg'
+      }
+    ];
+
+    function ProyectosIndex() {
+      React.useEffect(() => {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+        return () => io.disconnect();
+      }, []);
+
+      return (
+        <>
+          <Nav/>
+
+          <section style={{ paddingTop: 96, paddingBottom: 32, background: 'var(--cream)' }}>
+            <div className="container">
+              <div className="reveal" style={{ maxWidth: 720 }}>
+                <div className="eyebrow" style={{ color: 'var(--coral-deep)', marginBottom: 16 }}>Proyectos destacados · 4 oportunidades curadas</div>
+                <h1 className="display" style={{ fontSize: 'clamp(40px, 6vw, 72px)', lineHeight: 1.05, margin: '12px 0 24px' }}>
+                  Inversión inmobiliaria <em style={{ color: 'var(--coral-deep)', fontStyle: 'italic' }}>curada</em> en Panamá.
+                </h1>
+                <p style={{ fontSize: 18, color: 'var(--ink-mute)', maxWidth: '60ch', lineHeight: 1.55 }}>
+                  Cuatro proyectos exclusivos seleccionados por su track record, calidad de fideicomiso bancario, y potencial de yield. Desde USD $245K hasta USD $1.2M+, todos en pre-venta con estructura legal panameña.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section style={{ paddingTop: 48, paddingBottom: 96, background: 'var(--cream)' }}>
+            <div className="container">
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(380px, 1fr))', gap: 32 }}>
+                {PROYECTOS.map((p, i) => (
+                  <a key={p.slug}
+                     href={`${p.slug}.html`}
+                     className="reveal"
+                     style={{
+                       textDecoration: 'none', color: 'inherit',
+                       transitionDelay: `${i * 0.06}s`,
+                       display: 'block',
+                       borderRadius: 18,
+                       overflow: 'hidden',
+                       background: '#fff',
+                       boxShadow: '0 6px 20px -8px rgba(11,31,40,0.12)',
+                       transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+                     }}
+                     onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = '0 16px 40px -10px rgba(11,31,40,0.22)'; }}
+                     onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 6px 20px -8px rgba(11,31,40,0.12)'; }}>
+                    <div style={{
+                      aspectRatio: '4/3',
+                      backgroundImage: `linear-gradient(180deg,rgba(11,31,40,0) 50%,rgba(11,31,40,0.55) 100%),url(${p.heroImage})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      position: 'relative'
+                    }}>
+                      <div style={{ position: 'absolute', bottom: 16, left: 20, right: 20, color: '#FFF9EC', fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700 }}>
+                        {p.eyebrow}
+                      </div>
+                    </div>
+                    <div style={{ padding: '28px 28px 32px' }}>
+                      <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--ink-mute)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 10 }}>
+                        {p.location}
+                      </div>
+                      <h3 className="display" style={{ fontSize: 28, lineHeight: 1.1, margin: '0 0 12px', color: 'var(--ink)' }}>
+                        {p.title}
+                      </h3>
+                      <p style={{ fontSize: 15, color: 'var(--ink-mute)', lineHeight: 1.5, margin: '0 0 18px' }}>
+                        {p.tagline}
+                      </p>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(11,31,40,0.08)', paddingTop: 16 }}>
+                        <strong style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--coral-deep)', letterSpacing: '0.04em' }}>
+                          {p.priceFrom}
+                        </strong>
+                        <span style={{ fontSize: 13, color: 'var(--ink)', fontWeight: 600 }}>
+                          Ver detalles →
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <Footer/>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<ProyectosIndex/>);
+  </script>
+</body>
+</html>
