@@ -787,6 +787,44 @@ function Footer() {
             </div>
           ))}
         </div>
+        {/* Featured project landings — link to /proyectos/<slug>.html */}
+        <div style={{
+          paddingTop: 36, paddingBottom: 24,
+          borderTop: '1px solid rgba(255, 249, 236, 0.10)',
+          marginTop: 4
+        }}>
+          <div className="eyebrow" style={{ color: 'var(--aqua)', marginBottom: 18 }}>Featured projects</div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+            {[
+              { slug: 'euphoria-art-district', name: 'Euphoria Art District', from: '$285K' },
+              { slug: 'sanctuary-residences', name: 'Sanctuary Residences', from: '$385K' },
+              { slug: 'casa-korsi-casco-antiguo', name: 'Casa Korsi \u00b7 Casco Antiguo', from: '$245K' },
+              { slug: 'buenaventura-ritz-reserve', name: 'Buenaventura \u00b7 Ritz-Carlton Reserve', from: '$1.2M' }
+            ].map(p => (
+              <a key={p.slug}
+                 href={`proyectos/${p.slug}.html`}
+                 style={{
+                   color: 'var(--cream)',
+                   textDecoration: 'none',
+                   fontSize: 13,
+                   padding: '8px 14px',
+                   borderRadius: 999,
+                   border: '1px solid rgba(255,249,236,0.18)',
+                   background: 'rgba(255,249,236,0.04)',
+                   display: 'inline-flex',
+                   gap: 10,
+                   alignItems: 'center',
+                   transition: 'all 0.2s var(--ease)'
+                 }}
+                 onMouseEnter={e => { e.currentTarget.style.background = 'var(--coral)'; e.currentTarget.style.borderColor = 'var(--coral)'; e.currentTarget.style.color = 'var(--paper)'; }}
+                 onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,249,236,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,249,236,0.18)'; e.currentTarget.style.color = 'var(--cream)'; }}>
+                <span>{p.name}</span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, opacity: 0.7 }}>desde {p.from}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
         <div style={{
           paddingTop: 28, borderTop: '1px solid rgba(255, 249, 236, 0.15)',
           display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 14,
