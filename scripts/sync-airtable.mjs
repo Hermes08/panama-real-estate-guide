@@ -22,6 +22,8 @@ const TOKEN = process.env.AIRTABLE_TOKEN;
 const PROJECT_DIR = path.resolve(process.cwd(), 'project');
 const ASSETS_DIR = path.join(PROJECT_DIR, 'airtable-assets');
 const OUTPUT_JSON = path.join(PROJECT_DIR, 'airtable-projects.json');
+const LANDINGS_OUTPUT_JSON = path.join(PROJECT_DIR, 'airtable-landings.json');
+const LANDINGS_ASSETS_DIR = path.join(ASSETS_DIR, 'landings');
 
 if (!TOKEN) {
   console.error('AIRTABLE_TOKEN env var is required');
@@ -82,6 +84,92 @@ function regionFromLocation(loc) {
   if (/panam[áa] city|costa del este|punta pacifica|costa|san francisco|avenida balboa|casco/.test(l)) return 'Panama City';
   if (/pac[ií]fico|playa|coronado|santa clara|gorgona|farall[oó]n|cocl[eé]|playa blanca|amador/.test(l)) return 'Pacific Coast';
   return '';
+}
+
+
+async function syncLandings(recIdToSlug) {
+  let records;
+  try {
+    records = await fetchAll('Landings');
+  } catch (err) {
+    if (/404|TABLE_NOT_FOUND|NOT_FOUND/i.test(err.message)) {
+      console.log('Landings table not found — skipping (create the table in Airtable to enable)');
+      await writeFile(LANDINGS_OUTPUT_JSON, JSON.stringify({
+        generatedAt: new Date().toISOString(), count: 0, landings: []
+      }, null, 2));
+      return;
+    }
+    throw err;
+  }
+
+  console.log(`Fetched ${records.length} landings`);
+  await mkdir(LANDINGS_ASSETS_DIR, { recursive: true });
+
+  const downloadTasks = [];
+  const landingHero = new Map();
+  const landingOg = new Map();
+
+  for (const rec of records) {
+    const f = rec.fields || {};
+    const slug = f.Slug || rec.id;
+    if (!slug) continue;
+    const safeSlug = slug.replace(/[\/\\]/g, '__');
+
+    const hero = Array.isArray(f['Hero Image']) ? f['Hero Image'][0] : null;
+    if (hero?.url) {
+      const ext = extFromFilename(hero.filename);
+      const rel = path.posix.join('airtable-assets', 'landings', safeSlug, `hero.${ext}`);
+      downloadTasks.push({ url: hero.url, dest: path.join(PROJECT_DIR, rel) });
+      landingHero.set(rec.id, '/' + rel);
+    }
+
+    const og = Array.isArray(f['OG Image']) ? f['OG Image'][0] : null;
+    if (og?.url) {
+      const ext = extFromFilename(og.filename);
+      const rel = path.posix.join('airtable-assets', 'landings', safeSlug, `og.${ext}`);
+      downloadTasks.push({ url: og.url, dest: path.join(PROJECT_DIR, rel) });
+      landingOg.set(rec.id, '/' + rel);
+    }
+  }
+
+  let cursor = 0;
+  async function worker() {
+    while (cursor < downloadTasks.length) {
+      const t = downloadTasks[cursor++];
+      try { await download(t.url, t.dest); }
+      catch (e) { console.warn(`[warn] landing image failed: ${e.message}`); }
+    }
+  }
+  await Promise.all(Array.from({ length: 8 }, () => worker()));
+  console.log(`  landing images: ${downloadTasks.length}`);
+
+  const landings = records.map(rec => {
+    const f = rec.fields || {};
+    const featuredIds = Array.isArray(f['Featured Projects']) ? f['Featured Projects'] : [];
+    const featuredSlugs = featuredIds.map(id => recIdToSlug.get(id)).filter(Boolean);
+    return {
+      slug: f.Slug || rec.id,
+      type: f.Type || 'Ads Landing',
+      status: f.Status || 'Draft',
+      title: f.Title || '',
+      headline: f.Headline || '',
+      subheadline: f.Subheadline || '',
+      heroCaption: f['Hero Caption'] || '',
+      heroImage: landingHero.get(rec.id) || null,
+      ogImage: landingOg.get(rec.id) || landingHero.get(rec.id) || null,
+      featuredProjects: featuredSlugs,
+      lastUpdated: f['Last Updated'] || rec.createdTime
+    };
+  }).filter(l => l.status !== 'Retired');
+
+  await writeFile(LANDINGS_OUTPUT_JSON, JSON.stringify({
+    generatedAt: new Date().toISOString(),
+    source: `airtable:${BASE_ID}:Landings`,
+    count: landings.length,
+    landings
+  }, null, 2));
+
+  console.log(`Wrote ${LANDINGS_OUTPUT_JSON} with ${landings.length} landings`);
 }
 
 async function main() {
@@ -208,7 +296,7 @@ async function main() {
   // project in window.PANAMA_DATA.projects (which is hydrated from the same JSON we
   // just wrote), so a pure file copy is enough.
   const { readFile, copyFile } = await import('node:fs/promises');
-  const TEMPLATE = path.join(PROJECT_DIR, 'projects', 'palma-blanca.html');
+  const TEMPLATE = path.join(PROJECT_DIR, 'projects', 'cavarossa-amador.html');
   let pagesWritten = 0;
   for (const proj of projects) {
     const dest = path.join(PROJECT_DIR, 'projects', `${proj.id}.html`);
@@ -220,6 +308,10 @@ async function main() {
     }
   }
   console.log(`Wrote ${pagesWritten} project detail pages from template`);
+
+  // ----- Optional: sync the Landings table (created by user in Airtable) -----
+  const recIdToSlug = new Map(proyectos.map(rec => [rec.id, rec.fields?.Slug || rec.id]));
+  await syncLandings(recIdToSlug);
 
   console.log('Sync done.');
 }
