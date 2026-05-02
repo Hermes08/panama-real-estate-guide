@@ -132,8 +132,9 @@ function Navbar({ transparent }) {
       }}>
         <Logo onDark={isDark} size={18}/>
         <nav className="nav-desktop" style={{ display: 'flex', gap: 28, fontSize: 13, fontWeight: 500 }}>
-        {['Projects', 'Regions', 'Journal', 'News', 'Residency', 'About'].map(l => {
+        {['Projects', 'Proyectos', 'Regions', 'Journal', 'News', 'Residency', 'About'].map(l => {
           const href = l === 'Projects' ? '#projects'
+                     : l === 'Proyectos' ? 'proyectos/index.html'
                      : l === 'Journal' ? 'articles/index.html'
                      : l === 'News' ? 'news/index.html'
                      : `#${l.toLowerCase()}`;
@@ -156,7 +157,7 @@ function Navbar({ transparent }) {
           padding: '20px var(--gutter) 28px', background: 'var(--paper)', color: 'var(--ink)',
           borderTop: '1px solid var(--line-soft)', display: 'flex', flexDirection: 'column', gap: 14
         }}>
-          {['Projects', 'Regions', 'Journal', 'News', 'Residency', 'About'].map(l => (
+          {['Projects', 'Proyectos', 'Regions', 'Journal', 'News', 'Residency', 'About'].map(l => (
             <a key={l} href={`#${l.toLowerCase()}`} onClick={() => setOpen(false)}
                style={{ fontSize: 22, fontFamily: 'var(--font-display)', color: 'var(--ink)', textDecoration: 'none' }}>{l}</a>
           ))}
