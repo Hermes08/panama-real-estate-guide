@@ -276,22 +276,6 @@ function HeroEditorial() {
   }, [featuredPool.length]);
   const featured = featuredPool[featuredIdx] || window.PANAMA_DATA.projects[0];
   const news = window.PANAMA_DATA.news.slice(0, 3);
-  const jaguarRef = React.useRef();
-
-  React.useEffect(() => {
-    let scene, cancelled = false;
-    let tries = 0;
-    const tryStart = () => {
-      if (cancelled) return;
-      if (jaguarRef.current && window.JaguarScene) {
-        scene = window.JaguarScene(jaguarRef.current);
-      } else if (tries++ < 80) {
-        setTimeout(tryStart, 120); // wait up to ~10s for the ES module to load
-      }
-    };
-    tryStart();
-    return () => { cancelled = true; if (scene) scene.stop(); };
-  }, []);
 
   return (
     <section style={{
@@ -470,30 +454,83 @@ function HeroEditorial() {
               zIndex: 1,
               pointerEvents: 'none'
             }}>
-              <canvas ref={jaguarRef} style={{ width: '100%', height: '100%', display: 'block' }}/>
-              {/* species label hidden — only the jaguar canvas should show
-              <div style={{
-                position: 'absolute', bottom: 8, right: 14,
-                fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.22em',
-                textTransform: 'uppercase', fontWeight: 700,
-                color: 'var(--cream)', display: 'flex', gap: 10, alignItems: 'baseline',
-                opacity: 0.85
-              }}>
-                <span style={{ color: 'var(--coral)', fontSize: 12 }}>●</span>
-                <span>Panthera onca</span>
-                <span style={{ opacity: 0.6, fontWeight: 500 }}>/ mascot</span>
-              </div>
-              */}
+              <img
+                src="assets/jaguar-static.webp"
+                alt=""
+                aria-hidden="true"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+                style={{
+                  width: '100%', height: '100%', display: 'block',
+                  objectFit: 'cover', objectPosition: 'center bottom',
+                  userSelect: 'none', WebkitUserDrag: 'none'
+                }}
+              />
             </div>
 
 
-            {/* news content hidden — only the jaguar canvas should render in this panel
             <div style={{ position: 'relative', zIndex: 2 }}>
-              <div>From the newsroom</div>
-              ... news items ...
-              <a href="news/index.html">All dispatches</a>
+              <div style={{
+                display: 'inline-block',
+                fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.14em',
+                textTransform: 'uppercase', color: 'var(--coral)', fontWeight: 700, marginBottom: 16,
+                padding: '6px 12px',
+                background: 'rgba(11, 31, 40, 0.55)',
+                backdropFilter: 'blur(10px) saturate(140%)',
+                WebkitBackdropFilter: 'blur(10px) saturate(140%)',
+                border: '1px solid rgba(255, 107, 74, 0.22)',
+                borderRadius: 999,
+                textShadow: '0 0 14px rgba(255,107,74,0.5)'
+              }}>
+                From the newsroom
+              </div>
+              {news.map((n, i) => (
+                <a key={n.slug} href={`news/${n.slug}.html`} className="news-glass-card" style={{
+                  display: 'block', padding: '12px 14px', marginBottom: 10,
+                  textDecoration: 'none', color: 'inherit',
+                  background: 'rgba(11, 31, 40, 0.55)',
+                  backdropFilter: 'blur(14px) saturate(140%)',
+                  WebkitBackdropFilter: 'blur(14px) saturate(140%)',
+                  border: '1px solid rgba(255, 107, 74, 0.18)',
+                  borderRadius: 14,
+                  boxShadow: '0 8px 24px -12px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,249,236,0.04)',
+                  transition: 'all 0.25s ease'
+                }}>
+                  <div style={{
+                    fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(255,196,170,0.95)',
+                    letterSpacing: '0.12em', fontWeight: 700, textTransform: 'uppercase', marginBottom: 6,
+                    textShadow: '0 0 12px rgba(11,31,40,0.6)'
+                  }}>
+                    {n.date} · {n.tag}
+                  </div>
+                  <div style={{
+                    fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 400,
+                    lineHeight: 1.3, letterSpacing: '-0.005em', color: 'var(--cream)', textWrap: 'pretty',
+                    textShadow: '0 1px 12px rgba(11,31,40,0.6)'
+                  }}>
+                    {n.title}
+                  </div>
+                </a>
+              ))}
+              <a href="news/index.html" className="all-dispatches-cta" style={{
+                display: 'inline-flex', alignItems: 'center', gap: 10,
+                marginTop: 14, fontSize: 11,
+                fontFamily: 'var(--font-mono)', letterSpacing: '0.16em', textTransform: 'uppercase',
+                color: 'var(--cream)', textDecoration: 'none', fontWeight: 700,
+                padding: '11px 18px',
+                background: 'rgba(11, 31, 40, 0.78)',
+                backdropFilter: 'blur(8px)',
+                WebkitBackdropFilter: 'blur(8px)',
+                border: '1px solid rgba(255, 107, 74, 0.55)',
+                borderRadius: 999,
+                boxShadow: '0 0 24px rgba(255, 107, 74, 0.18), inset 0 0 0 1px rgba(255,249,236,0.04)',
+                transition: 'all 0.25s ease'
+              }}>
+                <span>All dispatches</span>
+                <span style={{ color: 'var(--coral)', fontWeight: 800 }}>→</span>
+              </a>
             </div>
-            */}
 
           </div>
         </div>
@@ -512,6 +549,7 @@ function HeroEditorial() {
           .hide-mobile { display: none !important; }
         }
         .featured-card:hover { transform: translateY(-4px); box-shadow: 0 40px 80px -24px rgba(11,39,51,0.45) !important; }
+        .news-glass-card:hover { transform: translateY(-2px); border-color: rgba(255,107,74,0.55) !important; box-shadow: 0 12px 28px -10px rgba(0,0,0,0.45), 0 0 24px -8px rgba(255,107,74,0.25), inset 0 1px 0 rgba(255,249,236,0.08) !important; }
         .featured-card { transition: all 0.35s var(--ease); }
       `}</style>
     </section>
