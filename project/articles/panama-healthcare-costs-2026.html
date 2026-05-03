@@ -42,6 +42,40 @@
     const body = window.PANAMA_DATA.articleBodies[a.id] || [];
     document.title = `${a.title} — PanamaRealEstateGuide.com`;
 
+    // ── Inline markdown parser + metadata filter (added 2026-05-03) ───────
+    // Articles in data.js were authored as Markdown but stored as plain strings.
+    // This helper renders `**bold**` as <strong>, and skips lines that are LLM
+    // prompt scaffolding (e.g. `# Meta Description`, `# H1`, `# Full Article`).
+    const META_LINE_PREFIXES = [
+      '# Meta Description', '# Featured Image Alt Text', '# H1',
+      '# Full Article', '# Social Hooks', '# Meta Title',
+      '# H2', '# H3', '# Article Body', '# Outline'
+    ];
+    function isArticleMetaLine(s) {
+      if (typeof s !== 'string') return false;
+      const t = s.trim();
+      if (!t) return false;
+      return META_LINE_PREFIXES.some(p => t.startsWith(p));
+    }
+    function parseInline(text) {
+      if (typeof text !== 'string') return text;
+      // strip a leading "# " level marker (`# H1 ` etc.) when it's NOT a meta line
+      let t = text;
+      // remove duplicate leading "# H1 # " patterns (LLM artifact)
+      t = t.replace(/^#\s+H[1-6]\s+#\s+/, '').replace(/^#\s+H[1-6]\s+/, '');
+      // tokenize on **bold** spans
+      const parts = [];
+      const re = /\*\*([^*\n]+?)\*\*/g;
+      let last = 0, m, key = 0;
+      while ((m = re.exec(t)) !== null) {
+        if (m.index > last) parts.push(t.slice(last, m.index));
+        parts.push(<strong key={'b'+(key++)}>{m[1]}</strong>);
+        last = re.lastIndex;
+      }
+      if (last < t.length) parts.push(t.slice(last));
+      return parts.length ? parts : t;
+    }
+
     function ArticlePage() {
       const related = window.PANAMA_DATA.articles.filter(x => x.id !== a.id).slice(0, 3);
 
@@ -122,13 +156,13 @@
 
             {/* BODY — single column editorial */}
             <div className="container" style={{ maxWidth: 720, padding: '0 var(--gutter) 100px' }}>
-              {body.map((block, i) => {
+              {body.filter(b => typeof b !== 'string' || !isArticleMetaLine(b)).map((block, i) => {
                 if (typeof block === 'object' && block.h) {
                   return (
                     <h2 key={i} className="display reveal" style={{
                       fontSize: 'clamp(26px, 2.8vw, 38px)', margin: '48px 0 20px', lineHeight: 1.15, color: 'var(--coral-deep)'
                     }}>
-                      {block.h}
+                      {parseInline(block.h)}
                     </h2>
                   );
                 }
@@ -152,7 +186,7 @@
                           marginTop: 14, letterSpacing: '0.1em',
                           textTransform: 'uppercase', lineHeight: 1.6
                         }}>
-                          {block.caption}
+                          {parseInline(block.caption)}
                         </figcaption>
                       )}
                     </figure>
@@ -165,7 +199,7 @@
                       background: 'rgba(232, 110, 79, 0.06)', borderRadius: '0 8px 8px 0',
                       fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 400,
                       fontSize: 'clamp(17px, 1.6vw, 19px)', lineHeight: 1.65, color: 'var(--ink)'
-                    }}>{block.quote}</blockquote>
+                    }}>{parseInline(block.quote)}</blockquote>
                   );
                 }
                 if (typeof block === 'object' && block.table) {
@@ -210,9 +244,9 @@
                         }}>
                           {text[0]}
                         </span>
-                        {text.slice(1)}
+                        {parseInline(text.slice(1))}
                       </>
-                    ) : text}
+                    ) : parseInline(text)}
                   </p>
                 );
               })}

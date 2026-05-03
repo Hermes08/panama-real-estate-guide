@@ -2,31 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <title>Journal — PanamaRealEstateGuide.com</title>
-  <meta name="description" content="Editorial coverage of Panama real estate, residency, taxes, and lifestyle — written for international investors and retirees."/>
-  <meta property="og:title" content="Journal — PanamaRealEstateGuide.com"/>
-  <meta property="og:description" content="81 long-form articles on Panama property, residency, banking, retirement and more."/>
-  <meta property="og:url" content="https://panamarealestateguide.com/articles/"/>
-  <meta property="og:type" content="website"/>
-  <link rel="canonical" href="https://panamarealestateguide.com/articles/"/>
-  <!-- BEGIN_TRACKING_HEAD -->
-  <!-- END_TRACKING_HEAD -->
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Article — PanamaRealEstateGuide.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="../styles.css"/>
-  <script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
-  <script src="../data.js"></script>
-  <script type="text/babel" src="../components.jsx"></script>
-  <script type="text/babel" src="../sections.jsx"></script>
+  <meta name="description" id="detail-meta-desc" content="Panama real estate journal — market reports, residency guides, neighborhood deep-dives. Developer-direct projects across Panama&#39;s coasts and highlands."/>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 </head>
 <body>
-  <!-- BEGIN_TRACKING_BODY -->
-  <!-- END_TRACKING_BODY -->
   <div id="root"></div>
 
-  <script type="text/babel" data-plugins="transform-modules-umd">
-    // Pexels cover-image picker — same logic as the article-detail template.
+  <script src="../data.js?v=1777333850"></script>
+  <script type="text/babel" src="../components.jsx?v=1777333850"></script>
+  <script type="text/babel" src="../detail-chrome.jsx?v=1777333850"></script>
+
+  <script type="text/babel">
+    const ARTICLE_ID = window.location.pathname.split('/').pop().replace('.html', '');
     const pickCoverImg = (a) => {
       if (!a || !a.id) return null;
       const POOLS = {
@@ -40,123 +36,288 @@
       const id = String(a.id);
       for (let i = 0; i < id.length; i++) h = ((h << 5) - h + id.charCodeAt(i)) | 0;
       const idx = Math.abs(h) % pool.length;
-      return `https://images.pexels.com/photos/${pool[idx]}/pexels-photo-${pool[idx]}.jpeg?auto=compress&cs=tinysrgb&w=1200`;
+      return `https://images.pexels.com/photos/${pool[idx]}/pexels-photo-${pool[idx]}.jpeg?auto=compress&cs=tinysrgb&w=1600`;
     };
+    const a = window.PANAMA_DATA.articles.find(x => x.id === ARTICLE_ID) || window.PANAMA_DATA.articles[0];
+    const body = window.PANAMA_DATA.articleBodies[a.id] || [];
+    document.title = `${a.title} — PanamaRealEstateGuide.com`;
 
-    function ArticlesIndex() {
-      const [filter, setFilter] = React.useState('All');
-      const articles = window.PANAMA_DATA.articles || [];
+    // ── Inline markdown parser + metadata filter (added 2026-05-03) ───────
+    // Articles in data.js were authored as Markdown but stored as plain strings.
+    // This helper renders `**bold**` as <strong>, and skips lines that are LLM
+    // prompt scaffolding (e.g. `# Meta Description`, `# H1`, `# Full Article`).
+    const META_LINE_PREFIXES = [
+      '# Meta Description', '# Featured Image Alt Text', '# H1',
+      '# Full Article', '# Social Hooks', '# Meta Title',
+      '# H2', '# H3', '# Article Body', '# Outline'
+    ];
+    function isArticleMetaLine(s) {
+      if (typeof s !== 'string') return false;
+      const t = s.trim();
+      if (!t) return false;
+      return META_LINE_PREFIXES.some(p => t.startsWith(p));
+    }
+    function parseInline(text) {
+      if (typeof text !== 'string') return text;
+      // strip a leading "# " level marker (`# H1 ` etc.) when it's NOT a meta line
+      let t = text;
+      // remove duplicate leading "# H1 # " patterns (LLM artifact)
+      t = t.replace(/^#\s+H[1-6]\s+#\s+/, '').replace(/^#\s+H[1-6]\s+/, '');
+      // tokenize on **bold** spans
+      const parts = [];
+      const re = /\*\*([^*\n]+?)\*\*/g;
+      let last = 0, m, key = 0;
+      while ((m = re.exec(t)) !== null) {
+        if (m.index > last) parts.push(t.slice(last, m.index));
+        parts.push(<strong key={'b'+(key++)}>{m[1]}</strong>);
+        last = re.lastIndex;
+      }
+      if (last < t.length) parts.push(t.slice(last));
+      return parts.length ? parts : t;
+    }
 
-      const categories = ['All', ...new Set(articles.map(a => a.category).filter(Boolean))];
-      const filtered = filter === 'All' ? articles : articles.filter(a => a.category === filter);
+    function ArticlePage() {
+      const related = window.PANAMA_DATA.articles.filter(x => x.id !== a.id).slice(0, 3);
 
       React.useEffect(() => {
+        // Reveal all elements above the fold immediately, then use observer for the rest
+        requestAnimationFrame(() => {
+          const vh = window.innerHeight;
+          document.querySelectorAll('.reveal').forEach(el => {
+            const r = el.getBoundingClientRect();
+            if (r.top < vh * 1.1) el.classList.add('in');
+          });
+        });
         const io = new IntersectionObserver((entries) => {
           entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05, rootMargin: '0px 0px -5% 0px' });
         document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
         return () => io.disconnect();
-      }, [filter]);
+      }, []);
 
       return (
         <>
-          <Navbar/>
+          <DetailNav/>
 
-          <section style={{ paddingTop: 96, paddingBottom: 32, background: 'var(--cream)' }}>
-            <div className="container">
-              <div className="reveal" style={{ maxWidth: 720 }}>
-                <div className="eyebrow" style={{ color: 'var(--coral-deep)', marginBottom: 16 }}>Journal · {articles.length} articles</div>
-                <h1 className="display" style={{ fontSize: 'clamp(40px, 6vw, 72px)', lineHeight: 1.05, margin: '12px 0 24px' }}>
-                  Editorial coverage of Panama <em style={{ color: 'var(--coral-deep)', fontStyle: 'italic' }}>real estate, residency, taxes</em> and lifestyle.
+          {/* HERO — editorial masthead */}
+          <article>
+            <header style={{ paddingTop: 96, paddingBottom: 40, background: 'var(--cream)' }}>
+              <div className="container" style={{ maxWidth: 960 }}>
+                <div style={{ marginBottom: 28 }}>
+                  <DetailBack label="The Journal" href="../Panama Caribbean Projects.html#journal"/>
+                </div>
+                <div className="reveal" style={{
+                  display: 'inline-block', background: 'var(--coral)', color: 'var(--paper)',
+                  padding: '5px 12px', borderRadius: 999, fontSize: 10.5, fontFamily: 'var(--font-mono)',
+                  letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 24
+                }}>
+                  {a.category}
+                </div>
+                <h1 className="display reveal d1" style={{
+                  fontSize: 'clamp(36px, 5.4vw, 78px)', margin: 0, lineHeight: 1.02, paddingBottom: '0.08em', maxWidth: '22ch'
+                }}>
+                  {a.title}
                 </h1>
-                <p style={{ fontSize: 18, color: 'var(--ink-mute)', maxWidth: 60+'ch', lineHeight: 1.55 }}>
-                  Long-form articles for international investors, retirees and second-home buyers. Each piece is researched, dated and updated annually.
+                <p className="reveal d2" style={{
+                  fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 300,
+                  fontSize: 'clamp(18px, 1.8vw, 24px)', color: 'var(--ink-soft)',
+                  maxWidth: '58ch', marginTop: 28, marginBottom: 0, lineHeight: 1.45
+                }}>
+                  {a.excerpt}
+                </p>
+                <div className="reveal d3" style={{
+                  display: 'flex', alignItems: 'center', gap: 24, marginTop: 40, paddingTop: 28,
+                  borderTop: '1px solid var(--line)', flexWrap: 'wrap',
+                  fontSize: 12, fontFamily: 'var(--font-mono)', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ink-soft)'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <div style={{
+                      width: 32, height: 32, borderRadius: '50%', background: 'var(--palm)',
+                      color: 'var(--cream)', display: 'grid', placeItems: 'center',
+                      fontFamily: 'var(--font-display)', fontSize: 13, fontWeight: 500
+                    }}>
+                      {a.author.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <span>By {a.author}</span>
+                  </div>
+                  <span>·</span>
+                  <span>{a.date}</span>
+                  <span>·</span>
+                  <span>{a.read}</span>
+                </div>
+              </div>
+            </header>
+
+            {/* COVER IMAGE */}
+            <div className="container" style={{ marginBottom: 56 }}>
+              <div className={`ph ph-${a.cover} reveal`} data-label={a.category.toUpperCase()}
+                style={{ aspectRatio: '16/7', borderRadius: 20, backgroundImage: `url(${pickCoverImg(a)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}/>
+            </div>
+
+            {/* BODY — single column editorial */}
+            <div className="container" style={{ maxWidth: 720, padding: '0 var(--gutter) 100px' }}>
+              {body.filter(b => typeof b !== 'string' || !isArticleMetaLine(b)).map((block, i) => {
+                if (typeof block === 'object' && block.h) {
+                  return (
+                    <h2 key={i} className="display reveal" style={{
+                      fontSize: 'clamp(26px, 2.8vw, 38px)', margin: '48px 0 20px', lineHeight: 1.15, color: 'var(--coral-deep)'
+                    }}>
+                      {parseInline(block.h)}
+                    </h2>
+                  );
+                }
+                if (typeof block === 'object' && block.chart) {
+                  return (
+                    <figure key={i} className="reveal" style={{ margin: '48px auto', maxWidth: 720 }}>
+                      <img src={`../assets/charts/${block.chart}`}
+                           alt={block.alt || ''}
+                           loading="lazy"
+                           style={{
+                             width: '100%', height: 'auto',
+                             borderRadius: 12,
+                             background: 'var(--paper)',
+                             border: '1px solid var(--line)',
+                             display: 'block'
+                           }}/>
+                      {block.caption && (
+                        <figcaption style={{
+                          fontFamily: 'var(--font-mono)', fontSize: 11.5,
+                          color: 'var(--ink-soft)', textAlign: 'center',
+                          marginTop: 14, letterSpacing: '0.1em',
+                          textTransform: 'uppercase', lineHeight: 1.6
+                        }}>
+                          {parseInline(block.caption)}
+                        </figcaption>
+                      )}
+                    </figure>
+                  );
+                }
+                if (typeof block === 'object' && block.quote) {
+                  return (
+                    <blockquote key={i} className="reveal" style={{
+                      margin: '32px 0', padding: '20px 28px', borderLeft: '3px solid var(--coral)',
+                      background: 'rgba(232, 110, 79, 0.06)', borderRadius: '0 8px 8px 0',
+                      fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 400,
+                      fontSize: 'clamp(17px, 1.6vw, 19px)', lineHeight: 1.65, color: 'var(--ink)'
+                    }}>{parseInline(block.quote)}</blockquote>
+                  );
+                }
+                if (typeof block === 'object' && block.table) {
+                  // Render markdown table — split rows by \n, cells by |
+                  const rows = block.table.split('\n').filter(r => r.trim() && !/^\s*\|?\s*-+/.test(r));
+                  const parsed = rows.map(r => r.replace(/^\||\|$/g, '').split('|').map(c => c.trim()));
+                  if (parsed.length < 2) return null;
+                  const [head, ...rest] = parsed;
+                  return (
+                    <div key={i} className="reveal" style={{ margin: '32px 0', overflowX: 'auto' }}>
+                      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14, fontFamily: 'var(--font-sans)' }}>
+                        <thead><tr>{head.map((h, j) => (
+                          <th key={j} style={{ background: 'var(--sand)', padding: '10px 12px', textAlign: 'left',
+                            fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.1em',
+                            textTransform: 'uppercase', color: 'var(--coral-deep)', borderBottom: '2px solid var(--line)'
+                          }}>{h}</th>
+                        ))}</tr></thead>
+                        <tbody>{rest.map((row, r) => (
+                          <tr key={r}>{row.map((c, j) => (
+                            <td key={j} style={{ padding: '10px 12px', borderBottom: '1px solid var(--line)',
+                              color: 'var(--ink)', verticalAlign: 'top', lineHeight: 1.5
+                            }}>{c}</td>
+                          ))}</tr>
+                        ))}</tbody>
+                      </table>
+                    </div>
+                  );
+                }
+                // first paragraph gets drop-cap
+                const isFirst = i === 0;
+                const text = typeof block === 'string' ? block : '';
+                return (
+                  <p key={i} className="reveal" style={{
+                    fontSize: 18, lineHeight: 1.8, color: 'var(--ink)',
+                    margin: '0 0 24px', textWrap: 'pretty'
+                  }}>
+                    {isFirst && text ? (
+                      <>
+                        <span style={{
+                          float: 'left', fontFamily: 'var(--font-display)', fontSize: 68, lineHeight: 0.9,
+                          marginRight: 10, marginTop: 6, color: 'var(--coral)', fontWeight: 500
+                        }}>
+                          {text[0]}
+                        </span>
+                        {parseInline(text.slice(1))}
+                      </>
+                    ) : parseInline(text)}
+                  </p>
+                );
+              })}
+
+              {/* Pull quote */}
+              <div className="reveal" style={{
+                margin: '56px 0', padding: '40px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)'
+              }}>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--coral-deep)', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14, fontWeight: 700 }}>
+                  The takeaway
+                </div>
+                <p style={{
+                  fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 300,
+                  fontSize: 'clamp(22px, 2.6vw, 34px)', lineHeight: 1.3, color: 'var(--ink)', margin: 0,
+                  letterSpacing: '-0.01em'
+                }}>
+                  {a.excerpt}
                 </p>
               </div>
 
-              <div className="reveal d1" style={{ marginTop: 48, display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                {categories.map(c => (
-                  <button key={c}
-                    onClick={() => setFilter(c)}
-                    style={{
-                      padding: '8px 16px',
-                      borderRadius: 999,
-                      border: '1px solid ' + (filter === c ? 'var(--coral-deep)' : 'rgba(11,31,40,0.15)'),
-                      background: filter === c ? 'var(--coral-deep)' : 'transparent',
-                      color: filter === c ? 'var(--cream)' : 'var(--ink)',
-                      fontSize: 13,
-                      fontFamily: 'var(--font-mono)',
-                      letterSpacing: '0.06em',
-                      cursor: 'pointer',
-                      transition: 'all 0.18s'
-                    }}>
-                    {c}
-                  </button>
-                ))}
+              {/* Author block */}
+              <div className="reveal" style={{ display: 'flex', gap: 20, alignItems: 'center', padding: '32px 0', borderTop: '1px solid var(--line)' }}>
+                <div style={{
+                  width: 64, height: 64, borderRadius: '50%', background: 'var(--palm)', color: 'var(--cream)',
+                  display: 'grid', placeItems: 'center', fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 500, flexShrink: 0
+                }}>
+                  {a.author.split(' ').map(n => n[0]).join('')}
+                </div>
+                <div>
+                  <div style={{ fontFamily: 'var(--font-display)', fontSize: 20, marginBottom: 4 }}>{a.author}</div>
+                  <div style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.5 }}>
+                    {a.author === 'Kent Davis'
+                      ? 'Founder & principal broker, PanamaRealEstateGuide.com. Writing from Panama City since 2017.'
+                      : 'Senior market analyst, PanamaRealEstateGuide.com. Bilingual legal research on Panamanian residency and tax.'}
+                  </div>
+                </div>
               </div>
             </div>
-          </section>
+          </article>
 
-          <section style={{ paddingTop: 32, paddingBottom: 96, background: 'var(--cream)' }}>
+          {/* Related */}
+          <section style={{ padding: 'clamp(64px, 8vw, 110px) 0', background: 'var(--sand)' }}>
             <div className="container">
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 32 }}>
-                {filtered.map((a, i) => (
-                  <a key={a.id}
-                     href={`${a.id}.html`}
-                     className="reveal"
-                     style={{
-                       textDecoration: 'none', color: 'inherit',
-                       transitionDelay: `${(i % 9) * 0.04}s`,
-                       display: 'block',
-                       borderRadius: 16,
-                       overflow: 'hidden',
-                       background: '#fff',
-                       boxShadow: '0 4px 16px -8px rgba(11,31,40,0.10)',
-                       transition: 'transform 0.25s ease, box-shadow 0.25s ease'
-                     }}
-                     onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 32px -10px rgba(11,31,40,0.18)'; }}
-                     onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 4px 16px -8px rgba(11,31,40,0.10)'; }}>
-                    <div className={`ph ph-${a.cover}`}
-                         data-label={(a.category || '').toUpperCase()}
-                         style={{
-                           aspectRatio: '16/10',
-                           backgroundImage: `url(${pickCoverImg(a)})`,
-                           backgroundSize: 'cover',
-                           backgroundPosition: 'center'
-                         }}/>
-                    <div style={{ padding: '24px 24px 28px' }}>
-                      <div style={{ fontSize: 10.5, fontFamily: 'var(--font-mono)', color: 'var(--coral-deep)', letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 12 }}>
-                        {a.category || 'Article'}
-                      </div>
-                      <h3 className="display" style={{ fontSize: 22, lineHeight: 1.2, margin: '0 0 12px', color: 'var(--ink)' }}>
-                        {a.title}
-                      </h3>
-                      <p style={{ fontSize: 14, color: 'var(--ink-mute)', lineHeight: 1.5, margin: '0 0 16px' }}>
-                        {(a.excerpt || '').substring(0, 160)}{(a.excerpt || '').length > 160 ? '…' : ''}
-                      </p>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--ink-mute)', letterSpacing: '0.06em', borderTop: '1px solid rgba(11,31,40,0.08)', paddingTop: 14 }}>
-                        <span>{a.author || ''}</span>
-                        <span>{a.date} · {a.read}</span>
-                      </div>
+              <div className="eyebrow reveal" style={{ marginBottom: 28 }}>
+                <span className="rule-coral"></span>Keep reading
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }} data-rel-grid>
+                {related.map((r, i) => (
+                  <a key={r.id} href={`${r.id}.html`} className="reveal" style={{
+                    textDecoration: 'none', color: 'inherit', transitionDelay: `${i * 0.06}s`, display: 'block'
+                  }}>
+                    <div className={`ph ph-${r.cover}`} data-label="" style={{ aspectRatio: '4/3', borderRadius: 12, marginBottom: 16, backgroundImage: `url(${pickCoverImg(r)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}/>
+                    <div style={{ fontSize: 10.5, fontFamily: 'var(--font-mono)', color: 'var(--coral-deep)', letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 8 }}>
+                      {r.category}
                     </div>
+                    <h4 className="display" style={{ fontSize: 22, margin: '0 0 8px', lineHeight: 1.2 }}>{r.title}</h4>
+                    <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--ink-mute)', letterSpacing: '0.1em' }}>{r.date} · {r.read}</div>
                   </a>
                 ))}
               </div>
-
-              {filtered.length === 0 && (
-                <div style={{ textAlign: 'center', padding: '64px 24px', color: 'var(--ink-mute)' }}>
-                  No articles in this category yet.
-                </div>
-              )}
+              <style>{`@media (max-width: 900px) { [data-rel-grid] { grid-template-columns: 1fr !important; } }`}</style>
             </div>
           </section>
 
-          <Footer/>
+          <DetailCTA kind="reserve"/>
+          <DetailFooter/>
         </>
       );
     }
 
-    ReactDOM.createRoot(document.getElementById('root')).render(<ArticlesIndex/>);
+    ReactDOM.createRoot(document.getElementById('root')).render(<ArticlePage/>);
   </script>
 </body>
 </html>
