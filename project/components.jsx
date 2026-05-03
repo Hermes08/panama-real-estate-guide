@@ -441,7 +441,7 @@ function HeroEditorial() {
             padding: '28px 26px 32px',
             position: 'relative',
             overflow: 'hidden',
-            minHeight: 520,
+            minHeight: 620,
             boxShadow: '0 24px 60px -20px rgba(11,39,51,0.55), inset 0 1px 0 rgba(255,249,236,0.04)'
           }}>
             {/* Jaguar canvas — fills the ENTIRE panel so the background color is
