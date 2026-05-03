@@ -558,7 +558,7 @@ function Marquee() {
     <section style={{ background: 'var(--ink)', color: 'var(--cream)', padding: '24px 0', overflow: 'hidden' }}>
       <div style={{ display: 'flex', width: '200%', animation: 'marquee 35s linear infinite' }}>
         {[0, 1].map(k => (
-          <div key={k} style={{ display: 'flex', gap: 60, width: '50%', flexShrink: 0, paddingRight: 80 }}>
+          <div key={k} style={{ display: 'flex', gap: 60, width: '50%', flexShrink: 0, paddingRight: 120, justifyContent: 'space-around' }}>
             {items.map((t, i) => (
               <span key={i} style={{
                 fontFamily: t === '◦' ? 'var(--font-body)' : 'var(--font-display)',
