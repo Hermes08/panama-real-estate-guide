@@ -464,7 +464,11 @@ function HeroEditorial() {
                 style={{
                   width: '100%', height: '100%', display: 'block',
                   objectFit: 'cover', objectPosition: 'center bottom',
-                  userSelect: 'none', WebkitUserDrag: 'none'
+                  userSelect: 'none', WebkitUserDrag: 'none',
+                  // Fade the upper portion so news headlines remain readable
+                  // (mimics the WebGL wireframe's natural transparency at the top)
+                  maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 32%, rgba(0,0,0,0.4) 50%, black 70%, black 100%)',
+                  WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 32%, rgba(0,0,0,0.4) 50%, black 70%, black 100%)'
                 }}
               />
             </div>
