@@ -487,54 +487,13 @@ function HeroEditorial() {
             </div>
 
 
+            {/* news content hidden — only the jaguar canvas should render in this panel
             <div style={{ position: 'relative', zIndex: 2 }}>
-              <div style={{
-                fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.14em',
-                textTransform: 'uppercase', color: 'var(--coral)', fontWeight: 700, marginBottom: 18,
-                textShadow: '0 0 14px rgba(255,107,74,0.5)'
-              }}>
-                From the newsroom
-              </div>
-              {news.map((n, i) => (
-                <a key={n.slug} href={`news/${n.slug}.html`} style={{
-                  display: 'block', padding: '14px 0',
-                  borderBottom: i < news.length - 1 ? '1px solid rgba(255,249,236,0.08)' : 'none',
-                  textDecoration: 'none', color: 'inherit'
-                }}>
-                  <div style={{
-                    fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(255,196,170,0.95)',
-                    letterSpacing: '0.12em', fontWeight: 700, textTransform: 'uppercase', marginBottom: 6,
-                    textShadow: '0 0 12px rgba(11,31,40,0.6)'
-                  }}>
-                    {n.date} · {n.tag}
-                  </div>
-                  <div style={{
-                    fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 400,
-                    lineHeight: 1.3, letterSpacing: '-0.005em', color: 'var(--cream)', textWrap: 'pretty',
-                    textShadow: '0 1px 12px rgba(11,31,40,0.6)'
-                  }}>
-                    {n.title}
-                  </div>
-                </a>
-              ))}
-              <a href="news/index.html" className="all-dispatches-cta" style={{
-                display: 'inline-flex', alignItems: 'center', gap: 10,
-                marginTop: 22, fontSize: 11,
-                fontFamily: 'var(--font-mono)', letterSpacing: '0.16em', textTransform: 'uppercase',
-                color: 'var(--cream)', textDecoration: 'none', fontWeight: 700,
-                padding: '11px 18px',
-                background: 'rgba(11, 31, 40, 0.78)',
-                backdropFilter: 'blur(8px)',
-                WebkitBackdropFilter: 'blur(8px)',
-                border: '1px solid rgba(255, 107, 74, 0.55)',
-                borderRadius: 999,
-                boxShadow: '0 0 24px rgba(255, 107, 74, 0.18), inset 0 0 0 1px rgba(255,249,236,0.04)',
-                transition: 'all 0.25s ease'
-              }}>
-                <span>All dispatches</span>
-                <span style={{ color: 'var(--coral)', fontWeight: 800 }}>→</span>
-              </a>
+              <div>From the newsroom</div>
+              ... news items ...
+              <a href="news/index.html">All dispatches</a>
             </div>
+            */}
 
           </div>
         </div>
