@@ -12,7 +12,7 @@ function DetailNav() {
   const links = [
     { l: 'Projects', href: '../Panama Caribbean Projects.html#projects' },
     { l: 'Regions', href: '../Panama Caribbean Projects.html#regions' },
-    { l: 'Journal', href: '../Panama Caribbean Projects.html#journal' },
+    { l: 'Journal', href: '../articles/index.html' },
     { l: 'News', href: '../news/index.html' },
     { l: 'About', href: '../Panama Caribbean Projects.html#about' },
   ];
@@ -133,7 +133,7 @@ function DetailFooter() {
           <Logo onDark={true} size={16}/>
           <div style={{ display: 'flex', gap: 24, fontSize: 12, opacity: 0.75, fontFamily: 'var(--font-mono)', letterSpacing: '0.12em', textTransform: 'uppercase', flexWrap: 'wrap' }}>
             <a href="../Panama Caribbean Projects.html#projects" style={{ color: 'inherit', textDecoration: 'none' }}>Projects</a>
-            <a href="../Panama Caribbean Projects.html#journal" style={{ color: 'inherit', textDecoration: 'none' }}>Journal</a>
+            <a href="../articles/index.html" style={{ color: 'inherit', textDecoration: 'none' }}>Journal</a>
             <a href="../Panama Caribbean Projects.html#news" style={{ color: 'inherit', textDecoration: 'none' }}>News</a>
             <a href="/privacidad" style={{ color: 'inherit', textDecoration: 'none' }}>Privacidad</a>
             <a href="/terminos" style={{ color: 'inherit', textDecoration: 'none' }}>Términos</a>

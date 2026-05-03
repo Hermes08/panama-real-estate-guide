@@ -156,10 +156,15 @@ function Navbar({ transparent }) {
           padding: '20px var(--gutter) 28px', background: 'var(--paper)', color: 'var(--ink)',
           borderTop: '1px solid var(--line-soft)', display: 'flex', flexDirection: 'column', gap: 14
         }}>
-          {['Projects', 'Regions', 'Journal', 'News', 'Residency', 'About'].map(l => (
-            <a key={l} href={`#${l.toLowerCase()}`} onClick={() => setOpen(false)}
-               style={{ fontSize: 22, fontFamily: 'var(--font-display)', color: 'var(--ink)', textDecoration: 'none' }}>{l}</a>
-          ))}
+          {['Projects', 'Regions', 'Journal', 'News', 'Residency', 'About'].map(l => {
+            const href = l === 'Journal' ? 'articles/index.html'
+                       : l === 'News' ? 'news/index.html'
+                       : `#${l.toLowerCase()}`;
+            return (
+              <a key={l} href={href} onClick={() => setOpen(false)}
+                 style={{ fontSize: 22, fontFamily: 'var(--font-display)', color: 'var(--ink)', textDecoration: 'none' }}>{l}</a>
+            );
+          })}
           <div style={{ marginTop: 12, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
             <LangSwitcher current={lang} onChange={setLang}/>
             <a href="#reserve" className="btn btn-coral" style={{ flex: 1, justifyContent: 'center' }}>Reserve a unit</a>
@@ -553,7 +558,7 @@ function Marquee() {
     <section style={{ background: 'var(--ink)', color: 'var(--cream)', padding: '24px 0', overflow: 'hidden' }}>
       <div style={{ display: 'flex', width: '200%', animation: 'marquee 35s linear infinite' }}>
         {[0, 1].map(k => (
-          <div key={k} style={{ display: 'flex', gap: 40, width: '50%', flexShrink: 0, paddingRight: 40 }}>
+          <div key={k} style={{ display: 'flex', gap: 60, width: '50%', flexShrink: 0, paddingRight: 80 }}>
             {items.map((t, i) => (
               <span key={i} style={{
                 fontFamily: t === '◦' ? 'var(--font-body)' : 'var(--font-display)',
