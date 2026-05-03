@@ -471,6 +471,7 @@ function HeroEditorial() {
               pointerEvents: 'none'
             }}>
               <canvas ref={jaguarRef} style={{ width: '100%', height: '100%', display: 'block' }}/>
+              {/* species label hidden — only the jaguar canvas should show
               <div style={{
                 position: 'absolute', bottom: 8, right: 14,
                 fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.22em',
@@ -482,6 +483,7 @@ function HeroEditorial() {
                 <span>Panthera onca</span>
                 <span style={{ opacity: 0.6, fontWeight: 500 }}>/ mascot</span>
               </div>
+              */}
             </div>
 
 
