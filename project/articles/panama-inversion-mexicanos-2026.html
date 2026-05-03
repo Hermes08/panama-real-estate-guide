@@ -215,13 +215,13 @@
                           <th key={j} style={{ background: 'var(--sand)', padding: '10px 12px', textAlign: 'left',
                             fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.1em',
                             textTransform: 'uppercase', color: 'var(--coral-deep)', borderBottom: '2px solid var(--line)'
-                          }}>{h}</th>
+                          }}>{parseInline(h)}</th>
                         ))}</tr></thead>
                         <tbody>{rest.map((row, r) => (
                           <tr key={r}>{row.map((c, j) => (
                             <td key={j} style={{ padding: '10px 12px', borderBottom: '1px solid var(--line)',
                               color: 'var(--ink)', verticalAlign: 'top', lineHeight: 1.5
-                            }}>{c}</td>
+                            }}>{parseInline(c)}</td>
                           ))}</tr>
                         ))}</tbody>
                       </table>
