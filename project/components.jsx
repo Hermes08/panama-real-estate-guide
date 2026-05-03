@@ -276,22 +276,6 @@ function HeroEditorial() {
   }, [featuredPool.length]);
   const featured = featuredPool[featuredIdx] || window.PANAMA_DATA.projects[0];
   const news = window.PANAMA_DATA.news.slice(0, 3);
-  const jaguarRef = React.useRef();
-
-  React.useEffect(() => {
-    let scene, cancelled = false;
-    let tries = 0;
-    const tryStart = () => {
-      if (cancelled) return;
-      if (jaguarRef.current && window.JaguarScene) {
-        scene = window.JaguarScene(jaguarRef.current);
-      } else if (tries++ < 80) {
-        setTimeout(tryStart, 120); // wait up to ~10s for the ES module to load
-      }
-    };
-    tryStart();
-    return () => { cancelled = true; if (scene) scene.stop(); };
-  }, []);
 
   return (
     <section style={{
@@ -470,18 +454,23 @@ function HeroEditorial() {
               zIndex: 1,
               pointerEvents: 'none'
             }}>
-              <canvas ref={jaguarRef} style={{ width: '100%', height: '100%', display: 'block' }}/>
-              <div style={{
-                position: 'absolute', bottom: 8, right: 14,
-                fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.22em',
-                textTransform: 'uppercase', fontWeight: 700,
-                color: 'var(--cream)', display: 'flex', gap: 10, alignItems: 'baseline',
-                opacity: 0.85
-              }}>
-                <span style={{ color: 'var(--coral)', fontSize: 12 }}>●</span>
-                <span>Panthera onca</span>
-                <span style={{ opacity: 0.6, fontWeight: 500 }}>/ mascot</span>
-              </div>
+              <img
+                src="assets/jaguar-static.webp"
+                alt=""
+                aria-hidden="true"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+                style={{
+                  width: '100%', height: '100%', display: 'block',
+                  objectFit: 'cover', objectPosition: 'center bottom',
+                  userSelect: 'none', WebkitUserDrag: 'none',
+                  // Fade the upper portion so news headlines remain readable
+                  // (mimics the WebGL wireframe's natural transparency at the top)
+                  maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 32%, rgba(0,0,0,0.4) 50%, black 70%, black 100%)',
+                  WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 32%, rgba(0,0,0,0.4) 50%, black 70%, black 100%)'
+                }}
+              />
             </div>
 
 
