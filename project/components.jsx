@@ -441,7 +441,7 @@ function HeroEditorial() {
             padding: '28px 26px 32px',
             position: 'relative',
             overflow: 'hidden',
-            minHeight: 620,
+            minHeight: 520,
             boxShadow: '0 24px 60px -20px rgba(11,39,51,0.55), inset 0 1px 0 rgba(255,249,236,0.04)'
           }}>
             {/* Jaguar canvas — fills the ENTIRE panel so the background color is
@@ -472,30 +472,17 @@ function HeroEditorial() {
 
             <div style={{ position: 'relative', zIndex: 2 }}>
               <div style={{
-                display: 'inline-block',
                 fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.14em',
-                textTransform: 'uppercase', color: 'var(--coral)', fontWeight: 700, marginBottom: 16,
-                padding: '6px 12px',
-                background: 'rgba(11, 31, 40, 0.55)',
-                backdropFilter: 'blur(10px) saturate(140%)',
-                WebkitBackdropFilter: 'blur(10px) saturate(140%)',
-                border: '1px solid rgba(255, 107, 74, 0.22)',
-                borderRadius: 999,
+                textTransform: 'uppercase', color: 'var(--coral)', fontWeight: 700, marginBottom: 18,
                 textShadow: '0 0 14px rgba(255,107,74,0.5)'
               }}>
                 From the newsroom
               </div>
               {news.map((n, i) => (
-                <a key={n.slug} href={`news/${n.slug}.html`} className="news-glass-card" style={{
-                  display: 'block', padding: '12px 14px', marginBottom: 10,
-                  textDecoration: 'none', color: 'inherit',
-                  background: 'rgba(11, 31, 40, 0.55)',
-                  backdropFilter: 'blur(14px) saturate(140%)',
-                  WebkitBackdropFilter: 'blur(14px) saturate(140%)',
-                  border: '1px solid rgba(255, 107, 74, 0.18)',
-                  borderRadius: 14,
-                  boxShadow: '0 8px 24px -12px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,249,236,0.04)',
-                  transition: 'all 0.25s ease'
+                <a key={n.slug} href={`news/${n.slug}.html`} style={{
+                  display: 'block', padding: '14px 0',
+                  borderBottom: i < news.length - 1 ? '1px solid rgba(255,249,236,0.08)' : 'none',
+                  textDecoration: 'none', color: 'inherit'
                 }}>
                   <div style={{
                     fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(255,196,170,0.95)',
@@ -515,7 +502,7 @@ function HeroEditorial() {
               ))}
               <a href="news/index.html" className="all-dispatches-cta" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 10,
-                marginTop: 14, fontSize: 11,
+                marginTop: 22, fontSize: 11,
                 fontFamily: 'var(--font-mono)', letterSpacing: '0.16em', textTransform: 'uppercase',
                 color: 'var(--cream)', textDecoration: 'none', fontWeight: 700,
                 padding: '11px 18px',
@@ -549,7 +536,6 @@ function HeroEditorial() {
           .hide-mobile { display: none !important; }
         }
         .featured-card:hover { transform: translateY(-4px); box-shadow: 0 40px 80px -24px rgba(11,39,51,0.45) !important; }
-        .news-glass-card:hover { transform: translateY(-2px); border-color: rgba(255,107,74,0.55) !important; box-shadow: 0 12px 28px -10px rgba(0,0,0,0.45), 0 0 24px -8px rgba(255,107,74,0.25), inset 0 1px 0 rgba(255,249,236,0.08) !important; }
         .featured-card { transition: all 0.35s var(--ease); }
       `}</style>
     </section>
