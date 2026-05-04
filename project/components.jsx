@@ -133,16 +133,15 @@ function Navbar({ transparent }) {
         <Logo onDark={isDark} size={18}/>
         <nav className="nav-desktop" style={{ display: 'flex', gap: 28, fontSize: 13, fontWeight: 500 }}>
         {['Projects', 'Regions', 'Journal', 'News', 'Residency', 'About'].map(l => {
-          const href = l === 'Projects' ? '#projects'
-                     : l === 'Journal' ? 'articles/index.html'
-                     : l === 'News' ? 'news/index.html'
-                     : `#${l.toLowerCase()}`;
+          const href = l === 'Journal' ? '/articles/'
+                     : l === 'News' ? '/news/'
+                     : `/#${l.toLowerCase()}`;
           return <a key={l} href={href} style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>{l}</a>;
         })}
         </nav>
         <div className="nav-cta-desktop" style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
           <LangSwitcher current={lang} onChange={setLang} onDark={isDark}/>
-          <a href="#reserve" className="btn btn-coral" style={{ padding: '11px 20px', fontSize: 11 }}>
+          <a href="/#reserve" className="btn btn-coral" style={{ padding: '11px 20px', fontSize: 11 }}>
             Reserve a unit <Icon name="arrow" size={13}/>
           </a>
         </div>
@@ -157,9 +156,9 @@ function Navbar({ transparent }) {
           borderTop: '1px solid var(--line-soft)', display: 'flex', flexDirection: 'column', gap: 14
         }}>
           {['Projects', 'Regions', 'Journal', 'News', 'Residency', 'About'].map(l => {
-            const href = l === 'Journal' ? 'articles/index.html'
-                       : l === 'News' ? 'news/index.html'
-                       : `#${l.toLowerCase()}`;
+            const href = l === 'Journal' ? '/articles/'
+                       : l === 'News' ? '/news/'
+                       : `/#${l.toLowerCase()}`;
             return (
               <a key={l} href={href} onClick={() => setOpen(false)}
                  style={{ fontSize: 22, fontFamily: 'var(--font-display)', color: 'var(--ink)', textDecoration: 'none' }}>{l}</a>
@@ -167,7 +166,7 @@ function Navbar({ transparent }) {
           })}
           <div style={{ marginTop: 12, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
             <LangSwitcher current={lang} onChange={setLang}/>
-            <a href="#reserve" className="btn btn-coral" style={{ flex: 1, justifyContent: 'center' }}>Reserve a unit</a>
+            <a href="/#reserve" className="btn btn-coral" style={{ flex: 1, justifyContent: 'center' }}>Reserve a unit</a>
           </div>
         </div>
       )}
@@ -214,7 +213,7 @@ function Hero() {
             </p>
 
             <div className="reveal in d3" style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 40 }}>
-              <a href="#reserve" className="btn btn-coral">Reserve a unit <Icon name="arrow" size={14}/></a>
+              <a href="/#reserve" className="btn btn-coral">Reserve a unit <Icon name="arrow" size={14}/></a>
               <a href="#projects" className="btn btn-ghost">
                 Browse 24 projects
               </a>
@@ -339,7 +338,7 @@ function HeroEditorial() {
               The definitive registry of developer-direct new construction across Panama's Caribbean, Pacific, Azuero and highland coasts. No resales. No mystery owners. Refundable reservations from $5,000.
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 28 }}>
-              <a href="#reserve" className="btn btn-coral">Reserve a unit <Icon name="arrow" size={14}/></a>
+              <a href="/#reserve" className="btn btn-coral">Reserve a unit <Icon name="arrow" size={14}/></a>
               <a href="#projects" className="btn btn-ghost">Browse 24 projects</a>
             </div>
 
