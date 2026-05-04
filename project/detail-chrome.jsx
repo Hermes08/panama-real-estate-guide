@@ -10,11 +10,11 @@ function DetailNav() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
   const links = [
-    { l: 'Projects', href: '../Panama Caribbean Projects.html#projects' },
-    { l: 'Regions', href: '../Panama Caribbean Projects.html#regions' },
-    { l: 'Journal', href: '../articles/index.html' },
-    { l: 'News', href: '../news/index.html' },
-    { l: 'About', href: '../Panama Caribbean Projects.html#about' },
+    { l: 'Projects', href: '/#projects' },
+    { l: 'Regions', href: '/#regions' },
+    { l: 'Journal', href: '/articles/' },
+    { l: 'News', href: '/news/' },
+    { l: 'About', href: '/#about' },
   ];
   return (
     <header style={{
@@ -36,7 +36,7 @@ function DetailNav() {
         </nav>
         <div className="nav-cta-desktop" style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
           <LangSwitcher current="EN" onDark={false}/>
-          <a href="../Panama Caribbean Projects.html#reserve" className="btn btn-coral" style={{ padding: '11px 20px', fontSize: 11 }}>
+          <a href="/#reserve" className="btn btn-coral" style={{ padding: '11px 20px', fontSize: 11 }}>
             Reserve a unit <Icon name="arrow" size={13}/>
           </a>
         </div>
@@ -55,7 +55,7 @@ function DetailNav() {
                style={{ fontSize: 22, fontFamily: 'var(--font-display)', color: 'var(--ink)', textDecoration: 'none' }}>{l}</a>
           ))}
           <div style={{ marginTop: 12 }}>
-            <a href="../Panama Caribbean Projects.html#reserve" className="btn btn-coral" style={{ justifyContent: 'center', width: '100%' }}>Reserve a unit</a>
+            <a href="/#reserve" className="btn btn-coral" style={{ justifyContent: 'center', width: '100%' }}>Reserve a unit</a>
           </div>
         </div>
       )}
@@ -63,7 +63,7 @@ function DetailNav() {
   );
 }
 
-function DetailBack({ label = 'All projects', href = '../Panama Caribbean Projects.html#projects' }) {
+function DetailBack({ label = 'All projects', href = '/#projects' }) {
   return (
     <a href={href} style={{
       display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -96,7 +96,7 @@ function DetailCTA({ kind = 'reserve' }) {
             </h2>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-start' }}>
-            <a href="../Panama Caribbean Projects.html#reserve" className="btn"
+            <a href="/#reserve" className="btn"
                style={{ background: 'var(--ink)', color: 'var(--cream)' }}>
               Start a reservation <Icon name="arrow" size={14}/>
             </a>
@@ -132,9 +132,9 @@ function DetailFooter() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 20 }}>
           <Logo onDark={true} size={16}/>
           <div style={{ display: 'flex', gap: 24, fontSize: 12, opacity: 0.75, fontFamily: 'var(--font-mono)', letterSpacing: '0.12em', textTransform: 'uppercase', flexWrap: 'wrap' }}>
-            <a href="../Panama Caribbean Projects.html#projects" style={{ color: 'inherit', textDecoration: 'none' }}>Projects</a>
+            <a href="/#projects" style={{ color: 'inherit', textDecoration: 'none' }}>Projects</a>
             <a href="../articles/index.html" style={{ color: 'inherit', textDecoration: 'none' }}>Journal</a>
-            <a href="../Panama Caribbean Projects.html#news" style={{ color: 'inherit', textDecoration: 'none' }}>News</a>
+            <a href="/news/" style={{ color: 'inherit', textDecoration: 'none' }}>News</a>
             <a href="/privacidad" style={{ color: 'inherit', textDecoration: 'none' }}>Privacidad</a>
             <a href="/terminos" style={{ color: 'inherit', textDecoration: 'none' }}>Términos</a>
           </div>

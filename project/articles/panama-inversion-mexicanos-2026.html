@@ -10,16 +10,16 @@
   <link rel="stylesheet" href="../styles.css"/>
   <meta name="description" id="detail-meta-desc" content="Panama real estate journal — market reports, residency guides, neighborhood deep-dives. Developer-direct projects across Panama&#39;s coasts and highlands."/>
 
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script defer src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script defer src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script defer src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 </head>
 <body>
   <div id="root"></div>
 
-  <script src="../data.js?v=1777333850"></script>
-  <script type="text/babel" src="../components.jsx?v=1777333850"></script>
-  <script type="text/babel" src="../detail-chrome.jsx?v=1777333850"></script>
+  <script defer src="../data.js?v=1777333850"></script>
+  <script defer type="text/babel" src="../components.jsx?v=1777333850"></script>
+  <script defer type="text/babel" src="../detail-chrome.jsx?v=1777333850"></script>
 
   <script type="text/babel">
     const ARTICLE_ID = window.location.pathname.split('/').pop().replace('.html', '');
@@ -104,7 +104,7 @@
             <header style={{ paddingTop: 96, paddingBottom: 40, background: 'var(--cream)' }}>
               <div className="container" style={{ maxWidth: 960 }}>
                 <div style={{ marginBottom: 28 }}>
-                  <DetailBack label="The Journal" href="../Panama Caribbean Projects.html#journal"/>
+                  <DetailBack label="The Journal" href="/articles/"/>
                 </div>
                 <div className="reveal" style={{
                   display: 'inline-block', background: 'var(--coral)', color: 'var(--paper)',
