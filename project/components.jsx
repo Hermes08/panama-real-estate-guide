@@ -553,21 +553,22 @@ function HeroEditorial() {
 
 /* ── Marquee ── */
 function Marquee() {
+  // single flat row with 2 concatenated copies; animation translates by -50% of
+  // its own width, which equals exactly one copy-worth — perfect seamless loop.
+  // Width: max-content lets the flex row size to its content, so items never
+  // overflow / overlap at the loop boundary.
   const items = ['Bocas del Toro', '◦', 'Pedasí', '◦', 'Casco Viejo', '◦', 'Boquete', '◦', 'Playa Blanca', '◦', 'Coronado', '◦', 'Panama City', '◦'];
+  const doubled = [...items, ...items];
   return (
     <section style={{ background: 'var(--ink)', color: 'var(--cream)', padding: '24px 0', overflow: 'hidden' }}>
-      <div style={{ display: 'flex', width: '200%', animation: 'marquee 35s linear infinite' }}>
-        {[0, 1].map(k => (
-          <div key={k} style={{ display: 'flex', gap: 60, width: '50%', flexShrink: 0, paddingRight: 120, justifyContent: 'space-around' }}>
-            {items.map((t, i) => (
-              <span key={i} style={{
-                fontFamily: t === '◦' ? 'var(--font-body)' : 'var(--font-display)',
-                fontStyle: t === '◦' ? 'normal' : 'italic',
-                fontSize: t === '◦' ? 18 : 28, color: t === '◦' ? 'var(--coral)' : 'var(--cream)',
-                whiteSpace: 'nowrap', fontWeight: 300
-              }}>{t}</span>
-            ))}
-          </div>
+      <div style={{ display: 'flex', gap: 60, width: 'max-content', animation: 'marquee 35s linear infinite' }}>
+        {doubled.map((t, i) => (
+          <span key={i} style={{
+            fontFamily: t === '◦' ? 'var(--font-body)' : 'var(--font-display)',
+            fontStyle: t === '◦' ? 'normal' : 'italic',
+            fontSize: t === '◦' ? 18 : 28, color: t === '◦' ? 'var(--coral)' : 'var(--cream)',
+            whiteSpace: 'nowrap', fontWeight: 300, paddingRight: t === '◦' ? 0 : 0
+          }}>{t}</span>
         ))}
       </div>
     </section>
