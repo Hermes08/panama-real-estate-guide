@@ -156,10 +156,15 @@ function Navbar({ transparent }) {
           padding: '20px var(--gutter) 28px', background: 'var(--paper)', color: 'var(--ink)',
           borderTop: '1px solid var(--line-soft)', display: 'flex', flexDirection: 'column', gap: 14
         }}>
-          {['Projects', 'Regions', 'Journal', 'News', 'Residency', 'About'].map(l => (
-            <a key={l} href={`#${l.toLowerCase()}`} onClick={() => setOpen(false)}
-               style={{ fontSize: 22, fontFamily: 'var(--font-display)', color: 'var(--ink)', textDecoration: 'none' }}>{l}</a>
-          ))}
+          {['Projects', 'Regions', 'Journal', 'News', 'Residency', 'About'].map(l => {
+            const href = l === 'Journal' ? 'articles/index.html'
+                       : l === 'News' ? 'news/index.html'
+                       : `#${l.toLowerCase()}`;
+            return (
+              <a key={l} href={href} onClick={() => setOpen(false)}
+                 style={{ fontSize: 22, fontFamily: 'var(--font-display)', color: 'var(--ink)', textDecoration: 'none' }}>{l}</a>
+            );
+          })}
           <div style={{ marginTop: 12, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
             <LangSwitcher current={lang} onChange={setLang}/>
             <a href="#reserve" className="btn btn-coral" style={{ flex: 1, justifyContent: 'center' }}>Reserve a unit</a>
@@ -548,21 +553,22 @@ function HeroEditorial() {
 
 /* ── Marquee ── */
 function Marquee() {
+  // single flat row with 2 concatenated copies; animation translates by -50% of
+  // its own width, which equals exactly one copy-worth — perfect seamless loop.
+  // Width: max-content lets the flex row size to its content, so items never
+  // overflow / overlap at the loop boundary.
   const items = ['Bocas del Toro', '◦', 'Pedasí', '◦', 'Casco Viejo', '◦', 'Boquete', '◦', 'Playa Blanca', '◦', 'Coronado', '◦', 'Panama City', '◦'];
+  const doubled = [...items, ...items];
   return (
     <section style={{ background: 'var(--ink)', color: 'var(--cream)', padding: '24px 0', overflow: 'hidden' }}>
-      <div style={{ display: 'flex', width: '200%', animation: 'marquee 35s linear infinite' }}>
-        {[0, 1].map(k => (
-          <div key={k} style={{ display: 'flex', gap: 40, width: '50%', flexShrink: 0, paddingRight: 40 }}>
-            {items.map((t, i) => (
-              <span key={i} style={{
-                fontFamily: t === '◦' ? 'var(--font-body)' : 'var(--font-display)',
-                fontStyle: t === '◦' ? 'normal' : 'italic',
-                fontSize: t === '◦' ? 18 : 28, color: t === '◦' ? 'var(--coral)' : 'var(--cream)',
-                whiteSpace: 'nowrap', fontWeight: 300
-              }}>{t}</span>
-            ))}
-          </div>
+      <div style={{ display: 'flex', gap: 60, width: 'max-content', animation: 'marquee 35s linear infinite' }}>
+        {doubled.map((t, i) => (
+          <span key={i} style={{
+            fontFamily: t === '◦' ? 'var(--font-body)' : 'var(--font-display)',
+            fontStyle: t === '◦' ? 'normal' : 'italic',
+            fontSize: t === '◦' ? 18 : 28, color: t === '◦' ? 'var(--coral)' : 'var(--cream)',
+            whiteSpace: 'nowrap', fontWeight: 300, paddingRight: t === '◦' ? 0 : 0
+          }}>{t}</span>
         ))}
       </div>
     </section>

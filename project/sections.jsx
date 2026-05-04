@@ -44,7 +44,7 @@ function Projects() {
           display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)',
           gridAutoRows: 'minmax(280px, auto)', gap: 16
         }}>
-          {projects.map((p, i) => <ProjectCard key={p.id} p={p} i={i}/>)}
+          {projects.filter(p => !p.hidden && !/westin/i.test(p.name || '')).map((p, i) => <ProjectCard key={p.id} p={p} i={i}/>)}
         </div>
       </div>
 
