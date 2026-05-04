@@ -10,9 +10,9 @@
   <link rel="stylesheet" href="../styles.css"/>
   <meta name="description" id="detail-meta-desc" content="Panama real estate news — project launches, infrastructure, market moves and policy updates. Updated weekly by PanamaRealEstateGuide.com."/>
 
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script defer src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script defer src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script defer src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 </head>
 <body>
   <div id="root"></div>
@@ -47,7 +47,7 @@
           <section style={{ paddingTop: 96, paddingBottom: 48, background: 'var(--cream)', borderBottom: '1px solid var(--line)' }}>
             <div className="container" style={{ maxWidth: 880 }}>
               <div style={{ marginBottom: 28 }}>
-                <DetailBack label="All news" href="../Panama Caribbean Projects.html#news"/>
+                <DetailBack label="All news" href="/news/"/>
               </div>
 
               <div className="reveal" style={{ display: 'flex', gap: 14, alignItems: 'center', flexWrap: 'wrap', marginBottom: 24 }}>
@@ -105,7 +105,7 @@
                 <div style={{ fontSize: 14, color: 'var(--ink)' }}>
                   press@panamarealestateguide.com
                 </div>
-                <a href="../Panama Caribbean Projects.html#reserve" className="btn btn-coral" style={{ marginLeft: 'auto', padding: '11px 20px', fontSize: 11 }}>
+                <a href="/#reserve" className="btn btn-coral" style={{ marginLeft: 'auto', padding: '11px 20px', fontSize: 11 }}>
                   Contact newsroom <Icon name="arrow" size={13}/>
                 </a>
               </div>
