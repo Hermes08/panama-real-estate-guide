@@ -62,7 +62,6 @@
 
   <link rel="stylesheet" href="styles.css"/>
 
-  <script defer src="https://unpkg.com/three@0.160.0/build/three.min.js" integrity="sha384-qOkzR5Ke/XkQxuGVJ9hpFEpDlcoLtWwVYhnJf06cLIZa2vaIptSqaubivErzmD5O" crossorigin="anonymous"></script>
   <script defer src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
   <script defer src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
   <script defer src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
@@ -74,15 +73,59 @@
   <script src="tracking.js?v=1"></script>
 
   <script defer src="data.js?v=1777333850"></script>
-  <script defer src="webgl-rainforest.js?v=1777260393"></script>
   <script defer type="text/babel" src="components.jsx?v=1777333850"></script>
   <script defer type="text/babel" src="sections.jsx?v=1777333850"></script>
 
   <script type="text/babel">
+    // Lazy-loader: only fetch Three.js + webgl-rainforest when user actually picks
+    // the Rainforest hero variant. Saves ~600 KB on initial page load and improves LCP.
+    let rainforestLoadPromise = null;
+    function loadScript(src, integrity) {
+      return new Promise((resolve, reject) => {
+        if (document.querySelector(`script[src="${src}"]`)) return resolve();
+        const s = document.createElement('script');
+        s.src = src;
+        if (integrity) { s.integrity = integrity; s.crossOrigin = 'anonymous'; }
+        s.onload = () => resolve();
+        s.onerror = (e) => reject(e);
+        document.head.appendChild(s);
+      });
+    }
+    function loadRainforest() {
+      if (rainforestLoadPromise) return rainforestLoadPromise;
+      rainforestLoadPromise = loadScript(
+        'https://unpkg.com/three@0.160.0/build/three.min.js',
+        'sha384-qOkzR5Ke/XkQxuGVJ9hpFEpDlcoLtWwVYhnJf06cLIZa2vaIptSqaubivErzmD5O'
+      ).then(() => loadScript('webgl-rainforest.js?v=1777260393'));
+      return rainforestLoadPromise;
+    }
+
     function App() {
-      const [heroVariant, setHeroVariant] = React.useState(() => {
+      const [heroVariant, setHeroVariantRaw] = React.useState(() => {
         return localStorage.getItem('heroVariant') || 'editorial';
       });
+      const [rainforestReady, setRainforestReady] = React.useState(() => {
+        // if initial variant is rainforest, trigger lazy load
+        const v = localStorage.getItem('heroVariant') || 'editorial';
+        if (v === 'rainforest') { loadRainforest().then(() => true); return false; }
+        return true; // not needed for editorial
+      });
+
+      // Wrapper: lazy-load three+rainforest BEFORE switching to rainforest variant
+      const setHeroVariant = (v) => {
+        if (v === 'rainforest') {
+          loadRainforest().then(() => { setRainforestReady(true); setHeroVariantRaw(v); });
+        } else {
+          setHeroVariantRaw(v);
+        }
+      };
+
+      // also flip rainforestReady when initial-load promise resolves
+      React.useEffect(() => {
+        if (heroVariant === 'rainforest' && !rainforestReady) {
+          loadRainforest().then(() => setRainforestReady(true));
+        }
+      }, []);
 
       React.useEffect(() => {
         localStorage.setItem('heroVariant', heroVariant);
@@ -101,7 +144,7 @@
       return (
         <>
           <Navbar transparent={false}/>
-          {heroVariant === 'editorial' ? <HeroEditorial/> : <Hero/>}
+          {heroVariant === 'editorial' || !rainforestReady ? <HeroEditorial/> : <Hero/>}
           <Marquee/>
           <Projects/>
           <Regions/>
