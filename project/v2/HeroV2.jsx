@@ -304,7 +304,7 @@ function HeroV2() {
 
         {/* Lifestyle trio cards */}
         <div className="v2-hero-lifestyle-container">
-          {lifeStyleCards.map((card) => (
+          {lifestyleCards.map((card) => (
             <div
               key={card.key}
               className="v2-hero-lifestyle-card"
