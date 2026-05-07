@@ -9,166 +9,1677 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --cream: #FFF9EC; --paper: #FFFDF5;
-  --coral: #FF6B4A; --coral-deep: #E14F2E;
-  --ink: #0B2733; --ink-soft: #254957; --ink-mute: #6E8A91;
-  --line: rgba(11, 39, 51, 0.12); --line-soft: rgba(11, 39, 51, 0.06);
-  --palm: #1F5F4A;
-  --font-display: 'Fraunces', 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Manrope', -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
-  --gutter: clamp(20px, 4vw, 64px);
-  --max-w: 1480px;
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --cream:#FFF9EC; --paper:#FFFDF5;
+  --coral:#FF6B4A; --coral-deep:#E14F2E;
+  --ink:#0B2733; --ink-soft:#254957; --ink-mute:#6E8A91;
+  --line:rgba(11,39,51,0.12); --line-soft:rgba(11,39,51,0.06);
+  --palm:#1F5F4A;
+  --font-display:'Fraunces','Cormorant Garamond',Georgia,serif;
+  --font-body:'Manrope',-apple-system,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  --gutter:clamp(20px,4vw,64px);
+  --max-w:1480px;
+  --ease:cubic-bezier(0.22,1,0.36,1);
 }
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: var(--font-body);
-  background: var(--cream); color: var(--ink);
-  font-size: 16px; line-height: 1.55;
-  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
-  overflow-x: hidden;
-}
-.container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
-.display { font-family: var(--font-display); font-weight: 300; letter-spacing: -0.025em; line-height: 0.92; text-wrap: balance; }
-.display em, .italic { font-style: italic; font-weight: 300; }
-.eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); }
-.btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 999px; font-family: var(--font-body); font-weight: 600; font-size: 14px; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), background 0.3s var(--ease); }
-.btn-coral { background: var(--coral); color: var(--paper); }
-.btn-coral:hover { background: var(--coral-deep); }
-.btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
-.btn-ghost:hover { border-color: var(--ink); }
-.tag { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; }
-.tag-coral { background: rgba(255, 107, 74, 0.14); color: var(--coral-deep); }
-.tag-sand { background: rgba(233, 211, 162, 0.4); color: var(--ink-soft); }
-.reveal { opacity: 1; transform: none; transition: opacity 1.1s var(--ease), transform 1.1s var(--ease); }
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--cream);color:var(--ink);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 var(--gutter)}
+.display{font-family:var(--font-display);font-weight:300;letter-spacing:-0.025em;line-height:0.92;text-wrap:balance}
+.display em,.italic{font-style:italic;font-weight:300}
+.eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink-mute)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-family:var(--font-body);font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform 0.4s var(--ease),box-shadow 0.4s var(--ease),background 0.3s var(--ease)}
+.btn-coral{background:var(--coral);color:var(--paper)}
+.btn-coral:hover{background:var(--coral-deep)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--ink)}
+.tag{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase}
+.tag-coral{background:rgba(255,107,74,0.14);color:var(--coral-deep)}
+.tag-sand{background:rgba(233,211,162,0.4);color:var(--ink-soft)}
+.reveal{opacity:1;transform:none;transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
 </style>
 </head>
 <body>
 <div id="root"></div>
-
 <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 <script>
-// ── Mock data — replicates window.PANAMA_DATA shape from data.js ──
 window.PANAMA_DATA = {
-  brand: {
-    name: 'PanamaRealEstateGuide.com',
-    phone: '+507 6253-4802',
-    whatsapp: 'https://wa.me/50762534802',
-    email: 'reservations@panamarealestateguide.com'
-  },
-  langs: [
-    { code: 'EN', name: 'English' },
-    { code: 'ES', name: 'Español' },
-    { code: 'PT', name: 'Português' },
-    { code: 'DE', name: 'Deutsch' }
+  brand:{name:'PanamaRealEstateGuide.com',phone:'+507 6253-4802',whatsapp:'https://wa.me/50762534802',email:'reservations@panamarealestateguide.com'},
+  langs:[{code:'EN',name:'English'},{code:'ES',name:'Español'},{code:'PT',name:'Português'},{code:'DE',name:'Deutsch'}],
+  stats:[{n:'24',l:'Developer Projects'},{n:'12',l:'Coastal Communities'},{n:'100%',l:'USD · No FX Risk'},{n:'7+',l:'Years in Panama'}],
+  regions:[
+    {id:'pacific',name:'Pacific Coast',sub:'Playa Blanca · Coronado',count:8,blurb:'White-sand beaches 60–90 minutes from the capital.'},
+    {id:'caribbean',name:'Caribbean',sub:'Bocas del Toro · San Blas',count:5,blurb:'Overwater living, reef frontage, rainforest islands.'},
+    {id:'azuero',name:'Azuero Peninsula',sub:'Pedasí · Las Tablas',count:4,blurb:'The last untouched coast — surf, ranches, traditions.'},
+    {id:'highlands',name:'Highlands',sub:'Boquete · Volcán',count:3,blurb:'Year-round spring, coffee country, cloud forest.'},
+    {id:'city',name:'Panama City',sub:'Casco · Balboa · Punta Pacífica',count:4,blurb:"Latin America's banking capital — towers and old town."}
   ],
-  stats: [
-    { n: '24', l: 'Developer Projects' },
-    { n: '12', l: 'Coastal Communities' },
-    { n: '100%', l: 'USD · No FX Risk' },
-    { n: '7+',  l: 'Years in Panama' }
+  projects:[
+    {id:'pino-alto-boquete',name:'Pino Alto Boquete',location:'Boquete, Chiriquí',region:'Highlands',priceFrom:245000,fromLabel:'From $245,000',status:'Pre-construction',website:'https://panamarealestatesale.com/es/proyectos/pino-alto-boquete'},
+    {id:'empire-residences-santa-maria',name:'Empire Residences',location:'Santa María, Ciudad de Panamá',region:'',priceFrom:1030000,fromLabel:'From $1,030,000',status:'Move-in Ready',website:'https://panamarealestatesale.com/es/proyectos/empire-residences-santa-maria'},
+    {id:'bioma-costa-del-este',name:'Bioma Costa del Este',location:'Costa del Este, Ciudad de Panamá',region:'Panama City',priceFrom:342000,fromLabel:'From $342,000',status:'Pre-construction',website:'https://panamarealestatesale.com/es/proyectos/bioma-costa-del-este'},
+    {id:'palma-blanca',name:'Palma Blanca',location:'Playa Blanca, Pacific Coast',region:'',priceFrom:285000,fromLabel:'From $285,000',status:'Pre-construction',website:'https://panamarealestatesale.com/es/proyectos/palma-blanca'},
+    {id:'casco-residences',name:'Casco Residences',location:'Casco Viejo, Ciudad de Panamá',region:'Panama City',priceFrom:520000,fromLabel:'From $520,000',status:'Move-in Ready',website:'https://panamarealestatesale.com/es/proyectos/casco-residences'},
+    {id:'pedasi-shores',name:'Pedasí Shores',location:'Pedasí, Azuero',region:'',priceFrom:410000,fromLabel:'From $410,000',status:'Pre-construction',website:'https://panamarealestatesale.com/es/proyectos/pedasi-shores'}
   ],
-  regions: [
-    { id: 'pacific',   name: 'Pacific Coast',    sub: 'Playa Blanca · Coronado',    count: 8, blurb: 'White-sand beaches 60–90 minutes from the capital.' },
-    { id: 'caribbean', name: 'Caribbean',        sub: 'Bocas del Toro · San Blas',  count: 5, blurb: 'Overwater living, reef frontage, rainforest islands.' },
-    { id: 'azuero',    name: 'Azuero Peninsula', sub: 'Pedasí · Las Tablas',        count: 4, blurb: 'The last untouched coast — surf, ranches, traditions.' },
-    { id: 'highlands', name: 'Highlands',        sub: 'Boquete · Volcán',           count: 3, blurb: 'Year-round spring, coffee country, cloud forest.' },
-    { id: 'city',      name: 'Panama City',      sub: 'Casco · Balboa · Punta Pacífica', count: 4, blurb: "Latin America's banking capital — towers and old town." }
-  ],
-  projects: [
-    { id: 'pino-alto-boquete', name: 'Pino Alto Boquete', location: 'Boquete, Chiriquí', region: 'Highlands',
-      priceFrom: 245000, fromLabel: 'From $245,000', status: 'Pre-construction',
-      website: 'https://panamarealestatesale.com/es/proyectos/pino-alto-boquete' },
-    { id: 'empire-residences-santa-maria', name: 'Empire Residences', location: 'Santa María, Ciudad de Panamá', region: '',
-      priceFrom: 1030000, fromLabel: 'From $1,030,000', status: 'Move-in Ready',
-      website: 'https://panamarealestatesale.com/es/proyectos/empire-residences-santa-maria' },
-    { id: 'bioma-costa-del-este', name: 'Bioma Costa del Este', location: 'Costa del Este, Ciudad de Panamá', region: 'Panama City',
-      priceFrom: 342000, fromLabel: 'From $342,000', status: 'Pre-construction',
-      website: 'https://panamarealestatesale.com/es/proyectos/bioma-costa-del-este' },
-    { id: 'palma-blanca', name: 'Palma Blanca', location: 'Playa Blanca, Pacific Coast', region: '',
-      priceFrom: 285000, fromLabel: 'From $285,000', status: 'Pre-construction',
-      website: 'https://panamarealestatesale.com/es/proyectos/palma-blanca' },
-    { id: 'casco-residences', name: 'Casco Residences', location: 'Casco Viejo, Ciudad de Panamá', region: 'Panama City',
-      priceFrom: 520000, fromLabel: 'From $520,000', status: 'Move-in Ready',
-      website: 'https://panamarealestatesale.com/es/proyectos/casco-residences' },
-    { id: 'pedasi-shores', name: 'Pedasí Shores', location: 'Pedasí, Azuero', region: '',
-      priceFrom: 410000, fromLabel: 'From $410,000', status: 'Pre-construction',
-      website: 'https://panamarealestatesale.com/es/proyectos/pedasi-shores' }
-  ],
-  articles: [
-    { id: '2026-outlook',  category: 'Market Report', title: 'Panama 2026 property outlook: where the supply is tightening',
-      excerpt: 'Coronado is sold out through Phase III. Bocas inventory has compressed 38% year over year. A data-driven look at which coasts still have room — and which have closed.',
-      author: 'Kent Davis', date: 'April 22, 2026', read: '8 min read', cover: 'ocean', featured: true },
-    { id: 'friendly-nations-2026', category: 'Residency', title: 'The Friendly Nations Visa in 2026 — what changed, what stayed',
-      excerpt: 'The 2021 reform is settled law now. Here is the actual paperwork, timeline, and cost in 2026 dollars — with a checklist for each route.',
-      author: 'Paola Estévez', date: 'April 18, 2026', read: '11 min read', cover: 'sand', featured: true },
-    { id: 'pedasi-rising', category: 'Neighborhood', title: 'Pedasí is quietly becoming Panama\'s most-wanted coast',
-      excerpt: 'A fishing town of 3,000 now has two direct weekly flights and four resort-grade projects under construction.',
-      author: 'Kent Davis', date: 'April 12, 2026', read: '13 min read', cover: 'sunset', featured: false },
-    { id: 'rental-yields', category: 'Investment', title: 'Short-term rental yields by province — a 2026 breakdown',
-      excerpt: 'Gross vs. net. Occupancy realities. Who is actually earning 9% and who is closer to 4%. Province-by-province numbers.',
-      author: 'Paola Estévez', date: 'April 3, 2026', read: '9 min read', cover: 'palm', featured: false },
-    { id: 'dollarization', category: 'Economics', title: 'Why Panama\'s 116-year dollarization still matters for buyers',
-      excerpt: 'Panama adopted the US dollar in 1904 and has never printed its own paper money since. For international buyers, this is the quiet superpower.',
-      author: 'Kent Davis', date: 'March 28, 2026', read: '7 min read', cover: 'sunset', featured: false }
+  articles:[
+    {id:'2026-outlook',category:'Market Report',title:'Panama 2026 property outlook: where the supply is tightening',excerpt:'Coronado is sold out through Phase III. Bocas inventory has compressed 38% year over year. A data-driven look at which coasts still have room — and which have closed.',author:'Kent Davis',date:'April 22, 2026',read:'8 min read',cover:'ocean',featured:true},
+    {id:'friendly-nations-2026',category:'Residency',title:'The Friendly Nations Visa in 2026 — what changed, what stayed',excerpt:'The 2021 reform is settled law now. Here is the actual paperwork, timeline, and cost in 2026 dollars — with a checklist for each route.',author:'Paola Estévez',date:'April 18, 2026',read:'11 min read',cover:'sand',featured:true},
+    {id:'pedasi-rising',category:'Neighborhood',title:"Pedasí is quietly becoming Panama's most-wanted coast",excerpt:'A fishing town of 3,000 now has two direct weekly flights and four resort-grade projects under construction.',author:'Kent Davis',date:'April 12, 2026',read:'13 min read',cover:'sunset',featured:false},
+    {id:'rental-yields',category:'Investment',title:'Short-term rental yields by province — a 2026 breakdown',excerpt:'Gross vs. net. Occupancy realities. Who is actually earning 9% and who is closer to 4%. Province-by-province numbers.',author:'Paola Estévez',date:'April 3, 2026',read:'9 min read',cover:'palm',featured:false},
+    {id:'dollarization',category:'Economics',title:"Why Panama's 116-year dollarization still matters for buyers",excerpt:'Panama adopted the US dollar in 1904 and has never printed its own paper money since. For international buyers, this is the quiet superpower.',author:'Kent Davis',date:'March 28, 2026',read:'7 min read',cover:'sunset',featured:false}
   ]
 };
+</script>
 
-// Stub Icon (the real one is in components.jsx)
-function Icon({ name, size = 18 }) {
-  return <span style={{ display: 'inline-block', width: size, height: size }}>→</span>;
-}
-// Stub Navbar — preview only; production Navbar comes from components.jsx
+<script type="text/babel" data-presets="react" data-type="module">
+const { useState, useEffect, useRef } = React;
+
+/* ── Stub Navbar (preview only — production navbar comes from project/components.jsx) ── */
 function Navbar() {
-  return <div style={{position:'fixed',top:0,left:0,right:0,height:64,background:'rgba(255,249,236,0.85)',backdropFilter:'blur(10px)',borderBottom:'1px solid var(--line-soft)',zIndex:80,display:'flex',alignItems:'center',padding:'0 var(--gutter)',justifyContent:'space-between'}}>
-    <span style={{fontFamily:'var(--font-mono)',fontSize:11,letterSpacing:'0.22em',textTransform:'uppercase',color:'var(--ink-mute)'}}>v2 Preview · Stub Navbar</span>
-    <a href="#book-consultation" style={{padding:'8px 18px',background:'var(--coral)',color:'var(--paper)',borderRadius:999,textDecoration:'none',fontSize:13,fontWeight:600}}>Reserve a unit →</a>
-  </div>;
+  return (
+    <div style={{position:'fixed',top:0,left:0,right:0,height:64,background:'rgba(255,249,236,0.92)',backdropFilter:'blur(10px)',borderBottom:'1px solid var(--line-soft)',zIndex:80,display:'flex',alignItems:'center',padding:'0 var(--gutter)',justifyContent:'space-between'}}>
+      <span style={{fontFamily:'var(--font-mono)',fontSize:11,letterSpacing:'0.22em',textTransform:'uppercase',color:'var(--ink-mute)'}}>v2 Preview · feat/v2-interactive-experience</span>
+      <a href="#book-consultation" style={{padding:'8px 18px',background:'var(--coral)',color:'var(--paper)',borderRadius:999,textDecoration:'none',fontSize:13,fontWeight:600}}>Reserve a unit →</a>
+    </div>
+  );
 }
+
+function Icon({ name, size = 18 }) { return <span style={{ display:'inline-block', width:size, height:size }}>→</span>; }
+
 function BookConsultation() {
-  return <section id="book-consultation" style={{padding:'100px var(--gutter)',background:'var(--paper)',textAlign:'center',borderTop:'1px solid var(--line)'}}>
-    <div style={{fontFamily:'var(--font-mono)',fontSize:11,letterSpacing:'0.22em',color:'var(--coral-deep)',textTransform:'uppercase',marginBottom:18}}>▬ FREE DISCOVERY CALL</div>
-    <h2 className="display" style={{fontSize:'clamp(36px,5vw,56px)',margin:0,maxWidth:680,marginInline:'auto'}}>Book a 30-min consultation</h2>
-    <p style={{maxWidth:560,margin:'18px auto 32px',color:'var(--ink-soft)'}}>Walk us through your timeline, residency goals, and budget. We'll respond with the three projects in our portfolio that fit best — and exactly what to ask before reserving.</p>
-    <div style={{display:'inline-block',padding:'18px 28px',border:'1px solid var(--line)',borderRadius:14,fontFamily:'var(--font-mono)',fontSize:12,letterSpacing:'0.18em',color:'var(--ink-mute)',textTransform:'uppercase'}}>Existing form (preserved · not modified by v2)</div>
-  </section>;
+  return (
+    <section id="book-consultation" style={{padding:'100px var(--gutter)',background:'var(--paper)',textAlign:'center',borderTop:'1px solid var(--line)'}}>
+      <div style={{fontFamily:'var(--font-mono)',fontSize:11,letterSpacing:'0.22em',color:'var(--coral-deep)',textTransform:'uppercase',marginBottom:18}}>▬ FREE DISCOVERY CALL</div>
+      <h2 className="display" style={{fontSize:'clamp(36px,5vw,56px)',margin:0,maxWidth:680,marginInline:'auto'}}>Book a 30-min consultation</h2>
+      <p style={{maxWidth:560,margin:'18px auto 32px',color:'var(--ink-soft)'}}>This is a stub — production form lives in project/components.jsx and is preserved unchanged.</p>
+      <div style={{display:'inline-block',padding:'18px 28px',border:'1px solid var(--line)',borderRadius:14,fontFamily:'var(--font-mono)',fontSize:12,letterSpacing:'0.18em',color:'var(--ink-mute)',textTransform:'uppercase'}}>Existing form preserved · not modified by v2</div>
+    </section>
+  );
 }
+
 function Footer() {
   return <footer style={{padding:'40px var(--gutter)',background:'var(--ink)',color:'rgba(255,249,236,0.6)',fontFamily:'var(--font-mono)',fontSize:11,letterSpacing:'0.16em',textTransform:'uppercase',textAlign:'center'}}>v2 Preview · feat/v2-interactive-experience</footer>;
 }
+
+/* ─────── INLINED v2 COMPONENTS BELOW ─────── */
+
+
+/* ── HeroV2 — editorial hero with lifestyle trio (City/Beach/Mountain) ── */
+
+function HeroV2() {
+  const [hoveredCard, setHoveredCard] = React.useState(null);
+
+  const handleLifestyleClick = (lifestyle) => {
+    window.dispatchEvent(
+      new CustomEvent('v2-lifestyle-filter', {
+        detail: { lifestyle }
+      })
+    );
+    // Smooth scroll to #projects
+    const projectsEl = document.getElementById('projects');
+    if (projectsEl) {
+      projectsEl.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const lifestyleCards = [
+    {
+      key: 'city',
+      counter: '01 / 03',
+      label: 'City.',
+      caption: 'Casco · Costa del Este'
+    },
+    {
+      key: 'beach',
+      counter: '02 / 03',
+      label: 'Beach.',
+      caption: 'Pacífico · Caribe · Pedasí'
+    },
+    {
+      key: 'mountain',
+      counter: '03 / 03',
+      label: 'Mountain.',
+      caption: 'Boquete · Volcán'
+    }
+  ];
+
+  const stats = window.PANAMA_DATA?.stats || [
+    { n: '24', l: 'Developer Projects' },
+    { n: '12', l: 'Coastal Communities' },
+    { n: '100%', l: 'USD · No FX Risk' },
+    { n: '7+', l: 'Years in Panama' }
+  ];
+
+  return (
+    <>
+      <style>{`
+        .v2-hero {
+          padding-top: 100px;
+          background-color: var(--cream);
+          color: var(--ink);
+        }
+
+        .v2-hero-editorial-bar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-family: var(--font-mono);
+          font-size: 11px;
+          letter-spacing: 0.22em;
+          color: var(--ink-mute);
+          text-transform: uppercase;
+          margin-bottom: clamp(40px, 6vw, 80px);
+          padding: 0 var(--gutter);
+        }
+
+        .v2-hero-eyebrow {
+          font-family: var(--font-mono);
+          font-size: 11px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--ink-mute);
+          padding-bottom: 16px;
+          border-bottom: 2px solid var(--coral);
+          margin-bottom: 40px;
+          padding-left: var(--gutter);
+          padding-right: var(--gutter);
+        }
+
+        .v2-hero-headline {
+          font-family: var(--font-display);
+          font-size: clamp(56px, 9vw, 132px);
+          font-weight: 300;
+          line-height: 0.92;
+          letter-spacing: -0.025em;
+          color: var(--ink);
+          margin-bottom: 24px;
+          padding-left: var(--gutter);
+          padding-right: var(--gutter);
+        }
+
+        .v2-hero-headline em {
+          font-style: italic;
+          color: var(--coral);
+          font-weight: 400;
+        }
+
+        .v2-hero-headline .palm {
+          color: var(--palm);
+        }
+
+        .v2-hero-motion-strip {
+          width: 100%;
+          height: 80px;
+          background: linear-gradient(
+            90deg,
+            var(--coral),
+            var(--cream),
+            var(--coral)
+          );
+          background-size: 200% 100%;
+          margin-bottom: 60px;
+          animation: v2-hero-sweep 8s ease-in-out infinite;
+        }
+
+        @keyframes v2-hero-sweep {
+          0% {
+            background-position: 0% 0;
+          }
+          50% {
+            background-position: 100% 0;
+          }
+          100% {
+            background-position: 0% 0;
+          }
+        }
+
+        .v2-hero-lifestyle-container {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 18px;
+          margin-bottom: 60px;
+          padding-left: var(--gutter);
+          padding-right: var(--gutter);
+        }
+
+        @media (max-width: 720px) {
+          .v2-hero-lifestyle-container {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .v2-hero-lifestyle-card {
+          display: flex;
+          flex-direction: column;
+          height: 220px;
+          padding: 24px;
+          background-color: var(--paper);
+          border: 1px solid var(--line);
+          border-radius: 16px;
+          cursor: pointer;
+          transition: all 0.4s var(--ease);
+        }
+
+        .v2-hero-lifestyle-card:hover {
+          transform: translateY(-4px);
+          border-color: var(--coral);
+        }
+
+        .v2-hero-lifestyle-card:hover .v2-hero-lifestyle-word {
+          color: var(--coral);
+        }
+
+        .v2-hero-lifestyle-counter {
+          font-family: var(--font-mono);
+          font-size: 11px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--ink-mute);
+          margin-bottom: auto;
+        }
+
+        .v2-hero-lifestyle-word {
+          font-family: var(--font-display);
+          font-size: clamp(36px, 5vw, 56px);
+          font-weight: 300;
+          font-style: italic;
+          color: var(--ink);
+          line-height: 1;
+          transition: color 0.4s var(--ease);
+        }
+
+        .v2-hero-lifestyle-caption {
+          font-family: var(--font-mono);
+          font-size: 11px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--ink-mute);
+          margin-top: auto;
+          padding-top: 12px;
+        }
+
+        .v2-hero-stats {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 24px;
+          margin-bottom: 60px;
+          padding-left: var(--gutter);
+          padding-right: var(--gutter);
+        }
+
+        @media (max-width: 720px) {
+          .v2-hero-stats {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        .v2-hero-stat {
+          text-align: center;
+        }
+
+        .v2-hero-stat-number {
+          font-family: var(--font-display);
+          font-size: clamp(32px, 5vw, 64px);
+          font-weight: 300;
+          color: var(--ink);
+          line-height: 1;
+          margin-bottom: 8px;
+        }
+
+        .v2-hero-stat-label {
+          font-family: var(--font-mono);
+          font-size: 11px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--ink-mute);
+        }
+
+        .v2-hero-cta-row {
+          display: flex;
+          gap: 16px;
+          padding-left: var(--gutter);
+          padding-right: var(--gutter);
+          padding-bottom: 100px;
+        }
+
+        @media (max-width: 720px) {
+          .v2-hero-cta-row {
+            flex-direction: column;
+          }
+        }
+
+        .btn {
+          padding: 14px 24px;
+          border-radius: 8px;
+          font-family: 'Manrope', sans-serif;
+          font-size: 14px;
+          font-weight: 600;
+          text-decoration: none;
+          text-align: center;
+          cursor: pointer;
+          transition: all 0.3s var(--ease);
+          border: 1px solid transparent;
+          display: inline-block;
+        }
+
+        .btn-coral {
+          background-color: var(--coral);
+          color: white;
+        }
+
+        .btn-coral:hover {
+          background-color: var(--coral-deep);
+        }
+
+        .btn-ghost {
+          background-color: transparent;
+          color: var(--ink);
+          border-color: var(--line);
+        }
+
+        .btn-ghost:hover {
+          border-color: var(--ink);
+          background-color: var(--line-soft);
+        }
+      `}</style>
+
+      <section className="v2-hero">
+        {/* Editorial top bar */}
+        <div className="v2-hero-editorial-bar">
+          <span>VOL. VII · 2026</span>
+          <span>8°58'N · 79°32'W</span>
+          <span>THE ISTHMUS QUARTERLY</span>
+        </div>
+
+        {/* Eyebrow */}
+        <div className="v2-hero-eyebrow">
+          ▬ DEVELOPER-DIRECT · 24 PROJECTS · RESERVATIONS OPEN
+        </div>
+
+        {/* Headline with italic coral emphasis */}
+        <h1 className="v2-hero-headline">
+          Two oceans.
+          <br />
+          <em>One country</em>
+          <br />
+          <span className="palm">worth owning.</span>
+        </h1>
+
+        {/* Subtle motion strip */}
+        <div className="v2-hero-motion-strip" />
+
+        {/* Lifestyle trio cards */}
+        <div className="v2-hero-lifestyle-container">
+          {lifeStyleCards.map((card) => (
+            <div
+              key={card.key}
+              className="v2-hero-lifestyle-card"
+              onMouseEnter={() => setHoveredCard(card.key)}
+              onMouseLeave={() => setHoveredCard(null)}
+              onClick={() => handleLifestyleClick(card.key)}
+            >
+              <div className="v2-hero-lifestyle-counter">{card.counter}</div>
+              <div className="v2-hero-lifestyle-word">{card.label}</div>
+              <div className="v2-hero-lifestyle-caption">{card.caption}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Stats row */}
+        <div className="v2-hero-stats">
+          {stats.map((stat, idx) => (
+            <div key={idx} className="v2-hero-stat">
+              <div className="v2-hero-stat-number">{stat.n}</div>
+              <div className="v2-hero-stat-label">{stat.l}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA row */}
+        <div className="v2-hero-cta-row">
+          <a className="btn btn-coral" href="#book-consultation">
+            Reserve a unit →
+          </a>
+          <a className="btn btn-ghost" href="#projects">
+            Browse 24 projects
+          </a>
+        </div>
+      </section>
+    </>
+  );
+}
+
+
+function LifestyleQuiz() {
+  const [step, setStep] = React.useState(0);
+  const [answers, setAnswers] = React.useState({
+    timeline: null,
+    lifestyle: null,
+    budget: null,
+  });
+  const [results, setResults] = React.useState(null);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      if (step === 0) setStep(1);
+    }, 800);
+    return () => clearTimeout(timer);
+  }, [step]);
+
+  React.useEffect(() => {
+    const handleLifestyleFilter = (event) => {
+      if (event.detail && event.detail.lifestyle) {
+        setAnswers((prev) => ({
+          ...prev,
+          lifestyle: event.detail.lifestyle,
+        }));
+        setStep(2);
+      }
+    };
+
+    window.addEventListener('v2-lifestyle-filter', handleLifestyleFilter);
+    return () =>
+      window.removeEventListener('v2-lifestyle-filter', handleLifestyleFilter);
+  }, []);
+
+  const handleAnswer = (question, value) => {
+    setAnswers((prev) => ({
+      ...prev,
+      [question]: value,
+    }));
+
+    if (question === 'timeline') setStep(2);
+    if (question === 'lifestyle') setStep(3);
+    if (question === 'budget') {
+      const filtered = filterProjects({
+        ...answers,
+        [question]: value,
+      });
+      setResults(filtered);
+      setStep(4);
+    }
+  };
+
+  const filterProjects = (answers) => {
+    if (!window.PANAMA_DATA || !window.PANAMA_DATA.projects) return [];
+
+    let candidates = window.PANAMA_DATA.projects;
+
+    // Filter by lifestyle (location/region match)
+    if (answers.lifestyle) {
+      const lifestyleMap = {
+        city: ['Casco Viejo', 'Panama City', 'Panamá'],
+        beach: ['Bocas', 'Coronado', 'San Blas', 'Boquete'],
+        mountain: ['Boquete', 'Volcan', 'highlands'],
+      };
+
+      const regions = lifestyleMap[answers.lifestyle] || [];
+      candidates = candidates.filter((p) =>
+        regions.some(
+          (r) =>
+            (p.location && p.location.toLowerCase().includes(r.toLowerCase())) ||
+            (p.region && p.region.toLowerCase().includes(r.toLowerCase()))
+        )
+      );
+    }
+
+    // Filter by budget (priceFrom match)
+    if (answers.budget) {
+      const budgetMap = {
+        '200_400': { min: 200000, max: 400000 },
+        '400_700': { min: 400000, max: 700000 },
+        '700_1200': { min: 700000, max: 1200000 },
+        '1200_plus': { min: 1200000, max: Infinity },
+      };
+
+      const range = budgetMap[answers.budget];
+      if (range) {
+        candidates = candidates.filter((p) => {
+          const priceFrom = parseInt(p.priceFrom, 10);
+          return !isNaN(priceFrom) && priceFrom >= range.min && priceFrom <= range.max;
+        });
+      }
+    }
+
+    // If no exact matches, relax and show closest
+    if (candidates.length === 0 && answers.lifestyle) {
+      candidates = window.PANAMA_DATA.projects.slice(0, 3);
+    } else if (candidates.length > 3) {
+      candidates = candidates.slice(0, 3);
+    }
+
+    return candidates;
+  };
+
+  const goBack = () => {
+    if (step > 1) setStep(step - 1);
+  };
+
+  const restart = () => {
+    setStep(1);
+    setAnswers({ timeline: null, lifestyle: null, budget: null });
+    setResults(null);
+  };
+
+  const styles = `
+    .lifestyle-quiz {
+      font-family: var(--font-display, 'Fraunces', Georgia, serif-apple-system, sans-serif);
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--cream, #FFF9EC);
+      border: 1px solid var(--paper, #FFFDF5);
+      border-radius: 12px;
+    }
+
+    .quiz-header {
+      margin-bottom: 2rem;
+      animation: revealContent 0.6s ease-out;
+    }
+
+    .quiz-header h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ink, #0B2733);
+      margin: 0 0 0.5rem 0;
+      letter-spacing: -0.5px;
+    }
+
+    .quiz-header p {
+      font-size: 16px;
+      color: var(--ink, #0B2733);
+      opacity: 0.7;
+      margin: 0;
+      font-family: var(--font-serif, serif);
+    }
+
+    .quiz-step {
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    .step-intro {
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    .step-intro p {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--ink, #0B2733);
+      margin: 0;
+    }
+
+    .step-question {
+      margin-bottom: 2rem;
+    }
+
+    .step-question h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ink, #0B2733);
+      margin: 0 0 1.5rem 0;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .options-grid.four-col {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 720px) {
+      .options-grid.four-col {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .option-button {
+      padding: 1rem;
+      border: 2px solid var(--paper, #FFFDF5);
+      background: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink, #0B2733);
+      transition: all 0.2s ease;
+      font-family: var(--font-display, 'Fraunces', Georgia, serif-apple-system, sans-serif);
+    }
+
+    .option-button:hover {
+      border-color: var(--coral, #FF6B4A);
+      background: rgba(212, 101, 93, 0.05);
+    }
+
+    .option-button.selected {
+      border-color: var(--coral, #FF6B4A);
+      background: var(--coral, #FF6B4A);
+      color: white;
+    }
+
+    .results-container {
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    .results-header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .results-header h3 {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--ink, #0B2733);
+      margin: 0 0 0.5rem 0;
+    }
+
+    .results-header p {
+      font-size: 14px;
+      color: var(--ink, #0B2733);
+      opacity: 0.7;
+      margin: 0;
+      font-family: var(--font-serif, serif);
+    }
+
+    .project-card {
+      padding: 1.5rem;
+      border: 1px solid var(--paper, #FFFDF5);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      background: white;
+      transition: all 0.2s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--coral, #FF6B4A);
+      box-shadow: 0 4px 12px rgba(212, 101, 93, 0.1);
+    }
+
+    .project-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink, #0B2733);
+      margin: 0 0 0.5rem 0;
+    }
+
+    .project-location {
+      font-size: 14px;
+      color: var(--ink, #0B2733);
+      opacity: 0.7;
+      margin: 0 0 0.75rem 0;
+      font-family: var(--font-serif, serif);
+    }
+
+    .project-price {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--coral, #FF6B4A);
+      margin: 0 0 0.75rem 0;
+      font-family: var(--font-mono, monospace);
+    }
+
+    .project-status {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: rgba(212, 101, 93, 0.1);
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--coral, #FF6B4A);
+      margin-bottom: 0.75rem;
+    }
+
+    .project-disclaimer {
+      font-size: 11px;
+      color: var(--ink, #0B2733);
+      opacity: 0.6;
+      margin: 0.75rem 0 1rem 0;
+      font-style: italic;
+      font-family: var(--font-serif, serif);
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      background: var(--coral, #FF6B4A);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .project-link:hover {
+      background: #c5584f;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      justify-content: center;
+    }
+
+    @media (max-width: 480px) {
+      .button-group {
+        flex-direction: column;
+      }
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: var(--font-display, 'Fraunces', Georgia, serif-apple-system, sans-serif);
+    }
+
+    .btn-primary {
+      background: var(--coral, #FF6B4A);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #c5584f;
+    }
+
+    .btn-secondary {
+      background: var(--paper, #FFFDF5);
+      color: var(--ink, #0B2733);
+    }
+
+    .btn-secondary:hover {
+      background: #dac7b0;
+    }
+
+    @keyframes revealContent {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .lifestyle-quiz {
+        padding: 1.5rem;
+        margin: 1rem;
+      }
+
+      .quiz-header h2 {
+        font-size: 24px;
+      }
+
+      .step-question h3 {
+        font-size: 18px;
+      }
+
+      .option-button {
+        padding: 0.875rem;
+        font-size: 13px;
+      }
+
+      .project-card {
+        padding: 1rem;
+      }
+
+      .project-name {
+        font-size: 16px;
+      }
+    }
+  `;
+
+  return (
+    <div className="lifestyle-quiz">
+      <style>{styles}</style>
+
+      {step === 0 && (
+        <div className="quiz-step step-intro">
+          <p>Finding your perfect Panama lifestyle...</p>
+        </div>
+      )}
+
+      {step === 1 && (
+        <div className="quiz-step">
+          <div className="quiz-header">
+            <h2>When?</h2>
+            <p>What's your timeline to move?</p>
+          </div>
+          <div className="step-question">
+            <div className="options-grid">
+              <button
+                className={`option-button ${
+                  answers.timeline === 'near' ? 'selected' : ''
+                }`}
+                onClick={() => handleAnswer('timeline', 'near')}
+              >
+                Soon (within 6 months)
+              </button>
+              <button
+                className={`option-button ${
+                  answers.timeline === 'mid' ? 'selected' : ''
+                }`}
+                onClick={() => handleAnswer('timeline', 'mid')}
+              >
+                Within 1-2 years
+              </button>
+              <button
+                className={`option-button ${
+                  answers.timeline === 'far' ? 'selected' : ''
+                }`}
+                onClick={() => handleAnswer('timeline', 'far')}
+              >
+                Just exploring
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {step === 2 && (
+        <div className="quiz-step">
+          <div className="quiz-header">
+            <h2>Where?</h2>
+            <p>What lifestyle calls to you?</p>
+          </div>
+          <div className="step-question">
+            <div className="options-grid">
+              <button
+                className={`option-button ${
+                  answers.lifestyle === 'city' ? 'selected' : ''
+                }`}
+                onClick={() => handleAnswer('lifestyle', 'city')}
+              >
+                City Energy
+              </button>
+              <button
+                className={`option-button ${
+                  answers.lifestyle === 'beach' ? 'selected' : ''
+                }`}
+                onClick={() => handleAnswer('lifestyle', 'beach')}
+              >
+                Beach Vibes
+              </button>
+              <button
+                className={`option-button ${
+                  answers.lifestyle === 'mountain' ? 'selected' : ''
+                }`}
+                onClick={() => handleAnswer('lifestyle', 'mountain')}
+              >
+                Mountain Peace
+              </button>
+            </div>
+          </div>
+          {step > 1 && (
+            <button className="btn btn-secondary" onClick={goBack}>
+              Back
+            </button>
+          )}
+        </div>
+      )}
+
+      {step === 3 && (
+        <div className="quiz-step">
+          <div className="quiz-header">
+            <h2>Budget?</h2>
+            <p>What's your investment range? (USD)</p>
+          </div>
+          <div className="step-question">
+            <div className="options-grid four-col">
+              <button
+                className={`option-button ${
+                  answers.budget === '200_400' ? 'selected' : ''
+                }`}
+                onClick={() => handleAnswer('budget', '200_400')}
+              >
+                $200–400K
+              </button>
+              <button
+                className={`option-button ${
+                  answers.budget === '400_700' ? 'selected' : ''
+                }`}
+                onClick={() => handleAnswer('budget', '400_700')}
+              >
+                $400–700K
+              </button>
+              <button
+                className={`option-button ${
+                  answers.budget === '700_1200' ? 'selected' : ''
+                }`}
+                onClick={() => handleAnswer('budget', '700_1200')}
+              >
+                $700K–1.2M
+              </button>
+              <button
+                className={`option-button ${
+                  answers.budget === '1200_plus' ? 'selected' : ''
+                }`}
+                onClick={() => handleAnswer('budget', '1200_plus')}
+              >
+                $1.2M+
+              </button>
+            </div>
+          </div>
+          {step > 1 && (
+            <button className="btn btn-secondary" onClick={goBack}>
+              Back
+            </button>
+          )}
+        </div>
+      )}
+
+      {step === 4 && results && (
+        <div className="quiz-step results-container">
+          <div className="results-header">
+            <h3>Your matches</h3>
+            <p>Curated projects for your lifestyle</p>
+          </div>
+
+          {results.map((project) => (
+            <div key={project.id} className="project-card">
+              <div className="project-name">{project.name}</div>
+              <div className="project-location">
+                {project.location || project.region || 'Panama'}
+              </div>
+              <div className="project-price">
+                ${parseInt(project.priceFrom, 10).toLocaleString()} USD+
+              </div>
+              {project.status && (
+                <div className="project-status">{project.status}</div>
+              )}
+              <div className="project-disclaimer">
+                *Precios inversor sujeto a disponibilidad
+              </div>
+              <a
+                href={project.url || '#'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-link"
+              >
+                View project
+              </a>
+              <a
+                href="#book-consultation"
+                className="project-link"
+                style={{ marginLeft: '0.5rem' }}
+              >
+                Send to inbox + book call
+              </a>
+            </div>
+          ))}
+
+          <div className="button-group">
+            <button className="btn btn-primary" onClick={restart}>
+              Restart quiz
+            </button>
+          </div>
+        </div>
+      )}
+
+      {step === 4 && (!results || results.length === 0) && (
+        <div className="quiz-step results-container">
+          <div className="results-header">
+            <h3>No direct matches</h3>
+            <p>Let's find you the right fit</p>
+          </div>
+          <button className="btn btn-primary" onClick={restart}>
+            Try again
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+
+/* ── PanamaMap — interactive 5-region SVG with hover tooltips and dispatched filter events ── */
+function PanamaMap() {
+  const [hovered, setHovered] = useState(null);
+
+  const regions = (window.PANAMA_DATA && window.PANAMA_DATA.regions) || [];
+  const byId = (id) => regions.find(r => r.id === id) || {};
+
+  const pins = [
+    { id: 'caribbean', x: 200, y: 150, name: 'Bocas del Toro',          tag: 'CARIBBEAN' },
+    { id: 'highlands', x: 250, y: 300, name: 'Boquete · Volcán',        tag: 'HIGHLANDS' },
+    { id: 'azuero',    x: 520, y: 480, name: 'Pedasí · Las Tablas',     tag: 'AZUERO' },
+    { id: 'pacific',   x: 600, y: 380, name: 'Coronado · Playa Blanca', tag: 'PACIFIC' },
+    { id: 'city',      x: 820, y: 340, name: 'Panama City · Casco',     tag: 'CITY' },
+  ];
+
+  const onPinClick = (id) => {
+    window.dispatchEvent(new CustomEvent('v2-region-filter', { detail: { regionId: id } }));
+    const el = document.querySelector('#projects');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  return (
+    <section id="panama-map" style={{
+      background: 'var(--ink)', color: 'var(--cream)',
+      paddingTop: 100, paddingBottom: 100, position: 'relative', overflow: 'hidden'
+    }}>
+      <style>{`
+        .v2-map-pulse { transform-origin: center; transform-box: fill-box; animation: v2MapPulse 2.6s var(--ease) infinite; }
+        @keyframes v2MapPulse { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.6); opacity: 0; } }
+        .v2-map-pin { cursor: pointer; outline: none; }
+        .v2-map-pin:hover .v2-map-pin-outer,
+        .v2-map-pin:focus .v2-map-pin-outer { stroke: var(--coral); fill: var(--coral); }
+        .v2-map-pin:hover .v2-map-pin-label,
+        .v2-map-pin:focus .v2-map-pin-label { fill: var(--coral); text-decoration: underline; text-underline-offset: 4px; }
+        .v2-map-marquee { display: flex; white-space: nowrap; animation: v2MapMarquee 28s linear infinite; }
+        .v2-map-marquee:hover { animation-play-state: paused; }
+        @keyframes v2MapMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @media (max-width: 720px) {
+          .v2-map-tooltip { left: 50% !important; top: auto !important; bottom: 60px !important; transform: translateX(-50%) !important; }
+        }
+      `}</style>
+
+      <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'center', maxWidth: 720, margin: '0 auto 56px' }}>
+        <div style={{
+          fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.22em',
+          textTransform: 'uppercase', color: 'rgba(255,249,236,0.6)', marginBottom: 22,
+          display: 'inline-flex', alignItems: 'center', gap: 12
+        }}>
+          <span style={{ width: 28, height: 1, background: 'var(--coral)' }} />
+          Five coasts · One country
+        </div>
+        <h2 className="display" style={{
+          fontSize: 'clamp(36px, 6vw, 72px)', lineHeight: 0.96,
+          margin: '0 0 18px', color: 'var(--cream)', letterSpacing: '-0.02em'
+        }}>
+          Hover the map. <em style={{ color: 'var(--coral)', fontStyle: 'italic', fontWeight: 300 }}>Find your shoreline.</em>
+        </h2>
+        <p style={{
+          fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.05em',
+          color: 'rgba(255,249,236,0.6)', margin: 0
+        }}>
+          Five regions, twenty-four developer projects. Every coordinate verified.
+        </p>
+      </div>
+
+      <div style={{
+        position: 'relative', maxWidth: 1100, margin: '0 auto',
+        border: '1px solid rgba(255,249,236,0.15)', borderRadius: 24,
+        overflow: 'hidden', aspectRatio: '16/9', background: 'rgba(255,249,236,0.02)'
+      }}>
+        <svg viewBox="0 0 1100 620" style={{ width: '100%', height: '100%', display: 'block' }}>
+          {/* sea labels */}
+          <text x="550" y="40" textAnchor="middle" style={{
+            fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.3em',
+            fill: 'rgba(255,249,236,0.4)', textTransform: 'uppercase'
+          }}>Caribbean Sea</text>
+          <text x="550" y="600" textAnchor="middle" style={{
+            fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.3em',
+            fill: 'rgba(255,249,236,0.4)', textTransform: 'uppercase'
+          }}>Pacific Ocean</text>
+
+          {/* stylized Panama silhouette — wavy C-curve, not geographically accurate */}
+          <path
+            d="M 80,300 C 200,180 380,220 520,260 C 660,300 800,240 940,290 C 1000,310 1040,360 1020,420 C 880,490 720,440 560,460 C 380,480 220,520 140,460 C 80,420 60,360 80,300 Z"
+            fill="rgba(255,249,236,0.04)"
+            stroke="rgba(255,249,236,0.18)"
+            strokeWidth="1.5"
+          />
+          {/* suggested coastline */}
+          <path d="M 100,330 C 240,250 420,290 560,320 C 700,350 860,310 980,340"
+                fill="none" stroke="rgba(255,107,74,0.18)" strokeWidth="1" strokeDasharray="2,4" />
+          <path d="M 120,420 C 260,460 440,440 600,430 C 760,420 880,440 980,400"
+                fill="none" stroke="rgba(31,196,196,0.15)" strokeWidth="1" strokeDasharray="2,4" />
+
+          {/* pins */}
+          {pins.map((p, i) => (
+            <g key={p.id}
+               className="v2-map-pin"
+               tabIndex={0}
+               aria-label={`Filter by ${p.name}`}
+               onMouseEnter={() => setHovered(p.id)}
+               onMouseLeave={() => setHovered(null)}
+               onFocus={() => setHovered(p.id)}
+               onBlur={() => setHovered(null)}
+               onClick={() => onPinClick(p.id)}
+               onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onPinClick(p.id); } }}>
+              {/* pulsing ring */}
+              <circle cx={p.x} cy={p.y} r="14" fill="none" stroke="var(--coral)" strokeWidth="1"
+                      className="v2-map-pulse" style={{ animationDelay: `${i * 0.5}s` }} />
+              <circle className="v2-map-pin-outer" cx={p.x} cy={p.y} r="14"
+                      fill="var(--ink)" stroke="var(--coral)" strokeWidth="1.5"
+                      style={{ transition: 'all 0.3s var(--ease)' }} />
+              <circle cx={p.x} cy={p.y} r="5" fill="var(--coral)" />
+              <text className="v2-map-pin-label"
+                    x={p.x} y={p.y + 32} textAnchor="middle"
+                    style={{
+                      fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.18em',
+                      fill: 'var(--cream)', textTransform: 'uppercase',
+                      transition: 'all 0.3s var(--ease)', pointerEvents: 'none'
+                    }}>{p.tag}</text>
+            </g>
+          ))}
+        </svg>
+
+        {/* tooltip */}
+        {hovered && (() => {
+          const p = pins.find(x => x.id === hovered);
+          const r = byId(hovered);
+          const onRight = p.x > 770;
+          const tooltipLeftPct = onRight ? `calc(${(p.x / 1100) * 100}% - 260px)` : `calc(${(p.x / 1100) * 100}% + 30px)`;
+          const tooltipTopPct = `calc(${(p.y / 620) * 100}% - 60px)`;
+          return (
+            <div className="v2-map-tooltip" style={{
+              position: 'absolute', left: tooltipLeftPct, top: tooltipTopPct,
+              width: 240, background: 'var(--paper)', color: 'var(--ink)',
+              border: '1px solid var(--line)', borderRadius: 14, padding: 18,
+              boxShadow: '0 24px 48px -16px rgba(0,0,0,0.4)',
+              pointerEvents: 'none', zIndex: 5
+            }}>
+              <div style={{
+                fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.22em',
+                color: 'var(--coral-deep)', textTransform: 'uppercase', marginBottom: 8
+              }}>{r.name || p.name}</div>
+              <div className="display" style={{
+                fontSize: 22, lineHeight: 1.05, marginBottom: 8, color: 'var(--ink)'
+              }}>{r.sub || p.name}</div>
+              <p style={{ fontSize: 13, color: 'var(--ink-soft)', margin: '8px 0 12px', lineHeight: 1.5 }}>
+                {r.blurb || ''}
+              </p>
+              <div style={{
+                fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.12em',
+                color: 'var(--coral-deep)', textTransform: 'uppercase'
+              }}>{r.count || ''} projects →</div>
+            </div>
+          );
+        })()}
+      </div>
+
+      {/* marquee strip */}
+      <div style={{ marginTop: 56, overflow: 'hidden', borderTop: '1px solid rgba(255,249,236,0.1)', borderBottom: '1px solid rgba(255,249,236,0.1)', padding: '24px 0' }}>
+        <div className="v2-map-marquee" style={{
+          fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 300,
+          fontSize: 'clamp(22px, 3vw, 34px)', color: 'rgba(255,249,236,0.4)',
+          gap: 28, letterSpacing: '-0.01em'
+        }}>
+          {[...Array(2)].map((_, j) => (
+            <div key={j} style={{ display: 'flex', gap: 28, paddingRight: 28 }}>
+              {['Bocas del Toro','Boquete','Pedasí','Coronado','Casco Viejo','Costa del Este','Punta Pacífica','Volcán','Las Tablas','Playa Blanca'].map((n, i) => (
+                <React.Fragment key={i}>
+                  <span>{n}</span>
+                  <span style={{ color: 'var(--coral)' }}>·</span>
+                </React.Fragment>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+/* ── JournalReveal — "#1 hidden behind reveal" pattern to activate curiosity gap ── */
+function JournalReveal() {
+  const [revealed, setRevealed] = useState(false);
+  const articles = ((window.PANAMA_DATA && window.PANAMA_DATA.articles) || []).slice(0, 5);
+  const top = articles[0];
+  const rest = articles.slice(1);
+
+  return (
+    <section id="journal" style={{
+      background: 'var(--cream)', color: 'var(--ink)',
+      paddingTop: 100, paddingBottom: 100
+    }}>
+      <style>{`
+        .v2-jr-card { transition: transform 0.4s var(--ease), border-color 0.3s var(--ease), box-shadow 0.4s var(--ease); }
+        .v2-jr-card:hover { transform: translateY(-4px); border-color: var(--coral); box-shadow: 0 24px 48px -20px rgba(11,39,51,0.18); }
+        .v2-jr-reveal-btn:hover { background: var(--coral-deep) !important; transform: scale(1.02); }
+        .v2-jr-cover-blur { filter: blur(28px) saturate(1.2); transform: scale(1.1); transition: filter 1.2s var(--ease), transform 1.2s var(--ease); }
+        .v2-jr-cover-clear { filter: blur(0) saturate(1); transform: scale(1); }
+        @keyframes v2JrFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+        .v2-jr-fade { animation: v2JrFade 0.6s var(--ease) both; }
+        @media (max-width: 720px) {
+          .v2-jr-grid { grid-template-columns: 1fr !important; }
+          .v2-jr-rest { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+
+      <div className="container">
+        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 56, flexWrap: 'wrap', gap: 24 }}>
+          <div style={{ maxWidth: 720 }}>
+            <div style={{
+              fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.22em',
+              textTransform: 'uppercase', color: 'var(--ink-mute)', marginBottom: 18,
+              display: 'inline-flex', alignItems: 'center', gap: 12
+            }}>
+              <span style={{ width: 28, height: 1, background: 'var(--coral)' }} />
+              The Isthmus Quarterly · Most read this week
+            </div>
+            <h2 className="display" style={{
+              fontSize: 'clamp(36px, 5.5vw, 64px)', lineHeight: 0.96,
+              margin: 0, letterSpacing: '-0.02em'
+            }}>
+              The piece <em style={{ color: 'var(--coral)', fontStyle: 'italic', fontWeight: 300 }}>everyone</em> is reading
+            </h2>
+          </div>
+          <a href="#full-journal" style={{
+            fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.18em',
+            textTransform: 'uppercase', color: 'var(--ink)', textDecoration: 'none',
+            borderBottom: '1px solid var(--ink)', paddingBottom: 4
+          }}>
+            Browse the full journal →
+          </a>
+        </div>
+
+        {/* #1 reveal card */}
+        {top && (
+          <div className="v2-jr-grid" style={{
+            display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0,
+            background: 'var(--paper)', border: '1px solid var(--line)',
+            borderRadius: 24, overflow: 'hidden', marginBottom: 64,
+            boxShadow: '0 30px 60px -28px rgba(11,39,51,0.18)'
+          }}>
+            {/* left: cover (blurred until reveal) */}
+            <div style={{
+              position: 'relative', minHeight: 460, background: 'linear-gradient(135deg, var(--coral) 0%, var(--coral-deep) 50%, #8B2D1A 100%)',
+              overflow: 'hidden'
+            }}>
+              <div className={`v2-jr-cover-blur ${revealed ? 'v2-jr-cover-clear' : ''}`} style={{
+                position: 'absolute', inset: 0, opacity: 0.7,
+                background: 'radial-gradient(circle at 30% 30%, rgba(255,249,236,0.6) 0%, transparent 50%), radial-gradient(circle at 70% 70%, rgba(31,95,74,0.5) 0%, transparent 60%)'
+              }} />
+              <div style={{
+                position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: 'var(--cream)', fontFamily: 'var(--font-mono)', fontSize: 14, letterSpacing: '0.3em',
+                textTransform: 'uppercase', opacity: revealed ? 0 : 0.85, transition: 'opacity 0.6s var(--ease)'
+              }}>#1 of {articles.length}</div>
+            </div>
+
+            {/* right: content */}
+            <div style={{ padding: 'clamp(32px, 4vw, 56px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <div style={{
+                fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.24em',
+                textTransform: 'uppercase', color: 'var(--coral-deep)', marginBottom: 20
+              }}>
+                ★ Most read · {top.read || ''}
+              </div>
+
+              {!revealed ? (
+                <>
+                  <h3 className="display" style={{
+                    fontSize: 'clamp(28px, 3.4vw, 42px)', lineHeight: 1.05, margin: '0 0 18px',
+                    color: 'var(--ink)', letterSpacing: '-0.01em'
+                  }}>
+                    The single article moving more reservations than any other this month.
+                  </h3>
+                  <p style={{ fontSize: 15, color: 'var(--ink-soft)', lineHeight: 1.6, marginBottom: 28 }}>
+                    Published {top.date || 'this month'}. Read by buyers from twenty-three countries in the last seven days. We held it back for a reason.
+                  </p>
+                  <button
+                    className="v2-jr-reveal-btn"
+                    onClick={() => setRevealed(true)}
+                    style={{
+                      background: 'var(--coral)', color: 'var(--paper)', border: 'none',
+                      padding: '16px 28px', borderRadius: 999, fontFamily: 'var(--font-body)',
+                      fontWeight: 600, fontSize: 14, letterSpacing: '0.04em', cursor: 'pointer',
+                      transition: 'all 0.3s var(--ease)', alignSelf: 'flex-start',
+                      display: 'inline-flex', alignItems: 'center', gap: 10
+                    }}>
+                    Reveal #1 →
+                  </button>
+                  <div style={{
+                    marginTop: 18, fontFamily: 'var(--font-mono)', fontSize: 10,
+                    letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--ink-mute)'
+                  }}>{top.read || ''} read · No paywall</div>
+                </>
+              ) : (
+                <div className="v2-jr-fade">
+                  <div style={{
+                    fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.22em',
+                    textTransform: 'uppercase', color: 'var(--ink-mute)', marginBottom: 14
+                  }}>{top.category || 'Editorial'}</div>
+                  <h3 className="display" style={{
+                    fontSize: 'clamp(28px, 3.4vw, 42px)', lineHeight: 1.05, margin: '0 0 18px',
+                    color: 'var(--ink)', letterSpacing: '-0.01em'
+                  }}>{top.title}</h3>
+                  <p style={{ fontSize: 15, color: 'var(--ink-soft)', lineHeight: 1.6, marginBottom: 28 }}>
+                    {top.excerpt}
+                  </p>
+                  <a href={`#article-${top.id}`} style={{
+                    background: 'var(--coral)', color: 'var(--paper)',
+                    padding: '14px 26px', borderRadius: 999, fontFamily: 'var(--font-body)',
+                    fontWeight: 600, fontSize: 14, textDecoration: 'none',
+                    alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', gap: 10
+                  }}>Read the full piece →</a>
+                  <div style={{
+                    marginTop: 18, fontFamily: 'var(--font-mono)', fontSize: 10,
+                    letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--ink-mute)'
+                  }}>By {top.author || 'Editorial'} · {top.date || ''}</div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* the rest #2..#5 */}
+        <div className="v2-jr-rest" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24 }}>
+          {rest.map((a, i) => (
+            <article key={a.id} className="v2-jr-card" style={{
+              background: 'var(--paper)', border: '1px solid var(--line)',
+              borderRadius: 16, padding: 24, position: 'relative', cursor: 'pointer'
+            }}>
+              <div style={{
+                position: 'absolute', top: -10, left: 24,
+                background: 'var(--ink)', color: 'var(--cream)',
+                fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.18em',
+                padding: '4px 10px', borderRadius: 999
+              }}>#{i + 2}</div>
+              <div style={{
+                fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.2em',
+                textTransform: 'uppercase', color: 'var(--coral-deep)', marginTop: 6, marginBottom: 14
+              }}>{a.category}</div>
+              <h4 className="display" style={{
+                fontSize: 22, lineHeight: 1.15, margin: '0 0 12px', color: 'var(--ink)',
+                letterSpacing: '-0.01em'
+              }}>{a.title}</h4>
+              <p style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.5, margin: '0 0 16px' }}>
+                {(a.excerpt || '').slice(0, 110)}…
+              </p>
+              <div style={{
+                fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.14em',
+                color: 'var(--ink-mute)', textTransform: 'uppercase'
+              }}>{a.date || ''} · {a.read || ''}</div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+/* ── SocialProofTicker — rotating "recently reserved" + inventory live indicator ── */
+function SocialProofTicker() {
+  const [idx, setIdx] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  // Mock data — wirable to backend later. Keep names+cities anonymized but believable.
+  const events = [
+    { name: 'Ana M.',      city: 'Toronto',    project: 'Empire Residences',  unit: '3-bed Estate' },
+    { name: 'Klaus R.',    city: 'München',    project: 'Pino Alto Boquete',  unit: 'Country Club Unit' },
+    { name: 'Maria S.',    city: 'São Paulo',  project: 'Bioma Costa del Este', unit: 'Modelo C' },
+    { name: 'James T.',    city: 'Dallas',     project: 'Empire Residences',  unit: 'Penthouse' },
+    { name: 'Sofía L.',    city: 'Bogotá',     project: 'Pino Alto Boquete',  unit: '2-bed Condo' },
+    { name: 'David K.',    city: 'Vancouver',  project: 'Bioma Costa del Este', unit: 'Modelo A' },
+    { name: 'Élise D.',    city: 'Paris',      project: 'Empire Residences',  unit: 'Modelo C' },
+  ];
+
+  useEffect(() => {
+    const tick = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIdx(i => (i + 1) % events.length);
+        setVisible(true);
+      }, 320);
+    }, 5000);
+    return () => clearInterval(tick);
+  }, []);
+
+  const e = events[idx];
+  const ago = (idx % 4) + 1;
+  const agoUnit = ago === 1 ? 'hour ago' : 'hours ago';
+
+  return (
+    <>
+      <style>{`
+        .v2-spt {
+          position: fixed; left: 24px; bottom: 24px; z-index: 50;
+          max-width: 320px; padding: 14px 18px;
+          background: var(--paper); color: var(--ink);
+          border: 1px solid var(--line); border-radius: 14px;
+          box-shadow: 0 18px 42px -18px rgba(11,39,51,0.28);
+          font-family: var(--font-body); font-size: 13px; line-height: 1.45;
+          transition: opacity 0.32s var(--ease), transform 0.4s var(--ease);
+        }
+        .v2-spt.hidden { opacity: 0; transform: translateY(8px); }
+        .v2-spt-eye {
+          font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em;
+          text-transform: uppercase; color: var(--coral-deep);
+          display: inline-flex; align-items: center; gap: 6px; margin-bottom: 6px;
+        }
+        .v2-spt-dot {
+          width: 7px; height: 7px; border-radius: 50%; background: #2BB673;
+          box-shadow: 0 0 0 0 rgba(43,182,115,0.7); animation: v2SptPulse 1.6s infinite;
+        }
+        @keyframes v2SptPulse {
+          0% { box-shadow: 0 0 0 0 rgba(43,182,115,0.6); }
+          70% { box-shadow: 0 0 0 10px rgba(43,182,115,0); }
+          100% { box-shadow: 0 0 0 0 rgba(43,182,115,0); }
+        }
+        .v2-spt-close {
+          position: absolute; top: 6px; right: 8px; background: transparent;
+          border: none; color: var(--ink-mute); cursor: pointer; font-size: 14px; line-height: 1;
+        }
+        @media (max-width: 720px) {
+          .v2-spt { left: 12px; right: 92px; bottom: 16px; max-width: none; font-size: 12px; padding: 10px 14px; }
+        }
+      `}</style>
+      <div className={`v2-spt ${visible ? '' : 'hidden'}`} role="status" aria-live="polite">
+        <button className="v2-spt-close" onClick={() => setIdx(events.length)} aria-label="Dismiss">×</button>
+        <div className="v2-spt-eye"><span className="v2-spt-dot" /> Live · Just reserved</div>
+        <div>
+          <strong style={{ fontWeight: 700 }}>{e.name}</strong> from <strong>{e.city}</strong> reserved
+          a <em style={{ fontStyle: 'italic', color: 'var(--coral-deep)' }}>{e.unit}</em> at {e.project}.
+        </div>
+        <div style={{
+          fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.14em',
+          color: 'var(--ink-mute)', textTransform: 'uppercase', marginTop: 6
+        }}>{ago} {agoUnit} · refundable $5,000 deposit</div>
+      </div>
+    </>
+  );
+}
+
+/* ── InventoryBadge — drop-in pill for project cards: "X units left this week" ── */
+function InventoryBadge({ project, projectId }) {
+  // Deterministic pseudo-random based on project id so it doesn't flicker.
+  const id = projectId || (project && project.id) || 'unknown';
+  let h = 0; for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) | 0;
+  const left = (Math.abs(h) % 5) + 2; // 2-6 units left
+  return (
+    <span style={{
+      display: 'inline-flex', alignItems: 'center', gap: 6,
+      fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.16em',
+      textTransform: 'uppercase', color: 'var(--coral-deep)',
+      background: 'rgba(255,107,74,0.12)', padding: '4px 10px',
+      borderRadius: 999, border: '1px solid rgba(255,107,74,0.25)'
+    }}>
+      <span style={{ width: 6, height: 6, borderRadius: 3, background: 'var(--coral)' }} />
+      {left} units left this week
+    </span>
+  );
+}
+
+
+/* ── WhatsAppV2 — concierge sticky with name + response promise + ES/EN flag ── */
+function WhatsAppV2() {
+  const [open, setOpen] = useState(false);
+  const [pulse, setPulse] = useState(true);
+
+  // Auto-stop pulse after 12s so it doesn't annoy
+  useEffect(() => {
+    const t = setTimeout(() => setPulse(false), 12000);
+    return () => clearTimeout(t);
+  }, []);
+
+  // Hardcoded correct per memory — live data.js still has stale 6761-0315 number
+  const wa = 'https://wa.me/50762534802';
+  const phone = '+507 6253-4802';
+
+  const presets = [
+    { lang: 'EN', text: "Hi Carlos — I'm exploring properties in Panama and would like a few options that fit my timeline." },
+    { lang: 'ES', text: "Hola Carlos — estoy explorando propiedades en Panamá y me gustaría ver opciones que se ajusten a mi tiempo." },
+    { lang: 'PT', text: "Olá Carlos — estou explorando imóveis no Panamá e gostaria de ver opções que se encaixem no meu prazo." },
+    { lang: 'DE', text: "Hallo Carlos — ich erkunde Immobilien in Panama und möchte Optionen sehen, die zu meinem Zeitrahmen passen." },
+  ];
+
+  const sendPreset = (text) => {
+    const url = `${wa}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank', 'noopener');
+  };
+
+  return (
+    <>
+      <style>{`
+        .v2-wa-fab {
+          position: fixed; right: 22px; bottom: 22px; z-index: 60;
+          display: inline-flex; align-items: center; gap: 12px;
+          padding: 12px 18px 12px 14px; border-radius: 999px;
+          background: #25D366; color: #ffffff;
+          border: 2px solid #ffffff;
+          box-shadow: 0 18px 36px -10px rgba(37, 211, 102, 0.55), 0 8px 18px -6px rgba(0,0,0,0.18);
+          font-family: var(--font-body); font-weight: 600; font-size: 13.5px;
+          cursor: pointer; transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+        }
+        .v2-wa-fab:hover { transform: translateY(-2px); box-shadow: 0 24px 48px -10px rgba(37, 211, 102, 0.7); }
+        .v2-wa-fab.pulse::after {
+          content: ''; position: absolute; inset: -6px; border-radius: 999px;
+          border: 2px solid #25D366; opacity: 0.6;
+          animation: v2WaPulse 2.2s var(--ease) infinite;
+        }
+        @keyframes v2WaPulse {
+          0% { transform: scale(0.96); opacity: 0.6; }
+          100% { transform: scale(1.18); opacity: 0; }
+        }
+        .v2-wa-avatar {
+          width: 32px; height: 32px; border-radius: 50%;
+          background: #ffffff url('https://api.dicebear.com/7.x/initials/svg?seed=Carlos&backgroundColor=FF6B4A&textColor=ffffff') center/cover;
+          flex-shrink: 0; border: 1.5px solid rgba(255,255,255,0.6);
+        }
+        .v2-wa-meta { display: flex; flex-direction: column; line-height: 1.15; text-align: left; }
+        .v2-wa-name { font-weight: 700; font-size: 13px; }
+        .v2-wa-promise { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; opacity: 0.85; margin-top: 2px; }
+        .v2-wa-panel {
+          position: fixed; right: 22px; bottom: 88px; z-index: 60;
+          width: 320px; max-width: calc(100vw - 44px);
+          background: var(--paper); color: var(--ink);
+          border: 1px solid var(--line); border-radius: 18px;
+          box-shadow: 0 30px 60px -20px rgba(11,39,51,0.4);
+          padding: 18px; animation: v2WaIn 0.32s var(--ease) both;
+        }
+        @keyframes v2WaIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+        .v2-wa-panel-head { display: flex; align-items: center; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--line-soft); margin-bottom: 14px; }
+        .v2-wa-preset {
+          display: block; width: 100%; text-align: left;
+          background: transparent; border: 1px solid var(--line);
+          padding: 12px 14px; border-radius: 12px; cursor: pointer;
+          margin-bottom: 8px; font-family: var(--font-body); font-size: 13px;
+          color: var(--ink); transition: all 0.25s var(--ease);
+        }
+        .v2-wa-preset:hover { border-color: var(--coral); background: rgba(255,107,74,0.05); transform: translateX(2px); }
+        .v2-wa-preset .v2-wa-flag {
+          font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
+          color: var(--coral-deep); margin-right: 8px;
+        }
+        .v2-wa-close {
+          position: absolute; top: 10px; right: 12px; background: transparent;
+          border: none; color: var(--ink-mute); cursor: pointer; font-size: 18px;
+        }
+        @media (max-width: 720px) {
+          .v2-wa-fab { padding: 10px 14px 10px 10px; font-size: 12px; }
+          .v2-wa-promise { display: none; }
+          .v2-wa-panel { right: 12px; left: 12px; bottom: 78px; width: auto; }
+        }
+      `}</style>
+
+      {open && (
+        <div className="v2-wa-panel" role="dialog" aria-label="Talk to Carlos on WhatsApp">
+          <button className="v2-wa-close" onClick={() => setOpen(false)} aria-label="Close">×</button>
+          <div className="v2-wa-panel-head">
+            <div className="v2-wa-avatar" />
+            <div>
+              <div style={{ fontWeight: 700, fontSize: 14 }}>Carlos · Concierge</div>
+              <div style={{
+                fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.14em',
+                color: 'var(--ink-mute)', textTransform: 'uppercase', marginTop: 3
+              }}>Online · Replies in ~5 min</div>
+            </div>
+          </div>
+          <p style={{ fontSize: 13, color: 'var(--ink-soft)', margin: '0 0 14px', lineHeight: 1.5 }}>
+            Pick a starting line below — Carlos will reply on WhatsApp in your language.
+          </p>
+          {presets.map(p => (
+            <button key={p.lang} className="v2-wa-preset" onClick={() => sendPreset(p.text)}>
+              <span className="v2-wa-flag">{p.lang}</span>
+              {p.text}
+            </button>
+          ))}
+          <div style={{
+            fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.16em',
+            color: 'var(--ink-mute)', textTransform: 'uppercase', textAlign: 'center', marginTop: 6
+          }}>
+            {phone} · No spam, no auto-bots
+          </div>
+        </div>
+      )}
+
+      <button
+        className={`v2-wa-fab ${pulse && !open ? 'pulse' : ''}`}
+        onClick={() => { setOpen(o => !o); setPulse(false); }}
+        aria-label="Open WhatsApp concierge"
+        style={{ position: 'fixed', right: 22, bottom: 22 }}>
+        <span className="v2-wa-avatar" />
+        <span className="v2-wa-meta">
+          <span className="v2-wa-name">Talk to Carlos</span>
+          <span className="v2-wa-promise">Replies in 5 min · ES/EN/PT/DE</span>
+        </span>
+      </button>
+    </>
+  );
+}
+
+
+/* ─────── COMPOSITION ROOT ─────── */
+function AppV2() {
+  return (
+    <>
+      <Navbar />
+      <HeroV2 />
+      <LifestyleQuiz />
+      <PanamaMap />
+      <JournalReveal />
+      <BookConsultation />
+      <Footer />
+      <SocialProofTicker />
+      <WhatsAppV2 />
+    </>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<AppV2 />);
 </script>
-
-<script type="text/babel" data-presets="react" data-type="module" src="HeroV2.jsx" data-presets="react"></script>
-<script type="text/babel" data-presets="react" src="LifestyleQuiz.jsx"></script>
-<script type="text/babel" data-presets="react" src="PanamaMap.jsx"></script>
-<script type="text/babel" data-presets="react" src="JournalReveal.jsx"></script>
-<script type="text/babel" data-presets="react" src="SocialProofTicker.jsx"></script>
-<script type="text/babel" data-presets="react" src="WhatsAppV2.jsx"></script>
-
-
 </body>
 </html>
-
-<script type="text/babel" data-presets="react">
-function AppV2() {
-  return (<>
-    <Navbar transparent={true} />
-    <HeroV2 />
-    <LifestyleQuiz />
-    <PanamaMap />
-    <JournalReveal />
-    <BookConsultation />
-    <Footer />
-    <SocialProofTicker />
-    <WhatsAppV2 />
-  </>);
-}
-const root = ReactDOM.createRoot(document.getElementById('root'));
-setTimeout(() => { root.render(<AppV2 />); }, 200);
-</script>
