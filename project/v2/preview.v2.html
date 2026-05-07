@@ -79,7 +79,6 @@ window.PANAMA_DATA = {
 <script type="text/babel" data-presets="react" data-type="module">
 const { useState, useEffect, useRef } = React;
 
-/* ── Stub Navbar (preview only — production navbar comes from project/components.jsx) ── */
 function Navbar() {
   return (
     <div style={{position:'fixed',top:0,left:0,right:0,height:64,background:'rgba(255,249,236,0.92)',backdropFilter:'blur(10px)',borderBottom:'1px solid var(--line-soft)',zIndex:80,display:'flex',alignItems:'center',padding:'0 var(--gutter)',justifyContent:'space-between'}}>
@@ -88,9 +87,7 @@ function Navbar() {
     </div>
   );
 }
-
 function Icon({ name, size = 18 }) { return <span style={{ display:'inline-block', width:size, height:size }}>→</span>; }
-
 function BookConsultation() {
   return (
     <section id="book-consultation" style={{padding:'100px var(--gutter)',background:'var(--paper)',textAlign:'center',borderTop:'1px solid var(--line)'}}>
@@ -101,12 +98,11 @@ function BookConsultation() {
     </section>
   );
 }
-
 function Footer() {
   return <footer style={{padding:'40px var(--gutter)',background:'var(--ink)',color:'rgba(255,249,236,0.6)',fontFamily:'var(--font-mono)',fontSize:11,letterSpacing:'0.16em',textTransform:'uppercase',textAlign:'center'}}>v2 Preview · feat/v2-interactive-experience</footer>;
 }
 
-/* ─────── INLINED v2 COMPONENTS BELOW ─────── */
+/* ─────── INLINED v2 COMPONENTS ─────── */
 
 
 /* ── HeroV2 — editorial hero with lifestyle trio (City/Beach/Mountain) ── */
@@ -415,7 +411,7 @@ function HeroV2() {
 
         {/* Lifestyle trio cards */}
         <div className="v2-hero-lifestyle-container">
-          {lifeStyleCards.map((card) => (
+          {lifestyleCards.map((card) => (
             <div
               key={card.key}
               className="v2-hero-lifestyle-card"
@@ -453,7 +449,6 @@ function HeroV2() {
     </>
   );
 }
-
 
 function LifestyleQuiz() {
   const [step, setStep] = React.useState(0);
@@ -1057,7 +1052,6 @@ function LifestyleQuiz() {
   );
 }
 
-
 /* ── PanamaMap — interactive 5-region SVG with hover tooltips and dispatched filter events ── */
 function PanamaMap() {
   const [hovered, setHovered] = useState(null);
@@ -1239,7 +1233,6 @@ function PanamaMap() {
   );
 }
 
-
 /* ── JournalReveal — "#1 hidden behind reveal" pattern to activate curiosity gap ── */
 function JournalReveal() {
   const [revealed, setRevealed] = useState(false);
@@ -1419,7 +1412,6 @@ function JournalReveal() {
   );
 }
 
-
 /* ── SocialProofTicker — rotating "recently reserved" + inventory live indicator ── */
 function SocialProofTicker() {
   const [idx, setIdx] = useState(0);
@@ -1521,7 +1513,6 @@ function InventoryBadge({ project, projectId }) {
     </span>
   );
 }
-
 
 /* ── WhatsAppV2 — concierge sticky with name + response promise + ES/EN flag ── */
 function WhatsAppV2() {
@@ -1661,7 +1652,6 @@ function WhatsAppV2() {
 }
 
 
-/* ─────── COMPOSITION ROOT ─────── */
 function AppV2() {
   return (
     <>
