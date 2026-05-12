@@ -22,6 +22,17 @@
 (function () {
   'use strict';
 
+  // ── 0. Microsoft Clarity (heatmaps + session recordings) ───────────────
+  // Project: Panama Real Estate Guide (wprielj6va)
+  // Snippet provided verbatim by clarity.microsoft.com — wrapped IIFE that
+  // injects the Clarity tag <script> into <head>. Runs first so Clarity
+  // captures session start alongside GTM/Meta/Google Ads.
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "wprielj6va");
+
   // ── 1. Initialize dataLayer ─────────────────────────────────────────────
   window.dataLayer = window.dataLayer || [];
 
