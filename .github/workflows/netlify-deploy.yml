@@ -5,8 +5,11 @@ on:
     branches: [main]
   workflow_dispatch:
   schedule:
-    # Refresh the site every 6 hours so Airtable data + signed image URLs stay fresh
-    - cron: '0 */6 * * *'
+    # Once a day at 06:00 UTC (01:00 Panama) — refreshes Airtable data + signed
+    # image URLs. Was '0 */6 * * *' (every 6h, 4×/day) but with AIRTABLE_TOKEN
+    # not set the cron just re-published identical bytes, generating 4 cron-only
+    # Netlify deploys per day. One refresh per day is enough.
+    - cron: '0 6 * * *'
 
 permissions:
   contents: read
@@ -38,6 +41,9 @@ jobs:
 
       - name: Inject per-project meta + schema into /projects/*.html
         run: node scripts/inject-project-meta.mjs
+
+      - name: Inject per-article meta + schema into /articles/*.html
+        run: node scripts/inject-article-meta.mjs
 
       - name: Inject tracking tags (only if env vars are set)
         env:
