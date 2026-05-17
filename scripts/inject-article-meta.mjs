@@ -102,29 +102,45 @@ function truncateAtWord(s, maxLen) {
 //
 // A handful of articles have their first 3-4 body blocks polluted with LLM
 // prompt scaffolding ("# Meta Description ...", "# H1 ...",
-// "# Featured Image Alt Text ...", "---"). When the LLM left a usable
-// "# Meta Description X" block, extract X — it's literally a hand-written
-// meta description. Otherwise skip any block that's just a markdown header
-// or a separator and try the next one.
-function firstParagraphFromBody(body) {
+// "# Featured Image Alt Text ...", "---"). Strategy:
+//
+// 1. First pass: scan ALL body strings for an explicit "# Meta Description X"
+//    label — that's a hand-authored meta description that beats anything
+//    we'd extract from prose. (Without this pass, we sometimes hit a usable
+//    body[0] before reaching the better body[1] meta-label block — see
+//    sending-money-panama-wire-transfer.)
+// 2. Second pass: first block that's real prose (has a sentence terminator
+//    or is comfortably long), skipping markdown headings and separators.
+function firstParagraphFromBody(body, articleTitle = '') {
   if (!Array.isArray(body)) return '';
+
+  // Pass 1: explicit "# Meta Description ..." label anywhere in the body.
+  for (const block of body) {
+    if (typeof block !== 'string') continue;
+    const m = block.trim().match(/^#+\s*Meta\s*Description\s*[:\-]?\s*(.+)$/is);
+    if (m) {
+      const tail = cleanMarkdown(m[1]);
+      if (tail.length >= 40) return tail;
+    }
+  }
+
+  // Pass 2: first real prose paragraph.
+  const titleLower = articleTitle.toLowerCase().trim();
   for (const block of body) {
     if (typeof block !== 'string') continue;
     let raw = block.trim();
     if (!raw) continue;
-    // Separator lines or pure markdown headings: skip.
+    // Separator lines: skip.
     if (/^-{3,}$/.test(raw)) continue;
-    // "# Meta Description ..." → take the text after the label.
-    const metaLabel = raw.match(/^#+\s*Meta\s*Description\s*[:\-]?\s*(.+)$/is);
-    if (metaLabel) {
-      const tail = cleanMarkdown(metaLabel[1]);
-      if (tail.length >= 40) return tail;
-      continue;
+    // Any markdown-style heading line: skip.
+    if (/^#+\s/.test(raw)) continue;
+    // Title-only fragments (e.g. "Send Money to Panama 2026: Wire Transfers..."
+    // sitting as body[0]) — short, no sentence terminator, and either is the
+    // title or strongly resembles it: skip.
+    if (raw.length < 120 && !/[.!?]/.test(raw)) {
+      if (titleLower && raw.toLowerCase().includes(titleLower.slice(0, 30))) continue;
+      continue; // also skip any short headline-like block with no period
     }
-    // Any other markdown heading-only line: skip.
-    if (/^#+\s/.test(raw) && raw.length < 200 && !/[.!?]/.test(raw)) continue;
-    // Drop a leading markdown heading prefix on a normal paragraph (rare but seen).
-    raw = raw.replace(/^#+\s*[^\n]{0,80}\n+/, '');
     const clean = cleanMarkdown(raw);
     if (clean.length >= 60) return clean;
   }
@@ -132,12 +148,23 @@ function firstParagraphFromBody(body) {
 }
 
 function buildDescription(article, body) {
+  // Prefer an explicit "# Meta Description X" block from the body over the
+  // excerpt — those are hand-written for SEO, while excerpts often duplicate
+  // the title or leak LLM scaffolding. Then fall back to excerpt, then to
+  // first prose paragraph, then to a generic synthesis.
+  const fromBody = firstParagraphFromBody(body, article.title);
+  // If we got an explicit meta-description label, use it (it's already cleaned
+  // up to ≥40 chars and is the highest-signal option).
+  if (fromBody && /^[A-Z]/.test(fromBody) && fromBody.length >= 60) {
+    // Only prefer body over excerpt if excerpt looks junky.
+    if (!excerptLooksUsable(article.excerpt, article.title)) {
+      return truncateAtWord(fromBody, 155);
+    }
+  }
   if (excerptLooksUsable(article.excerpt, article.title)) {
     return truncateAtWord(cleanMarkdown(article.excerpt), 155);
   }
-  const fromBody = firstParagraphFromBody(body);
   if (fromBody) return truncateAtWord(fromBody, 155);
-  // Last-ditch generic fallback
   return truncateAtWord(
     `${article.title}. Long-form guide on Panama real estate, residency, and lifestyle from panamarealestateguide.com.`,
     155
@@ -186,7 +213,15 @@ function buildHeadInjection({ slug, article, body, isIndex }) {
     : `${SITE_BASE}/articles/${slug}.html`;
 
   const fullTitle = article.title;
-  const titleTag = `${fullTitle} — PanamaRealEstateGuide.com`;
+  // Append the brand suffix only when there's room: a handful of editorial
+  // titles (Spanish/Portuguese country guides) are already 100-142 chars and
+  // appending " — PanamaRealEstateGuide.com" pushes them well past Google's
+  // ~600px SERP cutoff. Skip the suffix for titles ≥ 80 chars so the brand
+  // doesn't get truncated mid-word and the title content keeps all the
+  // available pixels. Short titles still get the brand for recall.
+  const titleTag = fullTitle.length >= 80
+    ? fullTitle
+    : `${fullTitle} — PanamaRealEstateGuide.com`;
   const description = buildDescription(article, body);
   const datePublished = isoDate(article.date);
   const author = article.author || 'Panama Real Estate Guide';
