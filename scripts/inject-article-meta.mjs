@@ -145,13 +145,20 @@ function buildDescription(article, body) {
 }
 
 // -----------------------------------------------------------------------------
-// Date normalization — articles store "March 9, 2026", schema wants ISO.
+// Date normalization — articles store "March 9, 2026". Google's Rich Results
+// Test flags date-only strings ("2026-03-09") as "Invalid datetime value /
+// missing a timezone" even though schema.org technically accepts them.
+// Emit full ISO 8601 with explicit UTC timezone to satisfy the validator.
 // -----------------------------------------------------------------------------
 function isoDate(dateStr) {
   if (!dateStr) return null;
-  const d = new Date(dateStr);
+  // Force UTC interpretation so the output is deterministic regardless of
+  // whether this runs on the CI runner (UTC) or a dev machine in another zone.
+  // "March 9, 2026" parsed as local-midnight in EST would shift by 5h in the
+  // ISO string; appending " UTC" anchors it to 00:00Z.
+  const d = new Date(dateStr + ' UTC');
   if (Number.isNaN(d.getTime())) return null;
-  return d.toISOString().slice(0, 10); // YYYY-MM-DD is valid for schema.org datePublished
+  return d.toISOString(); // e.g. "2026-03-09T00:00:00.000Z"
 }
 
 // -----------------------------------------------------------------------------
@@ -193,7 +200,11 @@ function buildHeadInjection({ slug, article, body, isIndex }) {
     url,
     image: DEFAULT_OG_IMAGE,
     inLanguage: article.lang === 'es' ? 'es-PA' : 'en-US',
-    author: { '@type': 'Person', name: author },
+    // author.url is "optional" per Google, but its absence is one of the
+    // non-critical warnings the Rich Results Test flags. Site root is a
+    // reasonable canonical entity URL for the author since we don't have
+    // per-author archive pages yet.
+    author: { '@type': 'Person', name: author, url: `${SITE_BASE}/` },
     publisher: {
       '@type': 'Organization',
       name: 'Panama Real Estate Guide',
