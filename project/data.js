@@ -290,7 +290,29 @@ window.PANAMA_DATA = {
       date: 'April 2, 2026',
       read: '19 min read',
       cover: 'ocean',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: 'Can I close on a Panama property remotely without traveling?',
+          a: "Yes. You can hire a Panama real estate attorney with Power of Attorney (PoA) to sign the closing deed on your behalf. You execute the PoA at a notary or Panama consulate ($200–$400) and the attorney handles the in-person closing at the notaría. Most buyers still attend closing to inspect the property a final time, but it is not legally required."
+        },
+        {
+          q: 'What protects me if I discover a title problem after signing the Letter of Intent?',
+          a: 'The inspection contingency in your LOI — typically 10–14 days — lets you withdraw without penalty if your attorney finds a material defect: a lien, a boundary dispute, HOA delinquency over one month, or zoning/permit issues. Your earnest money is returned. This is why hiring an attorney to run title review during the contingency window is non-negotiable.'
+        },
+        {
+          q: 'Do I need title insurance to buy property in Panama?',
+          a: "Title insurance is optional in Panama, not required by law or lenders. It costs $400–$600 on a $250,000 property and covers third-party ownership claims or hidden liens emerging after closing. Given Panama's historical title disputes (especially on coastal land and older buildings), many foreign buyers opt in when their attorney flags any ambiguity in the chain of title."
+        },
+        {
+          q: "What's the best visa for someone buying property in Panama?",
+          a: 'For most foreign buyers, the Pensionado visa is the easiest: $1,000/month guaranteed income (rental income from the property counts) and low filing fees. The Qualified Investor visa is the other common path — $150,000+ invested (your real estate purchase counts toward the threshold) with no ongoing income requirement. Note that owning property in Panama does not by itself require any visa; non-residents can hold title freely.'
+        },
+        {
+          q: 'How long do I need to hold a Panama property before I can sell without tax consequences?',
+          a: "If you are a non-resident for tax purposes, capital gains on Panama real estate are exempt regardless of holding period — there is no Panamanian capital gains tax on a non-resident's property sale. If you have established tax residency (Pensionado or Qualified Investor visa), real-property capital gains are still typically exempt from Panama income tax, but you should confirm with a Panama tax CPA before sale. There is a 3% withholding at closing that the buyer's attorney handles."
+        }
+      ]
     },
     {
       id: 'panama-real-estate-beachfront-retirement',
@@ -347,7 +369,29 @@ window.PANAMA_DATA = {
       date: 'March 28, 2026',
       read: '12 min read',
       cover: 'ocean',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "What happens if I don't qualify for Panama's Pensionado visa?",
+          a: "The Friendly Nations visa is the fallback for most retirees — it requires only $750/month income and covers citizens of 50+ countries (US, Canada, UK, Australia, NZ, EU and others). If you don't meet either income threshold, the Qualified Investor visa is available with $500,000+ in real estate or $250,000+ deposited in a Panamanian bank, but that's a significant capital commitment."
+        },
+        {
+          q: 'Can I work in Panama on the Pensionado retiree visa?',
+          a: "Not legally. The Pensionado visa is designed for retirees and does not grant work authorization in Panama. If you intend to earn income locally, apply under a different category — work visa, Qualified Investor, or entrepreneur visa. Remote work for foreign clients is a legal gray area: most retirees do it, MINSA and DGI rarely audit, but technically you'd need a separate authorization."
+        },
+        {
+          q: 'Is private healthcare in Panama safe for retirees?',
+          a: "Private healthcare in Panama City is comparable to U.S. standards and fully accredited. Hospitals like Pacífica Salud (Punta Pacífica, Johns Hopkins affiliate), Hospital Nacional, and CIMA are modern, doctors are often U.S.- or Europe-trained, and prices run 30–50% below U.S. equivalents. Outside Panama City — Boquete, Pedasí, David — healthcare is basic; specialist or complex cases are routinely airlifted or referred to the capital. If you have chronic conditions, confirm local specialists exist before committing to a remote community."
+        },
+        {
+          q: 'Do I need to learn Spanish to retire in Panama?',
+          a: 'Not to survive — English works in expat-heavy neighborhoods, hotels, restaurants and most retirement communities. But to thrive: yes. Banking, legal matters, healthcare paperwork, and any deeper local relationships require Spanish or a translator. Most retirees spend 3–6 months learning basics before the move, and Panama has affordable Spanish-immersion programs ($200–$400/month) once you arrive.'
+        },
+        {
+          q: 'What is the housing market like for retirees buying property in Panama?',
+          a: "Active but selective. Property prices have risen roughly 3–4% annually over the past 5 years in primary neighborhoods, with retirement-favored areas like Coronado and Boquete moving slower (1.5–3%). Closing costs run $10,000–$20,000 on a $300,000 property: 3.4% transfer tax, ~1.5% attorney fees, plus registration and escrow. The market favors buyers in Coronado, Pedasí and David; sellers still hold leverage in Punta Pacífica and Casco Viejo. Most relocators are best served renting first for 6–12 months before committing to a purchase."
+        }
+      ]
     },
     {
       id: 'apartments-for-rent-panama-city',
@@ -470,7 +514,29 @@ window.PANAMA_DATA = {
       cover: 'sunset',
       lang: 'en',
       homepage_rank: 1,
-      utm_campaign: 'cost-of-living-2026'
+      utm_campaign: 'cost-of-living-2026',
+      faqs: [
+        {
+          q: 'Is Panama City really cheaper than Miami or Mexico City?',
+          a: "Yes for housing and dining: Panama City rent runs 25–35% below comparable Miami neighborhoods, and groceries are roughly equivalent (slightly lower for produce, slightly higher for imported brands). Mexico City beats Panama on rent in absolute terms but has more volatile utilities and peso/USD swings. Panama wins on healthcare costs and predictability — the country uses the U.S. dollar, so there is no FX-driven cost-of-living surprise."
+        },
+        {
+          q: 'How much does a couple need to live comfortably in Panama in 2026?',
+          a: 'Plan $2,200–$2,800/month for a couple in Panama City with a 2-bedroom apartment, dining out 2–3 times weekly, occasional weekend travel, and no car. Single person: $1,500–$2,000. Families with school-aged kids: $3,000–$4,000 (private school adds $400–$600/month per child). Retirees on a fixed income can live well on $2,000–$2,500 with intentional choices on neighborhood and dining.'
+        },
+        {
+          q: 'Are utilities really cheap in Panama, or does air conditioning blow the budget?',
+          a: "Electricity is cheap November–May ($80–$100/month for a 2-bedroom). In rainy season (June–October), AC use spikes the bill to $200–$250/month — that's the surprise most newcomers miss. Water and home internet are consistently inexpensive ($45–$60 combined). Budget $160–$200/month year-round for utilities to absorb the rainy-season AC bump without rebuilding your spreadsheet."
+        },
+        {
+          q: 'Do expats actually need a car in Panama City?',
+          a: 'No, not for city living. Uber and the metro cover the urban core well. A car becomes useful if you live in Coronado, Boquete, Pedasí or routinely leave the city on weekends. Total cost of ownership runs $200–$300/month (gas, insurance, parking, depreciation) plus traffic frustration. Most expats in Panama City skip a car and use Uber/taxi/bus, saving $100–$150/month vs ownership.'
+        },
+        {
+          q: 'How do I open a Panama bank account as a non-resident?',
+          a: 'Banco General and Multibank accept non-residents with passport, proof of income (3–6 months of bank statements, employment letter, or rental/investment income docs), and a minimum opening deposit of $500–$1,000. Remote workers with U.S. bank statements are typically approved in 4–6 weeks. Bring originals if you visit in person (1–2 branch visits); apostilled copies work for mail-in applications but slow the process. A reference letter from a prior bank speeds things up. No residency visa required.'
+        }
+      ]
     },
     {
       id: 'real-cost-of-moving-to-panama',
