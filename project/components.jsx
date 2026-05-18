@@ -132,8 +132,9 @@ function Navbar({ transparent }) {
       }}>
         <Logo onDark={isDark} size={18}/>
         <nav className="nav-desktop" style={{ display: 'flex', gap: 28, fontSize: 13, fontWeight: 500 }}>
-        {['Projects', 'Regions', 'Journal', 'News', 'Residency', 'About'].map(l => {
+        {['Projects', 'Regions', 'Journal', 'Videos', 'News', 'Residency', 'About'].map(l => {
           const href = l === 'Journal' ? '/articles/'
+                     : l === 'Videos' ? '/videos/'
                      : l === 'News' ? '/news/'
                      : `/#${l.toLowerCase()}`;
           return <a key={l} href={href} style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>{l}</a>;
@@ -155,8 +156,9 @@ function Navbar({ transparent }) {
           padding: '20px var(--gutter) 28px', background: 'var(--paper)', color: 'var(--ink)',
           borderTop: '1px solid var(--line-soft)', display: 'flex', flexDirection: 'column', gap: 14
         }}>
-          {['Projects', 'Regions', 'Journal', 'News', 'Residency', 'About'].map(l => {
+          {['Projects', 'Regions', 'Journal', 'Videos', 'News', 'Residency', 'About'].map(l => {
             const href = l === 'Journal' ? '/articles/'
+                       : l === 'Videos' ? '/videos/'
                        : l === 'News' ? '/news/'
                        : `/#${l.toLowerCase()}`;
             return (

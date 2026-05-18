@@ -13,6 +13,7 @@ function DetailNav() {
     { l: 'Projects', href: '/#projects' },
     { l: 'Regions', href: '/#regions' },
     { l: 'Journal', href: '/articles/' },
+    { l: 'Videos', href: '/videos/' },
     { l: 'News', href: '/news/' },
     { l: 'About', href: '/#about' },
   ];
@@ -134,6 +135,7 @@ function DetailFooter() {
           <div style={{ display: 'flex', gap: 24, fontSize: 12, opacity: 0.75, fontFamily: 'var(--font-mono)', letterSpacing: '0.12em', textTransform: 'uppercase', flexWrap: 'wrap' }}>
             <a href="/#projects" style={{ color: 'inherit', textDecoration: 'none' }}>Projects</a>
             <a href="../articles/index.html" style={{ color: 'inherit', textDecoration: 'none' }}>Journal</a>
+            <a href="/videos/" style={{ color: 'inherit', textDecoration: 'none' }}>Videos</a>
             <a href="/news/" style={{ color: 'inherit', textDecoration: 'none' }}>News</a>
             <a href="/privacidad" style={{ color: 'inherit', textDecoration: 'none' }}>Privacidad</a>
             <a href="/terminos" style={{ color: 'inherit', textDecoration: 'none' }}>Términos</a>
