@@ -11,3 +11,4 @@ Disallow: /uploads/
 Disallow: /screenshots/
 
 Sitemap: https://panamarealestateguide.com/sitemap.xml
+Sitemap: https://panamarealestateguide.com/sitemap-videos.xml

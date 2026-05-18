@@ -36,8 +36,17 @@ jobs:
             node scripts/sync-airtable.mjs
           fi
 
+      - name: Sync YouTube channel feed -> project/youtube-videos.json
+        run: node scripts/sync-youtube-videos.mjs
+
       - name: Inject per-project meta + schema into /projects/*.html
         run: node scripts/inject-project-meta.mjs
+
+      - name: Generate per-video pages under /videos/
+        run: node scripts/inject-video-meta.mjs
+
+      - name: Build video sitemap (project/sitemap-videos.xml)
+        run: node scripts/build-video-sitemap.mjs
 
       - name: Inject per-article meta + schema into /articles/*.html
         run: node scripts/inject-article-meta.mjs

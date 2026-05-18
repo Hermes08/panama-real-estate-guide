@@ -738,7 +738,7 @@ function Footer() {
                 },
                 {
                   name: 'YouTube',
-                  href: 'https://www.youtube.com/@panamarealestateguide.com',
+                  href: 'https://www.youtube.com/@panamarealestateguidetv',
                   path: 'M23 7.2s-.2-1.6-.9-2.3c-.9-.9-1.8-.9-2.3-1C16.5 3.5 12 3.5 12 3.5s-4.5 0-7.8.4c-.5.1-1.4.1-2.3 1-.7.7-.9 2.3-.9 2.3S.8 9 .8 10.9v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.9.9 2.1.9 2.6 1 1.9.2 8 .3 8 .3s4.5 0 7.8-.4c.5-.1 1.4-.1 2.3-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15V8.3l5.8 3.4L9.7 15z'
                 },
                 {
