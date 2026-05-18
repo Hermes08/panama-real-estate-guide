@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 // =============================================================================
-// inject-article-meta.mjs v1 — per-article SEO meta + Article/Breadcrumb schema
+// inject-article-meta.mjs v2 — per-article SEO meta + Article/Breadcrumb/FAQ
 // =============================================================================
 // Reads article metadata from project/data.js (PANAMA_DATA.articles +
 // articleBodies), then for each /articles/*.html file injects a per-article
 // <head> block: title, description, canonical, OpenGraph, Twitter Card,
-// Article + BreadcrumbList JSON-LD.
+// Article + BreadcrumbList JSON-LD, and (when the article declares a
+// well-formed faqs array) FAQPage JSON-LD.
 //
 // Why this exists:
 //   Every articles/*.html ships an identical generic <title> and
@@ -265,6 +266,13 @@ function buildHeadInjection({ slug, article, body, isIndex }) {
     ],
   };
 
+  // FAQPage JSON-LD — emitted only when the article entry declares a faqs
+  // array with at least 3 well-formed Q&A pairs. Google's FAQPage rich-result
+  // eligibility requires a minimum of 2; we use 3 as a quality threshold so
+  // sparse stubs don't ship. Q/A text runs through cleanMarkdown to strip
+  // any bold/link markdown that crept in from copy-pasted body content.
+  const ldFaq = buildFaqLd(article.faqs, url);
+
   const lines = [
     HEAD_START,
     `<title>${attrEscape(titleTag)}</title>`,
@@ -282,9 +290,53 @@ function buildHeadInjection({ slug, article, body, isIndex }) {
     `<meta name="twitter:image" content="${attrEscape(DEFAULT_OG_IMAGE)}"/>`,
     `<script type="application/ld+json">${sanitizeForJsonLdScript(JSON.stringify(ldArticle))}</script>`,
     `<script type="application/ld+json">${sanitizeForJsonLdScript(JSON.stringify(ldBreadcrumb))}</script>`,
+    ...(ldFaq ? [`<script type="application/ld+json">${sanitizeForJsonLdScript(JSON.stringify(ldFaq))}</script>`] : []),
     HEAD_END,
   ];
   return lines.join('\n  ');
+}
+
+// -----------------------------------------------------------------------------
+// FAQPage JSON-LD builder.
+//
+// Accepts an article.faqs array of {q, a} objects (or {question, answer}).
+// Returns null when the input is missing, malformed, or has fewer than 3
+// valid pairs — Google's documented minimum for FAQ rich results is 2, but
+// we use 3 as a quality bar to keep half-finished entries out of the SERP.
+//
+// Q/A text is run through cleanMarkdown to strip the bold/link markdown that
+// commonly creeps in when FAQs are copy-pasted from body prose. The cap is
+// 300 chars on questions and 1000 chars on answers — Google rejects FAQs
+// where the answer text doesn't roughly match the on-page text, but very
+// long answers tank the rich-result rendering, so we truncate at a word
+// boundary if the prose runs over.
+// -----------------------------------------------------------------------------
+function buildFaqLd(faqs, url) {
+  if (!Array.isArray(faqs)) return null;
+  const cleaned = [];
+  for (const f of faqs) {
+    if (!f) continue;
+    const q = cleanMarkdown(f.q || f.question || '');
+    const a = cleanMarkdown(f.a || f.answer || '');
+    if (q.length < 6 || a.length < 20) continue;
+    cleaned.push({
+      '@type': 'Question',
+      name: truncateAtWord(q, 300),
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: truncateAtWord(a, 1000),
+      },
+    });
+  }
+  if (cleaned.length < 3) return null;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: cleaned,
+    // Tying the FAQPage to its host URL is not required by Google but it
+    // helps the validator resolve which page the markup belongs to.
+    url,
+  };
 }
 
 // -----------------------------------------------------------------------------
