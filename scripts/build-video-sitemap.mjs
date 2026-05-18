@@ -114,13 +114,14 @@ async function main() {
     out.push('  </url>');
   }
 
-  // 2) Per-video entries (dedicated /videos/{videoId}.html pages from Phase 3).
-  //    Only emit when those pages will actually exist (i.e., at least one
-  //    video — Phase 3 generates a page per entry in youtube-videos.json).
+  // 2) Per-video entries (dedicated /videos/{videoId} pages from Phase 3).
+  //    URL is the lowercased video ID without .html to match Netlify's
+  //    pretty_urls processing — the same canonical URL the per-video page
+  //    declares in its <link rel="canonical">.
   for (const v of videos) {
     if (!v.videoId) continue;
     out.push('  <url>');
-    out.push(`    <loc>${SITE_BASE}/videos/${v.videoId}.html</loc>`);
+    out.push(`    <loc>${SITE_BASE}/videos/${v.videoId.toLowerCase()}</loc>`);
     out.push(buildVideoEntry(v, '    '));
     out.push('  </url>');
   }

@@ -107,7 +107,12 @@ async function loadProjects() {
 // Per-video page renderer.
 // -----------------------------------------------------------------------------
 function buildVideoHead(video, project) {
-  const url = `${SITE_BASE}/videos/${video.videoId}.html`;
+  // Netlify's pretty_urls processing lowercases any URL that contains
+  // uppercase letters, so we anchor the canonical at the lowercased slug.
+  // The actual YouTube embed/content URLs keep the original case because
+  // youtube.com IS case-sensitive.
+  const slug = video.videoId.toLowerCase();
+  const url = `${SITE_BASE}/videos/${slug}`;
   // Meta values must be single-line — collapse newlines + repeated whitespace.
   const collapsed = cleanDescription(video.description).replace(/\s+/g, ' ').trim();
   const desc = truncate(collapsed || video.title, 155);
@@ -361,7 +366,7 @@ function buildIndexHtml(videos, projects) {
   const staticCards = videos.map(v => {
     const proj = v.projectSlug ? projects[v.projectSlug] : null;
     return `      <li style="margin:0 0 32px;padding:0">
-        <a href="/videos/${v.videoId}.html" style="text-decoration:none;color:inherit;display:block">
+        <a href="/videos/${v.videoId.toLowerCase()}" style="text-decoration:none;color:inherit;display:block">
           <img src="${attrEscape(v.thumbnailUrl || `https://i.ytimg.com/vi/${v.videoId}/maxresdefault.jpg`)}" alt="${attrEscape(v.title)}" loading="lazy" style="width:100%;border-radius:14px;display:block"/>
           <h2 style="font-family:'Fraunces',serif;font-size:24px;margin:18px 0 6px;color:#111">${attrEscape(v.title)}</h2>
           ${proj ? `<div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#666">${attrEscape(proj.name)}</div>` : ''}
@@ -428,7 +433,7 @@ ${staticCards}
                 {videos.map(v => {
                   const proj = v.projectSlug ? projBySlug[v.projectSlug] : null;
                   return (
-                    <a key={v.videoId} href={\`/videos/\${v.videoId}.html\`} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+                    <a key={v.videoId} href={\`/videos/\${v.videoId.toLowerCase()}\`} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
                       <div style={{ position: 'relative', paddingTop: '56.25%', borderRadius: 14, overflow: 'hidden', background: '#000', marginBottom: 18 }}>
                         <img src={v.thumbnailUrl || \`https://i.ytimg.com/vi/\${v.videoId}/maxresdefault.jpg\`} alt={v.title} loading="lazy" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
                         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 100%)' }}/>
@@ -484,11 +489,14 @@ async function main() {
   await fs.mkdir(VIDEOS_DIR, { recursive: true });
 
   // Generate per-video pages.
+  // Filename uses lowercased video ID to play nice with Netlify pretty_urls
+  // (which lowercases any URL containing uppercase letters). The original
+  // case-sensitive videoId is still used for youtube.com URLs in the page.
   const expectedFiles = new Set(['index.html']);
   let written = 0;
   for (const v of videos) {
     if (!v.videoId) continue;
-    const fname = `${v.videoId}.html`;
+    const fname = `${v.videoId.toLowerCase()}.html`;
     expectedFiles.add(fname);
     const project = v.projectSlug ? projects[v.projectSlug] : null;
     const html = buildVideoPageHtml(v, project);
