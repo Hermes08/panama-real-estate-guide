@@ -3,16 +3,24 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Project — PanamaRealEstateGuide.com</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="../styles.css"/>
-  <meta name="description" id="proj-meta-desc" content="Developer-direct Panama real estate. Reserve from $5,000 — refundable. EN · ES · PT · DE."/>
-
+  
   <script defer src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
   <script defer src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
   <script defer src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <!-- BEGIN_PROJECT_META -->
+  <title>Silverbay Panama — PanamaRealEstateGuide.com</title>
+  <meta name="description" content="Silverbay Panama — Panama real estate project. Developer-direct units, refundable reservation deposit from $5,000."/>
+  <meta property="og:title" content="Silverbay Panama — PanamaRealEstateGuide.com"/>
+  <meta property="og:description" content="Silverbay Panama — Panama real estate project. Developer-direct units, refundable reservation deposit from $5,000."/>
+  <meta property="og:url" content="https://panamarealestateguide.com/projects/silverbay-panama.html"/>
+  <meta property="og:type" content="website"/>
+  <link rel="canonical" href="https://panamarealestateguide.com/projects/silverbay-panama.html"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateListing","name":"Silverbay Panama","description":"Silverbay Panama — Panama real estate project. Developer-direct units, refundable reservation deposit from $5,000.","url":"https://panamarealestateguide.com/projects/silverbay-panama.html","image":"https://panamarealestateguide.com/cover_facebook_1640x856.png","address":{"@type":"PostalAddress","addressLocality":"Panama","addressCountry":"PA"}}</script>
+  <!-- END_PROJECT_META -->
 </head>
 <body>
   <div id="root"></div>
@@ -157,6 +165,37 @@
               )}
             </div>
           </section>
+
+          {/* BEGIN_PROJECT_VIDEO */}
+          {typeof window !== 'undefined' && Array.isArray(window.__PROJECT_VIDEOS__) && window.__PROJECT_VIDEOS__.length > 0 && (
+            <section className="project-video-section" style={{ padding: 'clamp(48px, 6vw, 90px) 0', background: 'var(--paper)' }}>
+              <div className="container">
+                <div className="eyebrow" style={{ marginBottom: 16 }}>
+                  <span className="rule-coral"></span>Video tour
+                </div>
+                <h2 className="display" style={{ fontSize: 'clamp(28px, 3.4vw, 44px)', margin: '0 0 24px', lineHeight: 1.1 }}>
+                  See <em>{p.name}</em> in motion.
+                </h2>
+                <div style={{ position: 'relative', paddingTop: '56.25%', borderRadius: 14, overflow: 'hidden', maxWidth: 980, margin: '0 auto', background: '#000' }}>
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${window.__PROJECT_VIDEOS__[0].videoId}?rel=0`}
+                    title={window.__PROJECT_VIDEOS__[0].title}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
+                  />
+                </div>
+                {window.__PROJECT_VIDEOS__.length > 1 && (
+                  <p style={{ marginTop: 20, textAlign: 'center', fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--ink-soft)', letterSpacing: '0.08em' }}>
+                    {window.__PROJECT_VIDEOS__.length} videos · <a href={`https://www.youtube.com/@panamarealestateguidetv`} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>more on YouTube →</a>
+                  </p>
+                )}
+              </div>
+            </section>
+          )}
+          {/* END_PROJECT_VIDEO */}
 
           {/* ABOUT + AMENITIES */}
           <section style={{ padding: 'clamp(64px, 8vw, 110px) 0' }}>
@@ -304,14 +343,14 @@
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
       .then(d => {
         if (d && Array.isArray(d.projects) && d.projects.length) {
-          window.PANAMA_DATA.projects = d.projects;
+          (function(){var byId={};window.PANAMA_DATA.projects.forEach(function(p){byId[p.id]=p;});d.projects.forEach(function(p){byId[p.id||p.slug]=Object.assign({},byId[p.id||p.slug]||{},p);});window.PANAMA_DATA.projects=Object.values(byId);window.PANAMA_DATA._projectsSource='airtable+demo';})();
         }
       })
       .catch(()=>{})
       .finally(() => {
         // Re-bind p after potential hydration
         const cur = window.PANAMA_DATA.projects.find(x => x.id === PROJECT_ID);
-        if (cur) {
+        if (cur && cur !== p) {
           for (const k in p) delete p[k];
           Object.assign(p, cur);
         }
