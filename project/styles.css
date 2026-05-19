@@ -333,14 +333,6 @@ section { position: relative; }
   border-color: var(--ink);
 }
 
-/* WebGL canvas wrapper */
-.webgl-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
 
 /* Seashell/wave divider SVG container */
 .wave-divider {
