@@ -88,7 +88,49 @@ window.PANAMA_DATA = {
       date: 'March 28, 2026',
       read: '7 min read',
       cover: 'sunset',
-      featured: false
+      featured: false,
+      faqs: [
+        {
+          q: "If Panama uses the USD, why do I see \"Panamanian dollars\" mentioned online?",
+          a: "Panamanian dollars are USD. There is no separate Panamanian currency in circulation. The term \"Panamanian dollar\" is informal; it means the US dollar used in Panama. Some older sources or informal usage might reference the Balboa, but in practice, all transactions are in US dollars."
+        },
+        {
+          q: "Does the US Federal Reserve control Panama's monetary policy?",
+          a: "In effect, yes—Panama cannot print money or set interest rates independently. This is a feature for property buyers; it removes local monetary policy risk and political interference. For large exporters or manufacturers, it can be constraining if they face price competition from countries with weaker currencies."
+        },
+        {
+          q: "What happens if the US dollar weakens against other currencies?",
+          a: "A Panamanian property buyer faces the same FX risk as any US-domiciled investor. If the dollar weakens against the euro, your euro-denominated costs rise. But you face no *additional* Panama-specific currency risk. The property itself does not become cheaper or more expensive due to Panama-specific devaluation."
+        },
+        {
+          q: "Can Panama revert to a national currency?",
+          a: "Technically yes, but politically improbable. Dollarization is enshrined in law and deeply embedded in the financial system. A reversion would require constitutional amendment and would trigger capital flight immediately. No serious political actor has proposed this in decades. The policy has 120 years of institutional inertia behind it."
+        },
+        {
+          q: "Are there any downsides to dollarization for property buyers?",
+          a: "The main downside is loss of monetary policy autonomy—Panama cannot devalue to boost exports or inflate away government debt. For a property buyer, this is irrelevant. For a Panamanian manufacturer competing globally, it is a constraint that raises prices for Panamanian goods relative to devalued regional competitors."
+        },
+        {
+          q: "How does dollarization affect property taxes and transaction costs?",
+          a: "Not at all. Taxes and costs are quoted in USD; dollarization simplifies accounting. A Mexican buyer converting pesos to pay property tax faces FX friction and conversion fees. A Panamanian buyer does not. All municipal assessments, transfer taxes, and legal fees are priced in dollars."
+        },
+        {
+          q: "If I buy in Panama with euros or pounds, do I still avoid FX risk?",
+          a: "You avoid Panama-specific FX risk, but not general currency risk. If you finance in euros and the dollar strengthens, your mortgage obligation (in dollars) becomes more expensive in euro terms. But if you finance in dollars or hold proceeds in dollars, you eliminate Panama-specific currency risk entirely."
+        },
+        {
+          q: "What is the Balboa?",
+          a: "A Panamanian collector coin minted in 14k gold and silver, with a 1:1 value to the USD. It exists as a legal and symbolic anchor to dollarization—proof that the policy is law, not convention. You will not encounter Balboas in daily transactions; they are collector pieces and legal tender only."
+        },
+        {
+          q: "Does dollarization make Panama inflation-proof?",
+          a: "No. Panama faces 2–4% inflation annually, like most developed economies. Dollarization prevents *devaluation-driven* inflation (the sharp price spikes that follow currency collapses in Mexico, Colombia, Argentina). Regular imported-goods inflation still occurs, but at lower rates than in regions with currency depreciation."
+        },
+        {
+          q: "Can I rent my Panamanian property and collect dollars?",
+          a: "Yes—rental income flows in USD. A Colombian landlord collecting pesos and holding them faces depreciation risk. A Panamanian landlord collects dollars and can transfer them to any country without currency conversion. This is a significant advantage for investors planning to hold rental properties long-term."
+        }
+      ]
     },
     {
       id: 'tax-primer',
@@ -178,7 +220,33 @@ window.PANAMA_DATA = {
       date: 'April 12, 2026',
       read: '12 min read',
       cover: 'sand',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Is Bocas del Toro a good investment in 2026?",
+          a: "Yes, if you have capital and a 5+ year timeline. Appreciation has been strong, and rental demand is solid. Don't expect quick cash flow; expect long-term capital gains."
+        },
+        {
+          q: "Should I buy titled land or ROP?",
+          a: "Titled is safer long-term. ROP is cheaper (20–30% discount) but carries legal risk. Only buy ROP if you're comfortable holding indefinitely and don't plan to sell."
+        },
+        {
+          q: "What's the best neighborhood for rentals?",
+          a: "Isla Carenero and Bocas Town both have strong rental demand. Oceanfront properties in either location typically achieve 6–8% gross yields."
+        },
+        {
+          q: "Can I get a mortgage in Bocas?",
+          a: "Traditional mortgages are rare. Most buyers use cash, seller financing, or personal loans. International banks sometimes lend at 6–8% with 50–60% LTV."
+        },
+        {
+          q: "Is the Pensioner Visa available in Bocas?",
+          a: "Yes. You can establish a pensioner visa residency in Panama and live in Bocas. Minimum income requirement: $1,350/month ($16,200/year). Cost to establish: ~$15,000 in legal/administrative fees."
+        },
+        {
+          q: "What's the dry season vs. green season?",
+          a: "December–April is dry and sunny (tourist season). May–October is rainy and less crowded. Rental income drops 30–50% May–October."
+        }
+      ]
     },
     {
       id: 'boquete-panama-real-estate',
@@ -189,7 +257,29 @@ window.PANAMA_DATA = {
       date: 'April 11, 2026',
       read: '13 min read',
       cover: 'sand',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Do I need a Panama visa to buy real estate?",
+          a: "No. Foreign nationals can purchase property without a visa. However, most buyers eventually pursue the Pensionado visa ($1,350/month minimum income) or Friendly Nations visa (faster approval; requires citizenship from 50+ countries). The visa is optional but recommended for tax residency and healthcare benefits."
+        },
+        {
+          q: "How much income do I need to qualify for a mortgage?",
+          a: "Most Panamanian banks require monthly income of $1,800–$2,500 depending on the loan amount. For a $150,000 mortgage (50% LTV on $300,000 purchase), expect to show $2,000+/month minimum income. Retirees with pension income qualify easily."
+        },
+        {
+          q: "Can I rent my property without a Panama residency visa?",
+          a: "Yes. Foreign owners can rent properties without a visa. You're not subject to Panama income tax on rental income if you're not a tax resident. Once you obtain a visa and become a tax resident, rental income becomes taxable, expect 5–10% tax on net rental income."
+        },
+        {
+          q: "What's the best neighborhood for rental income?",
+          a: "Central Boquete offers the highest cap rates (6–7%) due to strong tourist demand and lower entry prices. Alto Boquete has lower cap rates (4–5%) but attracts higher-value renters. Choose based on desired cash flow, not prestige."
+        },
+        {
+          q: "How long does it take to close a real estate transaction?",
+          a: "60–90 days from offer acceptance to title registration. Cash purchases close in 30–45 days. Financed purchases take longer (60–90 days) due to bank approval, appraisal, and underwriting timelines."
+        }
+      ]
     },
     {
       id: 'boquete-real-estate-investment-guide-2026',
@@ -200,7 +290,29 @@ window.PANAMA_DATA = {
       date: 'April 10, 2026',
       read: '13 min read',
       cover: 'sand',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "How much should I budget for a $300k Boquete home purchase?",
+          a: "Down payment $150k-$180k (50-60%), closing costs $12k-$18k, initial repairs/updates $5k-$15k. Total: $167k-$213k. If all-cash, $300k + $12k-$18k closing = $312k-$318k deployed."
+        },
+        {
+          q: "What's the best time of year to buy?",
+          a: "May-June (rainy season start) when sellers are motivated and inventory peaks. December-February is high season; prices firm. A motivated seller in June might accept 3-5% below asking. Avoid July-September (peak rain, fewer showings)."
+        },
+        {
+          q: "Can I get Friendly Nations residency with a Boquete property?",
+          a: "Yes. Buy a $200k Boquete home, apply for residency, receive approval in 60-90 days. Residency then lets you mortgage at 5.5-6.5% rates and access Panama's tax advantages on foreign-source income."
+        },
+        {
+          q: "Should I self-manage or use a property manager?",
+          a: "Use a manager. First-time landlords spend $300-$600/month on unexpected repairs and lose bookings to slow response times. A 25-30% management fee is worth the peace of mind."
+        },
+        {
+          q: "How long before a Boquete property pays for itself?",
+          a: "~12-15 years on appreciation alone (doubling your money at 6-8% annually). Add rental income and it's ~8-10 years. Long holding periods matter; don't expect short-term flips."
+        }
+      ]
     },
     {
       id: 'coronado-real-estate-guide',
@@ -211,7 +323,29 @@ window.PANAMA_DATA = {
       date: 'April 9, 2026',
       read: '18 min read',
       cover: 'sand',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Is it legal for a foreigner to own real estate in Panama?",
+          a: "Yes, absolutely. Foreign nationals can own unlimited real estate in Panama. No visa is required to purchase property, though most buyers eventually pursue the Pensionado visa ($1,350/month minimum income) or Friendly Nations visa for tax residency benefits and healthcare access."
+        },
+        {
+          q: "What's the best time of year to buy Coronado real estate?",
+          a: "Late April through August (rainy season) is the buyer's market. Sellers are desperate, tourist demand is low, and prices are softer. December–March is the seller's market—rush demand and peak enthusiasm inflate prices 10–15%. Buy in low season if possible; you'll capture the same property at 8–12% discount."
+        },
+        {
+          q: "Can I get a mortgage as a foreign buyer without a visa?",
+          a: "Yes, but with restrictions. Most Panamanian banks require 30–50% down payment and proof of income (pension, employment letter, or bank statements). Pre-approval takes 3–5 weeks. With a valid visa (Pensionado or Friendly Nations), you can qualify for better rates and higher LTV."
+        },
+        {
+          q: "How much does it cost to hire a real estate agent in Coronado?",
+          a: "Agent commissions are typically 5–6% of purchase price, split between buyer's and seller's agents. In practice, the seller pays the commission from proceeds, so buyers don't pay directly. Use an agent; their cost is already baked into market pricing."
+        },
+        {
+          q: "What's the difference between ROP-titled and private-deed properties?",
+          a: "ROP (Registro de Propiedad) properties are registered with Panama's official land registry—your ownership is public and legally bulletproof. Private deeds are unregistered, creating ownership uncertainty and financing complications. Always require ROP title. Never settle for private-deed promises."
+        }
+      ]
     },
     {
       id: 'living-in-panama-city',
@@ -222,7 +356,33 @@ window.PANAMA_DATA = {
       date: 'April 8, 2026',
       read: '16 min read',
       cover: 'sand',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Can I buy property as a foreigner without a visa?",
+          a: "Yes. Foreign ownership is legal with no residency requirement. You can purchase, own, and rent property as a foreigner. However, if you plan to stay long-term, getting a visa (Friendly Nations takes 4 weeks, costs ~$400) simplifies banking, healthcare registration, and social integration. Banks prefer lending to visa holders; some lenders require proof of residency to approve mortgages."
+        },
+        {
+          q: "Is tap water safe to drink?",
+          a: "In Cinta Costera, Paitilla, El Cangrejo, and San Francisco: yes, it's treated and safe for daily consumption. In older neighborhoods (El Mirador, transitional areas), many expats use water filters or drink bottled water as a precaution. Restaurants use filtered or bottled water. Most long-term locals and expats drink tap water without issue, but if you have a sensitive stomach, filtering or bottled water is a safe choice the first month."
+        },
+        {
+          q: "How long do I need a car?",
+          a: "If you live in El Cangrejo, you don't need one. Metro + Uber covers 90% of trips, and you can walk to most daily needs. If you live in Paitilla, own a car ($400–$600/month lease or rental) or rely on Uber ($8–$12 per ride). For San Francisco, you're in-between, walkable to some spots, but Uber often makes sense. Families with kids benefit from a car for flexibility, school runs, weekend trips outside the city (Boquete, Coronado, Caribbean islands)."
+        },
+        {
+          q: "What's the best time of year to move?",
+          a: "Dry season (December–April) is ideal. You'll avoid rainy-season flooding, see neighborhoods clearly, and experience pleasant weather. Prices are slightly higher (higher demand), but the visibility is worth it. Rainy season (May–November) is cheaper (10–15% lower rents in some areas) and less crowded; if you're flexible on daily afternoon showers and humidity, you'll save money."
+        },
+        {
+          q: "Do I need to speak Spanish?",
+          a: "No. English works in Cinta Costera, expat neighborhoods, universities, and tourist areas. But learning conversational Spanish (even 6 months of lessons, $30–$60/month) opens up social connections, local restaurants, and 20–30% better prices at markets and from landlords. Spanish speakers get better deals negotiating rent, buying at street markets, and making friends with locals."
+        },
+        {
+          q: "Is it true that the weather is identical every day?",
+          a: "Mostly. Temperature stays 75–90°F year-round (coastal areas). Humidity ranges 65–85%. Trade winds help in Cinta Costera (breezier). Interior (Boquete) is cooler (60–75°F). If you dislike hot weather, Boquete is better; if you want Caribbean warmth and beaches accessible, city living (especially Amador) is ideal."
+        }
+      ]
     },
     {
       id: 'playa-venao-panama',
@@ -279,7 +439,29 @@ window.PANAMA_DATA = {
       date: 'April 3, 2026',
       read: '14 min read',
       cover: 'ocean',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Can I buy property in Panama without a visa or residency?",
+          a: "Yes. Foreign ownership is unrestricted. You don't need a visa to own real estate or rent it out. Many non-residents own and manage properties remotely through property managers. If you plan to visit regularly, obtain a Friendly Nations or Pensionado visa for convenience and tax planning."
+        },
+        {
+          q: "Is it risky to finance with a Panamanian bank if I'm not a resident?",
+          a: "No. Non-residents get mortgages regularly. You'll need proof of income and a local bank account, but the process is standard. Local banks prefer expats because they're perceived as lower-credit-risk than local borrowers (employment is more stable). Rates are comparable to U.S. mortgages."
+        },
+        {
+          q: "What happens to my rental income if I leave the country?",
+          a: "Nothing, if you have a property manager. Your manager collects rent, pays HOA and utilities, and remits to your U.S. bank account. Property management fees are 7–12% of collected rent. You can hire managers remotely without being present."
+        },
+        {
+          q: "Should I buy pre-construction or resale?",
+          a: "Pre-construction if you can wait 18–36 months for completion and want appreciation upside (often 15–25%). Resale if you want immediate rental income, known condition, and lower construction risk. Many investors do both: buy pre-construction for appreciation, buy resale for immediate yield."
+        },
+        {
+          q: "What's the biggest risk in Panama real estate right now?",
+          a: "Overbuilding in popular neighborhoods (Costa del Este, San Francisco) can suppress rents short-term. Political risk is minimal (Panama's Canal is globally significant, stabilizing policy). Currency risk is zero (dollar-denominated). The real risk is overpaying in hot zones or buying off-plan from an unvetted developer. Hire an attorney. Always."
+        }
+      ]
     },
     {
       id: 'panama-property-buying-process-guide',
@@ -323,7 +505,29 @@ window.PANAMA_DATA = {
       date: 'April 1, 2026',
       read: '12 min read',
       cover: 'ocean',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Can I get a mortgage from a US bank to buy beachfront property in Panama?",
+          a: "No. US banks don't lend on foreign property. You must use a Panamanian bank or pay cash. Some US investors open lines of credit in Panama and use those; it's slower and more expensive. Best move: 50% down, finance 50% locally."
+        },
+        {
+          q: "What's the best town for rental income if I don't want to live there?",
+          a: "Bocas del Toro or Coronado. Both have established property-management services, consistent demand, and professional rental platforms (Airbnb, Vrbo). If you choose Pedasi or Santa Catalina, hire a property manager—rental discovery is harder."
+        },
+        {
+          q: "How much do I need in liquid savings beyond the down payment?",
+          a: "Minimum: $20,000–$30,000 for closing costs, first year's maintenance, and contingencies. If you're not generating rental income immediately, add 12 months of HOA + utilities + property manager fees. Total cushion: $35,000–$50,000 beyond your down payment."
+        },
+        {
+          q: "If I rent the property, do I pay Panama income tax on rental income?",
+          a: "Rental income is taxed at 25% corporate rate or 1–27% personal rate (progressive) depending on your residency status. Foreign non-residents typically file a simplified return. A Panamanian CPA can minimize this through entity structuring. Budget for taxes; don't skip them."
+        },
+        {
+          q: "Should I buy under a corporation or personally?",
+          a: "A Panama corporation (Sociedad Anónima or S.A.) costs $500–$800/year to maintain but offers liability protection, privacy, and inheritance simplicity. If you're buying a single property for yourself, personal ownership is fine. If you're building a portfolio or concerned about liability, incorporate."
+        }
+      ]
     },
     {
       id: 'panama-real-estate-investment-lifestyle-2026',
@@ -334,7 +538,29 @@ window.PANAMA_DATA = {
       date: 'March 31, 2026',
       read: '15 min read',
       cover: 'ocean',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Can I get a mortgage if I have no permanent address or work in crypto?",
+          a: "It's possible but harder. You'll need strong bank statements showing consistent deposits ($3,000–$5,000/month), savings history, and possibly a co-signer or US credit reference. Private lenders are more flexible (7–9% interest) than banks."
+        },
+        {
+          q: "What's the best property type for hands-off passive income?",
+          a: "Long-term residential rentals (1-year leases) in Panama Viejo or Coronado. Gross yields 4.5–7%, but you hire a property manager and enjoy stable expat tenants. Short-term vacation rentals yield more (7–9%) but require active management or a hands-on property manager."
+        },
+        {
+          q: "How much liquid savings should I keep beyond the down payment?",
+          a: "Budget for 12–24 months of combined mortgage + HOA + tax + maintenance costs. If your monthly property expenses are $2,500, keep $30,000–$60,000 liquid. Panama has low unexpected costs, but repairs and vacancy can surprise you."
+        },
+        {
+          q: "Do I pay income tax on rental income from my Panama property?",
+          a: "Yes, but Panama has favorable rules. Rental income is taxed at 5–37% depending on your total Panamanian-source income (tiered brackets). If you're living in Panama under a Pensionado visa, you can exclude foreign income, so only the rental income is taxed. Hire a Panama CPA; compliance is $500–$1,000/year."
+        },
+        {
+          q: "Should I buy in my own name, a corporation, or a trust?",
+          a: "In your own name: Simplest, cheapest ($0 extra), good for personal residence or small portfolios. Via a Panama corporation: $500–$1,500 setup + annual maintenance ($300–$500). Benefit: liability protection, easier to hide ownership (not recommended), easier to pass to heirs. Drawback: extra accounting, no income-tax benefits. US LLC taxed as corporation: Good if you want US liability protection + Panama real estate. Requires a Panama attorney + US CPA. Recommendation: If you're buying one property, use your own name. If buying 2+, consider a Panama corporation for liability reasons."
+        }
+      ]
     },
     {
       id: 'panama-real-estate-investments',
@@ -345,7 +571,29 @@ window.PANAMA_DATA = {
       date: 'March 30, 2026',
       read: '13 min read',
       cover: 'ocean',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Can I get a mortgage as a foreign buyer without a Panama visa?",
+          a: "Yes, but with stricter terms. Most banks require 35–40% down and limit loans to $300k–$500k. A Pensionado or Friendly Nations visa allows up to 70% LTV and faster approval. Non-resident buyers often use a Panama company (establecimiento) to hold title, which can be required for financing."
+        },
+        {
+          q: "What's the best time to buy—now or wait for a correction?",
+          a: "Prices have appreciated 3–6% annually since 2023, outpacing inflation. Short-term speculation is unlikely to beat a patient hold. The market is supply-constrained (land-scarcity in city; fewer developers post-pandemic). If you're buying for income (rental or resale in 5+ years), 2026 is a reasonable entry point. If you're waiting for a 30% crash, that's unlikely; Panama's economy is tied to the Canal and tourism—fundamentals remain solid."
+        },
+        {
+          q: "Should I buy through a company or in my personal name?",
+          a: "Personal name is simpler for owner-occupied. A company (S.A.) is useful if you plan multiple rentals, want liability protection, or intend to pass the property to heirs without probate. Company formation costs ~$1,500–$2,000 and adds annual compliance (~$500/year). Consult your lawyer on tax implications for your home country."
+        },
+        {
+          q: "How much do property management companies charge?",
+          a: "8–12% of gross monthly rent, plus utilities and maintenance (if they handle it). Some charge a flat fee ($150–$300/month) for advertising, tenant screening, and rent collection only. Interview 2–3 managers; ask for references and see their lease templates. Premium managers (AAPM-certified) charge 12–15% but handle evictions, disputes, and maintenance professionally."
+        },
+        {
+          q: "Is it safe to invest in Panama right now?",
+          a: "Panama is politically stable; the Canal is a strategic asset (US-friendly). Crime in residential areas is lower than 5 years ago. Real estate law is transparent and well-established. The main risk is economic (recession could lower rents and property values), not political. Diversify: don't put all capital in one property. Vet developers and neighborhoods carefully. Use an escrow (all transactions go through escrow by law)."
+        }
+      ]
     },
     {
       id: 'panama-real-estate-market-2026',
@@ -358,7 +606,33 @@ window.PANAMA_DATA = {
       cover: 'ocean',
       lang: 'en',
       homepage_rank: 5,
-      utm_campaign: 'market-2026'
+      utm_campaign: 'market-2026',
+      faqs: [
+        {
+          q: "Is now a good time to buy Panama real estate, or should I wait for a correction?",
+          a: "Panama's market is growing 5–6% annually, which is ahead of inflation. A dramatic correction (30%+) is unlikely given fundamentals (Canal, tourism, visa migration). If you're buying for income or a 5+ year hold, 2026 is a reasonable entry point. If you're timing the market for a short-flip, you're gambling."
+        },
+        {
+          q: "Can I get a mortgage as a foreign buyer without a Panama bank account or visa?",
+          a: "Yes. Most banks require a US or international bank statement showing reserves (6–12 months PITI equivalent). A Panama bank account is helpful but not mandatory. A visa (Pensionado, Friendly Nations) gives you better rates and higher LTV; without one, expect 35–40% down and 55–60% LTV max."
+        },
+        {
+          q: "What's the difference between a Pensionado visa and a Friendly Nations visa?",
+          a: "Pensionado requires $1,350/month proof of passive income (pension, dividends, rental income). Friendly Nations requires $1,000/month income + $120,000 liquid savings. Both give the same residency (permanent) and mortgage benefits. Citizens of \"friendly\" countries (US, EU, UK, Canada, most Latin American nations) qualify for the visa; a few exclusions apply (check with immigration). Pensionado is stricter on income documentation; Friendly Nations is faster."
+        },
+        {
+          q: "What's the safest way to hold title—in my personal name, a Panama company, or a trust?",
+          a: "Personal name is simplest for owner-occupied; you avoid company formation costs (~$1,500) and annual compliance (~$500/year). A Panama S.A. company (corporation) is useful if you're building a rental portfolio, want liability protection, or plan to pass properties to heirs without probate. A trust is rarely necessary in Panama; consult your international tax advisor. For most first-time buyers, personal name is sufficient."
+        },
+        {
+          q: "How do I know if a property manager is reliable?",
+          a: "Ask for 3 references (current clients), check how long the manager has been in business (5+ years is a signal of stability), review the lease template they use (should protect tenant deposits and specify maintenance responsibilities), and confirm they carry errors & omissions insurance. Fees should be transparent: 8–12% of rent, plus expenses (maintenance, repairs). Avoid managers charging flat fees; they have little incentive to fill vacancies or manage efficiently."
+        },
+        {
+          q: "What happens if the developer delays my pre-construction project?",
+          a: "Delays are common (rain, permits, labor shortages, material delays). Most contracts include a grace period (30–60 days). If delay exceeds the grace period, you can demand price reductions, contract cancellation (with penalty), or a discount on the purchase. Real estate law in Panama is buyer-favorable on excessive delays. Your attorney should negotiate a specific completion date (not a range) and include delay penalties. Developer bankruptcy insurance is also available (~1% of purchase price)."
+        }
+      ]
     },
     {
       id: 'panama-retirement-communities',
@@ -402,7 +676,29 @@ window.PANAMA_DATA = {
       date: 'March 27, 2026',
       read: '14 min read',
       cover: 'ocean',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "What's the difference between furnished and unfurnished apartments?",
+          a: "Furnished includes furniture, kitchenware, and sometimes electronics (TV, washer/dryer). Expect $100–$300/month more in rent. Unfurnished means walls, flooring, and appliances only; you bring everything else. Most expats prefer furnished (avoids the burden of buying and selling furniture)."
+        },
+        {
+          q: "Can I break a lease early?",
+          a: "Lease agreements vary. Standard terms allow early termination with 30–60 days' notice and a penalty of 1 month's rent. Some landlords are flexible; others enforce the full term. Always negotiate this clause before signing."
+        },
+        {
+          q: "What's included in utilities?",
+          a: "Building fees (water, sewage, building insurance, common area maintenance) are typically $50–$150/month. Electricity is separate and billed by the government; you're liable for your unit's usage. Internet is often separate or negotiable as part of rent."
+        },
+        {
+          q: "Is it safe to rent alone as a woman?",
+          a: "Panama City is safe in expat neighborhoods (Punta Pacifica, Paitilla, El Cangrejo, San Francisco). Building security is strict, and women renters are common. Use the same safety practices you would in any major city: avoid walking alone late at night, don't display valuables, stay aware. Neighborhoods with good lighting and foot traffic (El Cangrejo, Casco Viejo) feel safer than empty zones at night."
+        },
+        {
+          q: "Can I negotiate the lease if I'm a short-term renter?",
+          a: "Yes, but expect less flexibility. A 1-year lease is standard and earns the best rate. A 6-month lease costs 10% more. A 3-month lease costs 20–30% more. For 1–2 months, use Airbnb or corporate housing services instead."
+        }
+      ]
     },
     {
       id: 'how-to-rent-apartment-panama',
@@ -457,7 +753,37 @@ window.PANAMA_DATA = {
       date: 'March 22, 2026',
       read: '13 min read',
       cover: 'sand',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Can I reapply immediately after my visa is rejected?",
+          a: "No. You must wait 30 days from the rejection date before reapplying. However, you can file an appeal (recurso de reconsideración) during this 30-day window. Most reapplications are filed as appeals (with corrected documents) rather than entirely new applications. An immigration attorney will advise whether to appeal or reapply fresh."
+        },
+        {
+          q: "What happens to my money if my visa is rejected?",
+          a: "Government fees and attorney fees are non-refundable. If you had a Qualified Investor visa and the $500,000 is sitting in a Panama bank account as required, that money stays in your account—it's not confiscated. You can withdraw it or leave it there. The visa was denied; your bank account remains yours."
+        },
+        {
+          q: "Can I appeal a rejected visa if I don't have an immigration attorney?",
+          a: "Technically yes, but it's not recommended. You must file the appeal in Spanish, address specific legal points, and navigate immigration office procedures. An attorney costs $800-1,500 USD for an appeal but dramatically increases your success rate. Many applicants who appealed without an attorney were denied again. It's worth the investment."
+        },
+        {
+          q: "How long does an appeal take?",
+          a: "Immigration typically issues a decision on an appeal within 45-90 days. Some decisions come faster (30 days) if the issue is straightforward (e.g., you just needed to resubmit a translated document). The 30-day window to file the appeal plus 45-90 day processing means expect 3-4 months total from rejection to final appeal decision."
+        },
+        {
+          q: "If my appeal is denied, can I try again with a different visa category?",
+          a: "Yes. If you're rejected for Pensionado (insufficient income), you could potentially qualify for Qualified Investor or Friendly Nations if your circumstances change. You'd reapply for a different visa type. However, immigration will see your prior rejection on file; you must address why your second attempt is stronger. An attorney can help frame the new application to show how you've addressed the prior concerns."
+        },
+        {
+          q: "My documents are in my home country. Do I need to be in Panama to apply?",
+          a: "No, you can apply from abroad. You'll attend an immigration appointment at a Panama consulate in your home country (or visa application center). Some embassies (US, Canada, UK) process Panama visa applications. Check your nearest consulate's website. Processing timelines are similar: 45-90 days."
+        },
+        {
+          q: "What if my income is in cryptocurrency or from a digital business?",
+          a: "Immigration prefers traditional bank statements and clear, verifiable income sources. Cryptocurrency holdings and digital business income are harder to verify and more likely to trigger scrutiny. If your income is from a digital business: - Provide 2 years of bank statements showing regular deposits from your business - Include tax returns or business registration documents - Get an accountant's letter confirming your income legitimacy - Consider moving funds through a traditional bank account 2-3 months before applying to show a clean paper trail"
+        }
+      ]
     },
     {
       id: 'start-business-panama-foreigners',
@@ -468,7 +794,37 @@ window.PANAMA_DATA = {
       date: 'March 21, 2026',
       read: '19 min read',
       cover: 'sand',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "How much does it cost to start a business in Panama if I do everything myself (no lawyer)?",
+          a: "You can reduce costs to $200-400 USD by handling it yourself: - Registry fee: $50-100 - Gazette publication: $30-60 - Bank account setup: $0-50 - Tax ID registration: $0"
+        },
+        {
+          q: "Can I register a Panama company if I'm not a resident?",
+          a: "Yes, completely. You can be a non-resident of Panama and own a Panama corporation. You register it from abroad, open a bank account remotely (some banks allow this), and operate the company online. You only need a visa if you want to live in Panama."
+        },
+        {
+          q: "Do I need a physical office in Panama?",
+          a: "No. You can run your business from anywhere—your home, a co-working space, or remote. The only document Panama needs is a registered address (where official correspondence is sent). You can use a virtual office address for $50-150/year, or simply use your home address."
+        },
+        {
+          q: "What happens if my business makes zero revenue in year one?",
+          a: "File a tax return showing zero revenue and zero tax owed. This is normal for startups. You pay only the annual corporate registry filing fee ($30-50). After 3-5 years of zero revenue, immigration might ask questions about your visa status, but a business with no income yet doesn't disqualify you from residency."
+        },
+        {
+          q: "Can I convert my foreign business into a Panama business?",
+          a: "Partially. You cannot \"transfer\" a US LLC into a Panama S.A. (they're separate legal entities under different jurisdictions). But you can: - Dissolve your US LLC (file with your Secretary of State) - Start fresh with a Panama S.A. - Move your client contracts to the Panama entity - Transfer bank accounts to the Panama company"
+        },
+        {
+          q: "Do I owe personal income tax if I'm non-resident of Panama but have a Panama company?",
+          a: "No, not to Panama. You only owe tax to your country of tax residence. If you're a US citizen or US resident, you owe US tax (via FATCA reporting) on your worldwide income, including Panama company profits. If you're a non-resident of both Panama and the US, you likely owe zero tax globally on foreign income. Consult a tax professional in your home country to confirm."
+        },
+        {
+          q: "How do I become a tax resident of Panama?",
+          a: "You become a tax resident of Panama when: 1. You spend 183+ days in Panama in a calendar year, OR 2. You have a permanent home in Panama (lease, ownership, or stable residence agreement) AND the center of your economic interests is in Panama"
+        }
+      ]
     },
     {
       id: 'atm-cash-panama-guide',
@@ -569,7 +925,29 @@ window.PANAMA_DATA = {
       date: 'March 14, 2026',
       read: '12 min read',
       cover: 'sunset',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "1. Can I keep my Canadian CPP and OAS if I move to Panama?",
+          a: "Yes, but with 25% withholding. Canada withholds 25% of CPP and 25% of OAS if you become a non-resident. You can request a reduced withholding if your income is low, but the 25% is standard. File taxes in both countries if you earn additional income."
+        },
+        {
+          q: "2. Do I lose my provincial health coverage the moment I leave Canada?",
+          a: "Yes. Your coverage ends the day you become a resident of another country. You must arrange private insurance before you arrive in Panama. It costs $80–$200 USD/month, and going uninsured for even one week is dangerous (a hospital visit without insurance in Panama costs $2,000–$10,000 USD)."
+        },
+        {
+          q: "3. What happens to my RRSP if I move to Panama?",
+          a: "Leave it alone. Withdrawing triggers 25%–30% withholding plus full Canadian income tax. The tax bill is usually 40%+ of the withdrawal. It's almost never worth it. Leave it invested in Canada and let it grow tax-deferred."
+        },
+        {
+          q: "4. Is Panama City safe? What about other neighborhoods?",
+          a: "Panama City's safe zones (Costa del Este, Punta Pacifica, San Francisco, Clayton) are very safe. Crime is concentrated in areas tourists don't go. Use common sense: don't flash jewelry, avoid certain neighborhoods at night, use Uber. Expats in safe neighborhoods report feeling safer than in Toronto or Vancouver."
+        },
+        {
+          q: "5. How long does the visa process actually take from start to finish?",
+          a: "Pensionado visa: 90 days total (30 days to gather docs + 60 days for DGMN processing). Friendly Nations or Qualified Investor: 120 days total (30 days gathering + 90 days processing)."
+        }
+      ]
     },
     {
       id: 'moving-to-panama-from-canada',
@@ -580,7 +958,29 @@ window.PANAMA_DATA = {
       date: 'March 13, 2026',
       read: '16 min read',
       cover: 'sunset',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "1. What is the actual cost of moving from Canada to Panama in 2026?",
+          a: "Minimal scenario (fly, rent, no furniture purchase): - Flights (Vancouver/Toronto to Panama City): $1,300–$2,000 USD - Visa application and processing: $350–$500 USD - Short-term rental (30 days): $1,200–$2,500 USD - Initial furniture/kitchen basics: $600–$1,000 USD - Banking, cedula, miscellaneous: $200–$400 USD - Total: $3,650–$6,400 USD"
+        },
+        {
+          q: "2. How long does the visa process actually take?",
+          a: "Pensionado visa: 90 days total - Week 1–4: Gather and apostille documents - Week 5–8: Submit and wait for DGMN approval - Week 9–13: Receive visa, fly to Panama, register"
+        },
+        {
+          q: "3. Can I work in Panama as a Canadian?",
+          a: "Yes, but you'll need a work permit. The process: 1. Find an employer willing to sponsor you 2. Employer applies for a Panamanian Work Permit on your behalf 3. You get a Work Visa (separate from residency) 4. Total cost: $300–$600 USD (employer usually pays) 5. Timeline: 4–8 weeks"
+        },
+        {
+          q: "4. What happens to my CPP if I move and then move back to Canada?",
+          a: "CPP doesn't care where you live. You can pause OAS if you return to Canada as a resident, and withholding will stop. CPP continues regardless. If you return to Canada as a resident, notify Service Canada to stop the 25% withholding."
+        },
+        {
+          q: "5. Is moving to Panama permanent? Can I leave my furniture here and return to Canada if needed?",
+          a: "Yes. Most expats keep their Panama apartment furnished even if they leave for months. Rental contracts often allow short-term departure. You can: - Rent short-term on Airbnb while you're away (covers your rent + profit) - Store furniture and personal items with a local storage company ($100–$300 USD/month) - Maintain your Panama residency even while living abroad (as long as you visit at least once per year or maintain an apartment)"
+        }
+      ]
     },
     {
       id: 'moving-to-panama-from-florida',
@@ -591,7 +991,29 @@ window.PANAMA_DATA = {
       date: 'March 12, 2026',
       read: '6 min read',
       cover: 'sunset',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Will my US health insurance work in Panama?",
+          a: "Most US health insurance plans (including Medicare Advantage) don't cover care outside the US. You'll need either international insurance ($100–$250/month for primary coverage) or a local plan ($150–$400/month). Some retirees maintain a US plan for emergencies and flights back to the US, plus local Panamanian insurance for routine care. Negotiate this before you move—coverage decisions made in Panama are more expensive."
+        },
+        {
+          q: "Can I maintain a US bank account once I move to Panama?",
+          a: "Yes, but new account opening is harder post-move. Open accounts before you migrate. FATCA and FBAR filing are still required (all US citizens must file FBAR if they have over $10,000 in foreign accounts at any point during the year). Work with a US tax accountant who understands FATCA; filing incorrectly can result in penalties of 25–50% of the account balance."
+        },
+        {
+          q: "How do I ship my car to Panama?",
+          a: "Cost is $3,500–$5,500 via container. Import duty is 15–35% of value depending on age and type. Total landed cost for a $25,000 car: $28,500–$34,000. Most expats sell their US car and buy a used Japanese import here (Toyota, Honda, Mitsubishi popular and reliable). Consider shipping only if the car has sentimental value or specialty features you can't find locally."
+        },
+        {
+          q: "What's the residency path for a Floridian with a $400,000 home they want to rent out?",
+          a: "Investment Visa (property-based, immediate) or Friendly Nations (income-based, 2–4 weeks). Property purchase satisfies Investment Visa requirements. Friendly Nations requires $120,000 liquid reserves or $500/month passive income. If your home generates $2,000/month rental income, Friendly Nations is streamlined and cheaper than Investment Visa."
+        },
+        {
+          q: "Can I purchase real estate as a foreigner in Panama?",
+          a: "Yes. No ownership restrictions for non-residents. Foreign-held property is straightforward: hire a lawyer, sign a document in front of a notary, register with the land office. Process takes 4–6 weeks. Title is registered in your name (or your Panama corporation, for asset protection). Budget $3,000–$5,000 in lawyer/notary fees. No capital gains tax on the sale (territorial system applies to income, not gains)."
+        }
+      ]
     },
     {
       id: 'moving-to-panama-from-texas',
@@ -602,7 +1024,33 @@ window.PANAMA_DATA = {
       date: 'March 11, 2026',
       read: '6 min read',
       cover: 'sunset',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Can I retire on Social Security alone in Panama?",
+          a: "Yes, if your Social Security benefit exceeds USD 1,000 monthly. If you're receiving USD 1,200 monthly Social Security, you qualify for pensioner visa residency. At USD 1,200 monthly with average rent of USD 750 and healthcare of USD 100, you have approximately USD 350 monthly for food, transport, and contingencies. This works, but requires careful budgeting. Most advisors recommend USD 1,500+ monthly for comfortable retirement."
+        },
+        {
+          q: "Do I lose my US citizenship by relocating to Panama?",
+          a: "No. Residency in Panama does not affect US citizenship. You remain a US citizen and must file US federal tax returns regardless of residency. You can petition for Panamanian citizenship after 5 years of residency, but this is optional and would require renouncing US citizenship (which most do not pursue)."
+        },
+        {
+          q: "What happens to my Medicare coverage?",
+          a: "Original Medicare (Parts A & B) provides zero coverage outside the US. If you relocate permanently, you lose Medicare eligibility. However, if you maintain US residency (visit every 6+ months, maintain US address, file federal taxes), you can keep Medicare and access it upon return. This creates a hybrid model many Texans adopt: spend 9 months in Panama, 3 months in Texas (maintaining Medicare eligibility). Cost: approximately USD 3,500-5,000 for quarterly Texas visits."
+        },
+        {
+          q: "How do I move my retirement accounts to Panama?",
+          a: "You don't. IRAs, 401(k)s, and Roth IRAs remain in US institutions. You can withdraw from them while residing in Panama, but you'll owe US federal income tax on distributions (and potentially early withdrawal penalties if under 59.5). The key: maintain your US custodian relationship; don't attempt to move accounts to Panama banks."
+        },
+        {
+          q: "What's the cost to move from Texas to Panama?",
+          a: "International moving company (household goods, 5,000-10,000 lbs): USD 4,000-7,000. Flights for two people: USD 600-1,000. Visa processing: USD 500-700. Initial deposits and first-month rent: USD 2,000-4,000. Total: USD 7,100-12,700 for a couple. Breakeven on this investment occurs at approximately 4-6 months of cost-of-living savings."
+        },
+        {
+          q: "Can I maintain a Texas address for mail and voting?",
+          a: "Yes, with caveats. You can use a parent's or friend's Texas address as a mail forwarding location. However, if you establish Panamanian residency (get cédula, open bank account, rent apartment), the IRS may challenge your claim of Texas domicile. Most tax advisors recommend formally establishing Panama as your primary residence (through utility bills, rental lease, residency card) while acknowledging your Texas origins."
+        }
+      ]
     },
     {
       id: 'moving-to-panama-from-uk',
@@ -613,7 +1061,33 @@ window.PANAMA_DATA = {
       date: 'March 10, 2026',
       read: '6 min read',
       cover: 'sunset',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Do I remain a UK tax resident?",
+          a: "No. Once you establish Panama tax residency (typically 183 days physically in Panama annually), you cease being a UK resident for tax purposes. However, you remain liable for UK tax on UK-source income (rental property, UK pensions paid by UK schemes). Consult a cross-border tax advisor (Beacon Tax, Blick Tax); fees are £1,000–£2,000/year."
+        },
+        {
+          q: "Can I still claim UK state pension while living abroad?",
+          a: "Yes. UK state pension is paid abroad (no \"exile tax\"). However, if you live in certain countries, it \"freezes\"—you don't get cost-of-living increases. Panama is not a freeze country, so your pension continues to increase with inflation."
+        },
+        {
+          q: "What if I want to return to the UK?",
+          a: "You can sell your Panama property (10% capital gains tax on gains; primary residence exemptions may apply for some expats). Re-establishing UK tax residency is straightforward. Most expats return within 10 years due to aging parents, grandchildren, or health issues. The transition back is as simple as the transition out."
+        },
+        {
+          q: "Do I need to renounce British citizenship?",
+          a: "No. Panama permits dual citizenship. You can hold both a British passport and a Panama residency visa (or eventually a Panama passport). Most expats maintain British citizenship for UK healthcare access and potential return."
+        },
+        {
+          q: "Is healthcare in Panama up to UK standards?",
+          a: "CIMA, Galenia, and National hospitals meet or exceed UK standards in equipment and facilities. Wait times are much shorter. Bedside manner is more attentive. However, the doctor pool is smaller, so you won't find the same depth of specialization as teaching hospitals in London."
+        },
+        {
+          q: "What if I get seriously ill in Panama?",
+          a: "CIMA and Galenia can handle most acute care. Complex cases (rare cancers, experimental treatments) may require referral to Miami or travel back to the UK. Travel insurance and private health insurance cover medical evacuation (typically $2,000–$10,000 covered). This risk exists everywhere abroad."
+        }
+      ]
     },
     {
       id: 'moving-to-panama-with-pets',
@@ -624,7 +1098,45 @@ window.PANAMA_DATA = {
       date: 'March 9, 2026',
       read: '6 min read',
       cover: 'sunset',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Do I need to quarantine my pet in Panama?",
+          a: "No. Panama has no quarantine requirement if your USDA health certificate, rabies vaccination, and MINSA permit are in order. If paperwork is incomplete, expect a 2-3 day airport hold for emergency processing, but no formal quarantine facility. This is one of Panama's advantages over Australia, the UK, or most European countries."
+        },
+        {
+          q: "What if my pet is already in Panama and I'm trying to legalize it after arrival?",
+          a: "Retroactive paperwork is complicated and expensive. MINSA will issue a 30-day temporary permit while you gather documents, but you'll need the USDA health certificate retroactively signed by a veterinarian in your home country (not possible) or issued by a USDA-listed vet in Panama (limited options exist). Budget $500-$1,000 in additional costs and 4-6 weeks of bureaucracy. Advance planning saves thousands and avoids legal complications."
+        },
+        {
+          q: "Can I fly American Airlines or United instead of Copa to avoid their pet rules?",
+          a: "Yes, but with caveats. American Airlines and United fly to Tocumen but are more expensive ($150-$300 premium per seat). Their pet policies are similar to Copa (cabin for under 10 lbs, cargo for larger pets). Use them only if you have a brachycephalic breed and are willing to pay premium rates; otherwise, Copa is the standard carrier and often the cheapest option."
+        },
+        {
+          q: "How much does emergency MINSA permitting cost if my pet is detained?",
+          a: "$200-$400 in emergency fees, plus $50-$100/day for airport holding facility costs. Total damage if detention occurs: $300-$700 for a 2-3 day hold. This is entirely avoidable with 6-8 weeks of advance planning."
+        },
+        {
+          q: "Can I bring multiple pets on one MINSA permit?",
+          a: "No. Each pet requires its own MINSA permit and USDA health certificate. If you're moving 2 dogs and a cat, you need 3 permits and 3 health certificates. Plan accordingly and budget for the additional paperwork and veterinary fees."
+        },
+        {
+          q: "What's the cheapest way to move a large dog (70+ lbs)?",
+          a: "Use Copa cargo. Cost is weight-based but typically $300-$500 for dogs over 50 lbs. Cheaper alternatives (cargo freight forwarders, pet transport companies) cost $2,000-$4,000 but avoid airline restrictions and often provide white-glove service. If your dog is a brachycephalic breed, you have no choice but the expensive option."
+        },
+        {
+          q: "Do I need pet insurance for the move?",
+          a: "Not required, but optional pet travel insurance ($100-$200) covers flight delays, emergency vet care during transport, and lost-pet contingencies. Not critical, but low-cost peace of mind if you're anxious about the journey or have a valuable breed."
+        },
+        {
+          q: "I want to bring a parrot (psittacine) to Panama. Which agencies do I need?",
+          a: "Three: (1) MIDA (Ministerio de Desarrollo Agropecuario) for the zoosanitary import permit, birds are MIDA, not MINSA; (2) MiAmbiente for the CITES import permit, because almost all parrots are CITES Appendix II (and a few are Appendix I); and (3) your origin country's CITES authority for the matching export permit, USFWS in the United States, takes 60-90 days. Add USDA APHIS Form 17-129 for the sanitary export certificate. Total timeline: 10-14 weeks. Wild-caught birds are effectively not importable; captive-bred with breeder documentation is the only practical route."
+        },
+        {
+          q: "My pet bird isn't a parrot, does it still need CITES paperwork?",
+          a: "Usually no. Canaries, finches, society finches, zebra finches and most commercial cage birds are not CITES-listed, so you only need the MIDA zoosanitary permit and an origin-country export certificate (USDA APHIS Form 17-129 in the U.S.). Process runs 4-6 weeks. Cockatiels and budgerigars (parakeets) are technically psittacines but are captive-bred at industrial scale and clear CITES paperwork quickly when you provide breeder documentation."
+        }
+      ]
     },
     {
       id: 'panama-deutsche-auswanderer',
@@ -723,7 +1235,33 @@ window.PANAMA_DATA = {
       date: 'February 28, 2026',
       read: '6 min read',
       cover: 'sunset',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Should I ship my car to Panama?",
+          a: "Rarely. Cars are expensive to ship ($1,200-$2,000) and subject to 50-100% import tariffs. A used car worth $15,000 in the US costs $22,500-$30,000 in tariffs alone. Buy a used car locally via OOQO, Autom, or Facebook Marketplace. Newer vehicles are more expensive in Panama, but used vehicles are often competitive with US prices once you factor in shipping and tariffs."
+        },
+        {
+          q: "Can I ship a motorcycle or ATV?",
+          a: "Yes, but with the same tariff complications as cars. Motorcycles face 50-75% tariffs. Shipping cost: $800-$1,500. Total cost of import: $1,600-$2,500 plus tariffs. Buying used locally is usually cheaper. Consider renting or buying locally."
+        },
+        {
+          q: "How do I pack fragile items like glassware or dishware?",
+          a: "Fragile items require professional packing. Most moving companies include fragile packing as part of their service. If you're using a direct shipper, hire a professional packer ($200-$400) to pack fragile items separately. Breakage during shipping is common; budget for 10-15% loss on fragile items unless fully insured."
+        },
+        {
+          q: "What if my container is damaged or lost during shipping?",
+          a: "Basic carrier liability covers $1,000-$5,000. All-risk insurance ($200-$400) covers full replacement value. If you're shipping high-value items, all-risk insurance is mandatory. File claims immediately upon discovery of damage; documentation and photographs are required."
+        },
+        {
+          q: "Can I ship plants or seeds to Panama?",
+          a: "Most plants and seeds require APHIS (Animal and Plant Health Inspection Service) permits and MINSA clearance in Panama. Agricultural restrictions are strict. Ship only hardy plants without soil; most expats buy plants locally after arrival. Cost of compliance: $200-$500 for permits."
+        },
+        {
+          q: "How long does customs clearance take in Colón?",
+          a: "Standard clearance: 3-7 business days. Expedited (via customs broker): 1-2 business days for additional $200-$300 fee. Incomplete paperwork extends clearance to 2-3 weeks. Hire a customs broker; the fee is worth the time savings."
+        }
+      ]
     },
     {
       id: '10-best-places-to-live-in-panama-2026',
@@ -734,7 +1272,29 @@ window.PANAMA_DATA = {
       date: 'February 27, 2026',
       read: '6 min read',
       cover: 'palm',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Which neighborhood is best for families with school-age children?",
+          a: "Costa del Este and Punta Pacifica rank highest for school quality (ISP, Balboa Academy, Metropolitan) and expat family density. Boquete's international school (BOQUETE International School) serves families well but is smaller. Budget $15,000–$25,000/year for tuition plus $1,500–$2,000/month housing."
+        },
+        {
+          q: "What's the cheapest place to live in Panama long-term?",
+          a: "Volcán/Cerro Punta ($600–950/month for housing) and Pedasí ($800–1,200) are most budget-friendly. Boquete sits between at $900–$1,400 with better infrastructure. Remote worker budget: $1,500/month covers housing, food, utilities, and discretionary spending in these areas."
+        },
+        {
+          q: "Which area has the most stable internet for remote work?",
+          a: "Costa del Este and Punta Pacifica (500–1,000 Mbps fiber). Casco Viejo (400–600 Mbps). For reliability outside PTY, Boquete (50–150 Mbps) is stable but slower. Avoid Bocas, Pedasí, and Santa Catalina for critical video work; 20–80 Mbps can fail during peak hours."
+        },
+        {
+          q: "How do I know if a neighborhood is safe?",
+          a: "Costa del Este, Punta Pacifica, Clayton, and Casco Viejo are safest. Avoid walking alone in El Chorrillo, Curundu, and San Miguelito after dark. Ask your expat network and neighbors. Private security is common in upper-income areas. Police presence is visible downtown but less in suburbs."
+        },
+        {
+          q: "Is it better to rent or buy my first year?",
+          a: "Rent for 6–12 months minimum. Neighborhoods shift seasonally; your ideal area in December may feel isolating in rainy season (May–Nov). Renting lets you explore and understand long-term fit before purchasing. After 12 months, consider buying if you've identified a stable area."
+        }
+      ]
     },
     {
       id: 'best-beaches-panama-expats',
@@ -745,7 +1305,33 @@ window.PANAMA_DATA = {
       date: 'February 26, 2026',
       read: '6 min read',
       cover: 'palm',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Which beach is safest for solo female travelers?",
+          a: "Coronado (1 hour from PTY, developed infrastructure, lifeguards on Playa Santa María) and Bocas town center (high expat density, vibrant social scene, police presence). Avoid isolated beaches in Pedasí and Santa Catalina solo; always go with a group or guide."
+        },
+        {
+          q: "Can I swim year-round in Panama?",
+          a: "Yes. Water temperature 75–82°F supports comfortable swimming December–April (dry season peak) and May–November (rainy season). Visibility best December–April; moderate May–November. Rainy season = fewer tourists and cheaper rates."
+        },
+        {
+          q: "What's the best beach for families with young children?",
+          a: "Playa Santa María, Coronado (1 hour from PTY, lifeguards, calm water) or Playa Buenaventura resort beach (private, amenities, day-pass available). Avoid strong-current beaches (Venao) and isolated areas until children are 10+."
+        },
+        {
+          q: "Is the Caribbean really better than the Pacific for snorkeling?",
+          a: "Visibility is slightly better in Caribbean (40–80 feet vs. 30–60 Pacific), and coral diversity higher. But Isla Iguana (Pacific) rivals Caribbean sites for marine life concentration. Caribbean = more convenient island-hopping; Pacific = fewer tourists. Personal preference."
+        },
+        {
+          q: "What should I know about strong currents and riptides?",
+          a: "Pacific beaches (Venao, Santa Catalina) have powerful tidal currents and occasional riptides; ask locals before swimming. If caught: swim parallel to shore (not against current), signal for help. Caribbean beaches (Bocas, San Blas) have minimal currents but stronger winds. Always swim near lifeguards or with guides in unfamiliar water."
+        },
+        {
+          q: "Are there sharks at Panama beaches?",
+          a: "Reef sharks (nurse, blacktip) are present but avoid humans; attacks are extremely rare (fewer than 5 documented in past 20 years). Bull sharks occasional near river mouths (avoid). Diving exposes you to sharks as normal reef residents. Swimming and snorkeling in open ocean carries negligible risk."
+        }
+      ]
     },
     {
       id: 'expat-depression-panama-unfiltered',
@@ -756,7 +1342,49 @@ window.PANAMA_DATA = {
       date: 'February 25, 2026',
       read: '6 min read',
       cover: 'palm',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "If I have depression in my home country, will moving to Panama make it better?",
+          a: "Probably not. Moving doesn't cure chemical depression. Relocation stress might actually worsen it. The data shows that 60-70% of people with pre-existing depression who move internationally experience a depressive episode within six months of moving. You should have clinical support established before you move, including a plan for mental healthcare in Panama."
+        },
+        {
+          q: "Is it normal to feel depressed for months after moving?",
+          a: "Yes. The pattern is normal. Months 3-12 are particularly common for depressive episodes. However, \"normal\" doesn't mean \"untreated.\" If you're experiencing depression for more than two weeks, professional support is essential—not optional."
+        },
+        {
+          q: "How do I find a therapist in Panama who speaks English?",
+          a: "Private therapists in Panama City: search Psychology Today's directory for Panama-based therapists. Telemedicine (recommended): Mindstrong, Talkspace, BetterHelp, Ginger. All operate in Panama and have English-speaking therapists. Cost is typically $60-120 per session. Wait times are 3-7 days."
+        },
+        {
+          q: "What if I can't afford private therapy?",
+          a: "Telemedicine is usually cheaper than private in-person therapy ($60-120 vs. $150-250). Some employers offer Employee Assistance Programs (EAP) that cover mental health services at no cost. Some churches and non-profits offer sliding-scale counseling. CAJA mental health services are low-cost but slow."
+        },
+        {
+          q: "Is it okay to go back to my home country if I'm depressed?",
+          a: "Returning temporarily to restore mental health (2-4 weeks with family/friends, in-person therapy, familiar structures) is rational, not failure. Going back and ending your Panama move entirely is also a valid choice—but make that decision based on the move being a poor fit, not based on acute depression (which is treatable). The two are different."
+        },
+        {
+          q: "Will my depression be obvious to people?",
+          a: "Not necessarily. Depression in expats is often hidden. You can smile at sunset and cry at night. You can be engaged in group conversations and empty inside. The performance is possible. But—see section 6—the performance is also part of what makes it worse. Selective disclosure to one trusted person is protective."
+        },
+        {
+          q: "Should I tell my Spanish language class or social group that I'm depressed?",
+          a: "No. Tell a therapist, or one trusted friend, or your partner. You don't owe disclosure to casual acquaintances. What you do owe yourself is *some* disclosure—total isolation is what deepens depression."
+        },
+        {
+          q: "If I go back to antidepressants in Panama, does that mean I failed?",
+          a: "No. Antidepressants are medication, not a statement about your ability to adjust. They work. They should be available to you. The question isn't \"should I use medication?\" but \"which medication regimen, combined with what else, will help me be healthy here?\""
+        },
+        {
+          q: "Can exercise and diet fix expat depression?",
+          a: "They help (exercise improves mood, good nutrition supports neurology), but they're not sufficient. The research is clear: without clinical support, lifestyle changes alone resolve depression in about 15-20% of cases. With clinical support, exercise and routine raise that to 75%+. It's the combination."
+        },
+        {
+          q: "How do I know if I should leave Panama?",
+          a: "After clinical depression is treated (medication/therapy, 2-3 months), if you're still deeply unhappy and have actively tried community building and daily structure, the move might not be right for you. That's different from \"depression = time to leave.\" Treat first. Then assess."
+        }
+      ]
     },
     {
       id: 'getting-around-panama-city-guide',
@@ -789,7 +1417,41 @@ window.PANAMA_DATA = {
       date: 'February 22, 2026',
       read: '6 min read',
       cover: 'palm',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Can I legally drive on my home country license if I'm a resident of Panama?",
+          a: "No. Once you have residency status, your home country license is only valid for 90 days from your initial entry. After that, you must have a Panamanian license to drive legally. Tourist permits extend this to 180 days. Temporary residents have 90 days. Permanent residents have no grace period once residency is formalized. Driving on an expired foreign license is legal excuse sufficient for fines and vehicle impoundment."
+        },
+        {
+          q: "What happens if I get pulled over while driving on an expired license?",
+          a: "Police can fine you $500-$1,000 and impound your vehicle. Impound release requires a valid Panamanian license or the vehicle isn't released. Your insurance may not cover accidents if you're driving on an invalid license. The risk is real but probabilistically low for routine drivers—police enforcement is spotty, and tourists are often given warnings rather than fines. That said, betting on lenient enforcement is not a strategy."
+        },
+        {
+          q: "Do I need to pass a driving test even if I have a reciprocal country license?",
+          a: "No. License conversion skips the exam entirely—you submit your home country license, documentation, and pay fees. ATTT recognizes your home country license as proof of driving competency. The exam is only required if you're doing full licensing (non-reciprocal countries) or if you lose your license and need to retake the exam."
+        },
+        {
+          q: "How long is a Panama driver's license valid?",
+          a: "Panama driver's licenses are valid for 5 years from date of issue. Renewal requires returning to ATTT, submitting a new medical certificate, and paying renewal fees ($30-$50). Renewal is administratively simpler than initial licensing but still involves ATTT bureaucracy."
+        },
+        {
+          q: "Can I use an international driving permit (IDP) instead of getting a Panama license?",
+          a: "An IDP is a supplement to your home country license, not a replacement. It's useful as a tourist for the first 90 days, but it does not extend your driving validity past the 90-day grace period. You still need a Panamanian license to drive legally as a resident. An IDP provides no legal advantage once you're past the grace period."
+        },
+        {
+          q: "What's the best time of year to get a license in Panama?",
+          a: "December and January are slow months at ATTT (holiday period), so processing can be faster. June-July are summer vacation months (again slower). March-May and September-November are busy periods. If you're timing your arrival for optimal license processing, November or January arrivals see faster turnaround."
+        },
+        {
+          q: "Do I need to take a driving test again if I move from one province to another?",
+          a: "No. Panama driver's licenses are national—they're valid throughout the country. Relocation within Panama does not require retesting or re-licensing. Your Panama license works in every province."
+        },
+        {
+          q: "What's the rule on car insurance and expired licenses?",
+          a: "Insurance companies will not pay claims if you're driving on an invalid/expired license at the time of accident. This is a major financial exposure. If involved in an accident while driving on an expired foreign license (after your grace period), your liability coverage may be void, and you'll personally liable for all damages. This alone justifies the cost and effort of getting a proper license."
+        }
+      ]
     },
     {
       id: 'panama-food-guide-expats',
@@ -800,7 +1462,33 @@ window.PANAMA_DATA = {
       date: 'February 21, 2026',
       read: '6 min read',
       cover: 'palm',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Is street food safe to eat?",
+          a: "Yes, if cooked fresh on-site. Empanadas, boiled corn, fresh fruit, ceviche from busy vendors are lower-risk than salads left sitting. Avoid cold items sitting in room temperature. Street meat (al pastor) is safe if vendor is busy (high turnover). Use standard food hygiene judgment."
+        },
+        {
+          q: "Can I find organic produce?",
+          a: "Yes, but limited. Riba Smith stocks organic produce at 30–50% premium over conventional. Local farmers markets (increasingly common) have organic options at competitive pricing. Boquete region (mountains) has organic producers."
+        },
+        {
+          q: "How good is the fish compared to US coastal cities?",
+          a: "Superior for variety, equal for freshness at dock. Panama has year-round access to snapper, mahi-mahi, tuna, grouper, corvina at $4–$8/lb at markets. Supermarket fish less fresh but still quality."
+        },
+        {
+          q: "What's the best Panamanian dessert I should try?",
+          a: "Tres leches cake (sponge soaked in three milks), flan, arroz con leche, and dulce de leche variations. Available at bakeries and restaurants. Try local bakeries, not supermarket versions."
+        },
+        {
+          q: "Do I need to cook, or can I eat out all meals?",
+          a: "You can eat out 100% at $12–$20/day average. Budget-conscious expats cook 50% of meals. Quality-of-life research suggests cooking 3–4 meals/week improves nutrition and saves money without feeling restrictive."
+        },
+        {
+          q: "What's the best imported grocery shopping option for budget-conscious expats?",
+          a: "PriceSmart membership ($50 annual). Bulk staples 20–40% cheaper than supermarkets. Freezer space required for batch-buying meat."
+        }
+      ]
     },
     {
       id: 'panama-for-digital-nomads-2026',
@@ -811,7 +1499,37 @@ window.PANAMA_DATA = {
       date: 'February 20, 2026',
       read: '6 min read',
       cover: 'palm',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Can I get a Pensionado Visa as a digital nomad?",
+          a: "No. Pensionado Visa requires passive income (pension, dividends, rental) of $1,000/month. Self-employment and remote salary don't qualify. Use Short-Stay or Temporary Resident (remote worker) visa instead."
+        },
+        {
+          q: "Do I need to report income earned abroad to Panama tax authorities?",
+          a: "No, generally not. Panama's territorial tax system excludes foreign-source income. However, if earning $500+/month and staying 6+ months, filing a return is recommended (protects residency claim). Consult a local accountant for specifics."
+        },
+        {
+          q: "What's the fastest internet in Panama City?",
+          a: "Costa del Este's Pana+ fiber offers 300–1,000 Mbps with 99%+ uptime. Cost: $50–150/month. Best for video-heavy work (video production, Zoom-intensive roles). Cable & Wireless Telmex offers 200–500 Mbps at lower cost ($40–100)."
+        },
+        {
+          q: "Can I bring my spouse/partner on a Short-Stay Visa?",
+          a: "Yes. Each person gets their own 180-day stamp (renewable once for 9 months). Spouses don't require economic proof if traveling together. Children included on parent's passport (different rules; consult consulate)."
+        },
+        {
+          q: "What happens when my 9-month Short-Stay expires?",
+          a: "You must exit Panama (to Costa Rica, typically) and re-enter to get a new 9-month stamp. Or switch to Temporary Resident Visa (faster route, no visa runs). Total: 1 month processing + $200 visa run cost vs. Temp Resident ($150–300 upfront, easier)."
+        },
+        {
+          q: "Is digital nomad coworking worth the cost?",
+          a: "For video-call workers: yes ($500–800/mo WeWork justified for internet reliability + professional environment). For async workers (email, design, writing): no ($3/day cafe WiFi sufficient). Hybrid approach: 2–3 days WeWork, 2–3 days cafe/home."
+        },
+        {
+          q: "How stable is Panama internet for crypto/trading?",
+          a: "Costa del Este (Pana+ fiber) = excellent (99%+ uptime, 20–40 ms latency). Elsewhere: acceptable but periodic outages. Have 4G LTE backup (Digicel). Crypto exchanges often recommend VPN; use NordVPN or Surfshark for stability."
+        }
+      ]
     },
     {
       id: 'panama-for-families-with-children',
@@ -822,7 +1540,37 @@ window.PANAMA_DATA = {
       date: 'February 19, 2026',
       read: '6 min read',
       cover: 'palm',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Should I enroll my kids in an English or Spanish-dominant school?",
+          a: "If planning US university (SAT/AP track), English-dominant (ISP, Balboa) is better. If bilingual fluency is goal or European university path, Spanish-primary (Javier) works. Kids adapt; pick based on college/career goals, not language comfort."
+        },
+        {
+          q: "What's the best age to move to Panama with children?",
+          a: "Ages 5–12 (elementary school) adapt fastest. Teenagers (13+) struggle with social integration; many return to US for high school. If moving with teens, ensure strong English-speaking expat peer group at school."
+        },
+        {
+          q: "How much does international school really cost?",
+          a: "ISP/Balboa: $23k–$25k/year. Mid-tier (Metropolitan, Kings, Javier): $14k–$17k. Budget schools (Bright Kids): $9k–$12k. All prices are PER CHILD, so family of 2 kids: double the cost."
+        },
+        {
+          q: "Is public school an option for expat children?",
+          a: "No. Panamanian public schools are Spanish-language, under-resourced, and not designed for expat enrollment. International schools are the only realistic option for expat families."
+        },
+        {
+          q: "Can my child learn Spanish while attending English-dominant school?",
+          a: "Yes, but passively. ISP/Balboa require Spanish as class subject (1 hour/day) and kids absorb street Spanish. For true fluency, combine school Spanish with tutoring, local friends, or summer in Boquete (Spanish immersion camps)."
+        },
+        {
+          q: "Are there special needs resources for kids with learning disabilities?",
+          a: "Some (speech therapy, occupational therapy available at higher cost). Panama's special education infrastructure lags US. Many expat parents with ADHD/dyslexia kids use hybrid: local school + remote tutoring from US providers (video sessions, software)."
+        },
+        {
+          q: "What's the biggest challenge for expat kids in Panama?",
+          a: "Consistency of friendships (expat families leave every 2–4 years) and teacher quality variation. Build community through school & neighborhood; don't expect US-level infrastructure everywhere."
+        }
+      ]
     },
     {
       id: 'panama-healthcare-costs-2026',
@@ -866,7 +1614,33 @@ window.PANAMA_DATA = {
       date: 'February 15, 2026',
       read: '6 min read',
       cover: 'palm',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Will afternoon rain ruin my outdoor activities?",
+          a: "Morning activities (6 AM–12 PM) happen 95% of the time rain-free during rainy season. Plan beach days, hiking, and adventure sports for mornings. Afternoon rain is reliable enough that you can schedule indoor work accordingly. Most expats find this rhythm more reliable and predictable than \"maybe it rains\" weather in temperate climates."
+        },
+        {
+          q: "Does rainy season affect expat visa processing?",
+          a: "No. Government offices, banks, and immigration operate normally on 24/7 schedules. Rain does not delay paperwork or processing. Your relocation timeline should be based on visa category (pensioner, temporary resident, entrepreneur), not weather."
+        },
+        {
+          q: "What's the actual temperature during rainy season?",
+          a: "78–85°F daily average. Humidity makes it *feel* hotter (feels like 88–92°F), but actual temperature is consistent year-round. AC and ceiling fans are more essential than heavy clothing. You'll never wear sweaters or jackets."
+        },
+        {
+          q: "Is travel within Panama difficult during rainy season?",
+          a: "No. Roads are well-maintained by Panamanian standards (not perfect, but functional). Domestic flights operate normally. Boat transport to islands occasionally cancels during severe afternoon downpours (rare, maybe 2–3 times/month). Plan flexibility but not major disruption."
+        },
+        {
+          q: "Do rainy season expats regret their decision?",
+          a: "Those who entered with realistic expectations and adapted their schedule to morning productivity report 85–90% satisfaction rates. Those expecting dry-season weather and zero humidity after first rains often struggle weeks 3–6 (normal acclimation period) but stabilize by week 8. Early quitters (before week 6) typically leave during the acclimation dip before breakthrough. Long-term rainy season expats report higher satisfaction than dry season arrivals due to cost savings and authentic community access."
+        },
+        {
+          q: "How does rainy season compare to hurricane season in other countries?",
+          a: "Panama's rainy season is operationally easier than US hurricane season (June–November unpredictable disruptions, emergency evacuations), Caribbean monsoon patterns (days of continuous rain, flooding), or typhoon corridors (Southeast Asia). Panama's afternoon pattern is manageable, not catastrophic."
+        }
+      ]
     },
     {
       id: 'pros-cons-retiring-panama',
@@ -877,7 +1651,41 @@ window.PANAMA_DATA = {
       date: 'February 14, 2026',
       read: '6 min read',
       cover: 'palm',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "What's the minimum monthly income needed to retire comfortably in Panama?",
+          a: "$3,000-$3,500/month for a couple living modestly in Panama City. Below $2,500/month, you're in a tight budget. Above $5,000/month, you're comfortable and have discretionary spending."
+        },
+        {
+          q: "Do I need health insurance in Panama, or is it covered by the government?",
+          a: "IPSS (public insurance) costs ~$100/month and covers basic primary care. It's not comprehensive. Private supplemental insurance ($150-$400/month) is recommended for retirees to cover specialist visits, medications, and hospitalization. Many retirees use a hybrid approach (IPSS + private supplemental)."
+        },
+        {
+          q: "How often do most retirees return to the US?",
+          a: "Varies widely. Some return monthly (maintaining multiple homes). Others return annually or biennially. Those reporting highest satisfaction with Panama typically return 1-2 times per year, not constantly shuttling between countries."
+        },
+        {
+          q: "Can I collect Social Security while living in Panama?",
+          a: "Yes. US Social Security can be sent directly to a Panama bank account. No issues or reductions for living abroad (unless you renounce citizenship, which you don't do by retiring to Panama)."
+        },
+        {
+          q: "Is it true that there's no income tax on foreign income in Panama?",
+          a: "It's complicated. Non-residents (those who haven't lived in Panama 5+ years continuously) don't owe Panama tax on foreign-source income. Residents (living 183+ days/year) owe tax on worldwide income above a certain threshold. The \"foreign income exemption\" is not unlimited; there are nuances. Consult a tax advisor."
+        },
+        {
+          q: "What's the best neighborhood for retirees in Panama City?",
+          a: "Clayton, Casco Viejo, and Panama Viejo are popular with retirees. Clayton is modern and walkable. Casco Viejo is historic and culturally rich. Panama Viejo is expanding and offers newer construction. Punta Pacifica is ultra-luxury. Visit all four before deciding."
+        },
+        {
+          q: "Should I buy property immediately or rent first?",
+          a: "Rent for 12-24 months before buying. This is not optional advice. Test the climate, healthcare, isolation, and lifestyle before committing $300,000-$600,000+ to property. If you hate Panama after 18 months, selling property is expensive and time-consuming. Renting provides an exit strategy."
+        },
+        {
+          q: "What are the typical property taxes in Panama?",
+          a: "First $12,000 of property value is tax-free. Property valued $100,000 pays approximately 0.6-0.8% annually ($600-$800). Property valued $500,000 pays approximately 0.6-0.8% ($3,000-$4,000). This is low compared to the US, but ongoing costs (HOA, maintenance, insurance) can add $300-$500/month."
+        }
+      ]
     },
     {
       id: 'retire-in-panama',
@@ -901,7 +1709,29 @@ window.PANAMA_DATA = {
       date: 'February 12, 2026',
       read: '6 min read',
       cover: 'palm',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "I read that Panama is the money laundering capital of the world and criminals run the government. Doesn't this corruption make it dangerous for residents?",
+          a: "Panama's financial system has historically been used for money laundering, and corruption exists at various government levels—realities that haven't fundamentally changed over the past 20 years despite anti-corruption initiatives. These are genuine governance problems worthy of concern from a political economy perspective. However, financial crimes and street-level violence aren't the same phenomenon. A corrupt finance system doesn't create neighborhood danger or directly increase a resident's risk of mugging or assault. The same applies to many countries where expats live comfortably: corruption and street safety operate on different dimensions. That said, corruption does mean you should avoid entanglement with questionable financial schemes, use established legal systems, and conduct thorough diligence before business partnerships or large financial commitments."
+        },
+        {
+          q: "Is it safe to walk around Casco Viejo at night? I've heard stories about tourists being robbed.",
+          a: "Casco Viejo's crime rate is 1.4 per 100,000—lower than most U.S. cities. You can safely walk around at night with basic precautions: stay on main streets, avoid displaying expensive jewelry or electronics, don't wander into alleys, and avoid excessive drinking late-night. Many expats live in Casco Viejo year-round and report zero incidents over years. The neighborhood is genuinely safe compared to historic districts in many U.S. cities. That said, any dense urban area attracts petty theft, so situational awareness beats complacency."
+        },
+        {
+          q: "Should I hire a bodyguard or use armed security? My family is worried about my safety.",
+          a: "Unless you're visibly ultra-wealthy, maintaining a high public profile, or have a specific credible threat, bodyguards and armed security are unnecessary and paradoxically mark you as a high-value target. The best security is invisibility—not looking wealthy, not displaying cash and electronics, not announcing your schedule on social media, not maintaining predictable routines. Visible armed security actually increases risk by making you a recognizable target for sophisticated criminals while providing minimal protection for ordinary threats. For standard expat life in safe neighborhoods, bodyguards are overkill and inefficient."
+        },
+        {
+          q: "What about kidnapping my family? Should I worry? I've heard stories about children being targeted.",
+          a: "Parental kidnapping (family members taking children) is a real legal issue in Panama and other countries; it's handled through Hague Convention procedures, which Panama is signatory to. This is a family-law problem requiring legal precautions, not a violent crime prevention issue. However, stranger kidnapping of children for ransom or trafficking is virtually nonexistent in expat neighborhoods and affects only the ultra-wealthy with specific threat profiles. Your actual risk here is family-law related—ensuring proper custody documentation, updating wills, and understanding your legal standing—not criminal."
+        },
+        {
+          q: "If I follow all the precautions, am I guaranteed to be safe?",
+          a: "No. Safety is probabilistic, not absolute. Following precautions reduces your risk from approximately 1-in-500 annually (mugging in normal life with typical behaviors) to maybe 1-in-5,000 (mugging while following strict precautions and situational awareness). You can follow every guideline and still be unlucky—or unlucky in a car accident, which kills more expats than mugging. Accepting that some residual risk is a feature of living in any city means calibrating precautions proportionally and choosing your risk exposures consciously. The reasonable goal is risk reduction to manageable levels, not risk elimination."
+        }
+      ]
     },
     {
       id: 'supermarkets-shopping-panama-expats',
@@ -934,7 +1764,45 @@ window.PANAMA_DATA = {
       date: 'February 9, 2026',
       read: '6 min read',
       cover: 'palm',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Is the isolation in Panama worse than other Central American countries?",
+          a: "Isolation varies by city size and expat community density. Panama City has the largest English-speaking population (est. 12,000+ expatriates) compared to Boquete or San Blas, but this dispersal often makes intimacy harder. Smaller Central American capitals (Heredia, Costa Rica; San Salvador, El Salvador) have tighter expat communities but less international infrastructure. Panama offers more amenities but requires more proactive community building."
+        },
+        {
+          q: "Can you actually make friends with Panamanians as an expat, or is it just transactional?",
+          a: "Genuine friendships are possible but require three preconditions: Spanish language fluency (B1+), shared interest (business, church, sports, volunteer work), and 12+ months of consistent presence. Friendships that don't meet these criteria remain surface-level—locals are friendly but not intimate. Expats should expect authentic Panamanian friendships to develop slower than friendships in English-speaking countries."
+        },
+        {
+          q: "Is the two-year departure window inevitable, or can different relocation strategies prevent it?",
+          a: "The 24-month window is strong enough to predict departure likelihood at 65% accuracy, but intentional interventions (language study, community commitment, purpose structure, family connection planning) can shift outcomes. No strategy prevents all departures, but the prevention checklist reduces departure risk by approximately 40%."
+        },
+        {
+          q: "Should I relocate to Panama if I'm single and introverted?",
+          a: "Single introverts have mixed outcomes. If you're introverted with high cultural curiosity, you'll likely adapt well (Spanish study, neighborhood exploration, small friend groups). If you're introverted with low cultural curiosity and weak existing friendships, Panama will amplify isolation. Honest self-assessment matters more than personality type."
+        },
+        {
+          q: "What's the financial threshold where Panama's cost savings justify the relocation risk?",
+          a: "For North American expats, annual savings average $12,000-$18,000 (lower healthcare, real estate, food costs). These savings justify relocation only if relocation risk—depression, relationship strain, departure costs—doesn't consume those gains. If relocation triggers two emergency therapy sessions, three extra flights home, and eventual departures, savings evaporate."
+        },
+        {
+          q: "Is learning Spanish really necessary to stay past two years?",
+          a: "Data strongly suggests yes. Monolingual expats staying 2+ years: 18%. Spanish-speaking expats staying 2+ years: 53%. Spanish fluency is the single strongest predictor of long-term retention, correlating more strongly than age, marital status, or professional field."
+        },
+        {
+          q: "Can remote workers successfully relocate to Panama long-term?",
+          a: "Yes, but with constraints. Remote workers staying 2+ years report higher depression and isolation rates than locally employed or self-employed expats. The difference: local work creates community (coworkers, clients, vendor relationships), while remote work can be performed in isolation. Remote workers who mitigate isolation through intentional community building (coworking, networking, volunteering) have similar retention rates to locally employed expats."
+        },
+        {
+          q: "What's the actual timeline for \"Panama sickness\" (the depression/frustration that hits around month 18)?",
+          a: "Peak vulnerability windows: months 14-20 (acute isolation + family separation + bureaucratic frustration + novelty exhaustion), and months 20-24 (decision point: stay or leave). Expats in these windows report the highest depression scores and departure considerations. Support during these windows (therapy, family visits, community re-engagement) significantly improves outcomes."
+        },
+        {
+          q: "Is it better to leave at month 20 or commit harder and push past month 24?",
+          a: "Leaving at month 20 has lower emotional/financial cost than leaving at month 36. If you've genuinely attempted all prevention strategies and still feel unmistakably miserable, departing at month 20 lets you preserve dignity and return home with relationships intact. Pushing past month 24 when you're fundamentally unhappy often results in greater relationship damage and financial loss."
+        }
+      ]
     },
     {
       id: 'panama-vs-belize-retirement',
@@ -945,7 +1813,49 @@ window.PANAMA_DATA = {
       date: 'February 8, 2026',
       read: '6 min read',
       cover: 'palm',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Q1: Is it true you can retire to Panama for $1,000/month?",
+          a: "A: No. That figure is outdated (circa 2005–2010) and applies only to rural areas or extreme frugality. A retiree in Panama City or any expat-friendly area realistically spends $2,000–$3,200/month (rent $1,200+, food $400, utilities $150, healthcare $200+, misc $250+). Belize's equivalent is $3,300–$4,600/month. Both are cheaper than major US cities, but not \"rock-bottom cheap.\""
+        },
+        {
+          q: "Q2: Which country has better healthcare—Panama or Belize?",
+          a: "A: Panama decisively. Private hospitals in Panama City (CIMA, Galenia) meet or exceed US standards; specialists are abundant; Joint Commission accreditation exists. Belize's hospitals are sterile but outdated; any serious illness (cardiac, orthopedic) requires travel to Mexico or the US. For retirees over 75, Panama is safer."
+        },
+        {
+          q: "Q3: Will I face hurricane risk in Panama or Belize?",
+          a: "A: Panama sits south of the Atlantic hurricane belt; risk is negligible (occasional tropical storms, no Category 3+ hurricanes in 50+ years). Belize is directly in the belt; Category 4+ hurricanes are real (Iris 2001, Richard 2010). Insurance costs ~$3k/year for beachfront properties in Belize; Panama's insurance is lower. This cost difference adds ~$2k/year to Belize's expenses."
+        },
+        {
+          q: "Q4: Can I get permanent residency without a pension?",
+          a: "A: Panama: Yes, if you have $300k+ to invest in real estate (three-year residency path) or $600k+ in a bank account (three-year path). Otherwise, Pensioner Visa is the easiest route. Belize: Yes, via Temporary Residency renewal (1–3 years) every year, but you'll spend more on fees ($500–$1,000/cycle) and lack certainty. Panama's path is clearer."
+        },
+        {
+          q: "Q5: Which country is better for a couple where one person has mobility issues?",
+          a: "A: Panama. Casco Viejo, Clayton, and Amador are walkable neighborhoods with sidewalks and taxi access. Healthcare is nearby (CIMA 10 min from Casco). Belmopan is car-dependent; San Ignacio is hilly and requires taxis. If mobility is a concern, Panama's urban accessibility is superior."
+        },
+        {
+          q: "Q6: What happens to my US Social Security taxation if I retire to Panama or Belize?",
+          a: "A: Neither country taxes US Social Security. You still file a US tax return (FATCA-compliant), but your Social Security income is exempt from both countries' tax systems. However, your capital gains and rental income remain subject to US tax. Panama's advantage is the clarity that pensions and Social Security are off-limits to Panama IRS; Belize has less clarity. Consult a CPA on both."
+        },
+        {
+          q: "Q7: How easy is it to sell property in Panama vs Belize if I decide to leave?",
+          a: "A: Panama: Very liquid; US/Colombian/Argentine buyers active; 60–120 day sale typical for attractive properties. Belize: Illiquid; 6–18 months common; 20–30% price concessions typical. If exit flexibility matters, Panama wins decisively."
+        },
+        {
+          q: "Q8: Is it true Belize doesn't have an income tax?",
+          a: "A: Partially true. Belize has no personal income tax (abolished 2019), but it has a 15% Business Tax, VAT (12.5%), and property tax. Foreign pensions/capital gains are theoretically untaxed, but the law is ambiguous. Panama's system is clearer: territorial income (pensions, cap gains from abroad) = untaxed; domestic-sourced income = taxed. For tax clarity, Panama is superior."
+        },
+        {
+          q: "Q9: Which country is better for aging in place (80+)?",
+          a: "A: Panama by a wide margin. Specialist healthcare, English-speaking private practice, geriatricians available, and family visits easier via hub flights. Belize's limited healthcare would likely force eventual repatriation. Panama offers dignity in aging."
+        },
+        {
+          q: "Q10: Can I get residency in Panama or Belize on a spousal visa if my spouse has a pension?",
+          a: "A: Panama: Yes; spouse of Pensioner Visa holder can be included; both apply together. Belize: Yes; QRP includes spouse + two dependents. Both are spousal-inclusive, but Panama's process is faster and renewal simpler."
+        }
+      ]
     },
     {
       id: 'panama-vs-colombia-retirement',
@@ -956,7 +1866,49 @@ window.PANAMA_DATA = {
       date: 'February 7, 2026',
       read: '6 min read',
       cover: 'palm',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Can I live in Colombia on $1,500/month as a retiree?",
+          a: "Yes, comfortably. Medellín, Manizales, or smaller cities make $1,500–$2,000/month sustainable. You'd need to skip fine dining and frequent travel, but housing, utilities, groceries, and healthcare are all manageable on that budget."
+        },
+        {
+          q: "What's the biggest hidden cost in Colombia that expats miss?",
+          a: "Peso volatility. A 15% peso depreciation overnight cuts your purchasing power 15%. Retirees on fixed USD income feel this acutely. Hedging strategies (keeping pesos for only 1–2 months' expenses) mitigate but don't eliminate risk. Panama avoids this entirely via USD."
+        },
+        {
+          q: "Can I get a residency visa in Colombia without the visa agency nonsense?",
+          a: "The V visa (temporary resident) is straightforward if you document $700–$900/month income. The actual processing is not notariously slow, but renewal is annual and discretionary. You cannot avoid \"visa agency nonsense\" entirely; Colombians often hire a lawyer ($200–$500/year) to handle renewals."
+        },
+        {
+          q: "Is it safe to buy real estate in Colombia as a foreigner?",
+          a: "Yes, if you use a reputable notary and title-insurance company. Title fraud is rare in Medellín but more common in smaller cities. Budget 2–3% of purchase price for legal/insurance protection. Panama's title system is more transparent, but Colombia is not a scam paradise—just requires due diligence."
+        },
+        {
+          q: "What's the best expat neighborhood in Medellín?",
+          a: "Laureles (affordable, walkable, young professionals). El Poblado (pricier, touristy, concentrated expat scene). Sabaneta (suburban, cheaper, less expat community). Bello (industrial, avoid). Each caters to different lifestyles."
+        },
+        {
+          q: "Do I need Spanish to live in Colombia?",
+          a: "Not if you stay in El Poblado and socialize only with expats, but that defeats the purpose. For healthcare, real estate transactions, and daily life, basic Spanish (A2–B1 level) is essential. Immersion classes are cheap ($150–$300/month) and worthwhile."
+        },
+        {
+          q: "How stable is Colombia's political situation for expats?",
+          a: "Stable enough for tourism and residency. The 2023 presidential election shifted left (Gustavo Petro), but his policies haven't materially affected expat residency or property rights. Tax enforcement is tightening. Currency volatility is the bigger risk than political instability."
+        },
+        {
+          q: "Can I get a residency visa in Panama with no income if I buy property?",
+          a: "No. The Pensioner Visa requires documented income ($1,350/month). There is no investor visa in Panama (this is a huge gap vs. other countries). You cannot substitute property purchase for an income requirement."
+        },
+        {
+          q: "Which country has better Internet speeds for remote workers?",
+          a: "Panama City: 100+ Mbps standard; fiber is ubiquitous ($50–$80/month). Medellín: 50–100 Mbps standard; fiber is expanding ($25–$50/month). Both are solid. Smaller cities in Colombia are spotty; interior Panama (Boquete, Coronado) has 20–30 Mbps typical."
+        },
+        {
+          q: "Should I choose based on real estate appreciation potential?",
+          a: "Panama City real estate has appreciated 8–12%/year for 15 years (though cooling post-2023). Medellín real estate has appreciated 5–7%/year but is cheaper to enter. If capital appreciation is a priority, Panama City is the stronger play, but neither country is a real estate arbitrage paradise. Treat real estate as a lifestyle purchase, not an investment engine."
+        }
+      ]
     },
     {
       id: 'panama-vs-costa-rica-retirement',
@@ -969,7 +1921,49 @@ window.PANAMA_DATA = {
       cover: 'palm',
       lang: 'en',
       homepage_rank: 3,
-      utm_campaign: 'panama-vs-cr'
+      utm_campaign: 'panama-vs-cr',
+      faqs: [
+        {
+          q: "Can I live in Costa Rica on $2,000/month as a retiree?",
+          a: "Uncomfortably. The visa requires $1,650–$1,750/month; you'd have $250–$350/month buffer for housing, healthcare, and food. Possible in smaller towns (Atenas, Ojochal) but requires discipline and no emergency cushion."
+        },
+        {
+          q: "What's the biggest difference between Panama's and Costa Rica's healthcare systems?",
+          a: "Costa Rica's CAJA (public insurance) is mandatory and superior to Panama's—subsidized prescriptions, predictable specialist access, preventive care emphasis. Panama's system is private-pay or self-insured (riskier for retirees). Costa Rica wins decisively for healthcare retirees."
+        },
+        {
+          q: "Is Costa Rica's real estate a better investment than Panama's?",
+          a: "Comparable risk-reward. Costa Rica's real estate appreciates 5–7%/year but has higher entry price and 2.25% capital gains tax. Panama's appreciates 8–12%/year but has title-fraud risk and higher transaction costs. For a conservative retiree, both are better as lifestyle purchases than investment vehicles."
+        },
+        {
+          q: "Do I need CAJA insurance in Costa Rica?",
+          a: "If you're a resident, yes—it's mandatory. The good news: CAJA is cheap ($50–$150/month for retirees) and excellent quality. You can also supplement with private insurance for faster specialist access."
+        },
+        {
+          q: "Can I retire to Costa Rica's Caribbean coast (Limón province)?",
+          a: "Yes, but it's less developed than the Central Valley or Pacific coast. Healthcare options are limited, English is less common, and retiree infrastructure is sparse. Suitable only for adventurous, Spanish-fluent individuals willing to accept slower pace."
+        },
+        {
+          q: "What's the biggest tax trap for Costa Rica retirees?",
+          a: "Remitting foreign pension funds to Costa Rica can trigger unexpected income tax. If you keep your pension in a US bank and draw expenses locally (via credit card or ATM), you avoid this trap. Transparency is critical—undisclosed remittances invite tax audits."
+        },
+        {
+          q: "Is Costa Rica politically stable for foreign residents?",
+          a: "Yes. Costa Rica is the most stable democracy in Central America (no military, 75-year democratic history). The biggest risk is economic—inflation is higher than neighbors; the colón weakens gradually vs. USD."
+        },
+        {
+          q: "Which country is better for couples (one working, one retired)?",
+          a: "Costa Rica is better if the working spouse is remote/freelance. The startup ecosystem, remote work culture, and tax incentives favor digital entrepreneurs. Panama is more rigid—visa categories are tied to fixed income, not business opportunity."
+        },
+        {
+          q: "Can I own beachfront property in Costa Rica as a foreigner?",
+          a: "Yes, but with restrictions: Foreshore zone (500m from mean high-water mark) is state-owned, but you can lease for 20–25 years with buy-back options. Beyond foreshore, freehold ownership is allowed. Complexity is higher than interior property; legal fees increase 30–50%."
+        },
+        {
+          q: "Which country appreciates more over time—USD or Costa Rican colón?",
+          a: "The colón weakens ~2–4%/year vs. USD (long-term trend). Panama's USD avoids this headwind. If your income is USD-based and you're worried about currency erosion, Panama is safer. Costa Rica's colón exposure is a subtle long-term drag on US-denominated retirement income."
+        }
+      ]
     },
     {
       id: 'panama-vs-mexico-retirement',
@@ -980,7 +1974,29 @@ window.PANAMA_DATA = {
       date: 'February 5, 2026',
       read: '6 min read',
       cover: 'palm',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "Can I get residency in Panama on just Social Security income?",
+          a: "Yes, via the Friendly Nations Visa if you're a US/Canadian citizen. The requirement is $1,350/month *guaranteed income* (Social Security qualifies). You don't need to deposit a large lump sum—just proof that the income will continue. Processing: 2–4 weeks. However, not all nationalities qualify under Friendly Nations; investors from non-treaty countries must use the Investment Visa (property purchase or savings deposit of $120,000–200,000)."
+        },
+        {
+          q: "Is Mexico's fideicomiso (bank trust) a ripoff, and do I lose my property if the bank goes under?",
+          a: "The fideicomiso is a standard legal mechanism, not a ripoff. The bank holds legal title but you control beneficial ownership—you can rent, renovate, or sell without the bank's permission (except on sale, when they process the transfer). Banks are heavily regulated; a bank failure does not trigger loss of property (trust assets are segregated from the bank's balance sheet). Cost ($1,000–3,000 setup, $300/year) is higher than Panama's no-trust requirement, but the security is sound. The real cost is *illiquidity*—selling takes longer because the buyer must also set up a new trust."
+        },
+        {
+          q: "Will Mexico change its non-resident tax status and start taxing my US pension income?",
+          a: "Unlikely in the next 5–10 years. Mexico's tax code explicitly exempts non-residents from tax on foreign-source income. The risk is if you become a *tax resident* (typically after 4 years of continuous residence or 183+ days/year), at which point foreign income *can* become taxable. To stay non-resident indefinitely, you must leave Mexico for >183 days/year—impractical for retirees. Most retirees transition to permanent residency after 4 years and restructure their investments to avoid taxation (keep US-domiciled accounts, minimize Mexico-domiciled assets). Not foolproof, but manageable. Panama has no parallel risk because its territorial system applies to all residents uniformly."
+        },
+        {
+          q: "How do I handle US taxes if I move to Panama or Mexico? Do I still owe US federal tax?",
+          a: "Yes. US citizens/green-card holders owe federal tax on worldwide income regardless of where they live—including foreign pensions, Social Security, and portfolio income. Both Panama and Mexico are non-treaty countries (no tax treaty), so you cannot claim a foreign tax credit. However, US Social Security is only 50%–85% taxable at the federal level (depending on combined income), and both countries exempt foreign Social Security. So a retiree with only Social Security owes minimal US tax. The advantage of Panama/Mexico is state income tax (0% both) and wealth tax (0% both). Work with a US tax preparer familiar with expat taxes; many charge $500–1,500 for the added complexity."
+        },
+        {
+          q: "Which country is \"easier\" if I decide to move back to the US after 5 years?",
+          a: "Panama is slightly easier (no property entanglement, fewer bureaucratic ties). Mexico's fideicomiso + rental properties + local business registrations create more liquidation friction. However, both are non-binding: you can abandon either residency visa with 30 days' notice and keep property (if owned). The real friction is selling real estate—Mexico takes 12–24 months; Panama takes 6–12 months due to stronger buyer interest."
+        }
+      ]
     },
     {
       id: 'panama-vs-portugal-retirement',
@@ -1002,7 +2018,37 @@ window.PANAMA_DATA = {
       date: 'February 3, 2026',
       read: '6 min read',
       cover: 'palm',
-      lang: 'en'
+      lang: 'en',
+      faqs: [
+        {
+          q: "1. Can I hold dual residency in Panama and Spain?",
+          a: "Yes, non-lucrative visa + Pensioner visa are compatible legally. However, tax residency designation is critical: you can only be tax-resident in ONE country. If you split time 50/50, tax authorities may deem you tax-resident in the country where you maintain permanent housing. Solution: Maintain primary residence in Panama (fideicomiso property or long-term rental lease), rent short-term in Spain (tourist rentals, Airbnb, corporate housing). Document Panama as tax home. Spain may challenge this under Beckham Law (which requires continuous residency); departures >90 days in a year risk Beckham Law revocation. Recommendation: Choose one primary country for tax residency; use the other for extended visits (90+ days annually under Schengen rules)."
+        },
+        {
+          q: "2. What happens to my Pensioner Visa if I leave Panama for 6 months?",
+          a: "Pensioner Visa does not require continuous residency; you can leave for extended periods (even years) without jeopardizing status. Annual renewal is a paperwork formality; as long as income requirement is maintained ($1,350/month) and you renew on schedule, residency remains valid even with frequent travel. No \"use it or lose it\" requirement. Contrast this to Spain's Non-Lucrative visa, which technically requires continuous residency (departures >3 months may invite scrutiny, though enforcement varies)."
+        },
+        {
+          q: "3. If Spain's Beckham Law expires post-2026, what's my tax liability?",
+          a: "If you register before expiration and complete the 5-year period, the tax regime applies for the full 5 years regardless of subsequent legal changes. If law changes mid-tenure, your individual registration typically grandfathered (though Spain's parliament can legislate retroactively, as seen with other tax law changes). Worst-case scenario: You exit Spain before year 5 or face standard Spanish taxation (25-45% progressive rates + wealth tax) post-Beckham expiration. Mitigation: Consider Panama as backup residency if Beckham expires prematurely; or front-load property purchases, investments while under Beckham to lock in tax advantages."
+        },
+        {
+          q: "4. Do US Social Security payments get taxed in Panama and Spain?",
+          a: "Panama: Social Security is a US-sourced benefit; non-residents pay zero Panama tax on Social Security (foreign income exempt). You still file US taxes; Social Security is taxable at federal level (typically 50-85% of benefit taxed depending on provisional income threshold), but Panama adds no layer."
+        },
+        {
+          q: "5. How does the US-Panama tax treaty affect my situation?",
+          a: "The US-Panama treaty (signed 1986, reaffirmed via IRS guidance) exempts non-residents from Panama taxation on foreign-source income. For US citizens residing in Panama, benefits include:"
+        },
+        {
+          q: "6. What is a fideicomiso and do I absolutely need one to buy property in Panama?",
+          a: "A fideicomiso is a legal trust structure where you (foreigner) are the beneficial owner but a trustee (typically a law firm or bank) holds title. Advantages:"
+        },
+        {
+          q: "8. What's the currency risk of holding EUR assets in Spain vs. USD in Panama?",
+          a: "Panama Currency Risk: Minimal. Panamanian Balboa = US dollar (1:1 peg, since 1904 dollarization agreement). No currency conversion needed for US citizens; natural USD hedge."
+        }
+      ]
     }
   ],
 
