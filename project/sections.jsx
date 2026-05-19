@@ -802,7 +802,7 @@ function Footer() {
               { slug: 'buenaventura-ritz-reserve', name: 'Buenaventura \u00b7 Ritz-Carlton Reserve', from: '$1.2M' }
             ].map(p => (
               <a key={p.slug}
-                 href={`proyectos/${p.slug}.html`}
+                 href={`/proyectos/${p.slug}.html`}
                  style={{
                    color: 'var(--cream)',
                    textDecoration: 'none',

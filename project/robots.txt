@@ -10,5 +10,10 @@ Disallow: /qa/
 Disallow: /uploads/
 Disallow: /screenshots/
 
+# Build-artifact JSON files (Google crawls these via internal fetch but they
+# should not appear in the index — content is exposed through HTML pages).
+Disallow: /airtable-projects.json
+Disallow: /youtube-videos.json
+
 Sitemap: https://panamarealestateguide.com/sitemap.xml
 Sitemap: https://panamarealestateguide.com/sitemap-videos.xml
