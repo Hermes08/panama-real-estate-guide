@@ -16,11 +16,30 @@
     };
 
     function ArticlesIndex() {
-      const [filter, setFilter] = React.useState('All');
       const articles = window.PANAMA_DATA.articles || [];
-
       const categories = ['All', ...new Set(articles.map(a => a.category).filter(Boolean))];
+
+      // Read ?category=<X> from the URL so footer/deep-links can pre-select a tab.
+      // Match case-insensitively + tolerant of common separators (Residency vs residency vs Residency-US).
+      const readCategoryFromURL = () => {
+        if (typeof window === 'undefined') return 'All';
+        const q = new URLSearchParams(window.location.search).get('category');
+        if (!q) return 'All';
+        const needle = q.toLowerCase().replace(/[^a-z0-9]+/g, '');
+        const match = categories.find(c => c.toLowerCase().replace(/[^a-z0-9]+/g, '') === needle);
+        return match || 'All';
+      };
+      const [filter, setFilter] = React.useState(readCategoryFromURL);
       const filtered = filter === 'All' ? articles : articles.filter(a => a.category === filter);
+
+      // Reflect tab changes in the URL (replaceState — doesn't pollute history)
+      React.useEffect(() => {
+        if (typeof window === 'undefined') return;
+        const url = new URL(window.location.href);
+        if (filter === 'All') url.searchParams.delete('category');
+        else url.searchParams.set('category', filter);
+        window.history.replaceState({}, '', url.toString());
+      }, [filter]);
 
       React.useEffect(() => {
         const io = new IntersectionObserver((entries) => {
