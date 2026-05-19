@@ -39,6 +39,9 @@ jobs:
       - name: Sync YouTube channel feed -> project/youtube-videos.json
         run: node scripts/sync-youtube-videos.mjs
 
+      - name: Split data.js -> data-light.js + per-article body files
+        run: node scripts/build-data-split.mjs
+
       - name: Inject per-project meta + schema into /projects/*.html
         run: node scripts/inject-project-meta.mjs
 
