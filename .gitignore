@@ -61,3 +61,9 @@ project/videos/videos-index-renderer.js
 project/news/news-renderer.js
 project/news/news-index-renderer.js
 project/proyectos/proyectos-index-renderer.js
+
+# Dev artifacts (QA screenshots, captures, scraps) — never deploy to production
+project/screenshots/
+project/qa/
+project/uploads/
+project/scraps/
