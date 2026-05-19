@@ -47,3 +47,18 @@ coverage/
 # Build-time outputs from scripts/build-data-split.mjs — regenerated on every deploy
 project/data-light.js
 project/bodies/
+
+# Build-time outputs from scripts/build-jsx.mjs — regenerated on every deploy
+project/components.js
+project/sections.js
+project/detail-chrome.js
+project/index-renderer.js
+project/panama-caribbean-renderer.js
+project/articles/article-renderer.js
+project/articles/articles-index-renderer.js
+project/projects/project-renderer.js
+project/videos/video-renderer.js
+project/videos/videos-index-renderer.js
+project/news/news-renderer.js
+project/news/news-index-renderer.js
+project/proyectos/proyectos-index-renderer.js

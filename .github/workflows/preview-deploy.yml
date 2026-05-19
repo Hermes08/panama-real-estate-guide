@@ -42,6 +42,12 @@ jobs:
       - name: Split data.js -> data-light.js + per-article body files
         run: node scripts/build-data-split.mjs
 
+      - name: Pre-compile JSX (.jsx -> .js, drops Babel-standalone from browser)
+        # scripts/build-jsx.mjs runs npx esbuild against every project/**/*.jsx
+        # and writes side-by-side .js outputs. The HTML shells reference .js
+        # directly so the browser never loads Babel.
+        run: node scripts/build-jsx.mjs
+
       - name: Inject per-project meta + schema into /projects/*.html
         run: node scripts/inject-project-meta.mjs
 

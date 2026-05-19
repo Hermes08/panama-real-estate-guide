@@ -51,6 +51,12 @@ jobs:
         # instead of the full 1.8MB data.js. Both outputs are gitignored.
         run: node scripts/build-data-split.mjs
 
+      - name: Pre-compile JSX (.jsx -> .js, drops Babel-standalone from browser)
+        # scripts/build-jsx.mjs runs npx esbuild against every project/**/*.jsx
+        # and writes side-by-side .js outputs. HTML shells reference .js directly
+        # so the browser never loads Babel-standalone (~600 KB saved per pageview).
+        run: node scripts/build-jsx.mjs
+
       - name: Inject per-project meta + schema into /projects/*.html
         run: node scripts/inject-project-meta.mjs
 
