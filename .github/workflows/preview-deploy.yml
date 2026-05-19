@@ -57,6 +57,12 @@ jobs:
       - name: Build video sitemap (project/sitemap-videos.xml)
         run: node scripts/build-video-sitemap.mjs
 
+      - name: Build main sitemap.xml (lastmod=today aggregators + per-article dates)
+        # scripts/build-sitemap.mjs reads PANAMA_DATA.articles + .news + the
+        # /projects/*.html listing and writes project/sitemap.xml with fresh
+        # <lastmod> values so Google re-crawls quickly when content changes.
+        run: node scripts/build-sitemap.mjs
+
       - name: Inject per-article meta + schema into /articles/*.html
         run: node scripts/inject-article-meta.mjs
 
