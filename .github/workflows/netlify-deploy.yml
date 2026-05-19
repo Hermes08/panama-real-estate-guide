@@ -45,6 +45,12 @@ jobs:
         # the file when titles/descriptions/project mapping change.
         run: node scripts/sync-youtube-videos.mjs
 
+      - name: Split data.js -> data-light.js + per-article body files
+        # Generates project/data-light.js (~60KB) + project/bodies/articles/*.js
+        # (~20KB each). HTML shells load the light version + their per-slug body
+        # instead of the full 1.8MB data.js. Both outputs are gitignored.
+        run: node scripts/build-data-split.mjs
+
       - name: Inject per-project meta + schema into /projects/*.html
         run: node scripts/inject-project-meta.mjs
 

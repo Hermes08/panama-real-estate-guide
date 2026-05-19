@@ -43,3 +43,7 @@ build/
 # Testing / logs
 coverage/
 *.log
+
+# Build-time outputs from scripts/build-data-split.mjs — regenerated on every deploy
+project/data-light.js
+project/bodies/
