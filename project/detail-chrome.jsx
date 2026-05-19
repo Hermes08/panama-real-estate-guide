@@ -245,7 +245,7 @@ function Lightbox({ images, startIndex, onClose }) {
       padding: 'clamp(20px, 4vw, 60px)', cursor: 'zoom-out'
     }}>
       <img src={`../${images[idx]}`} onClick={e => e.stopPropagation()}
-        alt="" style={{
+        alt="" loading="lazy" decoding="async" style={{
           maxWidth: '100%', maxHeight: '100%', objectFit: 'contain',
           borderRadius: 6, boxShadow: '0 40px 80px -20px rgba(0,0,0,0.6)',
           cursor: 'default'
