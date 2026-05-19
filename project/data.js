@@ -772,8 +772,8 @@ window.PANAMA_DATA = {
     {
       id: 'internet-providers-panama-expats',
       category: 'Lifestyle & Daily Living',
-      title: 'Best Internet Providers in Panama 2026: Speed & Price Compared',
-      excerpt: 'Best Internet Providers in Panama 2026: Speed & Price Compared',
+      title: 'Internet Providers Panama 2026: Fiber, Cable Onda, Starlink',
+      excerpt: 'Compare Panama internet 2026 for expats: Cable Onda, Más Móvil Hogar fiber, Tigo Fibra and Starlink. Real speeds, prices ($30-$150/mo), reliability and contract terms.',
       author: 'David Aguirre',
       date: 'February 23, 2026',
       read: '6 min read',
