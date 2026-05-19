@@ -67,3 +67,6 @@ project/screenshots/
 project/qa/
 project/uploads/
 project/scraps/
+
+# Build-time outputs from scripts/build-sitemap.mjs — regenerated on every deploy
+project/sitemap.xml
