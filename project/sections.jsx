@@ -191,12 +191,16 @@ function Regions() {
         </div>
         <div className="regions-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 16 }}>
           {regions.map((r, i) => (
-            <div key={r.id} className="reveal" style={{
+            // Region cards are now clickable — scrolls to #projects (no per-region landing
+            // page exists yet; visual filter is on the user). Cursor + hover keep prior UX.
+            <a key={r.id} href="/#projects" className="reveal" style={{
               transitionDelay: `${i * 0.06}s`,
               padding: 24, borderRadius: 14,
               background: 'rgba(255, 249, 236, 0.04)', border: '1px solid rgba(255, 249, 236, 0.1)',
-              cursor: 'pointer', transition: 'all 0.4s var(--ease)'
+              cursor: 'pointer', transition: 'all 0.4s var(--ease)',
+              textDecoration: 'none', color: 'inherit', display: 'block'
             }}
+            aria-label={`See projects in ${r.name}`}
             onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(31, 196, 196, 0.1)'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255, 249, 236, 0.04)'; e.currentTarget.style.transform = 'none'; }}>
               <div style={{ fontSize: 12, fontFamily: 'var(--font-mono)', color: 'var(--aqua)', letterSpacing: '0.16em', marginBottom: 14 }}>
@@ -213,7 +217,7 @@ function Regions() {
                 <span style={{ color: 'var(--aqua)' }}>{r.count} projects</span>
                 <Icon name="arrow" size={13}/>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
@@ -587,7 +591,7 @@ function ReserveCTA() {
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 16, wordBreak: 'break-word' }}>reservations@panamarealestateguide.com</div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <a href="#form" className="btn btn-coral" style={{ width: '100%', justifyContent: 'center' }}>
+            <a href="#book" className="btn btn-coral" style={{ width: '100%', justifyContent: 'center' }}>
               Start a reservation <Icon name="arrow" size={14}/>
             </a>
           </div>
@@ -773,15 +777,38 @@ function Footer() {
             </div>
           </div>
           {[
-            { t: 'Projects', links: ['Pacific Coast', 'Bocas del Toro', 'Azuero', 'Highlands', 'Panama City'] },
-            { t: 'Journal', links: ['Market Reports', 'Residency', 'Taxes', 'Neighborhoods', 'News'] },
-            { t: 'Company', links: ['About', 'Team', 'Press', 'Podcast', 'Contact'] },
+            // All Projects-column links → #projects (no per-region landing pages exist; this
+            // section already lists all projects, and the user can filter visually).
+            { t: 'Projects', links: [
+              { l: 'Pacific Coast', href: '/#projects' },
+              { l: 'Bocas del Toro', href: '/#projects' },
+              { l: 'Azuero', href: '/#projects' },
+              { l: 'Highlands', href: '/#projects' },
+              { l: 'Panama City', href: '/#projects' },
+            ] },
+            // Journal-column → /articles/?category=X (category filter via URL param is wired in
+            // articles-index-renderer.jsx). News goes to its own index.
+            { t: 'Journal', links: [
+              { l: 'Market Reports', href: '/articles/?category=Market+Report' },
+              { l: 'Residency',      href: '/articles/?category=Residency' },
+              { l: 'Taxes',          href: '/articles/?category=Taxes' },
+              { l: 'Neighborhoods',  href: '/articles/?category=Neighborhood' },
+              { l: 'News',           href: '/news/' },
+            ] },
+            // Company-column: pruned to destinations that actually exist. About/Contact map
+            // to the corresponding home-page anchors; Videos links to the channel hub.
+            { t: 'Company', links: [
+              { l: 'About',   href: '/#regions' },
+              { l: 'Videos',  href: '/videos/' },
+              { l: 'News',    href: '/news/' },
+              { l: 'Contact', href: '/#reserve' },
+            ] },
           ].map(col => (
             <div key={col.t}>
               <div className="eyebrow" style={{ color: 'var(--aqua)', marginBottom: 18 }}>{col.t}</div>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
-                {col.links.map(l => (
-                  <li key={l}><a href="#" style={{ color: 'var(--cream)', opacity: 0.85, textDecoration: 'none', fontSize: 14 }}>{l}</a></li>
+                {col.links.map(({ l, href }) => (
+                  <li key={l}><a href={href} style={{ color: 'var(--cream)', opacity: 0.85, textDecoration: 'none', fontSize: 14 }}>{l}</a></li>
                 ))}
               </ul>
             </div>

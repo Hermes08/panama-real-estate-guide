@@ -133,9 +133,14 @@ function Navbar({ transparent }) {
         <Logo onDark={isDark} size={18}/>
         <nav className="nav-desktop" style={{ display: 'flex', gap: 28, fontSize: 13, fontWeight: 500 }}>
         {['Projects', 'Regions', 'Journal', 'Videos', 'News', 'Residency', 'About'].map(l => {
+          // Map each nav item to its real destination. Residency → article-category filter
+          // (no /#residency anchor exists on the home page). About → #regions block (the
+          // "Two oceans, five coasts, one visa" intro doubles as the company's About anchor).
           const href = l === 'Journal' ? '/articles/'
                      : l === 'Videos' ? '/videos/'
                      : l === 'News' ? '/news/'
+                     : l === 'Residency' ? '/articles/?category=Residency'
+                     : l === 'About' ? '/#regions'
                      : `/#${l.toLowerCase()}`;
           return <a key={l} href={href} style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>{l}</a>;
         })}
@@ -157,9 +162,12 @@ function Navbar({ transparent }) {
           borderTop: '1px solid var(--line-soft)', display: 'flex', flexDirection: 'column', gap: 14
         }}>
           {['Projects', 'Regions', 'Journal', 'Videos', 'News', 'Residency', 'About'].map(l => {
+            // Same destination logic as the desktop nav above — keep both maps in sync.
             const href = l === 'Journal' ? '/articles/'
                        : l === 'Videos' ? '/videos/'
                        : l === 'News' ? '/news/'
+                       : l === 'Residency' ? '/articles/?category=Residency'
+                       : l === 'About' ? '/#regions'
                        : `/#${l.toLowerCase()}`;
             return (
               <a key={l} href={href} onClick={() => setOpen(false)}
