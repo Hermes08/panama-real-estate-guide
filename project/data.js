@@ -105,8 +105,8 @@ window.PANAMA_DATA = {
     {
       id: 'pensionado-panama-city-condo-2026',
       category: 'Residency · US',
-      title: 'Pensionado Visa + Panama City Condo: The Underrated Retirement Play Americans Are Quietly Making in 2026',
-      excerpt: 'You can fly from Miami to Panama City in three hours, walk into a downtown condo with a 30-floor Pacific view, and spend the rest of your life paying 0% tax on every dollar you earn outside Panama. The visa that makes this work —…',
+      title: 'Pensionado Visa + Panama City Condo 2026: US Retiree Guide',
+      excerpt: 'Buy a Panama City condo on the Pensionado visa: $1,000/month income qualifies you, 0% tax on foreign-earned income, and a downtown unit from $200k. The 2026 numbers for US retirees: cost of living, visa fees, closing costs and the buying timeline.',
       author: 'David Aguirre',
       date: 'April 24, 2026',
       read: '8 min read',
