@@ -176,99 +176,6 @@ function Navbar({ transparent }) {
   );
 }
 
-/* ── Hero — Subtle rainforest + canal + toucan (restrained, not overwhelming) ── */
-function Hero() {
-  const canvasRef = useRef();
-  useEffect(() => {
-    if (!canvasRef.current) return;
-    const s = window.RainforestScene(canvasRef.current);
-    return () => s.stop();
-  }, []);
-  return (
-    <section style={{
-      position: 'relative', paddingTop: 100, paddingBottom: 40,
-      background: 'var(--cream)', color: 'var(--ink)', overflow: 'hidden'
-    }}>
-      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-        <div className="hero-grid" style={{
-          display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 48, alignItems: 'center', minHeight: '72vh'
-        }}>
-          {/* Left — copy */}
-          <div>
-            <div className="eyebrow reveal in" style={{ marginBottom: 22 }}>
-              <span className="rule-coral"></span>
-              Developer-direct · Reservations open · 2026
-            </div>
-
-            <h1 className="display reveal in d1" style={{
-              fontSize: 'clamp(44px, 6.5vw, 92px)',
-              margin: '0 0 34px', maxWidth: '14ch', lineHeight: 1.0, paddingBottom: '0.14em'
-            }}>
-              Between two <em style={{ color: 'var(--palm)' }}>oceans,</em><br/>
-              under one <em style={{ color: 'var(--coral)' }}>canopy.</em>
-            </h1>
-
-            <p className="lede reveal in d2" style={{ marginBottom: 32, maxWidth: '48ch' }}>
-              We represent Panama's best developer projects — Caribbean overwater,
-              Pacific resorts, colonial heritage and highland retreats. New-construction
-              only. Reserve your unit with a refundable deposit from $5,000.
-            </p>
-
-            <div className="reveal in d3" style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 40 }}>
-              <a href="/#reserve" className="btn btn-coral">Reserve a unit <Icon name="arrow" size={14}/></a>
-              <a href="#projects" className="btn btn-ghost">
-                Browse 24 projects
-              </a>
-            </div>
-
-            {/* inline stats row */}
-            <div className="reveal in d3" style={{
-              display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18,
-              paddingTop: 28, borderTop: '1px solid var(--line)', maxWidth: 560
-            }}>
-              {window.PANAMA_DATA.stats.map((s, i) => (
-                <div key={i}>
-                  <div className="display" style={{ fontSize: 28, lineHeight: 1, margin: 0 }}>{s.n}</div>
-                  <div style={{ fontSize: 10, fontFamily: 'var(--font-mono)', color: 'var(--ink-mute)', letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: 8 }}>{s.l}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right — WebGL rainforest panel (ambient, restrained) */}
-          <div className="reveal in d2" style={{
-            position: 'relative', aspectRatio: '4/5', borderRadius: 18, overflow: 'hidden',
-            border: '1px solid var(--line)', boxShadow: '0 30px 60px -24px rgba(11,39,51,0.25)'
-          }}>
-            <canvas ref={canvasRef} style={{ width: '100%', height: '100%', display: 'block' }}/>
-            {/* soft cream vignette to blend into page */}
-            <div style={{
-              position: 'absolute', inset: 0, pointerEvents: 'none',
-              background: 'radial-gradient(120% 80% at 50% 100%, rgba(255,249,236,0.35), transparent 60%)'
-            }}/>
-            {/* minimal label */}
-            <div style={{
-              position: 'absolute', top: 16, left: 16,
-              fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.18em',
-              color: 'var(--palm-deep)', textTransform: 'uppercase', opacity: 0.8,
-              background: 'rgba(255,249,236,0.8)', padding: '5px 10px', borderRadius: 999
-            }}>
-              Panama · Rainforest &amp; canal
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <style>{`
-        @media (max-width: 900px) {
-          .hero-grid { grid-template-columns: 1fr !important; min-height: auto !important; gap: 28px !important; }
-          .hero-grid > div:last-child { aspect-ratio: 5/4 !important; order: -1; }
-        }
-      `}</style>
-    </section>
-  );
-}
-
 /* ── Hero (Editorial variant) — magazine-style with giant wordmark headline + featured project card ── */
 function HeroEditorial() {
   const featuredPool = window.PANAMA_DATA.projects.slice(0, 5);
@@ -576,4 +483,4 @@ function Marquee() {
   );
 }
 
-Object.assign(window, { Icon, Logo, LangSwitcher, Navbar, Hero, HeroEditorial, Marquee });
+Object.assign(window, { Icon, Logo, LangSwitcher, Navbar, HeroEditorial, Marquee });

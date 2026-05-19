@@ -53,7 +53,6 @@ project/components.js
 project/sections.js
 project/detail-chrome.js
 project/index-renderer.js
-project/panama-caribbean-renderer.js
 project/articles/article-renderer.js
 project/articles/articles-index-renderer.js
 project/projects/project-renderer.js
