@@ -9,7 +9,7 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
-# 301 — retired demo project pages → home
+# 301: retired demo project pages back to home
 [[redirects]]
   from = "/projects/palma-blanca.html"
   to = "/"
@@ -47,7 +47,7 @@
   force = true
 
 
-# Four Systems operator dashboard — Basic Auth via edge function
+# Four Systems operator dashboard: Basic Auth via edge function
 [[edge_functions]]
   function = "dashboard-auth"
   path = "/dashboard/*"
@@ -55,3 +55,18 @@
 [[edge_functions]]
   function = "dashboard-auth"
   path = "/dashboard"
+
+
+# Geo-aware delivery: language banner + per-jurisdiction cookie banner
+# (Phase 4a of the multilingual plan. Bot-safe: bots pass through unmodified.)
+[[edge_functions]]
+  function = "geo-route"
+  path = "/"
+
+[[edge_functions]]
+  function = "geo-route"
+  path = "/articles/*"
+
+[[edge_functions]]
+  function = "geo-route"
+  path = "/projects/*"
