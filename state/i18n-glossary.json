@@ -1,0 +1,156 @@
+{
+  "_meta": {
+    "description": "Brand-canonical translations of recurring terms. Translation pipeline (scripts/translate-content.mjs) injects this as a glossary into the Claude API prompt so every translation uses the same equivalents. Update as new terms appear in the corpus.",
+    "updated": "2026-05-19"
+  },
+  "panama_real_estate_guide": {
+    "en": "Panama Real Estate Guide",
+    "es": "Panama Real Estate Guide",
+    "pt": "Panama Real Estate Guide",
+    "de": "Panama Real Estate Guide"
+  },
+  "buyer_agency": {
+    "en": "buyer's agency",
+    "es": "agencia del comprador",
+    "pt": "agência do comprador",
+    "de": "Käuferagentur"
+  },
+  "buyers_agent": {
+    "en": "buyer's agent",
+    "es": "agente del comprador",
+    "pt": "agente do comprador",
+    "de": "Käufermakler"
+  },
+  "developer_direct": {
+    "en": "developer-direct",
+    "es": "directo del desarrollador",
+    "pt": "direto da incorporadora",
+    "de": "direkt vom Bauträger"
+  },
+  "reservation": {
+    "en": "reservation",
+    "es": "reserva",
+    "pt": "reserva",
+    "de": "Reservierung"
+  },
+  "refundable_reservation": {
+    "en": "refundable reservation",
+    "es": "reserva reembolsable",
+    "pt": "reserva reembolsável",
+    "de": "rückerstattbare Reservierung"
+  },
+  "reserve_5000": {
+    "en": "Reserve from USD $5,000",
+    "es": "Reserva desde USD $5,000",
+    "pt": "Reserve a partir de USD $5.000",
+    "de": "Reservierung ab USD $5.000"
+  },
+  "friendly_nations_visa": {
+    "en": "Friendly Nations Visa",
+    "es": "Visa de Naciones Amigas",
+    "pt": "Visto Nações Amigas",
+    "de": "Friendly Nations Visa"
+  },
+  "pensionado_visa": {
+    "en": "Pensionado Visa",
+    "es": "Visa Pensionado",
+    "pt": "Visa Pensionado",
+    "de": "Pensionado-Visum"
+  },
+  "qualified_investor_visa": {
+    "en": "Qualified Investor Visa",
+    "es": "Visa de Inversionista Calificado",
+    "pt": "Visto Investidor Qualificado",
+    "de": "Qualified Investor Visa"
+  },
+  "us_retiree": {
+    "en": "US retiree",
+    "es": "jubilado estadounidense",
+    "pt": "aposentado norte-americano",
+    "de": "US-Rentner"
+  },
+  "expat": {
+    "en": "expat",
+    "es": "expatriado",
+    "pt": "expatriado",
+    "de": "Auswanderer"
+  },
+  "real_estate": {
+    "en": "real estate",
+    "es": "bienes raíces",
+    "pt": "imóveis",
+    "de": "Immobilien"
+  },
+  "property": {
+    "en": "property",
+    "es": "propiedad",
+    "pt": "imóvel",
+    "de": "Immobilie"
+  },
+  "condo": {
+    "en": "condo",
+    "es": "apartamento",
+    "pt": "apartamento",
+    "de": "Eigentumswohnung"
+  },
+  "two_bedroom": {
+    "en": "2-bedroom",
+    "es": "de 2 habitaciones",
+    "pt": "de 2 quartos",
+    "de": "2-Zimmer"
+  },
+  "highlands": {
+    "en": "highlands",
+    "es": "tierras altas",
+    "pt": "terras altas",
+    "de": "Hochland"
+  },
+  "pacific_coast": {
+    "en": "Pacific coast",
+    "es": "costa Pacífica",
+    "pt": "costa do Pacífico",
+    "de": "Pazifikküste"
+  },
+  "caribbean_coast": {
+    "en": "Caribbean coast",
+    "es": "costa Caribe",
+    "pt": "costa do Caribe",
+    "de": "Karibikküste"
+  },
+  "azuero_peninsula": {
+    "en": "Azuero Peninsula",
+    "es": "Península de Azuero",
+    "pt": "Península de Azuero",
+    "de": "Azuero-Halbinsel"
+  },
+  "panama_city": {
+    "en": "Panama City",
+    "es": "Ciudad de Panamá",
+    "pt": "Cidade do Panamá",
+    "de": "Panama-Stadt"
+  },
+  "consult_attorney": {
+    "en": "consult a licensed Panamanian attorney",
+    "es": "consulte a un abogado panameño licenciado",
+    "pt": "consulte um advogado panamenho licenciado",
+    "de": "konsultieren Sie einen zugelassenen panamaischen Rechtsanwalt"
+  },
+  "consult_tax_attorney": {
+    "en": "consult a licensed Panamanian tax attorney or CPA",
+    "es": "consulte a un abogado tributario o contador público panameño licenciado",
+    "pt": "consulte um advogado tributário ou contador panamenho licenciado",
+    "de": "konsultieren Sie einen zugelassenen panamaischen Steueranwalt oder Wirtschaftsprüfer"
+  },
+  "closing_costs": {
+    "en": "closing costs",
+    "es": "costos de cierre",
+    "pt": "custos de fechamento",
+    "de": "Abschlusskosten"
+  },
+  "property_tax": {
+    "en": "property tax",
+    "es": "impuesto de inmueble",
+    "pt": "imposto sobre imóveis",
+    "de": "Grundsteuer"
+  }
+}

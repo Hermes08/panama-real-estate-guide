@@ -75,6 +75,22 @@ jobs:
       - name: Inject per-article meta + schema into /articles/*.html
         run: node scripts/inject-article-meta.mjs
 
+      - name: Translate articles to ES/PT/DE (Claude API, incremental, no-op if key missing)
+        # Reads project/data.js, calls Anthropic API for each article x language
+        # whose source SHA has changed since the last cache hit. Writes per-lang
+        # HTML shells + body JS files into project/<lang>/articles/.
+        # Skips silently if ANTHROPIC_API_KEY is not set in repo secrets.
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/translate-content.mjs
+
+      - name: Inject hreflang link tags into every article and project shell
+        # For each /articles/*.html and /projects/*.html, detects which per-lang
+        # translations exist and emits <link rel="alternate" hreflang="..."> for
+        # each plus x-default. Idempotent (wrapped in HTML comment sentinels).
+        run: node scripts/inject-hreflang.mjs
+
+
       - name: Inject tracking tags (only if env vars are set)
         env:
           GTM_CONTAINER_ID: ${{ secrets.GTM_CONTAINER_ID }}
