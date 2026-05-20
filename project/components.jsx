@@ -239,13 +239,13 @@ function HeroEditorial() {
           display: 'grid', gridTemplateColumns: '1.1fr 1.3fr 1fr', gap: 48,
           borderTop: '1px solid var(--line)', paddingTop: 40
         }}>
-          {/* Left — dek + CTAs */}
+          {/* Left: dek + CTAs */}
           <div className="reveal in d2">
             <div style={{
               fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.14em',
               textTransform: 'uppercase', color: 'var(--coral-deep)', fontWeight: 700, marginBottom: 14
             }}>
-              The dek
+              From the editor
             </div>
             <p style={{
               fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 300,
