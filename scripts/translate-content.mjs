@@ -180,7 +180,7 @@ async function callClaude(prompt, attempt = 1) {
       },
       body: JSON.stringify({
         model: MODEL,
-        max_tokens: 8000,
+        max_tokens: 16000,
         messages: [{ role: 'user', content: prompt }],
       }),
     });
@@ -209,11 +209,32 @@ async function callClaude(prompt, attempt = 1) {
   const data = await resp.json();
   const text = data.content?.[0]?.text;
   if (!text) throw new Error('Anthropic returned no text content');
-  // Extract JSON (be tolerant of surrounding text)
-  const jsonStart = text.indexOf('{');
-  const jsonEnd = text.lastIndexOf('}');
-  if (jsonStart < 0 || jsonEnd < 0) throw new Error('No JSON in response: ' + text.slice(0, 200));
-  const parsed = JSON.parse(text.slice(jsonStart, jsonEnd + 1));
+  // Strip optional markdown code fence wrapper that Claude sometimes adds
+  // despite "no markdown fence" instruction. Handles ```json ... ``` and ``` ... ```
+  let clean = text.trim();
+  const fenceMatch = clean.match(/^```(?:json)?\s*\n([\s\S]*?)\n```\s*$/);
+  if (fenceMatch) clean = fenceMatch[1].trim();
+  // Find the outermost JSON object by counting braces from first { onward
+  const jsonStart = clean.indexOf('{');
+  if (jsonStart < 0) throw new Error('No JSON in response: ' + clean.slice(0, 200));
+  let depth = 0;
+  let jsonEnd = -1;
+  let inString = false;
+  let escape = false;
+  for (let i = jsonStart; i < clean.length; i++) {
+    const c = clean[i];
+    if (escape) { escape = false; continue; }
+    if (c === '\\') { escape = true; continue; }
+    if (c === '"') { inString = !inString; continue; }
+    if (inString) continue;
+    if (c === '{') depth++;
+    else if (c === '}') {
+      depth--;
+      if (depth === 0) { jsonEnd = i; break; }
+    }
+  }
+  if (jsonEnd < 0) throw new Error('Unterminated JSON in response: ' + clean.slice(0, 200));
+  const parsed = JSON.parse(clean.slice(jsonStart, jsonEnd + 1));
   return { parsed, usage: data.usage };
 }
 

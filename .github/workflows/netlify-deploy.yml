@@ -80,6 +80,10 @@ jobs:
         # whose source SHA has changed since the last cache hit. Writes per-lang
         # HTML shells + body JS files into project/<lang>/articles/.
         # Skips silently if ANTHROPIC_API_KEY is not set in repo secrets.
+        # continue-on-error: this is an enhancement step. If it fails (rate limit,
+        # credit exhausted, API outage, parser bug), the deploy must still proceed
+        # so the rest of the site reaches production. Translation is non-blocking.
+        continue-on-error: true
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/translate-content.mjs
