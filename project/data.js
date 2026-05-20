@@ -2053,14 +2053,21 @@ window.PANAMA_DATA = {
   ],
 
   news: [
-    { slug: 'boquete-proyecta-rcord-turstico-con-feria-internac', date: 'May 19', month: '2026-05', iso: '2026-05-19', title: 'Boquete coffee fair projects record turnout for 2026 with new cafetalera investments', tag: 'Tourism' },
-    { slug: 'tocumen-terminal-2-expansion', date: 'May 19', month: '2026-05', iso: '2026-05-19', title: 'Tocumen Airport confirms USD $340 million Terminal 2 expansion (Phase 2026-2028)', tag: 'Infrastructure' },
-    { slug: 'santa-mara-este-recibe-lanzamiento-residencial-de', date: 'May 18', month: '2026-05', iso: '2026-05-18', title: 'Santa Maria Este launches USD $120 million residential development financed by green bonds', tag: 'Real Estate' },
-    { slug: 'bocas-corona-living-is-calling-2026', date: 'May 16', month: '2026-05', iso: '2026-05-16', title: 'Bocas del Toro becomes global stage of Corona Living is Calling sustainable-tourism campaign showcasing pristine beaches and biodiversity', tag: 'Tourism' },
-    { slug: 'penonome-pot-mirador-ciclovia', date: 'May 14', month: '2026-05', iso: '2026-05-14', title: 'Penonomé launches urban POT with new Cerro Cuarto Centenario lookout, La Toscana lake bike path and tourism zoning', tag: 'Government' },
-    { slug: 'mop-alto-boquete-caldera-rehab', date: 'May 7', month: '2026-05', iso: '2026-05-07', title: 'MOP begins rehabilitation of Alto Boquete to Caldera highway and advances David-Boquete corridor maintenance under 2026 Chiriquí works plan', tag: 'Infrastructure' },
-    { slug: 'panamerican-surf-games-venao-2026', date: 'May 4', month: '2026-05', iso: '2026-05-04', title: 'Playa Venao hosts XIX Pan American Surf Games with 280 athletes from 19 countries and 100% hotel occupancy', tag: 'Tourism' },
-    { slug: 'fida-2026-david-cierre-record', date: 'May 4', month: '2026-05', iso: '2026-05-04', title: 'Feria Internacional de David 2026 closes 69th edition with record attendance and 3,000 m² Boquete land prize, reinforcing Chiriquí trade-fair brand', tag: 'Tourism' }
+    { slug: 'tocumen-terminal-2-expansion', date: 'May 19', month: '2026-05', iso: '2026-05-19', title: 'Tocumen confirms USD $340 million Terminal 2 expansion to reach 24 million passengers by 2028', tag: 'Infrastructure' },
+  { slug: 'santa-maria-este-launch', date: 'May 18', month: '2026-05', iso: '2026-05-18', title: 'Santa Maria Este opens preconstruction sales on USD $120 million residential development with green-bond financing', tag: 'Real Estate' },
+  { slug: 'boquete-coffee-fair-2026', date: 'May 19', month: '2026-05', iso: '2026-05-19', title: 'Boquete coffee fair projects record 38,000 visitors and USD $9 million local impact in June 2026', tag: 'Tourism' },
+  { slug: 'pedasi-cultural-center', date: 'May 19', month: '2026-05', iso: '2026-05-19', title: 'Pedasi opens new community cultural center funded by Santeno diaspora donors', tag: 'Project update' },
+  { slug: 'semiconductor-strategy-105m', date: 'Mar 23', month: '2026-03', iso: '2026-03-23', title: 'Panama launches USD $105 million National Semiconductor Strategy to enter global chip ecosystem', tag: 'Economy' },
+  { slug: 'casco-viejo-colon-incentives', date: 'Mar 05', month: '2026-03', iso: '2026-03-05', title: 'Assembly expands heritage-restoration tax incentives to Casco Antiguo and Colon Historic Center', tag: 'Regulatory' },
+  { slug: 'canal-projects-2027-bid', date: 'Mar 12', month: '2026-03', iso: '2026-03-12', title: 'Canal Authority sets June 2027 deadline to award three port and gas-pipeline mega-concessions', tag: 'Infrastructure' },
+  { slug: 'pib-cobre-reactivacion', date: 'Mar 03', month: '2026-03', iso: '2026-03-03', title: 'Mens Consultores projects 5.57 percent GDP growth in 2026 if copper mine restarts operations', tag: 'Economy' },
+  { slug: 'canal-transit-january-2026', date: 'Feb 11', month: '2026-02', iso: '2026-02-11', title: 'Panama Canal records 3.8 percent jump in January transits, led by Neopanamax vessels', tag: 'Economy' },
+  { slug: 'world-bank-4-percent-forecast', date: 'Jan 14', month: '2026-01', iso: '2026-01-14', title: 'World Bank ratifies 4.1 percent growth forecast for Panama in 2026 and 2027', tag: 'Economy' },
+  { slug: 'metro-linea-3-monorail-tests', date: 'Apr 13', month: '2026-04', iso: '2026-04-13', title: 'Metro Line 3 begins dynamic monorail testing toward Panama Oeste with 2028 operating target', tag: 'Infrastructure' },
+  { slug: 'metro-puente-cuarto-2026', date: 'Jan 01', month: '2026-01', iso: '2026-01-01', title: 'Line 3 Metro and Fourth Bridge over the Canal remain Panama strategic infrastructure priorities for 2026', tag: 'Infrastructure' },
+  { slug: 'cruise-season-2025-2026', date: 'Oct 13', month: '2025-10', iso: '2025-10-13', title: 'Panama 2025 to 2026 cruise season opens with 2 percent increase in arrivals at Colon and Amador', tag: 'Tourism' },
+  { slug: 'panama-pacifico-logistics-hub', date: 'Aug 22', month: '2025-08', iso: '2025-08-22', title: 'New USD $20 million logistics hub at Panama Pacifico strengthens regional manufacturing platform', tag: 'Government' },
+  { slug: 'apede-italia-investment-mission', date: 'Oct 29', month: '2025-10', iso: '2025-10-29', title: 'APEDE pitches Panama open economy model to Italian investors in Rome trade mission', tag: 'Press' }
   ],
 
   articleBodies: {
