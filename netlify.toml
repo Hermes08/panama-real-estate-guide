@@ -45,3 +45,13 @@
   to = "/"
   status = 301
   force = true
+
+
+# Four Systems operator dashboard — Basic Auth via edge function
+[[edge_functions]]
+  function = "dashboard-auth"
+  path = "/dashboard/*"
+
+[[edge_functions]]
+  function = "dashboard-auth"
+  path = "/dashboard"

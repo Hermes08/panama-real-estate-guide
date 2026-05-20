@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Four Systems &middot; panamarealestateguide.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --bg-2: #0f0f0f;
+  --bg-3: #141414;
+  --line: #1f1f1f;
+  --line-2: #2a2a2a;
+  --fg: #f5f5f5;
+  --fg-2: #b4b4b4;
+  --dim: #6b6b6b;
+  --ghost: #404040;
+  --lime: #a3e635;
+  --mint: #5eead4;
+  --amber: #fbbf24;
+  --rose: #fb7185;
+  --sky: #7dd3fc;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 14px; }
+body {
+  font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.5;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -20%, rgba(163,230,53,0.04), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(251,113,133,0.03), transparent 60%);
+  letter-spacing: -0.005em;
+}
+a { color: inherit; text-decoration: none; }
+code, .mono { font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace; }
+.mono-sm { font-family: 'Geist Mono', monospace; font-size: 11px; }
+.dim { color: var(--dim); }
+.r { text-align: right; }
+.c { text-align: center; }
+
+/* ----- top bar ----- */
+.topbar {
+  border-bottom: 1px solid var(--line);
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(12px);
+  position: sticky; top: 0; z-index: 100;
+}
+.topbar-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 14px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px;
+}
+.brand {
+  display: flex; align-items: baseline; gap: 12px;
+}
+.brand-mark {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+}
+.brand-mark::before {
+  content: "//";
+  color: var(--lime);
+  font-style: normal;
+  margin-right: 6px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 18px;
+  font-weight: 600;
+}
+.brand-sub { font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing: 0.1em; }
+.live-stamp {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; color: var(--dim);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.live-stamp .pulse {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 0 0 rgba(163,230,53,0.5);
+  animation: pulse 2.4s infinite;
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(163,230,53,0.5); }
+  70%  { box-shadow: 0 0 0 10px rgba(163,230,53,0); }
+  100% { box-shadow: 0 0 0 0 rgba(163,230,53,0); }
+}
+
+/* ----- tab strip ----- */
+.tabs {
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  position: sticky; top: 51px; z-index: 90;
+}
+.tabs-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 32px;
+  display: flex; gap: 4px;
+}
+.tab {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 16px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 12px;
+  color: var(--dim);
+  cursor: pointer;
+  border: none; background: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s;
+  letter-spacing: 0.02em;
+}
+.tab:hover { color: var(--fg-2); }
+.tab .tab-num { color: var(--ghost); font-size: 10px; }
+.tab.active { color: var(--fg); border-bottom-color: var(--lime); }
+.tab.active .tab-num { color: var(--lime); }
+.tab .tab-count {
+  background: var(--bg-3);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 10px;
+  color: var(--fg-2);
+}
+
+/* ----- main ----- */
+.main { max-width: 1400px; margin: 0 auto; padding: 32px; }
+.tab-pane { display: none; animation: fadein 0.18s ease-out; }
+.tab-pane.active { display: block; }
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+
+/* ----- hero (overview) ----- */
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.hero-card {
+  background: var(--bg-2);
+  padding: 28px 24px 24px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  transition: background 0.15s;
+  opacity: 0;
+  animation: lift 0.5s cubic-bezier(0.2,0.8,0.2,1) forwards;
+}
+.hero-card[data-anim-delay] { animation-delay: calc(var(--delay,0ms)); }
+@keyframes lift { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.hero-card:hover { background: var(--bg-3); }
+.hero-card:hover .hero-card-arrow { color: var(--lime); transform: translateX(2px); }
+.hero-card-head {
+  display: flex; align-items: baseline; gap: 12px;
+  margin-bottom: 18px;
+}
+.hero-card-num {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  color: var(--ghost);
+  letter-spacing: 0.1em;
+}
+.hero-card-name {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.hero-card-stat {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--c, var(--fg));
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+.hero-card-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  color: var(--fg-2);
+  letter-spacing: 0.01em;
+}
+.hero-card-arrow {
+  position: absolute;
+  top: 24px; right: 20px;
+  color: var(--ghost);
+  font-size: 14px;
+  transition: color 0.15s, transform 0.15s;
+}
+
+/* ----- panel ----- */
+.panel {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.panel-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  gap: 16px;
+}
+.panel-title {
+  font-family: 'Geist Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg);
+}
+.ts {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 400;
+}
+.ts code { font-size: 10px; color: var(--dim); }
+
+/* ----- stat row ----- */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.stat {
+  background: var(--bg-2);
+  padding: 18px 20px 16px;
+  opacity: 0;
+  animation: lift 0.45s cubic-bezier(0.2,0.8,0.2,1) forwards;
+  animation-delay: 80ms;
+}
+.stat-num {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 38px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--c, var(--fg));
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.stat-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ----- tables ----- */
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th {
+  font-family: 'Geist Mono', monospace;
+  text-align: left;
+  padding: 10px 16px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+.data-table th.r { text-align: right; }
+.data-table th.c { text-align: center; }
+.data-table td {
+  padding: 12px 16px;
+  font-size: 12px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.data-table tbody tr { transition: background 0.1s; }
+.data-table tbody tr:hover { background: var(--bg-3); }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table .empty {
+  padding: 32px;
+  text-align: center;
+  color: var(--dim);
+  font-style: italic;
+}
+
+/* ----- pills, chips, badges ----- */
+.pill {
+  display: inline-flex; align-items: center;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--c, var(--dim));
+  background: color-mix(in srgb, var(--c, var(--dim)) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c, var(--dim)) 30%, transparent);
+  font-weight: 500;
+}
+.chip {
+  display: inline-flex; align-items: center;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 3px;
+  text-transform: lowercase;
+  letter-spacing: 0;
+  color: var(--c, var(--dim));
+  background: color-mix(in srgb, var(--c, var(--dim)) 12%, transparent);
+  margin-right: 4px;
+}
+.dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--c, var(--dim)); }
+.prio {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.prio-1 { background: color-mix(in srgb, var(--rose) 14%, transparent); color: var(--rose); }
+.prio-2 { background: color-mix(in srgb, var(--amber) 14%, transparent); color: var(--amber); }
+.prio-3 { background: color-mix(in srgb, var(--dim) 14%, transparent); color: var(--dim); }
+.delta.neg { color: var(--rose); font-weight: 600; }
+.delta.pos { color: var(--lime); font-weight: 600; }
+.link-sm { color: var(--sky); transition: color 0.15s; }
+.link-sm:hover { color: var(--fg); }
+
+/* ----- queue cards ----- */
+.queue-stack { display: flex; flex-direction: column; gap: 12px; }
+.queue-card {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.queue-card:hover { border-color: var(--line-2); }
+.queue-card[open] { border-color: var(--line-2); }
+.queue-card summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 22px;
+  display: block;
+}
+.queue-card summary::-webkit-details-marker { display: none; }
+.queue-card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.queue-id { font-size: 10px; color: var(--dim); }
+.queue-card-title {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.queue-card-stats {
+  display: flex; gap: 24px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  color: var(--fg-2);
+  flex-wrap: wrap;
+}
+.queue-card-stats code { color: var(--lime); font-size: 11px; }
+.queue-card-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 20px 22px 22px;
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+}
+.qcb-col h4 {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 14px 0 8px;
+  font-weight: 500;
+}
+.qcb-col h4:first-child { margin-top: 0; }
+.qcb-col p { font-size: 12px; color: var(--fg-2); line-height: 1.6; }
+.dense { list-style: none; }
+.dense li {
+  padding: 3px 0;
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  color: var(--fg-2);
+}
+.link-list li a { color: var(--sky); word-break: break-all; }
+.link-list li a:hover { color: var(--fg); }
+.meta-dl { font-family: 'Geist Mono', monospace; font-size: 11px; }
+.meta-dl dt { color: var(--dim); display: inline; }
+.meta-dl dt::before { content: ""; display: block; height: 4px; }
+.meta-dl dd { display: inline; margin-left: 8px; color: var(--fg-2); }
+
+/* ----- seed list ----- */
+.seed-list { list-style: none; padding: 16px 20px; }
+.seed-list li { padding: 4px 0; font-size: 12px; }
+
+/* ----- markdown content (vital signs report) ----- */
+.md-content {
+  padding: 24px 28px 28px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--fg-2);
+}
+.md-content h1, .md-content h2, .md-content h3, .md-content h4 {
+  font-family: 'Geist Mono', monospace;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--fg);
+  margin: 28px 0 12px;
+}
+.md-content > h1:first-child, .md-content > h2:first-child { margin-top: 0; }
+.md-content h1 {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+.md-content h2 {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--lime);
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+.md-content h3 {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.md-content p { margin: 0 0 14px; }
+.md-content ul { margin: 0 0 14px 18px; }
+.md-content li { margin: 4px 0; }
+.md-content a { color: var(--sky); }
+.md-content a:hover { color: var(--fg); }
+.md-content code {
+  background: var(--bg-3);
+  border: 1px solid var(--line);
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 11px;
+  color: var(--lime);
+}
+.md-table-wrap { overflow-x: auto; margin: 16px 0; border: 1px solid var(--line); border-radius: 8px; }
+.md-table { width: 100%; border-collapse: collapse; font-family: 'Geist Mono', monospace; font-size: 11px; }
+.md-table th {
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+.md-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--fg-2);
+  vertical-align: top;
+}
+.md-table tr:last-child td { border-bottom: none; }
+.md-table strong { color: var(--fg); }
+
+/* ----- empty state ----- */
+.empty-state {
+  padding: 64px 32px;
+  text-align: center;
+  color: var(--dim);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  font-style: italic;
+}
+.refresh-table .reason { color: var(--fg-2); max-width: 380px; line-height: 1.5; }
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr 1fr; }
+  .queue-card-body { grid-template-columns: 1fr; gap: 16px; }
+  .topbar-inner, .tabs-inner, .main { padding-left: 20px; padding-right: 20px; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark">the four systems</span>
+      <span class="brand-sub">panamarealestateguide.com</span>
+    </div>
+    <div class="live-stamp">
+      <span class="pulse"></span>
+      <span>last updated 2026-05-19 17:24</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="tabs-inner">
+    <button class="tab" data-tab="overview"><span class="tab-num">00</span> overview</button>
+    <button class="tab" data-tab="keywords"><span class="tab-num">01</span> keywords <span class="tab-count">0</span></button>
+    <button class="tab" data-tab="queue"><span class="tab-num">02</span> content queue <span class="tab-count">0</span></button>
+    <button class="tab" data-tab="onsite"><span class="tab-num">03</span> onsite audit <span class="tab-count"></span></button>
+    <button class="tab" data-tab="refresh"><span class="tab-num">04</span> refresh queue <span class="tab-count">0</span></button>
+  </div>
+</nav>
+
+<main class="main">
+  
+<section class="tab-pane" id="tab-overview" data-tab-pane="overview">
+  <div class="hero-grid">
+    <a class="hero-card" data-tab="keywords" data-anim-delay="0" href="#keywords">
+              <div class="hero-card-head">
+                <span class="hero-card-num">01</span>
+                <span class="hero-card-name">System 1</span>
+              </div>
+              <div class="hero-card-stat" style="--c:var(--lime)">0</div>
+              <div class="hero-card-label">Keywords in bank</div>
+              <div class="hero-card-arrow">&rarr;</div>
+            </a>
+<a class="hero-card" data-tab="queue" data-anim-delay="60" href="#queue">
+              <div class="hero-card-head">
+                <span class="hero-card-num">02</span>
+                <span class="hero-card-name">System 2</span>
+              </div>
+              <div class="hero-card-stat" style="--c:var(--mint)">0 <span style="opacity:.4;font-size:.5em;font-style:normal">/</span> 0</div>
+              <div class="hero-card-label">Posts written / queued</div>
+              <div class="hero-card-arrow">&rarr;</div>
+            </a>
+<a class="hero-card" data-tab="onsite" data-anim-delay="120" href="#onsite">
+              <div class="hero-card-head">
+                <span class="hero-card-num">03</span>
+                <span class="hero-card-name">System 3</span>
+              </div>
+              <div class="hero-card-stat" style="--c:var(--mint)">&mdash;</div>
+              <div class="hero-card-label">Onsite health verdict</div>
+              <div class="hero-card-arrow">&rarr;</div>
+            </a>
+<a class="hero-card" data-tab="refresh" data-anim-delay="180" href="#refresh">
+              <div class="hero-card-head">
+                <span class="hero-card-num">04</span>
+                <span class="hero-card-name">System 4</span>
+              </div>
+              <div class="hero-card-stat" style="--c:var(--rose)">0</div>
+              <div class="hero-card-label">Pages flagged for refresh</div>
+              <div class="hero-card-arrow">&rarr;</div>
+            </a>
+  </div>
+  <div class="panel">
+    <div class="panel-head">
+      <h2 class="panel-title">Recent activity <span class="ts">last 12 runs</span></h2>
+    </div>
+    <table class="data-table">
+      <thead><tr><th></th><th>Agent</th><th>Status</th><th>Duration</th><th>Timestamp (UTC)</th></tr></thead>
+      <tbody><tr><td colspan="5" class="empty">No runs logged yet.</td></tr></tbody>
+    </table>
+  </div>
+</section>
+  
+<section class="tab-pane" id="tab-keywords" data-tab-pane="keywords">
+  <div class="stat-row">
+    <div class="stat"><div class="stat-num">0</div><div class="stat-label">In bank</div></div>
+    <div class="stat"><div class="stat-num" style="--c:var(--rose)">0</div><div class="stat-label">Priority 1</div></div>
+    <div class="stat"><div class="stat-num" style="--c:var(--amber)">0</div><div class="stat-label">Priority 2</div></div>
+    <div class="stat"><div class="stat-num" style="--c:var(--dim)">0</div><div class="stat-label">Priority 3</div></div>
+  </div>
+  <div class="panel">
+    <div class="panel-head">
+      <h2 class="panel-title">Keyword bank</h2>
+      <span class="ts">0 entries &middot; sorted priority &darr; volume &darr;</span>
+    </div>
+    <table class="data-table">
+      <thead><tr>
+        <th>Keyword</th><th>Intent</th><th class="r">Volume</th><th class="r">KD</th>
+        <th class="c">P</th><th>Fan-out parent</th><th>Coverage</th><th>Seed</th>
+      </tr></thead>
+      <tbody><tr><td colspan="8" class="empty">No keywords yet. Run the keyword-researcher skill.</td></tr></tbody>
+    </table>
+  </div>
+  <div class="panel">
+    <div class="panel-head"><h2 class="panel-title">Seeds researched</h2></div>
+    <ul class="seed-list"><li class="dim">No seeds researched yet.</li></ul>
+  </div>
+</section>
+  
+<section class="tab-pane" id="tab-queue" data-tab-pane="queue">
+  <div class="stat-row">
+    <div class="stat"><div class="stat-num" style="--c:var(--lime)">0</div><div class="stat-label">Queued</div></div>
+    <div class="stat"><div class="stat-num" style="--c:var(--amber)">0</div><div class="stat-label">In progress</div></div>
+    <div class="stat"><div class="stat-num" style="--c:var(--mint)">0</div><div class="stat-label">Written</div></div>
+    <div class="stat"><div class="stat-num" style="--c:var(--rose)">0</div><div class="stat-label">Needs review</div></div>
+    <div class="stat"><div class="stat-num" style="--c:var(--dim)">0</div><div class="stat-label">Skipped</div></div>
+  </div>
+  <div class="queue-stack"><div class="empty-state">No items queued. Run System 1 to populate.</div></div>
+</section>
+  <section class="tab-pane" data-tab-pane="onsite"><div class="empty-state">No onsite audit yet. Run the <code>onsite-audit</code> skill or schedule the agent to populate.</div></section>
+  
+<section class="tab-pane" data-tab-pane="refresh">
+  <div class="stat-row">
+    <div class="stat"><div class="stat-num" style="--c:var(--rose)">0</div><div class="stat-label">Not indexed</div></div>
+    <div class="stat"><div class="stat-num" style="--c:var(--sky)">0</div><div class="stat-label">Index warning</div></div>
+    <div class="stat"><div class="stat-num" style="--c:var(--amber)">0</div><div class="stat-label">Stale (12mo+)</div></div>
+    <div class="stat"><div class="stat-num" style="--c:var(--amber)">0</div><div class="stat-label">Aging (10-12mo)</div></div>
+    <div class="stat"><div class="stat-num" style="--c:var(--lime)">0</div><div class="stat-label">Actions queued</div></div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head">
+      <h2 class="panel-title">Layer 2 &middot; recommended actions</h2>
+      <span class="ts">consumed by you (or your Your Brand refresh tool)</span>
+    </div>
+    <table class="data-table refresh-table">
+      <thead><tr>
+        <th>URL</th><th>Action</th><th class="c">P</th>
+        <th>Primary flag</th><th class="r">Age (d)</th>
+        <th>Recommendation</th><th>Status</th>
+      </tr></thead>
+      <tbody><tr><td colspan="7" class="empty">No actions queued yet. Run the refresh-recommender (layer 2) after a layer-1 scan.</td></tr></tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head">
+      <h2 class="panel-title">Layer 1 &middot; sitemap + GSC indexing scan</h2>
+      <span class="ts"> &middot; 0 URLs evaluated &middot; 0 flagged</span>
+    </div>
+    <table class="data-table">
+      <thead><tr>
+        <th>URL</th><th>Flags</th><th class="r">Age (d)</th>
+        <th>Coverage state</th><th class="dim">Last crawl</th>
+      </tr></thead>
+      <tbody><tr><td colspan="5" class="empty">No flagged candidates. Run refresh-recommender to scan the sitemap and GSC.</td></tr></tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head">
+      <h2 class="panel-title">Full classification report</h2>
+      
+    </div>
+    <article class="md-content"><p class="empty">No classification report yet.</p></article>
+  </div>
+</section>
+</main>
+
+<script>
+(function() {
+  var tabs = document.querySelectorAll('.tab');
+  var panes = document.querySelectorAll('.tab-pane');
+  function activate(name) {
+    tabs.forEach(function(t) { t.classList.toggle('active', t.dataset.tab === name); });
+    panes.forEach(function(p) { p.classList.toggle('active', p.dataset.tabPane === name); });
+    if (history.replaceState) history.replaceState(null, '', '#' + name);
+  }
+  tabs.forEach(function(t) {
+    t.addEventListener('click', function(e) {
+      e.preventDefault();
+      activate(t.dataset.tab);
+    });
+  });
+  // Apply staggered reveal delays
+  document.querySelectorAll('[data-anim-delay]').forEach(function(el) {
+    el.style.setProperty('--delay', el.dataset.animDelay + 'ms');
+  });
+  // Read initial tab from hash
+  var initial = (location.hash || '').replace('#','');
+  var valid = Array.from(tabs).map(function(t){return t.dataset.tab;});
+  activate(valid.indexOf(initial) >= 0 ? initial : 'overview');
+  // Hero card click navigates to corresponding tab
+  document.querySelectorAll('.hero-card').forEach(function(c) {
+    c.addEventListener('click', function(e) {
+      var dest = c.dataset.tab;
+      if (!dest) return;
+      e.preventDefault();
+      var name = dest.replace('tab-','');
+      activate(name);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+})();
+</script>
+</body>
+</html>
