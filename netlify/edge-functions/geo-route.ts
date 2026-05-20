@@ -33,7 +33,7 @@ const LGPD_COUNTRIES = new Set(["BR"]);
 const HABEAS_DATA_COUNTRIES = new Set(["CO"]);
 const LFPDPPP_COUNTRIES = new Set(["MX"]);
 
-const BOT_UA = /(googlebot|bingbot|slackbot|twitterbot|facebookexternalhit|linkedinbot|whatsapp|telegrambot|duckduckbot|ahrefsbot|semrushbot|applebot|baiduspider|yandexbot|sogou|exabot|mj12bot|dotbot|petalbot|claudebot|gptbot|oai-searchbot)/i;
+const BOT_UA = /(googlebot|google-inspectiontool|adsbot-google|googleother|bingbot|slackbot|twitterbot|facebookexternalhit|linkedinbot|whatsapp|telegrambot|duckduckbot|ahrefsbot|semrushbot|applebot|baiduspider|yandexbot|sogou|exabot|mj12bot|dotbot|petalbot|claudebot|gptbot|oai-searchbot|perplexitybot|bytespider|meta-externalagent|amazonbot|youbot|cohere-ai|anthropic-ai|chatgpt-user)/i;
 
 const LANG_LABELS: Record<string, { msg: string; cta: string }> = {
   es: { msg: "Esta guía está disponible en español.", cta: "Cambiar a español" },
@@ -81,8 +81,8 @@ function renderLangBanner(targetLang: string, currentPath: string): string {
   const translatedPath = `/${targetLang}${currentPath.startsWith("/") ? currentPath : "/" + currentPath}`;
   return `<div id="preg-lang-banner" style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#0b1f28;color:#fdf8ef;padding:10px 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;display:flex;align-items:center;justify-content:center;gap:16px;box-shadow:0 2px 8px rgba(0,0,0,0.18)">
   <span>${labels.msg}</span>
-  <a href="${translatedPath}" onclick="document.cookie='preg_lang=${targetLang};path=/;max-age=31536000;samesite=lax'" style="background:#d65a45;color:#fdf8ef;padding:6px 14px;border-radius:4px;text-decoration:none;font-weight:600">${labels.cta} &rarr;</a>
-  <button onclick="this.parentElement.remove();document.cookie='preg_lang=en;path=/;max-age=31536000;samesite=lax'" style="background:transparent;color:#fdf8ef;border:1px solid #fdf8ef33;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:13px">Dismiss</button>
+  <a href="${translatedPath}" onclick="document.cookie='preg_lang=${targetLang};path=/;max-age=31536000;samesite=lax;secure'" style="background:#d65a45;color:#fdf8ef;padding:6px 14px;border-radius:4px;text-decoration:none;font-weight:600">${labels.cta} &rarr;</a>
+  <button onclick="this.parentElement.remove();document.cookie='preg_lang=en;path=/;max-age=31536000;samesite=lax;secure'" style="background:transparent;color:#fdf8ef;border:1px solid #fdf8ef33;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:13px">Dismiss</button>
 </div>`;
 }
 
@@ -99,7 +99,7 @@ function renderCookieBanner(regime: string, lang: string): string {
   <span><strong>${badges[regime] || regime}</strong> &middot; ${labels.msg}</span>
   <div style="display:flex;gap:8px;align-items:center">
     <a href="/privacy" style="color:#0b1f28cc;font-size:12px">${labels.settings}</a>
-    <button onclick="document.cookie='preg_cookie=accepted;path=/;max-age=31536000;samesite=lax';this.parentElement.parentElement.remove()" style="background:#0b1f28;color:#fdf8ef;border:0;padding:8px 16px;border-radius:4px;cursor:pointer;font-weight:600">${labels.accept}</button>
+    <button onclick="document.cookie='preg_cookie=accepted;path=/;max-age=31536000;samesite=lax;secure';this.parentElement.parentElement.remove()" style="background:#0b1f28;color:#fdf8ef;border:0;padding:8px 16px;border-radius:4px;cursor:pointer;font-weight:600">${labels.accept}</button>
   </div>
 </div>`;
 }
@@ -131,6 +131,8 @@ export default async (request: Request, context: Context) => {
 
   // 5. Mutate response: inject banners after <body>
   const response = await context.next();
+  // Only mutate 200 responses with HTML content (skip 404/3xx/5xx)
+  if (response.status !== 200) return response;
   const contentType = response.headers.get("content-type") || "";
   if (!contentType.includes("text/html")) return response;
 
@@ -139,7 +141,8 @@ export default async (request: Request, context: Context) => {
   if (showLangBanner) injection += renderLangBanner(detectedLang, url.pathname);
   if (showCookieBanner) injection += renderCookieBanner(cookieRegime, detectedLang);
   if (injection) {
-    html = html.replace("<body>", `<body>${injection}`);
+    // Tolerant body-tag match: <body> or <body attr="...">
+    html = html.replace(/<body([^>]*)>/i, `<body$1>${injection}`);
   }
 
   return new Response(html, {
