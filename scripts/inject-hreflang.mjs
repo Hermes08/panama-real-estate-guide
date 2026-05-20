@@ -69,11 +69,13 @@ async function processFile(file, kind, slug) {
     html = html.slice(0, startIdx) + html.slice(endIdx + SENTINEL_END.length);
   }
 
-  // Insert after the END_ARTICLE_META sentinel (so it lives inside the meta block region)
+  // Insert AFTER the END_ARTICLE_META sentinel (outside the meta block region)
+  // so the next inject-article-meta rerun does not wipe the hreflang block.
   const metaEnd = '<!-- END_ARTICLE_META -->';
   const metaEndIdx = html.indexOf(metaEnd);
   if (metaEndIdx >= 0) {
-    html = html.slice(0, metaEndIdx) + `  ${block}\n  ` + html.slice(metaEndIdx);
+    const after = metaEndIdx + metaEnd.length;
+    html = html.slice(0, after) + `\n  ${block}` + html.slice(after);
   } else {
     // No meta block (older shell), inject before </head>
     const headEnd = '</head>';
