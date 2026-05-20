@@ -1,5 +1,7 @@
-// Pexels cover-image picker — same logic as the article-detail template.
-    const pickCoverImg = (a) => {
+// Pexels thumbnail-image picker (same logic as the article-detail template,
+// renamed from pickCoverImg to avoid global-scope collision with the
+// hero-size pickCoverImg in sections.js, which is also loaded on this page).
+    const pickThumbImg = (a) => {
       if (!a || !a.id) return null;
       const POOLS = {
         sunset: [18185251, 1787057, 18027952],
@@ -32,7 +34,7 @@
       const [filter, setFilter] = React.useState(readCategoryFromURL);
       const filtered = filter === 'All' ? articles : articles.filter(a => a.category === filter);
 
-      // Reflect tab changes in the URL (replaceState — doesn't pollute history)
+      // Reflect tab changes in the URL (replaceState, does not pollute history)
       React.useEffect(() => {
         if (typeof window === 'undefined') return;
         const url = new URL(window.location.href);
@@ -111,7 +113,7 @@
                          data-label={(a.category || '').toUpperCase()}
                          style={{
                            aspectRatio: '16/10',
-                           backgroundImage: `url(${pickCoverImg(a)})`,
+                           backgroundImage: `url(${pickThumbImg(a)})`,
                            backgroundSize: 'cover',
                            backgroundPosition: 'center'
                          }}/>
