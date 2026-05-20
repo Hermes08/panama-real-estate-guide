@@ -50,7 +50,8 @@ if (!API_KEY) {
   process.exit(0);
 }
 
-const MODEL = process.env.TRANSLATE_MODEL || 'claude-sonnet-4-6';
+// Default to claude-sonnet-4-5 (known-stable id). Override via env var if needed.
+const MODEL = process.env.TRANSLATE_MODEL || 'claude-sonnet-4-5';
 const MAX_CONCURRENT = parseInt(process.env.TRANSLATE_CONCURRENT || '4', 10);
 const DRY_RUN = process.env.TRANSLATE_DRY_RUN === '1';
 const SINGLE_SLUG = process.env.TRANSLATE_ONLY_SLUG || null;
@@ -268,7 +269,7 @@ function renderHtmlShell(lang, slug, translated, sourceArticle) {
   <script defer src="bodies/${slug}.js"></script>
   <script defer src="../../components.js"></script>
   <script defer src="../../detail-chrome.js"></script>
-  <script defer src="../article-renderer.js"></script>
+  <script defer src="../../articles/article-renderer.js"></script>
   <!-- ML translated by Claude on ${new Date().toISOString().slice(0,10)}. Source: ${enUrl} -->
 </body>
 </html>
@@ -295,7 +296,7 @@ function renderBodyJs(slug, translated, lang) {
 }
 
 function escapeHtml(s) {
-  return String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  return String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 }
 
 // -----------------------------------------------------------------------------
@@ -401,9 +402,13 @@ async function main() {
   });
   await Promise.all(workers);
 
-  // Persist updated cache and glossary
-  await fs.writeFile(CACHE_PATH, JSON.stringify(cache, null, 2));
-  await fs.writeFile(GLOSSARY_PATH, JSON.stringify(glossary, null, 2));
+  // Persist updated cache and glossary atomically (write to .tmp then rename,
+  // so a mid-run crash never leaves a partially-written cache that would
+  // trigger full re-translation = real money).
+  await fs.writeFile(CACHE_PATH + '.tmp', JSON.stringify(cache, null, 2));
+  await fs.rename(CACHE_PATH + '.tmp', CACHE_PATH);
+  await fs.writeFile(GLOSSARY_PATH + '.tmp', JSON.stringify(glossary, null, 2));
+  await fs.rename(GLOSSARY_PATH + '.tmp', GLOSSARY_PATH);
 
   console.log(`\n[translate] complete: ${done}/${tasks.length} succeeded, ${errors.length} errors`);
   console.log(`[translate] tokens: in=${totalTokens.input.toLocaleString()}, out=${totalTokens.output.toLocaleString()}`);
