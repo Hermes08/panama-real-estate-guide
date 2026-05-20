@@ -165,22 +165,45 @@ Respond with the JSON object only.`;
 // -----------------------------------------------------------------------------
 // Anthropic API call
 // -----------------------------------------------------------------------------
-async function callClaude(prompt) {
-  const resp = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'x-api-key': API_KEY,
-      'anthropic-version': '2023-06-01',
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      model: MODEL,
-      max_tokens: 8000,
-      messages: [{ role: 'user', content: prompt }],
-    }),
-  });
+async function callClaude(prompt, attempt = 1) {
+  const MAX_ATTEMPTS = 4;
+  const RETRY_BASE_DELAY_MS = 2000; // 2s, 4s, 8s exponential backoff
+
+  let resp;
+  try {
+    resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'x-api-key': API_KEY,
+        'anthropic-version': '2023-06-01',
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: MODEL,
+        max_tokens: 8000,
+        messages: [{ role: 'user', content: prompt }],
+      }),
+    });
+  } catch (networkErr) {
+    // Network failure (DNS, connection reset, timeout). Retry.
+    if (attempt < MAX_ATTEMPTS) {
+      const delay = RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1);
+      console.log(`  [retry ${attempt}/${MAX_ATTEMPTS}] network error, waiting ${delay}ms: ${networkErr.message}`);
+      await new Promise(r => setTimeout(r, delay));
+      return callClaude(prompt, attempt + 1);
+    }
+    throw networkErr;
+  }
+
   if (!resp.ok) {
     const txt = await resp.text();
+    // Retry on 429 (rate limit) and 5xx (server errors). Skip retry on 4xx (auth/validation).
+    if ((resp.status === 429 || resp.status >= 500) && attempt < MAX_ATTEMPTS) {
+      const delay = RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1);
+      console.log(`  [retry ${attempt}/${MAX_ATTEMPTS}] HTTP ${resp.status}, waiting ${delay}ms`);
+      await new Promise(r => setTimeout(r, delay));
+      return callClaude(prompt, attempt + 1);
+    }
     throw new Error(`Anthropic API ${resp.status}: ${txt.slice(0, 500)}`);
   }
   const data = await resp.json();
