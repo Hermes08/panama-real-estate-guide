@@ -1,0 +1,274 @@
+{
+  "en": {
+    "nav": {
+      "projects": "Projects",
+      "regions": "Regions",
+      "journal": "Journal",
+      "videos": "Videos",
+      "news": "News",
+      "about": "About",
+      "reserve_a_unit": "Reserve a unit"
+    },
+    "back_links": {
+      "the_journal": "The Journal",
+      "all_projects": "All projects",
+      "all_videos": "All videos",
+      "all_news": "All news"
+    },
+    "article": {
+      "by_author": "By",
+      "the_takeaway": "The takeaway",
+      "keep_reading": "Keep reading",
+      "related_articles": "Related articles",
+      "share_article": "Share",
+      "last_updated": "Last updated"
+    },
+    "cta": {
+      "eyebrow": "Reservations open · Refundable deposit",
+      "reserve_from": "Reserve from",
+      "hold_for_thirty_days": "Hold for thirty days",
+      "start_a_reservation": "Start a reservation",
+      "whatsapp_label": "WhatsApp"
+    },
+    "footer": {
+      "links": {
+        "projects": "Projects",
+        "journal": "Journal",
+        "videos": "Videos",
+        "news": "News",
+        "privacy": "Privacy",
+        "terms": "Terms"
+      },
+      "copyright": "© 2026 PanamaRealEstateGuide.com"
+    },
+    "categories": {
+      "Buying & Investment": "Buying & Investment",
+      "Cost of Living & Money": "Cost of Living & Money",
+      "Economics": "Economics",
+      "Investment · BR": "Investment · BR",
+      "Investment · CO": "Investment · CO",
+      "Investment · MX": "Investment · MX",
+      "Investment": "Investment",
+      "Lifestyle & Daily Living": "Lifestyle & Daily Living",
+      "Market Report": "Market Report",
+      "Moving to Panama (by Origin)": "Moving to Panama (by Origin)",
+      "Neighborhood": "Neighborhood",
+      "Panama vs. Other Destinations": "Panama vs. Other Destinations",
+      "Real Estate by Location": "Real Estate by Location",
+      "Renting in Panama": "Renting in Panama",
+      "Residency · ES": "Residency · ES",
+      "Residency · US": "Residency · US",
+      "Residency": "Residency",
+      "Taxes": "Taxes",
+      "Visa, Residency & Legal": "Visa, Residency & Legal"
+    },
+    "author_bios": {
+      "Kent Davis": "Founder & principal broker, PanamaRealEstateGuide.com. Writing from Panama City since 2017.",
+      "default": "Senior market analyst, PanamaRealEstateGuide.com. Bilingual legal research on Panamanian residency and tax."
+    }
+  },
+  "es": {
+    "nav": {
+      "projects": "Proyectos",
+      "regions": "Regiones",
+      "journal": "Crónicas",
+      "videos": "Videos",
+      "news": "Noticias",
+      "about": "Nosotros",
+      "reserve_a_unit": "Reservar unidad"
+    },
+    "back_links": {
+      "the_journal": "Crónicas",
+      "all_projects": "Todos los proyectos",
+      "all_videos": "Todos los videos",
+      "all_news": "Todas las noticias"
+    },
+    "article": {
+      "by_author": "Por",
+      "the_takeaway": "La conclusión",
+      "keep_reading": "Sigue leyendo",
+      "related_articles": "Artículos relacionados",
+      "share_article": "Compartir",
+      "last_updated": "Última actualización"
+    },
+    "cta": {
+      "eyebrow": "Reservas abiertas · Depósito reembolsable",
+      "reserve_from": "Reserva desde",
+      "hold_for_thirty_days": "Mantén la unidad treinta días",
+      "start_a_reservation": "Iniciar una reserva",
+      "whatsapp_label": "WhatsApp"
+    },
+    "footer": {
+      "links": {
+        "projects": "Proyectos",
+        "journal": "Crónicas",
+        "videos": "Videos",
+        "news": "Noticias",
+        "privacy": "Privacidad",
+        "terms": "Términos"
+      },
+      "copyright": "© 2026 PanamaRealEstateGuide.com"
+    },
+    "categories": {
+      "Buying & Investment": "Compra e Inversión",
+      "Cost of Living & Money": "Costo de Vida y Dinero",
+      "Economics": "Economía",
+      "Investment · BR": "Inversión · BR",
+      "Investment · CO": "Inversión · CO",
+      "Investment · MX": "Inversión · MX",
+      "Investment": "Inversión",
+      "Lifestyle & Daily Living": "Estilo de Vida y Día a Día",
+      "Market Report": "Informe de Mercado",
+      "Moving to Panama (by Origin)": "Mudarse a Panamá (por origen)",
+      "Neighborhood": "Vecindario",
+      "Panama vs. Other Destinations": "Panamá vs. otros destinos",
+      "Real Estate by Location": "Bienes Raíces por Zona",
+      "Renting in Panama": "Alquilar en Panamá",
+      "Residency · ES": "Residencia · ES",
+      "Residency · US": "Residencia · US",
+      "Residency": "Residencia",
+      "Taxes": "Impuestos",
+      "Visa, Residency & Legal": "Visa, Residencia y Legal"
+    },
+    "author_bios": {
+      "Kent Davis": "Fundador y broker principal, PanamaRealEstateGuide.com. Escribiendo desde Ciudad de Panamá desde 2017.",
+      "default": "Analista senior de mercado, PanamaRealEstateGuide.com. Investigación legal bilingüe sobre residencia y tributación en Panamá."
+    }
+  },
+  "pt": {
+    "nav": {
+      "projects": "Projetos",
+      "regions": "Regiões",
+      "journal": "Crônicas",
+      "videos": "Vídeos",
+      "news": "Notícias",
+      "about": "Sobre",
+      "reserve_a_unit": "Reservar unidade"
+    },
+    "back_links": {
+      "the_journal": "Crônicas",
+      "all_projects": "Todos os projetos",
+      "all_videos": "Todos os vídeos",
+      "all_news": "Todas as notícias"
+    },
+    "article": {
+      "by_author": "Por",
+      "the_takeaway": "A conclusão",
+      "keep_reading": "Continue lendo",
+      "related_articles": "Artigos relacionados",
+      "share_article": "Compartilhar",
+      "last_updated": "Última atualização"
+    },
+    "cta": {
+      "eyebrow": "Reservas abertas · Depósito reembolsável",
+      "reserve_from": "Reserve a partir de",
+      "hold_for_thirty_days": "Mantenha a unidade trinta dias",
+      "start_a_reservation": "Iniciar uma reserva",
+      "whatsapp_label": "WhatsApp"
+    },
+    "footer": {
+      "links": {
+        "projects": "Projetos",
+        "journal": "Crônicas",
+        "videos": "Vídeos",
+        "news": "Notícias",
+        "privacy": "Privacidade",
+        "terms": "Termos"
+      },
+      "copyright": "© 2026 PanamaRealEstateGuide.com"
+    },
+    "categories": {
+      "Buying & Investment": "Compra e Investimento",
+      "Cost of Living & Money": "Custo de Vida e Dinheiro",
+      "Economics": "Economia",
+      "Investment · BR": "Investimento · BR",
+      "Investment · CO": "Investimento · CO",
+      "Investment · MX": "Investimento · MX",
+      "Investment": "Investimento",
+      "Lifestyle & Daily Living": "Estilo de Vida e Cotidiano",
+      "Market Report": "Relatório de Mercado",
+      "Moving to Panama (by Origin)": "Mudar-se para o Panamá (por origem)",
+      "Neighborhood": "Bairro",
+      "Panama vs. Other Destinations": "Panamá vs. outros destinos",
+      "Real Estate by Location": "Imóveis por Localização",
+      "Renting in Panama": "Alugar no Panamá",
+      "Residency · ES": "Residência · ES",
+      "Residency · US": "Residência · US",
+      "Residency": "Residência",
+      "Taxes": "Impostos",
+      "Visa, Residency & Legal": "Visto, Residência e Jurídico"
+    },
+    "author_bios": {
+      "Kent Davis": "Fundador e corretor principal, PanamaRealEstateGuide.com. Escrevendo da Cidade do Panamá desde 2017.",
+      "default": "Analista sênior de mercado, PanamaRealEstateGuide.com. Pesquisa jurídica bilíngue sobre residência e tributação panamenha."
+    }
+  },
+  "de": {
+    "nav": {
+      "projects": "Projekte",
+      "regions": "Regionen",
+      "journal": "Journal",
+      "videos": "Videos",
+      "news": "Nachrichten",
+      "about": "Über uns",
+      "reserve_a_unit": "Einheit reservieren"
+    },
+    "back_links": {
+      "the_journal": "Journal",
+      "all_projects": "Alle Projekte",
+      "all_videos": "Alle Videos",
+      "all_news": "Alle Nachrichten"
+    },
+    "article": {
+      "by_author": "Von",
+      "the_takeaway": "Das Wesentliche",
+      "keep_reading": "Weiterlesen",
+      "related_articles": "Verwandte Artikel",
+      "share_article": "Teilen",
+      "last_updated": "Zuletzt aktualisiert"
+    },
+    "cta": {
+      "eyebrow": "Reservierungen offen · Rückzahlbare Anzahlung",
+      "reserve_from": "Reservieren ab",
+      "hold_for_thirty_days": "Dreißig Tage halten",
+      "start_a_reservation": "Reservierung starten",
+      "whatsapp_label": "WhatsApp"
+    },
+    "footer": {
+      "links": {
+        "projects": "Projekte",
+        "journal": "Journal",
+        "videos": "Videos",
+        "news": "Nachrichten",
+        "privacy": "Datenschutz",
+        "terms": "AGB"
+      },
+      "copyright": "© 2026 PanamaRealEstateGuide.com"
+    },
+    "categories": {
+      "Buying & Investment": "Kauf & Investition",
+      "Cost of Living & Money": "Lebenshaltungskosten & Geld",
+      "Economics": "Wirtschaft",
+      "Investment · BR": "Investition · BR",
+      "Investment · CO": "Investition · CO",
+      "Investment · MX": "Investition · MX",
+      "Investment": "Investition",
+      "Lifestyle & Daily Living": "Lebensstil & Alltag",
+      "Market Report": "Marktbericht",
+      "Moving to Panama (by Origin)": "Umzug nach Panama (nach Herkunft)",
+      "Neighborhood": "Stadtviertel",
+      "Panama vs. Other Destinations": "Panama vs. andere Reiseziele",
+      "Real Estate by Location": "Immobilien nach Standort",
+      "Renting in Panama": "Mieten in Panama",
+      "Residency · ES": "Aufenthalt · ES",
+      "Residency · US": "Aufenthalt · US",
+      "Residency": "Aufenthalt",
+      "Taxes": "Steuern",
+      "Visa, Residency & Legal": "Visum, Aufenthalt & Recht"
+    },
+    "author_bios": {
+      "Kent Davis": "Gründer und leitender Makler, PanamaRealEstateGuide.com. Schreibt aus Panama-Stadt seit 2017.",
+      "default": "Senior-Marktanalyst, PanamaRealEstateGuide.com. Zweisprachige juristische Recherche zu panamaischer Aufenthaltserlaubnis und Steuern."
+    }
+  }
+}

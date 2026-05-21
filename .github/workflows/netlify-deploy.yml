@@ -94,6 +94,14 @@ jobs:
         # each plus x-default. Idempotent (wrapped in HTML comment sentinels).
         run: node scripts/inject-hreflang.mjs
 
+      - name: Build i18n-data.js (chrome labels + per-article meta extracted from translated HTML)
+        # Reads state/chrome-i18n.json (nav, footer, CTA, category, author-bio
+        # translations for EN/ES/PT/DE) and crawls every project/{es,pt,de}/articles/*.html
+        # to extract the translated <title> + meta description per slug. Bundles into
+        # project/i18n-data.js so article-renderer.js + detail-chrome.js render
+        # h1/excerpt/category/nav/footer in the user's language.
+        run: node scripts/build-i18n-data.mjs
+
 
       - name: Inject tracking tags (only if env vars are set)
         env:
