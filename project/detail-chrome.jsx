@@ -1,6 +1,20 @@
 // Shared chrome for detail pages (project / article / news) — uses same design system
 // Exposes: window.DetailNav, window.DetailFooter, window.DetailBack, window.DetailCTA
 
+// ── i18n helper for chrome labels (reads window.PREG_LANG, falls back to EN)
+const DC_LANG = (typeof window !== 'undefined' ? (window.PREG_LANG || 'en') : 'en').toLowerCase();
+function dcT(path, fallback) {
+  const root = (typeof window !== 'undefined' && window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n) || {};
+  const tree = root[DC_LANG] || root.en || {};
+  const en   = root.en || {};
+  const parts = path.split('.');
+  function dive(obj) { let v = obj; for (const k of parts) { if (v && typeof v === 'object' && k in v) v = v[k]; else return undefined; } return v; }
+  const v = dive(tree); if (v != null) return v;
+  const e = dive(en); if (e != null) return e;
+  return (fallback != null) ? fallback : path;
+}
+function dcLangPrefix() { return DC_LANG === 'en' ? '' : `/${DC_LANG}`; }
+
 function DetailNav() {
   const [scrolled, setScrolled] = React.useState(false);
   const [open, setOpen] = React.useState(false);
@@ -9,13 +23,14 @@ function DetailNav() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+  const prefix = dcLangPrefix();
   const links = [
-    { l: 'Projects', href: '/#projects' },
-    { l: 'Regions', href: '/#regions' },
-    { l: 'Journal', href: '/articles/' },
-    { l: 'Videos', href: '/videos/' },
-    { l: 'News', href: '/news/' },
-    { l: 'About', href: '/#about' },
+    { l: dcT('nav.projects', 'Projects'), href: `${prefix}/#projects` },
+    { l: dcT('nav.regions', 'Regions'),   href: `${prefix}/#regions`  },
+    { l: dcT('nav.journal', 'Journal'),   href: `${prefix}/articles/` },
+    { l: dcT('nav.videos', 'Videos'),     href: `${prefix}/videos/`   },
+    { l: dcT('nav.news', 'News'),         href: `${prefix}/news/`     },
+    { l: dcT('nav.about', 'About'),       href: `${prefix}/#about`    },
   ];
   return (
     <header style={{
@@ -36,9 +51,9 @@ function DetailNav() {
           ))}
         </nav>
         <div className="nav-cta-desktop" style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-          <LangSwitcher current="EN" onDark={false}/>
-          <a href="/#reserve" className="btn btn-coral" style={{ padding: '11px 20px', fontSize: 11 }}>
-            Reserve a unit <Icon name="arrow" size={13}/>
+          <LangSwitcher current={DC_LANG.toUpperCase()} onDark={false}/>
+          <a href={`${dcLangPrefix()}/#reserve`} className="btn btn-coral" style={{ padding: '11px 20px', fontSize: 11 }}>
+            {dcT('nav.reserve_a_unit', 'Reserve a unit')} <Icon name="arrow" size={13}/>
           </a>
         </div>
         <button className="nav-burger" onClick={() => setOpen(!open)}
@@ -56,7 +71,7 @@ function DetailNav() {
                style={{ fontSize: 22, fontFamily: 'var(--font-display)', color: 'var(--ink)', textDecoration: 'none' }}>{l}</a>
           ))}
           <div style={{ marginTop: 12 }}>
-            <a href="/#reserve" className="btn btn-coral" style={{ justifyContent: 'center', width: '100%' }}>Reserve a unit</a>
+            <a href={`${dcLangPrefix()}/#reserve`} className="btn btn-coral" style={{ justifyContent: 'center', width: '100%' }}>{dcT('nav.reserve_a_unit', 'Reserve a unit')}</a>
           </div>
         </div>
       )}
@@ -90,18 +105,18 @@ function DetailCTA({ kind = 'reserve' }) {
           <div>
             <div className="eyebrow" style={{ color: 'rgba(255,249,236,0.9)', marginBottom: 16 }}>
               <span className="rule-coral" style={{ background: 'var(--cream)' }}></span>
-              Reservations open · Refundable deposit
+              {dcT('cta.eyebrow', 'Reservations open · Refundable deposit')}
             </div>
             <h2 className="display" style={{ fontSize: 'clamp(34px, 5vw, 60px)', margin: 0, color: 'var(--cream)', lineHeight: 1.02 }}>
-              Reserve from <em>$5,000.</em> <br/>Hold for <em>thirty days.</em>
+              {dcT('cta.reserve_from', 'Reserve from')} <em>$5,000.</em> <br/>{dcT('cta.hold_for_thirty_days', 'Hold for thirty days')}<em>.</em>
             </h2>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-start' }}>
-            <a href="/#reserve" className="btn"
+            <a href={`${dcLangPrefix()}/#reserve`} className="btn"
                style={{ background: 'var(--ink)', color: 'var(--cream)' }}>
-              Start a reservation <Icon name="arrow" size={14}/>
+              {dcT('cta.start_a_reservation', 'Start a reservation')} <Icon name="arrow" size={14}/>
             </a>
-            <a href="https://wa.me/50767610315" className="btn btn-ghost-light">WhatsApp +507 6761-0315</a>
+            <a href="https://wa.me/50767610315" className="btn btn-ghost-light">{dcT('cta.whatsapp_label', 'WhatsApp')} +507 6761-0315</a>
           </div>
         </div>
         <style>{`@media (max-width: 900px) { [data-cta-grid] { grid-template-columns: 1fr !important; } }`}</style>
@@ -133,15 +148,15 @@ function DetailFooter() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 20 }}>
           <Logo onDark={true} size={16}/>
           <div style={{ display: 'flex', gap: 24, fontSize: 12, opacity: 0.75, fontFamily: 'var(--font-mono)', letterSpacing: '0.12em', textTransform: 'uppercase', flexWrap: 'wrap' }}>
-            <a href="/#projects" style={{ color: 'inherit', textDecoration: 'none' }}>Projects</a>
-            <a href="../articles/index.html" style={{ color: 'inherit', textDecoration: 'none' }}>Journal</a>
-            <a href="/videos/" style={{ color: 'inherit', textDecoration: 'none' }}>Videos</a>
-            <a href="/news/" style={{ color: 'inherit', textDecoration: 'none' }}>News</a>
-            <a href="/privacidad" style={{ color: 'inherit', textDecoration: 'none' }}>Privacidad</a>
-            <a href="/terminos" style={{ color: 'inherit', textDecoration: 'none' }}>Términos</a>
+            <a href={`${dcLangPrefix()}/#projects`} style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.projects', 'Projects')}</a>
+            <a href={DC_LANG === 'en' ? '../articles/index.html' : `/${DC_LANG}/articles/`} style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.journal', 'Journal')}</a>
+            <a href={`${dcLangPrefix()}/videos/`} style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.videos', 'Videos')}</a>
+            <a href={`${dcLangPrefix()}/news/`} style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.news', 'News')}</a>
+            <a href="/privacidad" style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.privacy', 'Privacy')}</a>
+            <a href="/terminos" style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.terms', 'Terms')}</a>
           </div>
           <div style={{ fontSize: 11, opacity: 0.6, fontFamily: 'var(--font-mono)', letterSpacing: '0.12em' }}>
-            © 2026 PanamaRealEstateGuide.com
+            {dcT('footer.copyright', '© 2026 PanamaRealEstateGuide.com')}
           </div>
         </div>
       </div>
