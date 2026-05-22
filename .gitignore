@@ -48,6 +48,9 @@ coverage/
 project/data-light.js
 project/bodies/
 
+# Build-time output from scripts/build-i18n-data.mjs — regenerated on every deploy
+project/i18n-data.js
+
 # Build-time outputs from scripts/build-jsx.mjs — regenerated on every deploy
 project/components.js
 project/sections.js

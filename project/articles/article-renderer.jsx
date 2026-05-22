@@ -16,7 +16,25 @@ const ARTICLE_ID = window.location.pathname.split('/').pop().replace('.html', ''
     };
     const a = window.PANAMA_DATA.articles.find(x => x.id === ARTICLE_ID) || window.PANAMA_DATA.articles[0];
     const body = window.PANAMA_DATA.articleBodies[a.id] || [];
-    document.title = `${a.title} — PanamaRealEstateGuide.com`;
+
+    // ── i18n: choose language + look up translated chrome labels & article meta
+    const LANG = (window.PREG_LANG || 'en').toLowerCase();
+    const i18n = (window.PANAMA_DATA.chromeI18n && window.PANAMA_DATA.chromeI18n[LANG]) || (window.PANAMA_DATA.chromeI18n && window.PANAMA_DATA.chromeI18n.en) || {};
+    const i18nEn = (window.PANAMA_DATA.chromeI18n && window.PANAMA_DATA.chromeI18n.en) || {};
+    function t(path, fallback) {
+      const parts = path.split('.');
+      let v = i18n;
+      for (const k of parts) { if (v && typeof v === 'object' && k in v) v = v[k]; else { v = undefined; break; } }
+      if (v != null) return v;
+      let e = i18nEn;
+      for (const k of parts) { if (e && typeof e === 'object' && k in e) e = e[k]; else { e = undefined; break; } }
+      return (e != null) ? e : (fallback != null ? fallback : path);
+    }
+    const articleMetaT = (window.PANAMA_DATA.articleMeta && window.PANAMA_DATA.articleMeta[LANG] && window.PANAMA_DATA.articleMeta[LANG][a.id]) || {};
+    const aTitle   = articleMetaT.title   || a.title;
+    const aExcerpt = articleMetaT.excerpt || a.excerpt;
+    const aCategory = t('categories.' + a.category, a.category);
+    document.title = `${aTitle} — PanamaRealEstateGuide.com`;
 
     // ── Inline markdown parser + metadata filter (added 2026-05-03) ───────
     // Articles in data.js were authored as Markdown but stored as plain strings.
@@ -80,26 +98,26 @@ const ARTICLE_ID = window.location.pathname.split('/').pop().replace('.html', ''
             <header style={{ paddingTop: 96, paddingBottom: 40, background: 'var(--cream)' }}>
               <div className="container" style={{ maxWidth: 960 }}>
                 <div style={{ marginBottom: 28 }}>
-                  <DetailBack label="The Journal" href="/articles/"/>
+                  <DetailBack label={t('back_links.the_journal', 'The Journal')} href={LANG === 'en' ? '/articles/' : `/${LANG}/articles/`}/>
                 </div>
                 <div className="reveal" style={{
                   display: 'inline-block', background: 'var(--coral)', color: 'var(--paper)',
                   padding: '5px 12px', borderRadius: 999, fontSize: 10.5, fontFamily: 'var(--font-mono)',
                   letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 24
                 }}>
-                  {a.category}
+                  {aCategory}
                 </div>
                 <h1 className="display reveal d1" style={{
                   fontSize: 'clamp(36px, 5.4vw, 78px)', margin: 0, lineHeight: 1.02, paddingBottom: '0.08em', maxWidth: '22ch'
                 }}>
-                  {a.title}
+                  {aTitle}
                 </h1>
                 <p className="reveal d2" style={{
                   fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 300,
                   fontSize: 'clamp(18px, 1.8vw, 24px)', color: 'var(--ink-soft)',
                   maxWidth: '58ch', marginTop: 28, marginBottom: 0, lineHeight: 1.45
                 }}>
-                  {a.excerpt}
+                  {aExcerpt}
                 </p>
                 <div className="reveal d3" style={{
                   display: 'flex', alignItems: 'center', gap: 24, marginTop: 40, paddingTop: 28,
@@ -114,7 +132,7 @@ const ARTICLE_ID = window.location.pathname.split('/').pop().replace('.html', ''
                     }}>
                       {a.author.split(' ').map(n => n[0]).join('')}
                     </div>
-                    <span>By {a.author}</span>
+                    <span>{t('article.by_author', 'By')} {a.author}</span>
                   </div>
                   <span>·</span>
                   <span>{a.date}</span>
@@ -126,7 +144,7 @@ const ARTICLE_ID = window.location.pathname.split('/').pop().replace('.html', ''
 
             {/* COVER IMAGE */}
             <div className="container" style={{ marginBottom: 56 }}>
-              <div className={`ph ph-${a.cover} reveal`} data-label={a.category.toUpperCase()}
+              <div className={`ph ph-${a.cover} reveal`} data-label={aCategory.toUpperCase()}
                 style={{ aspectRatio: '16/7', borderRadius: 20, backgroundImage: `url(${pickCoverImg(a)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}/>
             </div>
 
@@ -232,14 +250,14 @@ const ARTICLE_ID = window.location.pathname.split('/').pop().replace('.html', ''
                 margin: '56px 0', padding: '40px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)'
               }}>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--coral-deep)', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14, fontWeight: 700 }}>
-                  The takeaway
+                  {t('article.the_takeaway', 'The takeaway')}
                 </div>
                 <p style={{
                   fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 300,
                   fontSize: 'clamp(22px, 2.6vw, 34px)', lineHeight: 1.3, color: 'var(--ink)', margin: 0,
                   letterSpacing: '-0.01em'
                 }}>
-                  {a.excerpt}
+                  {aExcerpt}
                 </p>
               </div>
 
@@ -254,9 +272,9 @@ const ARTICLE_ID = window.location.pathname.split('/').pop().replace('.html', ''
                 <div>
                   <div style={{ fontFamily: 'var(--font-display)', fontSize: 20, marginBottom: 4 }}>{a.author}</div>
                   <div style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.5 }}>
-                    {a.author === 'Kent Davis'
+                    {t(`author_bios.${a.author === 'Kent Davis' ? 'Kent Davis' : 'default'}`, a.author === 'Kent Davis'
                       ? 'Founder & principal broker, PanamaRealEstateGuide.com. Writing from Panama City since 2017.'
-                      : 'Senior market analyst, PanamaRealEstateGuide.com. Bilingual legal research on Panamanian residency and tax.'}
+                      : 'Senior market analyst, PanamaRealEstateGuide.com. Bilingual legal research on Panamanian residency and tax.')}
                   </div>
                 </div>
               </div>
@@ -267,21 +285,26 @@ const ARTICLE_ID = window.location.pathname.split('/').pop().replace('.html', ''
           <section style={{ padding: 'clamp(64px, 8vw, 110px) 0', background: 'var(--sand)' }}>
             <div className="container">
               <div className="eyebrow reveal" style={{ marginBottom: 28 }}>
-                <span className="rule-coral"></span>Keep reading
+                <span className="rule-coral"></span>{t('article.keep_reading', 'Keep reading')}
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }} data-rel-grid>
-                {related.map((r, i) => (
-                  <a key={r.id} href={`${r.id}.html`} className="reveal" style={{
-                    textDecoration: 'none', color: 'inherit', transitionDelay: `${i * 0.06}s`, display: 'block'
-                  }}>
-                    <div className={`ph ph-${r.cover}`} data-label="" style={{ aspectRatio: '4/3', borderRadius: 12, marginBottom: 16, backgroundImage: `url(${pickCoverImg(r)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}/>
-                    <div style={{ fontSize: 10.5, fontFamily: 'var(--font-mono)', color: 'var(--coral-deep)', letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 8 }}>
-                      {r.category}
-                    </div>
-                    <h4 className="display" style={{ fontSize: 22, margin: '0 0 8px', lineHeight: 1.2 }}>{r.title}</h4>
-                    <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--ink-mute)', letterSpacing: '0.1em' }}>{r.date} · {r.read}</div>
-                  </a>
-                ))}
+                {related.map((r, i) => {
+                  const rMetaT = (window.PANAMA_DATA.articleMeta && window.PANAMA_DATA.articleMeta[LANG] && window.PANAMA_DATA.articleMeta[LANG][r.id]) || {};
+                  const rTitle = rMetaT.title || r.title;
+                  const rCategory = t('categories.' + r.category, r.category);
+                  return (
+                    <a key={r.id} href={`${r.id}.html`} className="reveal" style={{
+                      textDecoration: 'none', color: 'inherit', transitionDelay: `${i * 0.06}s`, display: 'block'
+                    }}>
+                      <div className={`ph ph-${r.cover}`} data-label="" style={{ aspectRatio: '4/3', borderRadius: 12, marginBottom: 16, backgroundImage: `url(${pickCoverImg(r)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}/>
+                      <div style={{ fontSize: 10.5, fontFamily: 'var(--font-mono)', color: 'var(--coral-deep)', letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 8 }}>
+                        {rCategory}
+                      </div>
+                      <h4 className="display" style={{ fontSize: 22, margin: '0 0 8px', lineHeight: 1.2 }}>{rTitle}</h4>
+                      <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--ink-mute)', letterSpacing: '0.1em' }}>{r.date} · {r.read}</div>
+                    </a>
+                  );
+                })}
               </div>
               <style>{`@media (max-width: 900px) { [data-rel-grid] { grid-template-columns: 1fr !important; } }`}</style>
             </div>
