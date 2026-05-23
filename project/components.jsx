@@ -242,6 +242,12 @@ function HeroEditorial() {
   }, [featuredPool.length]);
   const featured = featuredPool[featuredIdx] || projects[0] || null;
   const news = ((window.PANAMA_DATA && window.PANAMA_DATA.news) || []).slice(0, 3);
+  // Pull hero copy from chrome-i18n.json so /es/, /pt/, /de/ render translated strings.
+  // Falls back to EN labels when keys are missing.
+  const LANG = (typeof window !== 'undefined' && window.PREG_LANG) || 'en';
+  const _i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[LANG] || window.PANAMA_DATA.chromeI18n.en)) || {};
+  const H = (_i18n.home_hero) || {};
+  const navLabels = (_i18n.nav) || {};
   if (!featured) {
     // Render a minimal hero skeleton instead of crashing when projects haven't loaded yet
     return <section style={{ paddingTop: 100, minHeight: 400, background: 'var(--cream)' }}/>;
@@ -261,25 +267,25 @@ function HeroEditorial() {
           paddingBottom: 18, marginBottom: 36, borderBottom: '1px solid var(--line)',
           flexWrap: 'wrap', gap: 16
         }}>
-          <span>Vol. VII · 2026</span>
+          <span>{H.issue_line || 'Vol. VII · 2026'}</span>
           <span className="hide-mobile">8°58′N · 79°32′W</span>
-          <span>The Isthmus Quarterly</span>
+          <span>{H.publication || 'The Isthmus Quarterly'}</span>
         </div>
 
         {/* Enormous wordmark headline */}
         <div style={{ position: 'relative', marginBottom: 48 }}>
           <div className="eyebrow reveal in" style={{ marginBottom: 28 }}>
             <span className="rule-coral"></span>
-            Developer-direct · 24 projects · Reservations open
+            {H.eyebrow || 'Developer-direct · 24 projects · Reservations open'}
           </div>
           <h1 className="display reveal in d1" style={{
             fontSize: 'clamp(72px, 13vw, 200px)',
             margin: 0, lineHeight: 0.82, letterSpacing: '-0.05em',
             paddingBottom: '0.06em', fontWeight: 300
           }}>
-            Two oceans.<br/>
-            <em style={{ color: 'var(--coral)', fontWeight: 300 }}>One country</em><br/>
-            <span style={{ color: 'var(--palm)' }}>worth owning.</span>
+            {H.headline_line_1 || 'Two oceans.'}<br/>
+            <em style={{ color: 'var(--coral)', fontWeight: 300 }}>{H.headline_line_2 || 'One country'}</em><br/>
+            <span style={{ color: 'var(--palm)' }}>{H.headline_line_3 || 'worth owning.'}</span>
           </h1>
         </div>
 
@@ -294,22 +300,18 @@ function HeroEditorial() {
               fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.14em',
               textTransform: 'uppercase', color: 'var(--coral-deep)', fontWeight: 700, marginBottom: 14
             }}>
-              From the editor
+              {H.from_editor || 'From the editor'}
             </div>
             <p style={{
               fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 300,
               fontSize: 'clamp(18px, 1.8vw, 23px)', lineHeight: 1.45,
               color: 'var(--ink)', margin: 0, textWrap: 'pretty', maxWidth: '28ch'
             }}>
-              The definitive registry of developer-direct new construction across Panama's Caribbean, Pacific, Azuero and highland coasts. No resales. No mystery owners. Refundable reservations from $5,000.
+              {H.dek || "The definitive registry of developer-direct new construction across Panama's Caribbean, Pacific, Azuero and highland coasts. No resales. No mystery owners. Refundable reservations from $5,000."}
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 28 }}>
-              <a href="/#reserve" className="btn btn-coral">{(() => {
-                const lc = (typeof window !== 'undefined' && window.PREG_LANG) || 'en';
-                const i = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[lc] || window.PANAMA_DATA.chromeI18n.en)) || {};
-                return (i.nav && i.nav.reserve_a_unit) || 'Reserve a unit';
-              })()} <Icon name="arrow" size={14}/></a>
-              <a href="#projects" className="btn btn-ghost">Browse 24 projects</a>
+              <a href="/#reserve" className="btn btn-coral">{navLabels.reserve_a_unit || 'Reserve a unit'} <Icon name="arrow" size={14}/></a>
+              <a href="#projects" className="btn btn-ghost">{H.browse_projects || 'Browse 24 projects'}</a>
             </div>
 
             {/* stats strip */}
@@ -365,7 +367,7 @@ function HeroEditorial() {
               fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.14em',
               textTransform: 'uppercase', fontWeight: 700, borderRadius: 4
             }}>
-              Cover story · Reservations open
+              {H.cover_story || 'Cover story · Reservations open'}
             </div>
             <div style={{ position: 'absolute', bottom: 28, left: 28, right: 28 }}>
               <div style={{
@@ -392,7 +394,7 @@ function HeroEditorial() {
               }}>
                 <div>
                   <div style={{ fontSize: 10, fontFamily: 'var(--font-mono)', letterSpacing: '0.14em', textTransform: 'uppercase', opacity: 0.7, marginBottom: 4 }}>
-                    From
+                    {H.from_label || 'From'}
                   </div>
                   <div className="display" style={{ fontSize: 28, lineHeight: 1 }}>{(featured.fromLabel || '').replace('From ','')}</div>
                 </div>
@@ -400,7 +402,7 @@ function HeroEditorial() {
                   fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.1em',
                   textTransform: 'uppercase', fontWeight: 700, color: 'var(--coral)'
                 }}>
-                  Read dispatch →
+                  {H.read_dispatch || 'Read dispatch →'}
                 </div>
               </div>
             </div>
@@ -454,7 +456,7 @@ function HeroEditorial() {
                 textTransform: 'uppercase', color: 'var(--coral)', fontWeight: 700, marginBottom: 18,
                 textShadow: '0 0 14px rgba(255,107,74,0.5)'
               }}>
-                From the newsroom
+                {H.from_newsroom || 'From the newsroom'}
               </div>
               {news.map((n, i) => (
                 <a key={n.slug} href={`news/${n.slug}.html`} style={{
@@ -492,7 +494,7 @@ function HeroEditorial() {
                 boxShadow: '0 0 24px rgba(255, 107, 74, 0.18), inset 0 0 0 1px rgba(255,249,236,0.04)',
                 transition: 'all 0.25s ease'
               }}>
-                <span>All dispatches</span>
+                <span>{H.all_dispatches || 'All dispatches'}</span>
                 <span style={{ color: 'var(--coral)', fontWeight: 800 }}>→</span>
               </a>
             </div>

@@ -280,12 +280,18 @@ function buildIndexHtml(videos, projects) {
   const head = buildIndexHead(videos.length);
   const safeVideos = JSON.stringify(videos).replace(/</g, '\\u003c');
   // Static fallback list for crawlers (mirrors what the React tile grid shows).
+  // BUG-011 fix: stamp each card with the language of the YouTube title so
+  // EN/PT/DE visitors immediately understand the tour is Spanish-narrated.
+  const langBadge = (lang) => {
+    const code = (lang || 'es').toUpperCase();
+    return `<span style="display:inline-block;padding:3px 8px;margin-right:8px;background:#0B1F28;color:#FFF9EC;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;border-radius:4px;vertical-align:middle">${code}</span>`;
+  };
   const staticCards = videos.map(v => {
     const proj = v.projectSlug ? projects[v.projectSlug] : null;
     return `      <li style="margin:0 0 32px;padding:0">
         <a href="/videos/${v.videoId.toLowerCase()}" style="text-decoration:none;color:inherit;display:block">
           <img src="${attrEscape(v.thumbnailUrl || `https://i.ytimg.com/vi/${v.videoId}/maxresdefault.jpg`)}" alt="${attrEscape(v.title)}" loading="lazy" style="width:100%;border-radius:14px;display:block"/>
-          <h2 style="font-family:'Fraunces',serif;font-size:24px;margin:18px 0 6px;color:#111">${attrEscape(v.title)}</h2>
+          <h2 style="font-family:'Fraunces',serif;font-size:24px;margin:18px 0 6px;color:#111">${langBadge(v.lang)}${attrEscape(v.title)}</h2>
           ${proj ? `<div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#666">${attrEscape(proj.name)}</div>` : ''}
         </a>
       </li>`;
@@ -308,7 +314,7 @@ function buildIndexHtml(videos, projects) {
   <noscript>
     <main style="max-width:1100px;margin:0 auto;padding:80px 24px;font-family:'Manrope',system-ui,sans-serif">
       <h1 style="font-family:'Fraunces',serif;font-size:clamp(40px,6vw,72px);line-height:1.04;margin:0 0 16px;color:#111">Panama Real Estate Videos</h1>
-      <p style="font-size:18px;line-height:1.6;color:#444;max-width:60ch;margin:0 0 48px">Short project tours and lifestyle clips from our team in Panama City and across the country.</p>
+      <p style="font-size:18px;line-height:1.6;color:#444;max-width:60ch;margin:0 0 48px">Short Spanish-narrated project tours and lifestyle clips from our team in Panama City and across the country. English subtitles available on YouTube.</p>
       <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px">
 ${staticCards}
       </ul>

@@ -31,6 +31,22 @@
       "start_a_reservation": "Start a reservation",
       "whatsapp_label": "WhatsApp"
     },
+    "home_hero": {
+      "issue_line": "Vol. VII · 2026",
+      "publication": "The Isthmus Quarterly",
+      "eyebrow": "Developer-direct · 24 projects · Reservations open",
+      "headline_line_1": "Two oceans.",
+      "headline_line_2": "One country",
+      "headline_line_3": "worth owning.",
+      "from_editor": "From the editor",
+      "dek": "The definitive registry of developer-direct new construction across Panama's Caribbean, Pacific, Azuero and highland coasts. No resales. No mystery owners. Refundable reservations from $5,000.",
+      "browse_projects": "Browse 24 projects",
+      "cover_story": "Cover story · Reservations open",
+      "from_label": "From",
+      "read_dispatch": "Read dispatch →",
+      "from_newsroom": "From the newsroom",
+      "all_dispatches": "All dispatches"
+    },
     "footer": {
       "links": {
         "projects": "Projects",
@@ -99,6 +115,22 @@
       "hold_for_thirty_days": "Mantén la unidad treinta días",
       "start_a_reservation": "Iniciar una reserva",
       "whatsapp_label": "WhatsApp"
+    },
+    "home_hero": {
+      "issue_line": "Vol. VII · 2026",
+      "publication": "El trimestral del istmo",
+      "eyebrow": "Trato directo con desarrollador · 24 proyectos · Reservas abiertas",
+      "headline_line_1": "Dos océanos.",
+      "headline_line_2": "Un país",
+      "headline_line_3": "para hacer propio.",
+      "from_editor": "Del editor",
+      "dek": "El registro definitivo de obra nueva en venta directa por desarrollador en las costas del Caribe, Pacífico, Azuero y tierras altas de Panamá. Sin reventas. Sin dueños desconocidos. Reservas reembolsables desde USD $5,000.",
+      "browse_projects": "Ver los 24 proyectos",
+      "cover_story": "Portada · Reservas abiertas",
+      "from_label": "Desde",
+      "read_dispatch": "Leer la crónica →",
+      "from_newsroom": "De la redacción",
+      "all_dispatches": "Todas las crónicas"
     },
     "footer": {
       "links": {
@@ -169,6 +201,22 @@
       "start_a_reservation": "Iniciar uma reserva",
       "whatsapp_label": "WhatsApp"
     },
+    "home_hero": {
+      "issue_line": "Vol. VII · 2026",
+      "publication": "Trimestral do istmo",
+      "eyebrow": "Direto do desenvolvedor · 24 projetos · Reservas abertas",
+      "headline_line_1": "Dois oceanos.",
+      "headline_line_2": "Um país",
+      "headline_line_3": "que vale ser seu.",
+      "from_editor": "Do editor",
+      "dek": "O registro definitivo de obra nova vendida diretamente pelo desenvolvedor nas costas do Caribe, Pacífico, Azuero e terras altas do Panamá. Sem revendas. Sem proprietários ocultos. Reservas reembolsáveis a partir de USD $5.000.",
+      "browse_projects": "Ver os 24 projetos",
+      "cover_story": "Capa · Reservas abertas",
+      "from_label": "A partir de",
+      "read_dispatch": "Ler a crônica →",
+      "from_newsroom": "Da redação",
+      "all_dispatches": "Todas as crônicas"
+    },
     "footer": {
       "links": {
         "projects": "Projetos",
@@ -237,6 +285,22 @@
       "hold_for_thirty_days": "Dreißig Tage halten",
       "start_a_reservation": "Reservierung starten",
       "whatsapp_label": "WhatsApp"
+    },
+    "home_hero": {
+      "issue_line": "Vol. VII · 2026",
+      "publication": "Das Quartalsmagazin der Landenge",
+      "eyebrow": "Direkt vom Entwickler · 24 Projekte · Reservierungen offen",
+      "headline_line_1": "Zwei Ozeane.",
+      "headline_line_2": "Ein Land,",
+      "headline_line_3": "das sich lohnt.",
+      "from_editor": "Vom Herausgeber",
+      "dek": "Das definitive Verzeichnis von Neubauten direkt vom Entwickler an Panamas Karibik-, Pazifik-, Azuero- und Hochlandküste. Keine Wiederverkäufe. Keine anonymen Eigentümer. Rückzahlbare Reservierungen ab USD 5.000.",
+      "browse_projects": "24 Projekte ansehen",
+      "cover_story": "Titelgeschichte · Reservierungen offen",
+      "from_label": "Ab",
+      "read_dispatch": "Bericht lesen →",
+      "from_newsroom": "Aus der Redaktion",
+      "all_dispatches": "Alle Berichte"
     },
     "footer": {
       "links": {
