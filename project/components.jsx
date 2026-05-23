@@ -374,7 +374,7 @@ function HeroEditorial() {
                   <div style={{ fontSize: 10, fontFamily: 'var(--font-mono)', letterSpacing: '0.14em', textTransform: 'uppercase', opacity: 0.7, marginBottom: 4 }}>
                     From
                   </div>
-                  <div className="display" style={{ fontSize: 28, lineHeight: 1 }}>{featured.fromLabel.replace('From ','')}</div>
+                  <div className="display" style={{ fontSize: 28, lineHeight: 1 }}>{(featured.fromLabel || '').replace('From ','')}</div>
                 </div>
                 <div style={{
                   fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.1em',
