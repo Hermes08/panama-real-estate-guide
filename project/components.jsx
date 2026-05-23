@@ -125,7 +125,14 @@ function LangSwitcher({ current = 'EN', onChange, onDark = false }) {
 function Navbar({ transparent }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [lang, setLang] = useState(((typeof window !== 'undefined' && window.PREG_LANG) || 'EN').toUpperCase());
+  // Derive language strictly from URL path — NOT from cookie / PREG_LANG.
+  // Otherwise a visitor with a stale es cookie lands on `/` and sees ES nav targets
+  // (BUG flagged in QA v3): English content + Spanish nav prefixes.
+  const [lang, setLang] = useState((() => {
+    if (typeof window === 'undefined') return 'EN';
+    const m = window.location.pathname.match(/^\/(es|pt|de)(\/|$)/);
+    return m ? m[1].toUpperCase() : 'EN';
+  })());
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll, { passive: true });
