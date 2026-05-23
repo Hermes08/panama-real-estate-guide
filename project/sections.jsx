@@ -715,12 +715,25 @@ function Footer() {
               international buyers since 2016. Four languages, one escrow, zero resales.
             </p>
             <div style={{ display: 'flex', gap: 8, marginTop: 24, flexWrap: 'wrap' }}>
-              {window.PANAMA_DATA.langs.map(l => (
-                <span key={l.code} style={{
-                  padding: '4px 10px', borderRadius: 999, border: '1px solid rgba(255,249,236,0.2)',
-                  fontSize: 11, fontFamily: 'var(--font-mono)', letterSpacing: '0.08em'
-                }}>{l.code}</span>
-              ))}
+              {window.PANAMA_DATA.langs.map(l => {
+                // BUG-007 fix: footer language pills now actually navigate to the per-language equivalent URL
+                const onClick = () => {
+                  if (typeof window === 'undefined') return;
+                  const target = l.code.toLowerCase();
+                  const path = window.location.pathname;
+                  const stripped = path.replace(/^\/(es|pt|de)(\/|$)/, '/');
+                  const newPath = target === 'en' ? stripped : `/${target}${stripped === '/' ? '/' : stripped}`;
+                  try { document.cookie = `preg_lang=${target};path=/;max-age=31536000;samesite=lax;secure`; } catch (e) {}
+                  window.location.href = newPath + window.location.search + window.location.hash;
+                };
+                return (
+                  <button key={l.code} onClick={onClick} style={{
+                    padding: '4px 10px', borderRadius: 999, border: '1px solid rgba(255,249,236,0.2)',
+                    background: 'transparent', color: 'inherit', cursor: 'pointer',
+                    fontSize: 11, fontFamily: 'var(--font-mono)', letterSpacing: '0.08em'
+                  }}>{l.code}</button>
+                );
+              })}
             </div>
             {/* Social media links — Facebook, Instagram, TikTok, YouTube, WhatsApp */}
             <div className="footer-social" style={{ display: 'flex', gap: 10, marginTop: 24, flexWrap: 'wrap' }}>

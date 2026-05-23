@@ -3,63 +3,46 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="../styles.css"/>
-  <title>Panama Real Estate Guide en español | Guías para compradores hispanohablantes</title>
-  <meta name="description" content="Guías de bienes raíces en Panamá traducidas al español para inversionistas LATAM y compradores hispanohablantes. Reservas desde USD $5,000, agencia del comprador, contenido editorial sin sesgo de vendedor."/>
+  <title>PanamaRealEstateGuide.com — Proyectos developer-direct · Crónicas · Reservas</title>
+  <meta name="description" content="Proyectos developer-direct en Panamá: costas caribeñas, pacíficas, Azuero y tierras altas. Reserva tu unidad con depósito reembolsable. EN · ES · PT · DE."/>
+
   <link rel="canonical" href="https://panamarealestateguide.com/es/"/>
   <link rel="alternate" hreflang="en" href="https://panamarealestateguide.com/"/>
   <link rel="alternate" hreflang="es" href="https://panamarealestateguide.com/es/"/>
   <link rel="alternate" hreflang="pt" href="https://panamarealestateguide.com/pt/"/>
   <link rel="alternate" hreflang="de" href="https://panamarealestateguide.com/de/"/>
   <link rel="alternate" hreflang="x-default" href="https://panamarealestateguide.com/"/>
+
   <meta property="og:type" content="website"/>
-  <meta property="og:locale" content="es"/>
-  <meta property="og:title" content="Panama Real Estate Guide en español"/>
-  <meta property="og:description" content="Guías de bienes raíces en Panamá traducidas al español. Reservas desde USD $5,000, agencia del comprador."/>
-  <meta property="og:url" content="https://panamarealestateguide.com/es/"/>
+  <meta property="og:locale" content="es_ES"/>
+  <meta property="og:locale:alternate" content="en_US"/>
+  <meta property="og:locale:alternate" content="pt_BR"/>
+  <meta property="og:locale:alternate" content="de_DE"/>
+  <meta property="og:title" content="PanamaRealEstateGuide.com — Proyectos developer-direct en Panamá"/>
+  <meta property="og:description" content="Dos océanos. Un país para invertir. Costas del Caribe, Pacífico, Azuero y tierras altas. Reserva desde USD $5,000."/>
   <meta property="og:image" content="https://panamarealestateguide.com/cover_facebook_1640x856.png"/>
-  <meta property="og:site_name" content="Panama Real Estate Guide"/>
+  <meta property="og:url" content="https://panamarealestateguide.com/es/"/>
+  <meta property="og:site_name" content="panamarealestateguide.com"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="/styles.css"/>
+
+  <script defer src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
+  <script defer src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
 </head>
-<body style="background:#fdf8ef;color:#0b1f28;font-family:'Manrope',-apple-system,sans-serif;margin:0;padding:0">
-  <header style="border-bottom:1px solid #e6e0d3;padding:20px 32px;display:flex;justify-content:space-between;align-items:center">
-    <a href="https://panamarealestateguide.com/" style="color:#0b1f28;text-decoration:none;font-weight:700;font-size:18px">PanamaRealEstateGuide.com</a>
-    <nav style="display:flex;gap:16px;align-items:center">
-      <a href="https://panamarealestateguide.com/" style="color:#0b1f28cc;text-decoration:none;font-size:14px">EN</a>
-      <a href="/es/" style="color:#d65a45;text-decoration:none;font-weight:700;font-size:14px">ES</a>
-      <a href="/pt/" style="color:#0b1f28cc;text-decoration:none;font-size:14px">PT</a>
-      <a href="/de/" style="color:#0b1f28cc;text-decoration:none;font-size:14px">DE</a>
-    </nav>
-  </header>
-  <main style="max-width:880px;margin:0 auto;padding:64px 32px">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#d65a45;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:14px">Edición en español</div>
-    <h1 style="font-family:'Fraunces',serif;font-size:clamp(36px,5vw,56px);line-height:1.1;margin:0 0 24px;font-weight:400">Guía de bienes raíces de Panamá<br><em style="color:#d65a45;font-style:italic">para inversionistas hispanohablantes.</em></h1>
-    <p style="font-size:18px;line-height:1.55;color:#0b1f28cc;max-width:60ch;margin:0 0 48px">Cobertura editorial de bienes raíces en Panamá, residencia, impuestos y estilo de vida para compradores LATAM y de España. Reservas directas con el desarrollador desde USD $5,000. Agencia del comprador, nunca dual.</p>
-    <section style="margin-bottom:64px">
-      <h2 style="font-family:'JetBrains Mono',monospace;font-size:14px;text-transform:uppercase;letter-spacing:0.08em;color:#0b1f28cc;margin:0 0 24px">Artículos traducidos disponibles</h2>
-      <ul style="list-style:none;padding:0;margin:0;display:grid;gap:24px">
-        <li><a href="/es/articles/internet-providers-panama-expats.html" style="display:block;padding:24px;background:#fff;border:1px solid #e6e0d3;border-radius:8px;text-decoration:none;color:#0b1f28">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#d65a45;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px">Costo de vida y servicios</div>
-          <h3 style="font-family:'Fraunces',serif;font-size:22px;margin:0 0 8px;font-weight:500">Internet en Panamá 2026: Tigo, +Móvil y Starlink (precios reales por zona)</h3>
-          <p style="font-size:14px;color:#0b1f28aa;margin:0">Tigo fibra 500 Mbps desde B/.59/mes. +Móvil fibra simétrica desde B/.33/mes. Starlink USD $45 a USD $70/mes. El plan que funciona depende de tu zona.</p>
-        </a></li>
-        <li><a href="/es/articles/panama-retirement-communities.html" style="display:block;padding:24px;background:#fff;border:1px solid #e6e0d3;border-radius:8px;text-decoration:none;color:#0b1f28">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#d65a45;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px">Estilo de vida y jubilación</div>
-          <h3 style="font-family:'Fraunces',serif;font-size:22px;margin:0 0 8px;font-weight:500">Comunidades de jubilación en Panamá 2026: 7 zonas que los jubilados estadounidenses deben comparar</h3>
-          <p style="font-size:14px;color:#0b1f28aa;margin:0">USD $1,500 a USD $3,500 por mes para un retiro cómodo en Panamá. Comparativa de 7 comunidades por clima, acceso médico, densidad de expatriados y compatibilidad con Visa Pensionado.</p>
-        </a></li>
-      </ul>
-    </section>
-    <section style="padding:32px;background:#fff;border-left:4px solid #d65a45;border-radius:4px">
-      <p style="margin:0 0 12px;font-size:14px;color:#0b1f28cc">Más artículos están siendo traducidos. Por ahora, la mayoría del catálogo editorial vive en inglés.</p>
-      <a href="https://panamarealestateguide.com/articles/" style="color:#d65a45;font-weight:700;text-decoration:none">Ver los 81 artículos en inglés →</a>
-    </section>
-  </main>
-  <footer style="border-top:1px solid #e6e0d3;padding:32px;text-align:center;color:#0b1f28aa;font-size:13px">
-    <p>© 2026 PanamaRealEstateGuide.com · Operado por Top Deals Investments Inc. (Delaware C-Corp), Wilmington DE · Oficina de enlace en Ciudad de Panamá.</p>
-    <p style="margin-top:12px"><a href="https://wa.me/50762534802" style="color:#d65a45">WhatsApp +507 6253-4802</a> · <a href="mailto:reservations@panamarealestateguide.com" style="color:#d65a45">reservations@panamarealestateguide.com</a></p>
-  </footer>
+<body>
+  <div id="root"></div>
+  <script>window.PREG_LANG="es";</script>
+
+  <script src="/tracking.js?v=1"></script>
+  <script defer src="/i18n-data.js"></script>
+  <script defer src="/data-light.js?v=1777333850"></script>
+  <script defer src="/components.js?v=1777333850"></script>
+  <script defer src="/sections.js?v=1777333850"></script>
+  <script defer src="/index-renderer.js"></script>
+  <!-- ML translated by Claude on 2026-05-23 -->
 </body>
 </html>
