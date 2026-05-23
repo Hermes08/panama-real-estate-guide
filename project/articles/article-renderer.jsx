@@ -15,7 +15,18 @@ const ARTICLE_ID = window.location.pathname.split('/').pop().replace('.html', ''
       return `https://images.pexels.com/photos/${pool[idx]}/pexels-photo-${pool[idx]}.jpeg?auto=compress&cs=tinysrgb&w=1600`;
     };
     const a = window.PANAMA_DATA.articles.find(x => x.id === ARTICLE_ID) || window.PANAMA_DATA.articles[0];
-    const body = window.PANAMA_DATA.articleBodies[a.id] || [];
+    // ── BUG-004 hotfix: normalize body shape (legacy pilot translations used
+    // {title, description, body: markdown} object; new translations use [items] array)
+    let body = window.PANAMA_DATA.articleBodies[a.id] || [];
+    if (body && typeof body === 'object' && !Array.isArray(body) && typeof body.body === 'string') {
+      // Legacy object schema: split markdown body into paragraph array
+      body = body.body
+        .split(/\n{2,}/)
+        .map(s => s.trim())
+        .filter(Boolean)
+        .map(p => p.startsWith('#') ? { h: p.replace(/^#+\s*/, '') } : p);
+    }
+    if (!Array.isArray(body)) body = [];
 
     // ── i18n: choose language + look up translated chrome labels & article meta
     const LANG = (window.PREG_LANG || 'en').toLowerCase();
