@@ -73,6 +73,20 @@ function Logo({ onDark = false, size = 22 }) {
 function LangSwitcher({ current = 'EN', onChange, onDark = false }) {
   const [open, setOpen] = useState(false);
   const langs = window.PANAMA_DATA.langs;
+  // BUG-001 fix: actually navigate to the per-language equivalent URL when a code is clicked
+  function selectLang(code) {
+    onChange?.(code);
+    setOpen(false);
+    if (typeof window === 'undefined') return;
+    const target = code.toLowerCase();
+    const path = window.location.pathname;
+    // Strip any existing /es/ /pt/ /de/ prefix
+    const stripped = path.replace(/^\/(es|pt|de)(\/|$)/, '/');
+    const newPath = target === 'en' ? stripped : `/${target}${stripped === '/' ? '/' : stripped}`;
+    // Persist preference so future pages honour it (geo-route edge function reads this)
+    try { document.cookie = `preg_lang=${target};path=/;max-age=31536000;samesite=lax;secure`; } catch (e) {}
+    window.location.href = newPath + window.location.search + window.location.hash;
+  }
   return (
     <div style={{ position: 'relative' }}>
       <button onClick={() => setOpen(!open)} style={{
@@ -91,7 +105,7 @@ function LangSwitcher({ current = 'EN', onChange, onDark = false }) {
           padding: 6, boxShadow: '0 20px 40px -16px rgba(0,0,0,0.2)', zIndex: 60, color: 'var(--ink)'
         }}>
           {langs.map(l => (
-            <button key={l.code} onClick={() => { onChange?.(l.code); setOpen(false); }} style={{
+            <button key={l.code} onClick={() => selectLang(l.code)} style={{
               display: 'flex', justifyContent: 'space-between', width: '100%',
               padding: '10px 12px', background: current === l.code ? 'rgba(255,107,74,0.1)' : 'transparent',
               border: 'none', color: current === l.code ? 'var(--coral-deep)' : 'var(--ink)',
@@ -111,7 +125,7 @@ function LangSwitcher({ current = 'EN', onChange, onDark = false }) {
 function Navbar({ transparent }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [lang, setLang] = useState('EN');
+  const [lang, setLang] = useState(((typeof window !== 'undefined' && window.PREG_LANG) || 'EN').toUpperCase());
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -132,18 +146,20 @@ function Navbar({ transparent }) {
       }}>
         <Logo onDark={isDark} size={18}/>
         <nav className="nav-desktop" style={{ display: 'flex', gap: 28, fontSize: 13, fontWeight: 500 }}>
-        {['Projects', 'Regions', 'Journal', 'Videos', 'News', 'Residency', 'About'].map(l => {
-          // Map each nav item to its real destination. Residency → article-category filter
-          // (no /#residency anchor exists on the home page). About → #regions block (the
-          // "Two oceans, five coasts, one visa" intro doubles as the company's About anchor).
-          const href = l === 'Journal' ? '/articles/'
-                     : l === 'Videos' ? '/videos/'
-                     : l === 'News' ? '/news/'
-                     : l === 'Residency' ? '/articles/?category=Residency'
-                     : l === 'About' ? '/#regions'
-                     : `/#${l.toLowerCase()}`;
-          return <a key={l} href={href} style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>{l}</a>;
-        })}
+        {(() => {
+          // BUG-001 fix: prefix nav links with the current language (when not EN)
+          const langCode = lang.toLowerCase();
+          const prefix = langCode === 'en' ? '' : `/${langCode}`;
+          return ['Projects', 'Regions', 'Journal', 'Videos', 'News', 'Residency', 'About'].map(l => {
+            const href = l === 'Journal' ? `${prefix}/articles/`
+                       : l === 'Videos' ? `${prefix}/videos/`
+                       : l === 'News' ? `${prefix}/news/`
+                       : l === 'Residency' ? `${prefix}/articles/?category=Residency`
+                       : l === 'About' ? `${prefix || ''}/#regions`
+                       : `${prefix || ''}/#${l.toLowerCase()}`;
+            return <a key={l} href={href} style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>{l}</a>;
+          });
+        })()}
         </nav>
         <div className="nav-cta-desktop" style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
           <LangSwitcher current={lang} onChange={setLang} onDark={isDark}/>
