@@ -175,7 +175,11 @@ function Navbar({ transparent }) {
         <div className="nav-cta-desktop" style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
           <LangSwitcher current={lang} onChange={setLang} onDark={isDark}/>
           <a href="/#reserve" className="btn btn-coral" style={{ padding: '11px 20px', fontSize: 11 }}>
-            Reserve a unit <Icon name="arrow" size={13}/>
+            {(() => {
+              const lc = lang.toLowerCase();
+              const i = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[lc] || window.PANAMA_DATA.chromeI18n.en)) || {};
+              return (i.nav && i.nav.reserve_a_unit) || 'Reserve a unit';
+            })()} <Icon name="arrow" size={13}/>
           </a>
         </div>
         <button className="nav-burger" onClick={() => setOpen(!open)}
@@ -188,22 +192,34 @@ function Navbar({ transparent }) {
           padding: '20px var(--gutter) 28px', background: 'var(--paper)', color: 'var(--ink)',
           borderTop: '1px solid var(--line-soft)', display: 'flex', flexDirection: 'column', gap: 14
         }}>
-          {['Projects', 'Regions', 'Journal', 'Videos', 'News', 'Residency', 'About'].map(l => {
-            // Same destination logic as the desktop nav above — keep both maps in sync.
-            const href = l === 'Journal' ? '/articles/'
-                       : l === 'Videos' ? '/videos/'
-                       : l === 'News' ? '/news/'
-                       : l === 'Residency' ? '/articles/?category=Residency'
-                       : l === 'About' ? '/#regions'
-                       : `/#${l.toLowerCase()}`;
-            return (
-              <a key={l} href={href} onClick={() => setOpen(false)}
-                 style={{ fontSize: 22, fontFamily: 'var(--font-display)', color: 'var(--ink)', textDecoration: 'none' }}>{l}</a>
-            );
-          })}
+          {(() => {
+            // Mirror the desktop nav: read the user's language and look up labels + prefix per locale.
+            const langCode = lang.toLowerCase();
+            const prefix = langCode === 'en' ? '' : `/${langCode}`;
+            const i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[langCode] || window.PANAMA_DATA.chromeI18n.en)) || {};
+            const navLabels = (i18n.nav) || {};
+            return ['Projects', 'Regions', 'Journal', 'Videos', 'News', 'Residency', 'About'].map(l => {
+              const key = l.toLowerCase();
+              const label = navLabels[key] || l;
+              const href = l === 'Journal' ? `${prefix}/articles/`
+                         : l === 'Videos' ? `${prefix}/videos/`
+                         : l === 'News' ? `${prefix}/news/`
+                         : l === 'Residency' ? `${prefix}/articles/?category=Residency`
+                         : l === 'About' ? `${prefix || ''}/#regions`
+                         : `${prefix || ''}/#${l.toLowerCase()}`;
+              return (
+                <a key={l} href={href} onClick={() => setOpen(false)}
+                   style={{ fontSize: 22, fontFamily: 'var(--font-display)', color: 'var(--ink)', textDecoration: 'none' }}>{label}</a>
+              );
+            });
+          })()}
           <div style={{ marginTop: 12, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
             <LangSwitcher current={lang} onChange={setLang}/>
-            <a href="/#reserve" className="btn btn-coral" style={{ flex: 1, justifyContent: 'center' }}>Reserve a unit</a>
+            <a href="/#reserve" className="btn btn-coral" style={{ flex: 1, justifyContent: 'center' }}>{(() => {
+              const lc = lang.toLowerCase();
+              const i = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[lc] || window.PANAMA_DATA.chromeI18n.en)) || {};
+              return (i.nav && i.nav.reserve_a_unit) || 'Reserve a unit';
+            })()}</a>
           </div>
         </div>
       )}
@@ -288,7 +304,11 @@ function HeroEditorial() {
               The definitive registry of developer-direct new construction across Panama's Caribbean, Pacific, Azuero and highland coasts. No resales. No mystery owners. Refundable reservations from $5,000.
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 28 }}>
-              <a href="/#reserve" className="btn btn-coral">Reserve a unit <Icon name="arrow" size={14}/></a>
+              <a href="/#reserve" className="btn btn-coral">{(() => {
+                const lc = (typeof window !== 'undefined' && window.PREG_LANG) || 'en';
+                const i = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[lc] || window.PANAMA_DATA.chromeI18n.en)) || {};
+                return (i.nav && i.nav.reserve_a_unit) || 'Reserve a unit';
+              })()} <Icon name="arrow" size={14}/></a>
               <a href="#projects" className="btn btn-ghost">Browse 24 projects</a>
             </div>
 
