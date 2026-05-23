@@ -209,7 +209,9 @@ function Navbar({ transparent }) {
 
 /* ── Hero (Editorial variant) — magazine-style with giant wordmark headline + featured project card ── */
 function HeroEditorial() {
-  const featuredPool = window.PANAMA_DATA.projects.slice(0, 5);
+  // Defensive: projects may be empty if airtable-projects.json fetch failed or fired late.
+  const projects = (window.PANAMA_DATA && window.PANAMA_DATA.projects) || [];
+  const featuredPool = projects.slice(0, 5);
   const [featuredIdx, setFeaturedIdx] = useState(0);
   React.useEffect(() => {
     if (featuredPool.length < 2) return;
@@ -218,8 +220,12 @@ function HeroEditorial() {
     }, 5500);
     return () => clearInterval(id);
   }, [featuredPool.length]);
-  const featured = featuredPool[featuredIdx] || window.PANAMA_DATA.projects[0];
-  const news = window.PANAMA_DATA.news.slice(0, 3);
+  const featured = featuredPool[featuredIdx] || projects[0] || null;
+  const news = ((window.PANAMA_DATA && window.PANAMA_DATA.news) || []).slice(0, 3);
+  if (!featured) {
+    // Render a minimal hero skeleton instead of crashing when projects haven't loaded yet
+    return <section style={{ paddingTop: 100, minHeight: 400, background: 'var(--cream)' }}/>;
+  }
 
   return (
     <section style={{

@@ -45,7 +45,7 @@ function renderApp() {
   ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
 }
 
-fetch('airtable-projects.json', { cache: 'no-cache' })
+fetch('/airtable-projects.json', { cache: 'no-cache' })
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
   .then(data => {
     if (data && Array.isArray(data.projects) && data.projects.length) {
