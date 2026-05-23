@@ -7,6 +7,7 @@
       "videos": "Videos",
       "news": "News",
       "about": "About",
+      "residency": "Residency",
       "reserve_a_unit": "Reserve a unit"
     },
     "back_links": {
@@ -75,6 +76,7 @@
       "videos": "Videos",
       "news": "Noticias",
       "about": "Nosotros",
+      "residency": "Residencia",
       "reserve_a_unit": "Reservar unidad"
     },
     "back_links": {
@@ -143,6 +145,7 @@
       "videos": "Vídeos",
       "news": "Notícias",
       "about": "Sobre",
+      "residency": "Residência",
       "reserve_a_unit": "Reservar unidade"
     },
     "back_links": {
@@ -211,6 +214,7 @@
       "videos": "Videos",
       "news": "Nachrichten",
       "about": "Über uns",
+      "residency": "Aufenthalt",
       "reserve_a_unit": "Einheit reservieren"
     },
     "back_links": {
