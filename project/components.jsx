@@ -154,17 +154,21 @@ function Navbar({ transparent }) {
         <Logo onDark={isDark} size={18}/>
         <nav className="nav-desktop" style={{ display: 'flex', gap: 28, fontSize: 13, fontWeight: 500 }}>
         {(() => {
-          // BUG-001 fix: prefix nav links with the current language (when not EN)
+          // BUG-001 fix: prefix nav links with the current language + use chrome-i18n labels
           const langCode = lang.toLowerCase();
           const prefix = langCode === 'en' ? '' : `/${langCode}`;
+          const i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[langCode] || window.PANAMA_DATA.chromeI18n.en)) || {};
+          const navLabels = (i18n.nav) || {};
           return ['Projects', 'Regions', 'Journal', 'Videos', 'News', 'Residency', 'About'].map(l => {
+            const key = l.toLowerCase();
+            const label = navLabels[key] || l;
             const href = l === 'Journal' ? `${prefix}/articles/`
                        : l === 'Videos' ? `${prefix}/videos/`
                        : l === 'News' ? `${prefix}/news/`
                        : l === 'Residency' ? `${prefix}/articles/?category=Residency`
                        : l === 'About' ? `${prefix || ''}/#regions`
                        : `${prefix || ''}/#${l.toLowerCase()}`;
-            return <a key={l} href={href} style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>{l}</a>;
+            return <a key={l} href={href} style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>{label}</a>;
           });
         })()}
         </nav>
