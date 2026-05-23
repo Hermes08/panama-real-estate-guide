@@ -17,12 +17,13 @@ function VideosIndexPage() {
                 Panama real estate <em>in motion</em>.
               </h1>
               <p style={{ fontSize: 18, lineHeight: 1.6, color: 'var(--ink-soft)', maxWidth: '60ch', margin: '0 0 56px' }}>
-                Short project tours and lifestyle clips from our team in Panama City and across the country. {videos.length} videos.
+                Short Spanish-narrated project tours and lifestyle clips from our team in Panama City and across the country. English subtitles available on YouTube. {videos.length} videos.
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 32 }}>
                 {videos.map(v => {
                   const proj = v.projectSlug ? projBySlug[v.projectSlug] : null;
+                  const langBadge = (v.lang || 'es').toUpperCase();
                   return (
                     <a key={v.videoId} href={`/videos/${v.videoId.toLowerCase()}`} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
                       <div style={{ position: 'relative', paddingTop: '56.25%', borderRadius: 14, overflow: 'hidden', background: '#000', marginBottom: 18 }}>
@@ -32,7 +33,9 @@ function VideosIndexPage() {
                           <span style={{ borderStyle: 'solid', borderWidth: '8px 0 8px 14px', borderColor: 'transparent transparent transparent #111', marginLeft: 3 }}/>
                         </div>
                       </div>
-                      <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 22, margin: '0 0 6px', lineHeight: 1.25 }}>{v.title}</h2>
+                      <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 22, margin: '0 0 6px', lineHeight: 1.25 }}>
+                        <span style={{ display: 'inline-block', padding: '3px 8px', marginRight: 8, background: '#0B1F28', color: '#FFF9EC', fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.14em', borderRadius: 4, verticalAlign: 'middle' }}>{langBadge}</span>{v.title}
+                      </h2>
                       {proj && (
                         <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ink-soft)' }}>
                           {proj.name}
