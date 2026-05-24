@@ -303,13 +303,13 @@ function Regions() {
               </div>
               <h3 className="display" style={{ fontSize: 24, margin: '0 0 6px', color: 'var(--cream)' }}>{r.name}</h3>
               <div style={{ fontSize: 11, opacity: 0.65, marginBottom: 16, fontFamily: 'var(--font-mono)', letterSpacing: '0.1em' }}>{r.sub}</div>
-              <p style={{ fontSize: 14, opacity: 0.85, lineHeight: 1.6, minHeight: 72, margin: 0 }}>{r.blurb}</p>
+              <p style={{ fontSize: 14, opacity: 0.85, lineHeight: 1.6, minHeight: 72, margin: 0 }}>{sxT('regions.' + r.id + '.blurb', r.blurb)}</p>
               <div style={{
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                 marginTop: 20, paddingTop: 16, borderTop: '1px solid rgba(255, 249, 236, 0.12)',
                 fontSize: 11, fontFamily: 'var(--font-mono)', letterSpacing: '0.1em'
               }}>
-                <span style={{ color: 'var(--aqua)' }}>{r.count} projects</span>
+                <span style={{ color: 'var(--aqua)' }}>{r.count} {sxT('regions.projects_count_word', 'projects')}</span>
                 <Icon name="arrow" size={13}/>
               </div>
             </a>
@@ -516,7 +516,7 @@ function News() {
                   {sxNewsTitle(n)}
                 </div>
                 <div style={{ fontSize: 10.5, fontFamily: 'var(--font-mono)', color: 'var(--ink-mute)', letterSpacing: '0.12em', textTransform: 'uppercase', whiteSpace: 'nowrap' }} className="hide-mobile">
-                  {n.tag}
+                  {sxT('news_tags.' + n.tag, n.tag)}
                 </div>
               </a>
             ))}
@@ -954,14 +954,25 @@ function Footer() {
                  onMouseEnter={e => { e.currentTarget.style.background = 'var(--coral)'; e.currentTarget.style.borderColor = 'var(--coral)'; e.currentTarget.style.color = 'var(--paper)'; }}
                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,249,236,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,249,236,0.18)'; e.currentTarget.style.color = 'var(--cream)'; }}>
                 <span>{p.name}</span>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, opacity: 0.7 }}>desde {p.from}</span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, opacity: 0.7 }}>{sxT('home_hero.from_label', 'From').toLowerCase()} {p.from}</span>
               </a>
             ))}
           </div>
         </div>
 
+        {/* Privacy / Terms row — Comet QA P1: was missing on home pages.
+            Renders above the address strip; translated per language. */}
         <div style={{
-          paddingTop: 28, borderTop: '1px solid rgba(255, 249, 236, 0.15)',
+          paddingTop: 24, borderTop: '1px solid rgba(255, 249, 236, 0.10)',
+          display: 'flex', gap: 28, flexWrap: 'wrap',
+          fontSize: 12, fontFamily: 'var(--font-mono)', letterSpacing: '0.08em', opacity: 0.75
+        }}>
+          <a href="/privacy.html" style={{ color: 'var(--cream)', textDecoration: 'none' }}>{sxT('footer.links.privacy', 'Privacy')}</a>
+          <a href="/terms.html" style={{ color: 'var(--cream)', textDecoration: 'none' }}>{sxT('footer.links.terms', 'Terms')}</a>
+        </div>
+
+        <div style={{
+          paddingTop: 18, marginTop: 18, borderTop: '1px solid rgba(255, 249, 236, 0.15)',
           display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 14,
           fontSize: 11, fontFamily: 'var(--font-mono)', letterSpacing: '0.1em', opacity: 0.6, textTransform: 'uppercase'
         }}>

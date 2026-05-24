@@ -93,7 +93,7 @@
     "Su camino a la residencia comienza con una sola consulta. Nuestros asesores revisarán su situación, estimarán su cronograma y costos, y lo guiarán por la categoría exacta de visa que se ajusta a sus objetivos, ya sea jubilación Pensionado, propiedad de bienes raíces Naciones Amigas o residencia respaldada por negocio.",
     "Manejamos todo el proceso: recolección de documentos, coordinación de apostillas, gestión de traducciones, enlace con abogados y preparación para la entrevista. La mayoría de los clientes pasa de 5 a 8 meses desde la primera llamada hasta tener el carnet en mano.",
     "**Reserve una consulta gratuita de residencia de 30 minutos:** WhatsApp **+507 6761-0315** o envíenos su situación por correo y responderemos en 24 horas.",
-    "**Lecturas relacionadas:** - [Beneficios fiscales de Panamá para extranjeros 2026: alivios fiscales por residencia](/es/blog/panama-tax-benefits-foreigners-2026) - [Qué hacer si su visa de Panamá es rechazada (guía de emergencia 2026)](/es/blog/panama-visa-rejected-appeal-guide)",
+    "**Lecturas relacionadas:** - [Beneficios fiscales de Panamá para extranjeros 2026: alivios fiscales por residencia](/es/articles/panama-tax-benefits-foreigners-2026.html) - [Qué hacer si su visa de Panamá es rechazada (guía de emergencia 2026)](/es/articles/panama-visa-rejected-appeal-guide.html)",
     "**Resumen de una línea para recordar:** La visa de bienes raíces de Naciones Amigas de Panamá cuesta **USD $200,000 mínimo** en propiedad, toma **5 a 8 meses** y le da residencia de por vida con cero impuesto sobre ingresos extranjeros."
   ];
 })();

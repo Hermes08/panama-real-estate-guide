@@ -146,7 +146,7 @@
     "Seja para comprar seu primeiro imóvel no Panamá visando renda de aposentadoria, escalar um portfólio com várias unidades ou fechar seu primeiro investimento em pré-construção, nossos especialistas em mudança podem comprimir seu cronograma e sinalizar os riscos antes que custem dinheiro.",
     "**Pronto para avançar?** Agende uma consulta de estratégia imobiliária com a VIP Expats. Vamos cruzar você com bairros conforme suas metas de rentabilidade, conectá-lo a advogados verificados e acompanhá-lo na pré-aprovação do empréstimo.",
     "**Fale conosco pelo WhatsApp: +507 6761-0315**",
-    "Ou leia mais no blog da VIP Expats: - [Imóveis em Costa del Este 2026: bairros, preços e retornos de investimento](https://panamarealestatesale.com/en/blog/costa-del-este) - [Visto Pensionado Panamá 2026: requisitos de renda e aplicação](https://panamarealestatesale.com/en/blog/pensionado-visa)",
+    "Ou leia mais no blog da VIP Expats: - [Imóveis em Costa del Este 2026: bairros, preços e retornos de investimento](https://panamarealestateguide.com/articles/costa-del-este.html) - [Visto Pensionado Panamá 2026: requisitos de renda e aplicação](https://panamarealestateguide.com/articles/pensionado-visa.html)",
     "**Seu checklist de fechamento**: entreviste 2 ou 3 advogados, encomende uma busca de título, obtenha pré-aprovação de financiamento e agende inspeções do imóvel; tudo acontece em paralelo. Compradores espertos adiantam a due diligence nas semanas 2 a 4 para que o fechamento ocorra no prazo.",
     "---",
     {"h":"Ganchos para redes sociais"},
