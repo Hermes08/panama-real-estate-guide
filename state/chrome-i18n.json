@@ -47,6 +47,28 @@
       "from_newsroom": "From the newsroom",
       "all_dispatches": "All dispatches"
     },
+    "home_sections": {
+      "projects_eyebrow": "Developer projects · 2026 collection",
+      "projects_h2": "Twenty-four projects. Five distinct coasts. Zero resales.",
+      "projects_dek": "Every unit here is sold directly by the developer. No individual owner resales, no back-door inventory — just new-construction and first-release units with guaranteed title and refundable reservation deposits.",
+      "regions_eyebrow": "Where to land",
+      "regions_h2": "Two oceans. Five coasts. One visa.",
+      "journal_eyebrow": "Editor's picks",
+      "journal_eyebrow_count": "articles in the journal",
+      "journal_h2": "The five we'd start with.",
+      "journal_dek": "Most-read, most-cited, most-actionable. Hand-picked for buyers who want the data first and the prose second.",
+      "journal_dek_count_pre": "The rest of the journal — over",
+      "journal_dek_count_post": "long-form pieces — lives one click away.",
+      "journal_browse_all": "Browse all",
+      "journal_browse_full": "Browse the full journal",
+      "journal_more_pieces": "more long-form pieces in the journal — search by neighborhood, residency route, or country comparison.",
+      "most_read_badge": "#1 · Most read",
+      "read_editor_pick": "Read the editor's pick",
+      "news_eyebrow": "News & updates",
+      "news_h2": "The week in Panama real estate.",
+      "news_dek": "Project milestones, infrastructure, regulatory updates and press mentions — short and timestamped.",
+      "news_browse_full": "Browse the full newsroom →"
+    },
     "footer": {
       "links": {
         "projects": "Projects",
@@ -131,6 +153,28 @@
       "read_dispatch": "Leer la crónica →",
       "from_newsroom": "De la redacción",
       "all_dispatches": "Todas las crónicas"
+    },
+    "home_sections": {
+      "projects_eyebrow": "Proyectos developer-direct · Colección 2026",
+      "projects_h2": "Veinticuatro proyectos. Cinco costas distintas. Cero reventas.",
+      "projects_dek": "Cada unidad se vende directamente por el desarrollador. Sin reventas de particulares, sin inventario por la puerta de atrás — solo obra nueva y primeras entregas con título garantizado y depósitos de reserva reembolsables.",
+      "regions_eyebrow": "Dónde aterrizar",
+      "regions_h2": "Dos océanos. Cinco costas. Una visa.",
+      "journal_eyebrow": "Selección del editor",
+      "journal_eyebrow_count": "artículos en la crónica",
+      "journal_h2": "Las cinco con las que empezaríamos.",
+      "journal_dek": "Las más leídas, citadas y accionables. Seleccionadas a mano para compradores que quieren los datos primero y la prosa después.",
+      "journal_dek_count_pre": "El resto de la crónica — más de",
+      "journal_dek_count_post": "piezas a fondo — a un clic de distancia.",
+      "journal_browse_all": "Ver las",
+      "journal_browse_full": "Explorar la crónica completa",
+      "journal_more_pieces": "piezas más a fondo en la crónica — busca por vecindario, ruta de residencia o comparación de países.",
+      "most_read_badge": "#1 · Más leído",
+      "read_editor_pick": "Leer la selección del editor",
+      "news_eyebrow": "Noticias y novedades",
+      "news_h2": "La semana en bienes raíces de Panamá.",
+      "news_dek": "Hitos de proyectos, infraestructura, actualizaciones regulatorias y menciones de prensa — cortas y con fecha.",
+      "news_browse_full": "Ver toda la redacción →"
     },
     "footer": {
       "links": {
@@ -217,6 +261,28 @@
       "from_newsroom": "Da redação",
       "all_dispatches": "Todas as crônicas"
     },
+    "home_sections": {
+      "projects_eyebrow": "Projetos direto do desenvolvedor · Coleção 2026",
+      "projects_h2": "Vinte e quatro projetos. Cinco costas distintas. Zero revendas.",
+      "projects_dek": "Cada unidade é vendida diretamente pelo desenvolvedor. Sem revendas de particulares, sem inventário por baixo dos panos — apenas obra nova e primeiras entregas com escritura garantida e depósitos de reserva reembolsáveis.",
+      "regions_eyebrow": "Onde aterrissar",
+      "regions_h2": "Dois oceanos. Cinco costas. Um visto.",
+      "journal_eyebrow": "Escolhas do editor",
+      "journal_eyebrow_count": "artigos na crônica",
+      "journal_h2": "Os cinco com que começaríamos.",
+      "journal_dek": "Mais lidos, mais citados, mais acionáveis. Selecionados a dedo para compradores que querem os dados primeiro e o texto depois.",
+      "journal_dek_count_pre": "O resto da crônica — mais de",
+      "journal_dek_count_post": "peças aprofundadas — a um clique.",
+      "journal_browse_all": "Ver todos os",
+      "journal_browse_full": "Explorar a crônica completa",
+      "journal_more_pieces": "peças aprofundadas na crônica — pesquise por bairro, rota de residência ou comparação de países.",
+      "most_read_badge": "#1 · Mais lido",
+      "read_editor_pick": "Ler a escolha do editor",
+      "news_eyebrow": "Notícias e atualizações",
+      "news_h2": "A semana no mercado imobiliário do Panamá.",
+      "news_dek": "Marcos de projetos, infraestrutura, atualizações regulatórias e menções na imprensa — curtas e com data.",
+      "news_browse_full": "Ver toda a redação →"
+    },
     "footer": {
       "links": {
         "projects": "Projetos",
@@ -301,6 +367,28 @@
       "read_dispatch": "Bericht lesen →",
       "from_newsroom": "Aus der Redaktion",
       "all_dispatches": "Alle Berichte"
+    },
+    "home_sections": {
+      "projects_eyebrow": "Entwickler-Projekte · Kollektion 2026",
+      "projects_h2": "Vierundzwanzig Projekte. Fünf verschiedene Küsten. Null Wiederverkäufe.",
+      "projects_dek": "Jede Einheit hier wird direkt vom Entwickler verkauft. Keine Wiederverkäufe von Einzeleigentümern, kein Hintertür-Inventar — nur Neubauten und Erstverkäufe mit garantiertem Eigentumstitel und rückzahlbaren Reservierungsanzahlungen.",
+      "regions_eyebrow": "Wo ankommen",
+      "regions_h2": "Zwei Ozeane. Fünf Küsten. Ein Visum.",
+      "journal_eyebrow": "Auswahl der Redaktion",
+      "journal_eyebrow_count": "Artikel im Journal",
+      "journal_h2": "Die fünf, mit denen wir beginnen würden.",
+      "journal_dek": "Meistgelesen, meistzitiert, am umsetzbarsten. Handverlesen für Käufer, die die Daten zuerst und die Prosa danach wollen.",
+      "journal_dek_count_pre": "Der Rest des Journals — über",
+      "journal_dek_count_post": "ausführliche Beiträge — nur einen Klick entfernt.",
+      "journal_browse_all": "Alle",
+      "journal_browse_full": "Komplettes Journal durchstöbern",
+      "journal_more_pieces": "weitere ausführliche Beiträge im Journal — Suche nach Viertel, Aufenthaltsroute oder Länderverglich.",
+      "most_read_badge": "#1 · Meistgelesen",
+      "read_editor_pick": "Auswahl der Redaktion lesen",
+      "news_eyebrow": "Nachrichten & Updates",
+      "news_h2": "Die Woche in Panamas Immobilien.",
+      "news_dek": "Projektmeilensteine, Infrastruktur, regulatorische Updates und Presseerwähnungen — kurz und mit Zeitstempel.",
+      "news_browse_full": "Komplette Redaktion durchstöbern →"
     },
     "footer": {
       "links": {
