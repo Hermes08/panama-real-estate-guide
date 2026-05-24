@@ -39,15 +39,27 @@ function Logo({ onDark = false, size = 22 }) {
   const shadowColor = onDark ? 'var(--cream)' : 'var(--ink)';
 
   return (
-    <a href={(typeof window !== 'undefined' && /\/(projects|articles|news|qa)\//.test(window.location.pathname)) ? '../' : './'}
+    <a href={(() => {
+         // Resolve to the language-specific home so we don't 404 on /es/articles/ etc.
+         if (typeof window === 'undefined') return '/';
+         const path = window.location.pathname;
+         const langMatch = path.match(/^\/(es|pt|de)(\/|$)/);
+         const langHome = langMatch ? `/${langMatch[1]}/` : '/';
+         // If we're on the language home itself, scroll-to-top instead of navigating.
+         if (path === langHome) return langHome;
+         return langHome;
+       })()}
        onClick={(e) => {
-         const onSub = /\/(projects|articles|news|qa)\//.test(window.location.pathname);
-         if (!onSub) {
+         if (typeof window === 'undefined') return;
+         const path = window.location.pathname;
+         const langMatch = path.match(/^\/(es|pt|de)(\/|$)/);
+         const langHome = langMatch ? `/${langMatch[1]}/` : '/';
+         if (path === langHome) {
            // Already on home — just smooth-scroll up instead of reloading
            e.preventDefault();
            window.scrollTo({ top: 0, behavior: 'smooth' });
          }
-         // On subpages: let the default navigation happen (go to ../)
+         // On subpages: let the default navigation happen (go to langHome)
        }}
        aria-label="PanamaRealEstateGuide.com — home"
        style={{
@@ -162,10 +174,16 @@ function Navbar({ transparent }) {
           return ['Projects', 'Regions', 'Journal', 'Videos', 'News', 'Residency', 'About'].map(l => {
             const key = l.toLowerCase();
             const label = navLabels[key] || l;
-            const href = l === 'Journal' ? `${prefix}/articles/`
-                       : l === 'Videos' ? `${prefix}/videos/`
-                       : l === 'News' ? `${prefix}/news/`
-                       : l === 'Residency' ? `${prefix}/articles/?category=Residency`
+            // Per-language index pages (/es/articles/, /es/news/, /es/videos/) DO NOT exist —
+            // only the EN /articles/, /news/, /videos/ index pages do. Always link these to
+            // EN canonical so the click resolves (translated detail pages remain at /<lang>/articles/<slug>.html
+            // and the journal index links from inside translated articles point back to EN /articles/ too).
+            // In-page anchors (#projects, #regions, #reserve, #about) keep the lang prefix to stay on the
+            // current-language home page.
+            const href = l === 'Journal' ? `/articles/`
+                       : l === 'Videos' ? `/videos/`
+                       : l === 'News' ? `/news/`
+                       : l === 'Residency' ? `/articles/?category=Residency`
                        : l === 'About' ? `${prefix || ''}/#regions`
                        : `${prefix || ''}/#${l.toLowerCase()}`;
             return <a key={l} href={href} style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>{label}</a>;
@@ -174,7 +192,7 @@ function Navbar({ transparent }) {
         </nav>
         <div className="nav-cta-desktop" style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
           <LangSwitcher current={lang} onChange={setLang} onDark={isDark}/>
-          <a href="/#reserve" className="btn btn-coral" style={{ padding: '11px 20px', fontSize: 11 }}>
+          <a href={`${(() => { const lc = lang.toLowerCase(); return lc === 'en' ? '' : `/${lc}`; })()}/#reserve`} className="btn btn-coral" style={{ padding: '11px 20px', fontSize: 11 }}>
             {(() => {
               const lc = lang.toLowerCase();
               const i = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[lc] || window.PANAMA_DATA.chromeI18n.en)) || {};
