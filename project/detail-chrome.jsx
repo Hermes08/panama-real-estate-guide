@@ -24,13 +24,17 @@ function DetailNav() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
   const prefix = dcLangPrefix();
+  // Per-language index pages (/es/articles/, /es/news/, /es/videos/) DON'T exist —
+  // those navigations 404. Always link list pages to EN canonical. In-page anchors
+  // (#projects, #regions, #about) keep the lang prefix so they stay on the current
+  // language home.
   const links = [
     { l: dcT('nav.projects', 'Projects'),   href: `${prefix}/#projects` },
     { l: dcT('nav.regions', 'Regions'),     href: `${prefix}/#regions`  },
-    { l: dcT('nav.journal', 'Journal'),     href: `${prefix}/articles/` },
-    { l: dcT('nav.videos', 'Videos'),       href: `${prefix}/videos/`   },
-    { l: dcT('nav.news', 'News'),           href: `${prefix}/news/`     },
-    { l: dcT('nav.residency', 'Residency'), href: `${prefix}/articles/?category=Residency` },
+    { l: dcT('nav.journal', 'Journal'),     href: `/articles/` },
+    { l: dcT('nav.videos', 'Videos'),       href: `/videos/`   },
+    { l: dcT('nav.news', 'News'),           href: `/news/`     },
+    { l: dcT('nav.residency', 'Residency'), href: `/articles/?category=Residency` },
     { l: dcT('nav.about', 'About'),         href: `${prefix}/#about`    },
   ];
   return (
