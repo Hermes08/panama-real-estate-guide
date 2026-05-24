@@ -121,6 +121,21 @@
       "highlands": { "blurb": "Year-round spring, coffee country, cloud forest." },
       "city": { "blurb": "Latin America's banking capital, towers and old town." }
     },
+    "footer_columns": {
+      "featured_projects": "Featured projects",
+      "projects": {
+        "title": "Projects",
+        "links": { "pacific": "Pacific Coast", "caribbean": "Bocas del Toro", "azuero": "Azuero", "highlands": "Highlands", "city": "Panama City" }
+      },
+      "journal": {
+        "title": "Journal",
+        "links": { "market_reports": "Market Reports", "residency": "Residency", "taxes": "Taxes", "neighborhoods": "Neighborhoods", "news": "News" }
+      },
+      "company": {
+        "title": "Company",
+        "links": { "about": "About", "videos": "Videos", "news": "News", "contact": "Contact" }
+      }
+    },
     "news_tags": {
       "Infrastructure": "Infrastructure",
       "Real Estate": "Real Estate",
@@ -270,6 +285,21 @@
       "azuero": { "blurb": "La última costa virgen: surf, fincas, tradiciones." },
       "highlands": { "blurb": "Primavera todo el año, país del café, bosque nuboso." },
       "city": { "blurb": "La capital bancaria de Latinoamérica: torres y casco antiguo." }
+    },
+    "footer_columns": {
+      "featured_projects": "Proyectos destacados",
+      "projects": {
+        "title": "Proyectos",
+        "links": { "pacific": "Costa Pacífica", "caribbean": "Bocas del Toro", "azuero": "Azuero", "highlands": "Tierras Altas", "city": "Ciudad de Panamá" }
+      },
+      "journal": {
+        "title": "Crónicas",
+        "links": { "market_reports": "Informes de Mercado", "residency": "Residencia", "taxes": "Impuestos", "neighborhoods": "Vecindarios", "news": "Noticias" }
+      },
+      "company": {
+        "title": "Empresa",
+        "links": { "about": "Nosotros", "videos": "Videos", "news": "Noticias", "contact": "Contacto" }
+      }
     },
     "news_tags": {
       "Infrastructure": "Infraestructura",
@@ -421,6 +451,21 @@
       "highlands": { "blurb": "Primavera o ano todo, país do café, floresta nublada." },
       "city": { "blurb": "A capital bancária da América Latina: torres e centro histórico." }
     },
+    "footer_columns": {
+      "featured_projects": "Projetos em destaque",
+      "projects": {
+        "title": "Projetos",
+        "links": { "pacific": "Costa do Pacífico", "caribbean": "Bocas del Toro", "azuero": "Azuero", "highlands": "Terras Altas", "city": "Cidade do Panamá" }
+      },
+      "journal": {
+        "title": "Crônicas",
+        "links": { "market_reports": "Relatórios de Mercado", "residency": "Residência", "taxes": "Impostos", "neighborhoods": "Bairros", "news": "Notícias" }
+      },
+      "company": {
+        "title": "Empresa",
+        "links": { "about": "Sobre", "videos": "Vídeos", "news": "Notícias", "contact": "Contato" }
+      }
+    },
     "news_tags": {
       "Infrastructure": "Infraestrutura",
       "Real Estate": "Imóveis",
@@ -570,6 +615,21 @@
       "azuero": { "blurb": "Die letzte unberührte Küste: Surfen, Farmen, Traditionen." },
       "highlands": { "blurb": "Frühling das ganze Jahr, Kaffeeland, Nebelwald." },
       "city": { "blurb": "Lateinamerikas Finanzhauptstadt: Hochhäuser und Altstadt." }
+    },
+    "footer_columns": {
+      "featured_projects": "Ausgewählte Projekte",
+      "projects": {
+        "title": "Projekte",
+        "links": { "pacific": "Pazifikküste", "caribbean": "Bocas del Toro", "azuero": "Azuero", "highlands": "Hochland", "city": "Panama-Stadt" }
+      },
+      "journal": {
+        "title": "Journal",
+        "links": { "market_reports": "Marktberichte", "residency": "Aufenthalt", "taxes": "Steuern", "neighborhoods": "Stadtviertel", "news": "Nachrichten" }
+      },
+      "company": {
+        "title": "Unternehmen",
+        "links": { "about": "Über uns", "videos": "Videos", "news": "Nachrichten", "contact": "Kontakt" }
+      }
     },
     "news_tags": {
       "Infrastructure": "Infrastruktur",
