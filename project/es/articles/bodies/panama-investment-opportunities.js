@@ -96,7 +96,7 @@
     "El mercado de propiedades de Panamá recompensa la acción, pero solo la acción informada. Ahora entiende barrios, rendimientos, costos y plazos. El siguiente paso es una evaluación a la medida de su situación.",
     "¿Interesado en un barrio específico? ¿Quiere comparar opciones de preconstrucción vs. reventa? ¿Necesita ayuda para estructurar una visa de Pensionado en torno a una propiedad de alquiler? **Reserve una consulta de reubicación de 30 minutos con un asesor de VIP Expats**: analizaremos su barrio objetivo, calcularemos los números de su inicial y financiamiento, y trazaremos un cronograma de 12 meses.",
     "**Contáctenos por WhatsApp: +507 6761-0315**",
-    "O explore artículos relacionados en el blog de VIP Expats: - [Visa de Pensionado Panamá 2026: requisitos de ingresos y solicitud](https://panamarealestatesale.com/en/blog/pensionado-visa) - [Bienes raíces de Costa del Este 2026: barrios, precios y retornos de inversión](https://panamarealestatesale.com/en/blog/costa-del-este)",
+    "O explore artículos relacionados en el blog de VIP Expats: - [Visa de Pensionado Panamá 2026: requisitos de ingresos y solicitud](https://panamarealestateguide.com/articles/pensionado-visa.html) - [Bienes raíces de Costa del Este 2026: barrios, precios y retornos de inversión](https://panamarealestateguide.com/articles/costa-del-este.html)",
     "**Frase para recordar**: los bienes raíces en Panamá rinden del 5 al 7% anual sin impuesto a las ganancias de capital, una combinación poco común que convierte una inversión de USD $250k en USD $1,400+ de ingresos mensuales en 18 meses.",
     "---",
     {"h":"Ganchos para redes sociales"},

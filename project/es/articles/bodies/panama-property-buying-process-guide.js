@@ -146,7 +146,7 @@
     "Ya sea que compre su primera propiedad en Panamá para ingresos de jubilación, escale un portafolio con varias unidades o cierre su primera inversión en preventa, nuestros especialistas en reubicación pueden comprimir su cronograma y marcar los riesgos antes de que le cuesten dinero.",
     "**¿Listo para avanzar?** Reserve una consulta de estrategia inmobiliaria con VIP Expats. Lo emparejaremos con vecindarios según sus metas de rentabilidad, lo conectaremos con abogados verificados y lo acompañaremos en la precalificación del préstamo.",
     "**Escríbanos por WhatsApp: +507 6761-0315**",
-    "O lea más en el blog de VIP Expats: - [Bienes raíces en Costa del Este 2026: vecindarios, precios y retornos de inversión](https://panamarealestatesale.com/en/blog/costa-del-este) - [Visa Pensionado Panamá 2026: requisitos de ingreso y aplicación](https://panamarealestatesale.com/en/blog/pensionado-visa)",
+    "O lea más en el blog de VIP Expats: - [Bienes raíces en Costa del Este 2026: vecindarios, precios y retornos de inversión](https://panamarealestateguide.com/articles/costa-del-este.html) - [Visa Pensionado Panamá 2026: requisitos de ingreso y aplicación](https://panamarealestateguide.com/articles/pensionado-visa.html)",
     "**Su lista de verificación de cierre**: entreviste 2 o 3 abogados, ordene una búsqueda de título, obtenga precalificación de financiamiento y agende inspecciones de la propiedad; todo ocurre en paralelo. Los compradores inteligentes adelantan la diligencia debida en las semanas 2 a 4 para que el cierre llegue a tiempo.",
     "---",
     {"h":"Ganchos para redes sociales"},

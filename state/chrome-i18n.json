@@ -113,6 +113,24 @@
       "Phase II": "Phase II",
       "Phase III": "Phase III"
     },
+    "regions": {
+      "projects_count_word": "projects",
+      "pacific": { "blurb": "White-sand beaches 60–90 minutes from the capital." },
+      "caribbean": { "blurb": "Overwater living, reef frontage, rainforest islands." },
+      "azuero": { "blurb": "The last untouched coast, surf, ranches, traditions." },
+      "highlands": { "blurb": "Year-round spring, coffee country, cloud forest." },
+      "city": { "blurb": "Latin America's banking capital, towers and old town." }
+    },
+    "news_tags": {
+      "Infrastructure": "Infrastructure",
+      "Real Estate": "Real Estate",
+      "Tourism": "Tourism",
+      "Project update": "Project update",
+      "Economy": "Economy",
+      "Regulatory": "Regulatory",
+      "Government": "Government",
+      "Press": "Press"
+    },
     "news_titles": {
       "tocumen-terminal-2-expansion": "Tocumen confirms USD $340 million Terminal 2 expansion to reach 24 million passengers by 2028",
       "santa-maria-este-launch": "Santa Maria Este opens preconstruction sales on USD $120 million residential development with green-bond financing",
@@ -244,6 +262,24 @@
       "Sold Out": "Agotado",
       "Phase II": "Fase II",
       "Phase III": "Fase III"
+    },
+    "regions": {
+      "projects_count_word": "proyectos",
+      "pacific": { "blurb": "Playas de arena blanca a 60–90 minutos de la capital." },
+      "caribbean": { "blurb": "Vida sobre el agua, vista al arrecife, islas selváticas." },
+      "azuero": { "blurb": "La última costa virgen: surf, fincas, tradiciones." },
+      "highlands": { "blurb": "Primavera todo el año, país del café, bosque nuboso." },
+      "city": { "blurb": "La capital bancaria de Latinoamérica: torres y casco antiguo." }
+    },
+    "news_tags": {
+      "Infrastructure": "Infraestructura",
+      "Real Estate": "Bienes Raíces",
+      "Tourism": "Turismo",
+      "Project update": "Actualización de proyecto",
+      "Economy": "Economía",
+      "Regulatory": "Regulatorio",
+      "Government": "Gobierno",
+      "Press": "Prensa"
     },
     "news_titles": {
       "tocumen-terminal-2-expansion": "Tocumen confirma ampliación de USD $340 millones de la Terminal 2 para alcanzar 24 millones de pasajeros en 2028",
@@ -377,6 +413,24 @@
       "Phase II": "Fase II",
       "Phase III": "Fase III"
     },
+    "regions": {
+      "projects_count_word": "projetos",
+      "pacific": { "blurb": "Praias de areia branca a 60–90 minutos da capital." },
+      "caribbean": { "blurb": "Vida sobre a água, vista para o recife, ilhas de floresta tropical." },
+      "azuero": { "blurb": "A última costa intocada: surf, fazendas, tradições." },
+      "highlands": { "blurb": "Primavera o ano todo, país do café, floresta nublada." },
+      "city": { "blurb": "A capital bancária da América Latina: torres e centro histórico." }
+    },
+    "news_tags": {
+      "Infrastructure": "Infraestrutura",
+      "Real Estate": "Imóveis",
+      "Tourism": "Turismo",
+      "Project update": "Atualização de projeto",
+      "Economy": "Economia",
+      "Regulatory": "Regulatório",
+      "Government": "Governo",
+      "Press": "Imprensa"
+    },
     "news_titles": {
       "tocumen-terminal-2-expansion": "Tocumen confirma ampliação de USD $340 milhões do Terminal 2 para alcançar 24 milhões de passageiros até 2028",
       "santa-maria-este-launch": "Santa Maria Este abre pré-vendas em desenvolvimento residencial de USD $120 milhões com financiamento de green bonds",
@@ -508,6 +562,24 @@
       "Sold Out": "Ausverkauft",
       "Phase II": "Phase II",
       "Phase III": "Phase III"
+    },
+    "regions": {
+      "projects_count_word": "Projekte",
+      "pacific": { "blurb": "Weiße Sandstrände, 60–90 Minuten von der Hauptstadt." },
+      "caribbean": { "blurb": "Wohnen über dem Wasser, Riff-Lage, Regenwaldinseln." },
+      "azuero": { "blurb": "Die letzte unberührte Küste: Surfen, Farmen, Traditionen." },
+      "highlands": { "blurb": "Frühling das ganze Jahr, Kaffeeland, Nebelwald." },
+      "city": { "blurb": "Lateinamerikas Finanzhauptstadt: Hochhäuser und Altstadt." }
+    },
+    "news_tags": {
+      "Infrastructure": "Infrastruktur",
+      "Real Estate": "Immobilien",
+      "Tourism": "Tourismus",
+      "Project update": "Projekt-Update",
+      "Economy": "Wirtschaft",
+      "Regulatory": "Regulierung",
+      "Government": "Regierung",
+      "Press": "Presse"
     },
     "news_titles": {
       "tocumen-terminal-2-expansion": "Tocumen bestätigt Erweiterung von Terminal 2 für USD 340 Millionen, um bis 2028 24 Millionen Passagiere zu erreichen",

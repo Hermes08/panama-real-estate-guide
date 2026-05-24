@@ -125,7 +125,7 @@
     "El siguiente paso es una **consulta gratuita** con un especialista de reubicación de VIP Expats que conoce este mercado a fondo. Nuestro equipo ha: - Reubicado a **más de 1,200 expatriados canadienses** desde 2016 - Cerrado **USD $2.3 mil millones en transacciones inmobiliarias** - Construido relaciones con abogados de visa, contadores y agencias de vivienda",
     "Podemos confirmar: - Cuál visa es la mejor para su situación - Disponibilidad real de vivienda en su barrio preferido - Exactamente cuáles documentos necesita y cómo apostillarlos - Un contador conectado que entiende la retención de CPP/OAS",
     "**Contáctenos ahora:** **WhatsApp +507 6761-0315** para reservar una **consulta gratuita de 30 minutos**.",
-    "O explore estas guías relacionadas: [Cómo encontrar su primer apartamento en Ciudad de Panamá](https://panamarealestatesale.com/en/blog/) y [Opciones de visa en Panamá explicadas 2026](https://panamarealestatesale.com/en/blog/).",
+    "O explore estas guías relacionadas: [Cómo encontrar su primer apartamento en Ciudad de Panamá](https://panamarealestateguide.com/articles/) y [Opciones de visa en Panamá explicadas 2026](https://panamarealestateguide.com/articles/).",
     "**Conclusión en una línea:** Múdese de Canadá a Panamá por **USD $4,500 a USD $7,000**, haga rendir su CPP **2.3 veces más**, y libere **cero impuesto sobre ganancias de capital** en inversiones, todo manteniendo acceso a su cuenta bancaria canadiense y a la red de seguridad médica."
   ];
 })();

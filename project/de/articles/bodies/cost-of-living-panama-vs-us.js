@@ -117,7 +117,7 @@
     {"h":"Nächste Schritte mit VIP Expats"},
     "Bereit, voranzukommen? Der erste Schritt ist ein Gespräch mit einem VIP Expats-Umzugsberater, der die Viertel, die Banken, den Visa-Weg und die realen Kosten kennt. Wir haben Hunderte von Expats durch den gesamten Prozess geführt, von der Visa-Genehmigung über die Viertelwahl bis zur Kontoeinrichtung.",
     "**Buchen Sie eine kostenlose Umzugsberatung** mit unserem Team, oder kontaktieren Sie uns direkt: **WhatsApp +507 6761-0315**. Wir besprechen Ihre konkrete Situation und beantworten jede Frage.",
-    "Erkunden Sie auch diese verwandten Leitfäden: - [Beste Viertel in Panama für Expats 2026](https://www.panamarealestatesale.com/en/blog), wo Sie nach Budget, Lebensstil und Familienbedarf wohnen sollten. - [Ein Bankkonto in Panama als Nicht-Resident eröffnen (Leitfaden 2026)](https://www.panamarealestatesale.com/en/blog), genaue Schritte, Gebühren und welche Banken Touristen akzeptieren.",
+    "Erkunden Sie auch diese verwandten Leitfäden: - [Beste Viertel in Panama für Expats 2026](https://www.panamarealestateguide.com/articles), wo Sie nach Budget, Lebensstil und Familienbedarf wohnen sollten. - [Ein Bankkonto in Panama als Nicht-Resident eröffnen (Leitfaden 2026)](https://www.panamarealestateguide.com/articles), genaue Schritte, Gebühren und welche Banken Touristen akzeptieren.",
     "---",
     "**Einzeiler-Zusammenfassung**: Ein alleinstehender Expat kann mit USD $1.800 bis USD $2.000/Monat komfortabel in Panama-Stadt leben und gegenüber vergleichbaren US-Städten USD $1.500 bis USD $2.000 monatlich sparen, ohne Abstriche bei Lebensqualität, Gesundheit oder Auswärtsessen."
   ];

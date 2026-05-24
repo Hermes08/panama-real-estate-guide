@@ -109,7 +109,7 @@ const ARTICLE_ID = window.location.pathname.split('/').pop().replace('.html', ''
             <header style={{ paddingTop: 96, paddingBottom: 40, background: 'var(--cream)' }}>
               <div className="container" style={{ maxWidth: 960 }}>
                 <div style={{ marginBottom: 28 }}>
-                  <DetailBack label={t('back_links.the_journal', 'The Journal')} href={LANG === 'en' ? '/articles/' : `/${LANG}/articles/`}/>
+                  <DetailBack label={t('back_links.the_journal', 'The Journal')} href="/articles/"/>
                 </div>
                 <div className="reveal" style={{
                   display: 'inline-block', background: 'var(--coral)', color: 'var(--paper)',

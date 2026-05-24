@@ -96,7 +96,7 @@
     "O mercado de propriedades do Panamá recompensa a ação, mas apenas a ação informada. Agora você entende bairros, rendimentos, custos e prazos. O próximo passo é uma avaliação sob medida da sua situação.",
     "Interessado em um bairro específico? Quer comparar opções de pré-construção vs. revenda? Precisa de ajuda para estruturar um visto de Pensionado em torno de uma propriedade de aluguel? **Reserve uma consultoria de relocação de 30 minutos com um consultor da VIP Expats**: analisaremos seu bairro-alvo, calcularemos os números da sua entrada e financiamento e traçaremos um cronograma de 12 meses.",
     "**Entre em contato pelo WhatsApp: +507 6761-0315**",
-    "Ou explore artigos relacionados no blog da VIP Expats: - [Visto de Pensionado Panamá 2026: requisitos de renda e solicitação](https://panamarealestatesale.com/en/blog/pensionado-visa) - [Imóveis de Costa del Este 2026: bairros, preços e retornos de investimento](https://panamarealestatesale.com/en/blog/costa-del-este)",
+    "Ou explore artigos relacionados no blog da VIP Expats: - [Visto de Pensionado Panamá 2026: requisitos de renda e solicitação](https://panamarealestateguide.com/articles/pensionado-visa.html) - [Imóveis de Costa del Este 2026: bairros, preços e retornos de investimento](https://panamarealestateguide.com/articles/costa-del-este.html)",
     "**Frase para lembrar**: os imóveis no Panamá rendem de 5 a 7% ao ano sem imposto sobre ganho de capital, uma combinação rara que transforma um investimento de USD $250k em USD $1.400+ de renda mensal em 18 meses.",
     "---",
     {"h":"Ganchos para redes sociais"},
