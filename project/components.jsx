@@ -329,14 +329,14 @@ function HeroEditorial() {
           </div>
 
           {/* Center — featured project "cover story" */}
-          <a href={`projects/${featured.id}.html`} className="reveal in d3 featured-card" style={{
+          <a href={(LANG === 'en' ? '/projects/' : `/${LANG}/projects/`) + featured.id + '.html'} className="reveal in d3 featured-card" style={{
             position: 'relative', borderRadius: 18, overflow: 'hidden',
             background: 'var(--ocean-deep)', color: 'var(--cream)',
             textDecoration: 'none', display: 'block', minHeight: 520,
             boxShadow: '0 30px 60px -24px rgba(11,39,51,0.35)'
           }}>
             {featured.cover && featured.cover.indexOf('/') !== -1 ? (
-              <img key={featured.id} src={featured.cover} alt={featured.name} style={{
+              <img key={featured.id} src={(featured.cover.startsWith('http') || featured.cover.startsWith('/')) ? featured.cover : '/' + featured.cover} alt={featured.name} style={{
                 position: 'absolute', inset: 0, width: '100%', height: '100%',
                 objectFit: 'cover', animation: 'feat-fade 0.6s ease'
               }}/>
@@ -431,7 +431,7 @@ function HeroEditorial() {
               pointerEvents: 'none'
             }}>
               <img
-                src="assets/jaguar-static.webp"
+                src="/assets/jaguar-static.webp"
                 alt=""
                 aria-hidden="true"
                 loading="eager"
@@ -459,7 +459,7 @@ function HeroEditorial() {
                 {H.from_newsroom || 'From the newsroom'}
               </div>
               {news.map((n, i) => (
-                <a key={n.slug} href={`news/${n.slug}.html`} style={{
+                <a key={n.slug} href={(LANG === 'en' ? '/news/' : `/${LANG}/news/`) + n.slug + '.html'} style={{
                   display: 'block', padding: '14px 0',
                   borderBottom: i < news.length - 1 ? '1px solid rgba(255,249,236,0.08)' : 'none',
                   textDecoration: 'none', color: 'inherit'

@@ -1,5 +1,76 @@
 // Sections 2 — Projects, Regions, Journal (articles), News ticker, Testimonials, Reserve CTA, Footer
 
+/* ── Multilingual path helpers ───────────────────────────────────────────
+   All hrefs and image srcs MUST be absolute root paths so they resolve
+   correctly under /es/, /pt/, /de/ subpaths. Relative paths broke under
+   subpath pages (e.g. /es/projects/x.html 404'd because the file lives at
+   /projects/x.html).
+
+   For translated content (articles, projects, news), prefer the per-language
+   page when one exists; otherwise fall back to the EN canonical so the click
+   still works.
+   ─────────────────────────────────────────────────────────────────────── */
+function sxLang() {
+  return (typeof window !== 'undefined' && window.PREG_LANG) || 'en';
+}
+function sxT(path, fallback) {
+  const lang = sxLang();
+  const i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[lang] || window.PANAMA_DATA.chromeI18n.en)) || {};
+  const parts = path.split('.');
+  let v = i18n;
+  for (const k of parts) v = v && v[k];
+  return v || fallback;
+}
+function sxArticlePath(slug) {
+  const lang = sxLang();
+  if (lang !== 'en') {
+    const meta = window.PANAMA_DATA && window.PANAMA_DATA.articleMeta;
+    if (meta && meta[lang] && meta[lang][slug]) {
+      return `/${lang}/articles/${slug}.html`;
+    }
+  }
+  return `/articles/${slug}.html`;
+}
+function sxNewsPath(slug) {
+  const lang = sxLang();
+  if (lang !== 'en') return `/${lang}/news/${slug}.html`;
+  return `/news/${slug}.html`;
+}
+function sxProjectPath(slug) {
+  const lang = sxLang();
+  if (lang !== 'en') return `/${lang}/projects/${slug}.html`;
+  return `/projects/${slug}.html`;
+}
+function sxIndexPath(kind) {
+  const lang = sxLang();
+  return lang === 'en' ? `/${kind}/` : `/${lang}/${kind}/`;
+}
+function sxAbs(src) {
+  if (!src) return src;
+  if (src.startsWith('http') || src.startsWith('/') || src.startsWith('data:')) return src;
+  return '/' + src;
+}
+// Pull translated title/excerpt for an article when available (articleMeta is
+// populated by build-i18n-data.mjs from the per-language HTML <title> + meta).
+function sxArticleTitle(a) {
+  const lang = sxLang();
+  if (lang === 'en') return a.title;
+  const meta = window.PANAMA_DATA && window.PANAMA_DATA.articleMeta;
+  return (meta && meta[lang] && meta[lang][a.id] && meta[lang][a.id].title) || a.title;
+}
+function sxArticleExcerpt(a) {
+  const lang = sxLang();
+  if (lang === 'en') return a.excerpt;
+  const meta = window.PANAMA_DATA && window.PANAMA_DATA.articleMeta;
+  return (meta && meta[lang] && meta[lang][a.id] && meta[lang][a.id].excerpt) || a.excerpt;
+}
+function sxCategoryLabel(cat) {
+  const lang = sxLang();
+  if (lang === 'en' || !cat) return cat;
+  const i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && window.PANAMA_DATA.chromeI18n[lang]) || {};
+  return (i18n.categories && i18n.categories[cat]) || cat;
+}
+
 /* ── Projects (developer-only) ── */
 
 // Helper: pick a Pexels cover image for an article based on its slug + category
@@ -27,15 +98,13 @@ function Projects() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 48, flexWrap: 'wrap', gap: 24 }}>
           <div className="reveal" style={{ maxWidth: 720 }}>
             <div className="eyebrow" style={{ marginBottom: 16 }}>
-              <span className="rule-coral"></span>Developer projects · 2026 collection
+              <span className="rule-coral"></span>{sxT('home_sections.projects_eyebrow', 'Developer projects · 2026 collection')}
             </div>
             <h2 className="display" style={{ fontSize: 'clamp(36px, 6vw, 84px)', margin: 0 }}>
-              Twenty-four projects. <em>Five distinct coasts.</em> Zero resales.
+              {sxT('home_sections.projects_h2', 'Twenty-four projects. Five distinct coasts. Zero resales.')}
             </h2>
             <p className="lede" style={{ marginTop: 20 }}>
-              Every unit here is sold directly by the developer. No individual owner resales,
-              no back-door inventory — just new-construction and first-release units with
-              guaranteed title and refundable reservation deposits.
+              {sxT('home_sections.projects_dek', 'Every unit here is sold directly by the developer. No individual owner resales, no back-door inventory — just new-construction and first-release units with guaranteed title and refundable reservation deposits.')}
             </p>
           </div>
         </div>
@@ -67,7 +136,7 @@ function Projects() {
 function ProjectCard({ p, i }) {
   const [hover, setHover] = React.useState(false);
   return (
-    <a className="reveal" href={`projects/${p.id}.html`}
+    <a className="reveal" href={sxProjectPath(p.id)}
       onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
       style={{
         position: 'relative', borderRadius: 18, overflow: 'hidden', cursor: 'pointer',
@@ -79,7 +148,7 @@ function ProjectCard({ p, i }) {
       }}>
       {p.cover && p.cover.indexOf('/') !== -1 ? (
         <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
-          <img src={p.cover} alt={p.name} loading="lazy" style={{
+          <img src={sxAbs(p.cover)} alt={p.name} loading="lazy" style={{
             position: 'absolute', inset: 0, width: '100%', height: '100%',
             objectFit: 'cover', transform: hover ? 'scale(1.04)' : 'scale(1)',
             transition: 'transform 0.7s var(--ease)'
@@ -183,10 +252,10 @@ function Regions() {
       <div className="container">
         <div className="reveal" style={{ marginBottom: 56, maxWidth: 720 }}>
           <div className="eyebrow" style={{ color: 'var(--aqua)', marginBottom: 18 }}>
-            <span className="rule-coral"></span>Where to land
+            <span className="rule-coral"></span>{sxT('home_sections.regions_eyebrow', 'Where to land')}
           </div>
           <h2 className="display" style={{ fontSize: 'clamp(36px, 6vw, 84px)', margin: 0, color: 'var(--cream)' }}>
-            Two oceans. <em style={{ color: 'var(--aqua)' }}>Five coasts.</em> One visa.
+            {sxT('home_sections.regions_h2', 'Two oceans. Five coasts. One visa.')}
           </h2>
         </div>
         <div className="regions-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 16 }}>
@@ -244,14 +313,16 @@ function Journal() {
   const hero = showcase[0];
   const others = showcase.slice(1);
 
-  // UTM helper for ad tracking — appends if absent
+  // UTM helper for ad tracking — appends if absent. Uses absolute path so it
+  // works under /es/ /pt/ /de/ subpaths, and prefers the per-language URL
+  // when a translation exists for this article.
   const utmFor = (a, slot) => {
     const params = new URLSearchParams();
     params.set('utm_source', 'home');
     params.set('utm_medium', 'organic');
     params.set('utm_campaign', a.utm_campaign || 'journal');
     params.set('utm_content', `home-${slot}`);
-    return `articles/${a.id}.html?${params.toString()}`;
+    return `${sxArticlePath(a.id)}?${params.toString()}`;
   };
 
   return (
@@ -260,18 +331,16 @@ function Journal() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 56, flexWrap: 'wrap', gap: 20 }}>
           <div className="reveal" style={{ maxWidth: 720 }}>
             <div className="eyebrow" style={{ marginBottom: 16 }}>
-              <span className="rule-coral"></span>Editor's picks · {articles.length} articles in the journal
+              <span className="rule-coral"></span>{sxT('home_sections.journal_eyebrow', "Editor's picks")} · {articles.length} {sxT('home_sections.journal_eyebrow_count', 'articles in the journal')}
             </div>
             <h2 className="display" style={{ fontSize: 'clamp(36px, 6vw, 84px)', margin: 0, lineHeight: 1.02, paddingBottom: '0.12em' }}>
-              The five we'd <em>start with.</em>
+              {sxT('home_sections.journal_h2', "The five we'd start with.")}
             </h2>
             <p className="lede" style={{ marginTop: 32 }}>
-              Most-read, most-cited, most-actionable. Hand-picked for buyers who want
-              the data first and the prose second. The rest of the journal — over {articles.length}
-              long-form pieces — lives one click away.
+              {sxT('home_sections.journal_dek', 'Most-read, most-cited, most-actionable. Hand-picked for buyers who want the data first and the prose second.')} {sxT('home_sections.journal_dek_count_pre', 'The rest of the journal — over')} {articles.length} {sxT('home_sections.journal_dek_count_post', 'long-form pieces — lives one click away.')}
             </p>
           </div>
-          <a href="articles/index.html" className="pill-link reveal d1">Browse all {articles.length} <Icon name="arrowS" size={12}/></a>
+          <a href={sxIndexPath('articles')} className="pill-link reveal d1">{sxT('home_sections.journal_browse_all', 'Browse all')} {articles.length} <Icon name="arrowS" size={12}/></a>
         </div>
 
         {/* Hero pick — full-width */}
@@ -291,29 +360,29 @@ function Journal() {
                 position: 'absolute', top: 18, left: 18, background: 'var(--coral)', color: 'var(--paper)',
                 padding: '5px 11px', borderRadius: 999, fontSize: 10, fontFamily: 'var(--font-mono)',
                 letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700
-              }}>{hero.category}</div>
+              }}>{sxCategoryLabel(hero.category)}</div>
               <div style={{
                 position: 'absolute', top: 18, right: 18, background: 'var(--ink)', color: 'var(--cream)',
                 padding: '5px 11px', borderRadius: 999, fontSize: 10, fontFamily: 'var(--font-mono)',
                 letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700
-              }}>#1 · Most read</div>
+              }}>{sxT('home_sections.most_read_badge', '#1 · Most read')}</div>
             </div>
             <div>
               <div style={{ fontSize: 12, fontFamily: 'var(--font-mono)', color: 'var(--ink-mute)', letterSpacing: '0.12em', marginBottom: 14 }}>
-                {hero.date} · {hero.read} · by {hero.author}
+                {hero.date} · {hero.read} · {sxT('article.by_author', 'by')} {hero.author}
               </div>
               <h3 className="display" style={{ fontSize: 'clamp(32px, 4vw, 56px)', margin: '0 0 18px', lineHeight: 1.04 }}>
-                {hero.title}
+                {sxArticleTitle(hero)}
               </h3>
               <p style={{ color: 'var(--ink-soft)', fontSize: 17, lineHeight: 1.6, margin: 0, maxWidth: '50ch' }}>
-                {hero.excerpt}
+                {sxArticleExcerpt(hero)}
               </p>
               <div style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8, marginTop: 24,
                 fontSize: 12, fontFamily: 'var(--font-mono)', letterSpacing: '0.14em',
                 textTransform: 'uppercase', color: 'var(--coral-deep)', fontWeight: 700
               }}>
-                Read the editor's pick <Icon name="arrow" size={13}/>
+                {sxT('home_sections.read_editor_pick', "Read the editor's pick")} <Icon name="arrow" size={13}/>
               </div>
             </div>
           </a>
@@ -341,12 +410,12 @@ function Journal() {
               <div style={{
                 fontSize: 10.5, fontFamily: 'var(--font-mono)', color: 'var(--coral-deep)',
                 letterSpacing: '0.16em', textTransform: 'uppercase', marginBottom: 10, fontWeight: 700
-              }}>{a.category}</div>
+              }}>{sxCategoryLabel(a.category)}</div>
               <h4 className="display" style={{
                 fontSize: 'clamp(18px, 1.4vw, 22px)', margin: '0 0 10px', lineHeight: 1.2
-              }}>{a.title}</h4>
+              }}>{sxArticleTitle(a)}</h4>
               <p style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.5, margin: '0 0 12px' }}>
-                {a.excerpt.length > 110 ? a.excerpt.slice(0, 110) + '…' : a.excerpt}
+                {(() => { const ex = sxArticleExcerpt(a) || ''; return ex.length > 110 ? ex.slice(0, 110) + '…' : ex; })()}
               </p>
               <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--ink-mute)', letterSpacing: '0.1em' }}>
                 {a.date} · {a.read}
@@ -358,10 +427,10 @@ function Journal() {
         {/* Browse-all CTA strip */}
         <div className="reveal" style={{ marginTop: 56, paddingTop: 32, borderTop: '1px solid var(--line)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
           <div style={{ fontSize: 14, color: 'var(--ink-soft)', fontFamily: 'var(--font-display)', fontStyle: 'italic' }}>
-            {articles.length - showcase.length}+ more long-form pieces in the journal — search by neighborhood, residency route, or country comparison.
+            {articles.length - showcase.length}+ {sxT('home_sections.journal_more_pieces', 'more long-form pieces in the journal — search by neighborhood, residency route, or country comparison.')}
           </div>
-          <a href="articles/index.html" className="btn btn-coral" style={{ padding: '11px 20px', fontSize: 11 }}>
-            Browse the full journal <Icon name="arrow" size={13}/>
+          <a href={sxIndexPath('articles')} className="btn btn-coral" style={{ padding: '11px 20px', fontSize: 11 }}>
+            {sxT('home_sections.journal_browse_full', 'Browse the full journal')} <Icon name="arrow" size={13}/>
           </a>
         </div>
       </div>
@@ -388,15 +457,15 @@ function News() {
         <div className="news-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: 60 }}>
           <div className="reveal">
             <div className="eyebrow" style={{ marginBottom: 16 }}>
-              <span className="rule-coral"></span>News & updates
+              <span className="rule-coral"></span>{sxT('home_sections.news_eyebrow', 'News & updates')}
             </div>
             <h2 className="display" style={{ fontSize: 'clamp(32px, 4vw, 54px)', margin: '0 0 20px' }}>
-              The week in <em>Panama real estate.</em>
+              {sxT('home_sections.news_h2', 'The week in Panama real estate.')}
             </h2>
             <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.65 }}>
-              Project milestones, infrastructure, regulatory updates and press mentions — short and timestamped.
+              {sxT('home_sections.news_dek', 'Project milestones, infrastructure, regulatory updates and press mentions — short and timestamped.')}
             </p>
-            <a href="news/index.html" style={{
+            <a href={sxIndexPath('news')} style={{
               display: 'inline-flex', alignItems: 'center', gap: 10, marginTop: 28,
               padding: '12px 20px', border: '1px solid var(--coral-deep)', borderRadius: 999,
               color: 'var(--coral-deep)', textDecoration: 'none',
@@ -404,12 +473,12 @@ function News() {
               textTransform: 'uppercase', fontWeight: 700, transition: 'all 0.25s var(--ease)'
             }} onMouseEnter={e => { e.currentTarget.style.background = 'var(--coral-deep)'; e.currentTarget.style.color = 'var(--paper)'; }}
                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--coral-deep)'; }}>
-              Browse the full newsroom →
+              {sxT('home_sections.news_browse_full', 'Browse the full newsroom →')}
             </a>
           </div>
           <div className="reveal d1">
             {news.slice(0, 7).map((n, i) => (
-              <a key={i} href={`news/${n.slug || 'palma-blanca-phase-ii'}.html`} style={{
+              <a key={i} href={sxNewsPath(n.slug || 'palma-blanca-phase-ii')} style={{
                 display: 'grid', gridTemplateColumns: '80px 1fr auto', gap: 20, alignItems: 'center',
                 padding: '18px 0', borderBottom: i < Math.min(news.length, 7) - 1 ? '1px solid rgba(11,39,51,0.1)' : 'none',
                 cursor: 'pointer', textDecoration: 'none', color: 'inherit'
