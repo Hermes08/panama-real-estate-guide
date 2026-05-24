@@ -125,7 +125,14 @@ function LangSwitcher({ current = 'EN', onChange, onDark = false }) {
 function Navbar({ transparent }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [lang, setLang] = useState(((typeof window !== 'undefined' && window.PREG_LANG) || 'EN').toUpperCase());
+  // Derive language strictly from URL path — NOT from cookie / PREG_LANG.
+  // Otherwise a visitor with a stale es cookie lands on `/` and sees ES nav targets
+  // (BUG flagged in QA v3): English content + Spanish nav prefixes.
+  const [lang, setLang] = useState((() => {
+    if (typeof window === 'undefined') return 'EN';
+    const m = window.location.pathname.match(/^\/(es|pt|de)(\/|$)/);
+    return m ? m[1].toUpperCase() : 'EN';
+  })());
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -147,24 +154,32 @@ function Navbar({ transparent }) {
         <Logo onDark={isDark} size={18}/>
         <nav className="nav-desktop" style={{ display: 'flex', gap: 28, fontSize: 13, fontWeight: 500 }}>
         {(() => {
-          // BUG-001 fix: prefix nav links with the current language (when not EN)
+          // BUG-001 fix: prefix nav links with the current language + use chrome-i18n labels
           const langCode = lang.toLowerCase();
           const prefix = langCode === 'en' ? '' : `/${langCode}`;
+          const i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[langCode] || window.PANAMA_DATA.chromeI18n.en)) || {};
+          const navLabels = (i18n.nav) || {};
           return ['Projects', 'Regions', 'Journal', 'Videos', 'News', 'Residency', 'About'].map(l => {
+            const key = l.toLowerCase();
+            const label = navLabels[key] || l;
             const href = l === 'Journal' ? `${prefix}/articles/`
                        : l === 'Videos' ? `${prefix}/videos/`
                        : l === 'News' ? `${prefix}/news/`
                        : l === 'Residency' ? `${prefix}/articles/?category=Residency`
                        : l === 'About' ? `${prefix || ''}/#regions`
                        : `${prefix || ''}/#${l.toLowerCase()}`;
-            return <a key={l} href={href} style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>{l}</a>;
+            return <a key={l} href={href} style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>{label}</a>;
           });
         })()}
         </nav>
         <div className="nav-cta-desktop" style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
           <LangSwitcher current={lang} onChange={setLang} onDark={isDark}/>
           <a href="/#reserve" className="btn btn-coral" style={{ padding: '11px 20px', fontSize: 11 }}>
-            Reserve a unit <Icon name="arrow" size={13}/>
+            {(() => {
+              const lc = lang.toLowerCase();
+              const i = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[lc] || window.PANAMA_DATA.chromeI18n.en)) || {};
+              return (i.nav && i.nav.reserve_a_unit) || 'Reserve a unit';
+            })()} <Icon name="arrow" size={13}/>
           </a>
         </div>
         <button className="nav-burger" onClick={() => setOpen(!open)}
@@ -177,22 +192,34 @@ function Navbar({ transparent }) {
           padding: '20px var(--gutter) 28px', background: 'var(--paper)', color: 'var(--ink)',
           borderTop: '1px solid var(--line-soft)', display: 'flex', flexDirection: 'column', gap: 14
         }}>
-          {['Projects', 'Regions', 'Journal', 'Videos', 'News', 'Residency', 'About'].map(l => {
-            // Same destination logic as the desktop nav above — keep both maps in sync.
-            const href = l === 'Journal' ? '/articles/'
-                       : l === 'Videos' ? '/videos/'
-                       : l === 'News' ? '/news/'
-                       : l === 'Residency' ? '/articles/?category=Residency'
-                       : l === 'About' ? '/#regions'
-                       : `/#${l.toLowerCase()}`;
-            return (
-              <a key={l} href={href} onClick={() => setOpen(false)}
-                 style={{ fontSize: 22, fontFamily: 'var(--font-display)', color: 'var(--ink)', textDecoration: 'none' }}>{l}</a>
-            );
-          })}
+          {(() => {
+            // Mirror the desktop nav: read the user's language and look up labels + prefix per locale.
+            const langCode = lang.toLowerCase();
+            const prefix = langCode === 'en' ? '' : `/${langCode}`;
+            const i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[langCode] || window.PANAMA_DATA.chromeI18n.en)) || {};
+            const navLabels = (i18n.nav) || {};
+            return ['Projects', 'Regions', 'Journal', 'Videos', 'News', 'Residency', 'About'].map(l => {
+              const key = l.toLowerCase();
+              const label = navLabels[key] || l;
+              const href = l === 'Journal' ? `${prefix}/articles/`
+                         : l === 'Videos' ? `${prefix}/videos/`
+                         : l === 'News' ? `${prefix}/news/`
+                         : l === 'Residency' ? `${prefix}/articles/?category=Residency`
+                         : l === 'About' ? `${prefix || ''}/#regions`
+                         : `${prefix || ''}/#${l.toLowerCase()}`;
+              return (
+                <a key={l} href={href} onClick={() => setOpen(false)}
+                   style={{ fontSize: 22, fontFamily: 'var(--font-display)', color: 'var(--ink)', textDecoration: 'none' }}>{label}</a>
+              );
+            });
+          })()}
           <div style={{ marginTop: 12, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
             <LangSwitcher current={lang} onChange={setLang}/>
-            <a href="/#reserve" className="btn btn-coral" style={{ flex: 1, justifyContent: 'center' }}>Reserve a unit</a>
+            <a href="/#reserve" className="btn btn-coral" style={{ flex: 1, justifyContent: 'center' }}>{(() => {
+              const lc = lang.toLowerCase();
+              const i = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[lc] || window.PANAMA_DATA.chromeI18n.en)) || {};
+              return (i.nav && i.nav.reserve_a_unit) || 'Reserve a unit';
+            })()}</a>
           </div>
         </div>
       )}
@@ -202,7 +229,9 @@ function Navbar({ transparent }) {
 
 /* ── Hero (Editorial variant) — magazine-style with giant wordmark headline + featured project card ── */
 function HeroEditorial() {
-  const featuredPool = window.PANAMA_DATA.projects.slice(0, 5);
+  // Defensive: projects may be empty if airtable-projects.json fetch failed or fired late.
+  const projects = (window.PANAMA_DATA && window.PANAMA_DATA.projects) || [];
+  const featuredPool = projects.slice(0, 5);
   const [featuredIdx, setFeaturedIdx] = useState(0);
   React.useEffect(() => {
     if (featuredPool.length < 2) return;
@@ -211,8 +240,18 @@ function HeroEditorial() {
     }, 5500);
     return () => clearInterval(id);
   }, [featuredPool.length]);
-  const featured = featuredPool[featuredIdx] || window.PANAMA_DATA.projects[0];
-  const news = window.PANAMA_DATA.news.slice(0, 3);
+  const featured = featuredPool[featuredIdx] || projects[0] || null;
+  const news = ((window.PANAMA_DATA && window.PANAMA_DATA.news) || []).slice(0, 3);
+  // Pull hero copy from chrome-i18n.json so /es/, /pt/, /de/ render translated strings.
+  // Falls back to EN labels when keys are missing.
+  const LANG = (typeof window !== 'undefined' && window.PREG_LANG) || 'en';
+  const _i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[LANG] || window.PANAMA_DATA.chromeI18n.en)) || {};
+  const H = (_i18n.home_hero) || {};
+  const navLabels = (_i18n.nav) || {};
+  if (!featured) {
+    // Render a minimal hero skeleton instead of crashing when projects haven't loaded yet
+    return <section style={{ paddingTop: 100, minHeight: 400, background: 'var(--cream)' }}/>;
+  }
 
   return (
     <section style={{
@@ -228,25 +267,25 @@ function HeroEditorial() {
           paddingBottom: 18, marginBottom: 36, borderBottom: '1px solid var(--line)',
           flexWrap: 'wrap', gap: 16
         }}>
-          <span>Vol. VII · 2026</span>
+          <span>{H.issue_line || 'Vol. VII · 2026'}</span>
           <span className="hide-mobile">8°58′N · 79°32′W</span>
-          <span>The Isthmus Quarterly</span>
+          <span>{H.publication || 'The Isthmus Quarterly'}</span>
         </div>
 
         {/* Enormous wordmark headline */}
         <div style={{ position: 'relative', marginBottom: 48 }}>
           <div className="eyebrow reveal in" style={{ marginBottom: 28 }}>
             <span className="rule-coral"></span>
-            Developer-direct · 24 projects · Reservations open
+            {H.eyebrow || 'Developer-direct · 24 projects · Reservations open'}
           </div>
           <h1 className="display reveal in d1" style={{
             fontSize: 'clamp(72px, 13vw, 200px)',
             margin: 0, lineHeight: 0.82, letterSpacing: '-0.05em',
             paddingBottom: '0.06em', fontWeight: 300
           }}>
-            Two oceans.<br/>
-            <em style={{ color: 'var(--coral)', fontWeight: 300 }}>One country</em><br/>
-            <span style={{ color: 'var(--palm)' }}>worth owning.</span>
+            {H.headline_line_1 || 'Two oceans.'}<br/>
+            <em style={{ color: 'var(--coral)', fontWeight: 300 }}>{H.headline_line_2 || 'One country'}</em><br/>
+            <span style={{ color: 'var(--palm)' }}>{H.headline_line_3 || 'worth owning.'}</span>
           </h1>
         </div>
 
@@ -261,18 +300,18 @@ function HeroEditorial() {
               fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.14em',
               textTransform: 'uppercase', color: 'var(--coral-deep)', fontWeight: 700, marginBottom: 14
             }}>
-              From the editor
+              {H.from_editor || 'From the editor'}
             </div>
             <p style={{
               fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 300,
               fontSize: 'clamp(18px, 1.8vw, 23px)', lineHeight: 1.45,
               color: 'var(--ink)', margin: 0, textWrap: 'pretty', maxWidth: '28ch'
             }}>
-              The definitive registry of developer-direct new construction across Panama's Caribbean, Pacific, Azuero and highland coasts. No resales. No mystery owners. Refundable reservations from $5,000.
+              {H.dek || "The definitive registry of developer-direct new construction across Panama's Caribbean, Pacific, Azuero and highland coasts. No resales. No mystery owners. Refundable reservations from $5,000."}
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 28 }}>
-              <a href="/#reserve" className="btn btn-coral">Reserve a unit <Icon name="arrow" size={14}/></a>
-              <a href="#projects" className="btn btn-ghost">Browse 24 projects</a>
+              <a href="/#reserve" className="btn btn-coral">{navLabels.reserve_a_unit || 'Reserve a unit'} <Icon name="arrow" size={14}/></a>
+              <a href="#projects" className="btn btn-ghost">{H.browse_projects || 'Browse 24 projects'}</a>
             </div>
 
             {/* stats strip */}
@@ -290,14 +329,14 @@ function HeroEditorial() {
           </div>
 
           {/* Center — featured project "cover story" */}
-          <a href={`projects/${featured.id}.html`} className="reveal in d3 featured-card" style={{
+          <a href={'/projects/' + featured.id + '.html'} className="reveal in d3 featured-card" style={{
             position: 'relative', borderRadius: 18, overflow: 'hidden',
             background: 'var(--ocean-deep)', color: 'var(--cream)',
             textDecoration: 'none', display: 'block', minHeight: 520,
             boxShadow: '0 30px 60px -24px rgba(11,39,51,0.35)'
           }}>
             {featured.cover && featured.cover.indexOf('/') !== -1 ? (
-              <img key={featured.id} src={featured.cover} alt={featured.name} style={{
+              <img key={featured.id} src={(featured.cover.startsWith('http') || featured.cover.startsWith('/')) ? featured.cover : '/' + featured.cover} alt={featured.name} style={{
                 position: 'absolute', inset: 0, width: '100%', height: '100%',
                 objectFit: 'cover', animation: 'feat-fade 0.6s ease'
               }}/>
@@ -328,7 +367,7 @@ function HeroEditorial() {
               fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.14em',
               textTransform: 'uppercase', fontWeight: 700, borderRadius: 4
             }}>
-              Cover story · Reservations open
+              {H.cover_story || 'Cover story · Reservations open'}
             </div>
             <div style={{ position: 'absolute', bottom: 28, left: 28, right: 28 }}>
               <div style={{
@@ -355,15 +394,15 @@ function HeroEditorial() {
               }}>
                 <div>
                   <div style={{ fontSize: 10, fontFamily: 'var(--font-mono)', letterSpacing: '0.14em', textTransform: 'uppercase', opacity: 0.7, marginBottom: 4 }}>
-                    From
+                    {H.from_label || 'From'}
                   </div>
-                  <div className="display" style={{ fontSize: 28, lineHeight: 1 }}>{featured.fromLabel.replace('From ','')}</div>
+                  <div className="display" style={{ fontSize: 28, lineHeight: 1 }}>{(featured.fromLabel || '').replace('From ','')}</div>
                 </div>
                 <div style={{
                   fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.1em',
                   textTransform: 'uppercase', fontWeight: 700, color: 'var(--coral)'
                 }}>
-                  Read dispatch →
+                  {H.read_dispatch || 'Read dispatch →'}
                 </div>
               </div>
             </div>
@@ -392,7 +431,7 @@ function HeroEditorial() {
               pointerEvents: 'none'
             }}>
               <img
-                src="assets/jaguar-static.webp"
+                src="/assets/jaguar-static.webp"
                 alt=""
                 aria-hidden="true"
                 loading="eager"
@@ -417,10 +456,10 @@ function HeroEditorial() {
                 textTransform: 'uppercase', color: 'var(--coral)', fontWeight: 700, marginBottom: 18,
                 textShadow: '0 0 14px rgba(255,107,74,0.5)'
               }}>
-                From the newsroom
+                {H.from_newsroom || 'From the newsroom'}
               </div>
               {news.map((n, i) => (
-                <a key={n.slug} href={`news/${n.slug}.html`} style={{
+                <a key={n.slug} href={'/news/' + n.slug + '.html'} style={{
                   display: 'block', padding: '14px 0',
                   borderBottom: i < news.length - 1 ? '1px solid rgba(255,249,236,0.08)' : 'none',
                   textDecoration: 'none', color: 'inherit'
@@ -437,7 +476,7 @@ function HeroEditorial() {
                     lineHeight: 1.3, letterSpacing: '-0.005em', color: 'var(--cream)', textWrap: 'pretty',
                     textShadow: '0 1px 12px rgba(11,31,40,0.6)'
                   }}>
-                    {n.title}
+                    {(() => { const nt = _i18n.news_titles && n.slug && _i18n.news_titles[n.slug]; return nt || n.title; })()}
                   </div>
                 </a>
               ))}
@@ -455,7 +494,7 @@ function HeroEditorial() {
                 boxShadow: '0 0 24px rgba(255, 107, 74, 0.18), inset 0 0 0 1px rgba(255,249,236,0.04)',
                 transition: 'all 0.25s ease'
               }}>
-                <span>All dispatches</span>
+                <span>{H.all_dispatches || 'All dispatches'}</span>
                 <span style={{ color: 'var(--coral)', fontWeight: 800 }}>→</span>
               </a>
             </div>

@@ -96,7 +96,7 @@
     "Der panamaische Immobilienmarkt belohnt Handeln, aber nur informiertes Handeln. Sie verstehen jetzt Stadtviertel, Renditen, Kosten und Zeitpläne. Der nächste Schritt ist eine maßgeschneiderte Bewertung Ihrer Situation.",
     "An einem bestimmten Stadtviertel interessiert? Möchten Sie Vorkonstruktion vs. Wiederverkauf vergleichen? Benötigen Sie Hilfe bei der Strukturierung eines Pensionado-Visums rund um eine Mietimmobilie? **Buchen Sie eine 30-minütige Umzugsberatung mit einem VIP Expats Berater**: Wir analysieren Ihr Zielviertel, berechnen die Zahlen für Ihre Anzahlung und Finanzierung und erstellen einen 12-Monats-Zeitplan.",
     "**Kontaktieren Sie uns per WhatsApp: +507 6761-0315**",
-    "Oder erkunden Sie verwandte Artikel im VIP Expats Blog: - [Pensionado-Visum Panama 2026: Einkommensanforderungen und Antrag](https://panamarealestatesale.com/en/blog/pensionado-visa) - [Costa del Este Immobilien 2026: Stadtviertel, Preise und Investitionsrenditen](https://panamarealestatesale.com/en/blog/costa-del-este)",
+    "Oder erkunden Sie verwandte Artikel im VIP Expats Blog: - [Pensionado-Visum Panama 2026: Einkommensanforderungen und Antrag](https://panamarealestateguide.com/articles/pensionado-visa.html) - [Costa del Este Immobilien 2026: Stadtviertel, Preise und Investitionsrenditen](https://panamarealestateguide.com/articles/costa-del-este.html)",
     "**Merksatz**: Panamaische Immobilien erzielen 5 bis 7 % jährlich ohne Kapitalertragsteuer, eine seltene Kombination, die eine Investition von USD $250k innerhalb von 18 Monaten in monatliche Einnahmen von USD $1.400+ verwandelt.",
     "---",
     {"h":"Social-Media-Hooks"},

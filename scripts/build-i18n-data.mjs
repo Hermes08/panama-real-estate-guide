@@ -71,24 +71,29 @@ async function injectI18nScriptTag() {
   const SENTINEL_CLOSE = '<!-- END_I18N_DATA_LOAD -->';
 
   // Walk: project/articles/*.html (EN), project/{es,pt,de}/articles/*.html
+  // For each non-EN target, also include <script>window.PREG_LANG="<lang>";</script>
+  // INSIDE the sentinel block so it survives every re-run of this script.
+  // Without this, article-renderer cannot detect the page language and falls
+  // back to English titles / nav even on translated pages.
   const targets = [
-    { dir: path.join(PROJECT_DIR, 'articles'),       src: '../i18n-data.js'    },
-    { dir: path.join(PROJECT_DIR, 'es', 'articles'), src: '../../i18n-data.js' },
-    { dir: path.join(PROJECT_DIR, 'pt', 'articles'), src: '../../i18n-data.js' },
-    { dir: path.join(PROJECT_DIR, 'de', 'articles'), src: '../../i18n-data.js' },
+    { dir: path.join(PROJECT_DIR, 'articles'),       src: '../i18n-data.js',    lang: 'en' },
+    { dir: path.join(PROJECT_DIR, 'es', 'articles'), src: '../../i18n-data.js', lang: 'es' },
+    { dir: path.join(PROJECT_DIR, 'pt', 'articles'), src: '../../i18n-data.js', lang: 'pt' },
+    { dir: path.join(PROJECT_DIR, 'de', 'articles'), src: '../../i18n-data.js', lang: 'de' },
   ];
 
   let injected = 0, alreadyOk = 0;
   for (const t of targets) {
     let entries;
     try { entries = await fs.readdir(t.dir); } catch { continue; }
+    const langScript = t.lang === 'en' ? '' : `<script>window.PREG_LANG="${t.lang}";</script>\n  `;
     for (const entry of entries) {
       if (!entry.endsWith('.html')) continue;
       const file = path.join(t.dir, entry);
       let html = await fs.readFile(file, 'utf8');
-      const scriptBlock = `${SENTINEL_OPEN}\n  <script defer src="${t.src}"></script>\n  ${SENTINEL_CLOSE}`;
+      const scriptBlock = `${SENTINEL_OPEN}\n  ${langScript}<script defer src="${t.src}"></script>\n  ${SENTINEL_CLOSE}`;
       if (html.includes(SENTINEL_OPEN)) {
-        // Replace existing block (path may have changed)
+        // Replace existing block (PREG_LANG injection or path may have changed)
         const re = new RegExp(SENTINEL_OPEN.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[\\s\\S]*?' + SENTINEL_CLOSE.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
         const next = html.replace(re, scriptBlock);
         if (next !== html) { await fs.writeFile(file, next, 'utf8'); injected++; } else { alreadyOk++; }
@@ -103,7 +108,7 @@ async function injectI18nScriptTag() {
       }
     }
   }
-  console.log(`build-i18n-data: injected/updated <script i18n-data> tag in ${injected} article HTML files`);
+  console.log(`build-i18n-data: injected/updated <script i18n-data + PREG_LANG> block in ${injected} article HTML files`);
 }
 
 async function main() {

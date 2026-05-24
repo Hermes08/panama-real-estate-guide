@@ -1,0 +1,466 @@
+{
+  "generated_at": "2026-05-19T21:01:45",
+  "site": "panamarealestateguide.com",
+  "window": "last 28 days (2026-04-21 to 2026-05-19)",
+  "totals": {
+    "urls_evaluated": 100,
+    "by_flag": {
+      "working": 3,
+      "low_ctr": 7,
+      "not_indexed": 15
+    }
+  },
+  "candidates": [
+    {
+      "url": "https://panamarealestateguide.com/articles/panama-property-buying-process-guide.html",
+      "slug": "panama-property-buying-process-guide",
+      "clicks": 3,
+      "impressions": 228,
+      "estimated_ctr": 0.0132,
+      "flags": [
+        "working"
+      ],
+      "action": "ignore",
+      "priority": 3,
+      "recommendation": "228 imp / 3 clicks (~1.3% CTR, our top-clicked page). Working. Note: this confirms 'how to buy a house in panama' query (1 click / 5 imp) is the primary click-driver. Could push this page harder via internal linking.",
+      "indexing": {
+        "coverage_state": "Submitted and indexed (inferred from impressions)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/panama-weather-rainy-season-guide.html",
+      "slug": "panama-weather-rainy-season-guide",
+      "clicks": 1,
+      "impressions": 190,
+      "estimated_ctr": 0.0053,
+      "flags": [
+        "working"
+      ],
+      "action": "ignore",
+      "priority": 3,
+      "recommendation": "190 imp / 1 click. Bridge content, not high-intent. Working. Let it mature.",
+      "indexing": {
+        "coverage_state": "Submitted and indexed (inferred from impressions)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/boquete-panama-real-estate.html",
+      "slug": "boquete-panama-real-estate",
+      "clicks": 1,
+      "impressions": 95,
+      "estimated_ctr": 0.0105,
+      "flags": [
+        "working"
+      ],
+      "action": "ignore",
+      "priority": 3,
+      "recommendation": "95 imp / 1 click (~1.05% CTR). Working as expected for a zone-guide page on page 2. Let it mature.",
+      "indexing": {
+        "coverage_state": "Submitted and indexed (inferred from impressions)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/internet-providers-panama-expats.html",
+      "slug": "internet-providers-panama-expats",
+      "clicks": 0,
+      "impressions": 747,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "low_ctr"
+      ],
+      "action": "refresh",
+      "priority": 1,
+      "recommendation": "Biggest impression source (747/28d) with 0 clicks. Bridge query, not core buyer-intent, but it's where Google is showing us. Rewrite title + meta to position as a high-value expat-utility piece linked back to relocation guides. Consider adding a comparison table of providers + monthly costs to win the click.",
+      "indexing": {
+        "coverage_state": "Submitted and indexed (inferred from impressions)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/moving-to-panama-with-pets.html",
+      "slug": "moving-to-panama-with-pets",
+      "clicks": 0,
+      "impressions": 598,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "low_ctr"
+      ],
+      "action": "quick_fix",
+      "priority": 1,
+      "recommendation": "Quick fix: sharpen the title to lead with the specific friction ('Pet import permits, vaccinations, and the actual customs process in 2026'). Add 'updated 2026' suffix. Verify the meta description includes 'dogs, cats, birds' explicitly. 598 imp/0 clicks suggests title doesn't match the SERP intent.",
+      "indexing": {
+        "coverage_state": "Submitted and indexed (inferred from impressions)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/panama-retirement-communities.html",
+      "slug": "panama-retirement-communities",
+      "clicks": 0,
+      "impressions": 514,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "low_ctr"
+      ],
+      "action": "refresh",
+      "priority": 1,
+      "recommendation": "Money page for US retirees segment. 514 imp / 0 clicks means we rank but not high enough (probably position 8-15). Refresh: add a comparison matrix of 5-7 specific communities by price, healthcare access, climate zone, English-friendliness. Add author byline (David) with 'USD 10M+ transacted' credential. Link from this page to /articles/pensionado-panama-city-condo-2026.html and any Coronado/Boquete project pages.",
+      "indexing": {
+        "coverage_state": "Submitted and indexed (inferred from impressions)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/panama-real-estate-market-2026.html",
+      "slug": "panama-real-estate-market-2026",
+      "clicks": 0,
+      "impressions": 413,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "low_ctr"
+      ],
+      "action": "quick_fix",
+      "priority": 2,
+      "recommendation": "413 imp / 0 clicks. Title likely fine ('market 2026' is descriptive). Quick fix: confirm meta description leads with a number ('Coronado sold out through Phase III. 38% YoY supply compression in Bocas.'). Check if page has its FAQPage schema.",
+      "indexing": {
+        "coverage_state": "Submitted and indexed (inferred from impressions)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/best-neighborhoods-panama-city-expats.html",
+      "slug": "best-neighborhoods-panama-city-expats",
+      "clicks": 0,
+      "impressions": 335,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "low_ctr"
+      ],
+      "action": "quick_fix",
+      "priority": 2,
+      "recommendation": "335 imp / 0 clicks. Solid title, may rank too low. Quick fix: confirm internal-link in-bound count (link from 2-3 high-impression articles to this page to lift position). Verify meta description includes 'Costa del Este, Punta Pacifica, Casco Viejo' explicitly.",
+      "indexing": {
+        "coverage_state": "Submitted and indexed (inferred from impressions)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/apostille-documents-panama-visa.html",
+      "slug": "apostille-documents-panama-visa",
+      "clicks": 0,
+      "impressions": 264,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "low_ctr"
+      ],
+      "action": "quick_fix",
+      "priority": 2,
+      "recommendation": "264 imp / 0 clicks. High-intent visa query. Quick fix: title should lead with the document list ('Apostille checklist for Panama residency: 6 documents foreign applicants need'). Add 'updated 2026' suffix. Confirm attorney-consult disclaimer at top + bottom.",
+      "indexing": {
+        "coverage_state": "Submitted and indexed (inferred from impressions)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/start-business-panama-foreigners.html",
+      "slug": "start-business-panama-foreigners",
+      "clicks": 0,
+      "impressions": 193,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "low_ctr"
+      ],
+      "action": "ignore",
+      "priority": 3,
+      "recommendation": "193 imp / 0 clicks. Out of core SEO focus (business setup is adjacent, not real estate). Ignore unless we expand into business-setup content. Note: signal that visa-adjacent traffic is finding the site.",
+      "indexing": {
+        "coverage_state": "Submitted and indexed (inferred from impressions)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/2026-outlook.html",
+      "slug": "2026-outlook",
+      "clicks": 0,
+      "impressions": 0,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "not_indexed"
+      ],
+      "action": "request_indexing",
+      "priority": 2,
+      "recommendation": "0 impressions in GSC last 28d despite being in sitemap. Open GSC URL Inspection, request indexing if eligible, verify no noindex meta tag. If pattern (5+ pages from same template), fix template-level server-rendering of H1 + meta first.",
+      "indexing": {
+        "coverage_state": "Suspected not indexed (no impressions 28d)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/cost-of-living-panama-vs-us.html",
+      "slug": "cost-of-living-panama-vs-us",
+      "clicks": 0,
+      "impressions": 0,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "not_indexed"
+      ],
+      "action": "request_indexing",
+      "priority": 2,
+      "recommendation": "0 impressions in GSC last 28d despite being in sitemap. Open GSC URL Inspection, request indexing if eligible, verify no noindex meta tag. If pattern (5+ pages from same template), fix template-level server-rendering of H1 + meta first.",
+      "indexing": {
+        "coverage_state": "Suspected not indexed (no impressions 28d)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/expat-depression-panama-unfiltered.html",
+      "slug": "expat-depression-panama-unfiltered",
+      "clicks": 0,
+      "impressions": 0,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "not_indexed"
+      ],
+      "action": "request_indexing",
+      "priority": 2,
+      "recommendation": "0 impressions in GSC last 28d despite being in sitemap. Open GSC URL Inspection, request indexing if eligible, verify no noindex meta tag. If pattern (5+ pages from same template), fix template-level server-rendering of H1 + meta first.",
+      "indexing": {
+        "coverage_state": "Suspected not indexed (no impressions 28d)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/friendly-nations-2026.html",
+      "slug": "friendly-nations-2026",
+      "clicks": 0,
+      "impressions": 0,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "not_indexed"
+      ],
+      "action": "request_indexing",
+      "priority": 2,
+      "recommendation": "0 impressions in GSC last 28d despite being in sitemap. Open GSC URL Inspection, request indexing if eligible, verify no noindex meta tag. If pattern (5+ pages from same template), fix template-level server-rendering of H1 + meta first.",
+      "indexing": {
+        "coverage_state": "Suspected not indexed (no impressions 28d)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/getting-around-panama-city-guide.html",
+      "slug": "getting-around-panama-city-guide",
+      "clicks": 0,
+      "impressions": 0,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "not_indexed"
+      ],
+      "action": "request_indexing",
+      "priority": 2,
+      "recommendation": "0 impressions in GSC last 28d despite being in sitemap. Open GSC URL Inspection, request indexing if eligible, verify no noindex meta tag. If pattern (5+ pages from same template), fix template-level server-rendering of H1 + meta first.",
+      "indexing": {
+        "coverage_state": "Suspected not indexed (no impressions 28d)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/how-to-move-to-panama-step-by-step-2026.html",
+      "slug": "how-to-move-to-panama-step-by-step-2026",
+      "clicks": 0,
+      "impressions": 0,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "not_indexed"
+      ],
+      "action": "request_indexing",
+      "priority": 2,
+      "recommendation": "0 impressions in GSC last 28d despite being in sitemap. Open GSC URL Inspection, request indexing if eligible, verify no noindex meta tag. If pattern (5+ pages from same template), fix template-level server-rendering of H1 + meta first.",
+      "indexing": {
+        "coverage_state": "Suspected not indexed (no impressions 28d)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/how-to-rent-apartment-panama.html",
+      "slug": "how-to-rent-apartment-panama",
+      "clicks": 0,
+      "impressions": 0,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "not_indexed"
+      ],
+      "action": "request_indexing",
+      "priority": 2,
+      "recommendation": "0 impressions in GSC last 28d despite being in sitemap. Open GSC URL Inspection, request indexing if eligible, verify no noindex meta tag. If pattern (5+ pages from same template), fix template-level server-rendering of H1 + meta first.",
+      "indexing": {
+        "coverage_state": "Suspected not indexed (no impressions 28d)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/moving-to-panama-from-florida.html",
+      "slug": "moving-to-panama-from-florida",
+      "clicks": 0,
+      "impressions": 0,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "not_indexed"
+      ],
+      "action": "request_indexing",
+      "priority": 2,
+      "recommendation": "0 impressions in GSC last 28d despite being in sitemap. Open GSC URL Inspection, request indexing if eligible, verify no noindex meta tag. If pattern (5+ pages from same template), fix template-level server-rendering of H1 + meta first.",
+      "indexing": {
+        "coverage_state": "Suspected not indexed (no impressions 28d)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/panama-para-mexicanos-guia-2026.html",
+      "slug": "panama-para-mexicanos-guia-2026",
+      "clicks": 0,
+      "impressions": 0,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "not_indexed"
+      ],
+      "action": "request_indexing",
+      "priority": 2,
+      "recommendation": "0 impressions in GSC last 28d despite being in sitemap. Open GSC URL Inspection, request indexing if eligible, verify no noindex meta tag. If pattern (5+ pages from same template), fix template-level server-rendering of H1 + meta first.",
+      "indexing": {
+        "coverage_state": "Suspected not indexed (no impressions 28d)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/panama-vs-colombia-retirement.html",
+      "slug": "panama-vs-colombia-retirement",
+      "clicks": 0,
+      "impressions": 0,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "not_indexed"
+      ],
+      "action": "request_indexing",
+      "priority": 2,
+      "recommendation": "0 impressions in GSC last 28d despite being in sitemap. Open GSC URL Inspection, request indexing if eligible, verify no noindex meta tag. If pattern (5+ pages from same template), fix template-level server-rendering of H1 + meta first.",
+      "indexing": {
+        "coverage_state": "Suspected not indexed (no impressions 28d)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/pedasi-rising.html",
+      "slug": "pedasi-rising",
+      "clicks": 0,
+      "impressions": 0,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "not_indexed"
+      ],
+      "action": "request_indexing",
+      "priority": 2,
+      "recommendation": "0 impressions in GSC last 28d despite being in sitemap. Open GSC URL Inspection, request indexing if eligible, verify no noindex meta tag. If pattern (5+ pages from same template), fix template-level server-rendering of H1 + meta first.",
+      "indexing": {
+        "coverage_state": "Suspected not indexed (no impressions 28d)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/projects/playa-escondida-resort-colon.html",
+      "slug": "playa-escondida-resort-colon",
+      "clicks": 0,
+      "impressions": 0,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "not_indexed"
+      ],
+      "action": "request_indexing",
+      "priority": 2,
+      "recommendation": "0 impressions in GSC last 28d despite being in sitemap. Open GSC URL Inspection, request indexing if eligible, verify no noindex meta tag. If pattern (5+ pages from same template), fix template-level server-rendering of H1 + meta first.",
+      "indexing": {
+        "coverage_state": "Suspected not indexed (no impressions 28d)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/santa-catalina-panama.html",
+      "slug": "santa-catalina-panama",
+      "clicks": 0,
+      "impressions": 0,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "not_indexed"
+      ],
+      "action": "request_indexing",
+      "priority": 2,
+      "recommendation": "0 impressions in GSC last 28d despite being in sitemap. Open GSC URL Inspection, request indexing if eligible, verify no noindex meta tag. If pattern (5+ pages from same template), fix template-level server-rendering of H1 + meta first.",
+      "indexing": {
+        "coverage_state": "Suspected not indexed (no impressions 28d)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/tax-primer.html",
+      "slug": "tax-primer",
+      "clicks": 0,
+      "impressions": 0,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "not_indexed"
+      ],
+      "action": "request_indexing",
+      "priority": 2,
+      "recommendation": "0 impressions in GSC last 28d despite being in sitemap. Open GSC URL Inspection, request indexing if eligible, verify no noindex meta tag. If pattern (5+ pages from same template), fix template-level server-rendering of H1 + meta first.",
+      "indexing": {
+        "coverage_state": "Suspected not indexed (no impressions 28d)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/what-to-pack-moving-to-panama.html",
+      "slug": "what-to-pack-moving-to-panama",
+      "clicks": 0,
+      "impressions": 0,
+      "estimated_ctr": 0.0,
+      "flags": [
+        "not_indexed"
+      ],
+      "action": "request_indexing",
+      "priority": 2,
+      "recommendation": "0 impressions in GSC last 28d despite being in sitemap. Open GSC URL Inspection, request indexing if eligible, verify no noindex meta tag. If pattern (5+ pages from same template), fix template-level server-rendering of H1 + meta first.",
+      "indexing": {
+        "coverage_state": "Suspected not indexed (no impressions 28d)",
+        "last_crawl_time": null
+      },
+      "age_days": null
+    }
+  ],
+  "notes": "Young property. Trend rising. Avg position 12.3 = page 2."
+}

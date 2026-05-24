@@ -105,7 +105,7 @@
     "2. **Abra una cuenta Wise** y haga una transferencia de prueba de **$500 a $1,000** para verificar que funciona. Bloquee su tipo de cambio y confirme los datos de la cuenta receptora.",
     "3. **Reserve una sesión de planificación financiera** con un asesor de VIP Expats. Le ayudaremos a optimizar su situación fiscal (si tiene ingresos por alquiler, inversiones o negocio), a configurar su jerarquía bancaria y a asegurar que no pague de más en comisiones de cumplimiento.",
     "**Escríbanos por WhatsApp ahora al +507 6761-0315** con su situación: cuánto transfiere mensualmente, de dónde viene (pensión, trabajo remoto, inversiones) y le crearemos un plan de transferencias a la medida.",
-    "Lecturas relacionadas: [Costo real de mudarse a Panamá 2026: guía de presupuesto](/es/blog/real-cost-of-moving-to-panama) y [Banca en Panamá para expatriados: mejores bancos y configuración 2026](/es/blog/panama-banking-expats-2026).",
+    "Lecturas relacionadas: [Costo real de mudarse a Panamá 2026: guía de presupuesto](/es/articles/real-cost-of-moving-to-panama.html) y [Banca en Panamá para expatriados: mejores bancos y configuración 2026](/es/articles/panama-banking-expats-2026.html).",
     "---",
     "**Resumen en una línea:** Use Wise para transferencias mensuales (comisión 1.41%) y ahorre $400 a $1,200 al año vs. transferencias bancarias o Western Union.",
     {"h":"Manual de 12 meses para el expatriado recurrente"},

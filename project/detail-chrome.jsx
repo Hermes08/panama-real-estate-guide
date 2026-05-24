@@ -25,12 +25,13 @@ function DetailNav() {
   }, []);
   const prefix = dcLangPrefix();
   const links = [
-    { l: dcT('nav.projects', 'Projects'), href: `${prefix}/#projects` },
-    { l: dcT('nav.regions', 'Regions'),   href: `${prefix}/#regions`  },
-    { l: dcT('nav.journal', 'Journal'),   href: `${prefix}/articles/` },
-    { l: dcT('nav.videos', 'Videos'),     href: `${prefix}/videos/`   },
-    { l: dcT('nav.news', 'News'),         href: `${prefix}/news/`     },
-    { l: dcT('nav.about', 'About'),       href: `${prefix}/#about`    },
+    { l: dcT('nav.projects', 'Projects'),   href: `${prefix}/#projects` },
+    { l: dcT('nav.regions', 'Regions'),     href: `${prefix}/#regions`  },
+    { l: dcT('nav.journal', 'Journal'),     href: `${prefix}/articles/` },
+    { l: dcT('nav.videos', 'Videos'),       href: `${prefix}/videos/`   },
+    { l: dcT('nav.news', 'News'),           href: `${prefix}/news/`     },
+    { l: dcT('nav.residency', 'Residency'), href: `${prefix}/articles/?category=Residency` },
+    { l: dcT('nav.about', 'About'),         href: `${prefix}/#about`    },
   ];
   return (
     <header style={{
@@ -95,6 +96,24 @@ function DetailBack({ label = 'All projects', href = '/#projects' }) {
 
 function DetailCTA({ kind = 'reserve' }) {
   if (kind === 'reserve') {
+    // BUG-010 fix: preserve the article/project/video the visitor came from so the
+    // landing-page reservation form (or analytics) can attribute the lead to a source
+    // page. Slug is encoded as ?from=<slug> on the home anchor.
+    let fromQs = '';
+    let waQs = '';
+    if (typeof window !== 'undefined') {
+      const seg = window.location.pathname.split('/').filter(Boolean);
+      const last = seg[seg.length - 1] || '';
+      const slug = last.replace(/\.html$/, '');
+      const kindGuess = seg.includes('articles') ? 'article' : seg.includes('projects') ? 'project' : seg.includes('news') ? 'news' : seg.includes('videos') ? 'video' : '';
+      if (slug && slug !== 'index') {
+        const enc = encodeURIComponent(slug);
+        fromQs = `?from=${enc}${kindGuess ? `&type=${kindGuess}` : ''}`;
+        const titleEl = document.querySelector('h1');
+        const title = titleEl ? titleEl.textContent.trim().slice(0, 80) : slug;
+        waQs = `?text=${encodeURIComponent(`Hi, I'm interested in: ${title} (panamarealestateguide.com${window.location.pathname})`)}`;
+      }
+    }
     return (
       <section style={{
         background: 'linear-gradient(160deg, #FFD8A8 0%, #FF9B6A 35%, #FF6B4A 70%, #C94628 100%)',
@@ -112,11 +131,11 @@ function DetailCTA({ kind = 'reserve' }) {
             </h2>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-start' }}>
-            <a href={`${dcLangPrefix()}/#reserve`} className="btn"
+            <a href={`${dcLangPrefix()}/${fromQs}#reserve`} className="btn"
                style={{ background: 'var(--ink)', color: 'var(--cream)' }}>
               {dcT('cta.start_a_reservation', 'Start a reservation')} <Icon name="arrow" size={14}/>
             </a>
-            <a href="https://wa.me/50767610315" className="btn btn-ghost-light">{dcT('cta.whatsapp_label', 'WhatsApp')} +507 6761-0315</a>
+            <a href={`https://wa.me/50767610315${waQs}`} className="btn btn-ghost-light">{dcT('cta.whatsapp_label', 'WhatsApp')} +507 6761-0315</a>
           </div>
         </div>
         <style>{`@media (max-width: 900px) { [data-cta-grid] { grid-template-columns: 1fr !important; } }`}</style>

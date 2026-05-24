@@ -1,0 +1,618 @@
+{
+  "generated_at": "2026-05-19T19:46:19",
+  "site": "panamarealestateguide.com",
+  "audited_urls": [
+    {
+      "url": "https://panamarealestateguide.com/articles/internet-providers-panama-expats.html",
+      "audited_at": "2026-05-19T19:46:19",
+      "scores": {
+        "mobile": {
+          "performance": 67,
+          "accessibility": 89,
+          "best_practices": 73,
+          "seo": 100
+        },
+        "desktop": {
+          "performance": 87,
+          "accessibility": 94,
+          "best_practices": 73,
+          "seo": 100
+        }
+      },
+      "core_web_vitals": {
+        "mobile": {
+          "LCP_ms": 11985,
+          "CLS": 0.01189733302011942,
+          "TBT_ms": 295
+        },
+        "desktop": {
+          "LCP_ms": 2366,
+          "CLS": 0.02846191182908677,
+          "TBT_ms": null
+        }
+      },
+      "lighthouse_issues": [
+        {
+          "device": "mobile",
+          "top_failed": [
+            {
+              "id": "largest-contentful-paint",
+              "title": "Largest Contentful Paint",
+              "score": 0,
+              "savings_ms": 11985.355599999999
+            },
+            {
+              "id": "unused-javascript",
+              "title": "Reduce unused JavaScript",
+              "score": 0,
+              "savings_ms": 1990
+            },
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "third-party-cookies",
+              "title": "Uses third-party cookies",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "button-name",
+              "title": "Buttons do not have an accessible name",
+              "score": 0,
+              "savings_ms": null
+            }
+          ]
+        },
+        {
+          "device": "desktop",
+          "top_failed": [
+            {
+              "id": "unused-javascript",
+              "title": "Reduce unused JavaScript",
+              "score": 0,
+              "savings_ms": 240
+            },
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "third-party-cookies",
+              "title": "Uses third-party cookies",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "color-contrast",
+              "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "heading-order",
+              "title": "Heading elements are not in a sequentially-descending order",
+              "score": 0,
+              "savings_ms": null
+            }
+          ]
+        }
+      ],
+      "onpage_issues": [],
+      "verdict": "red"
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/moving-to-panama-with-pets.html",
+      "audited_at": "2026-05-19T19:46:19",
+      "scores": {
+        "mobile": {
+          "performance": 56,
+          "accessibility": 87,
+          "best_practices": 73,
+          "seo": 100
+        },
+        "desktop": {
+          "performance": 91,
+          "accessibility": 94,
+          "best_practices": 73,
+          "seo": 100
+        }
+      },
+      "core_web_vitals": {
+        "mobile": {
+          "LCP_ms": 6568,
+          "CLS": 0.02431604669552464,
+          "TBT_ms": 872
+        },
+        "desktop": {
+          "LCP_ms": 1891,
+          "CLS": 0.024078435028310422,
+          "TBT_ms": null
+        }
+      },
+      "lighthouse_issues": [
+        {
+          "device": "mobile",
+          "top_failed": [
+            {
+              "id": "mainthread-work-breakdown",
+              "title": "Minimize main-thread work",
+              "score": 0,
+              "savings_ms": 2888.2120000000054
+            },
+            {
+              "id": "bootup-time",
+              "title": "Reduce JavaScript execution time",
+              "score": 0,
+              "savings_ms": 1741.364000000001
+            },
+            {
+              "id": "unused-javascript",
+              "title": "Reduce unused JavaScript",
+              "score": 0,
+              "savings_ms": 1730
+            },
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "third-party-cookies",
+              "title": "Uses third-party cookies",
+              "score": 0,
+              "savings_ms": null
+            }
+          ]
+        },
+        {
+          "device": "desktop",
+          "top_failed": [
+            {
+              "id": "unused-javascript",
+              "title": "Reduce unused JavaScript",
+              "score": 0,
+              "savings_ms": 330
+            },
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "third-party-cookies",
+              "title": "Uses third-party cookies",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "color-contrast",
+              "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "heading-order",
+              "title": "Heading elements are not in a sequentially-descending order",
+              "score": 0,
+              "savings_ms": null
+            }
+          ]
+        }
+      ],
+      "onpage_issues": [],
+      "verdict": "red"
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/panama-retirement-communities.html",
+      "audited_at": "2026-05-19T19:46:19",
+      "scores": {
+        "mobile": {
+          "performance": 53,
+          "accessibility": 89,
+          "best_practices": 73,
+          "seo": 100
+        },
+        "desktop": {
+          "performance": 91,
+          "accessibility": 94,
+          "best_practices": 73,
+          "seo": 100
+        }
+      },
+      "core_web_vitals": {
+        "mobile": {
+          "LCP_ms": 9491,
+          "CLS": null,
+          "TBT_ms": 974
+        },
+        "desktop": {
+          "LCP_ms": 1869,
+          "CLS": 0.028474716321177363,
+          "TBT_ms": 4
+        }
+      },
+      "lighthouse_issues": [
+        {
+          "device": "mobile",
+          "top_failed": [
+            {
+              "id": "largest-contentful-paint",
+              "title": "Largest Contentful Paint",
+              "score": 0,
+              "savings_ms": 9491.36875
+            },
+            {
+              "id": "mainthread-work-breakdown",
+              "title": "Minimize main-thread work",
+              "score": 0,
+              "savings_ms": 2839.448000000006
+            },
+            {
+              "id": "bootup-time",
+              "title": "Reduce JavaScript execution time",
+              "score": 0,
+              "savings_ms": 1841.6440000000002
+            },
+            {
+              "id": "unused-javascript",
+              "title": "Reduce unused JavaScript",
+              "score": 0,
+              "savings_ms": 1590
+            },
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console",
+              "score": 0,
+              "savings_ms": null
+            }
+          ]
+        },
+        {
+          "device": "desktop",
+          "top_failed": [
+            {
+              "id": "unused-javascript",
+              "title": "Reduce unused JavaScript",
+              "score": 0,
+              "savings_ms": 250
+            },
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "third-party-cookies",
+              "title": "Uses third-party cookies",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "color-contrast",
+              "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "heading-order",
+              "title": "Heading elements are not in a sequentially-descending order",
+              "score": 0,
+              "savings_ms": null
+            }
+          ]
+        }
+      ],
+      "onpage_issues": [],
+      "verdict": "red"
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/panama-real-estate-market-2026.html",
+      "audited_at": "2026-05-19T19:46:19",
+      "scores": {
+        "mobile": {
+          "performance": 57,
+          "accessibility": 89,
+          "best_practices": 73,
+          "seo": 100
+        },
+        "desktop": {
+          "performance": 94,
+          "accessibility": 94,
+          "best_practices": 73,
+          "seo": 100
+        }
+      },
+      "core_web_vitals": {
+        "mobile": {
+          "LCP_ms": 6091,
+          "CLS": null,
+          "TBT_ms": 875
+        },
+        "desktop": {
+          "LCP_ms": 1556,
+          "CLS": 0.040616523564048684,
+          "TBT_ms": 3
+        }
+      },
+      "lighthouse_issues": [
+        {
+          "device": "mobile",
+          "top_failed": [
+            {
+              "id": "mainthread-work-breakdown",
+              "title": "Minimize main-thread work",
+              "score": 0,
+              "savings_ms": 2632.855999999989
+            },
+            {
+              "id": "bootup-time",
+              "title": "Reduce JavaScript execution time",
+              "score": 0,
+              "savings_ms": 1661.5000000000005
+            },
+            {
+              "id": "unused-javascript",
+              "title": "Reduce unused JavaScript",
+              "score": 0,
+              "savings_ms": 790
+            },
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "third-party-cookies",
+              "title": "Uses third-party cookies",
+              "score": 0,
+              "savings_ms": null
+            }
+          ]
+        },
+        {
+          "device": "desktop",
+          "top_failed": [
+            {
+              "id": "unused-javascript",
+              "title": "Reduce unused JavaScript",
+              "score": 0,
+              "savings_ms": 160
+            },
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "third-party-cookies",
+              "title": "Uses third-party cookies",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "color-contrast",
+              "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "heading-order",
+              "title": "Heading elements are not in a sequentially-descending order",
+              "score": 0,
+              "savings_ms": null
+            }
+          ]
+        }
+      ],
+      "onpage_issues": [],
+      "verdict": "red"
+    },
+    {
+      "url": "https://panamarealestateguide.com/articles/best-neighborhoods-panama-city-expats.html",
+      "audited_at": "2026-05-19T19:46:19",
+      "scores": {
+        "mobile": {
+          "performance": 45,
+          "accessibility": 89,
+          "best_practices": 73,
+          "seo": 100
+        },
+        "desktop": {
+          "performance": 92,
+          "accessibility": 94,
+          "best_practices": 73,
+          "seo": 100
+        }
+      },
+      "core_web_vitals": {
+        "mobile": {
+          "LCP_ms": 9827,
+          "CLS": 0.0001608691149316991,
+          "TBT_ms": 2964
+        },
+        "desktop": {
+          "LCP_ms": 1752,
+          "CLS": 0.028476192093147126,
+          "TBT_ms": 1
+        }
+      },
+      "lighthouse_issues": [
+        {
+          "device": "mobile",
+          "top_failed": [
+            {
+              "id": "largest-contentful-paint",
+              "title": "Largest Contentful Paint",
+              "score": 0,
+              "savings_ms": 9827.874049999999
+            },
+            {
+              "id": "mainthread-work-breakdown",
+              "title": "Minimize main-thread work",
+              "score": 0,
+              "savings_ms": 5862.5519999999515
+            },
+            {
+              "id": "bootup-time",
+              "title": "Reduce JavaScript execution time",
+              "score": 0,
+              "savings_ms": 3811.5080000000007
+            },
+            {
+              "id": "unused-javascript",
+              "title": "Reduce unused JavaScript",
+              "score": 0,
+              "savings_ms": 1440
+            },
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console",
+              "score": 0,
+              "savings_ms": null
+            }
+          ]
+        },
+        {
+          "device": "desktop",
+          "top_failed": [
+            {
+              "id": "unused-javascript",
+              "title": "Reduce unused JavaScript",
+              "score": 0,
+              "savings_ms": 240
+            },
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "third-party-cookies",
+              "title": "Uses third-party cookies",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "color-contrast",
+              "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+              "score": 0,
+              "savings_ms": null
+            },
+            {
+              "id": "heading-order",
+              "title": "Heading elements are not in a sequentially-descending order",
+              "score": 0,
+              "savings_ms": null
+            }
+          ]
+        }
+      ],
+      "onpage_issues": [],
+      "verdict": "red"
+    }
+  ],
+  "site_rollup": {
+    "verdict": "red",
+    "avg_scores": {
+      "performance": 56,
+      "accessibility": 89,
+      "best_practices": 73,
+      "seo": 100
+    },
+    "template_issues": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "affected_urls": 10,
+        "severity": "high"
+      },
+      {
+        "id": "errors-in-console",
+        "title": "Browser errors were logged to the console",
+        "affected_urls": 10,
+        "severity": "high"
+      },
+      {
+        "id": "third-party-cookies",
+        "title": "Uses third-party cookies",
+        "affected_urls": 8,
+        "severity": "high"
+      },
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "affected_urls": 5,
+        "severity": "high"
+      },
+      {
+        "id": "heading-order",
+        "title": "Heading elements are not in a sequentially-descending order",
+        "affected_urls": 5,
+        "severity": "high"
+      },
+      {
+        "id": "mainthread-work-breakdown",
+        "title": "Minimize main-thread work",
+        "affected_urls": 4,
+        "severity": "high"
+      },
+      {
+        "id": "bootup-time",
+        "title": "Reduce JavaScript execution time",
+        "affected_urls": 4,
+        "severity": "high"
+      },
+      {
+        "id": "largest-contentful-paint",
+        "title": "Largest Contentful Paint",
+        "affected_urls": 3,
+        "severity": "medium"
+      }
+    ],
+    "money_page_alerts": [
+      {
+        "url": "https://panamarealestateguide.com/articles/internet-providers-panama-expats.html",
+        "verdict": "red",
+        "main_issue": "Largest Contentful Paint"
+      },
+      {
+        "url": "https://panamarealestateguide.com/articles/moving-to-panama-with-pets.html",
+        "verdict": "red",
+        "main_issue": "Minimize main-thread work"
+      },
+      {
+        "url": "https://panamarealestateguide.com/articles/panama-retirement-communities.html",
+        "verdict": "red",
+        "main_issue": "Largest Contentful Paint"
+      },
+      {
+        "url": "https://panamarealestateguide.com/articles/panama-real-estate-market-2026.html",
+        "verdict": "red",
+        "main_issue": "Minimize main-thread work"
+      },
+      {
+        "url": "https://panamarealestateguide.com/articles/best-neighborhoods-panama-city-expats.html",
+        "verdict": "red",
+        "main_issue": "Largest Contentful Paint"
+      }
+    ],
+    "by_verdict": {
+      "green": 0,
+      "amber": 0,
+      "red": 5,
+      "error": 0
+    }
+  }
+}

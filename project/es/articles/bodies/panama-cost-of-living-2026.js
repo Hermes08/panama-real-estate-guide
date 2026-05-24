@@ -110,8 +110,8 @@
     "---",
     {"h":"Próximos pasos con VIP Expats"},
     "¿Listo para mudarse? El costo de vida está fijo, lo que varía es cómo lo gasta. Nuestro equipo de reubicación ayuda a parejas y familias a construir presupuestos mes a mes adaptados a su barrio, configuración bancaria y estilo de vida. Lo conectaremos con contadores, abogados y agentes inmobiliarios que trabajan con expatriados a diario.",
-    "**Agende una llamada gratuita de 20 minutos para hablar de su mudanza a Panamá:** WhatsApp **+507 6761-0315** o visite [PanamaRealEstateGuide.com/relocation-consult](https://panamarealestatesale.com).",
-    "**Lea a continuación:** [Abrir una cuenta bancaria en Panamá como no residente (Guía 2026)](/en/blog/panama-banking-non-residents-guide), cronograma paso a paso y desglose de tarifas de los seis bancos que aceptan expatriados. O explore [Barrios de Panamá 2026: dónde vivir según presupuesto y estilo de vida](/en/blog/panama-neighborhoods-2026).",
+    "**Agende una llamada gratuita de 20 minutos para hablar de su mudanza a Panamá:** WhatsApp **+507 6761-0315** o visite [PanamaRealEstateGuide.com/relocation-consult](https://panamarealestateguide.com).",
+    "**Lea a continuación:** [Abrir una cuenta bancaria en Panamá como no residente (Guía 2026)](/articles/panama-banking-non-residents-guide.html), cronograma paso a paso y desglose de tarifas de los seis bancos que aceptan expatriados. O explore [Barrios de Panamá 2026: dónde vivir según presupuesto y estilo de vida](/articles/panama-neighborhoods-2026.html).",
     "**Conclusión en una línea:** planifique USD $2,200 a USD $2,800/mes para una pareja en Ciudad de Panamá, sin sorpresas, sin inflación oculta, sin riesgo cambiario."
   ];
 })();

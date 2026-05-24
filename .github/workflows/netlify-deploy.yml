@@ -94,6 +94,13 @@ jobs:
         # each plus x-default. Idempotent (wrapped in HTML comment sentinels).
         run: node scripts/inject-hreflang.mjs
 
+      - name: Inject notranslate meta into /es/ /pt/ /de/ HTML shells
+        # Stops Chrome's in-page translator from hijacking our manually translated
+        # nav/h1/excerpt and replacing it with mediocre machine output. Adds
+        # <meta name="google" content="notranslate"> + translate="no" on <html>.
+        # Idempotent — safe on every re-run.
+        run: node scripts/inject-notranslate.mjs
+
       - name: Build i18n-data.js (chrome labels + per-article meta extracted from translated HTML)
         # Reads state/chrome-i18n.json (nav, footer, CTA, category, author-bio
         # translations for EN/ES/PT/DE) and crawls every project/{es,pt,de}/articles/*.html

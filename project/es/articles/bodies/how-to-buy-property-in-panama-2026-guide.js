@@ -78,7 +78,7 @@
     "VIP Expats cuenta con abogados verificados, prestamistas aprobados y datos de mercado actualizados de los barrios de Ciudad de Panamá. Lo guiaremos por toda la transacción, desde la LOI hasta el cierre, y lo presentaremos con profesionales especializados que saben atender a compradores extranjeros con eficiencia.",
     "Agende una consulta gratuita de 30 minutos para conversar sobre su presupuesto, cronograma y preferencias de propiedad. Le entregaremos una **hoja de ruta personalizada de la transacción** y lo conectaremos con un abogado si aún no tiene uno.",
     "**WhatsApp +507 6761-0315 o escríbanos por correo para iniciar su transacción hoy.**",
-    "Para profundizar en temas específicos, explore nuestras guías sobre [Financiamiento Inmobiliario en Panamá](https://panamarealestatesale.com/en/blog/panama-real-estate-financing) y [Diligencia Debida de Título para Compradores Extranjeros](https://panamarealestatesale.com/en/blog/panama-property-title-verification).",
+    "Para profundizar en temas específicos, explore nuestras guías sobre [Financiamiento Inmobiliario en Panamá](https://panamarealestateguide.com/articles/panama-real-estate-financing.html) y [Diligencia Debida de Título para Compradores Extranjeros](https://panamarealestateguide.com/articles/panama-property-title-verification.html).",
     "**Idea clave:** el mercado inmobiliario de Panamá es amigable para extranjeros, con procesos legales directos, pero el éxito depende de la diligencia debida previa, un abogado competente y expectativas claras de costos de cierre. Presupueste 8 a 10 semanas para una transacción totalmente financiada, y planifique 7.4 a 10.4% en costos de cierre."
   ];
 })();

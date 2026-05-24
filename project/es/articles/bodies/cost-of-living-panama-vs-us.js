@@ -117,7 +117,7 @@
     {"h":"Próximos pasos con VIP Expats"},
     "¿Listo para avanzar? El primer paso es una conversación con un consultor de reubicación de VIP Expats que conoce los barrios, los bancos, la ruta de la visa y los costos reales. Hemos guiado a cientos de expatriados por todo el proceso, desde la aprobación de la visa hasta la selección de barrio y la configuración bancaria.",
     "**Reserve una consulta gratuita de reubicación** con nuestro equipo, o contáctenos directamente: **WhatsApp +507 6761-0315**. Lo guiaremos por su situación específica y responderemos cada pregunta.",
-    "También explore estas guías relacionadas: - [Mejores barrios de Panamá para expatriados 2026](https://www.panamarealestatesale.com/en/blog), dónde vivir según presupuesto, estilo de vida y necesidades familiares. - [Abrir una cuenta bancaria en Panamá como no residente (guía 2026)](https://www.panamarealestatesale.com/en/blog), pasos exactos, tarifas y qué bancos aceptan turistas.",
+    "También explore estas guías relacionadas: - [Mejores barrios de Panamá para expatriados 2026](https://www.panamarealestateguide.com/articles), dónde vivir según presupuesto, estilo de vida y necesidades familiares. - [Abrir una cuenta bancaria en Panamá como no residente (guía 2026)](https://www.panamarealestateguide.com/articles), pasos exactos, tarifas y qué bancos aceptan turistas.",
     "---",
     "**Resumen de una línea**: un expatriado soltero puede vivir cómodamente en Ciudad de Panamá con USD $1,800 a USD $2,000/mes, ahorrando USD $1,500 a USD $2,000 mensuales frente a ciudades comparables de EE. UU., sin sacrificar calidad de vida, salud ni comer fuera."
   ];

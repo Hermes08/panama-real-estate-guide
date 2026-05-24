@@ -7,6 +7,7 @@
       "videos": "Videos",
       "news": "News",
       "about": "About",
+      "residency": "Residency",
       "reserve_a_unit": "Reserve a unit"
     },
     "back_links": {
@@ -29,6 +30,44 @@
       "hold_for_thirty_days": "Hold for thirty days",
       "start_a_reservation": "Start a reservation",
       "whatsapp_label": "WhatsApp"
+    },
+    "home_hero": {
+      "issue_line": "Vol. VII · 2026",
+      "publication": "The Isthmus Quarterly",
+      "eyebrow": "Developer-direct · 24 projects · Reservations open",
+      "headline_line_1": "Two oceans.",
+      "headline_line_2": "One country",
+      "headline_line_3": "worth owning.",
+      "from_editor": "From the editor",
+      "dek": "The definitive registry of developer-direct new construction across Panama's Caribbean, Pacific, Azuero and highland coasts. No resales. No mystery owners. Refundable reservations from $5,000.",
+      "browse_projects": "Browse 24 projects",
+      "cover_story": "Cover story · Reservations open",
+      "from_label": "From",
+      "read_dispatch": "Read dispatch →",
+      "from_newsroom": "From the newsroom",
+      "all_dispatches": "All dispatches"
+    },
+    "home_sections": {
+      "projects_eyebrow": "Developer projects · 2026 collection",
+      "projects_h2": "Twenty-four projects. Five distinct coasts. Zero resales.",
+      "projects_dek": "Every unit here is sold directly by the developer. No individual owner resales, no back-door inventory — just new-construction and first-release units with guaranteed title and refundable reservation deposits.",
+      "regions_eyebrow": "Where to land",
+      "regions_h2": "Two oceans. Five coasts. One visa.",
+      "journal_eyebrow": "Editor's picks",
+      "journal_eyebrow_count": "articles in the journal",
+      "journal_h2": "The five we'd start with.",
+      "journal_dek": "Most-read, most-cited, most-actionable. Hand-picked for buyers who want the data first and the prose second.",
+      "journal_dek_count_pre": "The rest of the journal — over",
+      "journal_dek_count_post": "long-form pieces — lives one click away.",
+      "journal_browse_all": "Browse all",
+      "journal_browse_full": "Browse the full journal",
+      "journal_more_pieces": "more long-form pieces in the journal — search by neighborhood, residency route, or country comparison.",
+      "most_read_badge": "#1 · Most read",
+      "read_editor_pick": "Read the editor's pick",
+      "news_eyebrow": "News & updates",
+      "news_h2": "The week in Panama real estate.",
+      "news_dek": "Project milestones, infrastructure, regulatory updates and press mentions — short and timestamped.",
+      "news_browse_full": "Browse the full newsroom →"
     },
     "footer": {
       "links": {
@@ -65,6 +104,49 @@
     "author_bios": {
       "Kent Davis": "Founder & principal broker, PanamaRealEstateGuide.com. Writing from Panama City since 2017.",
       "default": "Senior market analyst, PanamaRealEstateGuide.com. Bilingual legal research on Panamanian residency and tax."
+    },
+    "project_status": {
+      "Pre-construction": "Pre-construction",
+      "Move-in Ready": "Move-in Ready",
+      "Under Construction": "Under Construction",
+      "Sold Out": "Sold Out",
+      "Phase II": "Phase II",
+      "Phase III": "Phase III"
+    },
+    "regions": {
+      "projects_count_word": "projects",
+      "pacific": { "blurb": "White-sand beaches 60–90 minutes from the capital." },
+      "caribbean": { "blurb": "Overwater living, reef frontage, rainforest islands." },
+      "azuero": { "blurb": "The last untouched coast, surf, ranches, traditions." },
+      "highlands": { "blurb": "Year-round spring, coffee country, cloud forest." },
+      "city": { "blurb": "Latin America's banking capital, towers and old town." }
+    },
+    "news_tags": {
+      "Infrastructure": "Infrastructure",
+      "Real Estate": "Real Estate",
+      "Tourism": "Tourism",
+      "Project update": "Project update",
+      "Economy": "Economy",
+      "Regulatory": "Regulatory",
+      "Government": "Government",
+      "Press": "Press"
+    },
+    "news_titles": {
+      "tocumen-terminal-2-expansion": "Tocumen confirms USD $340 million Terminal 2 expansion to reach 24 million passengers by 2028",
+      "santa-maria-este-launch": "Santa Maria Este opens preconstruction sales on USD $120 million residential development with green-bond financing",
+      "boquete-coffee-fair-2026": "Boquete coffee fair projects record 38,000 visitors and USD $9 million local impact in June 2026",
+      "pedasi-cultural-center": "Pedasi opens new community cultural center funded by Santeno diaspora donors",
+      "semiconductor-strategy-105m": "Panama launches USD $105 million National Semiconductor Strategy to enter global chip ecosystem",
+      "casco-viejo-colon-incentives": "Assembly expands heritage-restoration tax incentives to Casco Antiguo and Colon Historic Center",
+      "canal-projects-2027-bid": "Canal Authority sets June 2027 deadline to award three port and gas-pipeline mega-concessions",
+      "pib-cobre-reactivacion": "Mens Consultores projects 5.57 percent GDP growth in 2026 if copper mine restarts operations",
+      "canal-transit-january-2026": "Panama Canal records 3.8 percent jump in January transits, led by Neopanamax vessels",
+      "world-bank-4-percent-forecast": "World Bank ratifies 4.1 percent growth forecast for Panama in 2026 and 2027",
+      "metro-linea-3-monorail-tests": "Metro Line 3 begins dynamic monorail testing toward Panama Oeste with 2028 operating target",
+      "metro-puente-cuarto-2026": "Line 3 Metro and Fourth Bridge over the Canal remain Panama strategic infrastructure priorities for 2026",
+      "cruise-season-2025-2026": "Panama 2025 to 2026 cruise season opens with 2 percent increase in arrivals at Colon and Amador",
+      "panama-pacifico-logistics-hub": "New USD $20 million logistics hub at Panama Pacifico strengthens regional manufacturing platform",
+      "apede-italia-investment-mission": "APEDE pitches Panama open economy model to Italian investors in Rome trade mission"
     }
   },
   "es": {
@@ -75,6 +157,7 @@
       "videos": "Videos",
       "news": "Noticias",
       "about": "Nosotros",
+      "residency": "Residencia",
       "reserve_a_unit": "Reservar unidad"
     },
     "back_links": {
@@ -97,6 +180,44 @@
       "hold_for_thirty_days": "Mantén la unidad treinta días",
       "start_a_reservation": "Iniciar una reserva",
       "whatsapp_label": "WhatsApp"
+    },
+    "home_hero": {
+      "issue_line": "Vol. VII · 2026",
+      "publication": "El trimestral del istmo",
+      "eyebrow": "Trato directo con desarrollador · 24 proyectos · Reservas abiertas",
+      "headline_line_1": "Dos océanos.",
+      "headline_line_2": "Un país",
+      "headline_line_3": "para hacer propio.",
+      "from_editor": "Del editor",
+      "dek": "El registro definitivo de obra nueva en venta directa por desarrollador en las costas del Caribe, Pacífico, Azuero y tierras altas de Panamá. Sin reventas. Sin dueños desconocidos. Reservas reembolsables desde USD $5,000.",
+      "browse_projects": "Ver los 24 proyectos",
+      "cover_story": "Portada · Reservas abiertas",
+      "from_label": "Desde",
+      "read_dispatch": "Leer la crónica →",
+      "from_newsroom": "De la redacción",
+      "all_dispatches": "Todas las crónicas"
+    },
+    "home_sections": {
+      "projects_eyebrow": "Proyectos developer-direct · Colección 2026",
+      "projects_h2": "Veinticuatro proyectos. Cinco costas distintas. Cero reventas.",
+      "projects_dek": "Cada unidad se vende directamente por el desarrollador. Sin reventas de particulares, sin inventario por la puerta de atrás — solo obra nueva y primeras entregas con título garantizado y depósitos de reserva reembolsables.",
+      "regions_eyebrow": "Dónde aterrizar",
+      "regions_h2": "Dos océanos. Cinco costas. Una visa.",
+      "journal_eyebrow": "Selección del editor",
+      "journal_eyebrow_count": "artículos en la crónica",
+      "journal_h2": "Las cinco con las que empezaríamos.",
+      "journal_dek": "Las más leídas, citadas y accionables. Seleccionadas a mano para compradores que quieren los datos primero y la prosa después.",
+      "journal_dek_count_pre": "El resto de la crónica — más de",
+      "journal_dek_count_post": "piezas a fondo — a un clic de distancia.",
+      "journal_browse_all": "Ver las",
+      "journal_browse_full": "Explorar la crónica completa",
+      "journal_more_pieces": "piezas más a fondo en la crónica — busca por vecindario, ruta de residencia o comparación de países.",
+      "most_read_badge": "#1 · Más leído",
+      "read_editor_pick": "Leer la selección del editor",
+      "news_eyebrow": "Noticias y novedades",
+      "news_h2": "La semana en bienes raíces de Panamá.",
+      "news_dek": "Hitos de proyectos, infraestructura, actualizaciones regulatorias y menciones de prensa — cortas y con fecha.",
+      "news_browse_full": "Ver toda la redacción →"
     },
     "footer": {
       "links": {
@@ -133,6 +254,49 @@
     "author_bios": {
       "Kent Davis": "Fundador y broker principal, PanamaRealEstateGuide.com. Escribiendo desde Ciudad de Panamá desde 2017.",
       "default": "Analista senior de mercado, PanamaRealEstateGuide.com. Investigación legal bilingüe sobre residencia y tributación en Panamá."
+    },
+    "project_status": {
+      "Pre-construction": "Pre-venta",
+      "Move-in Ready": "Listo para entrega",
+      "Under Construction": "En construcción",
+      "Sold Out": "Agotado",
+      "Phase II": "Fase II",
+      "Phase III": "Fase III"
+    },
+    "regions": {
+      "projects_count_word": "proyectos",
+      "pacific": { "blurb": "Playas de arena blanca a 60–90 minutos de la capital." },
+      "caribbean": { "blurb": "Vida sobre el agua, vista al arrecife, islas selváticas." },
+      "azuero": { "blurb": "La última costa virgen: surf, fincas, tradiciones." },
+      "highlands": { "blurb": "Primavera todo el año, país del café, bosque nuboso." },
+      "city": { "blurb": "La capital bancaria de Latinoamérica: torres y casco antiguo." }
+    },
+    "news_tags": {
+      "Infrastructure": "Infraestructura",
+      "Real Estate": "Bienes Raíces",
+      "Tourism": "Turismo",
+      "Project update": "Actualización de proyecto",
+      "Economy": "Economía",
+      "Regulatory": "Regulatorio",
+      "Government": "Gobierno",
+      "Press": "Prensa"
+    },
+    "news_titles": {
+      "tocumen-terminal-2-expansion": "Tocumen confirma ampliación de USD $340 millones de la Terminal 2 para alcanzar 24 millones de pasajeros en 2028",
+      "santa-maria-este-launch": "Santa María Este abre preventas en desarrollo residencial de USD $120 millones con financiamiento de bonos verdes",
+      "boquete-coffee-fair-2026": "Feria del café de Boquete proyecta récord de 38,000 visitantes y USD $9 millones de impacto local en junio 2026",
+      "pedasi-cultural-center": "Pedasí inaugura nuevo centro cultural comunitario financiado por donantes de la diáspora santeña",
+      "semiconductor-strategy-105m": "Panamá lanza Estrategia Nacional de Semiconductores de USD $105 millones para entrar al ecosistema global de chips",
+      "casco-viejo-colon-incentives": "Asamblea amplía incentivos fiscales de restauración patrimonial al Casco Antiguo y Centro Histórico de Colón",
+      "canal-projects-2027-bid": "Autoridad del Canal fija junio 2027 como plazo para adjudicar tres mega-concesiones de puerto y gasoducto",
+      "pib-cobre-reactivacion": "Mens Consultores proyecta crecimiento del PIB de 5.57 por ciento en 2026 si la mina de cobre reanuda operaciones",
+      "canal-transit-january-2026": "Canal de Panamá registra alza del 3.8 por ciento en tránsitos de enero, liderada por buques Neopanamax",
+      "world-bank-4-percent-forecast": "Banco Mundial ratifica pronóstico de crecimiento del 4.1 por ciento para Panamá en 2026 y 2027",
+      "metro-linea-3-monorail-tests": "Metro Línea 3 inicia pruebas dinámicas de monorriel hacia Panamá Oeste con meta operativa en 2028",
+      "metro-puente-cuarto-2026": "Línea 3 del Metro y Cuarto Puente sobre el Canal siguen como prioridades estratégicas de infraestructura para 2026",
+      "cruise-season-2025-2026": "Temporada de cruceros 2025 a 2026 abre con alza del 2 por ciento en arribos a Colón y Amador",
+      "panama-pacifico-logistics-hub": "Nuevo hub logístico de USD $20 millones en Panamá Pacífico fortalece la plataforma regional de manufactura",
+      "apede-italia-investment-mission": "APEDE presenta el modelo de economía abierta de Panamá a inversionistas italianos en misión comercial en Roma"
     }
   },
   "pt": {
@@ -143,6 +307,7 @@
       "videos": "Vídeos",
       "news": "Notícias",
       "about": "Sobre",
+      "residency": "Residência",
       "reserve_a_unit": "Reservar unidade"
     },
     "back_links": {
@@ -165,6 +330,44 @@
       "hold_for_thirty_days": "Mantenha a unidade trinta dias",
       "start_a_reservation": "Iniciar uma reserva",
       "whatsapp_label": "WhatsApp"
+    },
+    "home_hero": {
+      "issue_line": "Vol. VII · 2026",
+      "publication": "Trimestral do istmo",
+      "eyebrow": "Direto do desenvolvedor · 24 projetos · Reservas abertas",
+      "headline_line_1": "Dois oceanos.",
+      "headline_line_2": "Um país",
+      "headline_line_3": "que vale ser seu.",
+      "from_editor": "Do editor",
+      "dek": "O registro definitivo de obra nova vendida diretamente pelo desenvolvedor nas costas do Caribe, Pacífico, Azuero e terras altas do Panamá. Sem revendas. Sem proprietários ocultos. Reservas reembolsáveis a partir de USD $5.000.",
+      "browse_projects": "Ver os 24 projetos",
+      "cover_story": "Capa · Reservas abertas",
+      "from_label": "A partir de",
+      "read_dispatch": "Ler a crônica →",
+      "from_newsroom": "Da redação",
+      "all_dispatches": "Todas as crônicas"
+    },
+    "home_sections": {
+      "projects_eyebrow": "Projetos direto do desenvolvedor · Coleção 2026",
+      "projects_h2": "Vinte e quatro projetos. Cinco costas distintas. Zero revendas.",
+      "projects_dek": "Cada unidade é vendida diretamente pelo desenvolvedor. Sem revendas de particulares, sem inventário por baixo dos panos — apenas obra nova e primeiras entregas com escritura garantida e depósitos de reserva reembolsáveis.",
+      "regions_eyebrow": "Onde aterrissar",
+      "regions_h2": "Dois oceanos. Cinco costas. Um visto.",
+      "journal_eyebrow": "Escolhas do editor",
+      "journal_eyebrow_count": "artigos na crônica",
+      "journal_h2": "Os cinco com que começaríamos.",
+      "journal_dek": "Mais lidos, mais citados, mais acionáveis. Selecionados a dedo para compradores que querem os dados primeiro e o texto depois.",
+      "journal_dek_count_pre": "O resto da crônica — mais de",
+      "journal_dek_count_post": "peças aprofundadas — a um clique.",
+      "journal_browse_all": "Ver todos os",
+      "journal_browse_full": "Explorar a crônica completa",
+      "journal_more_pieces": "peças aprofundadas na crônica — pesquise por bairro, rota de residência ou comparação de países.",
+      "most_read_badge": "#1 · Mais lido",
+      "read_editor_pick": "Ler a escolha do editor",
+      "news_eyebrow": "Notícias e atualizações",
+      "news_h2": "A semana no mercado imobiliário do Panamá.",
+      "news_dek": "Marcos de projetos, infraestrutura, atualizações regulatórias e menções na imprensa — curtas e com data.",
+      "news_browse_full": "Ver toda a redação →"
     },
     "footer": {
       "links": {
@@ -201,6 +404,49 @@
     "author_bios": {
       "Kent Davis": "Fundador e corretor principal, PanamaRealEstateGuide.com. Escrevendo da Cidade do Panamá desde 2017.",
       "default": "Analista sênior de mercado, PanamaRealEstateGuide.com. Pesquisa jurídica bilíngue sobre residência e tributação panamenha."
+    },
+    "project_status": {
+      "Pre-construction": "Pré-venda",
+      "Move-in Ready": "Pronto para morar",
+      "Under Construction": "Em construção",
+      "Sold Out": "Esgotado",
+      "Phase II": "Fase II",
+      "Phase III": "Fase III"
+    },
+    "regions": {
+      "projects_count_word": "projetos",
+      "pacific": { "blurb": "Praias de areia branca a 60–90 minutos da capital." },
+      "caribbean": { "blurb": "Vida sobre a água, vista para o recife, ilhas de floresta tropical." },
+      "azuero": { "blurb": "A última costa intocada: surf, fazendas, tradições." },
+      "highlands": { "blurb": "Primavera o ano todo, país do café, floresta nublada." },
+      "city": { "blurb": "A capital bancária da América Latina: torres e centro histórico." }
+    },
+    "news_tags": {
+      "Infrastructure": "Infraestrutura",
+      "Real Estate": "Imóveis",
+      "Tourism": "Turismo",
+      "Project update": "Atualização de projeto",
+      "Economy": "Economia",
+      "Regulatory": "Regulatório",
+      "Government": "Governo",
+      "Press": "Imprensa"
+    },
+    "news_titles": {
+      "tocumen-terminal-2-expansion": "Tocumen confirma ampliação de USD $340 milhões do Terminal 2 para alcançar 24 milhões de passageiros até 2028",
+      "santa-maria-este-launch": "Santa Maria Este abre pré-vendas em desenvolvimento residencial de USD $120 milhões com financiamento de green bonds",
+      "boquete-coffee-fair-2026": "Feira do café de Boquete projeta recorde de 38.000 visitantes e USD $9 milhões de impacto local em junho de 2026",
+      "pedasi-cultural-center": "Pedasí inaugura novo centro cultural comunitário financiado por doadores da diáspora santenha",
+      "semiconductor-strategy-105m": "Panamá lança Estratégia Nacional de Semicondutores de USD $105 milhões para entrar no ecossistema global de chips",
+      "casco-viejo-colon-incentives": "Assembleia amplia incentivos fiscais de restauração patrimonial ao Casco Antiguo e Centro Histórico de Colón",
+      "canal-projects-2027-bid": "Autoridade do Canal define junho de 2027 como prazo para adjudicar três megaconcessões de porto e gasoduto",
+      "pib-cobre-reactivacion": "Mens Consultores projeta crescimento do PIB de 5,57 por cento em 2026 se a mina de cobre reiniciar operações",
+      "canal-transit-january-2026": "Canal do Panamá registra alta de 3,8 por cento em trânsitos de janeiro, liderada por navios Neopanamax",
+      "world-bank-4-percent-forecast": "Banco Mundial ratifica previsão de crescimento de 4,1 por cento para Panamá em 2026 e 2027",
+      "metro-linea-3-monorail-tests": "Metrô Linha 3 inicia testes dinâmicos de monotrilho rumo a Panamá Oeste com meta operacional em 2028",
+      "metro-puente-cuarto-2026": "Linha 3 do Metrô e Quarta Ponte sobre o Canal continuam como prioridades estratégicas de infraestrutura para 2026",
+      "cruise-season-2025-2026": "Temporada de cruzeiros 2025 a 2026 abre com alta de 2 por cento em chegadas a Colón e Amador",
+      "panama-pacifico-logistics-hub": "Novo hub logístico de USD $20 milhões em Panamá Pacífico fortalece a plataforma regional de manufatura",
+      "apede-italia-investment-mission": "APEDE apresenta o modelo de economia aberta do Panamá a investidores italianos em missão comercial em Roma"
     }
   },
   "de": {
@@ -211,6 +457,7 @@
       "videos": "Videos",
       "news": "Nachrichten",
       "about": "Über uns",
+      "residency": "Aufenthalt",
       "reserve_a_unit": "Einheit reservieren"
     },
     "back_links": {
@@ -233,6 +480,44 @@
       "hold_for_thirty_days": "Dreißig Tage halten",
       "start_a_reservation": "Reservierung starten",
       "whatsapp_label": "WhatsApp"
+    },
+    "home_hero": {
+      "issue_line": "Vol. VII · 2026",
+      "publication": "Das Quartalsmagazin der Landenge",
+      "eyebrow": "Direkt vom Entwickler · 24 Projekte · Reservierungen offen",
+      "headline_line_1": "Zwei Ozeane.",
+      "headline_line_2": "Ein Land,",
+      "headline_line_3": "das sich lohnt.",
+      "from_editor": "Vom Herausgeber",
+      "dek": "Das definitive Verzeichnis von Neubauten direkt vom Entwickler an Panamas Karibik-, Pazifik-, Azuero- und Hochlandküste. Keine Wiederverkäufe. Keine anonymen Eigentümer. Rückzahlbare Reservierungen ab USD 5.000.",
+      "browse_projects": "24 Projekte ansehen",
+      "cover_story": "Titelgeschichte · Reservierungen offen",
+      "from_label": "Ab",
+      "read_dispatch": "Bericht lesen →",
+      "from_newsroom": "Aus der Redaktion",
+      "all_dispatches": "Alle Berichte"
+    },
+    "home_sections": {
+      "projects_eyebrow": "Entwickler-Projekte · Kollektion 2026",
+      "projects_h2": "Vierundzwanzig Projekte. Fünf verschiedene Küsten. Null Wiederverkäufe.",
+      "projects_dek": "Jede Einheit hier wird direkt vom Entwickler verkauft. Keine Wiederverkäufe von Einzeleigentümern, kein Hintertür-Inventar — nur Neubauten und Erstverkäufe mit garantiertem Eigentumstitel und rückzahlbaren Reservierungsanzahlungen.",
+      "regions_eyebrow": "Wo ankommen",
+      "regions_h2": "Zwei Ozeane. Fünf Küsten. Ein Visum.",
+      "journal_eyebrow": "Auswahl der Redaktion",
+      "journal_eyebrow_count": "Artikel im Journal",
+      "journal_h2": "Die fünf, mit denen wir beginnen würden.",
+      "journal_dek": "Meistgelesen, meistzitiert, am umsetzbarsten. Handverlesen für Käufer, die die Daten zuerst und die Prosa danach wollen.",
+      "journal_dek_count_pre": "Der Rest des Journals — über",
+      "journal_dek_count_post": "ausführliche Beiträge — nur einen Klick entfernt.",
+      "journal_browse_all": "Alle",
+      "journal_browse_full": "Komplettes Journal durchstöbern",
+      "journal_more_pieces": "weitere ausführliche Beiträge im Journal — Suche nach Viertel, Aufenthaltsroute oder Länderverglich.",
+      "most_read_badge": "#1 · Meistgelesen",
+      "read_editor_pick": "Auswahl der Redaktion lesen",
+      "news_eyebrow": "Nachrichten & Updates",
+      "news_h2": "Die Woche in Panamas Immobilien.",
+      "news_dek": "Projektmeilensteine, Infrastruktur, regulatorische Updates und Presseerwähnungen — kurz und mit Zeitstempel.",
+      "news_browse_full": "Komplette Redaktion durchstöbern →"
     },
     "footer": {
       "links": {
@@ -269,6 +554,49 @@
     "author_bios": {
       "Kent Davis": "Gründer und leitender Makler, PanamaRealEstateGuide.com. Schreibt aus Panama-Stadt seit 2017.",
       "default": "Senior-Marktanalyst, PanamaRealEstateGuide.com. Zweisprachige juristische Recherche zu panamaischer Aufenthaltserlaubnis und Steuern."
+    },
+    "project_status": {
+      "Pre-construction": "Vorverkauf",
+      "Move-in Ready": "Bezugsfertig",
+      "Under Construction": "Im Bau",
+      "Sold Out": "Ausverkauft",
+      "Phase II": "Phase II",
+      "Phase III": "Phase III"
+    },
+    "regions": {
+      "projects_count_word": "Projekte",
+      "pacific": { "blurb": "Weiße Sandstrände, 60–90 Minuten von der Hauptstadt." },
+      "caribbean": { "blurb": "Wohnen über dem Wasser, Riff-Lage, Regenwaldinseln." },
+      "azuero": { "blurb": "Die letzte unberührte Küste: Surfen, Farmen, Traditionen." },
+      "highlands": { "blurb": "Frühling das ganze Jahr, Kaffeeland, Nebelwald." },
+      "city": { "blurb": "Lateinamerikas Finanzhauptstadt: Hochhäuser und Altstadt." }
+    },
+    "news_tags": {
+      "Infrastructure": "Infrastruktur",
+      "Real Estate": "Immobilien",
+      "Tourism": "Tourismus",
+      "Project update": "Projekt-Update",
+      "Economy": "Wirtschaft",
+      "Regulatory": "Regulierung",
+      "Government": "Regierung",
+      "Press": "Presse"
+    },
+    "news_titles": {
+      "tocumen-terminal-2-expansion": "Tocumen bestätigt Erweiterung von Terminal 2 für USD 340 Millionen, um bis 2028 24 Millionen Passagiere zu erreichen",
+      "santa-maria-este-launch": "Santa Maria Este eröffnet Vorverkauf für Wohnprojekt im Wert von USD 120 Millionen mit Green-Bond-Finanzierung",
+      "boquete-coffee-fair-2026": "Kaffeemesse Boquete erwartet Rekord von 38.000 Besuchern und USD 9 Millionen lokale Wirkung im Juni 2026",
+      "pedasi-cultural-center": "Pedasí eröffnet neues Kulturzentrum für die Gemeinde, finanziert von Spendern der Santeño-Diaspora",
+      "semiconductor-strategy-105m": "Panama startet Nationale Halbleiter-Strategie über USD 105 Millionen zum Einstieg in das globale Chip-Ökosystem",
+      "casco-viejo-colon-incentives": "Versammlung erweitert Steueranreize zur Denkmalsanierung auf Casco Antiguo und das historische Zentrum von Colón",
+      "canal-projects-2027-bid": "Kanalbehörde setzt Juni 2027 als Frist zur Vergabe von drei Hafen- und Gaspipeline-Megakonzessionen",
+      "pib-cobre-reactivacion": "Mens Consultores prognostiziert BIP-Wachstum von 5,57 Prozent in 2026, falls die Kupfermine den Betrieb wieder aufnimmt",
+      "canal-transit-january-2026": "Panamakanal verzeichnet im Januar 3,8 Prozent mehr Transits, angeführt von Neopanamax-Schiffen",
+      "world-bank-4-percent-forecast": "Weltbank bestätigt Wachstumsprognose von 4,1 Prozent für Panama in 2026 und 2027",
+      "metro-linea-3-monorail-tests": "Metro-Linie 3 beginnt dynamische Monorail-Tests in Richtung Panamá Oeste mit Betriebsziel 2028",
+      "metro-puente-cuarto-2026": "Metro-Linie 3 und Vierte Brücke über den Kanal bleiben strategische Infrastrukturprioritäten Panamas für 2026",
+      "cruise-season-2025-2026": "Kreuzfahrtsaison 2025 bis 2026 öffnet mit 2 Prozent mehr Ankünften in Colón und Amador",
+      "panama-pacifico-logistics-hub": "Neuer Logistik-Hub im Wert von USD 20 Millionen in Panamá Pacífico stärkt die regionale Fertigungsplattform",
+      "apede-italia-investment-mission": "APEDE präsentiert Panamas Modell der offenen Wirtschaft italienischen Investoren bei Handelsmission in Rom"
     }
   }
 }

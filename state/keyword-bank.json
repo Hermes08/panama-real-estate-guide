@@ -1,0 +1,822 @@
+{
+  "site": "panamarealestateguide.com",
+  "last_updated": "2026-05-19T18:08:38",
+  "seeds_researched": [
+    {
+      "seed": "seed-import",
+      "last_researched": "2026-05-19"
+    }
+  ],
+  "keywords": [
+    {
+      "keyword": "panama 2026 property outlook: where the supply is tightening",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/2026-outlook.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "the friendly nations visa in 2026, what changed, what stayed",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/friendly-nations-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "pedasí is quietly becoming panama's most-wanted coast",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/pedasi-rising.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "short-term rental yields by province, a 2026 breakdown",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/rental-yields.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "why panama's 116-year dollarization still matters for buyers",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/dollarization.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "the 2026 panama property-tax primer for foreign owners",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/tax-primer.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "pensionado visa + panama city condo 2026: us retiree guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/pensionado-panama-city-condo-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "condos en panamá bajo usd 400.000: guía para colombianos 2026",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/condos-panama-bajo-400k-colombianos.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "comprar imóvel no panamá 2026: guia para investidores brasileiros",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/comprar-imovel-panama-brasileiros-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "inversión inmobiliaria en panamá para mexicanos 2026: usd, roi",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-inversion-mexicanos-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panamá para españoles 2026: alternativa al golden visa cerrado",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/espanoles-panama-alternativa-golden-visa-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "best neighborhoods panama city 2026: expats living guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/best-neighborhoods-panama-city-expats.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "bocas del toro real estate 2026: property prices, guide, investment",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/bocas-del-toro-real-estate.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "boquete panama real estate 2026: prices, neighborhoods, properties",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/boquete-panama-real-estate.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "boquete real estate investment 2026: yields, cap rates, roi guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/boquete-real-estate-investment-guide-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "coronado real estate 2026: prices, beach living, investment guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/coronado-real-estate-guide.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "living in panama city 2026: lifestyle, costs, neighborhoods, guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/living-in-panama-city.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "playa venao panama 2026: beach town, real estate, lifestyle",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/playa-venao-panama.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "santa catalina panama 2026: surf beach, real estate, lifestyle",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/santa-catalina-panama.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "condos for sale panama 2026: buyers guide, prices, investment",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/condos-for-sale-panama-buyers-guide.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "how to buy property in panama: complete 2026 guide for foreigners",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/how-to-buy-property-in-panama-2026-guide.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panama investment opportunities 2026: real estate, projects, returns",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-investment-opportunities.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "buying property in panama 2026: complete step-by-step guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-property-buying-process-guide.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "beachfront real estate panama 2026: retirement living guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-real-estate-beachfront-retirement.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panama real estate 2026: investment, lifestyle & retirement guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-real-estate-investment-lifestyle-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panama real estate investment 2026: opportunities, yields, returns",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-real-estate-investments.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panama real estate market 2026: trends, prices, investment",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-real-estate-market-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "retirement communities panama 2026: best places, costs, guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-retirement-communities.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "rent apartments panama city 2026: best neighborhoods, costs, guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/apartments-for-rent-panama-city.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "how to rent an apartment in panama 2026: expat guide, costs, tips",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/how-to-rent-apartment-panama.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "apostille documents panama visa 2026: state by state guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/apostille-documents-panama-visa.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panama golden visa 2026: investment residency, cost, requirements",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-golden-visa-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panama tax benefits for foreigners 2026: residency tax breaks",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-tax-benefits-foreigners-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "what to do if your panama visa gets rejected (2026 emergency guide)",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-visa-rejected-what-to-do.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "start business in panama 2026: registration, taxes, visas",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/start-business-panama-foreigners.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "atms in panama 2026: lowest fees, best networks, withdraw cash guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/atm-cash-panama-guide.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "cost of living panama vs usa 2026: side-by-side comparison",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/cost-of-living-panama-vs-us.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "open a panama bank account as non-resident (2026 guide)",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-banking-non-residents-guide.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panama cost of living 2026: real monthly budgets by city",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-cost-of-living-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "real cost of moving to panama 2026: budget breakdown guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/real-cost-of-moving-to-panama.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "send money to panama 2026: wire transfer, apps, lowest fees",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/sending-money-panama-wire-transfer.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "how to move to panama 2026: step-by-step complete guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/how-to-move-to-panama-step-by-step-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "move from canada to panama 2026: visa, residency, costs guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/moving-to-panama-from-canada.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "move from florida to panama 2026: visa, costs, relocation guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/moving-to-panama-from-florida.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "move from texas to panama 2026: visa, costs, guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/moving-to-panama-from-texas.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "move from uk to panama 2026: visa, costs, relocation guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/moving-to-panama-from-uk.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "moving to panama with pets 2026: cats, dogs & birds, import requirements",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/moving-to-panama-with-pets.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panama für deutsche auswanderer: visa, kosten, lebensqualität",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-deutsche-auswanderer.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "guía panamá para argentinos 2026: visa, costos, vida",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-para-argentinos-guia-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "guia panamá para brasileiros 2026: visto, custos, vida",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-para-brasileiros-guia-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "guía panamá para colombianos 2026: visa, costos, vida",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-para-colombianos-guia-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "guía panamá para ecuatorianos 2026: visa, costos, vida",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-para-ecuatorianos-guia-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "guía panamá para mexicanos 2026: visa, costos, vida",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-para-mexicanos-guia-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "guía panamá para peruanos 2026: visa, costos, vida",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-para-peruanos-guia-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "vivir en panamá: guía para venezolanos 2026",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/vivir-en-panama-venezolanos.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "what to pack moving to panama 2026: essential items checklist",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/what-to-pack-moving-to-panama.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "10 best places to live in panama for expats (2026 rankings)",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/10-best-places-to-live-in-panama-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "best beaches in panama 2026: where expats relax, weekend guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/best-beaches-panama-expats.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "expat depression in panama: the unfiltered truth (2026)",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/expat-depression-panama-unfiltered.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "getting around panama city 2026: metro, uber, bus & taxi guide",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/getting-around-panama-city-guide.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "internet providers panama 2026: fiber, cable onda, starlink",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/internet-providers-panama-expats.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "get driver license in panama 2026: foreigners guide, cost & process",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-drivers-license-foreigners.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panama food guide for expats 2026: cuisine, markets, restaurants",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-food-guide-expats.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panama for digital nomads 2026: visas, internet, cost of living",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-for-digital-nomads-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "moving to panama with kids 2026: schools, neighborhoods, family life",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-for-families-with-children.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "healthcare in panama 2026: costs, doctors, insurance, quality",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-healthcare-costs-2026.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "buy sim card panama 2026: claro vs movistar vs cable onda",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-sim-card-guide.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panama weather guide 2026: climate, seasons, temperature info",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-weather-guide.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panama weather & rainy season 2026: when to go, what to pack",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-weather-rainy-season-guide.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "pros and cons of retiring in panama 2026: complete analysis",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/pros-cons-retiring-panama.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "retire in panama 2026: complete guide, visas, costs, lifestyle",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/retire-in-panama.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "is panama safe in 2026? real crime data + 5 safest expat areas",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/safety-in-panama-2026-real-data-rumors.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "supermarkets & shopping in panama 2026: where expats buy groceries",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/supermarkets-shopping-panama-expats.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "things to do in panama 2026: activities, tourist attractions",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/things-to-do-in-panama.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "why most expats leave panama after 2 years: the critical mistakes",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/why-expats-leave-panama-2-years.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panama vs belize retirement 2026: which is better? comparison",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-vs-belize-retirement.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panama vs colombia retirement 2026: comparison, costs",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-vs-colombia-retirement.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panama vs costa rica retirement 2026: which is better? comparison",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-vs-costa-rica-retirement.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panama vs mexico retirement 2026: which is better? full comparison",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-vs-mexico-retirement.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panama vs portugal retirement 2026: comparison, costs, visas",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-vs-portugal-retirement.html",
+      "seed": "seed-import"
+    },
+    {
+      "keyword": "panama vs spain retirement 2026: comparison, costs, lifestyle",
+      "intent": "informational",
+      "volume": null,
+      "kd": null,
+      "priority": 3,
+      "fan_out_parent": null,
+      "covered_by": "https://panamarealestateguide.com/articles/panama-vs-spain-retirement.html",
+      "seed": "seed-import"
+    }
+  ]
+}
