@@ -12,10 +12,11 @@ const NEWS_ID = window.location.pathname.split('/').pop().replace('.html', '');
           title: _newsMeta.title,
           date: _newsMeta.date,
           tag: _newsMeta.tag,
-          paragraphs: ['Full dispatch coming soon. In the meantime, see the latest at /news/.']
+          // NOTE: component reads `n.body.map(...)` (Comet QA P0 — was 'paragraphs' which crashed render).
+          body: ['Full dispatch coming soon. In the meantime, see the latest at /news/.']
         };
       } else {
-        n = { title: 'News item not found', date: '', tag: '', paragraphs: ['This dispatch is not in the current news list. See /news/ for the latest.'] };
+        n = { title: 'News item not found', date: '', tag: '', body: ['This dispatch is not in the current news list. See /news/ for the latest.'] };
       }
     }
     document.title = `${n.title} — PanamaRealEstateGuide.com`;
