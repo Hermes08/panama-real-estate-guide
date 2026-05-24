@@ -329,7 +329,7 @@ function HeroEditorial() {
           </div>
 
           {/* Center — featured project "cover story" */}
-          <a href={(LANG === 'en' ? '/projects/' : `/${LANG}/projects/`) + featured.id + '.html'} className="reveal in d3 featured-card" style={{
+          <a href={'/projects/' + featured.id + '.html'} className="reveal in d3 featured-card" style={{
             position: 'relative', borderRadius: 18, overflow: 'hidden',
             background: 'var(--ocean-deep)', color: 'var(--cream)',
             textDecoration: 'none', display: 'block', minHeight: 520,
@@ -459,7 +459,7 @@ function HeroEditorial() {
                 {H.from_newsroom || 'From the newsroom'}
               </div>
               {news.map((n, i) => (
-                <a key={n.slug} href={(LANG === 'en' ? '/news/' : `/${LANG}/news/`) + n.slug + '.html'} style={{
+                <a key={n.slug} href={'/news/' + n.slug + '.html'} style={{
                   display: 'block', padding: '14px 0',
                   borderBottom: i < news.length - 1 ? '1px solid rgba(255,249,236,0.08)' : 'none',
                   textDecoration: 'none', color: 'inherit'
