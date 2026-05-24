@@ -104,6 +104,31 @@
     "author_bios": {
       "Kent Davis": "Founder & principal broker, PanamaRealEstateGuide.com. Writing from Panama City since 2017.",
       "default": "Senior market analyst, PanamaRealEstateGuide.com. Bilingual legal research on Panamanian residency and tax."
+    },
+    "project_status": {
+      "Pre-construction": "Pre-construction",
+      "Move-in Ready": "Move-in Ready",
+      "Under Construction": "Under Construction",
+      "Sold Out": "Sold Out",
+      "Phase II": "Phase II",
+      "Phase III": "Phase III"
+    },
+    "news_titles": {
+      "tocumen-terminal-2-expansion": "Tocumen confirms USD $340 million Terminal 2 expansion to reach 24 million passengers by 2028",
+      "santa-maria-este-launch": "Santa Maria Este opens preconstruction sales on USD $120 million residential development with green-bond financing",
+      "boquete-coffee-fair-2026": "Boquete coffee fair projects record 38,000 visitors and USD $9 million local impact in June 2026",
+      "pedasi-cultural-center": "Pedasi opens new community cultural center funded by Santeno diaspora donors",
+      "semiconductor-strategy-105m": "Panama launches USD $105 million National Semiconductor Strategy to enter global chip ecosystem",
+      "casco-viejo-colon-incentives": "Assembly expands heritage-restoration tax incentives to Casco Antiguo and Colon Historic Center",
+      "canal-projects-2027-bid": "Canal Authority sets June 2027 deadline to award three port and gas-pipeline mega-concessions",
+      "pib-cobre-reactivacion": "Mens Consultores projects 5.57 percent GDP growth in 2026 if copper mine restarts operations",
+      "canal-transit-january-2026": "Panama Canal records 3.8 percent jump in January transits, led by Neopanamax vessels",
+      "world-bank-4-percent-forecast": "World Bank ratifies 4.1 percent growth forecast for Panama in 2026 and 2027",
+      "metro-linea-3-monorail-tests": "Metro Line 3 begins dynamic monorail testing toward Panama Oeste with 2028 operating target",
+      "metro-puente-cuarto-2026": "Line 3 Metro and Fourth Bridge over the Canal remain Panama strategic infrastructure priorities for 2026",
+      "cruise-season-2025-2026": "Panama 2025 to 2026 cruise season opens with 2 percent increase in arrivals at Colon and Amador",
+      "panama-pacifico-logistics-hub": "New USD $20 million logistics hub at Panama Pacifico strengthens regional manufacturing platform",
+      "apede-italia-investment-mission": "APEDE pitches Panama open economy model to Italian investors in Rome trade mission"
     }
   },
   "es": {
@@ -211,6 +236,31 @@
     "author_bios": {
       "Kent Davis": "Fundador y broker principal, PanamaRealEstateGuide.com. Escribiendo desde Ciudad de Panamá desde 2017.",
       "default": "Analista senior de mercado, PanamaRealEstateGuide.com. Investigación legal bilingüe sobre residencia y tributación en Panamá."
+    },
+    "project_status": {
+      "Pre-construction": "Pre-venta",
+      "Move-in Ready": "Listo para entrega",
+      "Under Construction": "En construcción",
+      "Sold Out": "Agotado",
+      "Phase II": "Fase II",
+      "Phase III": "Fase III"
+    },
+    "news_titles": {
+      "tocumen-terminal-2-expansion": "Tocumen confirma ampliación de USD $340 millones de la Terminal 2 para alcanzar 24 millones de pasajeros en 2028",
+      "santa-maria-este-launch": "Santa María Este abre preventas en desarrollo residencial de USD $120 millones con financiamiento de bonos verdes",
+      "boquete-coffee-fair-2026": "Feria del café de Boquete proyecta récord de 38,000 visitantes y USD $9 millones de impacto local en junio 2026",
+      "pedasi-cultural-center": "Pedasí inaugura nuevo centro cultural comunitario financiado por donantes de la diáspora santeña",
+      "semiconductor-strategy-105m": "Panamá lanza Estrategia Nacional de Semiconductores de USD $105 millones para entrar al ecosistema global de chips",
+      "casco-viejo-colon-incentives": "Asamblea amplía incentivos fiscales de restauración patrimonial al Casco Antiguo y Centro Histórico de Colón",
+      "canal-projects-2027-bid": "Autoridad del Canal fija junio 2027 como plazo para adjudicar tres mega-concesiones de puerto y gasoducto",
+      "pib-cobre-reactivacion": "Mens Consultores proyecta crecimiento del PIB de 5.57 por ciento en 2026 si la mina de cobre reanuda operaciones",
+      "canal-transit-january-2026": "Canal de Panamá registra alza del 3.8 por ciento en tránsitos de enero, liderada por buques Neopanamax",
+      "world-bank-4-percent-forecast": "Banco Mundial ratifica pronóstico de crecimiento del 4.1 por ciento para Panamá en 2026 y 2027",
+      "metro-linea-3-monorail-tests": "Metro Línea 3 inicia pruebas dinámicas de monorriel hacia Panamá Oeste con meta operativa en 2028",
+      "metro-puente-cuarto-2026": "Línea 3 del Metro y Cuarto Puente sobre el Canal siguen como prioridades estratégicas de infraestructura para 2026",
+      "cruise-season-2025-2026": "Temporada de cruceros 2025 a 2026 abre con alza del 2 por ciento en arribos a Colón y Amador",
+      "panama-pacifico-logistics-hub": "Nuevo hub logístico de USD $20 millones en Panamá Pacífico fortalece la plataforma regional de manufactura",
+      "apede-italia-investment-mission": "APEDE presenta el modelo de economía abierta de Panamá a inversionistas italianos en misión comercial en Roma"
     }
   },
   "pt": {
@@ -318,6 +368,31 @@
     "author_bios": {
       "Kent Davis": "Fundador e corretor principal, PanamaRealEstateGuide.com. Escrevendo da Cidade do Panamá desde 2017.",
       "default": "Analista sênior de mercado, PanamaRealEstateGuide.com. Pesquisa jurídica bilíngue sobre residência e tributação panamenha."
+    },
+    "project_status": {
+      "Pre-construction": "Pré-venda",
+      "Move-in Ready": "Pronto para morar",
+      "Under Construction": "Em construção",
+      "Sold Out": "Esgotado",
+      "Phase II": "Fase II",
+      "Phase III": "Fase III"
+    },
+    "news_titles": {
+      "tocumen-terminal-2-expansion": "Tocumen confirma ampliação de USD $340 milhões do Terminal 2 para alcançar 24 milhões de passageiros até 2028",
+      "santa-maria-este-launch": "Santa Maria Este abre pré-vendas em desenvolvimento residencial de USD $120 milhões com financiamento de green bonds",
+      "boquete-coffee-fair-2026": "Feira do café de Boquete projeta recorde de 38.000 visitantes e USD $9 milhões de impacto local em junho de 2026",
+      "pedasi-cultural-center": "Pedasí inaugura novo centro cultural comunitário financiado por doadores da diáspora santenha",
+      "semiconductor-strategy-105m": "Panamá lança Estratégia Nacional de Semicondutores de USD $105 milhões para entrar no ecossistema global de chips",
+      "casco-viejo-colon-incentives": "Assembleia amplia incentivos fiscais de restauração patrimonial ao Casco Antiguo e Centro Histórico de Colón",
+      "canal-projects-2027-bid": "Autoridade do Canal define junho de 2027 como prazo para adjudicar três megaconcessões de porto e gasoduto",
+      "pib-cobre-reactivacion": "Mens Consultores projeta crescimento do PIB de 5,57 por cento em 2026 se a mina de cobre reiniciar operações",
+      "canal-transit-january-2026": "Canal do Panamá registra alta de 3,8 por cento em trânsitos de janeiro, liderada por navios Neopanamax",
+      "world-bank-4-percent-forecast": "Banco Mundial ratifica previsão de crescimento de 4,1 por cento para Panamá em 2026 e 2027",
+      "metro-linea-3-monorail-tests": "Metrô Linha 3 inicia testes dinâmicos de monotrilho rumo a Panamá Oeste com meta operacional em 2028",
+      "metro-puente-cuarto-2026": "Linha 3 do Metrô e Quarta Ponte sobre o Canal continuam como prioridades estratégicas de infraestrutura para 2026",
+      "cruise-season-2025-2026": "Temporada de cruzeiros 2025 a 2026 abre com alta de 2 por cento em chegadas a Colón e Amador",
+      "panama-pacifico-logistics-hub": "Novo hub logístico de USD $20 milhões em Panamá Pacífico fortalece a plataforma regional de manufatura",
+      "apede-italia-investment-mission": "APEDE apresenta o modelo de economia aberta do Panamá a investidores italianos em missão comercial em Roma"
     }
   },
   "de": {
@@ -425,6 +500,31 @@
     "author_bios": {
       "Kent Davis": "Gründer und leitender Makler, PanamaRealEstateGuide.com. Schreibt aus Panama-Stadt seit 2017.",
       "default": "Senior-Marktanalyst, PanamaRealEstateGuide.com. Zweisprachige juristische Recherche zu panamaischer Aufenthaltserlaubnis und Steuern."
+    },
+    "project_status": {
+      "Pre-construction": "Vorverkauf",
+      "Move-in Ready": "Bezugsfertig",
+      "Under Construction": "Im Bau",
+      "Sold Out": "Ausverkauft",
+      "Phase II": "Phase II",
+      "Phase III": "Phase III"
+    },
+    "news_titles": {
+      "tocumen-terminal-2-expansion": "Tocumen bestätigt Erweiterung von Terminal 2 für USD 340 Millionen, um bis 2028 24 Millionen Passagiere zu erreichen",
+      "santa-maria-este-launch": "Santa Maria Este eröffnet Vorverkauf für Wohnprojekt im Wert von USD 120 Millionen mit Green-Bond-Finanzierung",
+      "boquete-coffee-fair-2026": "Kaffeemesse Boquete erwartet Rekord von 38.000 Besuchern und USD 9 Millionen lokale Wirkung im Juni 2026",
+      "pedasi-cultural-center": "Pedasí eröffnet neues Kulturzentrum für die Gemeinde, finanziert von Spendern der Santeño-Diaspora",
+      "semiconductor-strategy-105m": "Panama startet Nationale Halbleiter-Strategie über USD 105 Millionen zum Einstieg in das globale Chip-Ökosystem",
+      "casco-viejo-colon-incentives": "Versammlung erweitert Steueranreize zur Denkmalsanierung auf Casco Antiguo und das historische Zentrum von Colón",
+      "canal-projects-2027-bid": "Kanalbehörde setzt Juni 2027 als Frist zur Vergabe von drei Hafen- und Gaspipeline-Megakonzessionen",
+      "pib-cobre-reactivacion": "Mens Consultores prognostiziert BIP-Wachstum von 5,57 Prozent in 2026, falls die Kupfermine den Betrieb wieder aufnimmt",
+      "canal-transit-january-2026": "Panamakanal verzeichnet im Januar 3,8 Prozent mehr Transits, angeführt von Neopanamax-Schiffen",
+      "world-bank-4-percent-forecast": "Weltbank bestätigt Wachstumsprognose von 4,1 Prozent für Panama in 2026 und 2027",
+      "metro-linea-3-monorail-tests": "Metro-Linie 3 beginnt dynamische Monorail-Tests in Richtung Panamá Oeste mit Betriebsziel 2028",
+      "metro-puente-cuarto-2026": "Metro-Linie 3 und Vierte Brücke über den Kanal bleiben strategische Infrastrukturprioritäten Panamas für 2026",
+      "cruise-season-2025-2026": "Kreuzfahrtsaison 2025 bis 2026 öffnet mit 2 Prozent mehr Ankünften in Colón und Amador",
+      "panama-pacifico-logistics-hub": "Neuer Logistik-Hub im Wert von USD 20 Millionen in Panamá Pacífico stärkt die regionale Fertigungsplattform",
+      "apede-italia-investment-mission": "APEDE präsentiert Panamas Modell der offenen Wirtschaft italienischen Investoren bei Handelsmission in Rom"
     }
   }
 }
