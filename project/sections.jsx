@@ -885,38 +885,33 @@ function Footer() {
             </div>
           </div>
           {[
-            // All Projects-column links → #projects (no per-region landing pages exist; this
-            // section already lists all projects, and the user can filter visually).
-            { t: 'Projects', links: [
-              { l: 'Pacific Coast', href: '/#projects' },
-              { l: 'Bocas del Toro', href: '/#projects' },
-              { l: 'Azuero', href: '/#projects' },
-              { l: 'Highlands', href: '/#projects' },
-              { l: 'Panama City', href: '/#projects' },
+            // i18n keys: footer_columns.{projects,journal,company}.{title,links[]}
+            { tKey: 'projects', tFallback: 'Projects', links: [
+              { lKey: 'pacific',  lFallback: 'Pacific Coast', href: '/#projects' },
+              { lKey: 'caribbean',lFallback: 'Bocas del Toro', href: '/#projects' },
+              { lKey: 'azuero',   lFallback: 'Azuero', href: '/#projects' },
+              { lKey: 'highlands',lFallback: 'Highlands', href: '/#projects' },
+              { lKey: 'city',     lFallback: 'Panama City', href: '/#projects' },
             ] },
-            // Journal-column → /articles/?category=X (category filter via URL param is wired in
-            // articles-index-renderer.jsx). News goes to its own index.
-            { t: 'Journal', links: [
-              { l: 'Market Reports', href: '/articles/?category=Market+Report' },
-              { l: 'Residency',      href: '/articles/?category=Residency' },
-              { l: 'Taxes',          href: '/articles/?category=Taxes' },
-              { l: 'Neighborhoods',  href: '/articles/?category=Neighborhood' },
-              { l: 'News',           href: '/news/' },
+            { tKey: 'journal', tFallback: 'Journal', links: [
+              { lKey: 'market_reports', lFallback: 'Market Reports', href: '/articles/?category=Market+Report' },
+              { lKey: 'residency',      lFallback: 'Residency',      href: '/articles/?category=Residency' },
+              { lKey: 'taxes',          lFallback: 'Taxes',          href: '/articles/?category=Taxes' },
+              { lKey: 'neighborhoods',  lFallback: 'Neighborhoods',  href: '/articles/?category=Neighborhood' },
+              { lKey: 'news',           lFallback: 'News',           href: '/news/' },
             ] },
-            // Company-column: pruned to destinations that actually exist. About/Contact map
-            // to the corresponding home-page anchors; Videos links to the channel hub.
-            { t: 'Company', links: [
-              { l: 'About',   href: '/#regions' },
-              { l: 'Videos',  href: '/videos/' },
-              { l: 'News',    href: '/news/' },
-              { l: 'Contact', href: '/#reserve' },
+            { tKey: 'company', tFallback: 'Company', links: [
+              { lKey: 'about',   lFallback: 'About',   href: '/#regions' },
+              { lKey: 'videos',  lFallback: 'Videos',  href: '/videos/' },
+              { lKey: 'news',    lFallback: 'News',    href: '/news/' },
+              { lKey: 'contact', lFallback: 'Contact', href: '/#reserve' },
             ] },
           ].map(col => (
-            <div key={col.t}>
-              <div className="eyebrow" style={{ color: 'var(--aqua)', marginBottom: 18 }}>{col.t}</div>
+            <div key={col.tKey}>
+              <div className="eyebrow" style={{ color: 'var(--aqua)', marginBottom: 18 }}>{sxT('footer_columns.' + col.tKey + '.title', col.tFallback)}</div>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
-                {col.links.map(({ l, href }) => (
-                  <li key={l}><a href={href} style={{ color: 'var(--cream)', opacity: 0.85, textDecoration: 'none', fontSize: 14 }}>{l}</a></li>
+                {col.links.map(({ lKey, lFallback, href }) => (
+                  <li key={lKey}><a href={href} style={{ color: 'var(--cream)', opacity: 0.85, textDecoration: 'none', fontSize: 14 }}>{sxT('footer_columns.' + col.tKey + '.links.' + lKey, lFallback)}</a></li>
                 ))}
               </ul>
             </div>
@@ -928,7 +923,7 @@ function Footer() {
           borderTop: '1px solid rgba(255, 249, 236, 0.10)',
           marginTop: 4
         }}>
-          <div className="eyebrow" style={{ color: 'var(--aqua)', marginBottom: 18 }}>Featured projects</div>
+          <div className="eyebrow" style={{ color: 'var(--aqua)', marginBottom: 18 }}>{sxT('footer_columns.featured_projects', 'Featured projects')}</div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
             {[
               { slug: 'euphoria-art-district', name: 'Euphoria Art District', from: '$285K' },
