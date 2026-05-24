@@ -476,7 +476,7 @@ function HeroEditorial() {
                     lineHeight: 1.3, letterSpacing: '-0.005em', color: 'var(--cream)', textWrap: 'pretty',
                     textShadow: '0 1px 12px rgba(11,31,40,0.6)'
                   }}>
-                    {n.title}
+                    {(() => { const nt = _i18n.news_titles && n.slug && _i18n.news_titles[n.slug]; return nt || n.title; })()}
                   </div>
                 </a>
               ))}

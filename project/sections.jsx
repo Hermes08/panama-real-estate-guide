@@ -73,6 +73,29 @@ function sxCategoryLabel(cat) {
   const i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && window.PANAMA_DATA.chromeI18n[lang]) || {};
   return (i18n.categories && i18n.categories[cat]) || cat;
 }
+// Translate news title via news_titles map (slug → string per language).
+function sxNewsTitle(n) {
+  const lang = sxLang();
+  if (lang === 'en' || !n) return n && n.title;
+  const i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && window.PANAMA_DATA.chromeI18n[lang]) || {};
+  return (i18n.news_titles && n.slug && i18n.news_titles[n.slug]) || (n && n.title);
+}
+// Translate project status badge.
+function sxProjectStatus(status) {
+  const lang = sxLang();
+  if (lang === 'en' || !status) return status;
+  const i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && window.PANAMA_DATA.chromeI18n[lang]) || {};
+  return (i18n.project_status && i18n.project_status[status]) || status;
+}
+// Translate the "From $X" price prefix using home_hero.from_label.
+function sxFromLabel(fromLabel) {
+  if (!fromLabel) return fromLabel;
+  const lang = sxLang();
+  if (lang === 'en') return fromLabel;
+  const i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && window.PANAMA_DATA.chromeI18n[lang]) || {};
+  const prefix = (i18n.home_hero && i18n.home_hero.from_label) || 'From';
+  return fromLabel.replace(/^From\s+/i, `${prefix} `);
+}
 
 /* ── Projects (developer-only) ── */
 
@@ -173,7 +196,7 @@ function ProjectCard({ p, i }) {
           padding: '5px 11px', borderRadius: 999, fontSize: 10, fontFamily: 'var(--font-mono)',
           letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600
         }}>
-          <span style={{ color: 'var(--coral)', marginRight: 6 }}>●</span>{p.status}
+          <span style={{ color: 'var(--coral)', marginRight: 6 }}>●</span>{sxProjectStatus(p.status)}
         </span>
         {p.highlight && (
           <span style={{
@@ -222,7 +245,7 @@ function ProjectCard({ p, i }) {
         }}>
           <div>
             <div style={{ fontSize: 10.5, fontFamily: 'var(--font-mono)', opacity: 0.75, letterSpacing: '0.14em', textTransform: 'uppercase' }}>
-              {p.fromLabel} · {p.delivery}
+              {sxFromLabel(p.fromLabel)} · {p.delivery}
             </div>
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 10,
@@ -490,7 +513,7 @@ function News() {
                   {n.date}
                 </div>
                 <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(16px, 1.3vw, 20px)', fontWeight: 400, letterSpacing: '-0.005em', lineHeight: 1.3 }}>
-                  {n.title}
+                  {sxNewsTitle(n)}
                 </div>
                 <div style={{ fontSize: 10.5, fontFamily: 'var(--font-mono)', color: 'var(--ink-mute)', letterSpacing: '0.12em', textTransform: 'uppercase', whiteSpace: 'nowrap' }} className="hide-mobile">
                   {n.tag}
