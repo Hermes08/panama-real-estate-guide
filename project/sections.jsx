@@ -32,18 +32,21 @@ function sxArticlePath(slug) {
   return `/articles/${slug}.html`;
 }
 function sxNewsPath(slug) {
-  const lang = sxLang();
-  if (lang !== 'en') return `/${lang}/news/${slug}.html`;
+  // News articles are NOT per-language translated yet — translate-content.mjs only
+  // generates /<lang>/articles/<slug>.html. Always link to the EN canonical so the
+  // click works. (When per-language news shells land, swap this back to /<lang>/news/.)
   return `/news/${slug}.html`;
 }
 function sxProjectPath(slug) {
-  const lang = sxLang();
-  if (lang !== 'en') return `/${lang}/projects/${slug}.html`;
+  // Project detail pages exist only at /projects/<slug>.html and /proyectos/<slug>.html
+  // (the latter is the Banesco /proyectos/ folder, separate). No /<lang>/projects/
+  // pages exist. Always link to the EN canonical.
   return `/projects/${slug}.html`;
 }
 function sxIndexPath(kind) {
-  const lang = sxLang();
-  return lang === 'en' ? `/${kind}/` : `/${lang}/${kind}/`;
+  // /<lang>/articles/, /<lang>/news/, /<lang>/projects/ index pages are not built.
+  // Always link to EN canonical /<kind>/.
+  return `/${kind}/`;
 }
 function sxAbs(src) {
   if (!src) return src;
