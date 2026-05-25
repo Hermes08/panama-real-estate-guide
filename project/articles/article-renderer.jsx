@@ -303,8 +303,14 @@ const ARTICLE_ID = window.location.pathname.split('/').pop().replace('.html', ''
                   const rMetaT = (window.PANAMA_DATA.articleMeta && window.PANAMA_DATA.articleMeta[LANG] && window.PANAMA_DATA.articleMeta[LANG][r.id]) || {};
                   const rTitle = rMetaT.title || r.title;
                   const rCategory = t('categories.' + r.category, r.category);
+                  // Absolute path so it always works. If translated meta exists for the user's
+                  // language, link to /<lang>/articles/<slug>.html (stays in language); otherwise
+                  // fall back to EN canonical /articles/<slug>.html.
+                  const rHref = (LANG !== 'en' && rMetaT && rMetaT.title)
+                    ? `/${LANG}/articles/${r.id}.html`
+                    : `/articles/${r.id}.html`;
                   return (
-                    <a key={r.id} href={`${r.id}.html`} className="reveal" style={{
+                    <a key={r.id} href={rHref} className="reveal" style={{
                       textDecoration: 'none', color: 'inherit', transitionDelay: `${i * 0.06}s`, display: 'block'
                     }}>
                       <div className={`ph ph-${r.cover}`} data-label="" style={{ aspectRatio: '4/3', borderRadius: 12, marginBottom: 16, backgroundImage: `url(${pickCoverImg(r)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}/>

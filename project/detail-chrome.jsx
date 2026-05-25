@@ -75,8 +75,10 @@ function DetailNav() {
             <a key={l} href={href} onClick={() => setOpen(false)}
                style={{ fontSize: 22, fontFamily: 'var(--font-display)', color: 'var(--ink)', textDecoration: 'none' }}>{l}</a>
           ))}
-          <div style={{ marginTop: 12 }}>
-            <a href={`${dcLangPrefix()}/#reserve`} className="btn btn-coral" style={{ justifyContent: 'center', width: '100%' }}>{dcT('nav.reserve_a_unit', 'Reserve a unit')}</a>
+          {/* Lang switcher in mobile burger menu — Comet QA v7 P1: was missing on article pages. */}
+          <div style={{ marginTop: 12, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
+            <LangSwitcher current={DC_LANG.toUpperCase()} onDark={false}/>
+            <a href={`${dcLangPrefix()}/#reserve`} className="btn btn-coral" style={{ justifyContent: 'center', flex: 1 }}>{dcT('nav.reserve_a_unit', 'Reserve a unit')}</a>
           </div>
         </div>
       )}
@@ -139,7 +141,7 @@ function DetailCTA({ kind = 'reserve' }) {
                style={{ background: 'var(--ink)', color: 'var(--cream)' }}>
               {dcT('cta.start_a_reservation', 'Start a reservation')} <Icon name="arrow" size={14}/>
             </a>
-            <a href={`https://wa.me/50767610315${waQs}`} className="btn btn-ghost-light">{dcT('cta.whatsapp_label', 'WhatsApp')} +507 6761-0315</a>
+            <a href={`https://wa.me/50762534802${waQs}`} className="btn btn-ghost-light">{dcT('cta.whatsapp_label', 'WhatsApp')} +507 6253-4802</a>
           </div>
         </div>
         <style>{`@media (max-width: 900px) { [data-cta-grid] { grid-template-columns: 1fr !important; } }`}</style>
@@ -170,13 +172,17 @@ function DetailFooter() {
         )}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 20 }}>
           <Logo onDark={true} size={16}/>
+          {/* All list pages go to EN canonical — /<lang>/articles/, /<lang>/news/, /<lang>/videos/
+              don't exist as directories (only individual translated article files do).
+              In-page anchors (#projects) keep the lang prefix.
+              Privacy/Terms use the actual file paths (/privacy.html, /terms.html). */}
           <div style={{ display: 'flex', gap: 24, fontSize: 12, opacity: 0.75, fontFamily: 'var(--font-mono)', letterSpacing: '0.12em', textTransform: 'uppercase', flexWrap: 'wrap' }}>
             <a href={`${dcLangPrefix()}/#projects`} style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.projects', 'Projects')}</a>
-            <a href={DC_LANG === 'en' ? '../articles/index.html' : `/${DC_LANG}/articles/`} style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.journal', 'Journal')}</a>
-            <a href={`${dcLangPrefix()}/videos/`} style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.videos', 'Videos')}</a>
-            <a href={`${dcLangPrefix()}/news/`} style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.news', 'News')}</a>
-            <a href="/privacidad" style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.privacy', 'Privacy')}</a>
-            <a href="/terminos" style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.terms', 'Terms')}</a>
+            <a href="/articles/" style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.journal', 'Journal')}</a>
+            <a href="/videos/" style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.videos', 'Videos')}</a>
+            <a href="/news/" style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.news', 'News')}</a>
+            <a href="/privacy.html" style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.privacy', 'Privacy')}</a>
+            <a href="/terms.html" style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.terms', 'Terms')}</a>
           </div>
           <div style={{ fontSize: 11, opacity: 0.6, fontFamily: 'var(--font-mono)', letterSpacing: '0.12em' }}>
             {dcT('footer.copyright', '© 2026 PanamaRealEstateGuide.com')}

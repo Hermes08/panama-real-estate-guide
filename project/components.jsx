@@ -487,7 +487,7 @@ function HeroEditorial() {
                     letterSpacing: '0.12em', fontWeight: 700, textTransform: 'uppercase', marginBottom: 6,
                     textShadow: '0 0 12px rgba(11,31,40,0.6)'
                   }}>
-                    {n.date} · {n.tag}
+                    {n.date} · {(_i18n.news_tags && _i18n.news_tags[n.tag]) || n.tag}
                   </div>
                   <div style={{
                     fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 400,
