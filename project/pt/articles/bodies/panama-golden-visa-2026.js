@@ -93,7 +93,7 @@
     "Sua jornada de residência começa com uma única consulta. Nossos consultores revisarão sua situação, estimarão seu cronograma e custos, e o guiarão pela categoria exata de visa que se ajusta aos seus objetivos, seja aposentadoria Pensionado, propriedade de imóveis Nações Amigas ou residência respaldada por negócio.",
     "Cuidamos de todo o processo: coleta de documentos, coordenação de apostilas, gestão de traduções, contato com advogados e preparação para a entrevista. A maioria dos clientes leva de 5 a 8 meses desde a primeira ligação até ter o carnet em mãos.",
     "**Reserve uma consulta gratuita de residência de 30 minutos:** WhatsApp **+507 6761-0315** ou envie sua situação por e-mail, e responderemos em 24 horas.",
-    "**Leituras relacionadas:** - [Benefícios fiscais do Panamá para estrangeiros 2026: alívios fiscais por residência](/pt/articles/panama-tax-benefits-foreigners-2026.html) - [O que fazer se sua visa do Panamá for rejeitada (guia de emergência 2026)](/pt/articles/panama-visa-rejected-appeal-guide.html)",
+    "**Leituras relacionadas:** - [Benefícios fiscais do Panamá para estrangeiros 2026: alívios fiscais por residência](/pt/pt/articles/panama-tax-benefits-foreigners-2026.html) - [O que fazer se sua visa do Panamá for rejeitada (guia de emergência 2026)](/pt/articles/panama-visa-rejected-appeal-guide.html)",
     "**Resumo de uma linha para lembrar:** A visa de imóveis de Nações Amigas do Panamá custa **USD $200,000 mínimo** em propriedade, leva **5 a 8 meses** e lhe dá residência vitalícia com zero imposto sobre rendimentos estrangeiros."
   ];
 })();

@@ -884,29 +884,35 @@ function Footer() {
               ))}
             </div>
           </div>
-          {[
-            // i18n keys: footer_columns.{projects,journal,company}.{title,links[]}
-            { tKey: 'projects', tFallback: 'Projects', links: [
-              { lKey: 'pacific',  lFallback: 'Pacific Coast', href: '/#projects' },
-              { lKey: 'caribbean',lFallback: 'Bocas del Toro', href: '/#projects' },
-              { lKey: 'azuero',   lFallback: 'Azuero', href: '/#projects' },
-              { lKey: 'highlands',lFallback: 'Highlands', href: '/#projects' },
-              { lKey: 'city',     lFallback: 'Panama City', href: '/#projects' },
-            ] },
-            { tKey: 'journal', tFallback: 'Journal', links: [
-              { lKey: 'market_reports', lFallback: 'Market Reports', href: '/articles/?category=Market+Report' },
-              { lKey: 'residency',      lFallback: 'Residency',      href: '/articles/?category=Residency' },
-              { lKey: 'taxes',          lFallback: 'Taxes',          href: '/articles/?category=Taxes' },
-              { lKey: 'neighborhoods',  lFallback: 'Neighborhoods',  href: '/articles/?category=Neighborhood' },
-              { lKey: 'news',           lFallback: 'News',           href: '/news/' },
-            ] },
-            { tKey: 'company', tFallback: 'Company', links: [
-              { lKey: 'about',   lFallback: 'About',   href: '/#regions' },
-              { lKey: 'videos',  lFallback: 'Videos',  href: '/videos/' },
-              { lKey: 'news',    lFallback: 'News',    href: '/news/' },
-              { lKey: 'contact', lFallback: 'Contact', href: '/#reserve' },
-            ] },
-          ].map(col => (
+          {(() => {
+            // Anchor links (#projects, #regions, #reserve) keep the lang prefix so
+            // they scroll on the current-language home. List page links + category
+            // filters go to EN canonical (which Netlify _redirects also map /es/articles/
+            // → /articles/ etc, so locale-prefixed clicks don't 404 either).
+            const lp = sxLang() === 'en' ? '' : `/${sxLang()}`;
+            return [
+              { tKey: 'projects', tFallback: 'Projects', links: [
+                { lKey: 'pacific',  lFallback: 'Pacific Coast', href: `${lp}/#projects` },
+                { lKey: 'caribbean',lFallback: 'Bocas del Toro', href: `${lp}/#projects` },
+                { lKey: 'azuero',   lFallback: 'Azuero', href: `${lp}/#projects` },
+                { lKey: 'highlands',lFallback: 'Highlands', href: `${lp}/#projects` },
+                { lKey: 'city',     lFallback: 'Panama City', href: `${lp}/#projects` },
+              ] },
+              { tKey: 'journal', tFallback: 'Journal', links: [
+                { lKey: 'market_reports', lFallback: 'Market Reports', href: '/articles/?category=Market+Report' },
+                { lKey: 'residency',      lFallback: 'Residency',      href: '/articles/?category=Residency' },
+                { lKey: 'taxes',          lFallback: 'Taxes',          href: '/articles/?category=Taxes' },
+                { lKey: 'neighborhoods',  lFallback: 'Neighborhoods',  href: '/articles/?category=Neighborhood' },
+                { lKey: 'news',           lFallback: 'News',           href: '/news/' },
+              ] },
+              { tKey: 'company', tFallback: 'Company', links: [
+                { lKey: 'about',   lFallback: 'About',   href: `${lp}/#regions` },
+                { lKey: 'videos',  lFallback: 'Videos',  href: '/videos/' },
+                { lKey: 'news',    lFallback: 'News',    href: '/news/' },
+                { lKey: 'contact', lFallback: 'Contact', href: `${lp}/#reserve` },
+              ] },
+            ];
+          })().map(col => (
             <div key={col.tKey}>
               <div className="eyebrow" style={{ color: 'var(--aqua)', marginBottom: 18 }}>{sxT('footer_columns.' + col.tKey + '.title', col.tFallback)}</div>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>

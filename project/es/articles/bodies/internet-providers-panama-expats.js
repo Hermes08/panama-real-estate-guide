@@ -106,9 +106,9 @@ Los precios, las condiciones de plan y la cobertura de internet en Panamá cambi
 
 ## Guías relacionadas
 
-- [Mejores barrios de Ciudad de Panamá para expatriados](https://panamarealestateguide.com/articles/best-neighborhoods-panama-city-expats.html) para elegir zona antes de elegir proveedor.
-- [Mudarse a Panamá con mascotas](https://panamarealestateguide.com/articles/moving-to-panama-with-pets.html) para el resto de la operación de reubicación.
-- [Guía del proceso de compra de propiedades en Panamá 2026](https://panamarealestateguide.com/articles/panama-property-buying-process-guide.html) para la perspectiva en la etapa de cierre.
+- [Mejores barrios de Ciudad de Panamá para expatriados](https://panamarealestateguide.com/es/articles/best-neighborhoods-panama-city-expats.html) para elegir zona antes de elegir proveedor.
+- [Mudarse a Panamá con mascotas](https://panamarealestateguide.com/es/articles/moving-to-panama-with-pets.html) para el resto de la operación de reubicación.
+- [Guía del proceso de compra de propiedades en Panamá 2026](https://panamarealestateguide.com/es/articles/panama-property-buying-process-guide.html) para la perspectiva en la etapa de cierre.
 
 ## Divulgación
 

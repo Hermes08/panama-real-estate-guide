@@ -69,7 +69,7 @@
     "**P: É verdade que o clima é idêntico todo dia?** R: Quase. A temperatura fica entre 24 e 32 °C o ano todo (áreas costeiras). A umidade vai de 65% a 85%. Os ventos alísios ajudam em Cinta Costera (mais brisa). O interior (Boquete) é mais fresco (15 a 24 °C). Se você não gosta de calor, Boquete é melhor; se você quer calor caribenho e praias acessíveis, morar na cidade (especialmente Amador) é ideal.",
     {"h":"Próximos passos com a VIP Expats"},
     "Pronto para explorar a vida na Cidade do Panamá em profundidade? **Reserve uma consultoria gratuita de relocação** com a nossa equipe, vamos encontrar bairros que combinem com seu orçamento, situação familiar e estilo de vida. Ou fale conosco diretamente: **WhatsApp +507 6761-0315**.",
-    "**Artigos relacionados que vão ser úteis:** - [Boquete Panamá Imóveis: Guia de Vida na Montanha](https://panamarealestateguide.com/articles/boquete-panama-real-estate.html) - [Coronado Imóveis 2026: Preços, Vida na Praia, Guia de Investimento](https://panamarealestateguide.com/articles/coronado-real-estate-guide.html)",
+    "**Artigos relacionados que vão ser úteis:** - [Boquete Panamá Imóveis: Guia de Vida na Montanha](https://panamarealestateguide.com/pt/articles/boquete-panama-real-estate.html) - [Coronado Imóveis 2026: Preços, Vida na Praia, Guia de Investimento](https://panamarealestateguide.com/pt/articles/coronado-real-estate-guide.html)",
     "**Resumo em uma linha:** os aluguéis na Cidade do Panamá vão de $700 a $4.200/mês dependendo do bairro e do estilo de vida; escolha El Cangrejo ou San Francisco por caminhabilidade e valor, ou Paitilla por vida familiar tranquila; todos oferecem vida urbana genuína a 35% a 45% menos do que cidades dos EUA.",
     "---",
     {"h":"Ganchos para redes sociais"},

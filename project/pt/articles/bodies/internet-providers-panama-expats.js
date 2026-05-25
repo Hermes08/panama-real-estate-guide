@@ -10,7 +10,7 @@ window.PANAMA_DATA.articleBodies["internet-providers-panama-expats"] = {
   last_updated: "2026-05-19",
   category: "Custo de Vida e Finanças",
   tags: ["internet", "expatriados", "cidade-do-panama", "boquete", "pedasi", "costa-del-este", "starlink", "tigo", "masmovil"],
-  canonical: "https://panamarealestateguide.com/pt/articles/internet-providers-panama-expats.html",
+  canonical: "https://panamarealestateguide.com/pt/pt/articles/internet-providers-panama-expats.html",
   body: `# Provedores de internet no Panamá 2026: Tigo, +Móvil, Starlink (preços reais por zona)
 
 Se você está movendo USD $300.000 ou mais entre fronteiras para comprar um imóvel no Panamá, a questão da internet importa mais do que parece. O fechamento do imóvel, a papelada de residência e os primeiros seis meses de trabalho remoto dependem todos de uma conexão que não caia durante uma chamada de Zoom com seu advogado em Miami ou seu banco em Bogotá.
@@ -113,9 +113,9 @@ Preços de internet, termos de plano e cobertura mudam com frequência no Panam�
 
 ## Guias relacionados
 
-- [Melhores bairros da Cidade do Panamá para expatriados](https://panamarealestateguide.com/pt/articles/best-neighborhoods-panama-city-expats.html) para seleção de zona antes de escolher o provedor.
-- [Mudando para o Panamá com pets](https://panamarealestateguide.com/pt/articles/moving-to-panama-with-pets.html) para o resto da pilha operacional de mudança.
-- [Guia 2026 do processo de compra de imóvel no Panamá](https://panamarealestateguide.com/pt/articles/panama-property-buying-process-guide.html) para a perspectiva da etapa de fechamento.
+- [Melhores bairros da Cidade do Panamá para expatriados](https://panamarealestateguide.com/pt/pt/articles/best-neighborhoods-panama-city-expats.html) para seleção de zona antes de escolher o provedor.
+- [Mudando para o Panamá com pets](https://panamarealestateguide.com/pt/pt/articles/moving-to-panama-with-pets.html) para o resto da pilha operacional de mudança.
+- [Guia 2026 do processo de compra de imóvel no Panamá](https://panamarealestateguide.com/pt/pt/articles/panama-property-buying-process-guide.html) para a perspectiva da etapa de fechamento.
 
 ## Divulgação
 

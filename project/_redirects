@@ -1,0 +1,36 @@
+# Netlify _redirects — multilingual fallbacks
+#
+# Per-language index pages (/es/articles/, /pt/articles/, /de/articles/) and
+# /es/news/, /es/videos/ aren't built statically — only individual article
+# HTML files exist under /<lang>/articles/. To prevent 404 when users click
+# Crónicas/Videos/Noticias from a /<lang>/ navbar/footer, redirect those
+# directory requests to the EN canonical index pages (which exist and work).
+#
+# This way the navbar can use locale-prefixed hrefs without 404s.
+#
+# Status 301 = permanent redirect; preserves SEO equity to the canonical.
+
+/es/articles/  /articles/  301
+/pt/articles/  /articles/  301
+/de/articles/  /articles/  301
+
+/es/news/  /news/  301
+/pt/news/  /news/  301
+/de/news/  /news/  301
+
+/es/videos/  /videos/  301
+/pt/videos/  /videos/  301
+/de/videos/  /videos/  301
+
+/es/projects/*  /projects/:splat  301
+/pt/projects/*  /projects/:splat  301
+/de/projects/*  /projects/:splat  301
+
+# Article category filter URLs from translated home cards/footer also redirect
+/es/articles/  /articles/  301
+/pt/articles/  /articles/  301
+/de/articles/  /articles/  301
+
+# Legacy Spanish-slug privacy/terms (DetailFooter used to point there)
+/privacidad  /privacy.html  301
+/terminos    /terms.html    301
