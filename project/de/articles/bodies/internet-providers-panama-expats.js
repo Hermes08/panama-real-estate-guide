@@ -10,7 +10,7 @@ window.PANAMA_DATA.articleBodies["internet-providers-panama-expats"] = {
   last_updated: "2026-05-19",
   category: "Lebenshaltungskosten und Finanzen",
   tags: ["internet", "auswanderer", "panama-stadt", "boquete", "pedasi", "costa-del-este", "starlink", "tigo", "masmovil"],
-  canonical: "https://panamarealestateguide.com/de/articles/internet-providers-panama-expats.html",
+  canonical: "https://panamarealestateguide.com/de/de/articles/internet-providers-panama-expats.html",
   body: `# Internet in Panama 2026: Tigo, +Móvil, Starlink (Preise nach Zone)
 
 Wenn Sie USD $300.000 oder mehr über Grenzen hinweg bewegen, um eine Immobilie in Panama zu erwerben, ist die Internetfrage wichtiger, als sie klingt. Der Immobilienabschluss, die Aufenthaltsunterlagen und die ersten sechs Monate Remote-Arbeit hängen alle von einer Verbindung ab, die während eines Zoom-Calls mit Ihrem Anwalt in Miami oder Ihrer Bank in Bogotá nicht abbricht.
@@ -113,9 +113,9 @@ Internetpreise, Tarifkonditionen und Abdeckung ändern sich in Panama häufig. F
 
 ## Verwandte Leitfäden
 
-- [Beste Stadtteile in Panama-Stadt für Auswanderer](https://panamarealestateguide.com/de/articles/best-neighborhoods-panama-city-expats.html) für die Zonenwahl, bevor Sie einen Anbieter auswählen.
-- [Mit Haustieren nach Panama ziehen](https://panamarealestateguide.com/de/articles/moving-to-panama-with-pets.html) für den Rest des operativen Umzugs-Stacks.
-- [Leitfaden zum Immobilienkaufprozess in Panama 2026](https://panamarealestateguide.com/de/articles/panama-property-buying-process-guide.html) für die Perspektive der Abschlussphase.
+- [Beste Stadtteile in Panama-Stadt für Auswanderer](https://panamarealestateguide.com/de/de/articles/best-neighborhoods-panama-city-expats.html) für die Zonenwahl, bevor Sie einen Anbieter auswählen.
+- [Mit Haustieren nach Panama ziehen](https://panamarealestateguide.com/de/de/articles/moving-to-panama-with-pets.html) für den Rest des operativen Umzugs-Stacks.
+- [Leitfaden zum Immobilienkaufprozess in Panama 2026](https://panamarealestateguide.com/de/de/articles/panama-property-buying-process-guide.html) für die Perspektive der Abschlussphase.
 
 ## Offenlegung
 
