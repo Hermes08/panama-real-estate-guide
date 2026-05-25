@@ -93,7 +93,7 @@
     "Ihr Weg zur Aufenthaltserlaubnis beginnt mit einer einzigen Beratung. Unsere Berater prüfen Ihre Situation, schätzen Ihren Zeitplan und Ihre Kosten ein und führen Sie durch die genaue Visakategorie, die zu Ihren Zielen passt, sei es Pensionado-Ruhestand, Naciones Amigas/Friendly Nations-Immobilieneigentum oder unternehmensgestützte Aufenthaltserlaubnis.",
     "Wir übernehmen den gesamten Prozess: Dokumentenbeschaffung, Apostille-Koordination, Übersetzungsmanagement, Anwaltsliaison und Vorbereitung des Interviews. Die meisten Mandanten brauchen 5 bis 8 Monate vom ersten Telefonat bis zum Carnet in der Hand.",
     "**Buchen Sie eine kostenlose 30-minütige Aufenthaltsberatung:** WhatsApp **+507 6761-0315** oder schildern Sie Ihre Situation per E-Mail, und wir antworten innerhalb von 24 Stunden.",
-    "**Weiterführende Lektüre:** - [Steuervorteile in Panama für Ausländer 2026: Steuererleichterungen durch Aufenthaltserlaubnis](/de/articles/panama-tax-benefits-foreigners-2026.html) - [Was tun, wenn Ihr Panama-Visum abgelehnt wird (Notfall-Leitfaden 2026)](/de/articles/panama-visa-rejected-appeal-guide.html)",
+    "**Weiterführende Lektüre:** - [Steuervorteile in Panama für Ausländer 2026: Steuererleichterungen durch Aufenthaltserlaubnis](/de/de/articles/panama-tax-benefits-foreigners-2026.html) - [Was tun, wenn Ihr Panama-Visum abgelehnt wird (Notfall-Leitfaden 2026)](/de/articles/panama-visa-rejected-appeal-guide.html)",
     "**Einzeiliger Merksatz:** Panamas Naciones Amigas/Friendly Nations-Immobilienvisum kostet **mindestens USD $200.000** in Immobilien, dauert **5 bis 8 Monate** und verschafft Ihnen lebenslange Aufenthaltserlaubnis bei null Einkommensteuer auf Auslandseinkünfte."
   ];
 })();
