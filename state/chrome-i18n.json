@@ -281,6 +281,25 @@
     "floating_contact": {
       "whatsapp": "WhatsApp +507 6253-4802",
       "call_us": "Call US (731) 937-9142"
+    },
+    "lead_capture": {
+      "eyebrow": "Personalised shortlist",
+      "title": "The next three projects that fit you.",
+      "subtitle": "Tell us how to reach you. We’ll send a personalised shortlist based on what you’ve been reading — no spam, ever.",
+      "first_name_placeholder": "First name",
+      "last_name_placeholder": "Last name",
+      "email_placeholder": "Email address",
+      "phone_placeholder": "WhatsApp / phone (with country code)",
+      "submit_label": "Send me the shortlist",
+      "submit_sending": "Sending…",
+      "privacy_note": "Your details stay private. We never share them with third parties.",
+      "error_required": "First name and email are required.",
+      "error_network": "Could not submit — please try again.",
+      "dismiss": "Close",
+      "thank_you_eyebrow": "Thank you",
+      "thank_you_title": "We’ll be in touch.",
+      "thank_you_body": "A bilingual concierge will reach out within 24 hours on WhatsApp.",
+      "thank_you_whatsapp_now": "Or message us on WhatsApp now"
     }
   },
   "es": {
@@ -565,6 +584,25 @@
     "floating_contact": {
       "whatsapp": "WhatsApp +507 6253-4802",
       "call_us": "Llamar EE.UU. (731) 937-9142"
+    },
+    "lead_capture": {
+      "eyebrow": "Selección personalizada",
+      "title": "Los próximos tres proyectos que te quedan bien.",
+      "subtitle": "Cuéntanos cómo contactarte. Te enviaremos una lista personalizada basada en lo que has estado leyendo — nunca spam.",
+      "first_name_placeholder": "Nombre",
+      "last_name_placeholder": "Apellido",
+      "email_placeholder": "Correo electrónico",
+      "phone_placeholder": "WhatsApp / teléfono (con código de país)",
+      "submit_label": "Enviarme la selección",
+      "submit_sending": "Enviando…",
+      "privacy_note": "Tus datos quedan privados. Nunca los compartimos con terceros.",
+      "error_required": "Nombre y correo son obligatorios.",
+      "error_network": "No se pudo enviar — intenta de nuevo.",
+      "dismiss": "Cerrar",
+      "thank_you_eyebrow": "Gracias",
+      "thank_you_title": "Te contactaremos pronto.",
+      "thank_you_body": "Un concierge bilingüe te escribirá en menos de 24 horas por WhatsApp.",
+      "thank_you_whatsapp_now": "O escríbenos ahora por WhatsApp"
     }
   },
   "pt": {
@@ -849,6 +887,25 @@
     "floating_contact": {
       "whatsapp": "WhatsApp +507 6253-4802",
       "call_us": "Ligar EUA (731) 937-9142"
+    },
+    "lead_capture": {
+      "eyebrow": "Seleção personalizada",
+      "title": "Os próximos três projetos certos para você.",
+      "subtitle": "Diga-nos como te contactar. Enviaremos uma seleção personalizada com base no que você tem lido — sem spam.",
+      "first_name_placeholder": "Nome",
+      "last_name_placeholder": "Sobrenome",
+      "email_placeholder": "E-mail",
+      "phone_placeholder": "WhatsApp / telefone (com código do país)",
+      "submit_label": "Enviar a seleção",
+      "submit_sending": "Enviando…",
+      "privacy_note": "Seus dados ficam privados. Nunca compartilhamos com terceiros.",
+      "error_required": "Nome e e-mail são obrigatórios.",
+      "error_network": "Não foi possível enviar — tente novamente.",
+      "dismiss": "Fechar",
+      "thank_you_eyebrow": "Obrigado",
+      "thank_you_title": "Entraremos em contato.",
+      "thank_you_body": "Um concierge bilíngue entrará em contato em 24 horas pelo WhatsApp.",
+      "thank_you_whatsapp_now": "Ou fale conosco agora pelo WhatsApp"
     }
   },
   "de": {
@@ -1133,6 +1190,25 @@
     "floating_contact": {
       "whatsapp": "WhatsApp +507 6253-4802",
       "call_us": "USA anrufen (731) 937-9142"
+    },
+    "lead_capture": {
+      "eyebrow": "Persönliche Auswahl",
+      "title": "Die nächsten drei Projekte, die zu Ihnen passen.",
+      "subtitle": "Sagen Sie uns, wie wir Sie erreichen können. Wir senden eine persönliche Auswahl auf Basis dessen, was Sie gelesen haben — kein Spam.",
+      "first_name_placeholder": "Vorname",
+      "last_name_placeholder": "Nachname",
+      "email_placeholder": "E-Mail-Adresse",
+      "phone_placeholder": "WhatsApp / Telefon (mit Ländervorwahl)",
+      "submit_label": "Auswahl senden",
+      "submit_sending": "Wird gesendet…",
+      "privacy_note": "Ihre Daten bleiben privat. Wir geben sie niemals an Dritte weiter.",
+      "error_required": "Vorname und E-Mail sind erforderlich.",
+      "error_network": "Konnte nicht senden — bitte erneut versuchen.",
+      "dismiss": "Schließen",
+      "thank_you_eyebrow": "Danke",
+      "thank_you_title": "Wir melden uns.",
+      "thank_you_body": "Ein zweisprachiger Concierge meldet sich innerhalb von 24 Stunden per WhatsApp.",
+      "thank_you_whatsapp_now": "Oder schreiben Sie uns jetzt bei WhatsApp"
     }
   }
 }
