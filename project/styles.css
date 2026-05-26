@@ -268,15 +268,15 @@ section { position: relative; }
 .rotate-slow { animation: rotate-slow 40s linear infinite; }
 
 /* Responsive */
-/* Navbar breakpoint raised to 1024px — Comet QA P1: at 932px viewport the
-   nav links + lang dropdown + Reservar unidad/Einheit reservieren CTA
-   overflowed off-screen on ES/PT/DE pages (longer labels than EN). */
-@media (max-width: 1024px) {
+/* Navbar breakpoint at 1180px — needs enough room for: Logo + 7 nav links +
+   LangSwitcher + US-phone tap-to-call pill (NEW) + Reserve CTA. Below 1180px
+   the mobile burger takes over (it already has WhatsApp + US contact strip). */
+@media (max-width: 1180px) {
   .nav-desktop { display: none !important; }
   .nav-cta-desktop { display: none !important; }
   .nav-burger { display: inline-flex !important; }
 }
-@media (min-width: 1025px) {
+@media (min-width: 1181px) {
   .nav-burger { display: none !important; }
   .show-mobile { display: none !important; }
 }

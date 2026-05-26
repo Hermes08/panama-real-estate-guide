@@ -68,6 +68,24 @@
 <body>
   <div id="root"></div>
 
+  <!-- Netlify Forms static declaration for the LeadCaptureModal pop-up.
+       Hidden from users (display:none). Netlify's build crawler scans this
+       HTML for `data-netlify="true"` forms and provisions the submission
+       endpoint. The React modal then POSTs to "/" with form-name=lead-capture
+       and Netlify routes it into the Forms dashboard for this site. -->
+  <form name="lead-capture" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="first_name"/>
+    <input type="text" name="last_name"/>
+    <input type="email" name="email"/>
+    <input type="tel"  name="phone"/>
+    <input type="text" name="language"/>
+    <textarea name="visited_pages"></textarea>
+    <input type="text" name="current_page"/>
+    <input type="text" name="referer"/>
+    <input type="text" name="submitted_at"/>
+    <input type="text" name="bot-field"/>
+  </form>
+
   <!-- Tracking helpers (dataLayer, getUTM, trackWhatsApp) — must load BEFORE other scripts -->
   <script src="tracking.js?v=1"></script>
 

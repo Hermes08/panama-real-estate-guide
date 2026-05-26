@@ -56,6 +56,19 @@ function DetailNav() {
         </nav>
         <div className="nav-cta-desktop" style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
           <LangSwitcher current={DC_LANG.toUpperCase()} onDark={false}/>
+          {/* US phone — always-visible tap-to-call in navbar */}
+          <a href="tel:+17319379142" className="nav-callus" style={{
+            display: 'inline-flex', alignItems: 'center', gap: 6,
+            color: 'inherit', textDecoration: 'none',
+            padding: '8px 12px', borderRadius: 999, border: '1px solid var(--line)',
+            fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.06em', fontWeight: 700,
+            whiteSpace: 'nowrap'
+          }} title="(731) 937-9142">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20 15.5c-1.2 0-2.5-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2a15 15 0 0 1-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1A11.4 11.4 0 0 1 8.5 4c0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/>
+            </svg>
+            US · (731) 937-9142
+          </a>
           <a href={`${dcLangPrefix()}/#reserve`} className="btn btn-coral" style={{ padding: '11px 20px', fontSize: 11 }}>
             {dcT('nav.reserve_a_unit', 'Reserve a unit')} <Icon name="arrow" size={13}/>
           </a>
@@ -97,6 +110,7 @@ function DetailNav() {
         </div>
       )}
       <FloatingContact/>
+      <LeadCaptureModal/>
     </header>
   );
 }

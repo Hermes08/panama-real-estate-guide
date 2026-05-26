@@ -210,6 +210,203 @@ function FloatingContact() {
   );
 }
 
+/* ── LeadCaptureModal — pop-up after 3+ content pageviews ──────────────────
+ *  Tracks distinct visits to article / project / news / video pages in
+ *  localStorage. Once the visitor has seen >= 3 different content pages,
+ *  shows a non-blocking modal asking for first name + last name + email +
+ *  phone. Form POSTs to Netlify Forms (form name="lead-capture" declared
+ *  statically in project/index.html so the Netlify build crawler indexes it).
+ *
+ *  Dismissal is remembered for 7 days; successful submit is remembered
+ *  forever (until localStorage is cleared). i18n via chrome-i18n.lead_capture.
+ */
+function LeadCaptureModal() {
+  const [open, setOpen]           = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending]     = useState(false);
+  const [error, setError]         = useState(null);
+  const [form, setForm] = useState({ first_name: '', last_name: '', email: '', phone: '' });
+
+  const LANG = (typeof window !== 'undefined' && window.PREG_LANG) || 'en';
+  const i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[LANG] || window.PANAMA_DATA.chromeI18n.en)) || {};
+  const L = i18n.lead_capture || {};
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      const VISITED_KEY = 'preg_visited_pages_v1';
+      const SUBMITTED_KEY = 'preg_lead_submitted';
+      const DISMISSED_KEY = 'preg_lead_dismissed_at';
+      // Only content pages count: article / project / news / video detail (any lang)
+      const path = window.location.pathname;
+      const isContent = /^\/(?:[a-z]{2}\/)?(?:articles|projects|proyectos|news|videos)\/[a-z0-9_-]+\.html$/i.test(path);
+      const visited = JSON.parse(localStorage.getItem(VISITED_KEY) || '[]');
+      if (isContent && !visited.includes(path)) {
+        visited.push(path);
+        // cap stored history at 50 entries
+        if (visited.length > 50) visited.shift();
+        localStorage.setItem(VISITED_KEY, JSON.stringify(visited));
+      }
+      if (localStorage.getItem(SUBMITTED_KEY)) return;
+      const dismissedAt = parseInt(localStorage.getItem(DISMISSED_KEY) || '0', 10);
+      const sevenDays = 7 * 24 * 60 * 60 * 1000;
+      if (dismissedAt && (Date.now() - dismissedAt) < sevenDays) return;
+      if (visited.length >= 3) {
+        // delay so it doesn't feel aggressive
+        const t = setTimeout(() => setOpen(true), 7000);
+        return () => clearTimeout(t);
+      }
+    } catch (e) { /* localStorage may be blocked — silently skip */ }
+  }, []);
+
+  const dismiss = () => {
+    setOpen(false);
+    try { localStorage.setItem('preg_lead_dismissed_at', String(Date.now())); } catch (e) {}
+  };
+
+  const encodeForm = (data) =>
+    Object.keys(data).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k])).join('&');
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
+    if (!form.email || !form.first_name) {
+      setError(L.error_required || 'Name and email are required.');
+      return;
+    }
+    setSending(true);
+    let visited = [];
+    try { visited = JSON.parse(localStorage.getItem('preg_visited_pages_v1') || '[]'); } catch (e) {}
+    const payload = {
+      'form-name': 'lead-capture',
+      first_name: form.first_name,
+      last_name: form.last_name,
+      email: form.email,
+      phone: form.phone,
+      language: LANG,
+      visited_pages: visited.join('\n'),
+      current_page: window.location.pathname,
+      referer: document.referrer || '',
+      submitted_at: new Date().toISOString(),
+    };
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodeForm(payload),
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      setSubmitted(true);
+      try { localStorage.setItem('preg_lead_submitted', '1'); } catch (e) {}
+    } catch (err) {
+      setError(L.error_network || 'Could not submit — please try again.');
+    } finally {
+      setSending(false);
+    }
+  };
+
+  if (!open) return null;
+
+  return (
+    <div role="dialog" aria-modal="true" aria-labelledby="lead-capture-title"
+         style={{
+           position: 'fixed', inset: 0, zIndex: 60,
+           background: 'rgba(11, 39, 51, 0.62)', backdropFilter: 'blur(6px)',
+           display: 'grid', placeItems: 'center',
+           padding: '20px', animation: 'fadeIn 0.25s var(--ease)'
+         }}
+         onClick={(e) => { if (e.target === e.currentTarget) dismiss(); }}>
+      <div style={{
+        background: 'var(--paper)', color: 'var(--ink)',
+        maxWidth: 480, width: '100%', borderRadius: 18,
+        padding: 'clamp(28px, 4vw, 40px)', position: 'relative',
+        boxShadow: '0 30px 80px -20px rgba(0,0,0,0.5)'
+      }}>
+        <button onClick={dismiss} aria-label={L.dismiss || 'Close'}
+                style={{
+                  position: 'absolute', top: 14, right: 14,
+                  width: 32, height: 32, borderRadius: '50%',
+                  background: 'transparent', border: '1px solid var(--line)',
+                  display: 'grid', placeItems: 'center', cursor: 'pointer',
+                  color: 'var(--ink)'
+                }}>
+          <Icon name="close" size={14}/>
+        </button>
+
+        {submitted ? (
+          <div style={{ textAlign: 'center', padding: '20px 0' }}>
+            <div className="eyebrow" style={{ marginBottom: 14 }}>
+              <span className="rule-coral"></span>{L.thank_you_eyebrow || 'Thank you'}
+            </div>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4vw, 40px)', margin: '0 0 14px', lineHeight: 1.1 }}>
+              {L.thank_you_title || 'We’ll be in touch.'}
+            </h3>
+            <p style={{ fontSize: 15, opacity: 0.78, lineHeight: 1.55, marginBottom: 24 }}>
+              {L.thank_you_body || 'A bilingual concierge will reach out within 24 hours on WhatsApp.'}
+            </p>
+            <a href="https://wa.me/50762534802" target="_blank" rel="noopener noreferrer"
+               style={{ display: 'inline-block', padding: '12px 24px',
+                        background: '#25D366', color: '#fff',
+                        textDecoration: 'none', borderRadius: 999,
+                        fontSize: 13, fontWeight: 700,
+                        fontFamily: 'var(--font-mono)', letterSpacing: '0.04em' }}>
+              {L.thank_you_whatsapp_now || 'Or message us on WhatsApp now'}
+            </a>
+          </div>
+        ) : (
+          <>
+            <div className="eyebrow" style={{ marginBottom: 12 }}>
+              <span className="rule-coral"></span>{L.eyebrow || 'Get our project shortlist'}
+            </div>
+            <h3 id="lead-capture-title" style={{
+              fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.4vw, 36px)',
+              margin: '0 0 12px', lineHeight: 1.08
+            }}>
+              {L.title || 'The next three projects that fit you.'}
+            </h3>
+            <p style={{ fontSize: 14, opacity: 0.78, lineHeight: 1.55, margin: '0 0 22px' }}>
+              {L.subtitle || 'Tell us how to reach you. We’ll send a personalised shortlist based on what you’ve been reading — no spam, ever.'}
+            </p>
+            <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+                <input required type="text" autoComplete="given-name" placeholder={L.first_name_placeholder || 'First name'}
+                       value={form.first_name} onChange={(e) => setForm({ ...form, first_name: e.target.value })}
+                       style={inputStyle}/>
+                <input type="text" autoComplete="family-name" placeholder={L.last_name_placeholder || 'Last name'}
+                       value={form.last_name} onChange={(e) => setForm({ ...form, last_name: e.target.value })}
+                       style={inputStyle}/>
+              </div>
+              <input required type="email" autoComplete="email" placeholder={L.email_placeholder || 'Email address'}
+                     value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
+                     style={inputStyle}/>
+              <input type="tel" autoComplete="tel" placeholder={L.phone_placeholder || 'WhatsApp / phone (with country code)'}
+                     value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                     style={inputStyle}/>
+              {error && (
+                <div style={{ color: '#C94628', fontSize: 13, padding: '6px 0' }}>{error}</div>
+              )}
+              <button type="submit" className="btn btn-coral" disabled={sending}
+                      style={{ width: '100%', justifyContent: 'center', marginTop: 6,
+                               opacity: sending ? 0.6 : 1 }}>
+                {sending ? (L.submit_sending || 'Sending…') : (L.submit_label || 'Send me the shortlist')} <Icon name="arrow" size={14}/>
+              </button>
+              <p style={{ fontSize: 11, opacity: 0.6, lineHeight: 1.55, margin: '6px 0 0', fontFamily: 'var(--font-mono)', letterSpacing: '0.04em' }}>
+                {L.privacy_note || 'Your details stay private. We never share them with third parties.'}
+              </p>
+            </form>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+const inputStyle = {
+  width: '100%', padding: '12px 14px', borderRadius: 10,
+  border: '1px solid var(--line)', background: 'var(--cream)',
+  fontSize: 15, fontFamily: 'inherit', color: 'var(--ink)',
+  outline: 'none', transition: 'border-color 0.15s var(--ease)'
+};
+
 /* ── Navbar ── */
 function Navbar({ transparent }) {
   const [scrolled, setScrolled] = useState(false);
@@ -267,6 +464,20 @@ function Navbar({ transparent }) {
         </nav>
         <div className="nav-cta-desktop" style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
           <LangSwitcher current={lang} onChange={setLang} onDark={isDark}/>
+          {/* US phone — always-visible tap-to-call in navbar */}
+          <a href="tel:+17319379142" className="nav-callus" style={{
+            display: 'inline-flex', alignItems: 'center', gap: 6,
+            color: 'inherit', textDecoration: 'none',
+            padding: '8px 12px', borderRadius: 999,
+            border: isDark ? '1px solid rgba(255,249,236,0.3)' : '1px solid var(--line)',
+            fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.06em', fontWeight: 700,
+            whiteSpace: 'nowrap'
+          }} title="(731) 937-9142">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20 15.5c-1.2 0-2.5-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2a15 15 0 0 1-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1A11.4 11.4 0 0 1 8.5 4c0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/>
+            </svg>
+            US · (731) 937-9142
+          </a>
           <a href={`${(() => { const lc = lang.toLowerCase(); return lc === 'en' ? '' : `/${lc}`; })()}/#reserve`} className="btn btn-coral" style={{ padding: '11px 20px', fontSize: 11 }}>
             {(() => {
               const lc = lang.toLowerCase();
@@ -332,6 +543,7 @@ function Navbar({ transparent }) {
         </div>
       )}
       <FloatingContact/>
+      <LeadCaptureModal/>
     </header>
   );
 }
