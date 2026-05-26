@@ -32,20 +32,25 @@ function sxArticlePath(slug) {
   return `/articles/${slug}.html`;
 }
 function sxNewsPath(slug) {
-  // News articles are NOT per-language translated yet — translate-content.mjs only
-  // generates /<lang>/articles/<slug>.html. Always link to the EN canonical so the
-  // click works. (When per-language news shells land, swap this back to /<lang>/news/.)
+  // Per-language news shells now exist at /<lang>/news/<slug>.html (PR #101).
+  // They render with translated chrome (DetailNav/Footer in current lang) even
+  // though the news body content stays in the source language.
+  const lang = sxLang();
+  if (lang !== 'en') return `/${lang}/news/${slug}.html`;
   return `/news/${slug}.html`;
 }
 function sxProjectPath(slug) {
-  // Project detail pages exist only at /projects/<slug>.html and /proyectos/<slug>.html
-  // (the latter is the Banesco /proyectos/ folder, separate). No /<lang>/projects/
-  // pages exist. Always link to the EN canonical.
+  // Per-language project shells now exist at /<lang>/projects/<slug>.html (PR #101).
+  // Translated chrome around the same project data.
+  const lang = sxLang();
+  if (lang !== 'en') return `/${lang}/projects/${slug}.html`;
   return `/projects/${slug}.html`;
 }
 function sxIndexPath(kind) {
-  // /<lang>/articles/, /<lang>/news/, /<lang>/projects/ index pages are not built.
-  // Always link to EN canonical /<kind>/.
+  // /<lang>/articles/, /<lang>/news/, /<lang>/videos/ index pages now exist (PR #99/101).
+  // They render with translated chrome + translated card titles via articleMeta.
+  const lang = sxLang();
+  if (lang !== 'en') return `/${lang}/${kind}/`;
   return `/${kind}/`;
 }
 function sxAbs(src) {
@@ -899,16 +904,16 @@ function Footer() {
                 { lKey: 'city',     lFallback: 'Panama City', href: `${lp}/#projects` },
               ] },
               { tKey: 'journal', tFallback: 'Journal', links: [
-                { lKey: 'market_reports', lFallback: 'Market Reports', href: '/articles/?category=Market+Report' },
-                { lKey: 'residency',      lFallback: 'Residency',      href: '/articles/?category=Residency' },
-                { lKey: 'taxes',          lFallback: 'Taxes',          href: '/articles/?category=Taxes' },
-                { lKey: 'neighborhoods',  lFallback: 'Neighborhoods',  href: '/articles/?category=Neighborhood' },
-                { lKey: 'news',           lFallback: 'News',           href: '/news/' },
+                { lKey: 'market_reports', lFallback: 'Market Reports', href: `${lp}/articles/?category=Market+Report` },
+                { lKey: 'residency',      lFallback: 'Residency',      href: `${lp}/articles/?category=Residency` },
+                { lKey: 'taxes',          lFallback: 'Taxes',          href: `${lp}/articles/?category=Taxes` },
+                { lKey: 'neighborhoods',  lFallback: 'Neighborhoods',  href: `${lp}/articles/?category=Neighborhood` },
+                { lKey: 'news',           lFallback: 'News',           href: `${lp}/news/` },
               ] },
               { tKey: 'company', tFallback: 'Company', links: [
                 { lKey: 'about',   lFallback: 'About',   href: `${lp}/#regions` },
-                { lKey: 'videos',  lFallback: 'Videos',  href: '/videos/' },
-                { lKey: 'news',    lFallback: 'News',    href: '/news/' },
+                { lKey: 'videos',  lFallback: 'Videos',  href: `${lp}/videos/` },
+                { lKey: 'news',    lFallback: 'News',    href: `${lp}/news/` },
                 { lKey: 'contact', lFallback: 'Contact', href: `${lp}/#reserve` },
               ] },
             ];

@@ -24,17 +24,16 @@ function DetailNav() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
   const prefix = dcLangPrefix();
-  // Per-language index pages (/es/articles/, /es/news/, /es/videos/) DON'T exist —
-  // those navigations 404. Always link list pages to EN canonical. In-page anchors
-  // (#projects, #regions, #about) keep the lang prefix so they stay on the current
-  // language home.
+  // Per-language index pages NOW EXIST (PR #99/101): /es/articles/, /es/news/,
+  // /es/videos/, /pt/articles/, etc. Each renders translated content via the
+  // i18n-aware renderers. So lang-prefix all list page links too.
   const links = [
     { l: dcT('nav.projects', 'Projects'),   href: `${prefix}/#projects` },
     { l: dcT('nav.regions', 'Regions'),     href: `${prefix}/#regions`  },
-    { l: dcT('nav.journal', 'Journal'),     href: `/articles/` },
-    { l: dcT('nav.videos', 'Videos'),       href: `/videos/`   },
-    { l: dcT('nav.news', 'News'),           href: `/news/`     },
-    { l: dcT('nav.residency', 'Residency'), href: `/articles/?category=Residency` },
+    { l: dcT('nav.journal', 'Journal'),     href: `${prefix}/articles/` },
+    { l: dcT('nav.videos', 'Videos'),       href: `${prefix}/videos/`   },
+    { l: dcT('nav.news', 'News'),           href: `${prefix}/news/`     },
+    { l: dcT('nav.residency', 'Residency'), href: `${prefix}/articles/?category=Residency` },
     { l: dcT('nav.about', 'About'),         href: `${prefix}/#about`    },
   ];
   return (
@@ -172,15 +171,14 @@ function DetailFooter() {
         )}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 20 }}>
           <Logo onDark={true} size={16}/>
-          {/* All list pages go to EN canonical — /<lang>/articles/, /<lang>/news/, /<lang>/videos/
-              don't exist as directories (only individual translated article files do).
-              In-page anchors (#projects) keep the lang prefix.
-              Privacy/Terms use the actual file paths (/privacy.html, /terms.html). */}
+          {/* List pages now have per-language versions (PR #99/101) — link to
+              /<lang>/articles/, /<lang>/news/, /<lang>/videos/ so the user stays
+              in their chosen language across the whole site. */}
           <div style={{ display: 'flex', gap: 24, fontSize: 12, opacity: 0.75, fontFamily: 'var(--font-mono)', letterSpacing: '0.12em', textTransform: 'uppercase', flexWrap: 'wrap' }}>
             <a href={`${dcLangPrefix()}/#projects`} style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.projects', 'Projects')}</a>
-            <a href="/articles/" style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.journal', 'Journal')}</a>
-            <a href="/videos/" style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.videos', 'Videos')}</a>
-            <a href="/news/" style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.news', 'News')}</a>
+            <a href={`${dcLangPrefix()}/articles/`} style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.journal', 'Journal')}</a>
+            <a href={`${dcLangPrefix()}/videos/`} style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.videos', 'Videos')}</a>
+            <a href={`${dcLangPrefix()}/news/`} style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.news', 'News')}</a>
             <a href="/privacy.html" style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.privacy', 'Privacy')}</a>
             <a href="/terms.html" style={{ color: 'inherit', textDecoration: 'none' }}>{dcT('footer.links.terms', 'Terms')}</a>
           </div>
