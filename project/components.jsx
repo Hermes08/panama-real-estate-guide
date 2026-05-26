@@ -85,7 +85,16 @@ function Logo({ onDark = false, size = 22 }) {
 function LangSwitcher({ current = 'EN', onChange, onDark = false }) {
   const [open, setOpen] = useState(false);
   const langs = window.PANAMA_DATA.langs;
-  // BUG-001 fix: actually navigate to the per-language equivalent URL when a code is clicked
+  // Navigate to the per-language equivalent URL when a code is clicked.
+  // Some pages have NO translated version on disk:
+  //   - /articles/, /news/, /videos/ (index pages — only EN exists)
+  //   - /projects/<slug>.html, /proyectos/<slug>.html, /news/<slug>.html, /videos/<id>.html
+  //     (no /es/projects/, /es/news/, /es/videos/ directories)
+  // For those, clicking ES/PT/DE used to "navigate" to /es/articles/ which 301-redirects
+  // back to /articles/ — visually nothing changes, looks broken to the user.
+  // Fix: when current path has no per-language equivalent, take the user to the
+  // /<lang>/ home page so they actually see the language change. Translated articles
+  // (/es/articles/<slug>.html, /<lang>/articles/<slug>.html) still preserve the slug.
   function selectLang(code) {
     onChange?.(code);
     setOpen(false);
@@ -94,7 +103,36 @@ function LangSwitcher({ current = 'EN', onChange, onDark = false }) {
     const path = window.location.pathname;
     // Strip any existing /es/ /pt/ /de/ prefix
     const stripped = path.replace(/^\/(es|pt|de)(\/|$)/, '/');
-    const newPath = target === 'en' ? stripped : `/${target}${stripped === '/' ? '/' : stripped}`;
+    let newPath;
+    if (target === 'en') {
+      newPath = stripped;
+    } else {
+      // Pages WITHOUT per-language equivalents → go to <lang>/ home so the user
+      // actually sees a real change of language instead of bouncing back via 301.
+      const hasNoTranslation = (
+        stripped === '/articles/' ||
+        stripped === '/news/' ||
+        stripped === '/videos/' ||
+        stripped.startsWith('/projects/') ||
+        stripped.startsWith('/proyectos/') ||
+        stripped.startsWith('/news/') ||
+        stripped.startsWith('/videos/')
+      );
+      // Articles DO have per-language versions when articleMeta confirms translation exists.
+      const articleSlugMatch = stripped.match(/^\/articles\/([a-z0-9-]+)\.html$/);
+      const hasArticleTranslation = articleSlugMatch && window.PANAMA_DATA
+        && window.PANAMA_DATA.articleMeta && window.PANAMA_DATA.articleMeta[target]
+        && window.PANAMA_DATA.articleMeta[target][articleSlugMatch[1]];
+      if (hasArticleTranslation) {
+        newPath = `/${target}${stripped}`;
+      } else if (hasNoTranslation) {
+        // No translated version on disk → home is the only sane target
+        newPath = `/${target}/`;
+      } else {
+        // Default: stick the prefix on (works for home + translated articles via redirects)
+        newPath = `/${target}${stripped === '/' ? '/' : stripped}`;
+      }
+    }
     // Persist preference so future pages honour it (geo-route edge function reads this)
     try { document.cookie = `preg_lang=${target};path=/;max-age=31536000;samesite=lax;secure`; } catch (e) {}
     window.location.href = newPath + window.location.search + window.location.hash;
