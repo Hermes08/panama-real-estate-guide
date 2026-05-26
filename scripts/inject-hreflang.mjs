@@ -25,7 +25,10 @@ const PROJECT_DIR = path.join(ROOT, 'project');
 const SITE_BASE = 'https://panamarealestateguide.com';
 
 const LANGS = ['es', 'pt', 'de'];
-const KINDS = ['articles', 'projects'];
+// Now covers all kinds with per-language shells (PR #101). Each EN file gets
+// hreflang alternates pointing to every translated version that exists on disk,
+// plus x-default → EN.
+const KINDS = ['articles', 'projects', 'news', 'videos'];
 
 const SENTINEL_START = '<!-- BEGIN_HREFLANG -->';
 const SENTINEL_END = '<!-- END_HREFLANG -->';
