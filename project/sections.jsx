@@ -822,7 +822,7 @@ function Footer() {
         {/* Contact strip — full-width, high-visibility. WhatsApp + US phone + Email + Reserve. */}
         <div className="footer-contact-strip" style={{
           marginBottom: 56, padding: '24px 28px',
-          background: 'linear-gradient(135deg, rgba(227,115,99,0.22), rgba(37,211,102,0.15) 65%, rgba(11,39,51,0.4) 100%)',
+          background: 'linear-gradient(135deg, rgba(255,107,74,0.16), rgba(37,211,102,0.10) 55%, rgba(11,39,51,0.32) 100%)',
           border: '1px solid rgba(255,249,236,0.18)', borderRadius: 16,
           display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 18, alignItems: 'center'
         }}>
