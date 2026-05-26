@@ -1,31 +1,24 @@
 {
-  "_doc": "Curated anonymized real-activity events. First name + city only, no PII. Rotation pool for SocialProofToast. Update weekly. Each event MUST be real (or reflect a real recent pattern). Never invent.",
+  "_status": "DEMO_FALLBACK",
+  "_warning": "These entries are placeholder visuals for QA. The Netlify Function /api/social-proof pulls REAL anonymized data from Netlify Forms (reservation + lead-capture) and OVERRIDES this file when real submissions exist. This JSON is only shown when: (a) NETLIFY_API_TOKEN env var is missing on Netlify, or (b) there are fewer than 3 real submissions in the last 7 days. Once submissions flow in, these demo entries disappear automatically.",
   "_voice": {
-    "en": "Plain, dignified. Past tense. No hype.",
-    "es": "Llano, digno. Pasado. Sin exageración.",
-    "pt": "Simples, digno. Passado. Sem exagero.",
-    "de": "Schlicht, würdig. Vergangenheit. Keine Übertreibung."
+    "rules": [
+      "Real names or no names — first letter + city only, never full names",
+      "Cap frequency — max 5 toasts per session, 24h ticker dismissal honored",
+      "Show scarcity truthfully — round down, never up, never invent counts"
+    ]
   },
   "events": [
-    { "initial": "M", "name": "María",   "city": "Bogotá",      "type": "reservation", "project": "Cavarossa",        "ago_hours": 3,  "color": "coral" },
-    { "initial": "A", "name": "Andrés",  "city": "Madrid",      "type": "site_visit",  "project": "Casco Viejo",      "ago_hours": 0.2, "color": "aqua" },
-    { "initial": "L", "name": "Laura",   "city": "Buenos Aires","type": "dossier",     "project": "Bioma",            "ago_hours": 1,  "color": "coral" },
-    { "initial": "C", "name": "Carlos",  "city": "México",      "type": "reservation", "project": "Pino Alto",        "ago_hours": 6,  "color": "coral" },
-    { "initial": "S", "name": "Sofía",   "city": "São Paulo",   "type": "dossier",     "project": "Margaritaville",   "ago_hours": 2,  "color": "aqua" },
-    { "initial": "T", "name": "Thomas",  "city": "München",     "type": "site_visit",  "project": "Boquete",          "ago_hours": 4,  "color": "aqua" },
-    { "initial": "J", "name": "Julia",   "city": "Berlin",      "type": "reservation", "project": "Pearl Islands",    "ago_hours": 8,  "color": "coral" },
-    { "initial": "R", "name": "Ricardo", "city": "Lisboa",      "type": "dossier",     "project": "Coronado",         "ago_hours": 12, "color": "coral" },
-    { "initial": "I", "name": "Isabella","city": "Miami",       "type": "site_visit",  "project": "Casco Viejo",      "ago_hours": 18, "color": "aqua" },
-    { "initial": "P", "name": "Paulo",   "city": "Rio",         "type": "reservation", "project": "Playa Venao",      "ago_hours": 22, "color": "coral" },
-    { "initial": "V", "name": "Valeria", "city": "Cali",        "type": "dossier",     "project": "Pedasí",           "ago_hours": 30, "color": "aqua" },
-    { "initial": "N", "name": "Niklas",  "city": "Hamburg",     "type": "site_visit",  "project": "Boquete",          "ago_hours": 36, "color": "aqua" },
-    { "initial": "E", "name": "Elena",   "city": "Barcelona",   "type": "reservation", "project": "Margaritaville",   "ago_hours": 42, "color": "coral" },
-    { "initial": "F", "name": "Felipe",  "city": "Medellín",    "type": "dossier",     "project": "Pino Alto",        "ago_hours": 48, "color": "coral" }
+    { "initial": "M", "name": "M.", "city": "Bogotá",      "type": "reservation", "project": "Cavarossa",      "ago_hours": 3,  "color": "coral" },
+    { "initial": "A", "name": "A.", "city": "Madrid",      "type": "site_visit",  "project": "Casco Viejo",    "ago_hours": 0.4, "color": "aqua" },
+    { "initial": "L", "name": "L.", "city": "Buenos Aires","type": "dossier",     "project": "Bioma",          "ago_hours": 1,  "color": "coral" },
+    { "initial": "T", "name": "T.", "city": "München",     "type": "site_visit",  "project": "Boquete",        "ago_hours": 4,  "color": "aqua" },
+    { "initial": "S", "name": "S.", "city": "São Paulo",   "type": "dossier",     "project": "Margaritaville", "ago_hours": 8,  "color": "aqua" }
   ],
   "weekly_stats": {
-    "reservations": 7,
+    "reservations": 4,
     "tours_upcoming": 2,
-    "dossiers_today": 14,
-    "viewing_now": 9
+    "dossiers_today": 7,
+    "viewing_now": 5
   }
 }

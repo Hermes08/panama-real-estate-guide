@@ -905,13 +905,24 @@ function SocialProofToast() {
   const i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[LANG] || window.PANAMA_DATA.chromeI18n.en)) || {};
   const S = i18n.social_proof || {};
 
-  // Load pool
+  // Load pool — try /api/social-proof (real Netlify Forms data) first,
+  // fallback to /social-proof.json (curated demo entries) so the chrome
+  // is always alive even on first deploy / when the API token isn't set yet.
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    fetch('/social-proof.json', { cache: 'no-cache' })
+    fetch('/api/social-proof', { cache: 'no-cache' })
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
-      .then(data => { if (data && data.events) setPool(data.events); })
-      .catch(() => {});
+      .then(data => {
+        if (data && data.events && data.events.length) setPool(data.events);
+        else throw new Error('empty');
+      })
+      .catch(() => {
+        // Fallback to static demo pool
+        fetch('/social-proof.json', { cache: 'no-cache' })
+          .then(r => r.ok ? r.json() : Promise.reject(r.status))
+          .then(data => { if (data && data.events) setPool(data.events); })
+          .catch(() => {});
+      });
     try {
       const sessDismissed = sessionStorage.getItem('preg_social_proof_dismissed');
       if (sessDismissed) dismissedRef.current = true;
@@ -1020,10 +1031,19 @@ function ActivityTicker() {
         return;
       }
     } catch (e) {}
-    fetch('/social-proof.json', { cache: 'no-cache' })
+    // Try real data first, fall back to demo JSON
+    fetch('/api/social-proof', { cache: 'no-cache' })
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
-      .then(data => { if (data && data.weekly_stats) setStats(data.weekly_stats); })
-      .catch(() => {});
+      .then(data => {
+        if (data && data.weekly_stats) setStats(data.weekly_stats);
+        else throw new Error('no stats');
+      })
+      .catch(() => {
+        fetch('/social-proof.json', { cache: 'no-cache' })
+          .then(r => r.ok ? r.json() : Promise.reject(r.status))
+          .then(data => { if (data && data.weekly_stats) setStats(data.weekly_stats); })
+          .catch(() => {});
+      });
   }, []);
 
   // Cycle stats every 6s
