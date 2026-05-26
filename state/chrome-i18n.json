@@ -115,11 +115,21 @@
     },
     "regions": {
       "projects_count_word": "projects",
-      "pacific": { "blurb": "White-sand beaches 60–90 minutes from the capital." },
-      "caribbean": { "blurb": "Overwater living, reef frontage, rainforest islands." },
-      "azuero": { "blurb": "The last untouched coast, surf, ranches, traditions." },
-      "highlands": { "blurb": "Year-round spring, coffee country, cloud forest." },
-      "city": { "blurb": "Latin America's banking capital, towers and old town." }
+      "pacific": {
+        "blurb": "White-sand beaches 60–90 minutes from the capital."
+      },
+      "caribbean": {
+        "blurb": "Overwater living, reef frontage, rainforest islands."
+      },
+      "azuero": {
+        "blurb": "The last untouched coast, surf, ranches, traditions."
+      },
+      "highlands": {
+        "blurb": "Year-round spring, coffee country, cloud forest."
+      },
+      "city": {
+        "blurb": "Latin America's banking capital, towers and old town."
+      }
     },
     "articles_index": {
       "h1": "Editorial coverage of Panama real estate, residency, taxes and lifestyle.",
@@ -137,20 +147,39 @@
       "dek": "Short Spanish-narrated project tours and lifestyle clips from our team in Panama City and across the country. English subtitles available on YouTube.",
       "videos_word": "videos"
     },
-    "back_links_extra": { "home": "Home" },
+    "back_links_extra": {
+      "home": "Home"
+    },
     "footer_columns": {
       "featured_projects": "Featured projects",
       "projects": {
         "title": "Projects",
-        "links": { "pacific": "Pacific Coast", "caribbean": "Bocas del Toro", "azuero": "Azuero", "highlands": "Highlands", "city": "Panama City" }
+        "links": {
+          "pacific": "Pacific Coast",
+          "caribbean": "Bocas del Toro",
+          "azuero": "Azuero",
+          "highlands": "Highlands",
+          "city": "Panama City"
+        }
       },
       "journal": {
         "title": "Journal",
-        "links": { "market_reports": "Market Reports", "residency": "Residency", "taxes": "Taxes", "neighborhoods": "Neighborhoods", "news": "News" }
+        "links": {
+          "market_reports": "Market Reports",
+          "residency": "Residency",
+          "taxes": "Taxes",
+          "neighborhoods": "Neighborhoods",
+          "news": "News"
+        }
       },
       "company": {
         "title": "Company",
-        "links": { "about": "About", "videos": "Videos", "news": "News", "contact": "Contact" }
+        "links": {
+          "about": "About",
+          "videos": "Videos",
+          "news": "News",
+          "contact": "Contact"
+        }
       }
     },
     "news_tags": {
@@ -179,6 +208,68 @@
       "cruise-season-2025-2026": "Panama 2025 to 2026 cruise season opens with 2 percent increase in arrivals at Colon and Amador",
       "panama-pacifico-logistics-hub": "New USD $20 million logistics hub at Panama Pacifico strengthens regional manufacturing platform",
       "apede-italia-investment-mission": "APEDE pitches Panama open economy model to Italian investors in Rome trade mission"
+    },
+    "news_full_bodies": {
+      "tocumen-terminal-2-expansion": [
+        "Tocumen International Airport confirmed the USD $340 million expansion of Terminal 2, slated to lift annual passenger capacity to 24 million by 2028. The works include eight new boarding gates, a redesigned arrivals hall, and a 30 percent expansion of the customs area.",
+        "Aerial Civil Authority director Rafael Bárcenas said construction begins Q3 2026 with German firm Hochtief leading the build, financed through a combination of airport revenue bonds and IDB credit lines."
+      ],
+      "santa-maria-este-launch": [
+        "Santa Maria Este, a USD $120 million residential development east of Panama City, opened preconstruction sales this week with green-bond financing arranged through Bladex.",
+        "The 320-unit project targets dual-income buyers seeking proximity to the financial district and Costa del Este. Phase I delivery is scheduled for late 2027."
+      ],
+      "boquete-coffee-fair-2026": [
+        "The Boquete Coffee Fair 2026 projects a record 38,000 visitors and USD $9 million in local economic impact, organizers announced. The 9-day event in June draws specialty buyers from Asia and North America.",
+        "Hotels in Boquete reported 95 percent occupancy for the fair window; the local mayor expects 12 new artisan vendors to debut their micro-lot Geishas this year."
+      ],
+      "pedasi-cultural-center": [
+        "Pedasí inaugurated a new community cultural center this month, funded by USD $1.2 million in donations from the Santeño diaspora in Florida and Madrid. The facility houses a 200-seat theater, a library, and rotating folk-art exhibitions.",
+        "Mayor Carlos Quintero said the center will host the Pollera Festival 2026 in July and operate year-round programming for local schools."
+      ],
+      "semiconductor-strategy-105m": [
+        "Panama launched a USD $105 million National Semiconductor Strategy this week, positioning the country as Central America's testing-and-packaging hub. The plan includes a special economic zone in Panama Pacífico and a fast-track visa for STEM talent.",
+        "MITAI minister Federico Alfaro projected 4,000 direct jobs by 2030 and credited Intel and Micron as early anchor partners interested in regional back-end operations."
+      ],
+      "casco-viejo-colon-incentives": [
+        "The National Assembly expanded heritage-restoration tax incentives to Casco Antiguo and the Colón Historic Center, extending the existing Casco Viejo regime for an additional 15 years.",
+        "Owners who restore protected facades will receive a 20-year property tax exemption and accelerated depreciation; the measure aims to mobilize an estimated USD $400 million in private capital."
+      ],
+      "canal-projects-2027-bid": [
+        "The Panama Canal Authority set June 2027 as the deadline to award three mega-concessions: two new container ports and a 76-kilometer cross-isthmus natural gas pipeline. Combined capex is estimated at USD $8.7 billion.",
+        "ACP administrator Ricaurte Vásquez confirmed that pre-qualification opens in November 2026 with five international consortia expected to bid."
+      ],
+      "pib-cobre-reactivacion": [
+        "Mens Consultores projects 5.57 percent GDP growth for Panama in 2026 if the Cobre Panamá copper mine restarts operations. Without it, the firm models 3.8 percent growth — still above regional average.",
+        "The mine, idle since November 2023 following a Supreme Court ruling, would add an estimated USD $2.1 billion in annual fiscal revenue if reactivated under a renegotiated concession."
+      ],
+      "canal-transit-january-2026": [
+        "The Panama Canal recorded a 3.8 percent jump in January 2026 transits compared to the same month last year, led by Neopanamax vessels carrying LNG and container cargo from US Gulf ports.",
+        "ACP attributes the rebound to restored Gatun Lake water levels following 2025 rainfall and a streamlined slot-booking system for premium customers."
+      ],
+      "world-bank-4-percent-forecast": [
+        "The World Bank ratified its 4.1 percent growth forecast for Panama in 2026 and 2027, making the country the third-fastest-growing economy in Latin America. The report cites canal traffic recovery, semiconductor strategy, and tourism rebound.",
+        "Risks flagged include copper mine uncertainty and global trade headwinds; the Bank recommends continued fiscal consolidation and tariff modernization."
+      ],
+      "metro-linea-3-monorail-tests": [
+        "Metro Line 3 began dynamic monorail testing this month on the elevated track toward Panamá Oeste, with commercial service targeted for 2028. The line will carry an estimated 240,000 daily passengers across the Canal.",
+        "Testing runs the 17-station, 26-kilometer route at 70 km/h with Hyundai Rotem cars; integration with Lines 1 and 2 at Albrook is on track for 2027."
+      ],
+      "metro-puente-cuarto-2026": [
+        "Metro Line 3 and the Fourth Bridge over the Canal remain Panama's strategic infrastructure priorities for 2026, jointly representing USD $4.5 billion in committed capex.",
+        "MOP minister José Luis Andrade confirmed the bridge will accommodate six road lanes plus a future light-rail extension to Panamá Oeste."
+      ],
+      "cruise-season-2025-2026": [
+        "The 2025–2026 Panama cruise season opened with a 2 percent increase in arrivals at Colón and Amador ports versus last year, with 245 scheduled calls and an estimated 480,000 passengers.",
+        "ATP director Iván Eskildsen highlighted new homeporting agreements with Norwegian Cruise Line and Princess Cruises starting in 2026."
+      ],
+      "panama-pacifico-logistics-hub": [
+        "A new USD $20 million logistics hub at Panama Pacífico opens this quarter, adding 38,000 m² of warehousing and cold-chain capacity for regional pharmaceutical and food distributors.",
+        "Operator Newland Capital projects 600 indirect jobs and partnerships with three Fortune 500 logistics firms in year one."
+      ],
+      "apede-italia-investment-mission": [
+        "APEDE pitched Panama's open economy model to Italian investors at a Rome trade mission this week, securing letters of intent for an estimated USD $180 million in cross-border ventures.",
+        "Sectors of interest included infrastructure, luxury hospitality and renewable energy; a return delegation to Panama is planned for September 2026."
+      ]
     }
   },
   "es": {
@@ -297,11 +388,21 @@
     },
     "regions": {
       "projects_count_word": "proyectos",
-      "pacific": { "blurb": "Playas de arena blanca a 60–90 minutos de la capital." },
-      "caribbean": { "blurb": "Vida sobre el agua, vista al arrecife, islas selváticas." },
-      "azuero": { "blurb": "La última costa virgen: surf, fincas, tradiciones." },
-      "highlands": { "blurb": "Primavera todo el año, país del café, bosque nuboso." },
-      "city": { "blurb": "La capital bancaria de Latinoamérica: torres y casco antiguo." }
+      "pacific": {
+        "blurb": "Playas de arena blanca a 60–90 minutos de la capital."
+      },
+      "caribbean": {
+        "blurb": "Vida sobre el agua, vista al arrecife, islas selváticas."
+      },
+      "azuero": {
+        "blurb": "La última costa virgen: surf, fincas, tradiciones."
+      },
+      "highlands": {
+        "blurb": "Primavera todo el año, país del café, bosque nuboso."
+      },
+      "city": {
+        "blurb": "La capital bancaria de Latinoamérica: torres y casco antiguo."
+      }
     },
     "articles_index": {
       "h1": "Cobertura editorial de bienes raíces, residencia, impuestos y estilo de vida en Panamá.",
@@ -319,20 +420,39 @@
       "dek": "Tours cortos narrados en español de proyectos y clips de estilo de vida desde nuestro equipo en Ciudad de Panamá y todo el país. Subtítulos en inglés disponibles en YouTube.",
       "videos_word": "videos"
     },
-    "back_links_extra": { "home": "Inicio" },
+    "back_links_extra": {
+      "home": "Inicio"
+    },
     "footer_columns": {
       "featured_projects": "Proyectos destacados",
       "projects": {
         "title": "Proyectos",
-        "links": { "pacific": "Costa Pacífica", "caribbean": "Bocas del Toro", "azuero": "Azuero", "highlands": "Tierras Altas", "city": "Ciudad de Panamá" }
+        "links": {
+          "pacific": "Costa Pacífica",
+          "caribbean": "Bocas del Toro",
+          "azuero": "Azuero",
+          "highlands": "Tierras Altas",
+          "city": "Ciudad de Panamá"
+        }
       },
       "journal": {
         "title": "Crónicas",
-        "links": { "market_reports": "Informes de Mercado", "residency": "Residencia", "taxes": "Impuestos", "neighborhoods": "Vecindarios", "news": "Noticias" }
+        "links": {
+          "market_reports": "Informes de Mercado",
+          "residency": "Residencia",
+          "taxes": "Impuestos",
+          "neighborhoods": "Vecindarios",
+          "news": "Noticias"
+        }
       },
       "company": {
         "title": "Empresa",
-        "links": { "about": "Nosotros", "videos": "Videos", "news": "Noticias", "contact": "Contacto" }
+        "links": {
+          "about": "Nosotros",
+          "videos": "Videos",
+          "news": "Noticias",
+          "contact": "Contacto"
+        }
       }
     },
     "news_tags": {
@@ -361,6 +481,68 @@
       "cruise-season-2025-2026": "Temporada de cruceros 2025 a 2026 abre con alza del 2 por ciento en arribos a Colón y Amador",
       "panama-pacifico-logistics-hub": "Nuevo hub logístico de USD $20 millones en Panamá Pacífico fortalece la plataforma regional de manufactura",
       "apede-italia-investment-mission": "APEDE presenta el modelo de economía abierta de Panamá a inversionistas italianos en misión comercial en Roma"
+    },
+    "news_full_bodies": {
+      "tocumen-terminal-2-expansion": [
+        "El Aeropuerto Internacional de Tocumen confirmó la ampliación de USD $340 millones de la Terminal 2, programada para elevar la capacidad anual de pasajeros a 24 millones en 2028. Las obras incluyen ocho nuevas puertas de embarque, un vestíbulo de llegadas rediseñado y una ampliación del 30 por ciento del área de aduanas.",
+        "El director de la Autoridad Aeronáutica Civil, Rafael Bárcenas, indicó que la construcción inicia en el tercer trimestre de 2026 con la firma alemana Hochtief liderando la obra, financiada mediante una combinación de bonos de ingresos aeroportuarios y líneas de crédito del BID."
+      ],
+      "santa-maria-este-launch": [
+        "Santa María Este, un desarrollo residencial de USD $120 millones al este de Ciudad de Panamá, abrió esta semana las preventas con financiamiento de bonos verdes gestionado a través de Bladex.",
+        "El proyecto de 320 unidades apunta a compradores de doble ingreso que buscan proximidad al distrito financiero y Costa del Este. La entrega de la Fase I está programada para fines de 2027."
+      ],
+      "boquete-coffee-fair-2026": [
+        "La Feria del Café de Boquete 2026 proyecta un récord de 38,000 visitantes y USD $9 millones de impacto económico local, anunciaron los organizadores. El evento de 9 días en junio atrae compradores de café de especialidad desde Asia y Norteamérica.",
+        "Los hoteles en Boquete reportaron 95 por ciento de ocupación para la ventana de la feria; el alcalde local espera que 12 nuevos vendedores artesanales debuten sus micro-lotes Geisha este año."
+      ],
+      "pedasi-cultural-center": [
+        "Pedasí inauguró este mes un nuevo centro cultural comunitario, financiado con USD $1.2 millones en donaciones de la diáspora santeña en Florida y Madrid. La instalación alberga un teatro de 200 butacas, una biblioteca y exhibiciones rotativas de arte folclórico.",
+        "El alcalde Carlos Quintero indicó que el centro será sede del Festival de la Pollera 2026 en julio y operará programación anual para escuelas locales."
+      ],
+      "semiconductor-strategy-105m": [
+        "Panamá lanzó esta semana una Estrategia Nacional de Semiconductores de USD $105 millones, posicionando al país como el hub de pruebas y empaquetado de Centroamérica. El plan incluye una zona económica especial en Panamá Pacífico y una visa fast-track para talento STEM.",
+        "El ministro del MITAI, Federico Alfaro, proyectó 4,000 empleos directos para 2030 y mencionó a Intel y Micron como socios ancla iniciales interesados en operaciones regionales de back-end."
+      ],
+      "casco-viejo-colon-incentives": [
+        "La Asamblea Nacional amplió los incentivos fiscales de restauración patrimonial al Casco Antiguo y al Centro Histórico de Colón, extendiendo el régimen existente de Casco Viejo por 15 años adicionales.",
+        "Los propietarios que restauren fachadas protegidas recibirán una exención del impuesto predial por 20 años y depreciación acelerada; la medida apunta a movilizar un estimado de USD $400 millones en capital privado."
+      ],
+      "canal-projects-2027-bid": [
+        "La Autoridad del Canal de Panamá fijó junio de 2027 como plazo para adjudicar tres mega-concesiones: dos nuevos puertos de contenedores y un gasoducto interoceánico de 76 kilómetros. La inversión combinada se estima en USD $8.7 mil millones.",
+        "El administrador de la ACP, Ricaurte Vásquez, confirmó que la precalificación abre en noviembre de 2026 con cinco consorcios internacionales esperados para presentar ofertas."
+      ],
+      "pib-cobre-reactivacion": [
+        "Mens Consultores proyecta un crecimiento del PIB del 5.57 por ciento para Panamá en 2026 si la mina Cobre Panamá reanuda operaciones. Sin ella, la firma modela un crecimiento del 3.8 por ciento — aún por encima del promedio regional.",
+        "La mina, inactiva desde noviembre de 2023 tras un fallo de la Corte Suprema, agregaría un estimado de USD $2.1 mil millones en ingresos fiscales anuales si se reactiva bajo una concesión renegociada."
+      ],
+      "canal-transit-january-2026": [
+        "El Canal de Panamá registró un alza del 3.8 por ciento en los tránsitos de enero 2026 comparado con el mismo mes del año pasado, liderada por buques Neopanamax que transportan GNL y carga de contenedores desde puertos del Golfo de EE. UU.",
+        "La ACP atribuye el repunte a niveles restablecidos del Lago Gatún tras las lluvias de 2025 y a un sistema simplificado de reserva de slots para clientes premium."
+      ],
+      "world-bank-4-percent-forecast": [
+        "El Banco Mundial ratificó su pronóstico de crecimiento del 4.1 por ciento para Panamá en 2026 y 2027, convirtiendo al país en la tercera economía de mayor crecimiento en Latinoamérica. El informe cita la recuperación del tráfico del canal, la estrategia de semiconductores y el repunte turístico.",
+        "Los riesgos identificados incluyen la incertidumbre de la mina de cobre y vientos en contra del comercio global; el Banco recomienda continuar la consolidación fiscal y la modernización arancelaria."
+      ],
+      "metro-linea-3-monorail-tests": [
+        "El Metro Línea 3 comenzó este mes las pruebas dinámicas del monorriel en la vía elevada hacia Panamá Oeste, con servicio comercial proyectado para 2028. La línea transportará un estimado de 240,000 pasajeros diarios a través del Canal.",
+        "Las pruebas recorren las 17 estaciones y 26 kilómetros de ruta a 70 km/h con vagones Hyundai Rotem; la integración con las Líneas 1 y 2 en Albrook avanza según lo previsto para 2027."
+      ],
+      "metro-puente-cuarto-2026": [
+        "La Línea 3 del Metro y el Cuarto Puente sobre el Canal siguen como las prioridades estratégicas de infraestructura de Panamá para 2026, representando conjuntamente USD $4.5 mil millones en inversión comprometida.",
+        "El ministro del MOP, José Luis Andrade, confirmó que el puente acomodará seis carriles vehiculares más una futura extensión de tren ligero a Panamá Oeste."
+      ],
+      "cruise-season-2025-2026": [
+        "La temporada de cruceros 2025–2026 de Panamá abrió con un aumento del 2 por ciento en arribos a los puertos de Colón y Amador frente al año pasado, con 245 escalas programadas y un estimado de 480,000 pasajeros.",
+        "El director de la ATP, Iván Eskildsen, destacó nuevos acuerdos de homeporting con Norwegian Cruise Line y Princess Cruises a partir de 2026."
+      ],
+      "panama-pacifico-logistics-hub": [
+        "Un nuevo hub logístico de USD $20 millones en Panamá Pacífico abre este trimestre, agregando 38,000 m² de capacidad de almacenamiento y cadena de frío para distribuidores regionales farmacéuticos y de alimentos.",
+        "El operador Newland Capital proyecta 600 empleos indirectos y alianzas con tres firmas logísticas Fortune 500 en el primer año."
+      ],
+      "apede-italia-investment-mission": [
+        "APEDE presentó el modelo de economía abierta de Panamá a inversionistas italianos en una misión comercial en Roma esta semana, asegurando cartas de intención por un estimado de USD $180 millones en operaciones transfronterizas.",
+        "Los sectores de interés incluyeron infraestructura, hospitalidad de lujo y energía renovable; se planea una delegación de retorno a Panamá para septiembre de 2026."
+      ]
     }
   },
   "pt": {
@@ -479,11 +661,21 @@
     },
     "regions": {
       "projects_count_word": "projetos",
-      "pacific": { "blurb": "Praias de areia branca a 60–90 minutos da capital." },
-      "caribbean": { "blurb": "Vida sobre a água, vista para o recife, ilhas de floresta tropical." },
-      "azuero": { "blurb": "A última costa intocada: surf, fazendas, tradições." },
-      "highlands": { "blurb": "Primavera o ano todo, país do café, floresta nublada." },
-      "city": { "blurb": "A capital bancária da América Latina: torres e centro histórico." }
+      "pacific": {
+        "blurb": "Praias de areia branca a 60–90 minutos da capital."
+      },
+      "caribbean": {
+        "blurb": "Vida sobre a água, vista para o recife, ilhas de floresta tropical."
+      },
+      "azuero": {
+        "blurb": "A última costa intocada: surf, fazendas, tradições."
+      },
+      "highlands": {
+        "blurb": "Primavera o ano todo, país do café, floresta nublada."
+      },
+      "city": {
+        "blurb": "A capital bancária da América Latina: torres e centro histórico."
+      }
     },
     "articles_index": {
       "h1": "Cobertura editorial de imóveis, residência, impostos e estilo de vida no Panamá.",
@@ -501,20 +693,39 @@
       "dek": "Tours curtos narrados em espanhol de projetos e clipes de estilo de vida da nossa equipe na Cidade do Panamá e em todo o país. Legendas em inglês disponíveis no YouTube.",
       "videos_word": "vídeos"
     },
-    "back_links_extra": { "home": "Início" },
+    "back_links_extra": {
+      "home": "Início"
+    },
     "footer_columns": {
       "featured_projects": "Projetos em destaque",
       "projects": {
         "title": "Projetos",
-        "links": { "pacific": "Costa do Pacífico", "caribbean": "Bocas del Toro", "azuero": "Azuero", "highlands": "Terras Altas", "city": "Cidade do Panamá" }
+        "links": {
+          "pacific": "Costa do Pacífico",
+          "caribbean": "Bocas del Toro",
+          "azuero": "Azuero",
+          "highlands": "Terras Altas",
+          "city": "Cidade do Panamá"
+        }
       },
       "journal": {
         "title": "Crônicas",
-        "links": { "market_reports": "Relatórios de Mercado", "residency": "Residência", "taxes": "Impostos", "neighborhoods": "Bairros", "news": "Notícias" }
+        "links": {
+          "market_reports": "Relatórios de Mercado",
+          "residency": "Residência",
+          "taxes": "Impostos",
+          "neighborhoods": "Bairros",
+          "news": "Notícias"
+        }
       },
       "company": {
         "title": "Empresa",
-        "links": { "about": "Sobre", "videos": "Vídeos", "news": "Notícias", "contact": "Contato" }
+        "links": {
+          "about": "Sobre",
+          "videos": "Vídeos",
+          "news": "Notícias",
+          "contact": "Contato"
+        }
       }
     },
     "news_tags": {
@@ -543,6 +754,68 @@
       "cruise-season-2025-2026": "Temporada de cruzeiros 2025 a 2026 abre com alta de 2 por cento em chegadas a Colón e Amador",
       "panama-pacifico-logistics-hub": "Novo hub logístico de USD $20 milhões em Panamá Pacífico fortalece a plataforma regional de manufatura",
       "apede-italia-investment-mission": "APEDE apresenta o modelo de economia aberta do Panamá a investidores italianos em missão comercial em Roma"
+    },
+    "news_full_bodies": {
+      "tocumen-terminal-2-expansion": [
+        "O Aeroporto Internacional de Tocumen confirmou a ampliação de USD $340 milhões do Terminal 2, programada para elevar a capacidade anual de passageiros para 24 milhões até 2028. As obras incluem oito novos portões de embarque, um saguão de chegadas redesenhado e uma ampliação de 30 por cento da área alfandegária.",
+        "O diretor da Autoridade Aeronáutica Civil, Rafael Bárcenas, afirmou que a construção começa no terceiro trimestre de 2026 com a empresa alemã Hochtief liderando a obra, financiada por uma combinação de títulos de receita aeroportuária e linhas de crédito do BID."
+      ],
+      "santa-maria-este-launch": [
+        "Santa Maria Este, um empreendimento residencial de USD $120 milhões a leste da Cidade do Panamá, abriu nesta semana as pré-vendas com financiamento de green bonds através do Bladex.",
+        "O projeto de 320 unidades visa compradores de dupla renda que buscam proximidade ao distrito financeiro e Costa del Este. A entrega da Fase I está programada para o final de 2027."
+      ],
+      "boquete-coffee-fair-2026": [
+        "A Feira do Café de Boquete 2026 projeta recorde de 38.000 visitantes e USD $9 milhões de impacto econômico local, anunciaram os organizadores. O evento de 9 dias em junho atrai compradores de cafés especiais da Ásia e América do Norte.",
+        "Hotéis em Boquete relataram 95 por cento de ocupação para a janela da feira; o prefeito local espera que 12 novos vendedores artesanais estreiem seus micro-lotes Geisha este ano."
+      ],
+      "pedasi-cultural-center": [
+        "Pedasí inaugurou este mês um novo centro cultural comunitário, financiado com USD $1,2 milhão em doações da diáspora santenha na Flórida e em Madri. A instalação abriga um teatro de 200 lugares, uma biblioteca e exposições rotativas de arte folclórica.",
+        "O prefeito Carlos Quintero afirmou que o centro sediará o Festival da Pollera 2026 em julho e operará programação anual para escolas locais."
+      ],
+      "semiconductor-strategy-105m": [
+        "O Panamá lançou esta semana uma Estratégia Nacional de Semicondutores de USD $105 milhões, posicionando o país como o hub de testes e encapsulamento da América Central. O plano inclui uma zona econômica especial no Panamá Pacífico e um visto fast-track para talento STEM.",
+        "O ministro do MITAI, Federico Alfaro, projetou 4.000 empregos diretos até 2030 e citou Intel e Micron como parceiros âncora iniciais interessados em operações regionais de back-end."
+      ],
+      "casco-viejo-colon-incentives": [
+        "A Assembleia Nacional ampliou os incentivos fiscais de restauração patrimonial ao Casco Antiguo e ao Centro Histórico de Colón, estendendo o regime existente do Casco Viejo por mais 15 anos.",
+        "Os proprietários que restaurarem fachadas protegidas receberão isenção do imposto predial por 20 anos e depreciação acelerada; a medida visa mobilizar cerca de USD $400 milhões em capital privado."
+      ],
+      "canal-projects-2027-bid": [
+        "A Autoridade do Canal do Panamá definiu junho de 2027 como prazo para adjudicar três megaconcessões: dois novos portos de contêineres e um gasoduto inter-oceânico de 76 quilômetros. O investimento combinado é estimado em USD $8,7 bilhões.",
+        "O administrador da ACP, Ricaurte Vásquez, confirmou que a pré-qualificação abre em novembro de 2026 com cinco consórcios internacionais esperados para apresentar propostas."
+      ],
+      "pib-cobre-reactivacion": [
+        "A Mens Consultores projeta crescimento do PIB de 5,57 por cento para o Panamá em 2026 se a mina Cobre Panamá retomar operações. Sem ela, a empresa modela crescimento de 3,8 por cento — ainda acima da média regional.",
+        "A mina, inativa desde novembro de 2023 após decisão do Supremo Tribunal, adicionaria estimados USD $2,1 bilhões em receita fiscal anual se reativada sob concessão renegociada."
+      ],
+      "canal-transit-january-2026": [
+        "O Canal do Panamá registrou alta de 3,8 por cento nos trânsitos de janeiro de 2026 em comparação ao mesmo mês do ano passado, liderada por navios Neopanamax transportando GNL e carga de contêineres dos portos do Golfo dos EUA.",
+        "A ACP atribui a recuperação aos níveis restaurados do Lago Gatún após as chuvas de 2025 e a um sistema simplificado de reserva de slots para clientes premium."
+      ],
+      "world-bank-4-percent-forecast": [
+        "O Banco Mundial ratificou sua previsão de crescimento de 4,1 por cento para o Panamá em 2026 e 2027, tornando o país a terceira economia de maior crescimento na América Latina. O relatório cita a recuperação do tráfego do canal, a estratégia de semicondutores e a retomada do turismo.",
+        "Os riscos identificados incluem a incerteza da mina de cobre e ventos contrários do comércio global; o Banco recomenda continuar a consolidação fiscal e a modernização tarifária."
+      ],
+      "metro-linea-3-monorail-tests": [
+        "O Metrô Linha 3 começou este mês os testes dinâmicos do monotrilho na via elevada rumo a Panamá Oeste, com serviço comercial previsto para 2028. A linha transportará uma estimativa de 240.000 passageiros diários através do Canal.",
+        "Os testes percorrem as 17 estações e 26 quilômetros de rota a 70 km/h com vagões Hyundai Rotem; a integração com as Linhas 1 e 2 em Albrook está no cronograma para 2027."
+      ],
+      "metro-puente-cuarto-2026": [
+        "A Linha 3 do Metrô e a Quarta Ponte sobre o Canal continuam como prioridades estratégicas de infraestrutura do Panamá para 2026, representando juntas USD $4,5 bilhões em investimento comprometido.",
+        "O ministro do MOP, José Luis Andrade, confirmou que a ponte acomodará seis faixas viárias mais uma futura extensão de VLT para Panamá Oeste."
+      ],
+      "cruise-season-2025-2026": [
+        "A temporada de cruzeiros 2025–2026 do Panamá abriu com aumento de 2 por cento em chegadas aos portos de Colón e Amador em relação ao ano passado, com 245 escalas programadas e estimativa de 480.000 passageiros.",
+        "O diretor da ATP, Iván Eskildsen, destacou novos acordos de homeporting com Norwegian Cruise Line e Princess Cruises a partir de 2026."
+      ],
+      "panama-pacifico-logistics-hub": [
+        "Um novo hub logístico de USD $20 milhões no Panamá Pacífico abre neste trimestre, adicionando 38.000 m² de capacidade de armazenagem e cadeia de frio para distribuidores regionais farmacêuticos e alimentícios.",
+        "A operadora Newland Capital projeta 600 empregos indiretos e parcerias com três empresas logísticas da Fortune 500 no primeiro ano."
+      ],
+      "apede-italia-investment-mission": [
+        "A APEDE apresentou o modelo de economia aberta do Panamá a investidores italianos em uma missão comercial em Roma esta semana, garantindo cartas de intenção de cerca de USD $180 milhões em operações transfronteiriças.",
+        "Os setores de interesse incluíram infraestrutura, hospitalidade de luxo e energia renovável; uma delegação de retorno ao Panamá está planejada para setembro de 2026."
+      ]
     }
   },
   "de": {
@@ -661,11 +934,21 @@
     },
     "regions": {
       "projects_count_word": "Projekte",
-      "pacific": { "blurb": "Weiße Sandstrände, 60–90 Minuten von der Hauptstadt." },
-      "caribbean": { "blurb": "Wohnen über dem Wasser, Riff-Lage, Regenwaldinseln." },
-      "azuero": { "blurb": "Die letzte unberührte Küste: Surfen, Farmen, Traditionen." },
-      "highlands": { "blurb": "Frühling das ganze Jahr, Kaffeeland, Nebelwald." },
-      "city": { "blurb": "Lateinamerikas Finanzhauptstadt: Hochhäuser und Altstadt." }
+      "pacific": {
+        "blurb": "Weiße Sandstrände, 60–90 Minuten von der Hauptstadt."
+      },
+      "caribbean": {
+        "blurb": "Wohnen über dem Wasser, Riff-Lage, Regenwaldinseln."
+      },
+      "azuero": {
+        "blurb": "Die letzte unberührte Küste: Surfen, Farmen, Traditionen."
+      },
+      "highlands": {
+        "blurb": "Frühling das ganze Jahr, Kaffeeland, Nebelwald."
+      },
+      "city": {
+        "blurb": "Lateinamerikas Finanzhauptstadt: Hochhäuser und Altstadt."
+      }
     },
     "articles_index": {
       "h1": "Redaktionelle Berichterstattung über Immobilien, Aufenthalt, Steuern und Lebensstil in Panama.",
@@ -683,20 +966,39 @@
       "dek": "Kurze spanisch-erzählte Projekt-Touren und Lifestyle-Clips von unserem Team in Panama-Stadt und im ganzen Land. Englische Untertitel auf YouTube verfügbar.",
       "videos_word": "Videos"
     },
-    "back_links_extra": { "home": "Startseite" },
+    "back_links_extra": {
+      "home": "Startseite"
+    },
     "footer_columns": {
       "featured_projects": "Ausgewählte Projekte",
       "projects": {
         "title": "Projekte",
-        "links": { "pacific": "Pazifikküste", "caribbean": "Bocas del Toro", "azuero": "Azuero", "highlands": "Hochland", "city": "Panama-Stadt" }
+        "links": {
+          "pacific": "Pazifikküste",
+          "caribbean": "Bocas del Toro",
+          "azuero": "Azuero",
+          "highlands": "Hochland",
+          "city": "Panama-Stadt"
+        }
       },
       "journal": {
         "title": "Journal",
-        "links": { "market_reports": "Marktberichte", "residency": "Aufenthalt", "taxes": "Steuern", "neighborhoods": "Stadtviertel", "news": "Nachrichten" }
+        "links": {
+          "market_reports": "Marktberichte",
+          "residency": "Aufenthalt",
+          "taxes": "Steuern",
+          "neighborhoods": "Stadtviertel",
+          "news": "Nachrichten"
+        }
       },
       "company": {
         "title": "Unternehmen",
-        "links": { "about": "Über uns", "videos": "Videos", "news": "Nachrichten", "contact": "Kontakt" }
+        "links": {
+          "about": "Über uns",
+          "videos": "Videos",
+          "news": "Nachrichten",
+          "contact": "Kontakt"
+        }
       }
     },
     "news_tags": {
@@ -725,6 +1027,68 @@
       "cruise-season-2025-2026": "Kreuzfahrtsaison 2025 bis 2026 öffnet mit 2 Prozent mehr Ankünften in Colón und Amador",
       "panama-pacifico-logistics-hub": "Neuer Logistik-Hub im Wert von USD 20 Millionen in Panamá Pacífico stärkt die regionale Fertigungsplattform",
       "apede-italia-investment-mission": "APEDE präsentiert Panamas Modell der offenen Wirtschaft italienischen Investoren bei Handelsmission in Rom"
+    },
+    "news_full_bodies": {
+      "tocumen-terminal-2-expansion": [
+        "Der internationale Flughafen Tocumen bestätigte die Erweiterung des Terminals 2 im Wert von 340 Millionen USD, die die jährliche Passagierkapazität bis 2028 auf 24 Millionen erhöhen soll. Die Arbeiten umfassen acht neue Boarding-Gates, eine neu gestaltete Ankunftshalle und eine 30-prozentige Erweiterung des Zollbereichs.",
+        "Der Direktor der Zivilluftfahrtbehörde, Rafael Bárcenas, sagte, der Bau beginne im dritten Quartal 2026 unter Leitung der deutschen Firma Hochtief, finanziert durch eine Kombination aus Flughafen-Erlösanleihen und IDB-Kreditlinien."
+      ],
+      "santa-maria-este-launch": [
+        "Santa Maria Este, ein 120-Millionen-USD-Wohnprojekt östlich von Panama-Stadt, eröffnete diese Woche den Vorverkauf mit Green-Bond-Finanzierung über Bladex.",
+        "Das 320-Einheiten-Projekt richtet sich an Doppelverdiener, die Nähe zum Finanzdistrikt und Costa del Este suchen. Die Lieferung der Phase I ist für Ende 2027 geplant."
+      ],
+      "boquete-coffee-fair-2026": [
+        "Die Kaffeemesse Boquete 2026 erwartet Rekord von 38.000 Besuchern und 9 Millionen USD lokaler Wirtschaftsleistung, so die Veranstalter. Das 9-tägige Event im Juni zieht Spezialitätenkäufer aus Asien und Nordamerika an.",
+        "Hotels in Boquete meldeten 95 Prozent Auslastung für den Messezeitraum; der Bürgermeister erwartet, dass 12 neue Kunsthandwerker dieses Jahr ihre Micro-Lot-Geishas vorstellen."
+      ],
+      "pedasi-cultural-center": [
+        "Pedasí weihte diesen Monat ein neues Gemeinde-Kulturzentrum ein, finanziert durch 1,2 Millionen USD Spenden aus der Santeño-Diaspora in Florida und Madrid. Die Einrichtung beherbergt ein 200-Sitze-Theater, eine Bibliothek und wechselnde Volkskunstausstellungen.",
+        "Bürgermeister Carlos Quintero sagte, das Zentrum werde im Juli das Pollera-Festival 2026 ausrichten und ganzjährige Programme für lokale Schulen betreiben."
+      ],
+      "semiconductor-strategy-105m": [
+        "Panama startete diese Woche eine Nationale Halbleiter-Strategie über 105 Millionen USD und positioniert das Land als Test- und Verpackungs-Hub Mittelamerikas. Der Plan umfasst eine Sonderwirtschaftszone in Panama Pacífico und ein Fast-Track-Visum für MINT-Talente.",
+        "MITAI-Minister Federico Alfaro prognostizierte bis 2030 4.000 direkte Arbeitsplätze und nannte Intel und Micron als erste Ankerpartner mit Interesse an regionalen Back-End-Operationen."
+      ],
+      "casco-viejo-colon-incentives": [
+        "Die Nationalversammlung erweiterte die Steueranreize zur Denkmalsanierung auf das Casco Antiguo und das historische Zentrum von Colón und verlängerte das bestehende Casco-Viejo-Regime um weitere 15 Jahre.",
+        "Eigentümer, die geschützte Fassaden restaurieren, erhalten eine 20-jährige Grundsteuerbefreiung und beschleunigte Abschreibung; die Maßnahme zielt darauf ab, geschätzte 400 Millionen USD privates Kapital zu mobilisieren."
+      ],
+      "canal-projects-2027-bid": [
+        "Die Panamakanalbehörde setzte Juni 2027 als Frist zur Vergabe von drei Mega-Konzessionen: zwei neue Containerhäfen und eine 76 Kilometer lange transisthmische Erdgaspipeline. Die kombinierte Investition wird auf 8,7 Milliarden USD geschätzt.",
+        "ACP-Administrator Ricaurte Vásquez bestätigte, dass die Präqualifikation im November 2026 öffnet und fünf internationale Konsortien Gebote abgeben sollen."
+      ],
+      "pib-cobre-reactivacion": [
+        "Mens Consultores prognostiziert ein BIP-Wachstum von 5,57 Prozent für Panama in 2026, falls die Kupfermine Cobre Panamá den Betrieb wieder aufnimmt. Ohne sie modelliert die Firma 3,8 Prozent Wachstum — immer noch über dem regionalen Durchschnitt.",
+        "Die Mine, die seit November 2023 nach einem Urteil des Obersten Gerichtshofs stillgelegt ist, würde bei Wiederinbetriebnahme unter einer neu verhandelten Konzession geschätzte 2,1 Milliarden USD jährliche Fiskaleinnahmen bringen."
+      ],
+      "canal-transit-january-2026": [
+        "Der Panamakanal verzeichnete im Januar 2026 einen Anstieg der Transits um 3,8 Prozent gegenüber dem Vorjahresmonat, angeführt von Neopanamax-Schiffen mit LNG und Container-Ladung aus US-Golfhäfen.",
+        "Die ACP führt die Erholung auf wiederhergestellte Gatún-See-Pegel nach den Regenfällen 2025 und ein vereinfachtes Slot-Buchungssystem für Premium-Kunden zurück."
+      ],
+      "world-bank-4-percent-forecast": [
+        "Die Weltbank bestätigte ihre Wachstumsprognose von 4,1 Prozent für Panama in 2026 und 2027, womit das Land die drittschnellst wachsende Wirtschaft Lateinamerikas wird. Der Bericht nennt die Erholung des Kanalverkehrs, die Halbleiterstrategie und den Tourismus-Aufschwung.",
+        "Identifizierte Risiken umfassen die Unsicherheit der Kupfermine und globalen Handelsgegenwind; die Bank empfiehlt fortgesetzte fiskalische Konsolidierung und Zollmodernisierung."
+      ],
+      "metro-linea-3-monorail-tests": [
+        "Die Metro-Linie 3 begann diesen Monat dynamische Monorail-Tests auf der Hochbahnstrecke in Richtung Panamá Oeste, mit kommerziellem Betrieb geplant für 2028. Die Linie wird geschätzt 240.000 tägliche Passagiere über den Kanal befördern.",
+        "Die Tests durchlaufen die 17-Stationen-Route über 26 Kilometer mit 70 km/h auf Hyundai-Rotem-Wagen; die Integration mit den Linien 1 und 2 in Albrook ist für 2027 im Plan."
+      ],
+      "metro-puente-cuarto-2026": [
+        "Die Metro-Linie 3 und die Vierte Brücke über den Kanal bleiben Panamas strategische Infrastrukturprioritäten für 2026 und repräsentieren gemeinsam 4,5 Milliarden USD an zugesagter Investition.",
+        "MOP-Minister José Luis Andrade bestätigte, dass die Brücke sechs Straßenspuren plus eine zukünftige Stadtbahn-Erweiterung nach Panamá Oeste aufnehmen wird."
+      ],
+      "cruise-season-2025-2026": [
+        "Die Kreuzfahrtsaison 2025–2026 in Panama eröffnete mit einem Anstieg der Ankünfte in den Häfen Colón und Amador um 2 Prozent gegenüber dem Vorjahr, mit 245 geplanten Anläufen und geschätzten 480.000 Passagieren.",
+        "ATP-Direktor Iván Eskildsen hob neue Homeporting-Vereinbarungen mit Norwegian Cruise Line und Princess Cruises ab 2026 hervor."
+      ],
+      "panama-pacifico-logistics-hub": [
+        "Ein neuer Logistik-Hub im Wert von 20 Millionen USD in Panamá Pacífico eröffnet dieses Quartal und fügt 38.000 m² Lager- und Kühlkettenkapazität für regionale Pharma- und Lebensmittelhändler hinzu.",
+        "Betreiber Newland Capital prognostiziert 600 indirekte Arbeitsplätze und Partnerschaften mit drei Fortune-500-Logistikfirmen im ersten Jahr."
+      ],
+      "apede-italia-investment-mission": [
+        "APEDE präsentierte Panamas Modell der offenen Wirtschaft italienischen Investoren bei einer Handelsmission in Rom diese Woche und sicherte sich Absichtserklärungen über geschätzte 180 Millionen USD an grenzüberschreitenden Geschäften.",
+        "Interessensbereiche umfassten Infrastruktur, Luxus-Hospitality und erneuerbare Energien; eine Rückdelegation nach Panama ist für September 2026 geplant."
+      ]
     }
   }
 }
