@@ -1,27 +1,11 @@
-# Netlify _redirects — multilingual fallbacks
-#
-# Per-language INDEX pages (/es/articles/, /es/news/, /es/videos/, /pt/..., /de/...)
-# ARE now built statically — each renders the listing in the user's language by
-# reading window.PREG_LANG and looking up titles via articleMeta + chrome-i18n.
-# So no redirect needed for those.
-#
-# /es/projects/<slug> and /es/news/<slug>.html and /es/videos/<id>.html are NOT
-# yet built per-language — fall back to EN canonical to prevent 404.
-#
-# Status 301 = permanent redirect.
+# Netlify _redirects — only legacy slug redirects remain.
+# All per-language pages now exist as real static files:
+#   /es/articles/ /es/news/ /es/videos/ (index pages)
+#   /es/articles/<slug>.html /es/news/<slug>.html /es/projects/<slug>.html /es/videos/<id>.html
+#   (same for /pt/ /de/)
+# Netlify serves static files before checking _redirects, so we only need
+# fallbacks for legacy URLs that were used in old translations.
 
-/es/projects/*  /projects/:splat  301
-/pt/projects/*  /projects/:splat  301
-/de/projects/*  /projects/:splat  301
-
-/es/news/*  /news/:splat  301
-/pt/news/*  /news/:splat  301
-/de/news/*  /news/:splat  301
-
-/es/videos/*  /videos/:splat  301
-/pt/videos/*  /videos/:splat  301
-/de/videos/*  /videos/:splat  301
-
-# Legacy Spanish-slug privacy/terms (DetailFooter used to point there)
+# Legacy Spanish-slug privacy/terms (old DetailFooter pointed there before fix)
 /privacidad  /privacy.html  301
 /terminos    /terms.html    301
