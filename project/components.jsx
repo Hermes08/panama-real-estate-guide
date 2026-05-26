@@ -86,15 +86,17 @@ function LangSwitcher({ current = 'EN', onChange, onDark = false }) {
   const [open, setOpen] = useState(false);
   const langs = window.PANAMA_DATA.langs;
   // Navigate to the per-language equivalent URL when a code is clicked.
-  // Some pages have NO translated version on disk:
-  //   - /articles/, /news/, /videos/ (index pages — only EN exists)
-  //   - /projects/<slug>.html, /proyectos/<slug>.html, /news/<slug>.html, /videos/<id>.html
-  //     (no /es/projects/, /es/news/, /es/videos/ directories)
-  // For those, clicking ES/PT/DE used to "navigate" to /es/articles/ which 301-redirects
-  // back to /articles/ — visually nothing changes, looks broken to the user.
-  // Fix: when current path has no per-language equivalent, take the user to the
-  // /<lang>/ home page so they actually see the language change. Translated articles
-  // (/es/articles/<slug>.html, /<lang>/articles/<slug>.html) still preserve the slug.
+  // We now have real per-language INDEX pages built:
+  //   /es/articles/ /pt/articles/ /de/articles/
+  //   /es/news/ /pt/news/ /de/news/
+  //   /es/videos/ /pt/videos/ /de/videos/
+  // So clicking ES on /articles/ → /es/articles/ (renders real Spanish article list).
+  //
+  // DETAIL pages without per-language versions on disk (/projects/<slug>.html,
+  // /news/<slug>.html, /videos/<id>.html) fall back to EN canonical via _redirects,
+  // so we just prefix and let Netlify handle it. For ARTICLES we explicitly check
+  // articleMeta to know if a translated detail exists — if not, we route to the
+  // /<lang>/articles/ index instead of letting the user land on a 404/EN bounce.
   function selectLang(code) {
     onChange?.(code);
     setOpen(false);
@@ -107,29 +109,19 @@ function LangSwitcher({ current = 'EN', onChange, onDark = false }) {
     if (target === 'en') {
       newPath = stripped;
     } else {
-      // Pages WITHOUT per-language equivalents → go to <lang>/ home so the user
-      // actually sees a real change of language instead of bouncing back via 301.
-      const hasNoTranslation = (
-        stripped === '/articles/' ||
-        stripped === '/news/' ||
-        stripped === '/videos/' ||
-        stripped.startsWith('/projects/') ||
-        stripped.startsWith('/proyectos/') ||
-        stripped.startsWith('/news/') ||
-        stripped.startsWith('/videos/')
-      );
-      // Articles DO have per-language versions when articleMeta confirms translation exists.
+      // For article-detail pages, only go to /<lang>/articles/<slug>.html if the
+      // translation exists. Otherwise route to /<lang>/articles/ (the new index).
       const articleSlugMatch = stripped.match(/^\/articles\/([a-z0-9-]+)\.html$/);
-      const hasArticleTranslation = articleSlugMatch && window.PANAMA_DATA
-        && window.PANAMA_DATA.articleMeta && window.PANAMA_DATA.articleMeta[target]
-        && window.PANAMA_DATA.articleMeta[target][articleSlugMatch[1]];
-      if (hasArticleTranslation) {
-        newPath = `/${target}${stripped}`;
-      } else if (hasNoTranslation) {
-        // No translated version on disk → home is the only sane target
-        newPath = `/${target}/`;
+      if (articleSlugMatch) {
+        const slug = articleSlugMatch[1];
+        const hasTranslation = window.PANAMA_DATA && window.PANAMA_DATA.articleMeta
+          && window.PANAMA_DATA.articleMeta[target] && window.PANAMA_DATA.articleMeta[target][slug];
+        newPath = hasTranslation ? `/${target}/articles/${slug}.html` : `/${target}/articles/`;
       } else {
-        // Default: stick the prefix on (works for home + translated articles via redirects)
+        // Default: prefix everything else with the lang. Netlify serves
+        // /<lang>/articles/ /<lang>/news/ /<lang>/videos/ from the new index files,
+        // and redirects /<lang>/projects/* /<lang>/news/<slug> /<lang>/videos/<id>
+        // back to EN canonical via _redirects.
         newPath = `/${target}${stripped === '/' ? '/' : stripped}`;
       }
     }
