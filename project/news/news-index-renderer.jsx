@@ -30,6 +30,22 @@ const MONTH_LABELS = {
       return diffDays <= range.months * 30;
     }
 
+    // i18n: read page language + helpers
+    const _NEWS_LANG = (typeof window !== 'undefined' && window.PREG_LANG) || 'en';
+    const _NEWS_I18N = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[_NEWS_LANG] || window.PANAMA_DATA.chromeI18n.en)) || {};
+    function _newsT(path, fallback) {
+      const parts = path.split('.');
+      let v = _NEWS_I18N;
+      for (const k of parts) { if (v && typeof v === 'object' && k in v) v = v[k]; else { v = undefined; break; } }
+      return (v != null) ? v : fallback;
+    }
+    function _newsTagLabel(tag) {
+      return (_NEWS_I18N.news_tags && _NEWS_I18N.news_tags[tag]) || tag;
+    }
+    function _newsTitle(n) {
+      return (_NEWS_I18N.news_titles && n.slug && _NEWS_I18N.news_titles[n.slug]) || n.title;
+    }
+
     function NewsIndexPage() {
       const allNews = window.PANAMA_DATA.news;
       const allTags = [...new Set(allNews.map(n => n.tag))];
@@ -77,17 +93,17 @@ const MONTH_LABELS = {
                     <DetailBack label="Home" href="/"/>
                   </div>
                   <div className="eyebrow" style={{ marginBottom: 20 }}>
-                    <span className="rule-coral"></span>The newsroom
+                    <span className="rule-coral"></span>{_newsT('news_index.eyebrow', 'The newsroom')}
                   </div>
                   <h1 className="display" style={{ fontSize: 'clamp(42px, 6.5vw, 96px)', margin: '0 0 32px', lineHeight: 1.02, letterSpacing: '-0.03em' }}>
-                    Panama property, <em>week by week.</em>
+                    {_newsT('news_index.h1', 'Panama property, week by week.')}
                   </h1>
                   <p style={{
                     fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 300,
                     fontSize: 'clamp(18px, 1.8vw, 22px)', color: 'var(--ink-soft)',
                     margin: '28px 0 0', maxWidth: '54ch', lineHeight: 1.45
                   }}>
-                    Project milestones, infrastructure, regulatory updates and press mentions — dated, sourced and searchable. Filter by time window, topic, or keyword.
+                    {_newsT('news_index.dek', 'Project milestones, infrastructure, regulatory updates and press mentions — dated, sourced and searchable. Filter by time window, topic, or keyword.')}
                   </p>
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20, paddingBottom: 8 }}>
@@ -256,14 +272,14 @@ const MONTH_LABELS = {
                                 fontWeight: 400, letterSpacing: '-0.008em', lineHeight: 1.25,
                                 color: 'var(--ink)', textWrap: 'pretty'
                               }}>
-                                {n.title}
+                                {_newsTitle(n)}
                               </div>
                               <div className="read-more" style={{
                                 marginTop: 10, fontSize: 11, fontFamily: 'var(--font-mono)',
                                 letterSpacing: '0.1em', textTransform: 'uppercase', color: color,
                                 fontWeight: 700, opacity: 0, transition: 'opacity 0.3s var(--ease)'
                               }}>
-                                Read dispatch →
+                                {_newsT('home_hero.read_dispatch', 'Read dispatch →')}
                               </div>
                             </div>
                             <div style={{
