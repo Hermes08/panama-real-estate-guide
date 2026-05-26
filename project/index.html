@@ -86,6 +86,27 @@
     <input type="text" name="bot-field"/>
   </form>
 
+  <!-- Netlify Forms static declaration for the 3-step ReserveModal flow.
+       Each reservation gets a PRG-YYYY-XXXXXX reference number generated
+       client-side and submitted alongside all the qualifying fields. -->
+  <form name="reservation" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text"  name="reference"/>
+    <input type="text"  name="first_name"/>
+    <input type="text"  name="last_name"/>
+    <input type="email" name="email"/>
+    <input type="tel"   name="phone"/>
+    <input type="text"  name="funding"/>
+    <input type="text"  name="budget"/>
+    <input type="text"  name="timeline"/>
+    <input type="text"  name="marketing_optin"/>
+    <input type="text"  name="property"/>
+    <input type="text"  name="language"/>
+    <input type="text"  name="current_page"/>
+    <input type="text"  name="referer"/>
+    <input type="text"  name="submitted_at"/>
+    <input type="text"  name="bot-field"/>
+  </form>
+
   <!-- Tracking helpers (dataLayer, getUTM, trackWhatsApp) — must load BEFORE other scripts -->
   <script src="tracking.js?v=1"></script>
 

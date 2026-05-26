@@ -429,6 +429,465 @@ const inputStyle = {
   outline: 'none', transition: 'border-color 0.15s var(--ease)'
 };
 
+/* ── ReserveModal — 3-step reservation flow (replaces #reserve anchor) ───
+ *  Opens when any link with href ending in #reserve is clicked anywhere on
+ *  the page (intercepted globally on mount). 3 steps:
+ *
+ *    1. Your details — name, email, phone, project preview card
+ *    2. Financing & budget — cash/financing/mixed + budget + timeline chips
+ *    3. Review & confirm — summary card + opt-in checkbox + submit
+ *
+ *  Success state shows a "PRG-YYYY-XXXXXX" reference number (generated
+ *  client-side) plus a one-tap WhatsApp link with the ref pre-filled in
+ *  the message body.
+ *
+ *  Submissions POST to Netlify Forms (form name="reservation" declared
+ *  statically in project/index.html alongside the lead-capture form).
+ *  No backend / payment processor — this is a qualified lead capture.
+ */
+function generateRef() {
+  // PRG-YYYY-XXXXXX (uppercase alphanumeric, easy to read aloud)
+  const yr = new Date().getFullYear();
+  const alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let rand = '';
+  for (let i = 0; i < 6; i++) rand += alphabet[Math.floor(Math.random() * alphabet.length)];
+  return `PRG-${yr}-${rand}`;
+}
+
+function ReserveModal() {
+  const [open, setOpen] = useState(false);
+  const [step, setStep] = useState(1);
+  const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending]     = useState(false);
+  const [error, setError]         = useState(null);
+  const [refNum, setRefNum]       = useState('');
+  const [form, setForm] = useState({
+    first_name: '', last_name: '', email: '', phone: '',
+    funding: '', budget: '', timeline: '',
+    marketing_optin: true,
+    property: '' // pre-filled from ?from=<slug> if present
+  });
+
+  const LANG = (typeof window !== 'undefined' && window.PREG_LANG) || 'en';
+  const i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[LANG] || window.PANAMA_DATA.chromeI18n.en)) || {};
+  const R = i18n.reserve_modal || {};
+
+  // Global click interceptor: any link ending in #reserve opens the modal instead.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const onClick = (e) => {
+      const a = e.target.closest && e.target.closest('a[href]');
+      if (!a) return;
+      const href = a.getAttribute('href') || '';
+      if (!/#reserve(\?|$)/.test(href) && !href.endsWith('#reserve')) return;
+      // Pre-fill property from ?from= query param if present on the link
+      const m = href.match(/\?from=([^&#]+)/);
+      let property = '';
+      if (m) {
+        try { property = decodeURIComponent(m[1]); } catch (e) {}
+      } else if (window.location.pathname.match(/\/(projects|articles|news|videos)\/[^/]+\.html$/)) {
+        // Pre-fill from current page slug
+        const slug = window.location.pathname.split('/').pop().replace(/\.html$/, '');
+        property = slug;
+      }
+      e.preventDefault();
+      setForm(f => ({ ...f, property }));
+      setStep(1);
+      setSubmitted(false);
+      setError(null);
+      setOpen(true);
+    };
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, []);
+
+  // ESC key dismiss
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => { if (e.key === 'Escape') setOpen(false); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [open]);
+
+  const goNext = () => {
+    setError(null);
+    if (step === 1) {
+      if (!form.first_name || !form.last_name || !form.email || !form.phone) {
+        setError(R.error_step1 || 'All fields are required.');
+        return;
+      }
+    }
+    if (step === 2) {
+      if (!form.funding || !form.budget || !form.timeline) {
+        setError(R.error_step2 || 'Choose funding, budget, and timeline.');
+        return;
+      }
+    }
+    setStep(s => s + 1);
+  };
+  const goBack = () => { setError(null); setStep(s => s - 1); };
+
+  const encodeForm = (data) =>
+    Object.keys(data).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k])).join('&');
+
+  const onSubmit = async () => {
+    setError(null);
+    setSending(true);
+    const ref = generateRef();
+    const payload = {
+      'form-name': 'reservation',
+      reference: ref,
+      first_name: form.first_name,
+      last_name: form.last_name,
+      email: form.email,
+      phone: form.phone,
+      funding: form.funding,
+      budget: form.budget,
+      timeline: form.timeline,
+      marketing_optin: form.marketing_optin ? 'yes' : 'no',
+      property: form.property,
+      language: LANG,
+      current_page: typeof window !== 'undefined' ? window.location.pathname : '',
+      referer: typeof document !== 'undefined' ? document.referrer : '',
+      submitted_at: new Date().toISOString(),
+      'bot-field': '',
+    };
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodeForm(payload),
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      setRefNum(ref);
+      setSubmitted(true);
+    } catch (err) {
+      setError(R.error_network || 'Could not submit — please try again.');
+    } finally {
+      setSending(false);
+    }
+  };
+
+  if (!open) return null;
+
+  const fundingOptions = [
+    { id: 'cash',      mark: 'A', label: R.funding_cash      || 'Cash',      sub: R.funding_cash_sub      || 'Funds ready' },
+    { id: 'financing', mark: 'B', label: R.funding_financing || 'Financing', sub: R.funding_financing_sub || 'Need a loan' },
+    { id: 'mixed',     mark: 'C', label: R.funding_mixed     || 'Mixed',     sub: R.funding_mixed_sub     || 'Cash + loan' },
+  ];
+  const budgetOptions = ['<$250k', '$250–500k', '$500k–1M', '$1M+'];
+  const timelineOptions = [
+    R.timeline_now      || 'Now',
+    R.timeline_3m       || '3 months',
+    R.timeline_6m       || '6 months',
+    R.timeline_browsing || 'Just looking'
+  ];
+
+  return (
+    <div role="dialog" aria-modal="true" aria-labelledby="reserve-modal-title"
+         className="preg-modal-backdrop"
+         style={{
+           position: 'fixed', inset: 0, zIndex: 70,
+           background: 'rgba(11, 39, 51, 0.62)', backdropFilter: 'blur(6px)',
+           display: 'grid', placeItems: 'center', padding: '20px',
+           overflowY: 'auto'
+         }}
+         onClick={(e) => { if (e.target === e.currentTarget) setOpen(false); }}>
+      <div className="preg-modal-card" style={{
+        background: 'var(--paper)', color: 'var(--ink)',
+        maxWidth: 540, width: '100%', borderRadius: 20,
+        padding: 'clamp(28px, 4vw, 36px)', position: 'relative',
+        boxShadow: '0 30px 80px -20px rgba(0,0,0,0.5)',
+        margin: '20px 0'
+      }}>
+        <button onClick={() => setOpen(false)} aria-label={R.close || 'Close'}
+                style={{
+                  position: 'absolute', top: 16, right: 16,
+                  width: 34, height: 34, borderRadius: '50%',
+                  background: 'transparent', border: '1px solid var(--line)',
+                  display: 'grid', placeItems: 'center', cursor: 'pointer',
+                  color: 'var(--ink-mute)'
+                }}>
+          <Icon name="close" size={14}/>
+        </button>
+
+        {submitted ? (
+          /* ── SUCCESS STATE ─────────────────────────────────────────── */
+          <div style={{ textAlign: 'center', padding: '12px 0 4px' }}>
+            <div className="preg-check" style={{ width: 60, height: 60 }}>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div className="eyebrow" style={{ marginBottom: 14, justifyContent: 'center', display: 'inline-flex' }}>
+              <span className="rule-coral"></span>{R.success_eyebrow || 'Reserved · pending confirmation'}
+            </div>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.4vw, 36px)', margin: '0 0 14px', lineHeight: 1.08 }}>
+              {(R.success_title_prefix || 'Hold placed.')} <em style={{ fontStyle: 'italic', color: 'var(--coral)' }}>{form.first_name || R.success_title_suffix_generic || 'You\'re in'}.</em>
+            </h3>
+            <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--ink-soft)', margin: '0 auto 22px', maxWidth: '42ch' }}>
+              {R.success_body || 'A bilingual concierge will WhatsApp you within 24 hours to confirm and walk through next steps.'}
+            </p>
+            <div style={{
+              fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.16em',
+              color: 'var(--coral-deep)', padding: '8px 14px',
+              background: 'rgba(255,107,74,0.08)', borderRadius: 999,
+              display: 'inline-block', marginBottom: 24
+            }}>
+              REF · {refNum}
+            </div>
+            <div>
+              <a href={`https://wa.me/50762534802?text=${encodeURIComponent(`Hi! My reservation reference is ${refNum}.`)}`}
+                 target="_blank" rel="noopener noreferrer"
+                 style={{ display: 'inline-flex', alignItems: 'center', gap: 8,
+                          padding: '12px 22px', background: '#25D366', color: '#fff',
+                          textDecoration: 'none', borderRadius: 999, fontWeight: 600,
+                          fontSize: 13, fontFamily: 'var(--font-body)' }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg>
+                {R.success_whatsapp || 'Message us on WhatsApp now'}
+              </a>
+            </div>
+          </div>
+        ) : (
+          <>
+            {/* Progress bar */}
+            <div style={{ display: 'flex', gap: 6, marginBottom: 26 }}>
+              {[1,2,3].map(n => (
+                <div key={n} style={{
+                  flex: 1, height: 3, borderRadius: 2,
+                  background: n < step ? 'var(--coral-deep)' : (n === step ? 'var(--coral)' : 'var(--line)'),
+                  transition: 'background 0.3s'
+                }}/>
+              ))}
+            </div>
+
+            <div className="eyebrow" style={{ marginBottom: 14 }}>
+              <span className="rule-coral"></span>{R.step_label?.replace('{n}', step) || `Step ${step} of 3`} · {[R.step1_label || 'Your details', R.step2_label || 'Financing', R.step3_label || 'Review'][step-1]}
+            </div>
+
+            {/* STEP 1 — Details */}
+            {step === 1 && (
+              <>
+                <h3 id="reserve-modal-title" style={{
+                  fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.4vw, 36px)',
+                  margin: '0 0 10px', lineHeight: 1.08
+                }}>
+                  {R.step1_title_prefix || 'Hold this unit for'} <em style={{ fontStyle: 'italic', color: 'var(--coral)' }}>{R.step1_title_emphasis || 'thirty days'}.</em>
+                </h3>
+                <p style={{ fontSize: 13.5, lineHeight: 1.6, color: 'var(--ink-soft)', margin: '0 0 20px' }}>
+                  {R.step1_sub || 'Tell us how to reach you — a bilingual concierge will confirm within 24 hours. No payment required to begin.'}
+                </p>
+
+                {form.property && (
+                  <div style={{
+                    display: 'flex', alignItems: 'center', gap: 12,
+                    padding: '12px 14px', background: 'var(--cream)',
+                    border: '1px solid var(--line)', borderRadius: 12, marginBottom: 18
+                  }}>
+                    <div style={{
+                      width: 44, height: 44, borderRadius: 8,
+                      background: 'linear-gradient(135deg, var(--coral), var(--coral-deep))', flexShrink: 0
+                    }}/>
+                    <div>
+                      <div style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 500 }}>
+                        {form.property.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}
+                      </div>
+                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ink-mute)', marginTop: 3 }}>
+                        {R.step1_property_label || 'Selected property'}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                <form onSubmit={(e) => { e.preventDefault(); goNext(); }} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+                    <input required style={inputStyle} type="text" autoComplete="given-name"
+                           placeholder={R.first_name_placeholder || 'First name'}
+                           value={form.first_name} onChange={(e) => setForm({ ...form, first_name: e.target.value })}/>
+                    <input required style={inputStyle} type="text" autoComplete="family-name"
+                           placeholder={R.last_name_placeholder || 'Last name'}
+                           value={form.last_name} onChange={(e) => setForm({ ...form, last_name: e.target.value })}/>
+                  </div>
+                  <input required style={inputStyle} type="email" autoComplete="email"
+                         placeholder={R.email_placeholder || 'Email address'}
+                         value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}/>
+                  <input required style={inputStyle} type="tel" autoComplete="tel"
+                         placeholder={R.phone_placeholder || 'WhatsApp / phone (with country code)'}
+                         value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })}/>
+                  {error && <div style={{ color: '#C94628', fontSize: 13 }}>{error}</div>}
+                  <button type="submit" className="btn btn-coral" style={{ width: '100%', justifyContent: 'center', marginTop: 6 }}>
+                    {R.continue_step2 || 'Continue → Step 2'} <Icon name="arrow" size={14}/>
+                  </button>
+                </form>
+
+                <div style={{ display: 'flex', justifyContent: 'space-around', gap: 12, marginTop: 22, paddingTop: 18, borderTop: '1px solid var(--line)' }}>
+                  {[
+                    { stat: '30d', label: R.trust_refundable || 'Refundable hold' },
+                    { stat: '24h', label: R.trust_reply      || 'Reply guarantee' },
+                    { stat: '$0',  label: R.trust_begin      || 'To begin' },
+                  ].map((t, i) => (
+                    <div key={i} style={{ textAlign: 'center', flex: 1 }}>
+                      <div style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: 18, color: 'var(--coral)', fontWeight: 500, marginBottom: 4 }}>{t.stat}</div>
+                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9.5, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ink-soft)' }}>{t.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {/* STEP 2 — Financing / Budget / Timeline */}
+            {step === 2 && (
+              <>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 3vw, 30px)', margin: '0 0 10px', lineHeight: 1.1 }}>
+                  {R.step2_title_prefix || 'How are you'} <em style={{ fontStyle: 'italic', color: 'var(--coral)' }}>{R.step2_title_emphasis || 'planning to fund'}</em> {R.step2_title_suffix || 'the purchase?'}
+                </h3>
+                <p style={{ fontSize: 13.5, lineHeight: 1.6, color: 'var(--ink-soft)', margin: '0 0 20px' }}>
+                  {R.step2_sub || "No wrong answer — knowing this lets us prepare the right options before our first call."}
+                </p>
+
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--ink-mute)', marginBottom: 8 }}>
+                  {R.funding_label || 'Funding source'}
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
+                  {fundingOptions.map(opt => {
+                    const selected = form.funding === opt.id;
+                    return (
+                      <button key={opt.id} type="button"
+                        onClick={() => setForm({ ...form, funding: opt.id })}
+                        style={{
+                          background: selected ? 'rgba(255,107,74,0.06)' : 'var(--cream)',
+                          border: selected ? '1px solid var(--coral)' : '1px solid var(--line)',
+                          borderRadius: 10, padding: '14px 12px', cursor: 'pointer',
+                          textAlign: 'center', display: 'flex', flexDirection: 'column', gap: 6,
+                          boxShadow: selected ? '0 0 0 2px rgba(255,107,74,0.12)' : 'none',
+                          transition: 'all 0.15s'
+                        }}>
+                        <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 500, color: selected ? 'var(--coral)' : 'var(--ink)', fontStyle: selected ? 'italic' : 'normal', lineHeight: 1 }}>{opt.mark}</div>
+                        <div style={{ fontWeight: 600, fontSize: 12 }}>{opt.label}</div>
+                        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink-mute)' }}>{opt.sub}</div>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--ink-mute)', marginTop: 16, marginBottom: 8 }}>
+                  {R.budget_label || 'Budget range · USD'}
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 6 }}>
+                  {budgetOptions.map(b => {
+                    const selected = form.budget === b;
+                    return (
+                      <button key={b} type="button"
+                        onClick={() => setForm({ ...form, budget: b })}
+                        style={{
+                          background: selected ? 'var(--ink)' : 'var(--cream)',
+                          color: selected ? 'var(--cream)' : 'var(--ink)',
+                          border: selected ? '1px solid var(--ink)' : '1px solid var(--line)',
+                          borderRadius: 999, padding: '10px 8px', cursor: 'pointer',
+                          fontFamily: 'var(--font-mono)', fontSize: 11,
+                          letterSpacing: '0.06em', transition: 'all 0.15s'
+                        }}>
+                        {b}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--ink-mute)', marginTop: 16, marginBottom: 8 }}>
+                  {R.timeline_label || 'Timeline'}
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 6 }}>
+                  {timelineOptions.map(t => {
+                    const selected = form.timeline === t;
+                    return (
+                      <button key={t} type="button"
+                        onClick={() => setForm({ ...form, timeline: t })}
+                        style={{
+                          background: selected ? 'var(--ink)' : 'var(--cream)',
+                          color: selected ? 'var(--cream)' : 'var(--ink)',
+                          border: selected ? '1px solid var(--ink)' : '1px solid var(--line)',
+                          borderRadius: 999, padding: '10px 8px', cursor: 'pointer',
+                          fontFamily: 'var(--font-mono)', fontSize: 11,
+                          letterSpacing: '0.06em', transition: 'all 0.15s'
+                        }}>
+                        {t}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {error && <div style={{ color: '#C94628', fontSize: 13, marginTop: 12 }}>{error}</div>}
+
+                <button type="button" onClick={goNext} className="btn btn-coral" style={{ width: '100%', justifyContent: 'center', marginTop: 22 }}>
+                  {R.continue_review || 'Continue → Review'} <Icon name="arrow" size={14}/>
+                </button>
+                <button type="button" onClick={goBack} style={{
+                  background: 'transparent', color: 'var(--ink-soft)', border: 'none',
+                  padding: '12px 16px', fontFamily: 'var(--font-mono)', fontSize: 11,
+                  letterSpacing: '0.12em', textTransform: 'uppercase', cursor: 'pointer',
+                  marginTop: 4
+                }}>← {R.back_details || 'Back to details'}</button>
+              </>
+            )}
+
+            {/* STEP 3 — Review */}
+            {step === 3 && (
+              <>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 3vw, 30px)', margin: '0 0 10px', lineHeight: 1.1 }}>
+                  {R.step3_title_prefix || 'A quick'} <em style={{ fontStyle: 'italic', color: 'var(--coral)' }}>{R.step3_title_emphasis || 'look back'}.</em>
+                </h3>
+                <p style={{ fontSize: 13.5, lineHeight: 1.6, color: 'var(--ink-soft)', margin: '0 0 20px' }}>
+                  {R.step3_sub || "Confirm and we'll reach out within 24 hours."}
+                </p>
+
+                <div style={{ background: 'var(--cream)', border: '1px solid var(--line)', borderRadius: 12, padding: 18 }}>
+                  {[
+                    { lbl: R.review_property || 'Property',  val: form.property ? form.property.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) : '—' },
+                    { lbl: R.review_name     || 'Name',      val: `${form.first_name} ${form.last_name}`.trim() },
+                    { lbl: R.review_email    || 'Email',     val: form.email },
+                    { lbl: R.review_phone    || 'Phone',     val: form.phone },
+                    { lbl: R.review_funding  || 'Funding',   val: `${form.funding} · ${form.budget} · ${form.timeline}` },
+                  ].map((row, i) => (
+                    <div key={i} style={{
+                      display: 'flex', justifyContent: 'space-between', padding: '8px 0',
+                      fontSize: 13,
+                      borderTop: i === 0 ? 'none' : '1px solid var(--line-soft)'
+                    }}>
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ink-mute)' }}>{row.lbl}</span>
+                      <span style={{ fontWeight: 600, textAlign: 'right', maxWidth: '60%' }}>{row.val}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <label style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginTop: 18, fontSize: 12.5, color: 'var(--ink-soft)', lineHeight: 1.5 }}>
+                  <input type="checkbox" checked={form.marketing_optin}
+                         onChange={(e) => setForm({ ...form, marketing_optin: e.target.checked })}
+                         style={{ marginTop: 3 }}/>
+                  <span>{R.opt_in || "I'd like to receive the personalised shortlist by email and WhatsApp."} <span style={{ color: 'var(--ink-mute)' }}>{R.opt_in_sub || 'No spam — unsubscribe anytime.'}</span></span>
+                </label>
+
+                {error && <div style={{ color: '#C94628', fontSize: 13, marginTop: 12 }}>{error}</div>}
+
+                <button type="button" onClick={onSubmit} disabled={sending}
+                        className="btn btn-coral"
+                        style={{ width: '100%', justifyContent: 'center', marginTop: 18, opacity: sending ? 0.6 : 1 }}>
+                  {sending ? (R.submitting || 'Submitting…') : (R.confirm || 'Confirm reservation hold')} <Icon name="arrow" size={14}/>
+                </button>
+                <button type="button" onClick={goBack} style={{
+                  background: 'transparent', color: 'var(--ink-soft)', border: 'none',
+                  padding: '12px 16px', fontFamily: 'var(--font-mono)', fontSize: 11,
+                  letterSpacing: '0.12em', textTransform: 'uppercase', cursor: 'pointer',
+                  marginTop: 4
+                }}>← {R.back_financing || 'Edit details'}</button>
+              </>
+            )}
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 /* ── Navbar ── */
 function Navbar({ transparent }) {
   const [scrolled, setScrolled] = useState(false);
@@ -566,6 +1025,7 @@ function Navbar({ transparent }) {
       )}
       <FloatingContact/>
       <LeadCaptureModal/>
+      <ReserveModal/>
     </header>
   );
 }
