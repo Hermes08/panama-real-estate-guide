@@ -170,12 +170,26 @@ function LangSwitcher({ current = 'EN', onChange, onDark = false }) {
  *  Sits above the cookie banner (z-index 40) but below the nav (z-index 50).
  */
 function FloatingContact() {
-  // Detect language for the aria-labels so screen readers in es/pt/de don't read English.
   const LANG = (typeof window !== 'undefined' && window.PREG_LANG) || 'en';
   const i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[LANG] || window.PANAMA_DATA.chromeI18n.en)) || {};
   const labels = (i18n.floating_contact) || {};
   const lWhatsapp = labels.whatsapp || 'WhatsApp +507 6253-4802';
   const lCallUs   = labels.call_us  || 'Call US (731) 937-9142';
+
+  // First-load pulse — WhatsApp pulses 2× over 3s, once per browser session.
+  const [pulse, setPulse] = useState(false);
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      if (!sessionStorage.getItem('preg_first_load_pulse')) {
+        setPulse(true);
+        sessionStorage.setItem('preg_first_load_pulse', '1');
+        const t = setTimeout(() => setPulse(false), 3200);
+        return () => clearTimeout(t);
+      }
+    } catch (e) {}
+  }, []);
+
   const btnStyle = {
     width: 54, height: 54, borderRadius: '50%',
     display: 'grid', placeItems: 'center', textDecoration: 'none',
@@ -198,8 +212,10 @@ function FloatingContact() {
       </a>
       <a href="https://wa.me/50762534802" target="_blank" rel="noopener noreferrer"
          aria-label={lWhatsapp} title={lWhatsapp}
+         className={pulse ? 'preg-pulse' : ''}
          style={{ ...btnStyle, background: '#25D366', color: '#fff',
-                  boxShadow: '0 12px 28px -8px rgba(37,211,102,0.55), 0 0 0 4px rgba(255,253,245,0.65)' }}
+                  boxShadow: '0 12px 28px -8px rgba(37,211,102,0.55), 0 0 0 4px rgba(255,253,245,0.65)',
+                  position: 'relative' }}
          onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; }}
          onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}>
         <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -309,14 +325,15 @@ function LeadCaptureModal() {
 
   return (
     <div role="dialog" aria-modal="true" aria-labelledby="lead-capture-title"
+         className="preg-modal-backdrop"
          style={{
            position: 'fixed', inset: 0, zIndex: 60,
            background: 'rgba(11, 39, 51, 0.62)', backdropFilter: 'blur(6px)',
            display: 'grid', placeItems: 'center',
-           padding: '20px', animation: 'fadeIn 0.25s var(--ease)'
+           padding: '20px'
          }}
          onClick={(e) => { if (e.target === e.currentTarget) dismiss(); }}>
-      <div style={{
+      <div className="preg-modal-card" style={{
         background: 'var(--paper)', color: 'var(--ink)',
         maxWidth: 480, width: '100%', borderRadius: 18,
         padding: 'clamp(28px, 4vw, 40px)', position: 'relative',
@@ -335,6 +352,11 @@ function LeadCaptureModal() {
 
         {submitted ? (
           <div style={{ textAlign: 'center', padding: '20px 0' }}>
+            <div className="preg-check">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
             <div className="eyebrow" style={{ marginBottom: 14 }}>
               <span className="rule-coral"></span>{L.thank_you_eyebrow || 'Thank you'}
             </div>
@@ -476,7 +498,7 @@ function Navbar({ transparent }) {
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M20 15.5c-1.2 0-2.5-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2a15 15 0 0 1-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1A11.4 11.4 0 0 1 8.5 4c0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/>
             </svg>
-            US · (731) 937-9142
+            <span className="us-prefix">US · </span>(731) 937-9142
           </a>
           <a href={`${(() => { const lc = lang.toLowerCase(); return lc === 'en' ? '' : `/${lc}`; })()}/#reserve`} className="btn btn-coral" style={{ padding: '11px 20px', fontSize: 11 }}>
             {(() => {
