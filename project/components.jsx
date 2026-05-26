@@ -163,6 +163,53 @@ function LangSwitcher({ current = 'EN', onChange, onDark = false }) {
   );
 }
 
+/* ── FloatingContact — sticky bottom-right buttons (WhatsApp + Call US) ──
+ *  Visible on every page, both mobile and desktop. Two big tap targets:
+ *    • WhatsApp green circle → wa.me/50762534802 (+507 6253-4802)
+ *    • Call US ink circle    → tel:+17319379142 ((731) 937-9142)
+ *  Sits above the cookie banner (z-index 40) but below the nav (z-index 50).
+ */
+function FloatingContact() {
+  // Detect language for the aria-labels so screen readers in es/pt/de don't read English.
+  const LANG = (typeof window !== 'undefined' && window.PREG_LANG) || 'en';
+  const i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[LANG] || window.PANAMA_DATA.chromeI18n.en)) || {};
+  const labels = (i18n.floating_contact) || {};
+  const lWhatsapp = labels.whatsapp || 'WhatsApp +507 6253-4802';
+  const lCallUs   = labels.call_us  || 'Call US (731) 937-9142';
+  const btnStyle = {
+    width: 54, height: 54, borderRadius: '50%',
+    display: 'grid', placeItems: 'center', textDecoration: 'none',
+    transition: 'transform 0.15s var(--ease), box-shadow 0.2s var(--ease)'
+  };
+  return (
+    <div style={{
+      position: 'fixed', right: 16, bottom: 16, zIndex: 40,
+      display: 'flex', flexDirection: 'column', gap: 12,
+      alignItems: 'flex-end'
+    }}>
+      <a href="tel:+17319379142" aria-label={lCallUs} title={lCallUs}
+         style={{ ...btnStyle, background: 'var(--ink)', color: 'var(--cream)',
+                  boxShadow: '0 12px 28px -8px rgba(11,39,51,0.6), 0 0 0 4px rgba(255,253,245,0.65)' }}
+         onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; }}
+         onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M20 15.5c-1.2 0-2.5-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2a15 15 0 0 1-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1A11.4 11.4 0 0 1 8.5 4c0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/>
+        </svg>
+      </a>
+      <a href="https://wa.me/50762534802" target="_blank" rel="noopener noreferrer"
+         aria-label={lWhatsapp} title={lWhatsapp}
+         style={{ ...btnStyle, background: '#25D366', color: '#fff',
+                  boxShadow: '0 12px 28px -8px rgba(37,211,102,0.55), 0 0 0 4px rgba(255,253,245,0.65)' }}
+         onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; }}
+         onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}>
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2a10 10 0 0 0-8.7 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.7-1.2 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1a16 16 0 0 1-4.2-2.1 12 12 0 0 1-3.1-3.7c-.4-.6-.9-1.6-.9-2.5s.5-1.4.7-1.6c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5c-.1.1-.3.3-.1.6a9 9 0 0 0 1.6 2 8 8 0 0 0 2.3 1.4c.3.1.5.1.6 0l.6-.7c.2-.3.5-.2.7-.1l2 .9c.2.1.4.2.5.3 0 .1 0 .7-.2 1.5Z"/>
+        </svg>
+      </a>
+    </div>
+  );
+}
+
 /* ── Navbar ── */
 function Navbar({ transparent }) {
   const [scrolled, setScrolled] = useState(false);
@@ -267,8 +314,24 @@ function Navbar({ transparent }) {
               return (i.nav && i.nav.reserve_a_unit) || 'Reserve a unit';
             })()}</a>
           </div>
+          {/* Mobile-menu contact strip — direct WhatsApp + US call. Big tap targets. */}
+          <div style={{ marginTop: 8, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+            <a href="https://wa.me/50762534802" target="_blank" rel="noopener noreferrer"
+               style={{ background: '#25D366', color: '#fff', padding: '12px 14px', borderRadius: 10,
+                        textAlign: 'center', textDecoration: 'none', fontSize: 13, fontWeight: 700,
+                        fontFamily: 'var(--font-mono)', letterSpacing: '0.04em' }}>
+              WhatsApp · +507 6253-4802
+            </a>
+            <a href="tel:+17319379142"
+               style={{ background: 'var(--ink)', color: 'var(--cream)', padding: '12px 14px', borderRadius: 10,
+                        textAlign: 'center', textDecoration: 'none', fontSize: 13, fontWeight: 700,
+                        fontFamily: 'var(--font-mono)', letterSpacing: '0.04em' }}>
+              US · (731) 937-9142
+            </a>
+          </div>
         </div>
       )}
+      <FloatingContact/>
     </header>
   );
 }
