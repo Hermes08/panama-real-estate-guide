@@ -126,6 +126,18 @@
       "dek": "Long-form articles for international investors, retirees and second-home buyers. Each piece is researched, dated and updated annually.",
       "all_filter": "All"
     },
+    "news_index": {
+      "eyebrow": "The newsroom",
+      "h1": "Panama property, week by week.",
+      "dek": "Project milestones, infrastructure, regulatory updates and press mentions — dated, sourced and searchable. Filter by time window, topic, or keyword."
+    },
+    "videos_index": {
+      "eyebrow": "Video library",
+      "h1": "Panama real estate in motion.",
+      "dek": "Short Spanish-narrated project tours and lifestyle clips from our team in Panama City and across the country. English subtitles available on YouTube.",
+      "videos_word": "videos"
+    },
+    "back_links_extra": { "home": "Home" },
     "footer_columns": {
       "featured_projects": "Featured projects",
       "projects": {
@@ -296,6 +308,18 @@
       "dek": "Artículos a fondo para inversionistas internacionales, jubilados y compradores de segunda residencia. Cada pieza es investigada, fechada y actualizada anualmente.",
       "all_filter": "Todas"
     },
+    "news_index": {
+      "eyebrow": "La redacción",
+      "h1": "Bienes raíces en Panamá, semana a semana.",
+      "dek": "Hitos de proyectos, infraestructura, actualizaciones regulatorias y menciones de prensa — fechadas, con fuentes y buscables. Filtra por ventana de tiempo, tema o palabra clave."
+    },
+    "videos_index": {
+      "eyebrow": "Biblioteca de videos",
+      "h1": "Bienes raíces de Panamá en movimiento.",
+      "dek": "Tours cortos narrados en español de proyectos y clips de estilo de vida desde nuestro equipo en Ciudad de Panamá y todo el país. Subtítulos en inglés disponibles en YouTube.",
+      "videos_word": "videos"
+    },
+    "back_links_extra": { "home": "Inicio" },
     "footer_columns": {
       "featured_projects": "Proyectos destacados",
       "projects": {
@@ -466,6 +490,18 @@
       "dek": "Artigos aprofundados para investidores internacionais, aposentados e compradores de segunda residência. Cada peça é pesquisada, datada e atualizada anualmente.",
       "all_filter": "Todos"
     },
+    "news_index": {
+      "eyebrow": "A redação",
+      "h1": "Imóveis no Panamá, semana a semana.",
+      "dek": "Marcos de projetos, infraestrutura, atualizações regulatórias e menções na imprensa — datadas, com fontes e pesquisáveis. Filtre por janela de tempo, tema ou palavra-chave."
+    },
+    "videos_index": {
+      "eyebrow": "Biblioteca de vídeos",
+      "h1": "Imóveis do Panamá em movimento.",
+      "dek": "Tours curtos narrados em espanhol de projetos e clipes de estilo de vida da nossa equipe na Cidade do Panamá e em todo o país. Legendas em inglês disponíveis no YouTube.",
+      "videos_word": "vídeos"
+    },
+    "back_links_extra": { "home": "Início" },
     "footer_columns": {
       "featured_projects": "Projetos em destaque",
       "projects": {
@@ -636,6 +672,18 @@
       "dek": "Ausführliche Artikel für internationale Investoren, Rentner und Zweitwohnsitzkäufer. Jeder Beitrag wird recherchiert, datiert und jährlich aktualisiert.",
       "all_filter": "Alle"
     },
+    "news_index": {
+      "eyebrow": "Die Redaktion",
+      "h1": "Panamas Immobilien, Woche für Woche.",
+      "dek": "Projektmeilensteine, Infrastruktur, regulatorische Updates und Presseerwähnungen — datiert, mit Quellen und durchsuchbar. Filtere nach Zeitfenster, Thema oder Stichwort."
+    },
+    "videos_index": {
+      "eyebrow": "Videobibliothek",
+      "h1": "Panamas Immobilien in Bewegung.",
+      "dek": "Kurze spanisch-erzählte Projekt-Touren und Lifestyle-Clips von unserem Team in Panama-Stadt und im ganzen Land. Englische Untertitel auf YouTube verfügbar.",
+      "videos_word": "Videos"
+    },
+    "back_links_extra": { "home": "Startseite" },
     "footer_columns": {
       "featured_projects": "Ausgewählte Projekte",
       "projects": {
