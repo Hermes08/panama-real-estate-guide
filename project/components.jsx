@@ -204,16 +204,14 @@ function Navbar({ transparent }) {
           return ['Projects', 'Regions', 'Journal', 'Videos', 'News', 'Residency', 'About'].map(l => {
             const key = l.toLowerCase();
             const label = navLabels[key] || l;
-            // Per-language index pages (/es/articles/, /es/news/, /es/videos/) DO NOT exist —
-            // only the EN /articles/, /news/, /videos/ index pages do. Always link these to
-            // EN canonical so the click resolves (translated detail pages remain at /<lang>/articles/<slug>.html
-            // and the journal index links from inside translated articles point back to EN /articles/ too).
-            // In-page anchors (#projects, #regions, #reserve, #about) keep the lang prefix to stay on the
-            // current-language home page.
-            const href = l === 'Journal' ? `/articles/`
-                       : l === 'Videos' ? `/videos/`
-                       : l === 'News' ? `/news/`
-                       : l === 'Residency' ? `/articles/?category=Residency`
+            // Per-language index pages NOW EXIST (PR #99/101) — /es/articles/, /es/news/,
+            // /es/videos/, /pt/articles/, etc. Each renders translated content. So
+            // lang-prefix list page links too — user stays in their chosen language
+            // across the entire site.
+            const href = l === 'Journal' ? `${prefix || ''}/articles/`
+                       : l === 'Videos' ? `${prefix || ''}/videos/`
+                       : l === 'News' ? `${prefix || ''}/news/`
+                       : l === 'Residency' ? `${prefix || ''}/articles/?category=Residency`
                        : l === 'About' ? `${prefix || ''}/#regions`
                        : `${prefix || ''}/#${l.toLowerCase()}`;
             return <a key={l} href={href} style={{ color: 'inherit', textDecoration: 'none', opacity: 0.9 }}>{label}</a>;
