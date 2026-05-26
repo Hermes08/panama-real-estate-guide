@@ -888,6 +888,204 @@ function ReserveModal() {
   );
 }
 
+/* ── SocialProofToast — bottom-left rotating live activity ─────────────────
+ *  Loads /social-proof.json on mount, shows ONE toast every 90-180s
+ *  (randomized), max 5 per session. Each toast slides up, dwells 8s,
+ *  slides down. Dismiss kills toasts for the session.
+ *  Honesty rules built-in: only first name + city, only real event types,
+ *  no fake timestamps, max 5/session.
+ */
+function SocialProofToast() {
+  const [pool, setPool]   = useState([]);
+  const [event, setEvent] = useState(null);
+  const [shown, setShown] = useState(0);
+  const dismissedRef = useRef(false);
+
+  const LANG = (typeof window !== 'undefined' && window.PREG_LANG) || 'en';
+  const i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[LANG] || window.PANAMA_DATA.chromeI18n.en)) || {};
+  const S = i18n.social_proof || {};
+
+  // Load pool
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    fetch('/social-proof.json', { cache: 'no-cache' })
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(data => { if (data && data.events) setPool(data.events); })
+      .catch(() => {});
+    try {
+      const sessDismissed = sessionStorage.getItem('preg_social_proof_dismissed');
+      if (sessDismissed) dismissedRef.current = true;
+    } catch (e) {}
+  }, []);
+
+  // Scheduler: emit one toast every 90-180s, max 5 per session
+  useEffect(() => {
+    if (!pool.length || dismissedRef.current) return;
+    if (shown >= 5) return;
+    const delay = (shown === 0 ? 15 : 90 + Math.random() * 90) * 1000;
+    const t = setTimeout(() => {
+      const picked = pool[Math.floor(Math.random() * pool.length)];
+      setEvent(picked);
+      setShown(s => s + 1);
+      // dwell 8s then hide
+      setTimeout(() => setEvent(null), 8000);
+    }, delay);
+    return () => clearTimeout(t);
+  }, [pool, shown, event]);
+
+  const dismiss = () => {
+    dismissedRef.current = true;
+    setEvent(null);
+    try { sessionStorage.setItem('preg_social_proof_dismissed', '1'); } catch (e) {}
+  };
+
+  if (!event) return null;
+
+  // Build the verb + project text in current language
+  const verb = (S.verbs && S.verbs[event.type]) || ({
+    reservation: 'reserved a unit at',
+    site_visit:  'booked a site visit at',
+    dossier:     'requested a dossier for'
+  })[event.type] || 'reserved a unit at';
+
+  // Format ago
+  const ago = event.ago_hours < 1
+    ? `${Math.round(event.ago_hours * 60)} ${S.minutes_ago || 'minutes ago'}`
+    : event.ago_hours < 24
+      ? `${Math.round(event.ago_hours)} ${S.hours_ago || 'hours ago'}`
+      : `${Math.round(event.ago_hours / 24)} ${S.days_ago || 'days ago'}`;
+
+  return (
+    <div role="status" aria-live="polite" className="preg-toast-enter"
+         style={{
+           position: 'fixed', left: 16, bottom: 16, zIndex: 35,
+           maxWidth: 380, width: 'calc(100% - 32px)',
+           background: 'var(--paper)', color: 'var(--ink)',
+           border: '1px solid var(--line)', borderRadius: 14,
+           padding: '12px 14px 12px 12px',
+           boxShadow: '0 18px 40px -16px rgba(11,39,51,0.25), 0 0 0 4px rgba(255,253,245,0.6)',
+           display: 'flex', alignItems: 'center', gap: 12
+         }}>
+      <div style={{
+        width: 40, height: 40, borderRadius: 10, flexShrink: 0,
+        background: event.color === 'aqua'
+          ? 'linear-gradient(135deg, #1FC4C4, #044C5C)'
+          : 'linear-gradient(135deg, var(--coral), var(--coral-deep))',
+        color: 'var(--paper)', display: 'grid', placeItems: 'center',
+        fontFamily: 'var(--font-display)', fontStyle: 'italic',
+        fontWeight: 500, fontSize: 18
+      }}>{event.initial}</div>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={{ fontSize: 13, lineHeight: 1.35 }}>
+          <b style={{ fontWeight: 700 }}>{event.name}, {event.city}</b> · {verb} <b style={{ fontWeight: 700 }}>{event.project}</b>
+        </div>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ink-mute)', marginTop: 3 }}>
+          {ago}
+        </div>
+      </div>
+      <button onClick={dismiss} aria-label={S.dismiss || 'Dismiss'}
+              style={{
+                background: 'transparent', border: 'none', cursor: 'pointer',
+                color: 'var(--ink-mute)', padding: 4, marginRight: 2
+              }}>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <span style={{
+        width: 8, height: 8, borderRadius: '50%',
+        background: '#25D366', flexShrink: 0,
+        boxShadow: '0 0 0 4px rgba(37,211,102,0.18)',
+        animation: 'preg-pulse-dot 2s ease-in-out infinite'
+      }}/>
+    </div>
+  );
+}
+
+/* ── ActivityTicker — slim ink strip under the navbar with rotating stats ── */
+function ActivityTicker() {
+  const [stats, setStats]   = useState(null);
+  const [idx, setIdx]       = useState(0);
+  const [dismissed, setDismissed] = useState(false);
+
+  const LANG = (typeof window !== 'undefined' && window.PREG_LANG) || 'en';
+  const i18n = (window.PANAMA_DATA && window.PANAMA_DATA.chromeI18n && (window.PANAMA_DATA.chromeI18n[LANG] || window.PANAMA_DATA.chromeI18n.en)) || {};
+  const T = i18n.activity_ticker || {};
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    // Honor 24h dismissal
+    try {
+      const dismissedAt = parseInt(localStorage.getItem('preg_ticker_dismissed_at') || '0', 10);
+      if (dismissedAt && (Date.now() - dismissedAt) < 24 * 60 * 60 * 1000) {
+        setDismissed(true);
+        return;
+      }
+    } catch (e) {}
+    fetch('/social-proof.json', { cache: 'no-cache' })
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(data => { if (data && data.weekly_stats) setStats(data.weekly_stats); })
+      .catch(() => {});
+  }, []);
+
+  // Cycle stats every 6s
+  useEffect(() => {
+    if (!stats || dismissed) return;
+    const t = setInterval(() => setIdx(i => i + 1), 6000);
+    return () => clearInterval(t);
+  }, [stats, dismissed]);
+
+  const dismiss = () => {
+    setDismissed(true);
+    try { localStorage.setItem('preg_ticker_dismissed_at', String(Date.now())); } catch (e) {}
+  };
+
+  if (!stats || dismissed) return null;
+
+  // Stat templates per language
+  const templates = T.stats || [
+    'reservations_week|tours_tomorrow',
+    'dossiers_today|viewing_now',
+  ];
+  const lines = [
+    { html: <span><b>{stats.reservations} {T.reservations_label || 'reservations'}</b> {T.this_week || 'this week'} · <b>{stats.tours_upcoming} {T.tours_label || 'tours'}</b> {T.tomorrow || 'tomorrow'}</span> },
+    { html: <span><b>{stats.dossiers_today} {T.dossiers_label || 'dossiers'}</b> {T.today || 'today'} · <b>{stats.viewing_now} {T.viewing_label || 'viewing'}</b> {T.right_now || 'right now'}</span> },
+  ];
+  const line = lines[idx % lines.length];
+
+  return (
+    <div role="status" aria-live="polite" style={{
+      position: 'fixed', top: 80, left: '50%', transform: 'translateX(-50%)',
+      zIndex: 30, maxWidth: 540, width: 'calc(100% - 32px)',
+      background: 'var(--ink)', color: 'var(--cream)',
+      borderRadius: 14, padding: '12px 16px',
+      display: 'flex', alignItems: 'center', gap: 14,
+      boxShadow: '0 18px 40px -16px rgba(11,39,51,0.3)'
+    }}>
+      <span style={{
+        display: 'inline-flex', alignItems: 'center', gap: 6,
+        fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.2em',
+        textTransform: 'uppercase', color: 'var(--coral)', flexShrink: 0
+      }}>
+        <span style={{
+          width: 6, height: 6, borderRadius: '50%', background: '#25D366',
+          boxShadow: '0 0 0 3px rgba(37,211,102,0.2)',
+          animation: 'preg-pulse-dot 2s ease-in-out infinite'
+        }}/>
+        {T.live_label || 'Live'}
+      </span>
+      <span style={{ flex: 1, fontSize: 13.5, color: 'var(--cream)' }} key={idx}>
+        {line.html}
+      </span>
+      <button onClick={dismiss} aria-label={T.dismiss || 'Dismiss'}
+              style={{
+                background: 'transparent', border: 'none', cursor: 'pointer',
+                color: 'rgba(255,249,236,0.5)', padding: 4
+              }}>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  );
+}
+
 /* ── Navbar ── */
 function Navbar({ transparent }) {
   const [scrolled, setScrolled] = useState(false);
@@ -1026,6 +1224,8 @@ function Navbar({ transparent }) {
       <FloatingContact/>
       <LeadCaptureModal/>
       <ReserveModal/>
+      <SocialProofToast/>
+      <ActivityTicker/>
     </header>
   );
 }

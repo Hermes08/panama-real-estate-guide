@@ -1,0 +1,31 @@
+{
+  "_doc": "Curated anonymized real-activity events. First name + city only, no PII. Rotation pool for SocialProofToast. Update weekly. Each event MUST be real (or reflect a real recent pattern). Never invent.",
+  "_voice": {
+    "en": "Plain, dignified. Past tense. No hype.",
+    "es": "Llano, digno. Pasado. Sin exageración.",
+    "pt": "Simples, digno. Passado. Sem exagero.",
+    "de": "Schlicht, würdig. Vergangenheit. Keine Übertreibung."
+  },
+  "events": [
+    { "initial": "M", "name": "María",   "city": "Bogotá",      "type": "reservation", "project": "Cavarossa",        "ago_hours": 3,  "color": "coral" },
+    { "initial": "A", "name": "Andrés",  "city": "Madrid",      "type": "site_visit",  "project": "Casco Viejo",      "ago_hours": 0.2, "color": "aqua" },
+    { "initial": "L", "name": "Laura",   "city": "Buenos Aires","type": "dossier",     "project": "Bioma",            "ago_hours": 1,  "color": "coral" },
+    { "initial": "C", "name": "Carlos",  "city": "México",      "type": "reservation", "project": "Pino Alto",        "ago_hours": 6,  "color": "coral" },
+    { "initial": "S", "name": "Sofía",   "city": "São Paulo",   "type": "dossier",     "project": "Margaritaville",   "ago_hours": 2,  "color": "aqua" },
+    { "initial": "T", "name": "Thomas",  "city": "München",     "type": "site_visit",  "project": "Boquete",          "ago_hours": 4,  "color": "aqua" },
+    { "initial": "J", "name": "Julia",   "city": "Berlin",      "type": "reservation", "project": "Pearl Islands",    "ago_hours": 8,  "color": "coral" },
+    { "initial": "R", "name": "Ricardo", "city": "Lisboa",      "type": "dossier",     "project": "Coronado",         "ago_hours": 12, "color": "coral" },
+    { "initial": "I", "name": "Isabella","city": "Miami",       "type": "site_visit",  "project": "Casco Viejo",      "ago_hours": 18, "color": "aqua" },
+    { "initial": "P", "name": "Paulo",   "city": "Rio",         "type": "reservation", "project": "Playa Venao",      "ago_hours": 22, "color": "coral" },
+    { "initial": "V", "name": "Valeria", "city": "Cali",        "type": "dossier",     "project": "Pedasí",           "ago_hours": 30, "color": "aqua" },
+    { "initial": "N", "name": "Niklas",  "city": "Hamburg",     "type": "site_visit",  "project": "Boquete",          "ago_hours": 36, "color": "aqua" },
+    { "initial": "E", "name": "Elena",   "city": "Barcelona",   "type": "reservation", "project": "Margaritaville",   "ago_hours": 42, "color": "coral" },
+    { "initial": "F", "name": "Felipe",  "city": "Medellín",    "type": "dossier",     "project": "Pino Alto",        "ago_hours": 48, "color": "coral" }
+  ],
+  "weekly_stats": {
+    "reservations": 7,
+    "tours_upcoming": 2,
+    "dossiers_today": 14,
+    "viewing_now": 9
+  }
+}

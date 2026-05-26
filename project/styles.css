@@ -415,3 +415,24 @@ section { position: relative; }
 @media (min-width: 1181px) and (max-width: 1300px) {
   .nav-callus .us-prefix { display: none; }
 }
+
+/* SocialProofToast — pulse dot for live indicator */
+@keyframes preg-pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(37,211,102,0.18); }
+  50%      { box-shadow: 0 0 0 8px rgba(37,211,102,0.08); }
+}
+/* Toast enter animation — slide up + fade in */
+@keyframes preg-toast-enter {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.preg-toast-enter { animation: preg-toast-enter 0.4s var(--ease) both; }
+
+/* On mobile, move the toast above the floating sticky buttons so it doesn't overlap */
+@media (max-width: 600px) {
+  .preg-toast-enter {
+    bottom: 90px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}

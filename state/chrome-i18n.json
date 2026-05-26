@@ -359,6 +359,29 @@
       "success_title_suffix_generic": "You're in",
       "success_body": "A bilingual concierge will WhatsApp you within 24 hours to confirm and walk through next steps.",
       "success_whatsapp": "Message us on WhatsApp now"
+    },
+    "social_proof": {
+      "verbs": {
+        "reservation": "reserved a unit at",
+        "site_visit": "booked a site visit at",
+        "dossier": "requested a dossier for"
+      },
+      "minutes_ago": "minutes ago",
+      "hours_ago": "hours ago",
+      "days_ago": "days ago",
+      "dismiss": "Dismiss"
+    },
+    "activity_ticker": {
+      "live_label": "Live",
+      "reservations_label": "reservations",
+      "tours_label": "tours",
+      "dossiers_label": "dossiers",
+      "viewing_label": "viewing",
+      "this_week": "this week",
+      "tomorrow": "tomorrow",
+      "today": "today",
+      "right_now": "right now",
+      "dismiss": "Dismiss"
     }
   },
   "es": {
@@ -721,6 +744,29 @@
       "success_title_suffix_generic": "Estás dentro",
       "success_body": "Un concierge bilingüe te escribirá por WhatsApp en menos de 24 horas para confirmar y guiarte en los siguientes pasos.",
       "success_whatsapp": "Escríbenos ahora por WhatsApp"
+    },
+    "social_proof": {
+      "verbs": {
+        "reservation": "reservó una unidad en",
+        "site_visit": "agendó una visita en",
+        "dossier": "pidió el dossier de"
+      },
+      "minutes_ago": "minutos",
+      "hours_ago": "horas",
+      "days_ago": "días",
+      "dismiss": "Cerrar"
+    },
+    "activity_ticker": {
+      "live_label": "En vivo",
+      "reservations_label": "reservas",
+      "tours_label": "visitas",
+      "dossiers_label": "dossiers",
+      "viewing_label": "viendo",
+      "this_week": "esta semana",
+      "tomorrow": "mañana",
+      "today": "hoy",
+      "right_now": "ahora mismo",
+      "dismiss": "Cerrar"
     }
   },
   "pt": {
@@ -1083,6 +1129,29 @@
       "success_title_suffix_generic": "Você está dentro",
       "success_body": "Um concierge bilíngue entrará em contato pelo WhatsApp em até 24 horas para confirmar e guiar os próximos passos.",
       "success_whatsapp": "Fale conosco no WhatsApp agora"
+    },
+    "social_proof": {
+      "verbs": {
+        "reservation": "reservou uma unidade em",
+        "site_visit": "agendou uma visita em",
+        "dossier": "pediu o dossiê de"
+      },
+      "minutes_ago": "minutos",
+      "hours_ago": "horas",
+      "days_ago": "dias",
+      "dismiss": "Fechar"
+    },
+    "activity_ticker": {
+      "live_label": "Ao vivo",
+      "reservations_label": "reservas",
+      "tours_label": "visitas",
+      "dossiers_label": "dossiês",
+      "viewing_label": "vendo",
+      "this_week": "esta semana",
+      "tomorrow": "amanhã",
+      "today": "hoje",
+      "right_now": "agora",
+      "dismiss": "Fechar"
     }
   },
   "de": {
@@ -1445,6 +1514,29 @@
       "success_title_suffix_generic": "Sie sind dabei",
       "success_body": "Ein zweisprachiger Concierge meldet sich innerhalb von 24 Stunden per WhatsApp, um zu bestätigen und die nächsten Schritte zu erklären.",
       "success_whatsapp": "Schreiben Sie uns jetzt bei WhatsApp"
+    },
+    "social_proof": {
+      "verbs": {
+        "reservation": "reservierte eine Einheit in",
+        "site_visit": "buchte einen Besichtigungstermin in",
+        "dossier": "forderte ein Dossier für"
+      },
+      "minutes_ago": "Minuten her",
+      "hours_ago": "Stunden her",
+      "days_ago": "Tage her",
+      "dismiss": "Schließen"
+    },
+    "activity_ticker": {
+      "live_label": "Live",
+      "reservations_label": "Reservierungen",
+      "tours_label": "Touren",
+      "dossiers_label": "Dossiers",
+      "viewing_label": "sehen",
+      "this_week": "diese Woche",
+      "tomorrow": "morgen",
+      "today": "heute",
+      "right_now": "gerade jetzt",
+      "dismiss": "Schließen"
     }
   }
 }

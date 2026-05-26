@@ -112,6 +112,8 @@ function DetailNav() {
       <FloatingContact/>
       <LeadCaptureModal/>
       <ReserveModal/>
+      <SocialProofToast/>
+      <ActivityTicker/>
     </header>
   );
 }
