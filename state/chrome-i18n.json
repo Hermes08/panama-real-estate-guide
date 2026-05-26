@@ -121,6 +121,11 @@
       "highlands": { "blurb": "Year-round spring, coffee country, cloud forest." },
       "city": { "blurb": "Latin America's banking capital, towers and old town." }
     },
+    "articles_index": {
+      "h1": "Editorial coverage of Panama real estate, residency, taxes and lifestyle.",
+      "dek": "Long-form articles for international investors, retirees and second-home buyers. Each piece is researched, dated and updated annually.",
+      "all_filter": "All"
+    },
     "footer_columns": {
       "featured_projects": "Featured projects",
       "projects": {
@@ -285,6 +290,11 @@
       "azuero": { "blurb": "La última costa virgen: surf, fincas, tradiciones." },
       "highlands": { "blurb": "Primavera todo el año, país del café, bosque nuboso." },
       "city": { "blurb": "La capital bancaria de Latinoamérica: torres y casco antiguo." }
+    },
+    "articles_index": {
+      "h1": "Cobertura editorial de bienes raíces, residencia, impuestos y estilo de vida en Panamá.",
+      "dek": "Artículos a fondo para inversionistas internacionales, jubilados y compradores de segunda residencia. Cada pieza es investigada, fechada y actualizada anualmente.",
+      "all_filter": "Todas"
     },
     "footer_columns": {
       "featured_projects": "Proyectos destacados",
@@ -451,6 +461,11 @@
       "highlands": { "blurb": "Primavera o ano todo, país do café, floresta nublada." },
       "city": { "blurb": "A capital bancária da América Latina: torres e centro histórico." }
     },
+    "articles_index": {
+      "h1": "Cobertura editorial de imóveis, residência, impostos e estilo de vida no Panamá.",
+      "dek": "Artigos aprofundados para investidores internacionais, aposentados e compradores de segunda residência. Cada peça é pesquisada, datada e atualizada anualmente.",
+      "all_filter": "Todos"
+    },
     "footer_columns": {
       "featured_projects": "Projetos em destaque",
       "projects": {
@@ -615,6 +630,11 @@
       "azuero": { "blurb": "Die letzte unberührte Küste: Surfen, Farmen, Traditionen." },
       "highlands": { "blurb": "Frühling das ganze Jahr, Kaffeeland, Nebelwald." },
       "city": { "blurb": "Lateinamerikas Finanzhauptstadt: Hochhäuser und Altstadt." }
+    },
+    "articles_index": {
+      "h1": "Redaktionelle Berichterstattung über Immobilien, Aufenthalt, Steuern und Lebensstil in Panama.",
+      "dek": "Ausführliche Artikel für internationale Investoren, Rentner und Zweitwohnsitzkäufer. Jeder Beitrag wird recherchiert, datiert und jährlich aktualisiert.",
+      "all_filter": "Alle"
     },
     "footer_columns": {
       "featured_projects": "Ausgewählte Projekte",
