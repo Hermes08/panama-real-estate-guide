@@ -195,7 +195,10 @@ function FloatingContact() {
     display: 'grid', placeItems: 'center', textDecoration: 'none',
     transition: 'transform 0.15s var(--ease), box-shadow 0.2s var(--ease)'
   };
-  return (
+  // Portal to body so we escape any ancestor that creates a containing block
+  // for fixed-positioned elements (e.g. backdrop-filter on the navbar).
+  if (typeof document === 'undefined') return null;
+  return ReactDOM.createPortal(
     <div style={{
       position: 'fixed', right: 16, bottom: 16, zIndex: 40,
       display: 'flex', flexDirection: 'column', gap: 12,
@@ -222,7 +225,8 @@ function FloatingContact() {
           <path d="M12 2a10 10 0 0 0-8.7 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.7-1.2 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1a16 16 0 0 1-4.2-2.1 12 12 0 0 1-3.1-3.7c-.4-.6-.9-1.6-.9-2.5s.5-1.4.7-1.6c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5c-.1.1-.3.3-.1.6a9 9 0 0 0 1.6 2 8 8 0 0 0 2.3 1.4c.3.1.5.1.6 0l.6-.7c.2-.3.5-.2.7-.1l2 .9c.2.1.4.2.5.3 0 .1 0 .7-.2 1.5Z"/>
         </svg>
       </a>
-    </div>
+    </div>,
+    document.body
   );
 }
 
@@ -322,8 +326,9 @@ function LeadCaptureModal() {
   };
 
   if (!open) return null;
+  if (typeof document === 'undefined') return null;
 
-  return (
+  return ReactDOM.createPortal(
     <div role="dialog" aria-modal="true" aria-labelledby="lead-capture-title"
          className="preg-modal-backdrop"
          style={{
@@ -419,7 +424,8 @@ function LeadCaptureModal() {
           </>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 const inputStyle = {
@@ -583,7 +589,8 @@ function ReserveModal() {
     R.timeline_browsing || 'Just looking'
   ];
 
-  return (
+  if (typeof document === 'undefined') return null;
+  return ReactDOM.createPortal(
     <div role="dialog" aria-modal="true" aria-labelledby="reserve-modal-title"
          className="preg-modal-backdrop"
          style={{
@@ -884,7 +891,8 @@ function ReserveModal() {
           </>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 
@@ -966,7 +974,8 @@ function SocialProofToast() {
       ? `${Math.round(event.ago_hours)} ${S.hours_ago || 'hours ago'}`
       : `${Math.round(event.ago_hours / 24)} ${S.days_ago || 'days ago'}`;
 
-  return (
+  if (typeof document === 'undefined') return null;
+  return ReactDOM.createPortal(
     <div role="status" aria-live="polite" className="preg-toast-enter"
          style={{
            position: 'fixed', left: 16, bottom: 16, zIndex: 35,
@@ -1007,7 +1016,8 @@ function SocialProofToast() {
         boxShadow: '0 0 0 4px rgba(37,211,102,0.18)',
         animation: 'preg-pulse-dot 2s ease-in-out infinite'
       }}/>
-    </div>
+    </div>,
+    document.body
   );
 }
 
@@ -1071,7 +1081,8 @@ function ActivityTicker() {
   ];
   const line = lines[idx % lines.length];
 
-  return (
+  if (typeof document === 'undefined') return null;
+  return ReactDOM.createPortal(
     <div role="status" aria-live="polite" style={{
       position: 'fixed', top: 80, left: '50%', transform: 'translateX(-50%)',
       zIndex: 30, maxWidth: 540, width: 'calc(100% - 32px)',
@@ -1102,7 +1113,8 @@ function ActivityTicker() {
               }}>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
       </button>
-    </div>
+    </div>,
+    document.body
   );
 }
 
