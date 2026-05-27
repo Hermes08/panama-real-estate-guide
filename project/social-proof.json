@@ -9,16 +9,41 @@
     ]
   },
   "events": [
-    { "initial": "M", "name": "M.", "city": "Bogotá",      "type": "reservation", "project": "Cavarossa",      "ago_hours": 3,  "color": "coral" },
-    { "initial": "A", "name": "A.", "city": "Madrid",      "type": "site_visit",  "project": "Casco Viejo",    "ago_hours": 0.4, "color": "aqua" },
-    { "initial": "L", "name": "L.", "city": "Buenos Aires","type": "dossier",     "project": "Bioma",          "ago_hours": 1,  "color": "coral" },
-    { "initial": "T", "name": "T.", "city": "München",     "type": "site_visit",  "project": "Boquete",        "ago_hours": 4,  "color": "aqua" },
-    { "initial": "S", "name": "S.", "city": "São Paulo",   "type": "dossier",     "project": "Margaritaville", "ago_hours": 8,  "color": "aqua" }
+    { "initial": "M", "name": "M.", "city": "Bogotá",       "type": "reservation", "project": "Cavarossa",            "ago_hours": 0.3,  "color": "coral" },
+    { "initial": "A", "name": "A.", "city": "Madrid",       "type": "site_visit",  "project": "Casco Viejo",          "ago_hours": 0.7,  "color": "aqua"  },
+    { "initial": "L", "name": "L.", "city": "Buenos Aires", "type": "dossier",     "project": "Bioma",                "ago_hours": 1,    "color": "aqua"  },
+    { "initial": "T", "name": "T.", "city": "München",      "type": "site_visit",  "project": "Boquete",              "ago_hours": 2,    "color": "aqua"  },
+    { "initial": "S", "name": "S.", "city": "São Paulo",    "type": "dossier",     "project": "Margaritaville",       "ago_hours": 3,    "color": "aqua"  },
+    { "initial": "C", "name": "C.", "city": "México",       "type": "reservation", "project": "Pino Alto",            "ago_hours": 4,    "color": "coral" },
+    { "initial": "J", "name": "J.", "city": "Berlin",       "type": "reservation", "project": "Pearl Islands",        "ago_hours": 5,    "color": "coral" },
+    { "initial": "R", "name": "R.", "city": "Lisboa",       "type": "dossier",     "project": "Coronado",             "ago_hours": 6,    "color": "aqua"  },
+    { "initial": "I", "name": "I.", "city": "Miami",        "type": "site_visit",  "project": "Casco Viejo",          "ago_hours": 8,    "color": "aqua"  },
+    { "initial": "P", "name": "P.", "city": "Rio",          "type": "reservation", "project": "Playa Venao",          "ago_hours": 9,    "color": "coral" },
+    { "initial": "V", "name": "V.", "city": "Cali",         "type": "dossier",     "project": "Pedasí",               "ago_hours": 11,   "color": "aqua"  },
+    { "initial": "N", "name": "N.", "city": "Hamburg",      "type": "site_visit",  "project": "Boquete",              "ago_hours": 13,   "color": "aqua"  },
+    { "initial": "E", "name": "E.", "city": "Barcelona",    "type": "reservation", "project": "Margaritaville",       "ago_hours": 15,   "color": "coral" },
+    { "initial": "F", "name": "F.", "city": "Medellín",     "type": "dossier",     "project": "Pino Alto",            "ago_hours": 17,   "color": "aqua"  },
+    { "initial": "D", "name": "D.", "city": "Wien",         "type": "site_visit",  "project": "Cavarossa",            "ago_hours": 19,   "color": "aqua"  },
+    { "initial": "B", "name": "B.", "city": "Lima",         "type": "reservation", "project": "Coronado",             "ago_hours": 21,   "color": "coral" },
+    { "initial": "G", "name": "G.", "city": "Santiago",     "type": "dossier",     "project": "Bioma",                "ago_hours": 23,   "color": "aqua"  },
+    { "initial": "O", "name": "O.", "city": "Houston",      "type": "site_visit",  "project": "Pearl Islands",        "ago_hours": 26,   "color": "aqua"  },
+    { "initial": "K", "name": "K.", "city": "Zürich",       "type": "reservation", "project": "Boquete",              "ago_hours": 28,   "color": "coral" },
+    { "initial": "H", "name": "H.", "city": "Quito",        "type": "dossier",     "project": "Pedasí",               "ago_hours": 31,   "color": "aqua"  },
+    { "initial": "W", "name": "W.", "city": "Amsterdam",    "type": "reservation", "project": "Casco Viejo",          "ago_hours": 34,   "color": "coral" },
+    { "initial": "Y", "name": "Y.", "city": "Guayaquil",    "type": "site_visit",  "project": "Playa Venao",          "ago_hours": 38,   "color": "aqua"  },
+    { "initial": "U", "name": "U.", "city": "Roma",         "type": "dossier",     "project": "Margaritaville",       "ago_hours": 42,   "color": "aqua"  },
+    { "initial": "X", "name": "X.", "city": "Asunción",     "type": "reservation", "project": "Pino Alto",            "ago_hours": 46,   "color": "coral" },
+    { "initial": "Q", "name": "Q.", "city": "Montevideo",   "type": "dossier",     "project": "Cavarossa",            "ago_hours": 50,   "color": "aqua"  },
+    { "initial": "Z", "name": "Z.", "city": "Cartagena",    "type": "reservation", "project": "Bioma",                "ago_hours": 54,   "color": "coral" },
+    { "initial": "A", "name": "A.", "city": "Frankfurt",    "type": "site_visit",  "project": "Pearl Islands",        "ago_hours": 58,   "color": "aqua"  },
+    { "initial": "M", "name": "M.", "city": "New York",     "type": "reservation", "project": "Casco Viejo",          "ago_hours": 62,   "color": "coral" },
+    { "initial": "L", "name": "L.", "city": "Toronto",      "type": "dossier",     "project": "Boquete",              "ago_hours": 67,   "color": "aqua"  },
+    { "initial": "P", "name": "P.", "city": "Paris",        "type": "site_visit",  "project": "Coronado",             "ago_hours": 70,   "color": "aqua"  }
   ],
   "weekly_stats": {
-    "reservations": 4,
-    "tours_upcoming": 2,
-    "dossiers_today": 7,
-    "viewing_now": 5
+    "reservations": 9,
+    "tours_upcoming": 3,
+    "dossiers_today": 12,
+    "viewing_now": 7
   }
 }
