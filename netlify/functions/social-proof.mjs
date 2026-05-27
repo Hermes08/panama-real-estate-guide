@@ -134,9 +134,11 @@ async function fetchForms() {
 }
 
 // Fallback to the committed demo JSON for visual testing.
-async function readDemoFallback() {
+// Uses the request's own origin URL so it works on preview deploys
+// (feat-*.panamarealestateguide.netlify.app) as well as production.
+async function readDemoFallback(originUrl) {
   try {
-    const r = await fetch('https://panamarealestateguide.com/social-proof.json', { cache: 'no-cache' });
+    const r = await fetch(`${originUrl}/social-proof.json`, { cache: 'no-cache' });
     if (!r.ok) return { events: [], weekly_stats: {} };
     return await r.json();
   } catch (e) {
@@ -148,6 +150,9 @@ export default async (request, context) => {
   let events = [];
   let weeklyStats = null;
   let source = 'demo';
+  // Derive origin from the incoming request — works on any deploy URL.
+  const url = new URL(request.url);
+  const origin = `${url.protocol}//${url.host}`;
 
   if (NETLIFY_API_TOKEN && NETLIFY_SITE_ID) {
     const forms = await fetchForms();
@@ -189,7 +194,7 @@ export default async (request, context) => {
   // Density check — if we have < 3 real events, blend in demo to keep the
   // chrome alive while production data builds up.
   if (events.length < 3) {
-    const demo = await readDemoFallback();
+    const demo = await readDemoFallback(origin);
     if (demo.events && demo.events.length) {
       // Take demo entries we don't already have a real version of
       const seen = new Set(events.map(e => `${e.initial}|${e.city}|${e.project}`));
