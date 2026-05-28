@@ -169,30 +169,42 @@ export default async (request) => {
     } catch (e) { /* fall through to CRM forward */ }
   }
 
-  // Best-effort forward to the existing CRM lead pipeline (non-blocking).
-  // Only fires when CRM env vars are configured; failures don't block the user.
-  if (process.env.CRM_API_URL && process.env.CRM_API_KEY) {
-    try {
-      await fetch(`${new URL(request.url).origin}/api/lead-submit`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          full_name: `${record.first_name} ${record.last_name}`.trim(),
-          email: record.email,
-          phone: record.phone,
-          interest_category: form,
-          zone_project: record.property,
-          budget: record.budget,
-          detailed_notes: `Ref ${reference} · funding=${record.funding} · timeline=${record.timeline} · pages=${record.visited_pages}`,
-          landing_url: record.current_page,
-          referrer: record.referer,
-        }),
-      });
-    } catch (e) { /* non-blocking */ }
+  // PRIMARY durable path — forward to the existing /api/lead-submit Function,
+  // which creates a client in the DO Panama CRM + fires Meta CAPI. This is the
+  // store of record (verified working on every deploy). We AWAIT it so the
+  // success we report to the user reflects a real persisted lead.
+  let crm = 'skipped';
+  try {
+    const notesParts = [`Ref ${reference}`, `type=${form}`];
+    if (record.funding)  notesParts.push(`funding=${record.funding}`);
+    if (record.timeline) notesParts.push(`timeline=${record.timeline}`);
+    if (record.marketing_optin) notesParts.push(`optin=${record.marketing_optin}`);
+    if (record.visited_pages) notesParts.push(`pages=${record.visited_pages.replace(/\n/g, ', ')}`);
+    const r = await fetch(`${new URL(request.url).origin}/api/lead-submit`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        full_name: `${record.first_name} ${record.last_name}`.trim() || record.email,
+        email: record.email,
+        phone: record.phone,
+        interest_category: form === 'reservation' ? 'Reservation' : 'Lead capture',
+        zone_project: record.property,
+        budget: record.budget,
+        detailed_notes: notesParts.join(' · '),
+        landing_url: record.current_page,
+        referrer: record.referer,
+      }),
+    });
+    crm = r.ok ? 'ok' : `http_${r.status}`;
+  } catch (e) {
+    crm = 'error';
   }
 
-  return new Response(JSON.stringify({ ok: true, reference, persisted }), {
-    status: 200, headers: { 'content-type': 'application/json', ...CORS },
+  // The lead is captured if EITHER store accepted it.
+  const ok = persisted || crm === 'ok';
+
+  return new Response(JSON.stringify({ ok, reference, persisted, crm }), {
+    status: ok ? 200 : 502, headers: { 'content-type': 'application/json', ...CORS },
   });
 };
 
