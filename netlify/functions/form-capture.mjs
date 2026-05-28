@@ -23,7 +23,19 @@
 // recent activity (first letter + city only) on the public toast/ticker.
 // =============================================================================
 
-import { getStore } from '@netlify/blobs';
+// Netlify Blobs is loaded via DYNAMIC import inside a try/catch so a missing
+// module (this site has no node_modules / package.json and functions run on
+// built-ins only) can never crash the whole lambda at module-load time.
+// If Blobs is unavailable, persistence is skipped gracefully and the lead is
+// still forwarded to the CRM + the user still sees a success screen.
+async function loadStore(name) {
+  try {
+    const mod = await import('@netlify/blobs');
+    return mod.getStore({ name, consistency: 'strong' });
+  } catch (e) {
+    return null;
+  }
+}
 
 const CORS = {
   'access-control-allow-origin': '*',
@@ -46,7 +58,7 @@ export default async (request) => {
     return new Response('', { status: 204, headers: CORS });
   }
 
-  const store = getStore({ name: 'leads', consistency: 'strong' });
+  const store = await loadStore('leads');
 
   // ── GET: list submissions (auth-gated) ────────────────────────────────
   if (request.method === 'GET') {
@@ -55,6 +67,11 @@ export default async (request) => {
     if (!LEADS_ACCESS_TOKEN || token !== LEADS_ACCESS_TOKEN) {
       return new Response(JSON.stringify({ error: 'forbidden' }), {
         status: 403, headers: { 'content-type': 'application/json', ...CORS },
+      });
+    }
+    if (!store) {
+      return new Response(JSON.stringify({ error: 'store_unavailable', count: 0, items: [] }), {
+        status: 200, headers: { 'content-type': 'application/json', ...CORS },
       });
     }
     const form = url.searchParams.get('form'); // optional filter
@@ -139,14 +156,17 @@ export default async (request) => {
     ip,
   };
 
-  // Key sorts chronologically: <form>/<iso>-<ref>
-  const key = `${form}/${now}-${reference}`;
-  try {
-    await store.setJSON(key, record);
-  } catch (e) {
-    return new Response(JSON.stringify({ error: 'store_failed', detail: String(e) }), {
-      status: 500, headers: { 'content-type': 'application/json', ...CORS },
-    });
+  // Persist to Blobs when available. If the store couldn't load (no runtime
+  // support), we DON'T fail — the lead is still forwarded to the CRM below
+  // and the user still gets a success screen.
+  let persisted = false;
+  if (store) {
+    // Key sorts chronologically: <form>/<iso>-<ref>
+    const key = `${form}/${now}-${reference}`;
+    try {
+      await store.setJSON(key, record);
+      persisted = true;
+    } catch (e) { /* fall through to CRM forward */ }
   }
 
   // Best-effort forward to the existing CRM lead pipeline (non-blocking).
@@ -171,7 +191,7 @@ export default async (request) => {
     } catch (e) { /* non-blocking */ }
   }
 
-  return new Response(JSON.stringify({ ok: true, reference }), {
+  return new Response(JSON.stringify({ ok: true, reference, persisted }), {
     status: 200, headers: { 'content-type': 'application/json', ...CORS },
   });
 };

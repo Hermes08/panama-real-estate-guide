@@ -24,8 +24,6 @@
 // Cache: 5min CDN + 30min stale-while-revalidate
 // =============================================================================
 
-import { getStore } from '@netlify/blobs';
-
 export const config = { path: '/api/social-proof' };
 
 // Country code → city/country hint (very rough — first-line of locality).
@@ -111,7 +109,10 @@ function anonymize(submission, formName) {
 // first_name, phone, property, submitted_at, ... }.
 async function fetchBlobSubmissions() {
   try {
-    const store = getStore({ name: 'leads', consistency: 'strong' });
+    // Dynamic import inside try/catch — never crash if @netlify/blobs is
+    // unavailable in the runtime; just fall back to the demo pool.
+    const mod = await import('@netlify/blobs');
+    const store = mod.getStore({ name: 'leads', consistency: 'strong' });
     const { blobs } = await store.list();
     const keys = blobs.map(b => b.key).sort().reverse().slice(0, 80);
     const out = [];
