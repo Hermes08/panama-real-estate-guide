@@ -56,6 +56,19 @@ function DetailNav() {
         </nav>
         <div className="nav-cta-desktop" style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
           <LangSwitcher current={DC_LANG.toUpperCase()} onDark={false}/>
+          {/* US phone — always-visible tap-to-call in navbar */}
+          <a href="tel:+17319379142" className="nav-callus" style={{
+            display: 'inline-flex', alignItems: 'center', gap: 6,
+            color: 'inherit', textDecoration: 'none',
+            padding: '8px 12px', borderRadius: 999, border: '1px solid var(--line)',
+            fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.06em', fontWeight: 700,
+            whiteSpace: 'nowrap'
+          }} title="(731) 937-9142">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20 15.5c-1.2 0-2.5-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2a15 15 0 0 1-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1A11.4 11.4 0 0 1 8.5 4c0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/>
+            </svg>
+            <span className="us-prefix">US · </span>(731) 937-9142
+          </a>
           <a href={`${dcLangPrefix()}/#reserve`} className="btn btn-coral" style={{ padding: '11px 20px', fontSize: 11 }}>
             {dcT('nav.reserve_a_unit', 'Reserve a unit')} <Icon name="arrow" size={13}/>
           </a>
@@ -79,8 +92,28 @@ function DetailNav() {
             <LangSwitcher current={DC_LANG.toUpperCase()} onDark={false}/>
             <a href={`${dcLangPrefix()}/#reserve`} className="btn btn-coral" style={{ justifyContent: 'center', flex: 1 }}>{dcT('nav.reserve_a_unit', 'Reserve a unit')}</a>
           </div>
+          {/* Mobile-menu contact strip — direct WhatsApp + US call. Big tap targets. */}
+          <div style={{ marginTop: 8, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+            <a href="https://wa.me/50762534802" target="_blank" rel="noopener noreferrer"
+               style={{ background: '#25D366', color: '#fff', padding: '12px 14px', borderRadius: 10,
+                        textAlign: 'center', textDecoration: 'none', fontSize: 13, fontWeight: 700,
+                        fontFamily: 'var(--font-mono)', letterSpacing: '0.04em' }}>
+              WhatsApp · +507 6253-4802
+            </a>
+            <a href="tel:+17319379142"
+               style={{ background: 'var(--ink)', color: 'var(--cream)', padding: '12px 14px', borderRadius: 10,
+                        textAlign: 'center', textDecoration: 'none', fontSize: 13, fontWeight: 700,
+                        fontFamily: 'var(--font-mono)', letterSpacing: '0.04em' }}>
+              US · (731) 937-9142
+            </a>
+          </div>
         </div>
       )}
+      <FloatingContact/>
+      <LeadCaptureModal/>
+      <ReserveModal/>
+      <SocialProofToast/>
+      <ActivityTicker/>
     </header>
   );
 }
@@ -141,6 +174,7 @@ function DetailCTA({ kind = 'reserve' }) {
               {dcT('cta.start_a_reservation', 'Start a reservation')} <Icon name="arrow" size={14}/>
             </a>
             <a href={`https://wa.me/50762534802${waQs}`} className="btn btn-ghost-light">{dcT('cta.whatsapp_label', 'WhatsApp')} +507 6253-4802</a>
+            <a href="tel:+17319379142" className="btn btn-ghost-light">{dcT('cta.call_us_label', 'Call US')} (731) 937-9142</a>
           </div>
         </div>
         <style>{`@media (max-width: 900px) { [data-cta-grid] { grid-template-columns: 1fr !important; } }`}</style>
@@ -169,6 +203,39 @@ function DetailFooter() {
             <a href="/terminos" style={{ color: 'var(--coral, #E37363)' }}>términos completos</a>.
           </div>
         )}
+        {/* Contact strip — high-visibility WhatsApp + US phone + Email row. */}
+        <div style={{
+          marginBottom: 28, padding: '18px 22px',
+          background: 'linear-gradient(135deg, rgba(227,115,99,0.18), rgba(37,211,102,0.12))',
+          border: '1px solid rgba(255,249,236,0.18)', borderRadius: 12,
+          display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 18,
+          justifyContent: 'space-between'
+        }}>
+          <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', letterSpacing: '0.16em', textTransform: 'uppercase', opacity: 0.85, fontWeight: 700 }}>
+            {dcT('footer.talk_to_us', 'Talk to us — bilingual concierge')}
+          </div>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            <a href="https://wa.me/50762534802" target="_blank" rel="noopener noreferrer"
+               style={{ background: '#25D366', color: '#fff', padding: '10px 16px', borderRadius: 999,
+                        textDecoration: 'none', fontSize: 13, fontWeight: 700,
+                        fontFamily: 'var(--font-mono)', letterSpacing: '0.04em' }}>
+              WhatsApp · +507 6253-4802
+            </a>
+            <a href="tel:+17319379142"
+               style={{ background: 'var(--coral, #E37363)', color: '#fff', padding: '10px 16px', borderRadius: 999,
+                        textDecoration: 'none', fontSize: 13, fontWeight: 700,
+                        fontFamily: 'var(--font-mono)', letterSpacing: '0.04em' }}>
+              US · (731) 937-9142
+            </a>
+            <a href="mailto:reservations@panamarealestateguide.com"
+               style={{ background: 'transparent', color: 'var(--cream)', padding: '10px 16px', borderRadius: 999,
+                        textDecoration: 'none', fontSize: 13, fontWeight: 700,
+                        fontFamily: 'var(--font-mono)', letterSpacing: '0.04em',
+                        border: '1px solid rgba(255,249,236,0.3)' }}>
+              reservations@panamarealestateguide.com
+            </a>
+          </div>
+        </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 20 }}>
           <Logo onDark={true} size={16}/>
           {/* List pages now have per-language versions (PR #99/101) — link to

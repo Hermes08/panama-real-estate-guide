@@ -268,15 +268,15 @@ section { position: relative; }
 .rotate-slow { animation: rotate-slow 40s linear infinite; }
 
 /* Responsive */
-/* Navbar breakpoint raised to 1024px — Comet QA P1: at 932px viewport the
-   nav links + lang dropdown + Reservar unidad/Einheit reservieren CTA
-   overflowed off-screen on ES/PT/DE pages (longer labels than EN). */
-@media (max-width: 1024px) {
+/* Navbar breakpoint at 1180px — needs enough room for: Logo + 7 nav links +
+   LangSwitcher + US-phone tap-to-call pill (NEW) + Reserve CTA. Below 1180px
+   the mobile burger takes over (it already has WhatsApp + US contact strip). */
+@media (max-width: 1180px) {
   .nav-desktop { display: none !important; }
   .nav-cta-desktop { display: none !important; }
   .nav-burger { display: inline-flex !important; }
 }
-@media (min-width: 1025px) {
+@media (min-width: 1181px) {
   .nav-burger { display: none !important; }
   .show-mobile { display: none !important; }
 }
@@ -371,4 +371,68 @@ section { position: relative; }
 @keyframes feat-fade {
   from { opacity: 0; transform: scale(1.02); }
   to   { opacity: 1; transform: scale(1); }
+}
+
+/* ───────────────────────────────────────────────────────────────────────
+   PREG · CTA polish — pulse / scale / checkmark animations (per design spec)
+   ─────────────────────────────────────────────────────────────────────── */
+
+/* First-load WhatsApp pulse — 2 soft pulses over 3s, once per session */
+@keyframes preg-wa-pulse {
+  0%   { box-shadow: 0 12px 28px -8px rgba(37,211,102,0.55), 0 0 0 4px rgba(255,253,245,0.65), 0 0 0 0 rgba(37,211,102,0.5); }
+  50%  { box-shadow: 0 12px 28px -8px rgba(37,211,102,0.55), 0 0 0 4px rgba(255,253,245,0.65), 0 0 0 14px rgba(37,211,102,0); }
+  100% { box-shadow: 0 12px 28px -8px rgba(37,211,102,0.55), 0 0 0 4px rgba(255,253,245,0.65), 0 0 0 0 rgba(37,211,102,0); }
+}
+.preg-pulse { animation: preg-wa-pulse 1.5s ease-out 2; }
+
+/* Lead capture / Reserve modal — backdrop fade + modal scale */
+@keyframes preg-modal-fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes preg-modal-scalein {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.preg-modal-backdrop { animation: preg-modal-fadein 0.25s ease-out both; }
+.preg-modal-card     { animation: preg-modal-scalein 0.25s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* Thank-you checkmark — bouncy pop in 0.5s */
+@keyframes preg-check-pop {
+  from { transform: scale(0.4); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+.preg-check {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--coral); color: var(--paper);
+  display: grid; place-items: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 12px 28px -8px rgba(255,107,74,0.55);
+  animation: preg-check-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* US-pill collapses to icon + number only between 1181-1300px (tight zone) */
+@media (min-width: 1181px) and (max-width: 1300px) {
+  .nav-callus .us-prefix { display: none; }
+}
+
+/* SocialProofToast — pulse dot for live indicator */
+@keyframes preg-pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(37,211,102,0.18); }
+  50%      { box-shadow: 0 0 0 8px rgba(37,211,102,0.08); }
+}
+/* Toast enter animation — slide up + fade in */
+@keyframes preg-toast-enter {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.preg-toast-enter { animation: preg-toast-enter 0.4s var(--ease) both; }
+
+/* On mobile, move the toast above the floating sticky buttons so it doesn't overlap */
+@media (max-width: 600px) {
+  .preg-toast-enter {
+    bottom: 90px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
 }

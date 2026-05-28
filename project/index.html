@@ -68,6 +68,14 @@
 <body>
   <div id="root"></div>
 
+  <!-- Lead-capture + reservation submissions POST to the Netlify Function at
+       /api/form-capture (see netlify/functions/form-capture.mjs), which
+       persists them in Netlify Blobs. We do NOT use Netlify Forms: form
+       detection only runs on native Netlify builds, and this site deploys
+       pre-built files via GitHub Actions / Netlify CLI, so the detection
+       step never runs and a POST to "/" 404s. The Function path works on
+       every deploy method. -->
+
   <!-- Tracking helpers (dataLayer, getUTM, trackWhatsApp) — must load BEFORE other scripts -->
   <script src="tracking.js?v=1"></script>
 

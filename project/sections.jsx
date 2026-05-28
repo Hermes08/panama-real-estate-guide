@@ -677,19 +677,28 @@ function ReserveCTA() {
 
         <div className="reveal d1 reserve-grid" style={{
           marginTop: 44, display: 'grid',
-          gridTemplateColumns: '1.2fr 1fr 1fr', gap: 16,
+          gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 16,
           background: 'rgba(11, 39, 51, 0.88)', backdropFilter: 'blur(18px)',
           borderRadius: 18, padding: 28, color: 'var(--cream)',
           border: '1px solid rgba(255, 249, 236, 0.15)'
         }}>
-          <div>
-            <div className="eyebrow" style={{ color: 'var(--aqua)', marginBottom: 10 }}>WhatsApp / Phone</div>
+          <a href="https://wa.me/50762534802" target="_blank" rel="noopener noreferrer"
+             style={{ color: 'inherit', textDecoration: 'none', display: 'block' }}>
+            <div className="eyebrow" style={{ color: '#25D366', marginBottom: 10 }}>WhatsApp</div>
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontStyle: 'italic' }}>+507 6253-4802</div>
-          </div>
-          <div>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, opacity: 0.6, marginTop: 4, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Tap to chat</div>
+          </a>
+          <a href="tel:+17319379142"
+             style={{ color: 'inherit', textDecoration: 'none', display: 'block' }}>
+            <div className="eyebrow" style={{ color: 'var(--coral)', marginBottom: 10 }}>US Phone</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontStyle: 'italic' }}>(731) 937-9142</div>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, opacity: 0.6, marginTop: 4, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Tap to call</div>
+          </a>
+          <a href="mailto:reservations@panamarealestateguide.com"
+             style={{ color: 'inherit', textDecoration: 'none', display: 'block' }}>
             <div className="eyebrow" style={{ color: 'var(--aqua)', marginBottom: 10 }}>Email</div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 16, wordBreak: 'break-word' }}>reservations@panamarealestateguide.com</div>
-          </div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, wordBreak: 'break-word', lineHeight: 1.3 }}>reservations@<br/>panamarealestateguide.com</div>
+          </a>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <a href="#book" className="btn btn-coral" style={{ width: '100%', justifyContent: 'center' }}>
               Start a reservation <Icon name="arrow" size={14}/>
@@ -709,7 +718,10 @@ function ReserveCTA() {
           </span>
         </div>
       </div>
-      <style>{`@media (max-width: 900px) { .reserve-grid { grid-template-columns: 1fr !important; gap: 20px !important; } }`}</style>
+      <style>{`
+        @media (max-width: 1024px) { .reserve-grid { grid-template-columns: 1fr 1fr !important; gap: 20px !important; } }
+        @media (max-width: 560px)  { .reserve-grid { grid-template-columns: 1fr !important; } }
+      `}</style>
     </section>
   );
 }
@@ -807,6 +819,50 @@ function Footer() {
   return (
     <footer style={{ background: 'var(--ink)', color: 'var(--cream)', padding: '72px 0 36px' }}>
       <div className="container">
+        {/* Contact strip — full-width, high-visibility. WhatsApp + US phone + Email + Reserve. */}
+        <div className="footer-contact-strip" style={{
+          marginBottom: 56, padding: '24px 28px',
+          background: 'linear-gradient(135deg, rgba(255,107,74,0.16), rgba(37,211,102,0.10) 55%, rgba(11,39,51,0.32) 100%)',
+          border: '1px solid rgba(255,249,236,0.18)', borderRadius: 16,
+          display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 18, alignItems: 'center'
+        }}>
+          <div>
+            <div className="eyebrow" style={{ color: 'rgba(255,249,236,0.7)', marginBottom: 6 }}>
+              <span className="rule-coral" style={{ background: 'var(--cream)' }}></span>
+              {sxT('footer.talk_to_us_eyebrow', 'Talk to us')}
+            </div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 2vw, 28px)', fontStyle: 'italic', lineHeight: 1.15 }}>
+              {sxT('footer.talk_to_us_title', 'Bilingual concierge, 7 days a week.')}
+            </div>
+          </div>
+          <a href="https://wa.me/50762534802" target="_blank" rel="noopener noreferrer"
+             style={{ color: 'inherit', textDecoration: 'none', display: 'block',
+                      padding: '14px 18px', background: 'rgba(37,211,102,0.18)',
+                      border: '1px solid rgba(37,211,102,0.45)', borderRadius: 12 }}>
+            <div className="eyebrow" style={{ color: '#5be39a', marginBottom: 8 }}>WhatsApp</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontStyle: 'italic' }}>+507 6253-4802</div>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, opacity: 0.7, marginTop: 4, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{sxT('footer.tap_to_chat', 'Tap to chat')}</div>
+          </a>
+          <a href="tel:+17319379142"
+             style={{ color: 'inherit', textDecoration: 'none', display: 'block',
+                      padding: '14px 18px', background: 'rgba(227,115,99,0.18)',
+                      border: '1px solid rgba(227,115,99,0.5)', borderRadius: 12 }}>
+            <div className="eyebrow" style={{ color: 'var(--coral)', marginBottom: 8 }}>{sxT('footer.us_phone', 'US Phone')}</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontStyle: 'italic' }}>(731) 937-9142</div>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, opacity: 0.7, marginTop: 4, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{sxT('footer.tap_to_call', 'Tap to call')}</div>
+          </a>
+          <a href="mailto:reservations@panamarealestateguide.com"
+             style={{ color: 'inherit', textDecoration: 'none', display: 'block',
+                      padding: '14px 18px', background: 'rgba(255,249,236,0.05)',
+                      border: '1px solid rgba(255,249,236,0.18)', borderRadius: 12 }}>
+            <div className="eyebrow" style={{ color: 'var(--aqua)', marginBottom: 8 }}>Email</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, wordBreak: 'break-word', lineHeight: 1.3 }}>reservations@<br/>panamarealestateguide.com</div>
+          </a>
+        </div>
+        <style>{`
+          @media (max-width: 1024px) { .footer-contact-strip { grid-template-columns: 1fr 1fr !important; } }
+          @media (max-width: 560px)  { .footer-contact-strip { grid-template-columns: 1fr !important; } }
+        `}</style>
         <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr 1fr', gap: 48, marginBottom: 56 }}>
           <div>
             <Logo onDark={true} size={18}/>
