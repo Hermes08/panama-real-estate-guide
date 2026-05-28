@@ -298,7 +298,7 @@ function LeadCaptureModal() {
     let visited = [];
     try { visited = JSON.parse(localStorage.getItem('preg_visited_pages_v1') || '[]'); } catch (e) {}
     const payload = {
-      'form-name': 'lead-capture',
+      _form: 'lead-capture',
       first_name: form.first_name,
       last_name: form.last_name,
       email: form.email,
@@ -310,10 +310,10 @@ function LeadCaptureModal() {
       submitted_at: new Date().toISOString(),
     };
     try {
-      const res = await fetch('/', {
+      const res = await fetch('/api/form-capture', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encodeForm(payload),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error('HTTP ' + res.status);
       setSubmitted(true);
@@ -541,7 +541,7 @@ function ReserveModal() {
     setSending(true);
     const ref = generateRef();
     const payload = {
-      'form-name': 'reservation',
+      _form: 'reservation',
       reference: ref,
       first_name: form.first_name,
       last_name: form.last_name,
@@ -559,13 +559,14 @@ function ReserveModal() {
       'bot-field': '',
     };
     try {
-      const res = await fetch('/', {
+      const res = await fetch('/api/form-capture', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encodeForm(payload),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error('HTTP ' + res.status);
-      setRefNum(ref);
+      const data = await res.json().catch(() => ({}));
+      setRefNum(data.reference || ref);
       setSubmitted(true);
     } catch (err) {
       setError(R.error_network || 'Could not submit — please try again.');

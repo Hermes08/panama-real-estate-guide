@@ -4,16 +4,14 @@
 // Returns anonymized real-activity events for the SocialProofToast +
 // ActivityTicker components. Source of truth:
 //
-//   1. Netlify Forms API — pulls last 7 days of submissions for both
-//      `reservation` and `lead-capture` forms. First letter of first_name
-//      + city inferred from phone country code (libphonenumber-style basic
-//      lookup) or empty. Strips ALL other PII. Never exposes email/phone.
+//   1. Netlify Blobs "leads" store — real submissions written by
+//      form-capture.mjs. First letter of first_name + city inferred from
+//      phone country code. Strips ALL other PII. Never exposes email/phone.
 //
 //   2. Fallback: returns the contents of /social-proof.json (the curated
 //      demo pool committed in the repo). Used when:
-//        - NETLIFY_API_TOKEN env var not set
-//        - Forms API returns < 3 real events (not enough density yet)
-//        - API call fails
+//        - the Blobs store has < 3 real events in the last 7 days
+//        - the store read fails
 //
 // Honesty rules enforced in code:
 //   - Only first letter of name (M., A., L., …)
@@ -26,10 +24,9 @@
 // Cache: 5min CDN + 30min stale-while-revalidate
 // =============================================================================
 
-export const config = { path: '/api/social-proof' };
+import { getStore } from '@netlify/blobs';
 
-const NETLIFY_API_TOKEN = process.env.NETLIFY_API_TOKEN || '';
-const NETLIFY_SITE_ID   = process.env.NETLIFY_SITE_ID   || '';
+export const config = { path: '/api/social-proof' };
 
 // Country code → city/country hint (very rough — first-line of locality).
 // Used only when phone has a country code we recognize. Otherwise city = ''.
@@ -109,28 +106,23 @@ function anonymize(submission, formName) {
   };
 }
 
-async function fetchFormSubmissions(formId) {
-  if (!NETLIFY_API_TOKEN || !NETLIFY_SITE_ID) return [];
+// Read recent submissions from the Netlify Blobs "leads" store (written by
+// form-capture.mjs). Returns records shaped like { reference, form,
+// first_name, phone, property, submitted_at, ... }.
+async function fetchBlobSubmissions() {
   try {
-    const r = await fetch(
-      `https://api.netlify.com/api/v1/forms/${formId}/submissions?per_page=50`,
-      { headers: { Authorization: `Bearer ${NETLIFY_API_TOKEN}` } }
-    );
-    if (!r.ok) return [];
-    return await r.json();
-  } catch (e) { return []; }
-}
-
-async function fetchForms() {
-  if (!NETLIFY_API_TOKEN || !NETLIFY_SITE_ID) return [];
-  try {
-    const r = await fetch(
-      `https://api.netlify.com/api/v1/sites/${NETLIFY_SITE_ID}/forms`,
-      { headers: { Authorization: `Bearer ${NETLIFY_API_TOKEN}` } }
-    );
-    if (!r.ok) return [];
-    return await r.json();
-  } catch (e) { return []; }
+    const store = getStore({ name: 'leads', consistency: 'strong' });
+    const { blobs } = await store.list();
+    const keys = blobs.map(b => b.key).sort().reverse().slice(0, 80);
+    const out = [];
+    for (const key of keys) {
+      const v = await store.get(key, { type: 'json' });
+      if (v) out.push(v);
+    }
+    return out;
+  } catch (e) {
+    return [];
+  }
 }
 
 // Fallback to the committed demo JSON for visual testing.
@@ -154,33 +146,24 @@ export default async (request, context) => {
   const url = new URL(request.url);
   const origin = `${url.protocol}//${url.host}`;
 
-  if (NETLIFY_API_TOKEN && NETLIFY_SITE_ID) {
-    const forms = await fetchForms();
-    const reservation = forms.find(f => f.name === 'reservation');
-    const leadCapture = forms.find(f => f.name === 'lead-capture');
-    const subs = [];
-    if (reservation) {
-      const rs = await fetchFormSubmissions(reservation.id);
-      for (const s of rs) subs.push({ ...s, _form: 'reservation' });
-    }
-    if (leadCapture) {
-      const ls = await fetchFormSubmissions(leadCapture.id);
-      for (const s of ls) subs.push({ ...s, _form: 'lead-capture' });
-    }
+  {
+    // Read real submissions from the Blobs store (written by form-capture.mjs)
+    const subs = await fetchBlobSubmissions();
     // Filter to last 7 days, anonymize, sort by recency desc
     const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
-    const recent = subs.filter(s => new Date(s.created_at).getTime() > sevenDaysAgo);
+    const recent = subs.filter(s => new Date(s.submitted_at).getTime() > sevenDaysAgo);
     for (const s of recent) {
-      const ev = anonymize(s, s._form);
+      // Adapt the blob record shape to the anonymize() input shape
+      const ev = anonymize({ data: s, created_at: s.submitted_at }, s.form);
       if (ev) events.push(ev);
     }
     events.sort((a, b) => a.ago_hours - b.ago_hours);
     events = events.slice(0, 20);
 
-    // Build real weekly stats from form counts
+    // Build real weekly stats from submission counts
     if (recent.length > 0) {
-      const reservations = recent.filter(s => s._form === 'reservation').length;
-      const dossiersToday = recent.filter(s => new Date(s.created_at).getTime() > Date.now() - 24*60*60*1000).length;
+      const reservations = recent.filter(s => s.form === 'reservation').length;
+      const dossiersToday = recent.filter(s => new Date(s.submitted_at).getTime() > Date.now() - 24*60*60*1000).length;
       weeklyStats = {
         reservations,
         tours_upcoming: 0,        // not captured yet — keep 0 until tour-booking form lands
