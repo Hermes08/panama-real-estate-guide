@@ -66,6 +66,13 @@ jobs:
       - name: Build video sitemap (project/sitemap-videos.xml)
         run: node scripts/build-video-sitemap.mjs
 
+      - name: Generate news shells + inject news SEO meta (canonical/hreflang/title)
+        # scripts/build-news-shells.mjs generates the per-language HTML shells for
+        # translated news that lack files (the /news/*.html GSC 404s) and injects
+        # canonical + hreflang + title/description for every news page. MUST run
+        # before build-sitemap.mjs (disk-based) so the new shells are listed.
+        run: node scripts/build-news-shells.mjs
+
       - name: Build main sitemap.xml (lastmod=today aggregators + per-article dates)
         # scripts/build-sitemap.mjs reads PANAMA_DATA.articles + .news + the
         # /projects/*.html listing and writes project/sitemap.xml with fresh

@@ -2059,7 +2059,15 @@ window.PANAMA_DATA = {
   { slug: 'pedasi-cultural-center', date: 'May 19', month: '2026-05', iso: '2026-05-19', title: 'Pedasi opens new community cultural center funded by Santeno diaspora donors', tag: 'Project update' },
   { slug: 'semiconductor-strategy-105m', date: 'Mar 23', month: '2026-03', iso: '2026-03-23', title: 'Panama launches USD $105 million National Semiconductor Strategy to enter global chip ecosystem', tag: 'Economy' },
   { slug: 'casco-viejo-colon-incentives', date: 'Mar 05', month: '2026-03', iso: '2026-03-05', title: 'Assembly expands heritage-restoration tax incentives to Casco Antiguo and Colon Historic Center', tag: 'Regulatory' },
-  { slug: 'canal-projects-2027-bid', date: 'Mar 12', month: '2026-03', iso: '2026-03-12', title: 'Canal Authority sets June 2027 deadline to award three port and gas-pipeline mega-concessions', tag: 'Infrastructure' }
+  { slug: 'canal-projects-2027-bid', date: 'Mar 12', month: '2026-03', iso: '2026-03-12', title: 'Canal Authority sets June 2027 deadline to award three port and gas-pipeline mega-concessions', tag: 'Infrastructure' },
+  { slug: 'pib-cobre-reactivacion', date: 'Mar 03', month: '2026-03', iso: '2026-03-03', title: 'Mens Consultores projects 5.57 percent GDP growth in 2026 if copper mine restarts operations', tag: 'Economy' },
+  { slug: 'canal-transit-january-2026', date: 'Feb 11', month: '2026-02', iso: '2026-02-11', title: 'Panama Canal records 3.8 percent jump in January transits, led by Neopanamax vessels', tag: 'Economy' },
+  { slug: 'world-bank-4-percent-forecast', date: 'Jan 14', month: '2026-01', iso: '2026-01-14', title: 'World Bank ratifies 4.1 percent growth forecast for Panama in 2026 and 2027', tag: 'Economy' },
+  { slug: 'metro-linea-3-monorail-tests', date: 'Apr 13', month: '2026-04', iso: '2026-04-13', title: 'Metro Line 3 begins dynamic monorail testing toward Panama Oeste with 2028 operating target', tag: 'Infrastructure' },
+  { slug: 'metro-puente-cuarto-2026', date: 'Jan 01', month: '2026-01', iso: '2026-01-01', title: 'Line 3 Metro and Fourth Bridge over the Canal remain Panama strategic infrastructure priorities for 2026', tag: 'Infrastructure' },
+  { slug: 'cruise-season-2025-2026', date: 'Oct 13', month: '2025-10', iso: '2025-10-13', title: 'Panama 2025 to 2026 cruise season opens with 2 percent increase in arrivals at Colon and Amador', tag: 'Tourism' },
+  { slug: 'panama-pacifico-logistics-hub', date: 'Aug 22', month: '2025-08', iso: '2025-08-22', title: 'New USD $20 million logistics hub at Panama Pacifico strengthens regional manufacturing platform', tag: 'Government' },
+  { slug: 'apede-italia-investment-mission', date: 'Oct 29', month: '2025-10', iso: '2025-10-29', title: 'APEDE pitches Panama open economy model to Italian investors in Rome trade mission', tag: 'Press' }
   ],
 
   articleBodies: {

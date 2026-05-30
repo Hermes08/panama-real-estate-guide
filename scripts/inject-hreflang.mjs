@@ -25,10 +25,15 @@ const PROJECT_DIR = path.join(ROOT, 'project');
 const SITE_BASE = 'https://panamarealestateguide.com';
 
 const LANGS = ['es', 'pt', 'de'];
-// Now covers all kinds with per-language shells (PR #101). Each EN file gets
-// hreflang alternates pointing to every translated version that exists on disk,
-// plus x-default → EN.
-const KINDS = ['articles', 'projects', 'news', 'videos'];
+// Covers kinds with per-language shells (PR #101). Each EN file gets hreflang
+// alternates pointing to every translated version that exists on disk, plus
+// x-default → EN.
+// NOTE: 'news' is intentionally excluded — scripts/build-news-shells.mjs is the
+// single owner of the news SEO head (canonical + hreflang) because news splits
+// into genuinely-translated items (full cluster) and English-only legacy items
+// (per-lang canonical → EN, no hreflang). A blanket disk-presence rule here
+// would wrongly advertise the legacy per-lang shells as real translations.
+const KINDS = ['articles', 'projects', 'videos'];
 
 const SENTINEL_START = '<!-- BEGIN_HREFLANG -->';
 const SENTINEL_END = '<!-- END_HREFLANG -->';
