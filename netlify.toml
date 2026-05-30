@@ -46,6 +46,13 @@
   status = 301
   force = true
 
+# 301: project detail pages live at /proyectos/, not /articles/proyectos/
+[[redirects]]
+  from = "/articles/proyectos/*"
+  to = "/proyectos/:splat"
+  status = 301
+  force = true
+
 
 # Four Systems operator dashboard: Basic Auth via edge function
 [[edge_functions]]
