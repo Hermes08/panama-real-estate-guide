@@ -80,6 +80,13 @@ async function injectI18nScriptTag() {
     { dir: path.join(PROJECT_DIR, 'es', 'articles'), src: '../../i18n-data.js', lang: 'es' },
     { dir: path.join(PROJECT_DIR, 'pt', 'articles'), src: '../../i18n-data.js', lang: 'pt' },
     { dir: path.join(PROJECT_DIR, 'de', 'articles'), src: '../../i18n-data.js', lang: 'de' },
+    // EN news shells also need chromeI18n: the 15 translated news store their full
+    // EN body ONLY in chromeI18n.en.news_full_bodies[slug] (never in newsBodies), so
+    // without i18n-data.js the EN /news/<slug>.html page falls back to the
+    // "Full dispatch coming soon." stub. The /es|/pt|/de news shells already load
+    // i18n-data.js from their build-news-shells template — only EN was missing it.
+    // (news/index.html has no data-light loader to anchor on, so it's skipped.)
+    { dir: path.join(PROJECT_DIR, 'news'),           src: '../i18n-data.js',    lang: 'en' },
   ];
 
   let injected = 0, alreadyOk = 0;
