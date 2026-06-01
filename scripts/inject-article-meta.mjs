@@ -149,6 +149,15 @@ function firstParagraphFromBody(body, articleTitle = '') {
 }
 
 function buildDescription(article, body) {
+  // 0. Explicit per-article `metaDescription` field in data.js — hand-authored
+  //    for SEO and meant to be served verbatim. Highest priority: it decouples
+  //    the SERP snippet from `excerpt` (which doubles as the on-card teaser and
+  //    is often >155 chars, forcing a "…" truncation). Capped at 160 so a
+  //    well-sized value (≤155) is emitted complete, with no ellipsis.
+  if (typeof article.metaDescription === 'string') {
+    const md = cleanMarkdown(article.metaDescription);
+    if (md.length >= 40) return truncateAtWord(md, 160);
+  }
   // Prefer an explicit "# Meta Description X" block from the body over the
   // excerpt — those are hand-written for SEO, while excerpts often duplicate
   // the title or leak LLM scaffolding. Then fall back to excerpt, then to
