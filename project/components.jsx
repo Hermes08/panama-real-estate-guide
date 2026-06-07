@@ -1544,7 +1544,7 @@ function HeroEditorial() {
       <style>{`
         @media (max-width: 1100px) {
           .hero-ed-grid { grid-template-columns: 1fr 1fr !important; }
-          .hero-ed-grid > div:last-child { grid-column: 1 / -1; border-left: none !important; padding-left: 0 !important; border-top: 1px solid var(--line); padding-top: 32px !important; margin-top: 12px; }
+          .hero-ed-grid > div:last-child { grid-column: 1 / -1; margin-top: 12px; }
         }
         @media (max-width: 720px) {
           .hero-ed-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
