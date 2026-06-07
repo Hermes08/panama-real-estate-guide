@@ -62,12 +62,17 @@ async function getTranslationsForSlug(kind, slug) {
 }
 
 function buildHreflangBlock(kind, slug, present) {
-  const enUrl = `${SITE_BASE}/${kind}/${slug}.html`;
+  // Video detail pages self-canonicalise WITHOUT the .html extension
+  // (inject-video-meta.mjs anchors the canonical at the lowercased slug, e.g.
+  // /videos/<id>). hreflang URLs must match each alternate's canonical URL, so
+  // emit videos extensionless; articles/projects/news keep .html.
+  const ext = kind === 'videos' ? '' : '.html';
+  const enUrl = `${SITE_BASE}/${kind}/${slug}${ext}`;
   const lines = [SENTINEL_START];
   lines.push(`<link rel="alternate" hreflang="en" href="${enUrl}">`);
   for (const lang of LANGS) {
     if (present[lang]) {
-      lines.push(`<link rel="alternate" hreflang="${lang}" href="${SITE_BASE}/${lang}/${kind}/${slug}.html">`);
+      lines.push(`<link rel="alternate" hreflang="${lang}" href="${SITE_BASE}/${lang}/${kind}/${slug}${ext}">`);
     }
   }
   lines.push(`<link rel="alternate" hreflang="x-default" href="${enUrl}">`);
