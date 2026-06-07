@@ -35,6 +35,16 @@ const LANGS = ['es', 'pt', 'de'];
 // would wrongly advertise the legacy per-lang shells as real translations.
 const KINDS = ['articles', 'projects', 'videos'];
 
+// Kinds whose TRANSLATED shells (project/<lang>/<kind>/*.html) also need the
+// hreflang cluster injected here. Articles are excluded: translate-content.mjs
+// already writes a self-canonical + full hreflang cluster into each translated
+// article shell, and re-injecting would duplicate the tags. News is excluded:
+// build-news-shells.mjs is the single owner of the news SEO head across all
+// languages. That leaves projects + videos — their /es|/pt|/de shells
+// self-canonicalise but carried NO hreflang, so Google folded them into the EN
+// canonical ("Duplicate, Google chose different canonical than user").
+const TRANSLATED_KINDS = ['projects', 'videos'];
+
 const SENTINEL_START = '<!-- BEGIN_HREFLANG -->';
 const SENTINEL_END = '<!-- END_HREFLANG -->';
 
@@ -113,7 +123,29 @@ async function main() {
       if (res.changed && res.present_langs?.length) withTranslations++;
     }
   }
-  console.log(`[hreflang] processed ${processed} files, ${withTranslations} have at least one translation`);
+
+  // Second pass: translated project/video shells. The hreflang cluster is
+  // symmetric (every page lists EN + all present translations + x-default→EN),
+  // so the same block built for the EN file is correct on each /<lang>/ file.
+  let translatedProcessed = 0;
+  for (const lang of LANGS) {
+    for (const kind of TRANSLATED_KINDS) {
+      const dir = path.join(PROJECT_DIR, lang, kind);
+      let entries;
+      try { entries = await fs.readdir(dir); } catch { continue; }
+      for (const entry of entries) {
+        if (!entry.endsWith('.html')) continue;
+        const slug = entry.replace(/\.html$/, '');
+        if (slug === 'index') continue;
+        const file = path.join(dir, entry);
+        const res = await processFile(file, kind, slug);
+        translatedProcessed++;
+        if (res.changed && res.present_langs?.length) withTranslations++;
+      }
+    }
+  }
+
+  console.log(`[hreflang] processed ${processed} EN + ${translatedProcessed} translated files, ${withTranslations} have at least one translation`);
 }
 
 main().catch(e => { console.error(e); process.exit(1); });
