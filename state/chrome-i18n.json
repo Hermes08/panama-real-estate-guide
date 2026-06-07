@@ -146,7 +146,7 @@
     "news_index": {
       "eyebrow": "The newsroom",
       "h1": "Panama property, week by week.",
-      "dek": "Project milestones, infrastructure, regulatory updates and press mentions — dated, sourced and searchable. Filter by time window, topic, or keyword."
+      "dek": "Project milestones, infrastructure, regulatory updates and press mentions: dated, sourced and searchable. Filter by time window, topic, or keyword."
     },
     "videos_index": {
       "eyebrow": "Video library",
@@ -636,7 +636,30 @@
     "news_index": {
       "eyebrow": "La redacción",
       "h1": "Bienes raíces en Panamá, semana a semana.",
-      "dek": "Hitos de proyectos, infraestructura, actualizaciones regulatorias y menciones de prensa — fechadas, con fuentes y buscables. Filtra por ventana de tiempo, tema o palabra clave."
+      "dek": "Hitos de proyectos, infraestructura, actualizaciones regulatorias y menciones de prensa: fechadas, con fuentes y buscables. Filtra por ventana de tiempo, tema o palabra clave.",
+      "ranges": {
+        "2025": "Solo 2025",
+        "2026": "Solo 2026",
+        "all": "Todo el tiempo",
+        "30d": "Últimos 30 días",
+        "90d": "Últimos 90 días",
+        "6m": "Últimos 6 meses"
+      },
+      "ui": {
+        "stat_dispatches": "Despachos",
+        "stat_project_updates": "Actualizaciones de proyecto",
+        "stat_press": "Menciones de prensa",
+        "stat_infra": "Infraestructura",
+        "time_range": "Rango de tiempo",
+        "topics": "Temas",
+        "search_placeholder": "Buscar titulares…",
+        "clear_filters": "Limpiar filtros",
+        "showing": "Mostrando",
+        "of": "de",
+        "dispatches": "despachos",
+        "no_match": "Ningún despacho coincide.",
+        "no_match_hint": "Prueba ampliar el rango de tiempo o quitar temas."
+      }
     },
     "videos_index": {
       "eyebrow": "Biblioteca de videos",
@@ -1126,7 +1149,30 @@
     "news_index": {
       "eyebrow": "A redação",
       "h1": "Imóveis no Panamá, semana a semana.",
-      "dek": "Marcos de projetos, infraestrutura, atualizações regulatórias e menções na imprensa — datadas, com fontes e pesquisáveis. Filtre por janela de tempo, tema ou palavra-chave."
+      "dek": "Marcos de projetos, infraestrutura, atualizações regulatórias e menções na imprensa: datadas, com fontes e pesquisáveis. Filtre por janela de tempo, tema ou palavra-chave.",
+      "ranges": {
+        "2025": "Apenas 2025",
+        "2026": "Apenas 2026",
+        "all": "Todo o período",
+        "30d": "Últimos 30 dias",
+        "90d": "Últimos 90 dias",
+        "6m": "Últimos 6 meses"
+      },
+      "ui": {
+        "stat_dispatches": "Despachos",
+        "stat_project_updates": "Atualizações de projeto",
+        "stat_press": "Menções na imprensa",
+        "stat_infra": "Infraestrutura",
+        "time_range": "Intervalo de tempo",
+        "topics": "Temas",
+        "search_placeholder": "Buscar manchetes…",
+        "clear_filters": "Limpar filtros",
+        "showing": "Mostrando",
+        "of": "de",
+        "dispatches": "despachos",
+        "no_match": "Nenhum despacho corresponde.",
+        "no_match_hint": "Tente ampliar o intervalo de tempo ou remover temas."
+      }
     },
     "videos_index": {
       "eyebrow": "Biblioteca de vídeos",
@@ -1616,7 +1662,30 @@
     "news_index": {
       "eyebrow": "Die Redaktion",
       "h1": "Panamas Immobilien, Woche für Woche.",
-      "dek": "Projektmeilensteine, Infrastruktur, regulatorische Updates und Presseerwähnungen — datiert, mit Quellen und durchsuchbar. Filtere nach Zeitfenster, Thema oder Stichwort."
+      "dek": "Projektmeilensteine, Infrastruktur, regulatorische Updates und Presseerwähnungen: datiert, mit Quellen und durchsuchbar. Filtere nach Zeitfenster, Thema oder Stichwort.",
+      "ranges": {
+        "2025": "Nur 2025",
+        "2026": "Nur 2026",
+        "all": "Gesamter Zeitraum",
+        "30d": "Letzte 30 Tage",
+        "90d": "Letzte 90 Tage",
+        "6m": "Letzte 6 Monate"
+      },
+      "ui": {
+        "stat_dispatches": "Meldungen",
+        "stat_project_updates": "Projekt-Updates",
+        "stat_press": "Pressemeldungen",
+        "stat_infra": "Infrastruktur",
+        "time_range": "Zeitraum",
+        "topics": "Themen",
+        "search_placeholder": "Schlagzeilen suchen…",
+        "clear_filters": "Filter zurücksetzen",
+        "showing": "Angezeigt:",
+        "of": "von",
+        "dispatches": "Meldungen",
+        "no_match": "Keine Meldungen gefunden.",
+        "no_match_hint": "Erweitern Sie den Zeitraum oder entfernen Sie Themen."
+      }
     },
     "videos_index": {
       "eyebrow": "Videobibliothek",

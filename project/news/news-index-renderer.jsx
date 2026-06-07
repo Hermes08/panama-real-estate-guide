@@ -108,10 +108,10 @@ const MONTH_LABELS = {
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20, paddingBottom: 8 }}>
                   {[
-                    { n: stats.total, l: 'Dispatches' },
-                    { n: stats.projectUpdates, l: 'Project updates' },
-                    { n: stats.press, l: 'Press mentions' },
-                    { n: stats.infra, l: 'Infrastructure' }
+                    { n: stats.total, l: _newsT('news_index.ui.stat_dispatches', 'Dispatches') },
+                    { n: stats.projectUpdates, l: _newsT('news_index.ui.stat_project_updates', 'Project updates') },
+                    { n: stats.press, l: _newsT('news_index.ui.stat_press', 'Press mentions') },
+                    { n: stats.infra, l: _newsT('news_index.ui.stat_infra', 'Infrastructure') }
                   ].map((s, i) => (
                     <div key={i} style={{ padding: '18px 20px', border: '1px solid var(--line)', borderRadius: 12, background: 'var(--paper)' }}>
                       <div className="display" style={{ fontSize: 'clamp(28px, 3vw, 40px)', lineHeight: 1, color: 'var(--coral-deep)' }}>{s.n}</div>
@@ -131,7 +131,7 @@ const MONTH_LABELS = {
                 {/* Time range pills */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
                   <div style={{ fontSize: 10.5, fontFamily: 'var(--font-mono)', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ink-mute)', fontWeight: 700, marginRight: 4 }}>
-                    Time range
+                    {_newsT('news_index.ui.time_range', 'Time range')}
                   </div>
                   {RANGES.map(r => (
                     <button key={r.id} onClick={() => setRangeId(r.id)} style={{
@@ -142,7 +142,7 @@ const MONTH_LABELS = {
                       color: rangeId === r.id ? 'var(--paper)' : 'var(--ink)',
                       transition: 'all 0.2s var(--ease)', fontWeight: 600
                     }}>
-                      {r.label}
+                      {_newsT('news_index.ranges.' + r.id, r.label)}
                     </button>
                   ))}
                 </div>
@@ -154,7 +154,7 @@ const MONTH_LABELS = {
                   <input
                     value={query}
                     onChange={e => setQuery(e.target.value)}
-                    placeholder="Search headlines…"
+                    placeholder={_newsT('news_index.ui.search_placeholder', 'Search headlines…')}
                     style={{
                       width: '100%', padding: '10px 14px 10px 36px', fontSize: 13,
                       fontFamily: 'var(--font-sans)',
@@ -169,7 +169,7 @@ const MONTH_LABELS = {
               {/* Tag chips */}
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 14, flexWrap: 'wrap' }}>
                 <div style={{ fontSize: 10.5, fontFamily: 'var(--font-mono)', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ink-mute)', fontWeight: 700, marginRight: 4 }}>
-                  Topics
+                  {_newsT('news_index.ui.topics', 'Topics')}
                 </div>
                 {allTags.map(t => {
                   const active = activeTags.has(t);
@@ -183,7 +183,7 @@ const MONTH_LABELS = {
                       color: active ? 'var(--paper)' : 'var(--ink)',
                       borderRadius: 6, cursor: 'pointer', transition: 'all 0.2s var(--ease)'
                     }}>
-                      {t}
+                      {_newsTagLabel(t)}
                     </button>
                   );
                 })}
@@ -193,14 +193,14 @@ const MONTH_LABELS = {
                     textTransform: 'uppercase', border: 'none', background: 'transparent',
                     color: 'var(--ink-mute)', cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: 3
                   }}>
-                    Clear filters
+                    {_newsT('news_index.ui.clear_filters', 'Clear filters')}
                   </button>
                 )}
               </div>
 
               {/* Result count */}
               <div style={{ marginTop: 14, fontSize: 12, fontFamily: 'var(--font-mono)', letterSpacing: '0.08em', color: 'var(--ink-mute)', textTransform: 'uppercase' }}>
-                Showing <span style={{ color: 'var(--coral-deep)', fontWeight: 700 }}>{filtered.length}</span> of {allNews.length} dispatches
+                {_newsT('news_index.ui.showing', 'Showing')} <span style={{ color: 'var(--coral-deep)', fontWeight: 700 }}>{filtered.length}</span> {_newsT('news_index.ui.of', 'of')} {allNews.length} {_newsT('news_index.ui.dispatches', 'dispatches')}
               </div>
             </div>
           </div>
@@ -211,9 +211,9 @@ const MONTH_LABELS = {
               {filtered.length === 0 && (
                 <div style={{ padding: '80px 24px', textAlign: 'center', color: 'var(--ink-mute)' }}>
                   <div className="display" style={{ fontSize: 42, color: 'var(--ink-soft)', marginBottom: 12 }}>
-                    No dispatches match.
+                    {_newsT('news_index.ui.no_match', 'No dispatches match.')}
                   </div>
-                  <p style={{ fontSize: 14 }}>Try widening the time range or clearing topics.</p>
+                  <p style={{ fontSize: 14 }}>{_newsT('news_index.ui.no_match_hint', 'Try widening the time range or clearing topics.')}</p>
                 </div>
               )}
 
