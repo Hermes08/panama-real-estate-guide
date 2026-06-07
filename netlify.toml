@@ -53,6 +53,27 @@
   status = 301
   force = true
 
+# 301: legacy /articles/ slugs Google indexed that never shipped as files
+# (no internal links, not in sitemap) -> closest live equivalent article.
+# Clears the GSC "Not found (404)" bucket and preserves any residual equity.
+[[redirects]]
+  from = "/articles/condos-for-sale-panama-2026.html"
+  to = "/articles/condos-for-sale-panama-buyers-guide.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/articles/costa-del-este.html"
+  to = "/articles/best-neighborhoods-panama-city-expats.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/articles/pensionado-visa.html"
+  to = "/articles/pensionado-panama-city-condo-2026.html"
+  status = 301
+  force = true
+
 
 # Four Systems operator dashboard: Basic Auth via edge function
 [[edge_functions]]
