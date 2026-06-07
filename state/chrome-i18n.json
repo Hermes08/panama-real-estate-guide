@@ -214,7 +214,25 @@
       "metro-puente-cuarto-2026": "Line 3 Metro and Fourth Bridge over the Canal remain Panama strategic infrastructure priorities for 2026",
       "cruise-season-2025-2026": "Panama 2025 to 2026 cruise season opens with 2 percent increase in arrivals at Colon and Amador",
       "panama-pacifico-logistics-hub": "New USD $20 million logistics hub at Panama Pacifico strengthens regional manufacturing platform",
-      "apede-italia-investment-mission": "APEDE pitches Panama open economy model to Italian investors in Rome trade mission"
+      "apede-italia-investment-mission": "APEDE pitches Panama open economy model to Italian investors in Rome trade mission",
+      "palma-blanca-phase-ii": "Palma Blanca Phase II breaks ground, 186 units released",
+      "international-living-ranking": "Panama ranked #2 retirement destination in Latin America",
+      "copa-pedasi-route": "Copa adds second direct Miami → Pedasí route for 2026 season",
+      "friendly-nations-up": "Friendly Nations Visa approvals up 22% YoY",
+      "bocas-fiber": "Bocas del Toro connectivity upgrade: fiber backbone completed",
+      "casco-restoration-grant": "Ministry of Culture approves $4.2M restoration grant for Casco Viejo",
+      "aqua-lodge-delivery": "Aqua Lodge Bocas delivers first 12 overwater bungalows",
+      "coronado-sold-out": "Coronado reaches 100% reservation on three flagship projects",
+      "pedasi-water-plant": "Pedasí desalination plant commissioned, tripling potable water capacity",
+      "boquete-trail-network": "Boquete Highlands municipality expands protected trail network by 340 hectares",
+      "q4-2025-absorption": "Q4 2025 absorption report: coastal inventory down 38% year over year",
+      "airport-tocumen-expansion": "Tocumen International opens Terminal 2 satellite concourse, capacity +40%",
+      "wsj-panama-feature": "Wall Street Journal: \"Why Panama is absorbing the spillover from Costa Rica\"",
+      "new-tax-incentive": "National Assembly extends 20-year property tax exemption for new construction",
+      "palma-blanca-phase-i-sellout": "Palma Blanca Phase I records final sale, 100% delivered, 86% occupancy",
+      "bloomberg-retirement-index": "Bloomberg Retirement Index moves Panama into top 10 globally",
+      "chiriqui-highway-open": "Pan-American Highway Chiriquí expansion opens, Boquete drive time cut to 5h",
+      "buoy-hurricane-corridor": "NOAA reaffirms Panama outside Atlantic hurricane corridor, 119 year record intact"
     },
     "news_full_bodies": {
       "tocumen-terminal-2-expansion": [
@@ -276,6 +294,93 @@
       "apede-italia-investment-mission": [
         "APEDE pitched Panama's open economy model to Italian investors at a Rome trade mission this week, securing letters of intent for an estimated USD $180 million in cross-border ventures.",
         "Sectors of interest included infrastructure, luxury hospitality and renewable energy; a return delegation to Panama is planned for September 2026."
+      ],
+      "palma-blanca-phase-ii": [
+        "Grupo Mar Azul broke ground on Phase II of Palma Blanca Resort & Residences yesterday, releasing 186 units for reservation. Phase II includes four low-rise condominium buildings, eight four-bedroom beach villas and sixteen oceanfront townhomes, on the southern third of the resort's 1.2 km of Pacific beach frontage.",
+        "Phase I, delivered in 2023, is fully occupied and operating at 86% annual occupancy through the rental-management program. Phase II delivery is targeted for Q4 2027.",
+        "Reservations open today at a refundable $5,000 deposit, with a thirty-day hold period for due diligence. The project is represented by PanamaRealEstateGuide.com for international buyers."
+      ],
+      "international-living-ranking": [
+        "International Living's 2026 Global Retirement Index ranked Panama second in Latin America and fifth globally for retirement destinations. The ranking evaluates housing cost, healthcare access, visa friendliness, infrastructure, climate and cost of living.",
+        "Panama's Pensionado Visa, which offers permanent residency to retirees with a minimum $1,000 monthly pension and delivers discounts of 15–50% on everything from airfare to medication, was cited as a principal driver of the country's ranking.",
+        "The full report is available at internationalliving.com."
+      ],
+      "copa-pedasi-route": [
+        "Copa Airlines announced today a second weekly direct route from Miami International to Pedasí's regional airstrip, effective December 2026 through April 2027. The new flight brings total direct North American service to Pedasí to two weekly inbound and two weekly outbound.",
+        "The route is a material shift for the Azuero Peninsula, which has historically required a Panama City layover for international arrivals. It is also an indicator of the expected growth in inbound traffic to the peninsula's emerging resort projects."
+      ],
+      "friendly-nations-up": [
+        "The Panamanian National Immigration Service released first-quarter 2026 statistics today, showing Friendly Nations Visa approvals up twenty-two percent year over year. The largest single country of origin was the United States, with Germany and Canada tied for second.",
+        "The real-estate investment route accounted for 61% of approvals, up from 48% in 2023, reflecting a shift in applicant profile toward retirees and investors and away from contract-employment applicants."
+      ],
+      "bocas-fiber": [
+        "The long-anticipated fiber-optic backbone connecting the Bocas del Toro archipelago to Panama's mainland network was commissioned this week. The link delivers gigabit symmetric service to Isla Colón and Isla Bastimentos, with extension to Isla Solarte scheduled for Q3 2026.",
+        "Reliable high-bandwidth connectivity has been the principal infrastructure constraint on Bocas as a remote-work destination. The upgrade is expected to accelerate development of remote-work-oriented residential and hospitality product on the archipelago."
+      ],
+      "casco-restoration-grant": [
+        "Panama's Ministry of Culture has approved a $4.2 million restoration grant for Casco Viejo, the UNESCO-listed colonial quarter of Panama City. The funds target structural reinforcement and façade restoration of seventeen buildings in the Avenida Central and Calle Primera corridors, where several private development projects are under active construction.",
+        "The grant is the largest single cultural-heritage disbursement in the quarter's history and reflects sustained government commitment to the UNESCO designation secured in 1997. Restoration work is expected to begin in Q2 2026, with a projected 18-month completion window.",
+        "The announcement follows a sustained period of private investment in Casco Viejo restoration. Our Malecón Casco project is among the residential developments adjacent to the grant area and will benefit from the improved streetscape."
+      ],
+      "aqua-lodge-delivery": [
+        "Aqua Lodge Bocas handed keys to the first twelve owners of its overwater bungalow collection on Isla Bastimentos this week, marking the first major delivered product in Bocas del Toro's new generation of resort-residence development. The units sit on private dock systems in the Bahía Honda protected lagoon.",
+        "All twelve delivered units have been enrolled in the project's rental management program. Occupancy in the first operational weeks has run above projections, with high-season weekends at full capacity.",
+        "Phase II of Aqua Lodge, a second ring of bungalows and three beachfront villas, remains in pre-construction with reservations open. Delivery is targeted for Q1 2027."
+      ],
+      "coronado-sold-out": [
+        "The three largest resort-residence projects in Coronado, Panama's closest major beach market to the capital, have each reached 100% reservation status, with waiting lists now the only entry point for prospective buyers. The milestone was confirmed by developer representatives across all three projects.",
+        "Coronado's full absorption reflects a supply compression that has been building since 2023, when phase two releases were 60–70% reserved within weeks of announcement. Panama City buyers and returning expats have been the dominant purchaser profiles, with North American buyers making up roughly 30% of transactions.",
+        "For buyers focused on the Pacific corridor, the alternative markets of Playa Blanca and San Carlos still carry available inventory at competitive pre-construction pricing. Both are represented in our current collection."
+      ],
+      "pedasi-water-plant": [
+        "A new desalination plant serving Pedasí and the surrounding coastal zone was commissioned this week, tripling the town's potable water capacity. The project was funded jointly by the Panamanian Ministry of Public Works and a consortium of four resort-residential developers active on the Azuero Peninsula.",
+        "Water supply constraints had been cited by developers as a factor limiting construction timelines in the Pedasí corridor. The new plant, with a capacity of 2,400 cubic meters per day, is designed to support both existing residential demand and projected growth through 2035.",
+        "The infrastructure upgrade is a meaningful signal for the peninsula's development trajectory. Azuero Shores, the coastal project we represent in Pedasí, counts reliable potable water as a prerequisite for its long-term rental program operations."
+      ],
+      "boquete-trail-network": [
+        "The Boquete municipality in Chiriquí province has voted to expand its protected cloud-forest trail network by 340 hectares, adding four new marked routes to the existing Sendero Los Quetzales system. The expansion creates contiguous protected access from the town center to the upper slopes of Volcán Barú.",
+        "The move follows sustained growth in highland tourism and validates the outdoor-lifestyle positioning that has driven demand for Boquete residential product among North American and European buyers. The new routes include an accessible low-gradient loop designed for residents and visitors who are not technical hikers.",
+        "Vista Verde Boquete, our highland project, sits at the trailhead of one of the newly designated routes. The proximity to protected forest is among the project's principal marketing points in conversations with buyers considering the highlands versus the coast."
+      ],
+      "q4-2025-absorption": [
+        "Panama's coastal residential inventory finished 2025 at a thirty-eight percent compression versus Q4 2024, according to data compiled from developer reservation records and notarized promise-of-sale filings reviewed by our market team. The tightest markets were Bocas del Toro (down 52%) and the Coronado strip (down 44%), where waiting lists have replaced public reservation windows.",
+        "The pipeline remains active, forty-two coastal residential projects are in active permitted construction, per Ministry of Housing data. But the distribution of new supply has shifted materially toward secondary markets: Pedasí, Volcán and the outer Pacific islands now represent 38% of the permitted pipeline, versus 19% in 2022.",
+        "For buyers tracking the market, the Q4 report is consistent with the advice we've been giving since mid-2025: act in the secondary markets now, as the pattern of Coronado and Bocas compression tends to replicate in the markets that follow them by two to three years."
+      ],
+      "airport-tocumen-expansion": [
+        "Tocumen International Airport inaugurated its Terminal 2 satellite concourse this week, adding twenty-two gates and increasing the airport's annual passenger capacity by approximately 40%. The expansion brings Tocumen's total gate count to 57 and adds dedicated busing facilities for regional and charter operations.",
+        "The expansion is the latest phase of a multi-year capital program that has transformed Tocumen into the principal aviation hub for northern South America and Central America. Copa Airlines, which operates the majority of Tocumen's international routes, is the primary beneficiary of the new capacity.",
+        "For Panama property buyers, the expanded connectivity reinforces the accessibility argument. Panama City is now within five hours of virtually every major North American city with a Copa connection, a fact that has measurable effect on second-home and investment buyer profiles."
+      ],
+      "wsj-panama-feature": [
+        "The Wall Street Journal ran a feature story on Panama's real estate market on January 8, citing the country's growing role as a destination for buyers priced out of or otherwise redirected from Costa Rica. The piece interviewed buyers, developers and market observers across Panama City, Bocas del Toro and the Azuero Peninsula.",
+        "The article's central thesis, that Panama's combination of dollarization, Friendly Nations Visa access, and lower base pricing versus comparable Costa Rican coastal markets is driving meaningful demand, is consistent with the trend we have observed in our own buyer inquiries since 2023.",
+        "The Journal piece is behind a paywall at wsj.com. We have summarized the key market data points for clients who request it; contact us for the briefing."
+      ],
+      "new-tax-incentive": [
+        "Panama's National Assembly voted on December 18 to extend the twenty-year property tax improvement exemption for new residential construction. The exemption, which applies to the improvement value of newly built structures, was previously set to step down in scope for permits issued after January 1, 2026. The extension maintains the full exemption for permits issued through December 31, 2028.",
+        "For buyers of new-construction properties in Panama, the entirety of what we represent, the extension means that annual property tax exposure remains near zero for the first two decades of ownership. The exemption applies at the project level and is specified in the title documentation.",
+        "The vote was 48 to 13. We have updated our tax primer to reflect the extension; the revised document is available on request."
+      ],
+      "palma-blanca-phase-i-sellout": [
+        "Grupo Mar Azul has confirmed the final sale in the Phase I collection of Palma Blanca Resort & Residences, completing a 100% delivery and sale of the project's 94-unit first phase. Phase I was delivered in stages between Q2 and Q4 2023.",
+        "The project's rental management program reports 86% annualized occupancy across the Phase I units enrolled in the program, a figure that developer representatives describe as above initial projections. Average nightly rates have run 12% above the rate schedule included in Phase I reservation documents.",
+        "Phase II is now in pre-construction with reservations open. The ground-breaking announcement is scheduled for early 2026. Buyers interested in Phase II units should note that Phase I performance data is available as part of the due diligence package we prepare for reservation clients."
+      ],
+      "bloomberg-retirement-index": [
+        "Bloomberg's annual Retirement Destinations Index placed Panama in the global top 10 for the first time, citing healthcare infrastructure improvements, the continued strength of the Pensionado Visa program, and the city's expanding international connectivity. Panama ranked ninth overall and second in the Western Hemisphere behind Portugal.",
+        "The Bloomberg index uses a composite methodology incorporating cost of living, healthcare access, political stability, tax environment and connectivity. Panama scored particularly strongly on tax environment, reflecting both the new-construction exemption and the absence of a remittance or foreign-income tax for most resident classifications.",
+        "The index is published at bloomberg.com/retirement. The Panama chapter includes data on healthcare facilities and expat community size across Panama City, Boquete, Coronado and Bocas del Toro."
+      ],
+      "chiriqui-highway-open": [
+        "The Chiriquí expansion section of the Pan-American Highway was opened to full traffic on November 9, reducing the Panama City to Boquete drive time from approximately seven hours to just under five. The section covers 84 kilometers of widened and realigned road through the Coclé and Veraguas provinces.",
+        "Travel time from Panama City to the Chiriquí highlands has been among the primary friction points for buyers considering Boquete property. The five-hour threshold is widely seen in real estate circles as a psychological barrier that meaningfully expands the pool of Boquete buyers relative to the coastal alternatives.",
+        "Vista Verde Boquete's sales team reports a measurable uptick in inquiry volume since the opening, with buyers specifically mentioning the improved drive time as a factor in their consideration."
+      ],
+      "buoy-hurricane-corridor": [
+        "NOAA's annual Atlantic hurricane season summary, published October 18, reaffirmed that Panama lies entirely outside the Atlantic basin hurricane corridor and has recorded zero direct hurricane strikes in 119 years of modern record-keeping. The 2025 season, which produced four major Atlantic hurricanes, produced no weather events of significance in Panama.",
+        "Panama's geographic position, south of the traditional hurricane belt at roughly 8–9 degrees north latitude, is one of the country's least-discussed but most relevant property attributes for international buyers from the Gulf Coast, Florida and the Eastern Seaboard.",
+        "Insurance costs for Panama coastal property reflect this reality: standard property insurance rates in Bocas del Toro and the Pacific coast run approximately 40–55% lower than comparable Caribbean island markets. We include insurance cost comparisons in the due diligence packages we prepare for clients."
       ]
     },
     "floating_contact": {
@@ -599,7 +704,25 @@
       "metro-puente-cuarto-2026": "Línea 3 del Metro y Cuarto Puente sobre el Canal siguen como prioridades estratégicas de infraestructura para 2026",
       "cruise-season-2025-2026": "Temporada de cruceros 2025 a 2026 abre con alza del 2 por ciento en arribos a Colón y Amador",
       "panama-pacifico-logistics-hub": "Nuevo hub logístico de USD $20 millones en Panamá Pacífico fortalece la plataforma regional de manufactura",
-      "apede-italia-investment-mission": "APEDE presenta el modelo de economía abierta de Panamá a inversionistas italianos en misión comercial en Roma"
+      "apede-italia-investment-mission": "APEDE presenta el modelo de economía abierta de Panamá a inversionistas italianos en misión comercial en Roma",
+      "palma-blanca-phase-ii": "Palma Blanca Fase II inicia obras y libera 186 unidades a la venta",
+      "international-living-ranking": "Panamá, segundo mejor destino de retiro de América Latina",
+      "copa-pedasi-route": "Copa suma una segunda ruta directa Miami a Pedasí para la temporada 2026",
+      "friendly-nations-up": "Las aprobaciones de la Friendly Nations Visa suben 22 % interanual",
+      "bocas-fiber": "Bocas del Toro mejora su conectividad: completa la red troncal de fibra",
+      "casco-restoration-grant": "Cultura aprueba una subvención de $4.2M para restaurar Casco Viejo",
+      "aqua-lodge-delivery": "Aqua Lodge Bocas entrega sus primeros 12 bungalós sobre el agua",
+      "coronado-sold-out": "Coronado alcanza el 100 % de reservas en tres proyectos insignia",
+      "pedasi-water-plant": "Pedasí estrena planta desalinizadora y triplica su capacidad de agua potable",
+      "boquete-trail-network": "Boquete amplía en 340 hectáreas su red de senderos protegidos",
+      "q4-2025-absorption": "Informe de absorción Q4 2025: el inventario costero cae 38 % interanual",
+      "airport-tocumen-expansion": "Tocumen abre el concourse satélite de la Terminal 2 y suma 40 % de capacidad",
+      "wsj-panama-feature": "Wall Street Journal: \"Por qué Panamá absorbe el desborde de Costa Rica\"",
+      "new-tax-incentive": "La Asamblea extiende la exención del impuesto predial por 20 años a obra nueva",
+      "palma-blanca-phase-i-sellout": "Palma Blanca Fase I cierra su última venta: 100 % entregada, 86 % de ocupación",
+      "bloomberg-retirement-index": "El Bloomberg Retirement Index coloca a Panamá entre los 10 mejores del mundo",
+      "chiriqui-highway-open": "Abre la ampliación de la Panamericana en Chiriquí y el viaje a Boquete baja a 5h",
+      "buoy-hurricane-corridor": "NOAA reafirma que Panamá queda fuera del corredor de huracanes: 119 años de récord intacto"
     },
     "news_full_bodies": {
       "tocumen-terminal-2-expansion": [
@@ -661,6 +784,93 @@
       "apede-italia-investment-mission": [
         "APEDE presentó el modelo de economía abierta de Panamá a inversionistas italianos en una misión comercial en Roma esta semana, asegurando cartas de intención por un estimado de USD $180 millones en operaciones transfronterizas.",
         "Los sectores de interés incluyeron infraestructura, hospitalidad de lujo y energía renovable; se planea una delegación de retorno a Panamá para septiembre de 2026."
+      ],
+      "palma-blanca-phase-ii": [
+        "Grupo Mar Azul dio inicio ayer a las obras de la Fase II de Palma Blanca Resort & Residences, liberando 186 unidades para reserva. La Fase II incluye cuatro edificios de condominios de baja altura, ocho villas de playa de cuatro habitaciones y dieciséis townhomes frente al mar, ubicadas en el tercio sur de los 1,2 km de playa pacífica del resort.",
+        "La Fase I, entregada en 2023, está totalmente ocupada y opera con un 86 % de ocupación anual a través del programa de gestión de alquileres. La entrega de la Fase II está prevista para el cuarto trimestre de 2027.",
+        "Las reservas se abren hoy con un depósito reembolsable de $5,000 y un período de retención de treinta días para la debida diligencia. El proyecto está representado por PanamaRealEstateGuide.com para compradores internacionales."
+      ],
+      "international-living-ranking": [
+        "El Índice Global de Retiro 2026 de International Living situó a Panamá en el segundo puesto de América Latina y en el quinto a nivel mundial entre los destinos para jubilarse. La clasificación evalúa el costo de la vivienda, el acceso a la salud, la apertura migratoria, la infraestructura, el clima y el costo de vida.",
+        "La Pensionado Visa de Panamá, que otorga residencia permanente a jubilados con una pensión mínima de $1,000 mensuales y ofrece descuentos del 15 % al 50 % en todo, desde boletos aéreos hasta medicamentos, fue señalada como uno de los principales motores de la posición del país en el ranking.",
+        "El informe completo está disponible en internationalliving.com."
+      ],
+      "copa-pedasi-route": [
+        "Copa Airlines anunció hoy una segunda ruta directa semanal desde el Aeropuerto Internacional de Miami hacia la pista regional de Pedasí, vigente desde diciembre de 2026 hasta abril de 2027. El nuevo vuelo eleva el servicio directo total desde Norteamérica hacia Pedasí a dos frecuencias semanales de llegada y dos de salida.",
+        "La ruta supone un cambio significativo para la Península de Azuero, que históricamente ha requerido una escala en la Ciudad de Panamá para las llegadas internacionales. También es un indicador del crecimiento previsto en el tráfico de entrada hacia los nuevos proyectos turísticos de la península."
+      ],
+      "friendly-nations-up": [
+        "El Servicio Nacional de Migración de Panamá publicó hoy las estadísticas del primer trimestre de 2026, que muestran un aumento del veintidós por ciento interanual en las aprobaciones de la Friendly Nations Visa. El principal país de origen fue Estados Unidos, con Alemania y Canadá empatados en el segundo lugar.",
+        "La vía de inversión inmobiliaria representó el 61 % de las aprobaciones, frente al 48 % de 2023, lo que refleja un cambio en el perfil del solicitante hacia jubilados e inversionistas y un alejamiento de los solicitantes por contrato de empleo."
+      ],
+      "bocas-fiber": [
+        "La tan esperada red troncal de fibra óptica que conecta el archipiélago de Bocas del Toro con la red continental de Panamá entró en funcionamiento esta semana. El enlace ofrece servicio simétrico de un gigabit a Isla Colón e Isla Bastimentos, con extensión a Isla Solarte prevista para el tercer trimestre de 2026.",
+        "La conectividad confiable de alto ancho de banda ha sido la principal limitación de infraestructura de Bocas como destino de trabajo remoto. Se espera que la mejora acelere el desarrollo de productos residenciales y hoteleros orientados al trabajo remoto en el archipiélago."
+      ],
+      "casco-restoration-grant": [
+        "El Ministerio de Cultura de Panamá aprobó una subvención de restauración de $4.2 millones para Casco Viejo, el barrio colonial de la Ciudad de Panamá declarado Patrimonio de la Humanidad por la UNESCO. Los fondos se destinan al refuerzo estructural y a la restauración de fachadas de diecisiete edificios en los corredores de la Avenida Central y la Calle Primera, donde varios proyectos privados de desarrollo están en plena construcción.",
+        "La subvención es el mayor desembolso individual de patrimonio cultural en la historia del barrio y refleja el compromiso sostenido del gobierno con la designación de la UNESCO obtenida en 1997. Se espera que los trabajos de restauración comiencen en el segundo trimestre de 2026, con un plazo de finalización proyectado de 18 meses.",
+        "El anuncio sigue a un período sostenido de inversión privada en la restauración de Casco Viejo. Nuestro proyecto Malecón Casco se encuentra entre los desarrollos residenciales contiguos al área de la subvención y se beneficiará del paisaje urbano mejorado."
+      ],
+      "aqua-lodge-delivery": [
+        "Aqua Lodge Bocas entregó esta semana las llaves a los primeros doce propietarios de su colección de bungalós sobre el agua en Isla Bastimentos, marcando el primer producto importante entregado en la nueva generación de desarrollos de resort y residencias de Bocas del Toro. Las unidades se asientan sobre sistemas de muelles privados en la laguna protegida de Bahía Honda.",
+        "Las doce unidades entregadas se han inscrito en el programa de gestión de alquileres del proyecto. La ocupación en las primeras semanas de operación ha superado las proyecciones, con los fines de semana de temporada alta a plena capacidad.",
+        "La Fase II de Aqua Lodge, un segundo anillo de bungalós y tres villas frente a la playa, sigue en preconstrucción con las reservas abiertas. La entrega está prevista para el primer trimestre de 2027."
+      ],
+      "coronado-sold-out": [
+        "Los tres mayores proyectos de resort y residencias de Coronado, el principal mercado de playa más cercano a la capital de Panamá, han alcanzado cada uno el 100 % de reservas, y las listas de espera son ahora la única vía de entrada para los compradores potenciales. El hito fue confirmado por representantes de los desarrolladores en los tres proyectos.",
+        "La absorción total de Coronado refleja una compresión de la oferta que se ha venido gestando desde 2023, cuando las liberaciones de la segunda fase quedaban reservadas en un 60 % a 70 % a las pocas semanas del anuncio. Los compradores de la Ciudad de Panamá y los expatriados que regresan han sido los perfiles predominantes, con los compradores norteamericanos representando alrededor del 30 % de las transacciones.",
+        "Para los compradores enfocados en el corredor del Pacífico, los mercados alternativos de Playa Blanca y San Carlos todavía tienen inventario disponible a precios competitivos de preconstrucción. Ambos están representados en nuestra colección actual."
+      ],
+      "pedasi-water-plant": [
+        "Una nueva planta desalinizadora que da servicio a Pedasí y a la zona costera circundante entró en funcionamiento esta semana, triplicando la capacidad de agua potable de la localidad. El proyecto fue financiado de forma conjunta por el Ministerio de Obras Públicas de Panamá y un consorcio de cuatro desarrolladores de resorts y residencias activos en la Península de Azuero.",
+        "Las limitaciones en el suministro de agua habían sido señaladas por los desarrolladores como un factor que restringía los plazos de construcción en el corredor de Pedasí. La nueva planta, con una capacidad de 2,400 metros cúbicos por día, está diseñada para sostener tanto la demanda residencial existente como el crecimiento previsto hasta 2035.",
+        "La mejora de la infraestructura es una señal relevante para la trayectoria de desarrollo de la península. Azuero Shores, el proyecto costero que representamos en Pedasí, considera el suministro confiable de agua potable como un requisito indispensable para las operaciones de su programa de alquileres a largo plazo."
+      ],
+      "boquete-trail-network": [
+        "El municipio de Boquete, en la provincia de Chiriquí, votó a favor de ampliar en 340 hectáreas su red protegida de senderos de bosque nuboso, sumando cuatro nuevas rutas señalizadas al sistema existente del Sendero Los Quetzales. La ampliación crea un acceso protegido continuo desde el centro del pueblo hasta las laderas altas del Volcán Barú.",
+        "La medida sigue a un crecimiento sostenido del turismo de montaña y valida el posicionamiento de estilo de vida al aire libre que ha impulsado la demanda de producto residencial en Boquete entre compradores norteamericanos y europeos. Las nuevas rutas incluyen un circuito accesible de baja pendiente, diseñado para residentes y visitantes que no son senderistas técnicos.",
+        "Vista Verde Boquete, nuestro proyecto de montaña, se ubica en el punto de inicio de una de las rutas recién designadas. La cercanía al bosque protegido es uno de los principales argumentos de venta del proyecto en las conversaciones con compradores que evalúan la montaña frente a la costa."
+      ],
+      "q4-2025-absorption": [
+        "El inventario residencial costero de Panamá cerró 2025 con una compresión del treinta y ocho por ciento frente al cuarto trimestre de 2024, según datos compilados a partir de los registros de reservas de los desarrolladores y de las promesas de compraventa notariadas que revisó nuestro equipo de mercado. Los mercados más ajustados fueron Bocas del Toro (con una caída del 52 %) y la franja de Coronado (con una caída del 44 %), donde las listas de espera han reemplazado las ventanas públicas de reserva.",
+        "La cartera de proyectos sigue activa: cuarenta y dos proyectos residenciales costeros están en construcción con permisos vigentes, según datos del Ministerio de Vivienda. Pero la distribución de la nueva oferta se ha desplazado de forma notable hacia los mercados secundarios: Pedasí, Volcán y las islas exteriores del Pacífico representan ahora el 38 % de la cartera con permisos, frente al 19 % de 2022.",
+        "Para los compradores que siguen el mercado, el informe del cuarto trimestre es coherente con el consejo que venimos dando desde mediados de 2025: actuar ahora en los mercados secundarios, ya que el patrón de compresión de Coronado y Bocas tiende a repetirse en los mercados que les siguen con dos o tres años de diferencia."
+      ],
+      "airport-tocumen-expansion": [
+        "El Aeropuerto Internacional de Tocumen inauguró esta semana el concourse satélite de su Terminal 2, sumando veintidós puertas y aumentando la capacidad anual de pasajeros del aeropuerto en aproximadamente un 40 %. La ampliación eleva el total de puertas de Tocumen a 57 y añade instalaciones dedicadas de transporte en bus para operaciones regionales y chárter.",
+        "La ampliación es la fase más reciente de un programa de inversión de varios años que ha convertido a Tocumen en el principal centro de aviación del norte de Sudamérica y de Centroamérica. Copa Airlines, que opera la mayoría de las rutas internacionales de Tocumen, es la principal beneficiaria de la nueva capacidad.",
+        "Para los compradores de propiedades en Panamá, la conectividad ampliada refuerza el argumento de la accesibilidad. La Ciudad de Panamá se encuentra ahora a menos de cinco horas de prácticamente todas las grandes ciudades de Norteamérica con una conexión de Copa, un hecho que tiene un efecto medible en los perfiles de compradores de segunda vivienda y de inversión."
+      ],
+      "wsj-panama-feature": [
+        "El Wall Street Journal publicó un reportaje sobre el mercado inmobiliario de Panamá el 8 de enero, en el que destaca el papel creciente del país como destino para compradores expulsados por los precios de Costa Rica o redirigidos desde allí por otros motivos. El artículo entrevistó a compradores, desarrolladores y observadores del mercado en la Ciudad de Panamá, Bocas del Toro y la Península de Azuero.",
+        "La tesis central del artículo, que la combinación en Panamá de dolarización, acceso a la Friendly Nations Visa y precios base más bajos frente a mercados costeros comparables de Costa Rica está impulsando una demanda significativa, coincide con la tendencia que hemos observado en nuestras propias consultas de compradores desde 2023.",
+        "El reportaje del Journal está tras un muro de pago en wsj.com. Hemos resumido los datos de mercado clave para los clientes que lo soliciten; contáctenos para recibir el resumen."
+      ],
+      "new-tax-incentive": [
+        "La Asamblea Nacional de Panamá votó el 18 de diciembre a favor de extender la exención de veinte años del impuesto predial sobre mejoras para la nueva construcción residencial. La exención, que aplica al valor de la mejora de las estructuras recién construidas, estaba previamente destinada a reducir su alcance para los permisos emitidos después del 1 de enero de 2026. La extensión mantiene la exención total para los permisos emitidos hasta el 31 de diciembre de 2028.",
+        "Para los compradores de propiedades de obra nueva en Panamá, que es la totalidad de lo que representamos, la extensión significa que la exposición anual al impuesto predial se mantiene cerca de cero durante las dos primeras décadas de propiedad. La exención aplica a nivel de proyecto y se especifica en la documentación del título.",
+        "La votación fue de 48 a favor y 13 en contra. Hemos actualizado nuestra guía tributaria para reflejar la extensión; el documento revisado está disponible a solicitud."
+      ],
+      "palma-blanca-phase-i-sellout": [
+        "Grupo Mar Azul confirmó la última venta de la colección de la Fase I de Palma Blanca Resort & Residences, completando la entrega y venta del 100 % de las 94 unidades de la primera fase del proyecto. La Fase I se entregó por etapas entre el segundo y el cuarto trimestre de 2023.",
+        "El programa de gestión de alquileres del proyecto reporta un 86 % de ocupación anualizada en las unidades de la Fase I inscritas en el programa, una cifra que los representantes del desarrollador describen como superior a las proyecciones iniciales. Las tarifas promedio por noche han estado un 12 % por encima del esquema de tarifas incluido en los documentos de reserva de la Fase I.",
+        "La Fase II se encuentra ahora en preconstrucción con las reservas abiertas. El anuncio del inicio de obras está previsto para principios de 2026. Los compradores interesados en las unidades de la Fase II deben tener en cuenta que los datos de desempeño de la Fase I están disponibles como parte del paquete de debida diligencia que preparamos para los clientes que reservan."
+      ],
+      "bloomberg-retirement-index": [
+        "El Índice anual de Destinos de Retiro de Bloomberg situó a Panamá entre los diez primeros del mundo por primera vez, citando las mejoras en la infraestructura de salud, la fortaleza sostenida del programa de la Pensionado Visa y la creciente conectividad internacional de la ciudad. Panamá ocupó el noveno lugar general y el segundo en el Hemisferio Occidental, detrás de Portugal.",
+        "El índice de Bloomberg utiliza una metodología compuesta que incorpora el costo de vida, el acceso a la salud, la estabilidad política, el entorno fiscal y la conectividad. Panamá obtuvo una puntuación especialmente alta en entorno fiscal, lo que refleja tanto la exención para obra nueva como la ausencia de un impuesto sobre remesas o sobre ingresos del exterior para la mayoría de las clasificaciones de residentes.",
+        "El índice se publica en bloomberg.com/retirement. El capítulo de Panamá incluye datos sobre instalaciones de salud y el tamaño de la comunidad expatriada en la Ciudad de Panamá, Boquete, Coronado y Bocas del Toro."
+      ],
+      "chiriqui-highway-open": [
+        "El tramo de ampliación de Chiriquí de la Carretera Panamericana se abrió por completo al tráfico el 9 de noviembre, reduciendo el tiempo de viaje de la Ciudad de Panamá a Boquete de aproximadamente siete horas a poco menos de cinco. El tramo abarca 84 kilómetros de vía ampliada y realineada a través de las provincias de Coclé y Veraguas.",
+        "El tiempo de viaje desde la Ciudad de Panamá hasta las tierras altas de Chiriquí ha sido uno de los principales puntos de fricción para los compradores que consideran propiedades en Boquete. El umbral de las cinco horas se percibe ampliamente en los círculos inmobiliarios como una barrera psicológica que amplía de forma significativa el grupo de compradores de Boquete frente a las alternativas costeras.",
+        "El equipo de ventas de Vista Verde Boquete reporta un repunte medible en el volumen de consultas desde la apertura, con compradores que mencionan específicamente la mejora en el tiempo de viaje como un factor en su decisión."
+      ],
+      "buoy-hurricane-corridor": [
+        "El resumen anual de la temporada de huracanes del Atlántico de NOAA, publicado el 18 de octubre, reafirmó que Panamá se encuentra por completo fuera del corredor de huracanes de la cuenca atlántica y que ha registrado cero impactos directos de huracanes en 119 años de registros modernos. La temporada de 2025, que produjo cuatro huracanes mayores en el Atlántico, no generó eventos meteorológicos de importancia en Panamá.",
+        "La posición geográfica de Panamá, al sur del cinturón tradicional de huracanes a una latitud de aproximadamente 8 a 9 grados norte, es uno de los atributos de propiedad menos comentados, pero más relevantes, para los compradores internacionales de la Costa del Golfo, Florida y la Costa Este.",
+        "Los costos de seguro para las propiedades costeras de Panamá reflejan esta realidad: las tarifas estándar de seguro de propiedad en Bocas del Toro y la costa del Pacífico son aproximadamente entre un 40 % y un 55 % más bajas que en los mercados comparables de las islas del Caribe. Incluimos comparaciones de costos de seguro en los paquetes de debida diligencia que preparamos para los clientes."
       ]
     },
     "floating_contact": {
@@ -984,7 +1194,25 @@
       "metro-puente-cuarto-2026": "Linha 3 do Metrô e Quarta Ponte sobre o Canal continuam como prioridades estratégicas de infraestrutura para 2026",
       "cruise-season-2025-2026": "Temporada de cruzeiros 2025 a 2026 abre com alta de 2 por cento em chegadas a Colón e Amador",
       "panama-pacifico-logistics-hub": "Novo hub logístico de USD $20 milhões em Panamá Pacífico fortalece a plataforma regional de manufatura",
-      "apede-italia-investment-mission": "APEDE apresenta o modelo de economia aberta do Panamá a investidores italianos em missão comercial em Roma"
+      "apede-italia-investment-mission": "APEDE apresenta o modelo de economia aberta do Panamá a investidores italianos em missão comercial em Roma",
+      "palma-blanca-phase-ii": "Palma Blanca Fase II inicia obras e libera 186 unidades",
+      "international-living-ranking": "Panamá é o 2º melhor destino para aposentadoria na América Latina",
+      "copa-pedasi-route": "Copa cria 2ª rota direta Miami x Pedasí para a temporada de 2026",
+      "friendly-nations-up": "Aprovações do Friendly Nations Visa sobem 22% em um ano",
+      "bocas-fiber": "Bocas del Toro conclui backbone de fibra e ganha internet gigabit",
+      "casco-restoration-grant": "Ministério da Cultura aprova verba de $4,2 mi para Casco Viejo",
+      "aqua-lodge-delivery": "Aqua Lodge Bocas entrega seus 12 primeiros bangalôs sobre a água",
+      "coronado-sold-out": "Coronado atinge 100% de reservas em três projetos de destaque",
+      "pedasi-water-plant": "Usina de dessalinização triplica a água potável de Pedasí",
+      "boquete-trail-network": "Boquete amplia rede de trilhas protegidas em 340 hectares",
+      "q4-2025-absorption": "Relatório do 4º tri de 2025: estoque costeiro cai 38% em um ano",
+      "airport-tocumen-expansion": "Tocumen abre concourse satélite do Terminal 2 e amplia capacidade em 40%",
+      "wsj-panama-feature": "Wall Street Journal: \"Por que o Panamá absorve o excedente da Costa Rica\"",
+      "new-tax-incentive": "Assembleia estende isenção de IPTU de 20 anos para nova construção",
+      "palma-blanca-phase-i-sellout": "Palma Blanca Fase I é vendida 100%, com 86% de ocupação",
+      "bloomberg-retirement-index": "Índice da Bloomberg coloca o Panamá no top 10 mundial de aposentadoria",
+      "chiriqui-highway-open": "Nova Rodovia Pan-Americana reduz viagem a Boquete para 5h",
+      "buoy-hurricane-corridor": "NOAA confirma Panamá fora do corredor de furacões: 119 anos sem registro"
     },
     "news_full_bodies": {
       "tocumen-terminal-2-expansion": [
@@ -1046,6 +1274,93 @@
       "apede-italia-investment-mission": [
         "A APEDE apresentou o modelo de economia aberta do Panamá a investidores italianos em uma missão comercial em Roma esta semana, garantindo cartas de intenção de cerca de USD $180 milhões em operações transfronteiriças.",
         "Os setores de interesse incluíram infraestrutura, hospitalidade de luxo e energia renovável; uma delegação de retorno ao Panamá está planejada para setembro de 2026."
+      ],
+      "palma-blanca-phase-ii": [
+        "O Grupo Mar Azul deu início às obras da Fase II do Palma Blanca Resort & Residences ontem, liberando 186 unidades para reserva. A Fase II inclui quatro edifícios de condomínio baixos, oito villas de praia com quatro dormitórios e dezesseis townhomes de frente para o mar, no terço sul dos 1,2 km de orla na praia do Pacífico que pertencem ao resort.",
+        "A Fase I, entregue em 2023, está totalmente ocupada e opera com 86% de ocupação anual por meio do programa de gestão de aluguéis. A entrega da Fase II está prevista para o quarto trimestre de 2027.",
+        "As reservas abrem hoje com um depósito reembolsável de $5.000 e um período de retenção de trinta dias para a devida diligência. O projeto é representado pela PanamaRealEstateGuide.com para compradores internacionais."
+      ],
+      "international-living-ranking": [
+        "O Índice Global de Aposentadoria 2026 da International Living classificou o Panamá em segundo lugar na América Latina e em quinto lugar no mundo entre os destinos para aposentadoria. O ranking avalia custo de moradia, acesso à saúde, facilidade de obtenção de visto, infraestrutura, clima e custo de vida.",
+        "O Pensionado Visa do Panamá, que oferece residência permanente a aposentados com pensão mensal mínima de $1.000 e garante descontos de 15% a 50% em tudo, de passagens aéreas a medicamentos, foi citado como um dos principais motivos para a colocação do país no ranking.",
+        "O relatório completo está disponível em internationalliving.com."
+      ],
+      "copa-pedasi-route": [
+        "A Copa Airlines anunciou hoje uma segunda rota direta semanal entre o Aeroporto Internacional de Miami e a pista regional de Pedasí, válida de dezembro de 2026 a abril de 2027. O novo voo eleva o total de serviços diretos da América do Norte para Pedasí a dois voos semanais de chegada e dois de partida.",
+        "A rota representa uma mudança significativa para a Península de Azuero, que historicamente exigia uma conexão na Cidade do Panamá para chegadas internacionais. Também é um indicador do crescimento esperado no tráfego de entrada para os novos projetos de resort da península."
+      ],
+      "friendly-nations-up": [
+        "O Serviço Nacional de Migração do Panamá divulgou hoje as estatísticas do primeiro trimestre de 2026, mostrando que as aprovações do Friendly Nations Visa subiram vinte e dois por cento em comparação com o ano anterior. O maior país de origem foi os Estados Unidos, com Alemanha e Canadá empatados em segundo lugar.",
+        "A via de investimento imobiliário respondeu por 61% das aprovações, ante 48% em 2023, refletindo uma mudança no perfil dos solicitantes em direção a aposentados e investidores e o afastamento dos candidatos com contrato de trabalho."
+      ],
+      "bocas-fiber": [
+        "O tão aguardado backbone de fibra óptica que conecta o arquipélago de Bocas del Toro à rede continental do Panamá entrou em operação esta semana. O enlace oferece serviço simétrico de gigabit a Isla Colón e Isla Bastimentos, com extensão a Isla Solarte prevista para o terceiro trimestre de 2026.",
+        "A conectividade confiável de alta velocidade era a principal limitação de infraestrutura de Bocas como destino para trabalho remoto. A melhoria deve acelerar o desenvolvimento de produtos residenciais e de hospitalidade voltados ao trabalho remoto no arquipélago."
+      ],
+      "casco-restoration-grant": [
+        "O Ministério da Cultura do Panamá aprovou uma verba de restauração de $4,2 milhões para o Casco Viejo, o bairro colonial da Cidade do Panamá reconhecido pela UNESCO. Os recursos serão destinados ao reforço estrutural e à restauração das fachadas de dezessete edifícios nos corredores da Avenida Central e da Calle Primera, onde vários projetos privados de incorporação estão em construção ativa.",
+        "A verba é o maior desembolso individual de patrimônio cultural na história do bairro e reflete o compromisso contínuo do governo com a designação da UNESCO obtida em 1997. As obras de restauração devem começar no segundo trimestre de 2026, com previsão de conclusão em 18 meses.",
+        "O anúncio sucede um período sustentado de investimento privado na restauração do Casco Viejo. Nosso projeto Malecón Casco está entre os empreendimentos residenciais adjacentes à área da verba e será beneficiado pela melhoria da paisagem urbana."
+      ],
+      "aqua-lodge-delivery": [
+        "O Aqua Lodge Bocas entregou as chaves aos doze primeiros proprietários de sua coleção de bangalôs sobre a água em Isla Bastimentos esta semana, marcando o primeiro grande produto entregue na nova geração de empreendimentos de resort-residência de Bocas del Toro. As unidades ficam sobre sistemas de cais privativos na lagoa protegida de Bahía Honda.",
+        "Todas as doze unidades entregues foram inscritas no programa de gestão de aluguéis do projeto. A ocupação nas primeiras semanas de operação ficou acima das projeções, com fins de semana de alta temporada com capacidade total.",
+        "A Fase II do Aqua Lodge, um segundo anel de bangalôs e três villas de frente para a praia, segue em pré-construção com reservas abertas. A entrega está prevista para o primeiro trimestre de 2027."
+      ],
+      "coronado-sold-out": [
+        "Os três maiores projetos de resort-residência de Coronado, o principal mercado de praia mais próximo da capital do Panamá, atingiram cada um 100% de reservas, e as listas de espera são agora o único ponto de entrada para os potenciais compradores. O marco foi confirmado por representantes dos três projetos.",
+        "A absorção total de Coronado reflete uma compressão de oferta que vem se formando desde 2023, quando os lançamentos da segunda fase ficaram com 60% a 70% de reservas poucas semanas após o anúncio. Compradores da Cidade do Panamá e expatriados que retornam têm sido os perfis dominantes, com compradores norte-americanos representando cerca de 30% das transações.",
+        "Para compradores focados no corredor do Pacífico, os mercados alternativos de Playa Blanca e San Carlos ainda têm estoque disponível a preços competitivos de pré-construção. Ambos estão presentes em nossa coleção atual."
+      ],
+      "pedasi-water-plant": [
+        "Uma nova usina de dessalinização que atende Pedasí e a zona costeira vizinha entrou em operação esta semana, triplicando a capacidade de água potável da cidade. O projeto foi financiado em conjunto pelo Ministério de Obras Públicas do Panamá e por um consórcio de quatro incorporadoras de resort-residência atuantes na Península de Azuero.",
+        "As limitações no abastecimento de água haviam sido apontadas pelas incorporadoras como um fator que restringia os prazos de construção no corredor de Pedasí. A nova usina, com capacidade de 2.400 metros cúbicos por dia, foi projetada para atender tanto à demanda residencial atual quanto ao crescimento previsto até 2035.",
+        "A melhoria da infraestrutura é um sinal relevante para a trajetória de desenvolvimento da península. O Azuero Shores, o projeto costeiro que representamos em Pedasí, considera a água potável confiável um pré-requisito para a operação de seu programa de aluguéis de longo prazo."
+      ],
+      "boquete-trail-network": [
+        "O município de Boquete, na província de Chiriquí, aprovou a ampliação de sua rede de trilhas protegidas em floresta nublada em 340 hectares, acrescentando quatro novas rotas sinalizadas ao já existente sistema Sendero Los Quetzales. A ampliação cria um acesso protegido contínuo do centro da cidade até as encostas superiores do Volcán Barú.",
+        "A medida sucede um crescimento sustentado do turismo de montanha e valida o posicionamento de estilo de vida ao ar livre que impulsionou a demanda por imóveis em Boquete entre compradores norte-americanos e europeus. As novas rotas incluem um circuito acessível de baixa inclinação, projetado para moradores e visitantes que não são caminhantes técnicos.",
+        "O Vista Verde Boquete, nosso projeto de montanha, fica no ponto de partida de uma das rotas recém-designadas. A proximidade da floresta protegida é um dos principais argumentos de marketing do projeto nas conversas com compradores que avaliam a montanha em vez da costa."
+      ],
+      "q4-2025-absorption": [
+        "O estoque residencial costeiro do Panamá encerrou 2025 com uma compressão de trinta e oito por cento em relação ao quarto trimestre de 2024, segundo dados compilados a partir de registros de reserva de incorporadoras e de promessas de compra e venda notarizadas analisados por nossa equipe de mercado. Os mercados mais apertados foram Bocas del Toro (queda de 52%) e a faixa de Coronado (queda de 44%), onde as listas de espera substituíram as janelas públicas de reserva.",
+        "O pipeline segue ativo: quarenta e dois projetos residenciais costeiros estão em construção com licença ativa, segundo dados do Ministério da Habitação. Mas a distribuição da nova oferta mudou significativamente em direção aos mercados secundários: Pedasí, Volcán e as ilhas externas do Pacífico representam agora 38% do pipeline licenciado, ante 19% em 2022.",
+        "Para os compradores que acompanham o mercado, o relatório do quarto trimestre é coerente com o conselho que vimos dando desde meados de 2025: agir agora nos mercados secundários, já que o padrão de compressão de Coronado e Bocas costuma se repetir nos mercados que os seguem com dois a três anos de atraso."
+      ],
+      "airport-tocumen-expansion": [
+        "O Aeroporto Internacional de Tocumen inaugurou esta semana o concourse satélite de seu Terminal 2, acrescentando vinte e dois portões e aumentando a capacidade anual de passageiros do aeroporto em aproximadamente 40%. A ampliação eleva o total de portões de Tocumen a 57 e acrescenta instalações dedicadas de transporte por ônibus para operações regionais e de fretamento.",
+        "A ampliação é a fase mais recente de um programa de investimentos de vários anos que transformou Tocumen no principal hub de aviação do norte da América do Sul e da América Central. A Copa Airlines, que opera a maioria das rotas internacionais de Tocumen, é a principal beneficiária da nova capacidade.",
+        "Para os compradores de imóveis no Panamá, a conectividade ampliada reforça o argumento da acessibilidade. A Cidade do Panamá está agora a menos de cinco horas de praticamente todas as grandes cidades norte-americanas com conexão da Copa, fato que tem efeito mensurável sobre os perfis de comprador de segunda residência e de investimento."
+      ],
+      "wsj-panama-feature": [
+        "O Wall Street Journal publicou uma reportagem sobre o mercado imobiliário do Panamá em 8 de janeiro, destacando o papel crescente do país como destino para compradores excluídos por preço ou de algum modo redirecionados da Costa Rica. A matéria entrevistou compradores, incorporadores e observadores de mercado na Cidade do Panamá, em Bocas del Toro e na Península de Azuero.",
+        "A tese central do artigo, de que a combinação de dolarização, acesso ao Friendly Nations Visa e preços-base mais baixos do Panamá frente a mercados costeiros comparáveis da Costa Rica está impulsionando uma demanda significativa, é coerente com a tendência que observamos em nossas próprias consultas de compradores desde 2023.",
+        "A reportagem do Journal está atrás de um paywall em wsj.com. Resumimos os principais dados de mercado para os clientes que o solicitam; entre em contato conosco para receber o briefing."
+      ],
+      "new-tax-incentive": [
+        "A Assembleia Nacional do Panamá votou em 18 de dezembro pela prorrogação da isenção de imposto predial de vinte anos sobre as benfeitorias para novas construções residenciais. A isenção, que se aplica ao valor das benfeitorias de estruturas recém-construídas, deveria ter seu alcance reduzido para licenças emitidas a partir de 1º de janeiro de 2026. A prorrogação mantém a isenção integral para licenças emitidas até 31 de dezembro de 2028.",
+        "Para os compradores de imóveis de nova construção no Panamá, que é tudo o que representamos, a prorrogação significa que a exposição ao imposto predial anual permanece próxima de zero nas primeiras duas décadas de propriedade. A isenção se aplica no nível do projeto e está especificada na documentação do título.",
+        "A votação foi de 48 a 13. Atualizamos nosso guia tributário para refletir a prorrogação; o documento revisado está disponível mediante solicitação."
+      ],
+      "palma-blanca-phase-i-sellout": [
+        "O Grupo Mar Azul confirmou a venda final da coleção da Fase I do Palma Blanca Resort & Residences, concluindo a entrega e a venda de 100% das 94 unidades da primeira fase do projeto. A Fase I foi entregue em etapas entre o segundo e o quarto trimestre de 2023.",
+        "O programa de gestão de aluguéis do projeto registra 86% de ocupação anualizada nas unidades da Fase I inscritas no programa, número que representantes da incorporadora descrevem como acima das projeções iniciais. As diárias médias ficaram 12% acima da tabela de tarifas incluída nos documentos de reserva da Fase I.",
+        "A Fase II está agora em pré-construção com reservas abertas. O anúncio do início das obras está marcado para o começo de 2026. Os compradores interessados nas unidades da Fase II devem observar que os dados de desempenho da Fase I estão disponíveis como parte do pacote de devida diligência que preparamos para os clientes de reserva."
+      ],
+      "bloomberg-retirement-index": [
+        "O Índice anual de Destinos para Aposentadoria da Bloomberg colocou o Panamá entre os 10 melhores do mundo pela primeira vez, citando as melhorias na infraestrutura de saúde, a força contínua do programa Pensionado Visa e a crescente conectividade internacional da cidade. O Panamá ficou em nono lugar geral e em segundo no Hemisfério Ocidental, atrás de Portugal.",
+        "O índice da Bloomberg usa uma metodologia composta que incorpora custo de vida, acesso à saúde, estabilidade política, ambiente tributário e conectividade. O Panamá teve pontuação especialmente alta em ambiente tributário, refletindo tanto a isenção para novas construções quanto a ausência de imposto sobre remessas ou renda estrangeira para a maioria das classificações de residentes.",
+        "O índice é publicado em bloomberg.com/retirement. O capítulo sobre o Panamá inclui dados sobre estabelecimentos de saúde e o tamanho da comunidade expatriada na Cidade do Panamá, em Boquete, Coronado e Bocas del Toro."
+      ],
+      "chiriqui-highway-open": [
+        "O trecho de ampliação de Chiriquí da Rodovia Pan-Americana foi aberto ao tráfego total em 9 de novembro, reduzindo o tempo de viagem da Cidade do Panamá a Boquete de aproximadamente sete horas para pouco menos de cinco. O trecho abrange 84 quilômetros de estrada alargada e realinhada pelas províncias de Coclé e Veraguas.",
+        "O tempo de deslocamento da Cidade do Panamá às montanhas de Chiriquí tem sido um dos principais pontos de atrito para os compradores que avaliam imóveis em Boquete. O limite das cinco horas é amplamente visto no setor imobiliário como uma barreira psicológica que amplia significativamente o público de compradores de Boquete em relação às alternativas costeiras.",
+        "A equipe de vendas do Vista Verde Boquete relata um aumento mensurável no volume de consultas desde a abertura, com compradores mencionando especificamente a redução no tempo de viagem como um fator em sua decisão."
+      ],
+      "buoy-hurricane-corridor": [
+        "O resumo anual da temporada de furacões do Atlântico da NOAA, publicado em 18 de outubro, reafirmou que o Panamá está totalmente fora do corredor de furacões da bacia do Atlântico e registrou zero impacto direto de furacões em 119 anos de registros modernos. A temporada de 2025, que produziu quatro grandes furacões no Atlântico, não gerou nenhum evento climático significativo no Panamá.",
+        "A posição geográfica do Panamá, ao sul do tradicional cinturão de furacões, a cerca de 8 a 9 graus de latitude norte, é um dos atributos imobiliários menos comentados, porém mais relevantes, para compradores internacionais da Costa do Golfo, da Flórida e do litoral leste dos Estados Unidos.",
+        "Os custos de seguro para imóveis costeiros no Panamá refletem essa realidade: as taxas de seguro residencial padrão em Bocas del Toro e na costa do Pacífico ficam aproximadamente 40% a 55% mais baixas do que em mercados comparáveis de ilhas do Caribe. Incluímos comparações de custo de seguro nos pacotes de devida diligência que preparamos para os clientes."
       ]
     },
     "floating_contact": {
@@ -1369,7 +1684,25 @@
       "metro-puente-cuarto-2026": "Metro-Linie 3 und Vierte Brücke über den Kanal bleiben strategische Infrastrukturprioritäten Panamas für 2026",
       "cruise-season-2025-2026": "Kreuzfahrtsaison 2025 bis 2026 öffnet mit 2 Prozent mehr Ankünften in Colón und Amador",
       "panama-pacifico-logistics-hub": "Neuer Logistik-Hub im Wert von USD 20 Millionen in Panamá Pacífico stärkt die regionale Fertigungsplattform",
-      "apede-italia-investment-mission": "APEDE präsentiert Panamas Modell der offenen Wirtschaft italienischen Investoren bei Handelsmission in Rom"
+      "apede-italia-investment-mission": "APEDE präsentiert Panamas Modell der offenen Wirtschaft italienischen Investoren bei Handelsmission in Rom",
+      "palma-blanca-phase-ii": "Palma Blanca Phase II startet: 186 Einheiten freigegeben",
+      "international-living-ranking": "Panama auf Platz 2 der Ruhestandsziele in Lateinamerika",
+      "copa-pedasi-route": "Copa fügt für die Saison 2026 zweite Direktroute Miami nach Pedasí hinzu",
+      "friendly-nations-up": "Friendly Nations Visa: Genehmigungen steigen um 22 % im Jahresvergleich",
+      "bocas-fiber": "Bocas del Toro: Glasfaser-Backbone fertiggestellt, schnelleres Internet",
+      "casco-restoration-grant": "Kulturministerium genehmigt 4,2 Mio. $ für Restaurierung von Casco Viejo",
+      "aqua-lodge-delivery": "Aqua Lodge Bocas übergibt erste 12 Überwasser-Bungalows",
+      "coronado-sold-out": "Coronado: Drei Vorzeigeprojekte zu 100 % reserviert",
+      "pedasi-water-plant": "Entsalzungsanlage in Pedasí verdreifacht die Trinkwasserkapazität",
+      "boquete-trail-network": "Boquete erweitert geschütztes Wanderwegenetz um 340 Hektar",
+      "q4-2025-absorption": "Absorptionsbericht Q4 2025: Küstenangebot 38 % niedriger im Jahresvergleich",
+      "airport-tocumen-expansion": "Tocumen eröffnet Satelliten-Concourse von Terminal 2, Kapazität plus 40 %",
+      "wsj-panama-feature": "Wall Street Journal: \"Warum Panama den Überlauf aus Costa Rica auffängt\"",
+      "new-tax-incentive": "Nationalversammlung verlängert 20-jährige Grundsteuerbefreiung für Neubauten",
+      "palma-blanca-phase-i-sellout": "Palma Blanca Phase I ausverkauft: 100 % übergeben, 86 % Auslastung",
+      "bloomberg-retirement-index": "Bloomberg Retirement Index: Panama steigt in globale Top 10 auf",
+      "chiriqui-highway-open": "Ausbau der Panamericana in Chiriquí: Fahrtzeit nach Boquete auf 5 Std. gekürzt",
+      "buoy-hurricane-corridor": "NOAA bestätigt: Panama außerhalb des Hurrikankorridors, 119 Jahre ohne Treffer"
     },
     "news_full_bodies": {
       "tocumen-terminal-2-expansion": [
@@ -1431,6 +1764,93 @@
       "apede-italia-investment-mission": [
         "APEDE präsentierte Panamas Modell der offenen Wirtschaft italienischen Investoren bei einer Handelsmission in Rom diese Woche und sicherte sich Absichtserklärungen über geschätzte 180 Millionen USD an grenzüberschreitenden Geschäften.",
         "Interessensbereiche umfassten Infrastruktur, Luxus-Hospitality und erneuerbare Energien; eine Rückdelegation nach Panama ist für September 2026 geplant."
+      ],
+      "palma-blanca-phase-ii": [
+        "Grupo Mar Azul hat gestern den Spatenstich für die Phase II von Palma Blanca Resort & Residences gesetzt und 186 Einheiten zur Reservierung freigegeben. Phase II umfasst vier niedrige Eigentumswohnungsgebäude, acht Strandvillen mit vier Schlafzimmern und sechzehn Reihenhäuser direkt am Meer, gelegen auf dem südlichen Drittel der 1,2 km langen Pazifikstrandfront des Resorts.",
+        "Phase I, die 2023 übergeben wurde, ist vollständig belegt und erzielt über das Vermietungsmanagementprogramm eine jährliche Auslastung von 86 %. Die Übergabe der Phase II ist für das vierte Quartal 2027 vorgesehen.",
+        "Die Reservierung beginnt heute mit einer rückerstattbaren Anzahlung von 5.000 $ und einer dreißigtägigen Haltefrist für die Due Diligence. Das Projekt wird für internationale Käufer von PanamaRealEstateGuide.com vertreten."
+      ],
+      "international-living-ranking": [
+        "Der Global Retirement Index 2026 von International Living hat Panama als zweitbestes Ruhestandsziel in Lateinamerika und als fünftbestes weltweit eingestuft. Das Ranking bewertet Wohnkosten, Zugang zur Gesundheitsversorgung, Visafreundlichkeit, Infrastruktur, Klima und Lebenshaltungskosten.",
+        "Panamas Pensionado Visa, das Rentnern mit einer Mindestrente von 1.000 $ monatlich eine dauerhafte Aufenthaltsgenehmigung gewährt und Rabatte von 15 % bis 50 % auf alles von Flugtickets bis hin zu Medikamenten bietet, wurde als ein wesentlicher Treiber für die Platzierung des Landes genannt.",
+        "Der vollständige Bericht ist unter internationalliving.com verfügbar."
+      ],
+      "copa-pedasi-route": [
+        "Copa Airlines kündigte heute eine zweite wöchentliche Direktverbindung vom Miami International zum regionalen Flugplatz von Pedasí an, gültig von Dezember 2026 bis April 2027. Der neue Flug bringt die gesamte nordamerikanische Direktverbindung nach Pedasí auf zwei wöchentliche Ankünfte und zwei wöchentliche Abflüge.",
+        "Die Route ist eine bedeutende Veränderung für die Azuero-Halbinsel, die für internationale Ankünfte bislang einen Zwischenstopp in Panama-Stadt erforderte. Sie ist zudem ein Indikator für das erwartete Wachstum des einreisenden Verkehrs zu den aufstrebenden Resortprojekten der Halbinsel."
+      ],
+      "friendly-nations-up": [
+        "Die panamaische nationale Einwanderungsbehörde veröffentlichte heute die Statistiken für das erste Quartal 2026, die einen Anstieg der Genehmigungen des Friendly Nations Visa um zweiundzwanzig Prozent im Jahresvergleich zeigen. Das größte einzelne Herkunftsland waren die Vereinigten Staaten, gefolgt von Deutschland und Kanada, die sich den zweiten Platz teilten.",
+        "Auf den Weg über Immobilieninvestitionen entfielen 61 % der Genehmigungen, gegenüber 48 % im Jahr 2023, was eine Verschiebung des Antragstellerprofils hin zu Rentnern und Investoren und weg von Bewerbern mit Arbeitsverträgen widerspiegelt."
+      ],
+      "bocas-fiber": [
+        "Das lang erwartete Glasfaser-Backbone, das den Archipel Bocas del Toro mit dem Festlandnetz Panamas verbindet, wurde diese Woche in Betrieb genommen. Die Verbindung liefert symmetrischen Gigabit-Service nach Isla Colón und Isla Bastimentos, wobei die Erweiterung nach Isla Solarte für das dritte Quartal 2026 geplant ist.",
+        "Zuverlässige Konnektivität mit hoher Bandbreite war bislang die wichtigste infrastrukturelle Einschränkung für Bocas als Ziel für ortsunabhängiges Arbeiten. Es wird erwartet, dass die Modernisierung die Entwicklung von auf Remote-Arbeit ausgerichteten Wohn- und Gastgewerbeprodukten auf dem Archipel beschleunigt."
+      ],
+      "casco-restoration-grant": [
+        "Panamas Kulturministerium hat eine Restaurierungsförderung von 4,2 Millionen $ für Casco Viejo bewilligt, das von der UNESCO gelistete Kolonialviertel von Panama-Stadt. Die Mittel sind für die strukturelle Verstärkung und Fassadenrestaurierung von siebzehn Gebäuden in den Korridoren Avenida Central und Calle Primera bestimmt, wo mehrere private Bauprojekte aktiv im Bau sind.",
+        "Die Förderung ist die größte einzelne Auszahlung für das Kulturerbe in der Geschichte des Viertels und spiegelt das anhaltende Engagement der Regierung für die 1997 erlangte UNESCO-Auszeichnung wider. Die Restaurierungsarbeiten sollen im zweiten Quartal 2026 beginnen, mit einem voraussichtlichen Fertigstellungszeitraum von 18 Monaten.",
+        "Die Ankündigung folgt auf eine anhaltende Phase privater Investitionen in die Restaurierung von Casco Viejo. Unser Projekt Malecón Casco gehört zu den Wohnbauprojekten in unmittelbarer Nähe des Fördergebiets und wird von der verbesserten Straßenlandschaft profitieren."
+      ],
+      "aqua-lodge-delivery": [
+        "Aqua Lodge Bocas übergab diese Woche die Schlüssel an die ersten zwölf Eigentümer seiner Überwasser-Bungalow-Kollektion auf Isla Bastimentos und markierte damit das erste große fertiggestellte Produkt in der neuen Generation der Resort-Residenz-Entwicklung von Bocas del Toro. Die Einheiten liegen auf privaten Stegsystemen in der geschützten Lagune Bahía Honda.",
+        "Alle zwölf übergebenen Einheiten wurden in das Vermietungsmanagementprogramm des Projekts aufgenommen. Die Auslastung in den ersten Betriebswochen lag über den Prognosen, mit voll ausgelasteten Wochenenden in der Hauptsaison.",
+        "Phase II von Aqua Lodge, ein zweiter Ring von Bungalows und drei Strandvillen, befindet sich weiterhin in der Vorbauphase, mit offener Reservierung. Die Übergabe ist für das erste Quartal 2027 vorgesehen."
+      ],
+      "coronado-sold-out": [
+        "Die drei größten Resort-Residenz-Projekte in Coronado, Panamas dem Hauptstadtgebiet am nächsten gelegenem großen Strandmarkt, haben jeweils einen Reservierungsstand von 100 % erreicht, sodass Wartelisten nun der einzige Zugangspunkt für interessierte Käufer sind. Der Meilenstein wurde von Vertretern der Entwickler über alle drei Projekte hinweg bestätigt.",
+        "Die vollständige Absorption in Coronado spiegelt eine Angebotsverknappung wider, die sich seit 2023 aufgebaut hat, als die Freigaben der zweiten Phase innerhalb von Wochen nach der Ankündigung zu 60 % bis 70 % reserviert waren. Käufer aus Panama-Stadt und zurückkehrende Auswanderer waren die dominierenden Käuferprofile, wobei nordamerikanische Käufer rund 30 % der Transaktionen ausmachten.",
+        "Für Käufer mit Fokus auf den Pazifikkorridor bieten die alternativen Märkte Playa Blanca und San Carlos weiterhin verfügbares Angebot zu wettbewerbsfähigen Vorbaupreisen. Beide sind in unserer aktuellen Kollektion vertreten."
+      ],
+      "pedasi-water-plant": [
+        "Eine neue Entsalzungsanlage, die Pedasí und die umliegende Küstenzone versorgt, wurde diese Woche in Betrieb genommen und verdreifacht die Trinkwasserkapazität der Stadt. Das Projekt wurde gemeinsam vom panamaischen Ministerium für öffentliche Arbeiten und einem Konsortium aus vier Resort-Wohnbauentwicklern finanziert, die auf der Azuero-Halbinsel aktiv sind.",
+        "Engpässe in der Wasserversorgung wurden von den Entwicklern als ein Faktor genannt, der die Bauzeiten im Korridor von Pedasí begrenzte. Die neue Anlage mit einer Kapazität von 2.400 Kubikmetern pro Tag ist darauf ausgelegt, sowohl die bestehende Wohnnachfrage als auch das prognostizierte Wachstum bis 2035 zu decken.",
+        "Die Modernisierung der Infrastruktur ist ein bedeutendes Signal für die Entwicklungsperspektive der Halbinsel. Azuero Shores, das Küstenprojekt, das wir in Pedasí vertreten, betrachtet zuverlässiges Trinkwasser als Voraussetzung für den langfristigen Betrieb seines Vermietungsprogramms."
+      ],
+      "boquete-trail-network": [
+        "Die Gemeinde Boquete in der Provinz Chiriquí hat beschlossen, ihr geschütztes Nebelwald-Wanderwegenetz um 340 Hektar zu erweitern und dem bestehenden System des Sendero Los Quetzales vier neue markierte Routen hinzuzufügen. Die Erweiterung schafft einen durchgängigen geschützten Zugang vom Stadtzentrum bis zu den oberen Hängen des Volcán Barú.",
+        "Der Schritt folgt auf ein anhaltendes Wachstum des Hochland-Tourismus und bestätigt die Outdoor-Lifestyle-Positionierung, die die Nachfrage nach Wohnimmobilien in Boquete unter nordamerikanischen und europäischen Käufern angetrieben hat. Zu den neuen Routen gehört eine barrierearme Schleife mit geringem Gefälle, die für Bewohner und Besucher konzipiert ist, die keine technischen Wanderer sind.",
+        "Vista Verde Boquete, unser Hochlandprojekt, liegt am Ausgangspunkt einer der neu ausgewiesenen Routen. Die Nähe zum geschützten Wald gehört zu den wichtigsten Verkaufsargumenten des Projekts in Gesprächen mit Käufern, die das Hochland gegenüber der Küste abwägen."
+      ],
+      "q4-2025-absorption": [
+        "Panamas Wohnimmobilienangebot an der Küste schloss das Jahr 2025 mit einer Verknappung von achtunddreißig Prozent gegenüber dem vierten Quartal 2024 ab, basierend auf Daten aus Reservierungsunterlagen der Entwickler und notariell beglaubigten Kaufversprechen, die von unserem Marktteam ausgewertet wurden. Die angespanntesten Märkte waren Bocas del Toro (minus 52 %) und der Küstenstreifen von Coronado (minus 44 %), wo Wartelisten die öffentlichen Reservierungsfenster ersetzt haben.",
+        "Die Pipeline bleibt aktiv: Laut Daten des Wohnungsministeriums befinden sich zweiundvierzig Wohnbauprojekte an der Küste in aktiver, genehmigter Bauphase. Doch die Verteilung des neuen Angebots hat sich deutlich zu sekundären Märkten verschoben: Pedasí, Volcán und die äußeren Pazifikinseln machen nun 38 % der genehmigten Pipeline aus, gegenüber 19 % im Jahr 2022.",
+        "Für Käufer, die den Markt beobachten, steht der Bericht zum vierten Quartal im Einklang mit dem Rat, den wir seit Mitte 2025 geben: Jetzt in den sekundären Märkten handeln, da sich das Muster der Verknappung in Coronado und Bocas tendenziell in den Märkten wiederholt, die ihnen mit zwei bis drei Jahren Verzögerung folgen."
+      ],
+      "airport-tocumen-expansion": [
+        "Der internationale Flughafen Tocumen weihte diese Woche seinen Satelliten-Concourse von Terminal 2 ein, der zweiundzwanzig Gates hinzufügt und die jährliche Passagierkapazität des Flughafens um rund 40 % erhöht. Die Erweiterung bringt die Gesamtzahl der Gates in Tocumen auf 57 und ergänzt eigene Busanlagen für den regionalen und Charterbetrieb.",
+        "Die Erweiterung ist die jüngste Phase eines mehrjährigen Investitionsprogramms, das Tocumen zum wichtigsten Luftfahrtdrehkreuz für den Norden Südamerikas und Mittelamerika gemacht hat. Copa Airlines, die den Großteil der internationalen Routen von Tocumen betreibt, ist der Hauptnutznießer der neuen Kapazität.",
+        "Für Immobilienkäufer in Panama untermauert die erweiterte Anbindung das Argument der Erreichbarkeit. Panama-Stadt liegt nun innerhalb von fünf Stunden von praktisch jeder größeren nordamerikanischen Stadt mit einer Copa-Verbindung entfernt, eine Tatsache, die einen messbaren Einfluss auf die Profile von Zweitwohnsitz- und Investitionskäufern hat."
+      ],
+      "wsj-panama-feature": [
+        "Das Wall Street Journal veröffentlichte am 8. Januar eine Reportage über Panamas Immobilienmarkt und verwies dabei auf die wachsende Rolle des Landes als Ziel für Käufer, die aus Costa Rica preislich verdrängt oder anderweitig dorthin umgelenkt wurden. Der Beitrag interviewte Käufer, Entwickler und Marktbeobachter in Panama-Stadt, Bocas del Toro und auf der Azuero-Halbinsel.",
+        "Die zentrale These des Artikels, dass Panamas Kombination aus Dollarisierung, Zugang zum Friendly Nations Visa und niedrigeren Grundpreisen im Vergleich zu vergleichbaren costa-ricanischen Küstenmärkten eine erhebliche Nachfrage antreibt, deckt sich mit dem Trend, den wir seit 2023 bei unseren eigenen Käuferanfragen beobachtet haben.",
+        "Der Beitrag des Journal steht unter wsj.com hinter einer Bezahlschranke. Wir haben die wichtigsten Marktdaten für Kunden zusammengefasst, die danach fragen; kontaktieren Sie uns für das Briefing."
+      ],
+      "new-tax-incentive": [
+        "Panamas Nationalversammlung stimmte am 18. Dezember für die Verlängerung der zwanzigjährigen Befreiung von der Grundsteuer auf Bauwertverbesserungen für neue Wohnbauten. Die Befreiung, die für den Verbesserungswert neu errichteter Gebäude gilt, sollte zuvor für nach dem 1. Januar 2026 erteilte Genehmigungen im Umfang reduziert werden. Die Verlängerung erhält die vollständige Befreiung für alle bis zum 31. Dezember 2028 erteilten Genehmigungen.",
+        "Für Käufer von Neubauimmobilien in Panama, also genau das, was wir vertreten, bedeutet die Verlängerung, dass die jährliche Grundsteuerbelastung in den ersten zwei Jahrzehnten des Eigentums nahe null bleibt. Die Befreiung gilt auf Projektebene und ist in den Eigentumsunterlagen festgehalten.",
+        "Die Abstimmung fiel mit 48 zu 13 aus. Wir haben unseren Steuerleitfaden aktualisiert, um die Verlängerung zu berücksichtigen; das überarbeitete Dokument ist auf Anfrage erhältlich."
+      ],
+      "palma-blanca-phase-i-sellout": [
+        "Grupo Mar Azul hat den letzten Verkauf in der Phase-I-Kollektion von Palma Blanca Resort & Residences bestätigt und damit eine 100-prozentige Übergabe und einen vollständigen Verkauf der 94 Einheiten der ersten Phase des Projekts abgeschlossen. Phase I wurde in Etappen zwischen dem zweiten und vierten Quartal 2023 übergeben.",
+        "Das Vermietungsmanagementprogramm des Projekts meldet eine annualisierte Auslastung von 86 % über die in das Programm aufgenommenen Einheiten der Phase I, eine Zahl, die Vertreter des Entwicklers als über den anfänglichen Prognosen liegend beschreiben. Die durchschnittlichen Übernachtungspreise lagen 12 % über dem in den Reservierungsunterlagen der Phase I enthaltenen Preisplan.",
+        "Phase II befindet sich nun in der Vorbauphase, mit offener Reservierung. Die Ankündigung des Spatenstichs ist für Anfang 2026 geplant. Käufer, die an Einheiten der Phase II interessiert sind, sollten beachten, dass die Leistungsdaten der Phase I als Teil des Due-Diligence-Pakets verfügbar sind, das wir für Reservierungskunden vorbereiten."
+      ],
+      "bloomberg-retirement-index": [
+        "Der jährliche Retirement Destinations Index von Bloomberg platzierte Panama zum ersten Mal in den globalen Top 10 und verwies dabei auf Verbesserungen der Gesundheitsinfrastruktur, die anhaltende Stärke des Pensionado-Visa-Programms und die wachsende internationale Anbindung der Stadt. Panama belegte insgesamt den neunten Platz und den zweiten Platz in der westlichen Hemisphäre hinter Portugal.",
+        "Der Bloomberg-Index verwendet eine zusammengesetzte Methodik, die Lebenshaltungskosten, Zugang zur Gesundheitsversorgung, politische Stabilität, Steuerumfeld und Anbindung einbezieht. Panama schnitt besonders stark beim Steuerumfeld ab, was sowohl die Befreiung für Neubauten als auch das Fehlen einer Überweisungs- oder Auslandseinkommensteuer für die meisten Klassifizierungen von Gebietsansässigen widerspiegelt.",
+        "Der Index wird unter bloomberg.com/retirement veröffentlicht. Das Panama-Kapitel enthält Daten zu Gesundheitseinrichtungen und zur Größe der Auswanderergemeinschaft in Panama-Stadt, Boquete, Coronado und Bocas del Toro."
+      ],
+      "chiriqui-highway-open": [
+        "Der Ausbauabschnitt der Panamericana in Chiriquí wurde am 9. November für den vollen Verkehr freigegeben und verkürzt die Fahrtzeit von Panama-Stadt nach Boquete von etwa sieben Stunden auf knapp unter fünf. Der Abschnitt umfasst 84 Kilometer verbreiterter und neu trassierter Straße durch die Provinzen Coclé und Veraguas.",
+        "Die Fahrtzeit von Panama-Stadt in das Hochland von Chiriquí war einer der größten Reibungspunkte für Käufer, die eine Immobilie in Boquete in Betracht zogen. Die Fünf-Stunden-Schwelle gilt in Immobilienkreisen weithin als psychologische Barriere, deren Wegfall den Kreis der Boquete-Käufer im Vergleich zu den Küstenalternativen spürbar erweitert.",
+        "Das Verkaufsteam von Vista Verde Boquete meldet seit der Eröffnung einen messbaren Anstieg des Anfragevolumens, wobei Käufer ausdrücklich die verbesserte Fahrtzeit als einen Faktor in ihrer Überlegung nennen."
+      ],
+      "buoy-hurricane-corridor": [
+        "Die jährliche Zusammenfassung der atlantischen Hurrikansaison der NOAA, veröffentlicht am 18. Oktober, bestätigte erneut, dass Panama vollständig außerhalb des Hurrikankorridors des Atlantikbeckens liegt und in 119 Jahren moderner Aufzeichnungen null direkte Hurrikantreffer verzeichnet hat. Die Saison 2025, die vier schwere atlantische Hurrikane hervorbrachte, brachte in Panama keine nennenswerten Wetterereignisse mit sich.",
+        "Panamas geografische Lage, südlich des traditionellen Hurrikangürtels bei etwa 8 bis 9 Grad nördlicher Breite, ist eines der am wenigsten diskutierten, aber relevantesten Immobilienmerkmale des Landes für internationale Käufer von der Golfküste, aus Florida und von der Ostküste.",
+        "Die Versicherungskosten für Küstenimmobilien in Panama spiegeln diese Realität wider: Die Standardprämien für Immobilienversicherungen in Bocas del Toro und an der Pazifikküste liegen etwa 40 % bis 55 % unter denen vergleichbarer karibischer Inselmärkte. Wir nehmen Vergleiche der Versicherungskosten in die Due-Diligence-Pakete auf, die wir für Kunden vorbereiten."
       ]
     },
     "floating_contact": {
