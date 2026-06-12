@@ -18,6 +18,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -151,6 +152,18 @@ async function main() {
   }
 
   console.log(`[hreflang] processed ${processed} EN + ${translatedProcessed} translated files, ${withTranslations} have at least one translation`);
+
+  // Third pass (chained script): canonical + hreflang for the HOME page and
+  // the articles/news/videos INDEX pages in every language. Lives in its own
+  // script (scripts/inject-index-seo.mjs); chained here because the deploy
+  // workflow file cannot be modified via the GitHub App token (needs the
+  // `workflows` permission). inject-hreflang.mjs already runs after all
+  // shells exist, which is exactly when the index pass must run.
+  const idx = spawnSync(process.execPath, [path.join(__dirname, 'inject-index-seo.mjs')], { stdio: 'inherit' });
+  if (idx.status !== 0) {
+    console.error('[hreflang] inject-index-seo.mjs failed');
+    process.exit(idx.status ?? 1);
+  }
 }
 
 main().catch(e => { console.error(e); process.exit(1); });
