@@ -292,6 +292,38 @@ const ARTICLE_ID = window.location.pathname.split('/').pop().replace('.html', ''
             </div>
           </article>
 
+          {/* WATCH — matched YouTube Short(s), injected into <head> at deploy
+              time by scripts/inject-article-meta.mjs as window.__ARTICLE_VIDEOS__ */}
+          {typeof window !== 'undefined' && Array.isArray(window.__ARTICLE_VIDEOS__) && window.__ARTICLE_VIDEOS__.length > 0 && (
+            <section style={{ padding: 'clamp(48px, 6vw, 90px) 0', background: 'var(--paper)' }}>
+              <div className="container" style={{ maxWidth: 900 }}>
+                <div className="eyebrow reveal" style={{ marginBottom: 16 }}>
+                  <span className="rule-coral"></span>{t('article.watch', 'Watch')}
+                </div>
+                <h2 className="display reveal" style={{ fontSize: 'clamp(26px, 2.8vw, 38px)', margin: '0 0 24px', lineHeight: 1.15, color: 'var(--coral-deep)' }}>
+                  {t('article.on_video', 'See this on video')}
+                </h2>
+                <div className="reveal" style={{ position: 'relative', paddingTop: '56.25%', borderRadius: 14, overflow: 'hidden', background: '#000' }}>
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${window.__ARTICLE_VIDEOS__[0].videoId}?rel=0`}
+                    title={window.__ARTICLE_VIDEOS__[0].title || 'Panama Real Estate Guide video'}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
+                  />
+                </div>
+                <p className="reveal" style={{ marginTop: 20, textAlign: 'center', fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--ink-soft)', letterSpacing: '0.08em' }}>
+                  {window.__ARTICLE_VIDEOS__.length > 1 ? `${window.__ARTICLE_VIDEOS__.length} ${t('article.videos', 'videos')} · ` : ''}
+                  <a href={window.__ARTICLE_CHANNEL_URL__ || 'https://www.youtube.com/@panamarealestateguidetv'} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>
+                    {t('article.more_on_youtube', 'More on YouTube →')}
+                  </a>
+                </p>
+              </div>
+            </section>
+          )}
+
           {/* Related */}
           <section style={{ padding: 'clamp(64px, 8vw, 110px) 0', background: 'var(--sand)' }}>
             <div className="container">

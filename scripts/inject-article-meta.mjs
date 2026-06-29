@@ -36,6 +36,66 @@ const PUBLISHER_LOGO = `${SITE_BASE}/cover_facebook_1640x856.png`;
 const HEAD_START = '<!-- BEGIN_ARTICLE_META -->';
 const HEAD_END   = '<!-- END_ARTICLE_META -->';
 
+const VIDEOS_JSON = path.join(PROJECT_DIR, 'youtube-videos.json');
+const CHANNEL_URL = 'https://www.youtube.com/@panamarealestateguidetv';
+
+// -----------------------------------------------------------------------------
+// YouTube videos → article slug map. Reads project/youtube-videos.json (kept up
+// to date by sync-youtube-videos.mjs) and groups videos by their articleSlug so
+// each article can embed the matching Short(s). Newest first. Missing file is
+// fine — articles just ship without a video section.
+// -----------------------------------------------------------------------------
+async function loadVideosByArticle() {
+  const out = Object.create(null);
+  try {
+    const raw = JSON.parse(await fs.readFile(VIDEOS_JSON, 'utf8'));
+    const vids = (raw.videos || [])
+      .filter(v => v && v.articleSlug && v.videoId)
+      .sort((a, b) => (b.publishDate || '').localeCompare(a.publishDate || ''));
+    for (const v of vids) {
+      (out[v.articleSlug] ||= []).push({
+        videoId: v.videoId,
+        title: v.title || '',
+        thumbnailUrl: v.thumbnailUrl || `https://i.ytimg.com/vi/${v.videoId}/maxresdefault.jpg`,
+        publishDate: v.publishDate || null,
+        duration: v.duration || 'PT3S',
+        description: v.description || '',
+        lang: v.lang || 'es',
+      });
+    }
+  } catch (_) { /* no videos file — fine */ }
+  return out;
+}
+
+// Build a VideoObject JSON-LD for the article's primary (newest) video plus a
+// browser global the client renderer reads to mount the embed. Returned as an
+// array of <head> lines (empty when the article has no matched videos).
+function buildVideoLines(videos, articleUrl, articleTitle) {
+  if (!Array.isArray(videos) || videos.length === 0) return [];
+  const primary = videos[0];
+  const ldVideo = {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: primary.title || articleTitle,
+    description: cleanMarkdown(primary.description || primary.title || articleTitle).slice(0, 300) || articleTitle,
+    thumbnailUrl: [primary.thumbnailUrl, `https://i.ytimg.com/vi/${primary.videoId}/hqdefault.jpg`].filter(Boolean),
+    uploadDate: primary.publishDate || undefined,
+    duration: primary.duration || 'PT3S',
+    contentUrl: `https://www.youtube.com/watch?v=${primary.videoId}`,
+    embedUrl: `https://www.youtube.com/embed/${primary.videoId}`,
+    publisher: { '@type': 'Organization', name: 'Panama Real Estate Guide', logo: { '@type': 'ImageObject', url: PUBLISHER_LOGO } },
+    inLanguage: primary.lang === 'es' ? 'es-PA' : (primary.lang || 'es'),
+    isFamilyFriendly: true,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  };
+  // Trim the global to the fields the renderer needs.
+  const slim = videos.map(v => ({ videoId: v.videoId, title: v.title, thumbnailUrl: v.thumbnailUrl }));
+  return [
+    `<script type="application/ld+json">${sanitizeForJsonLdScript(JSON.stringify(ldVideo))}</script>`,
+    `<script>window.__ARTICLE_VIDEOS__=${sanitizeForJsonLdScript(JSON.stringify(slim))};window.__ARTICLE_CHANNEL_URL__=${JSON.stringify(CHANNEL_URL)};</script>`,
+  ];
+}
+
 // -----------------------------------------------------------------------------
 // data.js parsing — run in a vm sandbox so we get the real PANAMA_DATA object
 // (including nested articleBodies arrays). Regex parsing isn't safe here
@@ -217,7 +277,7 @@ function sanitizeForJsonLdScript(s) {
 // -----------------------------------------------------------------------------
 // Build the per-article <head> block.
 // -----------------------------------------------------------------------------
-function buildHeadInjection({ slug, article, body, isIndex }) {
+function buildHeadInjection({ slug, article, body, isIndex, videos = [] }) {
   const url = isIndex
     ? `${SITE_BASE}/articles/`
     : `${SITE_BASE}/articles/${slug}.html`;
@@ -300,6 +360,7 @@ function buildHeadInjection({ slug, article, body, isIndex }) {
     `<script type="application/ld+json">${sanitizeForJsonLdScript(JSON.stringify(ldArticle))}</script>`,
     `<script type="application/ld+json">${sanitizeForJsonLdScript(JSON.stringify(ldBreadcrumb))}</script>`,
     ...(ldFaq ? [`<script type="application/ld+json">${sanitizeForJsonLdScript(JSON.stringify(ldFaq))}</script>`] : []),
+    ...(isIndex ? [] : buildVideoLines(videos, url, fullTitle)),
     HEAD_END,
   ];
   return lines.join('\n  ');
@@ -437,6 +498,10 @@ async function main() {
 
   console.log(`inject-article-meta: parsed ${articles.length} articles from data.js`);
 
+  const videosBySlug = await loadVideosByArticle();
+  const withVideos = Object.keys(videosBySlug).length;
+  console.log(`inject-article-meta: ${withVideos} article(s) have matched YouTube videos`);
+
   const byId = Object.create(null);
   for (const a of articles) byId[a.id] = a;
 
@@ -461,7 +526,7 @@ async function main() {
         continue;
       }
       matched++;
-      payload = { slug, article, body: bodies[slug] || [], isIndex: false };
+      payload = { slug, article, body: bodies[slug] || [], isIndex: false, videos: videosBySlug[slug] || [] };
     }
 
     const headBlock = buildHeadInjection(payload);

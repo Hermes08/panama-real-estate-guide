@@ -9,13 +9,18 @@
 //         feed to the 15 most recent videos. Older videos persist in the
 //         local JSON because we MERGE rather than replace.
 //
-// Matching: video → project slug.
-//   1. Build {name → slug} from PANAMA_DATA.projects (data.js + airtable).
+// Matching: video → project slug AND video → article slug.
+//   1. Build {name → slug} from PANAMA_DATA.projects (data.js + airtable) and
+//      {title → id} from PANAMA_DATA.articles.
 //   2. For each video title, find a project whose name appears as a substring
 //      (case-insensitive, accent-folded). Longest match wins so that
-//      "Bioma Costa del Este" beats "Costa del Este" when both exist.
-//   3. Manual projectSlug overrides in the existing JSON are preserved
-//      verbatim — never overwritten by the matcher.
+//      "Bioma Costa del Este" beats "Costa del Este" when both exist. Articles
+//      match the same way but only on the full (long) article title, so the
+//      auto-matcher almost never fires by accident.
+//   3. Manual projectSlug/articleSlug overrides in the existing JSON are
+//      preserved verbatim — never overwritten by the matcher. Topical commentary
+//      Shorts (areas/zones with no same-named article) are connected by hand via
+//      `articleSlug` in youtube-videos.json.
 //
 // Duration: the RSS feed does not include duration. We default to PT3S
 // (matches the cinemagraph format the channel ships today). When/if longer
@@ -144,6 +149,47 @@ function matchTitleToSlug(title, projects) {
 }
 
 // -----------------------------------------------------------------------------
+// Article id + title list from data.js (PANAMA_DATA.articles). Used to connect
+// topical/commentary Shorts ("Avenida Balboa — which building?", "Top 3 areas
+// to buy") to the matching Journal article, the same way projects get matched.
+// -----------------------------------------------------------------------------
+async function loadArticleList() {
+  const out = [];
+  try {
+    const src = await fs.readFile(DATA_JS, 'utf8');
+    const sandbox = { window: {}, console: { log() {}, warn() {}, error() {} } };
+    vm.createContext(sandbox);
+    vm.runInContext(src, sandbox, { timeout: 5000 });
+    for (const a of (sandbox.window.PANAMA_DATA?.articles || [])) {
+      if (a?.id && a?.title) out.push({ slug: a.id, title: a.title });
+    }
+  } catch (e) {
+    console.warn(`sync-youtube-videos: failed to read articles from data.js (${e.message})`);
+  }
+  return out;
+}
+
+// Conservative auto-matcher: only matches when an article's full title appears
+// verbatim (accent-folded) inside the video title. Article titles are long
+// sentences, so this rarely fires by accident — it has near-zero false
+// positives. Topical Shorts whose area has no same-named article are connected
+// by hand via a manual `articleSlug` in youtube-videos.json (preserved verbatim,
+// exactly like `projectSlug`).
+function matchTitleToArticle(title, articles) {
+  const folded = foldAccents(title);
+  let best = null;
+  let bestLen = 0;
+  for (const a of articles) {
+    const f = foldAccents(a.title);
+    if (f.length >= 12 && folded.includes(f) && f.length > bestLen) {
+      best = a.slug;
+      bestLen = f.length;
+    }
+  }
+  return best;
+}
+
+// -----------------------------------------------------------------------------
 // Main
 // -----------------------------------------------------------------------------
 async function main() {
@@ -172,6 +218,8 @@ async function main() {
 
   const projects = await loadProjectNameToSlugMap();
   console.log(`sync-youtube-videos: loaded ${projects.length} project name → slug pairs`);
+  const articles = await loadArticleList();
+  console.log(`sync-youtube-videos: loaded ${articles.length} article id → title pairs`);
 
   const entries = extractAll(xml, 'entry');
   console.log(`sync-youtube-videos: feed has ${entries.length} entries`);
@@ -185,9 +233,10 @@ async function main() {
     const published = extractOne(entry, 'published');
 
     const prev = existingByVid.get(videoId);
-    // Preserve any manual projectSlug override. Otherwise re-run the matcher
-    // on the current title (in case projects list changed).
+    // Preserve any manual projectSlug/articleSlug override. Otherwise re-run the
+    // matcher on the current title (in case the projects/articles list changed).
     const projectSlug = prev?.projectSlug ?? matchTitleToSlug(title, projects);
+    const articleSlug = prev?.articleSlug ?? matchTitleToArticle(title, articles);
 
     const merged = {
       videoId,
@@ -197,6 +246,7 @@ async function main() {
       duration: prev?.duration || DEFAULT_DURATION,
       thumbnailUrl: prev?.thumbnailUrl || `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
       projectSlug: projectSlug || null,
+      articleSlug: articleSlug || null,
       lang: prev?.lang || 'es',
     };
 
@@ -205,7 +255,8 @@ async function main() {
     } else if (
       prev.title !== merged.title ||
       prev.description !== merged.description ||
-      prev.projectSlug !== merged.projectSlug
+      prev.projectSlug !== merged.projectSlug ||
+      prev.articleSlug !== merged.articleSlug
     ) {
       updated++;
     } else {
