@@ -138,6 +138,10 @@ jobs:
       # These are runtime env (not build env) — the inject-tags step above only
       # uses the *_CONVERSION_*/PIXEL_ID secrets at build time.
       - name: Sync function env vars to Netlify (via API)
+        # Non-fatal: this only keeps serverless-function env vars in sync. The
+        # static-site deploy below does not depend on it, and account_slug
+        # resolution can transiently fail — never let it block production.
+        continue-on-error: true
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
