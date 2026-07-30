@@ -40,6 +40,11 @@ export type Area = {
   titleNote: string;
   projectCount: number;
   verifiedOn: string;
+  /** Populated from the Airtable `Fotos` sync. Until then the card renders a
+   *  plat-grid panel — we do not illustrate a place with a photo of somewhere
+   *  else. `photoAlt` must describe the actual photograph. */
+  photo?: string | null;
+  photoAlt?: string;
 };
 
 export type Project = {
