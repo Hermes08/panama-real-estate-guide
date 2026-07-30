@@ -107,10 +107,26 @@ export type Area = AreaEditorial & {
 
 /* ── Merge ──────────────────────────────────────────────────────────────────*/
 
-export const projects = airtable.projects as Project[];
+/* Only what a visitor may see. `published` mirrors "Publicado en Web", and the
+   Supabase RLS policy is `using (published)` — so reading everything here would
+   show 18 projects publicly that vanish the moment the data source changes.
+   The flag is the editorial control; the code just honours it. */
+export const projects = (airtable.projects as Project[]).filter(
+  (p) => p.published,
+);
+
+/** Every project including unpublished. For internal tooling only — never
+ *  render these. */
+export const allProjects = airtable.projects as Project[];
 
 export const areas: Area[] = airtable.areas.map((a) => {
   const inArea = projects.filter((p) => p.areaSlug === a.slug);
+
+  // Derived from published inventory, not from the sync's totals. Quoting a
+  // price from a project a visitor cannot open is worse than quoting none.
+  const froms = inArea
+    .map((p) => p.priceFromUsd)
+    .filter((n): n is number => typeof n === "number");
   const tops = inArea
     .map((p) => p.priceToUsd ?? p.priceFromUsd)
     .filter((n): n is number => typeof n === "number");
@@ -120,8 +136,8 @@ export const areas: Area[] = airtable.areas.map((a) => {
     slug: a.slug,
     name: a.name,
     region: a.region,
-    projectCount: a.projectCount,
-    priceFromUsd: a.priceFromUsd ?? null,
+    projectCount: inArea.length,
+    priceFromUsd: froms.length ? Math.min(...froms) : null,
     priceToUsd: tops.length ? Math.max(...tops) : null,
     // Borrow the first project photo as the area's cover until we have
     // dedicated area photography.

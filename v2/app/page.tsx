@@ -89,7 +89,7 @@ export default function HomePage() {
         <div className="wrap">
           <SectionHead
             eyebrow="Where to buy"
-            title={`${projects.length} projects across ${areas.length} areas`}
+            title={`${projects.length} projects across ${areas.filter((a) => a.projectCount > 0).length} areas`}
             dek="Panama is not one market. Where a development sits changes the paperwork, the climate, and who it suits — often more than the price does."
           />
 

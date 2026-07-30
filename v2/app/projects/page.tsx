@@ -3,13 +3,17 @@ import Link from "next/link";
 import { projects, areas, usd } from "@/lib/content";
 import { ProjectSearch } from "@/components/project-search";
 
+// Areas that actually hold published inventory — three of the fifteen we
+// track have none, and counting those would overstate the catalogue.
+const stocked = areas.filter((a) => a.projectCount > 0).length;
+
 const entry = Math.min(
   ...projects.map((p) => p.priceFromUsd ?? Infinity).filter(Number.isFinite),
 );
 
 export const metadata: Metadata = {
   title: `New developments for sale in Panama — ${projects.length} projects`,
-  description: `Browse ${projects.length} residential developments across ${areas.length} areas of Panama, from ${usd(entry)}. Filter by area, price, and build status. Prices as listed by developers.`,
+  description: `Browse ${projects.length} residential developments across ${stocked} areas of Panama, from ${usd(entry)}. Filter by area, price, and build status. Prices as listed by developers.`,
   alternates: { canonical: "/projects" },
 };
 
@@ -30,7 +34,7 @@ export default function ProjectsPage() {
             New developments for sale in Panama
           </h1>
           <p className="dek !text-white/90 mt-4 max-w-[62ch]">
-            {projects.length} projects across {areas.length} areas, from{" "}
+            {projects.length} projects across {stocked} areas, from{" "}
             {usd(entry)}. Every price here comes from the developer — we tell
             you what has been checked and what has not.
           </p>
