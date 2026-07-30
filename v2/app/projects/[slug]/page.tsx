@@ -11,6 +11,7 @@ import {
   statusLabel,
 } from "@/lib/content";
 import { Button, TitleBadge, SourceNote } from "@/components/ui";
+import { mediaUrl, absoluteMedia } from "@/lib/media";
 
 /* =============================================================================
    Project detail — built to rank for the project's own name
@@ -71,7 +72,7 @@ export async function generateMetadata({
       description: `${p.models.length} unit types from ${usd(p.priceFromUsd)}.`,
       url: `/projects/${p.slug}`,
       type: "website",
-      images: p.photos[0] ? [{ url: p.photos[0].src }] : undefined,
+      images: p.photos[0] ? [{ url: mediaUrl(p.photos[0].src)! }] : undefined,
     },
   };
 }
@@ -102,7 +103,7 @@ export default async function ProjectPage({
         name: p.name,
         url: `https://panamarealestateguide.com/projects/${p.slug}`,
         image: p.photos.map(
-          (ph) => `https://panamarealestateguide.com${ph.src}`,
+          (ph) => absoluteMedia(ph.src),
         ),
         ...(area && {
           address: {
@@ -191,7 +192,7 @@ export default async function ProjectPage({
           <div className="grid gap-2 min-[760px]:grid-cols-[2fr_1fr]">
             <div className="relative aspect-[4/3] min-[760px]:aspect-[3/2] rounded-md overflow-hidden bg-brand-900">
               <Image
-                src={p.photos[0].src}
+                src={mediaUrl(p.photos[0].src)!}
                 alt={`${p.name}, ${area?.name ?? "Panama"}`}
                 fill
                 priority
@@ -207,7 +208,7 @@ export default async function ProjectPage({
                     className="relative aspect-[4/3] rounded-md overflow-hidden bg-brand-900"
                   >
                     <Image
-                      src={ph.src}
+                      src={mediaUrl(ph.src)!}
                       alt={`${p.name} — view ${i + 2}`}
                       fill
                       sizes="(max-width: 760px) 50vw, 33vw"
@@ -465,7 +466,7 @@ export default async function ProjectPage({
                   {s.photos[0] && (
                     <div className="relative aspect-[16/10] bg-brand-900">
                       <Image
-                        src={s.photos[0].src}
+                        src={mediaUrl(s.photos[0].src)!}
                         alt={s.name}
                         fill
                         sizes="33vw"

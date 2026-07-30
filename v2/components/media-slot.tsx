@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { mediaUrl } from "@/lib/media";
 
 /* =============================================================================
    MediaSlot — the single place imagery enters the site.
@@ -36,16 +37,17 @@ export function MediaSlot({
   className = "",
   priority = false,
 }: MediaSlotProps) {
+  const resolved = mediaUrl(src);
   return (
     <div
       className={`relative ${aspect} flex flex-col justify-end p-5 overflow-hidden ${
-        src ? "bg-brand-900" : "hero-band"
+        resolved ? "bg-brand-900" : "hero-band"
       } ${className}`}
     >
-      {src && (
+      {resolved && (
         <>
           <Image
-            src={src}
+            src={resolved}
             alt={alt ?? ""}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1040px) 50vw, 33vw"
