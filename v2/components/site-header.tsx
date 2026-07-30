@@ -8,7 +8,7 @@ export function SiteHeader() {
       <div className="wrap h-full flex items-center gap-8">
         <Link
           href="/"
-          className="font-display font-bold text-[17px] tracking-[-0.02em] text-ink no-underline shrink-0"
+          className="font-display font-bold text-[17px] tracking-[-0.0204em] text-ink no-underline shrink-0"
         >
           Panama<span className="text-brand">RealEstate</span>Guide
         </Link>

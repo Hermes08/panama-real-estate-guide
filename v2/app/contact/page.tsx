@@ -10,14 +10,14 @@ export const metadata: Metadata = {
 const field =
   "w-full rounded-sm border border-line bg-white px-3.5 py-2.5 text-[16px] text-body focus:border-brand outline-none";
 const label =
-  "block font-display text-[13px] font-bold uppercase tracking-[0.1em] text-ink mb-2";
+  "block font-display text-[13px] font-bold uppercase tracking-[0.077em] text-ink mb-2";
 
 export default function ContactPage() {
   return (
     <>
       <section className="hero-band">
         <div className="wrap py-[clamp(40px,6vw,64px)]">
-          <p className="font-display text-[12px] font-bold uppercase tracking-[0.14em] text-accent mb-3">
+          <p className="font-display text-[12px] font-bold uppercase tracking-[0.077em] text-accent mb-3">
             Talk to someone
           </p>
           <h1 className="h1-article !text-white max-w-[20ch]">

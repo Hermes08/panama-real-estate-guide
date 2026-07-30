@@ -41,7 +41,7 @@ export default function HomePage() {
 
           {/* The ledger. Reads as a due-diligence summary, not a stat row. */}
           <div className="hero-band rounded-lg shadow-lg p-[clamp(22px,3vw,32px)]">
-            <h2 className="font-display text-[15px] font-bold uppercase tracking-[0.12em] text-white pb-4 border-b border-white/15">
+            <h2 className="font-display text-[15px] font-bold uppercase tracking-[0.077em] text-white pb-4 border-b border-white/15">
               What the numbers are today
             </h2>
 
@@ -53,7 +53,7 @@ export default function HomePage() {
                 >
                   <div className="flex items-baseline justify-between gap-5">
                     <dt className="text-[14.5px] text-white/80">{f.label}</dt>
-                    <dd className="font-display text-[26px] font-bold tracking-[-0.02em] text-white tnum shrink-0">
+                    <dd className="font-display text-[26px] font-bold tracking-[-0.0204em] text-white tnum shrink-0">
                       {f.value}
                     </dd>
                   </div>
@@ -116,10 +116,10 @@ export default function HomePage() {
                 {/* Plat-grid panel. Honest placeholder until photography
                     exists — and it keeps the survey-map motif consistent. */}
                 <div className="hero-band aspect-[16/10] flex flex-col justify-end p-5">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/60">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.077em] text-white/60">
                     {area.region}
                   </p>
-                  <p className="font-display text-[27px] font-bold tracking-[-0.02em] text-white leading-tight">
+                  <p className="font-display text-[27px] font-bold tracking-[-0.0204em] text-white leading-tight">
                     {area.name}
                   </p>
                   <p className="font-mono text-[11.5px] text-accent mt-0.5 tnum">
@@ -186,10 +186,10 @@ export default function HomePage() {
                 href={`/${a.categorySlug}/${a.slug}`}
                 className="group rounded-md border border-line bg-white p-6 no-underline shadow-sm hover:shadow-md transition-all duration-200"
               >
-                <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-accent-700">
+                <p className="font-mono text-[11px] uppercase tracking-[0.077em] text-accent-700">
                   {a.categorySlug}
                 </p>
-                <h3 className="mt-3 font-display text-[19px] font-semibold leading-snug tracking-[-0.01em] text-ink group-hover:text-brand transition-colors">
+                <h3 className="mt-3 font-display text-[19px] font-semibold leading-snug tracking-[-0.014em] text-ink group-hover:text-brand transition-colors">
                   {a.title}
                 </h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-muted">
@@ -209,7 +209,7 @@ export default function HomePage() {
         <div className="wrap">
           <div className="hero-band rounded-lg p-[clamp(28px,5vw,56px)] grid gap-9 min-[880px]:grid-cols-[1.1fr_0.9fr] min-[880px]:items-center">
             <div>
-              <p className="font-display text-[12px] font-bold uppercase tracking-[0.14em] text-accent mb-3.5">
+              <p className="font-display text-[12px] font-bold uppercase tracking-[0.077em] text-accent mb-3.5">
                 Talk to someone
               </p>
               <h2 className="h2-section !text-white max-w-[20ch]">

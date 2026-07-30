@@ -52,7 +52,7 @@ export default async function ArticlePage({
       {/* ── Hero band ────────────────────────────────────────────────────── */}
       <section className="hero-band pb-24">
         <div className="wrap pt-[clamp(32px,4.5vw,52px)]">
-          <nav className="font-mono text-[11.5px] uppercase tracking-[0.07em] text-white/70 mb-5">
+          <nav className="font-mono text-[11.5px] uppercase tracking-[0.077em] text-white/70 mb-5">
             <Link href="/" className="text-white/70 underline">
               Home
             </Link>
@@ -75,7 +75,7 @@ export default async function ArticlePage({
           {/* Byline — writer and reviewer, both named. */}
           <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-white/55">
+              <p className="font-mono text-[11px] uppercase tracking-[0.077em] text-white/55">
                 Written by
               </p>
               <p className="font-display text-[15px] font-bold text-white mt-0.5">
@@ -84,7 +84,7 @@ export default async function ArticlePage({
             </div>
             {reviewer && (
               <div>
-                <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-white/55">
+                <p className="font-mono text-[11px] uppercase tracking-[0.077em] text-white/55">
                   Reviewed by
                 </p>
                 <p className="font-display text-[15px] font-bold text-white mt-0.5">
@@ -93,7 +93,7 @@ export default async function ArticlePage({
               </div>
             )}
             <div className="min-[700px]:ml-auto flex items-center gap-5">
-              <span className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-[#e8d269] px-3.5 py-1 font-display text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#f3e08a]">
+              <span className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-[#e8d269] px-3.5 py-1 font-display text-[11.5px] font-bold uppercase tracking-[0.077em] text-[#f3e08a]">
                 ✓ Reviewed for accuracy
               </span>
               <span className="font-mono text-[12.5px] text-white/70 tnum">
@@ -224,7 +224,7 @@ export default async function ArticlePage({
                 to specific pages, and must be replaced with the exact
                 source pages before publish. */}
             <div className="max-w-[760px] mt-10 border-t border-line pt-6">
-              <p className="font-display text-[14px] font-bold uppercase tracking-[0.08em] text-ink">
+              <p className="font-display text-[14px] font-bold uppercase tracking-[0.077em] text-ink">
                 Sources
               </p>
               <ul className="mt-3 text-[15px]">
@@ -239,7 +239,7 @@ export default async function ArticlePage({
         {/* ── Sticky sidebar ─────────────────────────────────────────────── */}
         <aside className="hidden min-[860px]:grid sticky top-[110px] gap-6 content-start">
           <nav className="border-y border-line py-5">
-            <p className="font-display text-[13px] font-bold uppercase tracking-[0.12em] text-ink">
+            <p className="font-display text-[13px] font-bold uppercase tracking-[0.077em] text-ink">
               On this page
             </p>
             <ul className="mt-3.5 space-y-2.5">
@@ -283,7 +283,7 @@ export default async function ArticlePage({
                 href={`/${r.categorySlug}/${r.slug}`}
                 className="group rounded-md border border-line bg-white p-6 no-underline shadow-sm hover:shadow-md transition-all duration-200"
               >
-                <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-accent-700">
+                <p className="font-mono text-[11px] uppercase tracking-[0.077em] text-accent-700">
                   {r.categorySlug}
                 </p>
                 <h3 className="mt-3 font-display text-[18px] font-semibold leading-snug text-ink group-hover:text-brand transition-colors">

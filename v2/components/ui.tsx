@@ -29,7 +29,7 @@ const titleTone: Record<TitleStatus, string> = {
 export function TitleBadge({ status }: { status: TitleStatus }) {
   return (
     <span
-      className={`inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.08em] px-2 py-[3px] rounded-sm border-[1.5px] ${titleTone[status]}`}
+      className={`inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.077em] px-2 py-[3px] rounded-sm border-[1.5px] ${titleTone[status]}`}
     >
       {titleLabel[status]}
     </span>
@@ -45,8 +45,9 @@ type ButtonProps = {
   className?: string;
 };
 
+// EasyStreetCap's button metrics: 16px, 12px/24px padding, 4px radius.
 const buttonBase =
-  "inline-flex items-center justify-center gap-2 font-display text-base font-bold tracking-[0.01em] px-7 py-3 rounded-sm border-[1.5px] no-underline transition-colors duration-150";
+  "inline-flex items-center justify-center gap-2 font-display text-[16px] font-bold tracking-[0] px-6 py-3 rounded-sm border-[1.5px] no-underline transition-colors duration-150";
 
 const buttonVariants = {
   primary:

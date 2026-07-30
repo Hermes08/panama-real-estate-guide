@@ -42,7 +42,7 @@
   --color-footer-text: #c6d6de;
 
   /* ── Type ─────────────────────────────────────────────────────────────── */
-  --font-display: var(--font-archivo), system-ui, sans-serif;
+  --font-display: var(--font-figtree), system-ui, sans-serif;
   --font-body: var(--font-source-sans), system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 
@@ -52,10 +52,22 @@
   --shadow-lg: 0 12px 30px rgb(4 32 45 / 0.1);
 
   /* ── Geometry ─────────────────────────────────────────────────────────── */
-  --radius-sm: 3px;
+  --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
 }
+
+/* =============================================================================
+   Type scale — reverse-engineered from easystreetcap.com
+   =============================================================================
+   Their whole discipline is one split: everything at display size gets TIGHT
+   NEGATIVE tracking, everything at label size gets LOOSE POSITIVE tracking.
+   Nothing in between drifts. Their steps are 54 → 46 → 38 → 30 → 25, with
+   uppercase labels at 16 and 13.
+
+   Their -1.1px at 54px is -0.0204em, so the em values below hold the same
+   optical tightness as the type fluidly scales.
+   ============================================================================= */
 
 /* =============================================================================
    Base
@@ -115,39 +127,50 @@
   padding-inline: clamp(18px, 4vw, 48px);
 }
 
+/* 38 mobile → 54 desktop, their exact H1 endpoints. */
 @utility h1-home {
-  font-size: clamp(38px, 5.8vw, 60px);
+  font-size: clamp(38px, 5.2vw, 54px);
   font-weight: 700;
-  letter-spacing: -0.022em;
-  line-height: 1.06;
+  letter-spacing: -0.0204em;
+  line-height: 1.1;
 }
 
 @utility h1-article {
-  font-size: clamp(30px, 4.4vw, 46px);
-  font-weight: 600;
-  letter-spacing: -0.012em;
-  line-height: 1.16;
+  font-size: clamp(32px, 4.4vw, 46px);
+  font-weight: 700;
+  letter-spacing: -0.0204em;
+  line-height: 1.12;
 }
 
 @utility h2-section {
-  font-size: clamp(26px, 3.4vw, 40px);
+  font-size: clamp(28px, 3.4vw, 38px);
   font-weight: 700;
-  letter-spacing: -0.018em;
-  line-height: 1.12;
+  letter-spacing: -0.019em;
+  line-height: 1.14;
+}
+
+/* Card and product titles — their 25px step. */
+@utility h3-card {
+  font-size: clamp(19px, 1.7vw, 22px);
+  font-weight: 700;
+  letter-spacing: -0.014em;
+  line-height: 1.24;
 }
 
 @utility dek {
   font-size: clamp(17px, 1.9vw, 20px);
-  line-height: 1.5;
+  line-height: 1.55;
   color: var(--color-muted);
 }
 
+/* Labels invert the rule: positive tracking, and theirs is ~0.077em — far
+   tighter than the 0.14em that makes small caps look sprayed apart. */
 @utility eyebrow {
   font-family: var(--font-display);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.077em;
   color: var(--color-accent-700);
 }
 

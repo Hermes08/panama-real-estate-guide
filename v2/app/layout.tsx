@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
-import { Archivo, Source_Sans_3, IBM_Plex_Mono } from "next/font/google";
+import { Figtree, Source_Sans_3, IBM_Plex_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
 
-// Display — Omnibus-Type (Buenos Aires). Tight and strong at large sizes.
-const archivo = Archivo({
-  variable: "--font-archivo",
+// Display — geometric humanist, the closest freely-licensable face to
+// sofia-pro (Adobe Fonts, which can't be self-hosted). Generous apertures and
+// a tall x-height, so it holds up at 54px/700 with tight negative tracking.
+// Deliberately not a grotesque: those read newsy and generic at display sizes.
+const figtree = Figtree({
+  variable: "--font-figtree",
   subsets: ["latin"],
   display: "swap",
 });
@@ -45,7 +48,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${archivo.variable} ${sourceSans.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${figtree.variable} ${sourceSans.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <SiteHeader />

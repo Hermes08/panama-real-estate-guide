@@ -35,7 +35,7 @@ export default function AboutPage() {
     <>
       <section className="hero-band">
         <div className="wrap py-[clamp(40px,6vw,68px)]">
-          <nav className="font-mono text-[11.5px] uppercase tracking-[0.07em] text-white/70 mb-5">
+          <nav className="font-mono text-[11.5px] uppercase tracking-[0.077em] text-white/70 mb-5">
             <Link href="/" className="text-white/70 underline">
               Home
             </Link>
@@ -56,7 +56,7 @@ export default function AboutPage() {
         <div className="wrap grid gap-x-14 gap-y-10 min-[900px]:grid-cols-2">
           {principles.map((p) => (
             <div key={p.heading} className="max-w-[52ch]">
-              <h2 className="font-display text-[21px] font-bold tracking-[-0.012em] text-ink leading-snug">
+              <h2 className="font-display text-[21px] font-bold tracking-[-0.014em] text-ink leading-snug">
                 {p.heading}
               </h2>
               <p className="mt-3 text-[16px] leading-relaxed text-body">
@@ -96,7 +96,7 @@ export default function AboutPage() {
                 <p className="font-display text-[18px] font-bold text-ink">
                   {a.name}
                 </p>
-                <p className="font-mono text-[11.5px] uppercase tracking-[0.1em] text-accent-700 mt-1.5">
+                <p className="font-mono text-[11.5px] uppercase tracking-[0.077em] text-accent-700 mt-1.5">
                   {a.title}
                 </p>
                 <p className="mt-3.5 text-[15px] leading-relaxed text-muted">
@@ -113,7 +113,7 @@ export default function AboutPage() {
 
           <div className="mt-12 rounded-md bg-brand-800 text-white p-[clamp(24px,4vw,40px)] flex flex-wrap items-center justify-between gap-6">
             <div>
-              <h2 className="font-display text-[clamp(20px,2.6vw,26px)] font-bold tracking-[-0.018em] max-w-[26ch] leading-tight">
+              <h2 className="font-display text-[clamp(20px,2.6vw,26px)] font-bold tracking-[-0.019em] max-w-[26ch] leading-tight">
                 Think we got something wrong?
               </h2>
               <p className="mt-2.5 text-white/85 max-w-[52ch]">

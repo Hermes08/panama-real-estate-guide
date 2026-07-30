@@ -16,7 +16,7 @@ export default function AreasPage() {
       {/* ── Hero band ────────────────────────────────────────────────────── */}
       <section className="hero-band">
         <div className="wrap py-[clamp(40px,6vw,68px)]">
-          <nav className="font-mono text-[11.5px] uppercase tracking-[0.07em] text-white/70 mb-5">
+          <nav className="font-mono text-[11.5px] uppercase tracking-[0.077em] text-white/70 mb-5">
             <Link href="/" className="text-white/70 underline">
               Home
             </Link>

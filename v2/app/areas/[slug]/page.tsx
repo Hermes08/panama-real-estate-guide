@@ -50,7 +50,7 @@ export default async function AreaPage({
       {/* ── Hero band ────────────────────────────────────────────────────── */}
       <section className="hero-band">
         <div className="wrap py-[clamp(40px,6vw,68px)]">
-          <nav className="font-mono text-[11.5px] uppercase tracking-[0.07em] text-white/70 mb-5">
+          <nav className="font-mono text-[11.5px] uppercase tracking-[0.077em] text-white/70 mb-5">
             <Link href="/" className="text-white/70 underline">
               Home
             </Link>
@@ -62,7 +62,7 @@ export default async function AreaPage({
             <span className="text-white">{area.name}</span>
           </nav>
 
-          <p className="font-display text-[12px] font-bold uppercase tracking-[0.14em] text-accent mb-3">
+          <p className="font-display text-[12px] font-bold uppercase tracking-[0.077em] text-accent mb-3">
             {area.region}
           </p>
           <h1 className="h1-article !text-white max-w-[18ch]">{area.name}</h1>
@@ -80,7 +80,7 @@ export default async function AreaPage({
               { k: "Title status", v: titleLabel[area.titleStatus] },
             ].map((s) => (
               <div key={s.k}>
-                <dt className="font-mono text-[11px] uppercase tracking-[0.1em] text-white/55">
+                <dt className="font-mono text-[11px] uppercase tracking-[0.077em] text-white/55">
                   {s.k}
                 </dt>
                 <dd className="font-display text-[21px] font-bold text-white tnum mt-1">
@@ -108,7 +108,7 @@ export default async function AreaPage({
                   : "bg-positive-50 border-positive"
             }`}
           >
-            <p className="font-display text-[14px] font-bold uppercase tracking-[0.08em] text-ink">
+            <p className="font-display text-[14px] font-bold uppercase tracking-[0.077em] text-ink">
               Before you shortlist anything here
             </p>
             <div className="mt-3">
@@ -153,10 +153,10 @@ export default async function AreaPage({
                 >
                   <div className="hero-band aspect-[16/9] flex items-end p-5">
                     <div>
-                      <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-accent">
+                      <p className="font-mono text-[11px] uppercase tracking-[0.077em] text-accent">
                         {statusLabel[p.status]}
                       </p>
-                      <p className="font-display text-[24px] font-bold tracking-[-0.02em] text-white leading-tight">
+                      <p className="font-display text-[24px] font-bold tracking-[-0.0204em] text-white leading-tight">
                         {p.name}
                       </p>
                     </div>
@@ -179,7 +179,7 @@ export default async function AreaPage({
                         { k: "Delivery", v: p.deliveryQuarter },
                       ].map((s) => (
                         <div key={s.k}>
-                          <dt className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-faint">
+                          <dt className="font-mono text-[10.5px] uppercase tracking-[0.077em] text-faint">
                             {s.k}
                           </dt>
                           <dd className="font-display text-[15.5px] font-bold text-ink tnum mt-0.5">
@@ -219,7 +219,7 @@ export default async function AreaPage({
         <div className="wrap">
           <div className="hero-band rounded-lg p-[clamp(26px,4vw,44px)] flex flex-wrap items-center justify-between gap-7">
             <div>
-              <h2 className="font-display text-[clamp(22px,2.8vw,30px)] font-bold tracking-[-0.018em] text-white max-w-[24ch] leading-tight">
+              <h2 className="font-display text-[clamp(22px,2.8vw,30px)] font-bold tracking-[-0.019em] text-white max-w-[24ch] leading-tight">
                 Want the {area.name} shortlist with title status attached?
               </h2>
               <p className="mt-3 text-white/85 max-w-[54ch]">

@@ -62,11 +62,11 @@ export function MediaSlot({
 
       <div className="relative">
         {eyebrow && (
-          <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/60">
+          <p className="font-mono text-[11px] uppercase tracking-[0.077em] text-white/60">
             {eyebrow}
           </p>
         )}
-        <p className="font-display text-[27px] font-bold tracking-[-0.02em] text-white leading-tight">
+        <p className="font-display text-[27px] font-bold tracking-[-0.0204em] text-white leading-tight">
           {title}
         </p>
         {detail && (

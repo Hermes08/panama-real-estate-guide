@@ -39,7 +39,7 @@ export default async function CategoryPage({
       {/* ── Hero band ────────────────────────────────────────────────────── */}
       <section className="hero-band">
         <div className="wrap py-[clamp(40px,6vw,64px)]">
-          <nav className="font-mono text-[11.5px] uppercase tracking-[0.07em] text-white/70 mb-5">
+          <nav className="font-mono text-[11.5px] uppercase tracking-[0.077em] text-white/70 mb-5">
             <Link href="/" className="text-white/70 underline">
               Home
             </Link>
@@ -47,7 +47,7 @@ export default async function CategoryPage({
             <span className="text-white">{cat.name}</span>
           </nav>
 
-          <p className="font-display text-[12px] font-bold uppercase tracking-[0.14em] text-accent mb-3">
+          <p className="font-display text-[12px] font-bold uppercase tracking-[0.077em] text-accent mb-3">
             {cat.name}
           </p>
           <h1 className="h1-article !text-white max-w-[18ch]">{cat.blurb}</h1>
@@ -124,7 +124,7 @@ export default async function CategoryPage({
 
           <div className="mt-12 rounded-md bg-brand-800 text-white p-[clamp(24px,4vw,40px)] flex flex-wrap items-center justify-between gap-6">
             <div>
-              <h2 className="font-display text-[clamp(20px,2.6vw,26px)] font-bold tracking-[-0.018em] max-w-[26ch] leading-tight">
+              <h2 className="font-display text-[clamp(20px,2.6vw,26px)] font-bold tracking-[-0.019em] max-w-[26ch] leading-tight">
                 Still not sure how this applies to your situation?
               </h2>
               <p className="mt-2.5 text-white/85 max-w-[52ch]">

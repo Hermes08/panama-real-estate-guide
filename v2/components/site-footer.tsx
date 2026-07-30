@@ -10,7 +10,7 @@ export function SiteFooter() {
       <div className="wrap">
         <div className="grid gap-10 min-[1000px]:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div className="max-w-[38ch]">
-            <p className="font-display font-bold text-[17px] tracking-[-0.02em] text-white">
+            <p className="font-display font-bold text-[17px] tracking-[-0.0204em] text-white">
               Panama<span className="text-accent">RealEstate</span>Guide
             </p>
             <p className="mt-3 text-[15px] leading-relaxed">
@@ -21,7 +21,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <p className="font-display text-[13px] font-bold uppercase tracking-[0.12em] text-white mb-4">
+            <p className="font-display text-[13px] font-bold uppercase tracking-[0.077em] text-white mb-4">
               Guides
             </p>
             <ul className="space-y-2.5">
@@ -36,7 +36,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <p className="font-display text-[13px] font-bold uppercase tracking-[0.12em] text-white mb-4">
+            <p className="font-display text-[13px] font-bold uppercase tracking-[0.077em] text-white mb-4">
               Areas
             </p>
             <ul className="space-y-2.5">
@@ -51,7 +51,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <p className="font-display text-[13px] font-bold uppercase tracking-[0.12em] text-white mb-4">
+            <p className="font-display text-[13px] font-bold uppercase tracking-[0.077em] text-white mb-4">
               About
             </p>
             <ul className="space-y-2.5">
