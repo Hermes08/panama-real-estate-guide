@@ -1,11 +1,9 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
 import type { Area, Project } from "@/lib/content";
-import { usd, m2, statusLabel } from "@/lib/content";
-import { MediaSlot } from "@/components/media-slot";
-import { TitleBadge, SourceNote } from "@/components/ui";
+import { ProjectCard } from "@/components/project-card";
+import { SourceNote } from "@/components/ui";
 
 /* =============================================================================
    Project search — the portal pattern (realtor.com / Zillow / Redfin)
@@ -189,20 +187,29 @@ export function ProjectSearch({
 
       {/* ── Results ──────────────────────────────────────────────────────── */}
       <div className="wrap py-[clamp(28px,4vw,44px)]">
-        <p
-          aria-live="polite"
-          className="font-display text-[17px] font-bold text-ink"
-        >
-          {results.length} project{results.length === 1 ? "" : "s"}
-          <span className="font-body font-normal text-muted">
-            {" "}
-            {area !== "all"
-              ? `in ${areas.find((a) => a.slug === area)?.name}`
-              : region !== "all"
-                ? `in ${region}`
-                : "across Panama"}
-          </span>
-        </p>
+        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+          <p
+            aria-live="polite"
+            className="font-display text-[17px] font-bold text-ink"
+          >
+            {results.length} project{results.length === 1 ? "" : "s"}
+            <span className="font-body font-normal text-muted">
+              {" "}
+              {area !== "all"
+                ? `in ${areas.find((a) => a.slug === area)?.name}`
+                : region !== "all"
+                  ? `in ${region}`
+                  : "across Panama"}
+            </span>
+          </p>
+
+          {/* Said once for the whole grid. Repeating it on every card made 13
+              identical badges that distinguished nothing. */}
+          <SourceNote>
+            Prices as listed by developers · title status not yet checked on any
+            listing
+          </SourceNote>
+        </div>
 
         {results.length === 0 ? (
           <div className="mt-8 rounded-md border border-dashed border-line bg-paper-warm p-8 max-w-[60ch]">
@@ -222,62 +229,13 @@ export function ProjectSearch({
           </div>
         ) : (
           <div className="mt-7 grid gap-6 min-[680px]:grid-cols-2 min-[1080px]:grid-cols-3">
-            {results.map((p) => {
-              const a = areas.find((x) => x.slug === p.areaSlug);
-              return (
-                <Link
-                  key={p.slug}
-                  href={`/projects/${p.slug}`}
-                  className="group flex flex-col rounded-md border border-line bg-white overflow-hidden no-underline shadow-sm hover:shadow-md hover:border-brand-300 transition-all duration-200"
-                >
-                  <MediaSlot
-                    src={p.photos[0]?.src}
-                    alt={`${p.name}, ${a?.name ?? ""}`}
-                    eyebrow={p.status ? statusLabel[p.status] : undefined}
-                    title={p.name}
-                    aspect="aspect-[4/3]"
-                  />
-
-                  <div className="flex flex-col flex-1 p-5">
-                    <p className="font-display text-[23px] font-bold text-ink tnum leading-none">
-                      from {usd(p.priceFromUsd)}
-                    </p>
-
-                    {/* Portal convention: hard specs immediately under price. */}
-                    <p className="mt-2.5 text-[14.5px] text-body">
-                      {[
-                        p.bedsMin != null
-                          ? `${p.bedsMin === p.bedsMax ? p.bedsMin : `${p.bedsMin}–${p.bedsMax}`} bed`
-                          : null,
-                        p.sizeFromM2 != null ? `from ${m2(p.sizeFromM2)}` : null,
-                        p.models.length
-                          ? `${p.models.length} unit type${p.models.length === 1 ? "" : "s"}`
-                          : null,
-                      ]
-                        .filter(Boolean)
-                        .join(" · ")}
-                    </p>
-
-                    <p className="mt-2 text-[14.5px] text-muted">
-                      {a?.name}
-                      {a?.region ? `, ${a.region}` : ""}
-                    </p>
-
-                    <div className="mt-3">
-                      <TitleBadge status="unknown" />
-                    </div>
-
-                    {/* Brokerage attribution. Portals put the listing source on
-                        every card and it is a habit worth keeping — but
-                        Airtable has no Developer or Broker field yet, so this
-                        stays generic rather than inventing a name. */}
-                    <div className="mt-auto pt-4">
-                      <SourceNote>Developer listing</SourceNote>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
+            {results.map((p) => (
+              <ProjectCard
+                key={p.slug}
+                project={p}
+                area={areas.find((x) => x.slug === p.areaSlug)}
+              />
+            ))}
           </div>
         )}
       </div>
