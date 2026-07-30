@@ -18,12 +18,29 @@ export function Stamp({
   );
 }
 
+/* ── Provenance for synced data. ───────────────────────────────────────────
+   Deliberately NOT the gold stamp. Figures that came from a developer's own
+   listing are unchecked by us, and saying so plainly is what keeps the gold
+   stamp meaning something where it does appear. */
+
+export function SourceNote({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="inline-flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.077em] text-faint">
+      <span aria-hidden className="w-3 h-px bg-line" />
+      {children}
+    </span>
+  );
+}
+
 /* ── Title status. The one fact a foreign buyer must not get wrong. ───────── */
 
 const titleTone: Record<TitleStatus, string> = {
   titled: "text-positive bg-positive-50 border-positive",
   rop: "text-negative bg-negative-50 border-negative",
   mixed: "text-accent-700 bg-accent-50 border-accent-700",
+  // Unchecked reads as neutral and dashed — visibly an open question, not a
+  // reassurance. Never style this like a pass.
+  unknown: "text-muted bg-paper-warm border-line border-dashed",
 };
 
 export function TitleBadge({ status }: { status: TitleStatus }) {

@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { areas, usd, titleLabel } from "@/lib/content";
+import { areas, projects, usd, titleLabel } from "@/lib/content";
 import { AreaCard } from "@/components/area-card";
-import { Stamp } from "@/components/ui";
+import { SourceNote } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Where to buy in Panama — five areas compared",
+  title: "Where to buy in Panama — every area compared",
   description:
-    "Price range, elevation, climate, and title risk for Boquete, Coronado, Casco Viejo, Costa del Este, and Bocas del Toro. Every figure sourced and dated.",
+    "Entry price, inventory, and title status for every Panama area we track, from Costa del Este and Santa María to Boquete, Playa Venao, and Portobelo.",
 };
 
 export default function AreasPage() {
@@ -28,9 +28,10 @@ export default function AreasPage() {
             Where to buy in Panama
           </h1>
           <p className="dek !text-white/90 mt-5 max-w-[62ch]">
-            Five areas that account for most foreign purchases. They differ more
-            in title risk and altitude than in price — which is the opposite of
-            what most buyers assume going in.
+            {areas.length} areas, {projects.length} developments. Entry prices
+            run from {usd(Math.min(...areas.map((a) => a.priceFromUsd ?? Infinity)))}{" "}
+            in the city to well over a million on the coast — but price is the
+            least important column here.
           </p>
         </div>
       </section>
@@ -40,8 +41,8 @@ export default function AreasPage() {
         <div className="wrap">
           <h2 className="h2-section max-w-[24ch]">Side by side</h2>
           <p className="dek mt-4 max-w-[62ch]">
-            Sorted by entry price. Title status is the column that should
-            decide your shortlist, not the price column.
+            Sorted by entry price. Title status is the column that should decide
+            your shortlist — and it is the one column we have not filled in yet.
           </p>
 
           <div className="mt-8 overflow-x-auto rounded-md border border-line">
@@ -51,7 +52,6 @@ export default function AreasPage() {
                   {[
                     "Area",
                     "Region",
-                    "Elevation",
                     "Entry price",
                     "Title status",
                     "Projects",
@@ -67,7 +67,10 @@ export default function AreasPage() {
               </thead>
               <tbody>
                 {[...areas]
-                  .sort((a, b) => a.priceFromUsd - b.priceFromUsd)
+                  .sort(
+                    (a, b) =>
+                      (a.priceFromUsd ?? Infinity) - (b.priceFromUsd ?? Infinity),
+                  )
                   .map((a) => (
                     <tr key={a.slug} className="hover:bg-paper-warm">
                       <td className="border-t border-line-soft px-4 py-3.5 font-semibold text-ink">
@@ -82,18 +85,17 @@ export default function AreasPage() {
                         {a.region}
                       </td>
                       <td className="border-t border-line-soft px-4 py-3.5 font-mono tnum text-body">
-                        {a.elevationM}m
-                      </td>
-                      <td className="border-t border-line-soft px-4 py-3.5 font-mono tnum text-body">
                         {usd(a.priceFromUsd)}
                       </td>
                       <td
-                        className={`border-t border-line-soft px-4 py-3.5 font-semibold ${
+                        className={`border-t border-line-soft px-4 py-3.5 ${
                           a.titleStatus === "titled"
-                            ? "text-positive"
+                            ? "font-semibold text-positive"
                             : a.titleStatus === "rop"
-                              ? "text-negative"
-                              : "text-accent-700"
+                              ? "font-semibold text-negative"
+                              : a.titleStatus === "mixed"
+                                ? "font-semibold text-accent-700"
+                                : "text-faint italic"
                         }`}
                       >
                         {titleLabel[a.titleStatus]}
@@ -108,7 +110,9 @@ export default function AreasPage() {
           </div>
 
           <div className="mt-4">
-            <Stamp on="2026-07" />
+            <SourceNote>
+              Prices as listed by developers · Title status pending research
+            </SourceNote>
           </div>
         </div>
       </section>

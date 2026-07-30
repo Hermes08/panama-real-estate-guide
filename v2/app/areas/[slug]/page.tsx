@@ -6,9 +6,11 @@ import {
   getArea,
   getProjectsForArea,
   usd,
-  titleLabel,
+  m2,
+  statusLabel,
 } from "@/lib/content";
-import { Button, Stamp, TitleBadge } from "@/components/ui";
+import { Button, TitleBadge, SourceNote } from "@/components/ui";
+import { MediaSlot } from "@/components/media-slot";
 
 export function generateStaticParams() {
   return areas.map((a) => ({ slug: a.slug }));
@@ -23,16 +25,10 @@ export async function generateMetadata({
   const area = getArea(slug);
   if (!area) return {};
   return {
-    title: `${area.name} property guide — prices, title risk, projects`,
-    description: area.blurb,
+    title: `${area.name} property guide — prices, projects, title risk`,
+    description: `${area.projectCount} development${area.projectCount === 1 ? "" : "s"} in ${area.name}, ${area.region}, from ${usd(area.priceFromUsd)}.`,
   };
 }
-
-const statusLabel = {
-  preselling: "Preselling",
-  "under-construction": "Under construction",
-  delivered: "Delivered",
-} as const;
 
 export default async function AreaPage({
   params,
@@ -44,6 +40,16 @@ export default async function AreaPage({
   if (!area) notFound();
 
   const areaProjects = getProjectsForArea(slug);
+
+  const specs = [
+    { k: "Entry price", v: usd(area.priceFromUsd) },
+    { k: "Upper range", v: usd(area.priceToUsd) },
+    { k: "Projects", v: String(area.projectCount) },
+    area.elevationM != null
+      ? { k: "Elevation", v: `${area.elevationM}m` }
+      : null,
+    area.climate ? { k: "Climate", v: area.climate } : null,
+  ].filter((s): s is { k: string; v: string } => s !== null);
 
   return (
     <>
@@ -62,23 +68,21 @@ export default async function AreaPage({
             <span className="text-white">{area.name}</span>
           </nav>
 
-          <p className="font-display text-[12px] font-bold uppercase tracking-[0.077em] text-accent mb-3">
+          <p className="font-display text-[13px] font-bold uppercase tracking-[0.077em] text-accent mb-3">
             {area.region}
           </p>
           <h1 className="h1-article !text-white max-w-[18ch]">{area.name}</h1>
-          <p className="dek !text-white/90 mt-5 max-w-[62ch]">{area.blurb}</p>
+          {area.positioning && (
+            <p className="dek !text-white/90 mt-5 max-w-[62ch]">
+              {area.positioning}
+            </p>
+          )}
 
           <hr className="border-0 h-px bg-accent/45 my-7" />
 
           {/* Hard specs, realtor.com style — surfaced immediately. */}
           <dl className="flex flex-wrap gap-x-10 gap-y-5">
-            {[
-              { k: "Entry price", v: usd(area.priceFromUsd) },
-              { k: "Upper range", v: usd(area.priceToUsd) },
-              { k: "Elevation", v: `${area.elevationM}m` },
-              { k: "Climate", v: area.climate },
-              { k: "Title status", v: titleLabel[area.titleStatus] },
-            ].map((s) => (
+            {specs.map((s) => (
               <div key={s.k}>
                 <dt className="font-mono text-[11px] uppercase tracking-[0.077em] text-white/55">
                   {s.k}
@@ -91,7 +95,7 @@ export default async function AreaPage({
           </dl>
 
           <div className="mt-6">
-            <Stamp on={area.verifiedOn} onDark />
+            <SourceNote>Prices as listed by developers</SourceNote>
           </div>
         </div>
       </section>
@@ -105,7 +109,9 @@ export default async function AreaPage({
                 ? "bg-negative-50 border-negative"
                 : area.titleStatus === "mixed"
                   ? "bg-accent-50 border-star"
-                  : "bg-positive-50 border-positive"
+                  : area.titleStatus === "titled"
+                    ? "bg-positive-50 border-positive"
+                    : "bg-paper-warm border-line"
             }`}
           >
             <p className="font-display text-[14px] font-bold uppercase tracking-[0.077em] text-ink">
@@ -115,7 +121,8 @@ export default async function AreaPage({
               <TitleBadge status={area.titleStatus} />
             </div>
             <p className="mt-3.5 text-[16px] leading-relaxed text-body max-w-[62ch]">
-              {area.titleNote}
+              {area.titleNote ??
+                `We have not yet checked whether land in ${area.name} is titled or held as Rights of Possession. Until we have, treat every listing here as unverified and ask the seller for a finca number before you pay anything.`}
             </p>
             <Link
               href="/buying/titled-vs-rights-of-possession"
@@ -131,73 +138,83 @@ export default async function AreaPage({
       <section className="bg-paper-warm border-y border-line py-[clamp(52px,7vw,80px)]">
         <div className="wrap">
           <div className="flex flex-wrap items-baseline justify-between gap-4">
-            <h2 className="h2-section max-w-[24ch]">
-              Projects in {area.name}
-            </h2>
+            <h2 className="h2-section max-w-[24ch]">Projects in {area.name}</h2>
             <p className="font-mono text-[13px] text-muted tnum">
               {areaProjects.length} listed
             </p>
           </div>
 
-          {areaProjects.length === 0 ? (
-            <p className="mt-8 text-muted max-w-[60ch]">
-              No projects listed here yet. Tell us what you&rsquo;re looking for
-              and we&rsquo;ll send what&rsquo;s available off-listing.
-            </p>
-          ) : (
-            <div className="mt-9 grid gap-6 min-[720px]:grid-cols-2">
-              {areaProjects.map((p) => (
+          <div className="mt-9 grid gap-6 min-[720px]:grid-cols-2">
+            {areaProjects.map((p) => {
+              const specRow = [
+                p.bedsMin != null
+                  ? {
+                      k: "Beds",
+                      v:
+                        p.bedsMin === p.bedsMax
+                          ? String(p.bedsMin)
+                          : `${p.bedsMin}–${p.bedsMax}`,
+                    }
+                  : null,
+                p.sizeFromM2 != null ? { k: "From", v: m2(p.sizeFromM2) } : null,
+                p.models.length
+                  ? { k: "Unit types", v: String(p.models.length) }
+                  : null,
+              ].filter((s): s is { k: string; v: string } => s !== null);
+
+              return (
                 <article
                   key={p.slug}
-                  className="rounded-md border border-line bg-white overflow-hidden shadow-sm"
+                  className="rounded-md border border-line bg-white overflow-hidden shadow-sm flex flex-col"
                 >
-                  <div className="hero-band aspect-[16/9] flex items-end p-5">
-                    <div>
-                      <p className="font-mono text-[11px] uppercase tracking-[0.077em] text-accent">
-                        {statusLabel[p.status]}
-                      </p>
-                      <p className="font-display text-[24px] font-bold tracking-[-0.0204em] text-white leading-tight">
-                        {p.name}
-                      </p>
-                    </div>
-                  </div>
+                  <MediaSlot
+                    src={p.photos[0]?.src}
+                    alt={`${p.name}, ${area.name}`}
+                    eyebrow={p.status ? statusLabel[p.status] : undefined}
+                    title={p.name}
+                    aspect="aspect-[16/9]"
+                  />
 
-                  <div className="p-5">
-                    <div className="flex items-baseline justify-between gap-3">
-                      <p className="font-display text-[22px] font-bold text-ink tnum">
-                        from {usd(p.priceFromUsd)}
-                      </p>
-                      <TitleBadge status={p.titleStatus} />
-                    </div>
-
-                    {/* Hard specs row — the realtor.com convention buyers
-                        already know how to read. */}
-                    <dl className="mt-4 grid grid-cols-3 gap-3 py-3.5 border-y border-line-soft">
-                      {[
-                        { k: "Beds", v: `${p.bedsMin}–${p.bedsMax}` },
-                        { k: "From", v: `${p.sizeFromM2} m²` },
-                        { k: "Delivery", v: p.deliveryQuarter },
-                      ].map((s) => (
-                        <div key={s.k}>
-                          <dt className="font-mono text-[10.5px] uppercase tracking-[0.077em] text-faint">
-                            {s.k}
-                          </dt>
-                          <dd className="font-display text-[15.5px] font-bold text-ink tnum mt-0.5">
-                            {s.v}
-                          </dd>
-                        </div>
-                      ))}
-                    </dl>
-
-                    <p className="mt-3.5 text-[14px] text-muted">
-                      {p.developer}
+                  <div className="p-5 flex flex-col flex-1">
+                    {/* Price and badge stack rather than share a row — the
+                        badge label is too wide to sit beside a price without
+                        forcing an ugly wrap. */}
+                    <p className="font-display text-[22px] font-bold text-ink tnum">
+                      from {usd(p.priceFromUsd)}
+                      {p.priceToUsd && p.priceToUsd !== p.priceFromUsd && (
+                        <span className="text-muted font-semibold text-[17px]">
+                          {" "}
+                          to {usd(p.priceToUsd)}
+                        </span>
+                      )}
                     </p>
-                    <p className="mt-2 text-[13.5px] text-body">
-                      {p.amenities.join(" · ")}
-                    </p>
+                    <div className="mt-2.5">
+                      <TitleBadge status="unknown" />
+                    </div>
+
+                    {specRow.length > 0 && (
+                      <dl className="mt-4 grid grid-cols-3 gap-3 py-3.5 border-y border-line-soft">
+                        {specRow.map((s) => (
+                          <div key={s.k}>
+                            <dt className="font-mono text-[10.5px] uppercase tracking-[0.077em] text-faint">
+                              {s.k}
+                            </dt>
+                            <dd className="font-display text-[15.5px] font-bold text-ink tnum mt-0.5">
+                              {s.v}
+                            </dd>
+                          </div>
+                        ))}
+                      </dl>
+                    )}
+
+                    {p.amenities.length > 0 && (
+                      <p className="mt-3.5 text-[13.5px] leading-relaxed text-body flex-1">
+                        {p.amenities.slice(0, 4).join(" · ")}
+                      </p>
+                    )}
 
                     <div className="mt-4 flex items-center justify-between gap-4">
-                      <Stamp on={p.verifiedOn} />
+                      <SourceNote>Developer listing</SourceNote>
                       <Button
                         href="/contact"
                         variant="secondary"
@@ -208,9 +225,9 @@ export default async function AreaPage({
                     </div>
                   </div>
                 </article>
-              ))}
-            </div>
-          )}
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -228,6 +245,27 @@ export default async function AreaPage({
               </p>
             </div>
             <Button href="/contact">Get the shortlist</Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Nearby ──────────────────────────────────────────────────────── */}
+      <section className="border-t border-line py-[clamp(40px,5vw,64px)]">
+        <div className="wrap">
+          <p className="eyebrow mb-4">Also in {area.region}</p>
+          <div className="flex flex-wrap gap-2.5">
+            {areas
+              .filter((a) => a.region === area.region && a.slug !== area.slug)
+              .map((a) => (
+                <Link
+                  key={a.slug}
+                  href={`/areas/${a.slug}`}
+                  className="rounded-full border border-line px-4 py-1.5 font-display text-[13.5px] font-semibold text-body no-underline hover:border-brand hover:text-brand transition-colors"
+                >
+                  {a.name}{" "}
+                  <span className="text-faint tnum">({a.projectCount})</span>
+                </Link>
+              ))}
           </div>
         </div>
       </section>

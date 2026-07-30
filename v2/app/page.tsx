@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { areas, figures, articles, usd } from "@/lib/content";
-import { Button, Stamp, TitleBadge, SectionHead } from "@/components/ui";
+import { areas, figures, articles, projects } from "@/lib/content";
+import { Button, Stamp, SectionHead } from "@/components/ui";
+import { AreaCard } from "@/components/area-card";
 
 export default function HomePage() {
   return (
@@ -116,70 +117,33 @@ export default function HomePage() {
         <div className="wrap">
           <SectionHead
             eyebrow="Where to buy"
-            title="Five areas, and who each one is actually for"
-            dek="Panama is not one market. Altitude, title risk, and infrastructure vary more between these areas than price does."
+            title={`${projects.length} projects across ${areas.length} areas`}
+            dek="Panama is not one market. Where a development sits changes the paperwork, the climate, and who it suits — often more than the price does."
           />
 
           <div className="mt-11 grid gap-6 min-[640px]:grid-cols-2 min-[1040px]:grid-cols-3">
-            {areas.map((area) => (
-              <Link
-                key={area.slug}
-                href={`/areas/${area.slug}`}
-                className="group flex flex-col rounded-md border border-line bg-white overflow-hidden no-underline shadow-sm hover:shadow-md hover:border-brand-300 transition-all duration-200"
-              >
-                {/* Plat-grid panel. Honest placeholder until photography
-                    exists — and it keeps the survey-map motif consistent. */}
-                <div className="hero-band aspect-[16/10] flex flex-col justify-end p-5">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.077em] text-white/60">
-                    {area.region}
-                  </p>
-                  <p className="font-display text-[27px] font-bold tracking-[-0.0204em] text-white leading-tight">
-                    {area.name}
-                  </p>
-                  <p className="font-mono text-[11.5px] text-accent mt-0.5 tnum">
-                    {area.elevationM}m · {area.climate}
-                  </p>
-                </div>
-
-                <div className="flex flex-col flex-1 p-5">
-                  <div className="flex items-baseline justify-between gap-3">
-                    <p className="font-display text-[19px] font-bold text-ink tnum">
-                      {usd(area.priceFromUsd)} – {usd(area.priceToUsd)}
-                    </p>
-                    <p className="font-mono text-[12px] text-muted tnum">
-                      {area.projectCount} projects
-                    </p>
-                  </div>
-
-                  <p className="mt-3 text-[15px] leading-relaxed text-muted flex-1">
-                    {area.positioning}
-                  </p>
-
-                  <div className="mt-4 pt-4 border-t border-line-soft">
-                    <TitleBadge status={area.titleStatus} />
-                    <p className="mt-2.5 text-[13.5px] leading-relaxed text-body">
-                      {area.titleNote}
-                    </p>
-                    <div className="mt-3.5">
-                      <Stamp on={area.verifiedOn} />
-                    </div>
-                  </div>
-                </div>
-              </Link>
+            {areas.slice(0, 5).map((area) => (
+              <AreaCard key={area.slug} area={area} />
             ))}
 
-            {/* Five areas in a 3-col grid leaves one slot. Use it. */}
+            {/* Five cards in a 3-col grid leaves one slot. Use it. */}
             <div className="rounded-md border border-dashed border-brand-300 bg-brand-50 p-6 flex flex-col justify-center">
               <p className="font-display text-[19px] font-bold text-ink leading-snug max-w-[22ch]">
                 Not sure which area fits?
               </p>
               <p className="mt-2.5 text-[15px] leading-relaxed text-muted">
                 Tell us your budget, timeline, and whether you need residency.
-                We&rsquo;ll tell you which of the five to rule out first.
+                We&rsquo;ll tell you which areas to rule out first.
               </p>
               <Button href="/contact" className="mt-5 self-start">
                 Get a shortlist
               </Button>
+              <Link
+                href="/areas"
+                className="mt-4 font-display text-[14.5px] font-semibold text-brand no-underline hover:underline"
+              >
+                Or see all {areas.length} areas →
+              </Link>
             </div>
           </div>
         </div>
