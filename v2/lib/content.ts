@@ -214,53 +214,11 @@ export const articles: Article[] = [
   },
 ];
 
-/* ── Homepage figures ───────────────────────────────────────────────────────
-   ⚠️ STILL UNSOURCED PLACEHOLDERS. Unlike the project data, these are not
-   from Airtable — they are invented, and they carry a VERIFIED stamp in the
-   UI. Either source them or pull the strip before this ships. */
-export type Figure = {
-  label: string;
-  value: string;
-  note: string;
-  explainedBy: string;
-  source: string;
-  verifiedOn: string;
-};
-
-export const figures: Figure[] = [
-  {
-    label: "Property transfer tax",
-    value: "2%",
-    note: "of registered value, paid by seller",
-    explainedBy: "buying/panama-property-transfer-tax",
-    source: "Dirección General de Ingresos",
-    verifiedOn: "2026-07",
-  },
-  {
-    label: "Typical closing time",
-    value: "6–10 wks",
-    note: "titled property, cash purchase",
-    explainedBy: "buying/panama-closing-process",
-    source: "Registro Público de Panamá",
-    verifiedOn: "2026-07",
-  },
-  {
-    label: "Friendly Nations minimum",
-    value: "$200k",
-    note: "real-estate investment route",
-    explainedBy: "residency/friendly-nations-visa",
-    source: "Servicio Nacional de Migración",
-    verifiedOn: "2026-07",
-  },
-  {
-    label: "Currency risk",
-    value: "None",
-    note: "balboa pegged 1:1 to USD since 1904",
-    explainedBy: "money/panama-dollarization",
-    source: "Banco Nacional de Panamá",
-    verifiedOn: "2026-07",
-  },
-];
+/* The homepage `figures` strip is gone. It was four invented numbers rendered
+   as a stat row under gold VERIFIED stamps — both the most generic shape on
+   the page and the last thing on the site asserting something unsourced. If
+   figures like transfer tax and Friendly Nations minimums come back, they need
+   real sources first, and a form that isn't four tiles in a row. */
 
 /* ── Lookups ────────────────────────────────────────────────────────────────*/
 

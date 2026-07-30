@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { areas, figures, articles, projects } from "@/lib/content";
-import { Button, Stamp, SectionHead } from "@/components/ui";
+import { areas, articles, projects } from "@/lib/content";
+import { Button, SectionHead } from "@/components/ui";
 import { AreaCard } from "@/components/area-card";
+import { EntryPriceChart } from "@/components/entry-price-chart";
 
 export default function HomePage() {
   return (
@@ -57,42 +58,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── The verification ledger ─────────────────────────────────────────
-          Where EasyStreetCap publishes live rates under its hero, we publish
-          the checked figures that decide whether you can buy at all. */}
-      <section className="hero-band">
-        <div className="wrap py-[clamp(36px,5vw,56px)]">
-          <h2 className="font-display text-[15px] font-bold uppercase tracking-[0.077em] text-white pb-5 border-b border-white/15">
-            What the numbers are today
-          </h2>
-
-          <dl className="grid gap-x-10 gap-y-8 pt-7 min-[620px]:grid-cols-2 min-[1000px]:grid-cols-4">
-            {figures.map((f) => (
-              <div key={f.label}>
-                <dt className="text-[14.5px] text-white/80">{f.label}</dt>
-                <dd className="font-display text-[clamp(30px,3.4vw,38px)] font-bold tracking-[-0.0204em] text-white tnum leading-none mt-1.5">
-                  {f.value}
-                </dd>
-                <p className="mt-2 text-[13px] text-white/55 max-w-[34ch]">
-                  {f.note}
-                </p>
-                <div className="mt-3 flex flex-col items-start gap-1.5">
-                  <Stamp on={f.verifiedOn} onDark />
-                  <Link
-                    href={`/${f.explainedBy}`}
-                    className="text-[13px] font-semibold text-accent no-underline hover:underline"
-                  >
-                    {f.source} →
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
+      {/* Real inventory, charted. Replaces a four-tile stat row of invented
+          figures — the shape every generated dashboard defaults to, and the
+          last place on the site claiming something unsourced. */}
+      <EntryPriceChart />
 
       {/* ── How we work — trust early, above the content ─────────────────── */}
-      <section className="bg-paper-warm border-b border-line py-[clamp(40px,5vw,60px)]">
+      <section className="bg-white border-b border-line py-[clamp(40px,5vw,60px)]">
         <div className="wrap grid gap-8 min-[880px]:grid-cols-[1fr_auto] min-[880px]:items-center">
           <div>
             <p className="eyebrow mb-3">How we work</p>
