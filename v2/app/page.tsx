@@ -2,8 +2,18 @@ import Link from "next/link";
 import Image from "next/image";
 import { areas, articles, projects } from "@/lib/content";
 import { Button, SectionHead } from "@/components/ui";
-import { AreaCard } from "@/components/area-card";
+import { ProjectCard } from "@/components/project-card";
 import { EntryPriceChart } from "@/components/entry-price-chart";
+
+// Cheapest first, and one per area so the grid shows the spread of the
+// catalogue rather than six towers from whichever area has the most.
+const featured = (() => {
+  const seen = new Set<string>();
+  return [...projects]
+    .sort((a, b) => (a.priceFromUsd ?? 0) - (b.priceFromUsd ?? 0))
+    .filter((p) => !seen.has(p.areaSlug) && seen.add(p.areaSlug))
+    .slice(0, 6);
+})();
 
 export default function HomePage() {
   return (
@@ -83,40 +93,40 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Areas — realtor.com listing mechanics, adapted for sparse,
-             high-consideration inventory: fewer cards, more specs. ───────── */}
+      {/* ── Developments ────────────────────────────────────────────────────
+          The homepage previously showed areas twice — once as the chart, once
+          as cards — and projects not at all. On a site whose conversion unit
+          is the project, that was backwards. The chart above already covers
+          areas and links every one of them, so this slot shows real inventory
+          instead. */}
       <section className="py-[clamp(56px,7vw,88px)]">
         <div className="wrap">
           <SectionHead
-            eyebrow="Where to buy"
-            title={`${projects.length} projects across ${areas.filter((a) => a.projectCount > 0).length} areas`}
-            dek="Panama is not one market. Where a development sits changes the paperwork, the climate, and who it suits — often more than the price does."
+            eyebrow="What's for sale"
+            title={`${projects.length} developments, ${areas.filter((a) => a.projectCount > 0).length} areas`}
+            dek="Every one listed by its developer, with the unit mix and price range as published. What we have not checked, we say so."
           />
 
           <div className="mt-11 grid gap-6 min-[640px]:grid-cols-2 min-[1040px]:grid-cols-3">
-            {areas.slice(0, 5).map((area) => (
-              <AreaCard key={area.slug} area={area} />
+            {featured.map((p) => (
+              <ProjectCard
+                key={p.slug}
+                project={p}
+                area={areas.find((a) => a.slug === p.areaSlug)}
+              />
             ))}
+          </div>
 
-            {/* Five cards in a 3-col grid leaves one slot. Use it. */}
-            <div className="rounded-md border border-dashed border-brand-300 bg-brand-50 p-6 flex flex-col justify-center">
-              <p className="font-display text-[19px] font-bold text-ink leading-snug max-w-[22ch]">
-                Not sure which area fits?
-              </p>
-              <p className="mt-2.5 text-[15px] leading-relaxed text-muted">
-                Tell us your budget, timeline, and whether you need residency.
-                We&rsquo;ll tell you which areas to rule out first.
-              </p>
-              <Button href="/contact" className="mt-5 self-start">
-                Get a shortlist
-              </Button>
-              <Link
-                href="/areas"
-                className="mt-4 font-display text-[14.5px] font-semibold text-brand no-underline hover:underline"
-              >
-                Or see all {areas.length} areas →
-              </Link>
-            </div>
+          <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-3">
+            <Button href="/projects" variant="secondary">
+              See all {projects.length} developments
+            </Button>
+            <Link
+              href="/contact"
+              className="font-display text-[15px] font-semibold text-brand no-underline hover:underline"
+            >
+              Or tell us what you&rsquo;re after and we&rsquo;ll shortlist →
+            </Link>
           </div>
         </div>
       </section>

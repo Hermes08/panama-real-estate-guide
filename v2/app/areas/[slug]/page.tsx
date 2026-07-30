@@ -1,16 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  areas,
-  getArea,
-  getProjectsForArea,
-  usd,
-  m2,
-  statusLabel,
-} from "@/lib/content";
+import { areas, getArea, getProjectsForArea, usd } from "@/lib/content";
 import { Button, TitleBadge, SourceNote } from "@/components/ui";
-import { MediaSlot } from "@/components/media-slot";
+import { ProjectCard } from "@/components/project-card";
 
 export function generateStaticParams() {
   return areas.map((a) => ({ slug: a.slug }));
@@ -144,89 +137,23 @@ export default async function AreaPage({
             </p>
           </div>
 
-          <div className="mt-9 grid gap-6 min-[720px]:grid-cols-2">
-            {areaProjects.map((p) => {
-              const specRow = [
-                p.bedsMin != null
-                  ? {
-                      k: "Beds",
-                      v:
-                        p.bedsMin === p.bedsMax
-                          ? String(p.bedsMin)
-                          : `${p.bedsMin}–${p.bedsMax}`,
-                    }
-                  : null,
-                p.sizeFromM2 != null ? { k: "From", v: m2(p.sizeFromM2) } : null,
-                p.models.length
-                  ? { k: "Unit types", v: String(p.models.length) }
-                  : null,
-              ].filter((s): s is { k: string; v: string } => s !== null);
+          {areaProjects.length === 0 ? (
+            <p className="mt-6 text-muted max-w-[60ch]">
+              Nothing published here yet. Tell us what you&rsquo;re looking for
+              and we&rsquo;ll send what&rsquo;s available off-listing.
+            </p>
+          ) : (
+            <div className="mt-9 grid gap-6 min-[720px]:grid-cols-2 min-[1080px]:grid-cols-3">
+              {areaProjects.map((p) => (
+                <ProjectCard key={p.slug} project={p} area={area} />
+              ))}
+            </div>
+          )}
 
-              return (
-                <article
-                  key={p.slug}
-                  className="rounded-md border border-line bg-white overflow-hidden shadow-sm flex flex-col"
-                >
-                  <MediaSlot
-                    src={p.photos[0]?.src}
-                    alt={`${p.name}, ${area.name}`}
-                    eyebrow={p.status ? statusLabel[p.status] : undefined}
-                    title={p.name}
-                    aspect="aspect-[16/9]"
-                  />
-
-                  <div className="p-5 flex flex-col flex-1">
-                    {/* Price and badge stack rather than share a row — the
-                        badge label is too wide to sit beside a price without
-                        forcing an ugly wrap. */}
-                    <p className="font-display text-[22px] font-bold text-ink tnum">
-                      from {usd(p.priceFromUsd)}
-                      {p.priceToUsd && p.priceToUsd !== p.priceFromUsd && (
-                        <span className="text-muted font-semibold text-[17px]">
-                          {" "}
-                          to {usd(p.priceToUsd)}
-                        </span>
-                      )}
-                    </p>
-                    <div className="mt-2.5">
-                      <TitleBadge status="unknown" />
-                    </div>
-
-                    {specRow.length > 0 && (
-                      <dl className="mt-4 grid grid-cols-3 gap-3 py-3.5 border-y border-line-soft">
-                        {specRow.map((s) => (
-                          <div key={s.k}>
-                            <dt className="font-mono text-[10.5px] uppercase tracking-[0.077em] text-faint">
-                              {s.k}
-                            </dt>
-                            <dd className="font-display text-[15.5px] font-bold text-ink tnum mt-0.5">
-                              {s.v}
-                            </dd>
-                          </div>
-                        ))}
-                      </dl>
-                    )}
-
-                    {p.amenities.length > 0 && (
-                      <p className="mt-3.5 text-[13.5px] leading-relaxed text-body flex-1">
-                        {p.amenities.slice(0, 4).join(" · ")}
-                      </p>
-                    )}
-
-                    <div className="mt-4 flex items-center justify-between gap-4">
-                      <SourceNote>Developer listing</SourceNote>
-                      <Button
-                        href="/contact"
-                        variant="secondary"
-                        className="!px-4 !py-2 !text-[14px]"
-                      >
-                        Ask about this
-                      </Button>
-                    </div>
-                  </div>
-                </article>
-              );
-            })}
+          <div className="mt-5">
+            <SourceNote>
+              Prices as listed by developers · title status not yet checked
+            </SourceNote>
           </div>
         </div>
       </section>
