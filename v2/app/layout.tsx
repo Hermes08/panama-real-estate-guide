@@ -50,6 +50,15 @@ export default function RootLayout({
       lang="en"
       className={`${figtree.variable} ${sourceSans.variable} ${plexMono.variable} h-full antialiased`}
     >
+      <head>
+        {/* sofia-pro via Adobe Fonts — what EasyStreetCap actually uses.
+            Licensed through Charles's Typekit kit, so it can't be self-hosted
+            the way next/font does; Figtree stays as the fallback in the stack
+            if the kit fails to load or the domain isn't authorised. */}
+        <link rel="preconnect" href="https://use.typekit.net" crossOrigin="" />
+        <link rel="preconnect" href="https://p.typekit.net" crossOrigin="" />
+        <link rel="stylesheet" href="https://use.typekit.net/fot0mck.css" />
+      </head>
       <body className="min-h-full flex flex-col">
         <SiteHeader />
         <main className="flex-1">{children}</main>
