@@ -1,0 +1,381 @@
+@import "tailwindcss";
+
+/* =============================================================================
+   panamarealestateguide.com v2 — design tokens
+   Deep Pacific navy + Panamanian sun gold. One accent, used with discipline.
+   ============================================================================= */
+
+@theme {
+  /* ── Brand: deep Pacific navy ─────────────────────────────────────────── */
+  --color-brand: #0b4f6c;
+  --color-brand-700: #093f58;
+  --color-brand-800: #072f42;
+  --color-brand-900: #04202d;
+  --color-brand-300: #7fb2c6;
+  --color-brand-100: #cce0e8;
+  --color-brand-50: #edf4f7;
+
+  /* ── Accent: the only button/eyebrow fill on the site ─────────────────── */
+  --color-accent: #e8a33d;
+  --color-accent-600: #c6862a;
+  --color-accent-700: #9e6a1e;
+  --color-accent-50: #fff6e8;
+
+  /* ── Signal colors. Semantics only — never decoration. ────────────────── */
+  --color-link: #1257a6;
+  --color-star: #d9a900;
+  --color-positive: #1f8a5b;
+  --color-positive-50: #f0f8f4;
+  --color-negative: #b3372b;
+  --color-negative-50: #fbf1f0;
+
+  /* ── Neutrals ─────────────────────────────────────────────────────────── */
+  --color-ink: #0f1417;
+  --color-body: #1f262b;
+  --color-muted: #5b646b;
+  --color-faint: #98a1a8;
+  --color-line: #dcdfe2;
+  --color-line-soft: #e9ebed;
+  --color-page: #f1f5f7;
+  --color-paper: #ffffff;
+  --color-paper-warm: #f8fafb;
+  --color-footer-text: #c6d6de;
+
+  /* ── Type ─────────────────────────────────────────────────────────────── */
+  --font-display: var(--font-archivo), system-ui, sans-serif;
+  --font-body: var(--font-source-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  /* ── Depth. Navy-tinted, never neutral black. ─────────────────────────── */
+  --shadow-sm: 0 1px 2px rgb(4 32 45 / 0.05);
+  --shadow-md: 0 4px 14px rgb(4 32 45 / 0.08);
+  --shadow-lg: 0 12px 30px rgb(4 32 45 / 0.1);
+
+  /* ── Geometry ─────────────────────────────────────────────────────────── */
+  --radius-sm: 3px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+}
+
+/* =============================================================================
+   Base
+   ============================================================================= */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    letter-spacing: 0.005em;
+    color: var(--color-body);
+    background: var(--color-paper);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* =============================================================================
+   Layout + type utilities
+   ============================================================================= */
+
+@utility wrap {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(18px, 4vw, 48px);
+}
+
+@utility h1-home {
+  font-size: clamp(38px, 5.8vw, 60px);
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  line-height: 1.06;
+}
+
+@utility h1-article {
+  font-size: clamp(30px, 4.4vw, 46px);
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  line-height: 1.16;
+}
+
+@utility h2-section {
+  font-size: clamp(26px, 3.4vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.018em;
+  line-height: 1.12;
+}
+
+@utility dek {
+  font-size: clamp(17px, 1.9vw, 20px);
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+@utility eyebrow {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-accent-700);
+}
+
+@utility tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* =============================================================================
+   SIGNATURE — the verification stamp
+   Every checked figure, table group, and area card carries one. Mono-set, so a
+   reader can tell at a glance which numbers were verified and when. This is the
+   site's whole proposition compressed into a single component.
+   ============================================================================= */
+
+@layer components {
+  .stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent-700);
+    padding-top: 6px;
+    border-top: 1.5px solid var(--color-star);
+    white-space: nowrap;
+  }
+
+  .stamp::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    background: var(--color-star);
+    transform: rotate(45deg);
+    flex: none;
+  }
+
+  .stamp-on-dark {
+    color: #f3dfa8;
+    border-top-color: rgb(232 163 61 / 0.55);
+  }
+
+  .stamp-on-dark::before {
+    background: var(--color-accent);
+  }
+
+  /* Hero band — layered gradients over navy. The faint 26px grid reads as a
+     plat map, which is literally what a land buyer is shopping. */
+  .hero-band {
+    background-color: var(--color-brand);
+    background-image:
+      linear-gradient(
+        151deg,
+        rgb(232 163 61 / 0) 55%,
+        rgb(232 163 61 / 0.36) 125%
+      ),
+      linear-gradient(320deg, rgb(4 32 45 / 0) 45%, rgb(4 32 45 / 0.8) 110%),
+      linear-gradient(0deg, rgb(255 255 255 / 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+    background-size: auto, auto, 26px 26px, 26px 26px;
+  }
+}
+
+/* =============================================================================
+   Article prose — 17/1.65 at a 720px measure.
+   ============================================================================= */
+
+@layer components {
+  .prose {
+    max-width: 720px;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--color-body);
+  }
+
+  .prose > * + * {
+    margin-top: 16px;
+  }
+
+  .prose h2 {
+    font-size: clamp(23px, 2.6vw, 28px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-top: 46px;
+    scroll-margin-top: 120px;
+  }
+
+  .prose h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--color-brand-700);
+    margin-top: 32px;
+  }
+
+  .prose a {
+    color: var(--color-link);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .prose a:hover {
+    text-decoration: underline;
+  }
+
+  .prose strong {
+    color: var(--color-ink);
+    font-weight: 700;
+  }
+
+  .prose ul,
+  .prose ol {
+    padding-left: 22px;
+  }
+
+  .prose ul {
+    list-style: disc;
+  }
+
+  .prose ol {
+    list-style: decimal;
+  }
+
+  .prose li {
+    margin-top: 10px;
+    padding-left: 6px;
+  }
+
+  .prose ol > li::marker {
+    color: var(--color-brand-700);
+    font-weight: 700;
+  }
+
+  .prose blockquote {
+    border-left: 4px solid var(--color-brand);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+    padding: 4px 0 4px 24px;
+  }
+
+  /* Callouts */
+  .callout {
+    display: flex;
+    gap: 14px;
+    background: var(--color-accent-50);
+    border-radius: var(--radius-md);
+    padding: 22px 24px;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 30px;
+  }
+
+  .callout svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-brand);
+    flex: none;
+  }
+
+  .callout-warn {
+    border-left: 4px solid var(--color-star);
+    border-radius: var(--radius-sm);
+  }
+
+  /* The variant neither reference site has: statute + registry citations.
+     Panama buyers need Código Fiscal / ANATI / Registro Público cited inline. */
+  .callout-legal {
+    background: var(--color-brand-50);
+    border-left: 4px solid var(--color-brand);
+    border-radius: var(--radius-sm);
+    font-size: 15.5px;
+  }
+
+  .callout-legal svg {
+    color: var(--color-brand-700);
+  }
+
+  .callout-title {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink);
+  }
+
+  /* Tables */
+  .prose table {
+    width: 100%;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    font-size: 15.5px;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 28px;
+  }
+
+  .prose thead th {
+    background: var(--color-paper);
+    font-family: var(--font-display);
+    font-size: 14.5px;
+    font-weight: 700;
+    text-align: left;
+    color: var(--color-ink);
+    border-bottom: 2px solid var(--color-brand-800);
+    white-space: nowrap;
+    padding: 13px 16px;
+  }
+
+  .prose tbody td {
+    border-top: 1px solid var(--color-line-soft);
+    padding: 13px 16px;
+    vertical-align: top;
+  }
+
+  .prose tbody td:first-child {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+
+  @media (max-width: 560px) {
+    .prose table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
+}
