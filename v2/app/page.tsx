@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { areas, figures, articles, usd } from "@/lib/content";
 import { Button, Stamp, TitleBadge, SectionHead } from "@/components/ui";
 
@@ -39,40 +40,53 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* The ledger. Reads as a due-diligence summary, not a stat row. */}
-          <div className="hero-band rounded-lg shadow-lg p-[clamp(22px,3vw,32px)]">
-            <h2 className="font-display text-[15px] font-bold uppercase tracking-[0.077em] text-white pb-4 border-b border-white/15">
-              What the numbers are today
-            </h2>
-
-            <dl>
-              {figures.map((f, i) => (
-                <div
-                  key={f.label}
-                  className={`py-4 ${i > 0 ? "border-t border-white/10" : ""}`}
-                >
-                  <div className="flex items-baseline justify-between gap-5">
-                    <dt className="text-[14.5px] text-white/80">{f.label}</dt>
-                    <dd className="font-display text-[26px] font-bold tracking-[-0.0204em] text-white tnum shrink-0">
-                      {f.value}
-                    </dd>
-                  </div>
-                  <p className="mt-1 text-[13px] text-white/55 max-w-[44ch]">
-                    {f.note}
-                  </p>
-                  <div className="mt-2.5 flex flex-wrap items-center gap-x-4 gap-y-1.5">
-                    <Stamp on={f.verifiedOn} onDark />
-                    <Link
-                      href={`/${f.explainedBy}`}
-                      className="text-[13px] font-semibold text-accent no-underline hover:underline"
-                    >
-                      {f.source} →
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </dl>
+          {/* EasyStreetCap's hero shape: text left, one real photograph right,
+              no overlay. */}
+          <div className="relative">
+            <Image
+              src="/hero-panama-collage.png"
+              alt="A modern villa with a pool set among palms, alongside property views from Panamá City, Coronado, El Valle, and Boquete."
+              width={1254}
+              height={1254}
+              priority
+              sizes="(max-width: 980px) 100vw, 46vw"
+              className="w-full h-auto"
+            />
           </div>
+        </div>
+      </section>
+
+      {/* ── The verification ledger ─────────────────────────────────────────
+          Where EasyStreetCap publishes live rates under its hero, we publish
+          the checked figures that decide whether you can buy at all. */}
+      <section className="hero-band">
+        <div className="wrap py-[clamp(36px,5vw,56px)]">
+          <h2 className="font-display text-[15px] font-bold uppercase tracking-[0.077em] text-white pb-5 border-b border-white/15">
+            What the numbers are today
+          </h2>
+
+          <dl className="grid gap-x-10 gap-y-8 pt-7 min-[620px]:grid-cols-2 min-[1000px]:grid-cols-4">
+            {figures.map((f) => (
+              <div key={f.label}>
+                <dt className="text-[14.5px] text-white/80">{f.label}</dt>
+                <dd className="font-display text-[clamp(30px,3.4vw,38px)] font-bold tracking-[-0.0204em] text-white tnum leading-none mt-1.5">
+                  {f.value}
+                </dd>
+                <p className="mt-2 text-[13px] text-white/55 max-w-[34ch]">
+                  {f.note}
+                </p>
+                <div className="mt-3 flex flex-col items-start gap-1.5">
+                  <Stamp on={f.verifiedOn} onDark />
+                  <Link
+                    href={`/${f.explainedBy}`}
+                    className="text-[13px] font-semibold text-accent no-underline hover:underline"
+                  >
+                    {f.source} →
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
