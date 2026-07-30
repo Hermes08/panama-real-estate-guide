@@ -227,6 +227,9 @@ export const getArea = (slug: string) => areas.find((a) => a.slug === slug);
 export const getProjectsForArea = (slug: string) =>
   projects.filter((p) => p.areaSlug === slug);
 
+export const getProject = (slug: string) =>
+  projects.find((p) => p.slug === slug);
+
 export const getAuthor = (slug: string) => authors.find((a) => a.slug === slug);
 
 export const getArticle = (categorySlug: string, slug: string) =>

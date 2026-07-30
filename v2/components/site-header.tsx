@@ -29,6 +29,12 @@ export function SiteHeader() {
           >
             Areas
           </Link>
+          <Link
+            href="/projects"
+            className="font-display text-[14.5px] font-semibold text-body no-underline hover:text-brand transition-colors"
+          >
+            Projects
+          </Link>
         </nav>
 
         <div className="ml-auto flex items-center gap-4">
