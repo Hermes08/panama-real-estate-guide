@@ -42,7 +42,14 @@ jobs:
         run: npm ci
 
       - name: Install Netlify CLI
-        run: npm install -g netlify-cli@17
+        # Was pinned to @17. That version's `deploy --site=<id> --auth=<token>`
+        # fails with "Site not found" even though the exact same token/site
+        # ID work fine against the plain REST API (used by the env-var sync
+        # step below) — consistent with an old CLI major version breaking
+        # against Netlify's "sites" -> "projects" backend transition. Bumped
+        # to latest, matching the locally-verified version (26.x) that
+        # `netlify build --offline` was validated against.
+        run: npm install -g netlify-cli@latest
 
       # Push runtime env vars into Netlify so the Functions (lead-submit.mjs,
       # calendly-webhook.mjs) can read META_CAPI_TOKEN, CRM_API_*, CALENDLY_*.
