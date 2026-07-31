@@ -24,6 +24,12 @@
 //   • Each project (0.9, lastmod=today since deploy injects fresh schema, monthly)
 //   • Each news item (0.7, lastmod=news.date, monthly)
 //
+// T-02 (2026-07-31): the /es/, /pt/, /de/ URL sets have been dropped entirely.
+// Those 405 machine-translated URLs now return 410 Gone (they cannibalised
+// their own English originals and earned 0 referring domains — see
+// seo-strategy-2026/11-technical-seo-backlog.csv T-02), so they must not
+// appear in a sitemap: only 200-status URLs belong in sitemap.xml.
+//
 // Output is gitignored — regenerated on every deploy alongside data-light.js
 // and the JSX compile outputs.
 // =============================================================================
@@ -89,17 +95,7 @@ async function main() {
   const videoFiles = await fs.readdir(path.join(PROJECT_DIR, 'videos')).catch(() => []);
   const videoIds = videoFiles.filter(f => f.endsWith('.html') && f !== 'index.html').map(f => f.replace(/\.html$/, ''));
 
-  // Per-language coverage check: which translated articles actually exist on disk?
-  // Avoids 404s in the sitemap (Google penalises soft-404 entries).
-  const LANGS = ['es', 'pt', 'de'];
-  async function langArticlesOnDisk(lang) {
-    const files = await fs.readdir(path.join(PROJECT_DIR, lang, 'articles')).catch(() => []);
-    return new Set(files.filter(f => f.endsWith('.html') && f !== 'index.html').map(f => f.replace(/\.html$/, '')));
-  }
-  const articlesByLang = {};
-  for (const lang of LANGS) articlesByLang[lang] = await langArticlesOnDisk(lang);
-
-  // 3. Build URL list.
+  // 3. Build URL list. EN only (T-02): /es/ /pt/ /de/ all return 410.
   const urls = [];
 
   // Aggregator / hub pages — lastmod=today since their listing recomputes
@@ -109,48 +105,26 @@ async function main() {
   urls.push(url(`${SITE_BASE}/proyectos/`, TODAY, 'daily', '0.7'));
   urls.push(url(`${SITE_BASE}/videos/`, TODAY, 'daily', '0.7'));
 
-  // Per-language home + index pages (real files on disk, generated in PR #99)
-  for (const lang of LANGS) {
-    urls.push(url(`${SITE_BASE}/${lang}/`,           TODAY, 'daily', '0.95'));
-    urls.push(url(`${SITE_BASE}/${lang}/articles/`,  TODAY, 'daily', '0.65'));
-    urls.push(url(`${SITE_BASE}/${lang}/news/`,      TODAY, 'daily', '0.65'));
-    urls.push(url(`${SITE_BASE}/${lang}/videos/`,    TODAY, 'daily', '0.65'));
-  }
-
-  // Articles (EN + per-language translations that exist on disk)
+  // Articles
   for (const a of articles) {
     if (!a?.id) continue;
     urls.push(url(`${SITE_BASE}/articles/${a.id}.html`, isoDate(a.date), 'monthly', '0.8'));
-    for (const lang of LANGS) {
-      if (articlesByLang[lang].has(a.id)) {
-        urls.push(url(`${SITE_BASE}/${lang}/articles/${a.id}.html`, isoDate(a.date), 'monthly', '0.75'));
-      }
-    }
   }
 
-  // Projects (EN + 3 langs — per-lang shells generated in PR #101)
+  // Projects
   for (const slug of projectSlugs) {
     urls.push(url(`${SITE_BASE}/projects/${slug}.html`, TODAY, 'monthly', '0.9'));
-    for (const lang of LANGS) {
-      urls.push(url(`${SITE_BASE}/${lang}/projects/${slug}.html`, TODAY, 'monthly', '0.85'));
-    }
   }
 
-  // News (every news file on disk, EN + 3 langs)
+  // News (every news file on disk)
   for (const slug of newsSlugs) {
     const dateGuess = (news.find(x => x.slug === slug) || {}).iso || TODAY;
     urls.push(url(`${SITE_BASE}/news/${slug}.html`, isoDate(dateGuess), 'monthly', '0.7'));
-    for (const lang of LANGS) {
-      urls.push(url(`${SITE_BASE}/${lang}/news/${slug}.html`, isoDate(dateGuess), 'monthly', '0.65'));
-    }
   }
 
-  // Videos (EN + 3 langs)
+  // Videos
   for (const id of videoIds) {
     urls.push(url(`${SITE_BASE}/videos/${id}.html`, TODAY, 'monthly', '0.6'));
-    for (const lang of LANGS) {
-      urls.push(url(`${SITE_BASE}/${lang}/videos/${id}.html`, TODAY, 'monthly', '0.55'));
-    }
   }
 
   // 4. Compose final XML

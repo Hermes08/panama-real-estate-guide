@@ -1,0 +1,124 @@
+Keyword,Intent,Volume_US,KD_pct,CPC_USD,Cluster,Funnel_Stage,Geo_Language,Current_Rank,Best_Target_URL,Priority,Notes
+panama real estate,Commercial,3600,31,0.26,Buying / Head,MOF,US-EN,Not ranking,/buying-property-in-panama/,P0,"Global vol 7.0K: US 3.6K / CA 1.0K / PA 390 / AU 110 / UK 110 / DE 90. Top-10 avg AS 44 but genuine Panama players sit at AS 12-35."
+panama real estate for sale,Transactional,1300,42,0.24,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P1,Listing-intent; needs a browsable inventory surface to compete
+panama homes for sale,Transactional,1300,23,0.26,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P1,KD 23 — winnable
+panama property for sale,Transactional,1000,30,0.25,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P1,
+panama city panama real estate,Commercial,880,50,0.27,Location / Panama City,MOF,US-EN,Not ranking,/areas/panama-city/,P1,Highest KD in the set; needs the strongest area page
+panama houses for sale,Transactional,880,25,0.26,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P2,
+buy house in panama,Transactional,880,33,0.25,Buying / Process,BOF,US-EN,Not ranking,/buying-property-in-panama/,P1,
+real estate in panama,Informational/Commercial,720,41,0.43,Buying / Head,MOF,US-EN,Not ranking,/buying-property-in-panama/,P1,
+panama realty,Commercial,720,55,0.26,Buying / Head,MOF,US-EN,Not ranking,/buying-property-in-panama/,P3,Brand-ish; low return
+real estate in panama republic of panama,Commercial,720,41,0.23,Buying / Head,MOF,US-EN,Not ranking,/buying-property-in-panama/,P3,Disambiguation phrasing vs Panama City FL
+real estate panama,Commercial,590,42,0.22,Buying / Head,MOF,US-EN,Not ranking,/buying-property-in-panama/,P2,
+panamanian real estate for sale,Transactional,590,21,0.24,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P2,KD 21
+homes for sale panama,Transactional,590,18,0.25,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P2,KD 18
+real estate in panama central america,Commercial,590,15,0.23,Buying / Head,MOF,US-EN,Not ranking,/buying-property-in-panama/,P1,KD 15 — cheap win; disambiguates from Panama City FL
+homes in panama,Commercial,590,23,0.29,Buying / Head,MOF,US-EN,Not ranking,/buying-property-in-panama/,P2,
+republic of panama real estate,Commercial,480,27,0.26,Buying / Head,MOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+real estate for sale in panama,Transactional,480,29,0.25,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P2,
+properties panama,Commercial,480,32,0.23,Buying / Head,MOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+houses for sale panama,Transactional,390,25,0.25,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+real estate panama city panama,Commercial,390,45,0.27,Location / Panama City,MOF,US-EN,Not ranking,/areas/panama-city/,P2,
+panama city panama realtors,Commercial,390,40,0.27,Buying / Agents,BOF,US-EN,Not ranking,/contact/,P3,
+panama panama real estate for sale,Transactional,320,38,0.34,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+homes for sale in the republic of panama,Transactional,320,0,0.25,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P1,KD 0 — free win
+panama homes,Commercial,320,16,0.36,Buying / Head,MOF,US-EN,Not ranking,/buying-property-in-panama/,P2,
+panama house for sale,Transactional,320,23,0.35,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+property panama,Commercial,320,22,0.44,Buying / Head,MOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+real estate in panama city panama,Commercial,320,43,0.33,Location / Panama City,MOF,US-EN,Not ranking,/areas/panama-city/,P2,
+homes in panama for sale,Transactional,320,26,0.25,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+houses in panama,Commercial,320,14,0.29,Buying / Head,MOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+house for sale in panama,Transactional,320,22,0.26,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+panama city central america real estate,Commercial,320,18,0.28,Location / Panama City,MOF,US-EN,Not ranking,/areas/panama-city/,P2,
+real estate for sale in panama central america,Transactional,260,15,0.25,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P2,
+property for sale in panama central america,Transactional,260,38,0.27,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+real estate coronado panama,Commercial,260,1,0.18,Location / Coronado,MOF,US-EN,Not ranking,/areas/coronado/,P0,KD 1 — immediate win
+homes panama,Commercial,260,25,0.36,Buying / Head,MOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+panamanian houses,Commercial,260,19,0.29,Buying / Head,MOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+panama country real estate,Commercial,260,49,0.23,Buying / Head,MOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+coronado panama homes for sale,Transactional,210,0,0.18,Location / Coronado,BOF,US-EN,Not ranking,/areas/coronado/,P0,KD 0
+panama realtor coronado,Commercial,210,6,0.18,Location / Coronado,BOF,US-EN,Not ranking,/areas/coronado/,P1,
+home for sale panama,Transactional,210,23,0.35,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+property in panama,Commercial,210,22,0.44,Buying / Head,MOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+property in panama for sale,Transactional,210,21,0.25,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+panama houses,Commercial,210,16,0.35,Buying / Head,MOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+homes for sale in republic of panama,Transactional,170,0,0.25,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P2,KD 0
+property for sale panama,Transactional,170,29,0.34,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+panama real estate central america,Commercial,170,17,0.28,Buying / Head,MOF,US-EN,Not ranking,/buying-property-in-panama/,P3,
+real estate in panama city central america,Commercial,170,41,0.28,Location / Panama City,MOF,US-EN,Not ranking,/areas/panama-city/,P3,
+panama real estate agents,Commercial,110,50,1.14,Buying / Agents,BOF,US-EN,Not ranking,/contact/,P2,Highest CPC in the buying set — strong lead signal
+costa del este panama real estate,Commercial,110,2,0.38,Location / Costa del Este,MOF,US-EN,Not ranking,/areas/costa-del-este/,P0,KD 2
+homes for sale in panama republic of panama,Transactional,110,6,0.43,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P2,
+homes for sale in panama central america,Transactional,110,0,0.43,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P2,KD 0
+homes for sale in panama country,Transactional,110,2,0.43,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P2,KD 2
+homes for sale panama central america,Transactional,110,0,0.25,Buying / Head,BOF,US-EN,Not ranking,/buying-property-in-panama/,P2,KD 0
+panama expats realty,Commercial,110,1,0.37,Buying / Agents,BOF,US-EN,Not ranking,/contact/,P2,KD 1
+panama city central america real estate for sale,Transactional,90,10,0.22,Location / Panama City,BOF,US-EN,Not ranking,/areas/panama-city/,P2,
+buy property panama,Transactional,70,19,0.38,Buying / Process,BOF,US-EN,Not ranking,/buying-property-in-panama/,P1,Exact commercial match for the pillar
+punta pacifica panama real estate,Commercial,40,7,0.46,Location / Punta Pacifica,MOF,US-EN,Not ranking,/areas/punta-pacifica/,P2,
+santa maria panama real estate,Commercial,50,3,0.52,Location / Santa Maria,MOF,US-EN,Not ranking,/areas/santa-maria/,P2,
+rio hato panama real estate,Commercial,50,0,0.26,Location / Rio Hato,MOF,US-EN,Not ranking,/areas/rio-hato/,P3,KD 0
+coronado panama real estate for sale,Transactional,50,0,0.14,Location / Coronado,BOF,US-EN,Not ranking,/areas/coronado/,P1,KD 0
+buy home in panama,Transactional,70,7,0.33,Buying / Process,BOF,US-EN,Not ranking,/buying-property-in-panama/,P2,
+living in panama,Informational,1300,20,0.36,Living / Head,TOF,US-EN,Not ranking,/living-in-panama/,P0,Largest single informational term in the relocation set
+retiring in panama central america,Informational,1000,20,0.50,Retirement / Head,TOF,US-EN,Not ranking,/retire-in-panama/,P0,
+retire in panama,Informational,880,24,0.57,Retirement / Head,TOF,US-EN,pos 96 (/articles/retire-in-panama.html),/retire-in-panama/,P0,Already has a page ranking 96 — rewrite not create
+panama retirement visa,Informational,880,26,0.40,Residency / Pensionado,MOF,US-EN,Not ranking,/residency/pensionado-visa/,P0,Highest-intent residency term
+retiring in panama,Informational,720,12,0.28,Retirement / Head,TOF,US-EN,Not ranking,/retire-in-panama/,P0,KD 12 on a 720-vol term
+living in panama city panama,Informational,720,14,0.33,Location / Panama City,TOF,US-EN,Not ranking,/areas/panama-city/,P1,
+panama retirement,Informational,590,20,0.28,Retirement / Head,TOF,US-EN,Not ranking,/retire-in-panama/,P1,
+pensionado visa panama,Informational,590,25,0.54,Residency / Pensionado,MOF,US-EN,Not ranking,/residency/pensionado-visa/,P0,
+panama pensionado visa,Informational,480,29,0.38,Residency / Pensionado,MOF,US-EN,Not ranking,/residency/pensionado-visa/,P0,
+retire to panama,Informational,390,25,0.50,Retirement / Head,TOF,US-EN,pos 96,/retire-in-panama/,P1,
+retirement in panama,Informational,390,26,0.57,Retirement / Head,TOF,US-EN,Not ranking,/retire-in-panama/,P1,
+living in panama as an expat,Informational,390,13,0.37,Living / Head,TOF,US-EN,Not ranking,/living-in-panama/,P1,KD 13
+expat communities in panama,Informational,390,6,0.38,Living / Communities,TOF,US-EN,pos 69,/living-in-panama/expat-communities/,P0,KD 6 — currently ranked 69
+expat living in panama,Informational,390,18,0.37,Living / Head,TOF,US-EN,Not ranking,/living-in-panama/,P2,
+retiring to panama,Informational,320,22,0.57,Retirement / Head,TOF,US-EN,Not ranking,/retire-in-panama/,P2,
+live in panama,Informational,320,23,0.36,Living / Head,TOF,US-EN,Not ranking,/living-in-panama/,P2,
+living in panama city panama as an american,Informational,320,29,0.36,Location / Panama City,TOF,US-EN,Not ranking,/areas/panama-city/,P2,
+best places to live in panama,Commercial,320,8,0.31,Living / Comparison,MOF,US-EN,pos 78,/living-in-panama/best-places-to-live/,P0,KD 8 at position 78 — pure execution gap
+where to live in panama,Commercial/Informational,320,9,0.31,Living / Comparison,MOF,US-EN,pos 73,/living-in-panama/best-places-to-live/,P0,KD 9
+panama pensionado program,Informational,260,25,0.65,Residency / Pensionado,MOF,US-EN,Not ranking,/residency/pensionado-visa/,P1,
+americans living in panama,Informational,260,25,0.43,Living / Head,TOF,US-EN,Not ranking,/living-in-panama/,P2,
+is panama a good place to live,Informational,260,10,0.58,Living / Objection,TOF,US-EN,Not ranking,/living-in-panama/,P1,KD 10 — objection query
+retiring in panama dangers,Informational,260,11,0.92,Retirement / Objection,TOF,US-EN,Not ranking,/retire-in-panama/drawbacks/,P0,"KD 11, CPC $0.92 — the highest-value objection term; nobody covers it honestly"
+living in panama panama,Informational,260,14,0.36,Living / Head,TOF,US-EN,Not ranking,/living-in-panama/,P3,
+expat in panama,Informational,260,30,0.36,Living / Head,TOF,US-EN,Not ranking,/living-in-panama/,P3,
+best places to retire in panama,Commercial,170,3,0.31,Retirement / Comparison,MOF,US-EN,Not ranking,/retire-in-panama/best-places/,P0,KD 3
+retirement visa panama,Informational,170,24,0.40,Residency / Pensionado,MOF,US-EN,Not ranking,/residency/pensionado-visa/,P2,
+retiring in panama pros and cons,Informational,170,12,0.57,Retirement / Objection,TOF,US-EN,Not ranking,/retire-in-panama/drawbacks/,P1,
+retirement homes in panama,Commercial,170,11,0.00,Retirement / Communities,MOF,US-EN,pos 76,/retire-in-panama/retirement-communities/,P1,
+is panama a good place to retire,Informational,140,22,0.66,Retirement / Objection,TOF,US-EN,Not ranking,/retire-in-panama/,P2,
+costa rica for retirement,Informational,140,20,0.32,Comparison / Costa Rica,TOF,US-EN,Not ranking,/compare/panama-vs-costa-rica/,P2,Competitor-country demand to intercept
+pros and cons of retiring in panama,Informational,110,5,0.39,Retirement / Objection,TOF,US-EN,Not ranking,/retire-in-panama/drawbacks/,P0,KD 5
+best cities to retire in panama,Commercial,110,21,0.46,Retirement / Comparison,MOF,US-EN,pos 75,/retire-in-panama/best-places/,P1,
+panama retirement visa requirements,Informational,110,22,0.52,Residency / Pensionado,MOF,US-EN,Not ranking,/residency/pensionado-visa/,P1,
+panama pensionado visa requirements,Informational,110,21,0.44,Residency / Pensionado,MOF,US-EN,Not ranking,/residency/pensionado-visa/,P1,
+american retirees in panama,Informational,110,24,0.53,Retirement / Head,TOF,US-EN,Not ranking,/retire-in-panama/,P3,
+expatriate communities in panama,Informational,110,10,0.38,Living / Communities,TOF,US-EN,Not ranking,/living-in-panama/expat-communities/,P2,
+best place to live in panama for expats,Commercial,110,3,0.28,Living / Comparison,MOF,US-EN,pos 67,/living-in-panama/best-places-to-live/,P1,KD 3
+best place to live in panama central america,Commercial,110,4,0.41,Living / Comparison,MOF,US-EN,pos 90,/living-in-panama/best-places-to-live/,P1,KD 4
+retire to panama from us,Informational,90,15,0.46,Retirement / Head,TOF,US-EN,Not ranking,/retire-in-panama/,P2,
+how to retire in panama,Informational,90,25,0.63,Retirement / Process,MOF,US-EN,Not ranking,/retire-in-panama/,P2,
+retirement visa for panama,Informational,90,20,0.53,Residency / Pensionado,MOF,US-EN,Not ranking,/residency/pensionado-visa/,P2,
+retiring to panama from us,Informational,90,15,0.46,Retirement / Head,TOF,US-EN,Not ranking,/retire-in-panama/,P3,
+moving to panama central america,Informational,90,22,0.80,Moving / Head,TOF,US-EN,Not ranking,/moving-to-panama/,P1,CPC $0.80
+expat to panama,Informational,90,14,0.36,Moving / Head,TOF,US-EN,Not ranking,/moving-to-panama/,P3,
+living in panama pros and cons,Informational,70,1,0.21,Living / Objection,TOF,US-EN,Not ranking,/living-in-panama/,P1,KD 1
+retire in panama vs costa rica,Informational/Commercial,70,4,0.45,Comparison / Costa Rica,MOF,US-EN,pos 88 (DE page!),/compare/panama-vs-costa-rica/,P0,"KD 4. The German translation currently outranks the English original — direct cannibalisation proof"
+panama city expats,Informational,70,24,0.40,Location / Panama City,TOF,US-EN,Not ranking,/areas/panama-city/,P3,
+panama for retirement,Informational,70,22,0.50,Retirement / Head,TOF,US-EN,Not ranking,/retire-in-panama/,P3,
+panama pensionado visa benefits,Informational,70,20,0.21,Residency / Pensionado,MOF,US-EN,Not ranking,/residency/pensionado-visa/,P2,
+retirement homes in panama central america,Commercial,50,2,2.15,Retirement / Communities,MOF,US-EN,pos 55,/retire-in-panama/retirement-communities/,P0,"CPC $2.15 — by far the highest commercial value keyword found; KD 2"
+best places to retire panama,Commercial,40,0,0.46,Retirement / Comparison,MOF,US-EN,pos 85,/retire-in-panama/best-places/,P1,KD 0 at position 85
+where to live in panama as an expat,Informational/Commercial,50,15,0.31,Living / Comparison,MOF,US-EN,pos 61,/living-in-panama/best-places-to-live/,P2,
+international living panama,Navigational,40,17,1.61,Competitor / Brand,TOF,US-EN,Not ranking,/compare/,P3,Competitor brand term; CPC $1.61
+retirement villages in panama,Commercial,50,3,0.00,Retirement / Communities,MOF,US-EN,pos 67,/retire-in-panama/retirement-communities/,P1,
+sim card panama,Commercial,70,3,0.00,Living / Practical,TOF,US-EN,pos 72,/living-in-panama/sim-card/,P2,Traffic-only; low lead value
+rent apartment in panama city,Informational,1300,30,0.00,Renting / Panama City,TOF,US-EN,pos 54,/areas/panama-city/renting/,P1,High volume; renters convert to buyers over 12-24 months
+panama city apartments for rent,Commercial,720,34,0.00,Renting / Panama City,TOF,US-EN,pos 77,/areas/panama-city/renting/,P2,
+best beaches panama,Commercial,260,40,0.00,Living / Lifestyle,TOF,US-EN,pos 55,/living-in-panama/beaches/,P3,High KD low lead value — deprioritise
+panama city neighborhoods,Informational,170,10,0.00,Location / Panama City,TOF,US-EN,pos 59,/areas/panama-city/neighborhoods/,P1,KD 10
+panama cost of living vs us,Commercial/Informational,110,27,0.00,Money / Cost of Living,TOF,US-EN,pos 60,/cost-of-living-in-panama/,P1,
+comprar apartamento en panama,Transactional,110,12,0.22,ES / Buying,BOF,PA-ES,Not ranking,DEFER,P3,"Entire ES buying cluster in the PA database is 32 keywords / 190 total volume — not worth a locale tree"

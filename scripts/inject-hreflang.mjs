@@ -1,18 +1,19 @@
 #!/usr/bin/env node
 // =============================================================================
-// inject-hreflang.mjs — Add hreflang link tags to every EN article + project
+// inject-hreflang.mjs — Strip hreflang link tags from every EN article/
+// project/video shell (T-16)
 // =============================================================================
-// For each project/articles/*.html and project/projects/*.html, check whether
-// translated versions exist under project/<lang>/articles/<slug>.html or
-// project/<lang>/projects/<slug>.html for lang in [es, pt, de]. Inject
-// <link rel="alternate" hreflang="<lang>"> for each that exists, plus
-// hreflang="x-default" pointing back to the EN URL.
-//
-// Idempotent. Wraps injected block in HTML comment sentinels for safe re-runs.
+// Hreflang injection is disabled: the /es/, /pt/, /de/ trees now return 410
+// (T-02) rather than being genuine translations, so no EN page should
+// advertise alternates that no longer resolve to 200. This script now only
+// removes any pre-existing BEGIN_HREFLANG/END_HREFLANG block (defensive —
+// the block is never committed to git, so on a normal CI checkout there is
+// nothing to strip) and chains into inject-index-seo.mjs, which still owns
+// canonical + <html lang> normalisation for the home/index pages.
 //
 // Order in workflow: run AFTER inject-article-meta.mjs (which writes the
-// BEGIN_ARTICLE_META / END_ARTICLE_META block). hreflang sentinels are
-// nested inside that block.
+// BEGIN_ARTICLE_META / END_ARTICLE_META block). hreflang sentinels, if any
+// remain from a stale build, are nested inside that block.
 // =============================================================================
 
 import fs from 'node:fs/promises';
@@ -23,142 +24,52 @@ import { spawnSync } from 'node:child_process';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const PROJECT_DIR = path.join(ROOT, 'project');
-const SITE_BASE = 'https://panamarealestateguide.com';
 
+// Kinds whose EN shells may carry a stale hreflang block to strip, plus their
+// /<lang>/ counterparts (translate-content.mjs and prior runs of this script
+// wrote hreflang into both sides).
 const LANGS = ['es', 'pt', 'de'];
-// Covers kinds with per-language shells (PR #101). Each EN file gets hreflang
-// alternates pointing to every translated version that exists on disk, plus
-// x-default → EN.
-// NOTE: 'news' is intentionally excluded — scripts/build-news-shells.mjs is the
-// single owner of the news SEO head (canonical + hreflang) because news splits
-// into genuinely-translated items (full cluster) and English-only legacy items
-// (per-lang canonical → EN, no hreflang). A blanket disk-presence rule here
-// would wrongly advertise the legacy per-lang shells as real translations.
 const KINDS = ['articles', 'projects', 'videos'];
-
-// Kinds whose TRANSLATED shells (project/<lang>/<kind>/*.html) also need the
-// hreflang cluster injected here. Articles are excluded: translate-content.mjs
-// already writes a self-canonical + full hreflang cluster into each translated
-// article shell, and re-injecting would duplicate the tags. News is excluded:
-// build-news-shells.mjs is the single owner of the news SEO head across all
-// languages. That leaves projects + videos — their /es|/pt|/de shells
-// self-canonicalise but carried NO hreflang, so Google folded them into the EN
-// canonical ("Duplicate, Google chose different canonical than user").
-const TRANSLATED_KINDS = ['projects', 'videos'];
 
 const SENTINEL_START = '<!-- BEGIN_HREFLANG -->';
 const SENTINEL_END = '<!-- END_HREFLANG -->';
 
-async function fileExists(p) {
-  try { await fs.access(p); return true; } catch { return false; }
-}
-
-async function getTranslationsForSlug(kind, slug) {
-  const present = {};
-  for (const lang of LANGS) {
-    const p = path.join(PROJECT_DIR, lang, kind, `${slug}.html`);
-    if (await fileExists(p)) present[lang] = true;
-  }
-  return present;
-}
-
-function buildHreflangBlock(kind, slug, present) {
-  // Video detail pages self-canonicalise WITHOUT the .html extension
-  // (inject-video-meta.mjs anchors the canonical at the lowercased slug, e.g.
-  // /videos/<id>). hreflang URLs must match each alternate's canonical URL, so
-  // emit videos extensionless; articles/projects/news keep .html.
-  const ext = kind === 'videos' ? '' : '.html';
-  const enUrl = `${SITE_BASE}/${kind}/${slug}${ext}`;
-  const lines = [SENTINEL_START];
-  lines.push(`<link rel="alternate" hreflang="en" href="${enUrl}">`);
-  for (const lang of LANGS) {
-    if (present[lang]) {
-      lines.push(`<link rel="alternate" hreflang="${lang}" href="${SITE_BASE}/${lang}/${kind}/${slug}${ext}">`);
-    }
-  }
-  lines.push(`<link rel="alternate" hreflang="x-default" href="${enUrl}">`);
-  lines.push(SENTINEL_END);
-  return lines.join('\n  ');
-}
-
-async function processFile(file, kind, slug) {
-  let html = await fs.readFile(file, 'utf8');
-  const present = await getTranslationsForSlug(kind, slug);
-  const block = buildHreflangBlock(kind, slug, present);
-
-  // Remove any existing hreflang block
+async function processFile(file) {
+  const html = await fs.readFile(file, 'utf8');
   const startIdx = html.indexOf(SENTINEL_START);
   const endIdx = html.indexOf(SENTINEL_END);
-  if (startIdx >= 0 && endIdx > startIdx) {
-    html = html.slice(0, startIdx) + html.slice(endIdx + SENTINEL_END.length);
-  }
+  if (startIdx < 0 || endIdx <= startIdx) return { file, changed: false };
 
-  // Insert AFTER the END_ARTICLE_META sentinel (outside the meta block region)
-  // so the next inject-article-meta rerun does not wipe the hreflang block.
-  const metaEnd = '<!-- END_ARTICLE_META -->';
-  const metaEndIdx = html.indexOf(metaEnd);
-  if (metaEndIdx >= 0) {
-    const after = metaEndIdx + metaEnd.length;
-    html = html.slice(0, after) + `\n  ${block}` + html.slice(after);
-  } else {
-    // No meta block (older shell), inject before </head>
-    const headEnd = '</head>';
-    const headIdx = html.indexOf(headEnd);
-    if (headIdx < 0) return { file, changed: false, reason: 'no </head> found' };
-    html = html.slice(0, headIdx) + `  ${block}\n` + html.slice(headIdx);
-  }
-
-  await fs.writeFile(file, html);
-  return { file, changed: true, present_langs: Object.keys(present) };
+  const stripped = html.slice(0, startIdx) + html.slice(endIdx + SENTINEL_END.length);
+  await fs.writeFile(file, stripped);
+  return { file, changed: true };
 }
 
 async function main() {
   let processed = 0;
-  let withTranslations = 0;
+  let stripped = 0;
   for (const kind of KINDS) {
-    const dir = path.join(PROJECT_DIR, kind);
-    let entries;
-    try { entries = await fs.readdir(dir); } catch { continue; }
-    for (const entry of entries) {
-      if (!entry.endsWith('.html')) continue;
-      const slug = entry.replace(/\.html$/, '');
-      if (slug === 'index') continue;
-      const file = path.join(dir, entry);
-      const res = await processFile(file, kind, slug);
-      processed++;
-      if (res.changed && res.present_langs?.length) withTranslations++;
-    }
-  }
-
-  // Second pass: translated project/video shells. The hreflang cluster is
-  // symmetric (every page lists EN + all present translations + x-default→EN),
-  // so the same block built for the EN file is correct on each /<lang>/ file.
-  let translatedProcessed = 0;
-  for (const lang of LANGS) {
-    for (const kind of TRANSLATED_KINDS) {
-      const dir = path.join(PROJECT_DIR, lang, kind);
+    const dirs = [path.join(PROJECT_DIR, kind), ...LANGS.map(l => path.join(PROJECT_DIR, l, kind))];
+    for (const dir of dirs) {
       let entries;
       try { entries = await fs.readdir(dir); } catch { continue; }
       for (const entry of entries) {
         if (!entry.endsWith('.html')) continue;
-        const slug = entry.replace(/\.html$/, '');
-        if (slug === 'index') continue;
         const file = path.join(dir, entry);
-        const res = await processFile(file, kind, slug);
-        translatedProcessed++;
-        if (res.changed && res.present_langs?.length) withTranslations++;
+        const res = await processFile(file);
+        processed++;
+        if (res.changed) stripped++;
       }
     }
   }
 
-  console.log(`[hreflang] processed ${processed} EN + ${translatedProcessed} translated files, ${withTranslations} have at least one translation`);
+  console.log(`[hreflang] scanned ${processed} files, stripped a stale hreflang block from ${stripped}`);
 
-  // Third pass (chained script): canonical + hreflang for the HOME page and
-  // the articles/news/videos INDEX pages in every language. Lives in its own
-  // script (scripts/inject-index-seo.mjs); chained here because the deploy
-  // workflow file cannot be modified via the GitHub App token (needs the
-  // `workflows` permission). inject-hreflang.mjs already runs after all
-  // shells exist, which is exactly when the index pass must run.
+  // Chained script: canonical + <html lang> normalisation for the HOME page
+  // and the articles/news/videos INDEX pages. Lives in its own script
+  // (scripts/inject-index-seo.mjs); chained here because the deploy workflow
+  // file could not be modified via the GitHub App token that originally wired
+  // this up (needs the `workflows` permission).
   const idx = spawnSync(process.execPath, [path.join(__dirname, 'inject-index-seo.mjs')], { stdio: 'inherit' });
   if (idx.status !== 0) {
     console.error('[hreflang] inject-index-seo.mjs failed');

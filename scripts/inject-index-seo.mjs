@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // =============================================================================
-// inject-index-seo.mjs — canonical + hreflang for the home page and the
+// inject-index-seo.mjs — canonical + <html lang> for the home page and the
 // articles/news/videos index pages, in every language.
 // =============================================================================
 // GSC QA 2026-06-11: the EN home page had NO hreflang cluster while the
@@ -11,14 +11,17 @@
 // feeding the "Duplicate without user-selected canonical" and "Discovered -
 // currently not indexed" buckets.
 //
+// T-16 (2026-07-31): the hreflang cluster this script used to add to the EN
+// side has been removed. The /es/ /pt/ /de/ trees now return 410 (T-02), so
+// advertising them as alternates would be a contradictory signal. The /es/
+// /pt/ /de/ homes' hard-coded hreflang cluster lives in their own templates,
+// not here, and is out of scope (those pages 410 regardless of what they
+// claim about themselves).
+//
 // For each of project/[lang/][kind/]index.html (kind in articles|news|videos,
 // plus the bare home page), this script:
 //   1. Adds a self-referencing <link rel="canonical"> if the page has none.
-//   2. Adds the symmetric hreflang cluster (en + each lang whose index file
-//      exists on disk + x-default -> EN) if the page carries no hreflang yet.
-//      Pages that already advertise a cluster (e.g. the /es/ /pt/ /de/ homes,
-//      which hard-code it) are left untouched.
-//   3. Normalises the <html lang=".."> attribute to the page's language
+//   2. Normalises the <html lang=".."> attribute to the page's language
 //      (fixes /videos/index.html which declared lang="es" on the EN page).
 //
 // Idempotent: the injected block is wrapped in BEGIN_INDEX_SEO sentinels and
@@ -68,30 +71,15 @@ async function processFile(lang, kind) {
     html = html.slice(0, startIdx) + html.slice(endIdx + SENTINEL_END.length);
   }
 
-  // 3. Normalise <html lang=".."> to the page's language.
+  // 2. Normalise <html lang=".."> to the page's language.
   const expectedLang = lang || 'en';
   html = html.replace(/(<html[^>]*\blang=")[a-zA-Z-]*(")/, `$1${expectedLang}$2`);
-
-  // Which translated variants of this index exist on disk?
-  const present = [];
-  for (const l of LANGS) {
-    if (await fileExists(indexPath(l, kind))) present.push(l);
-  }
 
   const lines = [];
 
   // 1. Self-canonical if the page has none.
   if (!/rel=["']canonical["']/i.test(html)) {
     lines.push(`<link rel="canonical" href="${urlFor(lang, kind)}">`);
-  }
-
-  // 2. Symmetric hreflang cluster if the page carries none.
-  if (!/hreflang=/i.test(html) && present.length) {
-    lines.push(`<link rel="alternate" hreflang="en" href="${urlFor('', kind)}">`);
-    for (const l of present) {
-      lines.push(`<link rel="alternate" hreflang="${l}" href="${urlFor(l, kind)}">`);
-    }
-    lines.push(`<link rel="alternate" hreflang="x-default" href="${urlFor('', kind)}">`);
   }
 
   if (lines.length) {

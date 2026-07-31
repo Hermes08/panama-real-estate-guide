@@ -1,13 +1,17 @@
 // =============================================================================
-// geo-route.ts — Detect visitor country + browser language, inject a small
-// dismissible "Switch to your language" banner on top of EN pages.
+// geo-route.ts — Per-jurisdiction cookie-consent banner, geo/UA-detected.
 //
-// Does NOT auto-redirect. Banner-only UX is less hostile + safer for SEO.
 // NEVER touches bot user agents (Googlebot etc); they see exactly what they
-// requested. Per-jurisdiction cookie banner logic also lives here.
+// requested.
 //
-// Runs on root + /articles/* + /projects/*. NOT on /es/*, /pt/*, /de/*
-// (those pages are already in the target language).
+// T-18 (2026-07-31): the language-switch banner that used to live here was
+// removed. It offered ES/PT/DE visitors a link into the /es/ /pt/ /de/ trees,
+// which now return 410 (T-02) — Panama is the #2 country by clicks, and
+// PA maps to "es" below, so the banner would have been pointing most of that
+// traffic at a dead page. detectLang/LANG_BY_COUNTRY are kept: the cookie
+// banner still localizes its own copy by detected language.
+//
+// Runs on root + /articles/* + /projects/*. NOT on /es/*, /pt/*, /de/*.
 // =============================================================================
 
 import type { Context } from "https://edge.netlify.com";
@@ -34,12 +38,6 @@ const HABEAS_DATA_COUNTRIES = new Set(["CO"]);
 const LFPDPPP_COUNTRIES = new Set(["MX"]);
 
 const BOT_UA = /(googlebot|google-inspectiontool|adsbot-google|googleother|bingbot|slackbot|twitterbot|facebookexternalhit|linkedinbot|whatsapp|telegrambot|duckduckbot|ahrefsbot|semrushbot|applebot|baiduspider|yandexbot|sogou|exabot|mj12bot|dotbot|petalbot|claudebot|gptbot|oai-searchbot|perplexitybot|bytespider|meta-externalagent|amazonbot|youbot|cohere-ai|anthropic-ai|chatgpt-user)/i;
-
-const LANG_LABELS: Record<string, { msg: string; cta: string }> = {
-  es: { msg: "Esta guía está disponible en español.", cta: "Cambiar a español" },
-  pt: { msg: "Este guia está disponível em português.", cta: "Mudar para português" },
-  de: { msg: "Diese Anleitung ist auf Deutsch verfügbar.", cta: "Auf Deutsch wechseln" },
-};
 
 const COOKIE_LABELS: Record<string, { msg: string; accept: string; settings: string }> = {
   en: { msg: "We use cookies to improve your experience and analyze traffic.", accept: "Accept", settings: "Cookie settings" },
@@ -74,18 +72,6 @@ function detectCookieRegime(country: string): string {
   return "standard";
 }
 
-function renderLangBanner(targetLang: string, currentPath: string): string {
-  const labels = LANG_LABELS[targetLang];
-  if (!labels) return "";
-  // Translate /articles/X.html -> /<lang>/articles/X.html
-  const translatedPath = `/${targetLang}${currentPath.startsWith("/") ? currentPath : "/" + currentPath}`;
-  return `<div id="preg-lang-banner" style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#0b1f28;color:#fdf8ef;padding:10px 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;display:flex;align-items:center;justify-content:center;gap:16px;box-shadow:0 2px 8px rgba(0,0,0,0.18)">
-  <span>${labels.msg}</span>
-  <a href="${translatedPath}" onclick="document.cookie='preg_lang=${targetLang};path=/;max-age=31536000;samesite=lax;secure'" style="background:#d65a45;color:#fdf8ef;padding:6px 14px;border-radius:4px;text-decoration:none;font-weight:600">${labels.cta} &rarr;</a>
-  <button onclick="this.parentElement.remove();document.cookie='preg_lang=en;path=/;max-age=31536000;samesite=lax;secure'" style="background:transparent;color:#fdf8ef;border:1px solid #fdf8ef33;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:13px">Dismiss</button>
-</div>`;
-}
-
 function renderCookieBanner(regime: string, lang: string): string {
   if (regime === "standard") return ""; // existing cookie-banner.js handles standard
   const labels = COOKIE_LABELS[lang] || COOKIE_LABELS.en;
@@ -114,22 +100,20 @@ export default async (request: Request, context: Context) => {
   // 2. Skip if already on a per-language path
   if (/^\/(es|pt|de)\//.test(url.pathname)) return;
 
-  // 3. Detect lang + cookie regime
+  // 3. Detect lang (for cookie-banner copy) + cookie regime
   const country = (context.geo?.country?.code || "").toUpperCase();
   const acceptLang = request.headers.get("accept-language") || "";
   const cookies = parseCookies(request.headers.get("cookie") || "");
   const detectedLang = detectLang(country, acceptLang);
   const cookieRegime = detectCookieRegime(country);
 
-  // 4. Pass through if user already chose a language OR detected lang is EN (current page)
-  const langCookie = cookies.preg_lang;
+  // 4. Pass through if the cookie banner was already accepted or doesn't apply here
   const cookieAccepted = cookies.preg_cookie === "accepted";
-  const showLangBanner = !langCookie && detectedLang !== "en" && LANG_BY_COUNTRY[country];
   const showCookieBanner = !cookieAccepted && cookieRegime !== "standard";
 
-  if (!showLangBanner && !showCookieBanner) return;
+  if (!showCookieBanner) return;
 
-  // 5. Mutate response: inject banners after <body>
+  // 5. Mutate response: inject the cookie banner after <body>
   const response = await context.next();
   // Only mutate 200 responses with HTML content (skip 404/3xx/5xx)
   if (response.status !== 200) return response;
@@ -137,9 +121,7 @@ export default async (request: Request, context: Context) => {
   if (!contentType.includes("text/html")) return response;
 
   let html = await response.text();
-  let injection = "";
-  if (showLangBanner) injection += renderLangBanner(detectedLang, url.pathname);
-  if (showCookieBanner) injection += renderCookieBanner(cookieRegime, detectedLang);
+  const injection = renderCookieBanner(cookieRegime, detectedLang);
   if (injection) {
     // Tolerant body-tag match: <body> or <body attr="...">
     html = html.replace(/<body([^>]*)>/i, `<body$1>${injection}`);

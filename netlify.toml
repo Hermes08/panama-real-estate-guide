@@ -9,6 +9,65 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
+# =============================================================================
+# 410 GONE — machine-translated locale trees (405 URLs)
+# =============================================================================
+# Evidence: Semrush Top Pages shows 0 referring domains on every deep URL
+# (93 of 103 ref domains point at the root), so no page-level link equity is
+# lost. These 405 URLs earned 30 clicks in 119 days combined and cannibalise
+# their own English originals (the /de/ page outranks the EN one for the
+# English query "retire in panama vs costa rica").
+#
+# 410 not 404: 410 is an unambiguous "deliberately removed" signal and is
+# de-indexed faster; Google retries 404s for months assuming a mistake.
+#
+# Deliberately NOT redirected to the English equivalents: the content differs,
+# and bulk redirects to loosely-related pages are treated as soft 404s.
+#
+# force = true so these apply even while the static files still exist under
+# project/es, project/de, project/pt. Delete those directories in a later
+# commit if desired; the rules serve 410 either way and git retains the source.
+#
+# MUST ship together with: removal of hreflang annotations from the EN pages,
+# regeneration of sitemap.xml without these URLs, and disabling the geo-route
+# language banner (it advertises these now-dead pages).
+[[redirects]]
+  from = "/es/*"
+  to = "/410.html"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/de/*"
+  to = "/410.html"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/pt/*"
+  to = "/410.html"
+  status = 410
+  force = true
+
+# 301: collapse duplicate hub URL forms onto the trailing-slash version.
+# Both forms currently draw impressions, splitting the signal.
+[[redirects]]
+  from = "/articles/index.html"
+  to = "/articles/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/news/index.html"
+  to = "/news/"
+  status = 301
+  force = true
+
+# NOTE: /proyectos/ is NOT redirected. It holds 4 distinct projects
+# (buenaventura-ritz-reserve, casa-korsi-casco-antiguo, euphoria-art-district,
+# sanctuary-residences) with zero slug overlap against /projects/. They are
+# separate content, not duplicates.
+
 # 301: retired demo project pages back to home
 [[redirects]]
   from = "/projects/palma-blanca.html"

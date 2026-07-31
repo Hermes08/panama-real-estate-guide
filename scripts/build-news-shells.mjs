@@ -6,9 +6,11 @@
 // classes of news exist on this site:
 //
 //   • TRANSLATED — slug present in state/chrome-i18n.json en.news_full_bodies
-//     (15 items). Real EN+ES+PT+DE titles and bodies. Each language shell
-//     self-canonicalises and carries a full hreflang cluster (en/es/pt/de +
-//     x-default → en).
+//     (15 items). Real EN+ES+PT+DE titles and bodies. Each shell
+//     self-canonicalises. T-16 (2026-07-31): the EN shell carries NO hreflang
+//     (the /es/ /pt/ /de/ trees now 410 per T-02); the /es|/pt|/de shells keep
+//     their own en/es/pt/de + x-default cluster, which is moot once those
+//     URLs 410 but is left alone as out of scope.
 //
 //   • LEGACY — slug present only in data.js newsBodies (18 items), English-only.
 //     The EN shell self-canonicalises; the /es|/pt|/de shells render the SAME
@@ -182,7 +184,9 @@ async function main() {
   let created = 0;
   let touched = 0;
 
-  // TRANSLATED — all four languages, self-canonical + full hreflang cluster.
+  // TRANSLATED — all four languages, self-canonical. The EN shell carries no
+  // hreflang (T-16: the /es/ /pt/ /de/ trees now 410 per T-02); the /es/ /pt/
+  // /de/ shells keep their own cluster since it's moot once those URLs 410.
   for (const slug of translated) {
     const hreflang = {};
     for (const l of LANGS) hreflang[l] = urlFor(l, slug);
@@ -203,7 +207,7 @@ async function main() {
         pageTitle: title,
         description: clip(body[0] || title),
         canonical: urlFor(lang, slug),
-        hreflang,
+        hreflang: lang === 'en' ? null : hreflang,
       });
       await fs.writeFile(file, html);
       touched++;
