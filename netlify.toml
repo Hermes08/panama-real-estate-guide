@@ -1,12 +1,26 @@
-# Netlify config for panamarealestateguide.com static site + serverless functions
-
+# Netlify config for panamarealestateguide.com — v2 (Next.js/Supabase) + serverless functions
+#
+# Cutover (2026-07-31): publish target moved from the v1 static site
+# (`project/`, built by .github/workflows/netlify-deploy.yml via the CLI) to
+# the v2 Next.js app in `v2/`, built here by @netlify/plugin-nextjs. `base`
+# points the build at v2/ (its own package.json/next.config.ts); `directory`
+# under [functions] is adjusted to `../netlify/functions` since those
+# lambdas live at the repo root, outside `base`. v1's `project/` directory
+# and its GitHub Actions deploy workflow are left in the repo — nothing
+# currently publishes from them, but the source stays recoverable.
 [build]
-  publish = "project"
+  base = "v2"
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 [functions]
-  # Functions live under /netlify/functions/ and are deployed as serverless lambdas.
-  # Routed via `export const config = { path: '...' }` inside each .mjs.
-  directory = "netlify/functions"
+  # Functions live under /netlify/functions/ (repo root) and are deployed as
+  # serverless lambdas. Routed via `export const config = { path: '...' }`
+  # inside each .mjs. Path is relative to `base` above.
+  directory = "../netlify/functions"
   node_bundler = "esbuild"
 
 # =============================================================================
@@ -115,21 +129,24 @@
 # 301: legacy /articles/ slugs Google indexed that never shipped as files
 # (no internal links, not in sitemap) -> closest live equivalent article.
 # Clears the GSC "Not found (404)" bucket and preserves any residual equity.
+# Point directly at the v2 destination (not the old v1 slug) so this stays a
+# single hop after the v1->v2 cutover, instead of chaining through a v1 URL
+# that itself now 301s.
 [[redirects]]
   from = "/articles/condos-for-sale-panama-2026.html"
-  to = "/articles/condos-for-sale-panama-buyers-guide.html"
+  to = "/buying/condos-for-sale-panama-buyers-guide"
   status = 301
   force = true
 
 [[redirects]]
   from = "/articles/costa-del-este.html"
-  to = "/articles/best-neighborhoods-panama-city-expats.html"
+  to = "/buying/best-neighborhoods-panama-city-expats"
   status = 301
   force = true
 
 [[redirects]]
   from = "/articles/pensionado-visa.html"
-  to = "/articles/pensionado-panama-city-condo-2026.html"
+  to = "/living/retire-in-panama"
   status = 301
   force = true
 
@@ -144,15 +161,32 @@
   path = "/dashboard"
 
 
-# Geo-aware delivery: language banner + per-jurisdiction cookie banner
-# (Phase 4a of the multilingual plan. Bot-safe: bots pass through unmodified.)
+# Per-jurisdiction cookie-consent banner (language-banner half removed
+# 2026-07-31, T-18). Paths updated for the v2 cutover — /articles/* is gone
+# (redirected away), replaced with the actual v2 route patterns.
 [[edge_functions]]
   function = "geo-route"
   path = "/"
 
 [[edge_functions]]
   function = "geo-route"
-  path = "/articles/*"
+  path = "/buying/*"
+
+[[edge_functions]]
+  function = "geo-route"
+  path = "/residency/*"
+
+[[edge_functions]]
+  function = "geo-route"
+  path = "/money/*"
+
+[[edge_functions]]
+  function = "geo-route"
+  path = "/living/*"
+
+[[edge_functions]]
+  function = "geo-route"
+  path = "/areas/*"
 
 [[edge_functions]]
   function = "geo-route"

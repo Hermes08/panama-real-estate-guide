@@ -73,3 +73,8 @@ project/scraps/
 
 # Build-time outputs from scripts/build-sitemap.mjs — regenerated on every deploy
 project/sitemap.xml
+
+# Netlify CLI build cache/output (netlify build / netlify link) — regenerated
+.netlify/
+v2/.netlify/
+v2/.next/

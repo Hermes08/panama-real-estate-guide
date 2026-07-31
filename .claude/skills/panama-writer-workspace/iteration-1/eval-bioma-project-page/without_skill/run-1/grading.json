@@ -1,0 +1,112 @@
+{
+  "expectations": [
+    {
+      "text": "Output is delivered as separate structured fields (title, meta_description, hook, body, suits, drawbacks, location_note, buying_note, faqs, sources) rather than one undifferentiated blob of markdown",
+      "passed": false,
+      "evidence": "output.md is a single continuous markdown file (12,277 chars). Meta title and meta description are set off with bold labels ('**Meta title:**', '**Meta description:**') at the top, and the body uses H2 headers to separate sections (hook, price table, location, amenities, 'who it suits/doesn't', 'before you buy', FAQ) — but these are prose sections inside one .md file, not discrete machine-readable fields (no frontmatter, no JSON keys, no field boundaries a CMS could ingest directly). There is also no dedicated 'sources' field or citation list anywhere in the file — sourcing is folded into prose ('compiled from developer marketing materials and reseller listings as of mid-2026'). This is exactly the gap the eval note anticipated: without the skill's schema, the writer produced good markdown but not the structured-field output the templates expect."
+    },
+    {
+      "text": "Includes a per-unit price and floor-plan table (beds, baths, m²/sq ft, price)",
+      "passed": false,
+      "evidence": "The table at output.md lines 36-44 ('Bioma Costa del Este prices and floor plans') has columns Model | Size (m²) | Size (sq ft) | Price from | Price per m² — no beds or baths columns. Bedroom/bathroom info is instead handled in a prose sentence below the table ('All units are marketed as 1-2 bedroom layouts... confirm bedroom/bathroom counts unit-by-unit'), which is a defensible choice given the source data (v2/data/airtable.json has beds:null/baths:null for every Bioma model), but it does not satisfy the literal expectation that the table itself carries beds/baths."
+    },
+    {
+      "text": "The hook paragraph names one specific, verifiable fact about Bioma Costa del Este (a permit, license, developer track record, or price anomaly) rather than generic marketing language",
+      "passed": true,
+      "evidence": "Hook section (output.md lines 26-30) names a specific, checkable claim: 'the developer also markets Bioma as the first residential tower in Panama built with Dactron, a composite façade material... a claim we can't independently verify from public building records.' This is a concrete, falsifiable fact tied to construction records (adjacent in kind to the 'permit/license' category the expectation names), explicitly flagged as developer-sourced and unverified rather than stated as settled marketing copy. It is not generic language like 'stunning views' or 'luxury living.'"
+    },
+    {
+      "text": "At least one drawback is named and is attributed to a source other than the developer (UGC, forum, or reasoned risk) rather than a generic hedge like 'may not suit everyone'",
+      "passed": true,
+      "evidence": "'Who Bioma suits — and who it doesn't' section (output.md lines 72-76) lists specific reasoned risks: multi-year pre-construction hold with 'permitting delays, phased price changes,' Dactron's lack of a Panama construction track record, and new-supply competition ('Costa del Este and neighboring San Francisco/Punta Pacifica have a wave of new towers under construction right now... resale and rental competition will be real by the time Bioma delivers'). These are the writer's own reasoned-risk analysis, not developer messaging, and not a generic hedge phrase."
+    },
+    {
+      "text": "At least 3 FAQs are present, phrased as real buyer questions",
+      "passed": true,
+      "evidence": "8 FAQ entries at output.md lines 88-110, each phrased as a first-person buyer question: 'Is Bioma Costa del Este a good investment?', 'Can foreigners buy at Bioma Costa del Este?', 'Is the land titled or Rights of Possession (ROP)?', 'Does buying at Bioma qualify for Panama residency?', 'Can I rent my unit short-term (Airbnb)?', etc."
+    },
+    {
+      "text": "At least one figure (price, tax, or fee) carries a named source and a check date/month, not just a bare number",
+      "passed": false,
+      "evidence": "Every figure in the output is attributed only to generic, unnamed categories — 'one third-party listing' (HOA estimate, line 46/106), 'resale listings' (delivery date, line 97), 'developer marketing materials and reseller listings' (quick-facts footnote, line 24), 'Reported figures range from... depending on source' (deposit, line 21). None names a specific outlet (e.g. 'The Agency Panama', 'Raggi Properties' — both of which the transcript shows were actually fetched) alongside a specific figure with a check date/month. The only date given is a blanket 'as of mid-2026' applied to the whole quick-facts table, not tied to an individual named source for an individual figure."
+    },
+    {
+      "text": "No unsourced currency-conversion phrasing (e.g. '$X USD (approximately...)')",
+      "passed": true,
+      "evidence": "No currency-conversion phrasing appears anywhere in output.md; all prices are stated as plain USD figures (Panama's currency is USD-pegged, so no conversion was needed or attempted)."
+    },
+    {
+      "text": "Body prose (excluding the price table) is substantive, not a thin 150-word placeholder",
+      "passed": true,
+      "evidence": "Excluding the price table, the body runs to roughly 1,600+ words across the hook, location, amenities, suits/doesn't-suit, before-you-buy, and 8-question FAQ sections — clearly substantive, multi-paragraph analysis rather than a placeholder."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 3,
+    "total": 8,
+    "pass_rate": 0.625
+  },
+  "execution_metrics": {
+    "tool_calls": {
+      "Bash": 4,
+      "Read": 3,
+      "ToolSearch": 1,
+      "WebSearch": 3,
+      "WebFetch": 9,
+      "Write": 3
+    },
+    "total_tool_calls": 23,
+    "total_steps": 16,
+    "errors_encountered": 4,
+    "output_chars": 12277,
+    "transcript_chars": 11204
+  },
+  "timing": {
+    "executor_duration_seconds": 292.348,
+    "total_duration_seconds": 292.348
+  },
+  "claims": [
+    {
+      "claim": "All 7 unit models, their sizes (m²/sq ft), and prices in the table are taken from v2/data/airtable.json",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Grepped v2/data/airtable.json directly: Modelo A 65m²/$342,000, B 89m²/$372,000, C 97m²/$417,000, D 100m²/$435,000, E 114m²/$498,000, F 130m²/$580,000, G(Penthouse) 156m²/$695,000 — all match output.md's table exactly. Confirms the transcript's claim of using Airtable as the primary pricing source."
+    },
+    {
+      "claim": "Airtable's Bioma models have null beds/baths for every unit, which is why the table omits those columns",
+      "type": "factual",
+      "verified": true,
+      "evidence": "v2/data/airtable.json shows 'beds': null, 'baths': null for all 7 Bioma models — confirms this wasn't a writer oversight but a genuine data gap, though the eval expectation still isn't satisfied since the table lacks the columns regardless of cause."
+    },
+    {
+      "claim": "Every figure with cross-source disagreement was flagged as such in the copy rather than silently resolved (transcript Step 4/5 claim)",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Output.md does flag disagreement in several places: floor count '~58-story... reported elsewhere as 47-60 stories' (line 17), reservation deposit '$1,000 to $5,000 depending on source' (line 21), bedroom counts 'confirm bedroom/bathroom counts unit-by-unit' (line 46). This claim holds up under inspection."
+    },
+    {
+      "claim": "No content was copied verbatim from any source (transcript Step 5 claim)",
+      "type": "quality",
+      "verified": false,
+      "evidence": "Not independently verifiable without re-fetching every cited source page and diffing text; taken on faith. Flagging as unverified rather than confirmed."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Output is delivered as separate structured fields (title, meta_description, hook, body, suits, drawbacks, location_note, buying_note, faqs, sources) rather than one undifferentiated blob of markdown",
+        "reason": "This assertion conflates two different things: 'has clearly labeled sections' (which this output does, via H2 headers) and 'is delivered as separate structured fields' (which it is not — there's no frontmatter/JSON/field-delimited format). A future run that adds bold section labels to a single markdown file could plausibly be graded as passing even though it's still just one blob a CMS can't ingest field-by-field. Consider splitting this into two separate expectations: (1) sections are clearly delineated, and (2) output uses an actual structured format (frontmatter, JSON, or explicit field delimiters) that a script could parse into discrete fields — the second is the one that actually distinguishes 'skill produced schema-compliant output' from 'skill produced nicely organized prose.'"
+      },
+      {
+        "reason": "A real gap this run exposed that no expectation directly checks: the output never names which specific competitor/reseller page a given fact came from, even though the transcript shows the writer fetched named sources (The Agency Panama, Raggi Properties, Punta Pacifica Realty, Panama Equity) and could easily have attributed individual figures to them by name. Expectation 6 catches the absence of a *named source + date* pairing, but a sharper assertion — 'sources section lists the actual URLs/outlets consulted' — would more directly test whether the piece is auditable/fact-checkable by an editor, which seems to be the underlying intent."
+      }
+    ],
+    "overall": "5/8 passed. The two clearest, most discriminating failures (no beds/baths in the price table, no named-source+date pairing on any figure) are genuine gaps, not eval nitpicks — they reflect real information the airtable.json source lacked (beds/baths) or that the writer chose to generalize away (source attribution) despite having the named sources on hand from its own research. The structured-fields expectation is the one worth refining: as written it's somewhat ambiguous between 'organized markdown' and 'machine-parseable fields,' and this run's well-organized-but-still-single-blob output sits right on that ambiguity."
+  }
+}
