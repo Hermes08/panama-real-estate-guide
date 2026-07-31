@@ -132,4 +132,5 @@ jobs:
             --site="$NETLIFY_SITE_ID" \
             --auth="$NETLIFY_AUTH_TOKEN" \
             --prod \
+            --debug \
             --message="GH Actions: ${{ github.sha }} on ${{ github.ref_name }}"
