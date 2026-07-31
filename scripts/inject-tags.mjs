@@ -31,7 +31,9 @@ function buildHeadTags(env) {
   // until user accepts. Implements Google Consent Mode v2.
   parts.push(`<script src="/cookie-banner.js?v=1"></script>`);
 
-  // Google Tag Manager (covers GA4 + Google Ads + TikTok via GTM)
+  // Google Tag Manager. GA4/Google Ads/TikTok are each loaded directly below
+  // regardless of GTM — this container isn't configured with tags for any of
+  // them, so GTM here only does whatever else it's set up for.
   if (env.GTM_CONTAINER_ID) {
     parts.push(`<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -51,8 +53,11 @@ fbq('init','${env.META_PIXEL_ID}');fbq('track','PageView');</script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${env.META_PIXEL_ID}&ev=PageView&noscript=1"/></noscript>`);
   }
 
-  // GA4 direct (in case GTM is not configured but GA4 is)
-  if (env.GA4_MEASUREMENT_ID && !env.GTM_CONTAINER_ID) {
+  // GA4 — loaded directly, same as Meta Pixel/Google Ads/TikTok below. Used
+  // to be gated behind "only if GTM isn't set", on the assumption GA4 would
+  // be configured inside the GTM container instead; nothing ever added that
+  // tag there, which is how this site went without any GA4 data at all.
+  if (env.GA4_MEASUREMENT_ID) {
     parts.push(`<script async src="https://www.googletagmanager.com/gtag/js?id=${env.GA4_MEASUREMENT_ID}"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
 gtag('js',new Date());gtag('config','${env.GA4_MEASUREMENT_ID}');</script>`);
@@ -169,7 +174,7 @@ async function main() {
       env.GTM_CONTAINER_ID && `GTM(${env.GTM_CONTAINER_ID})`,
       env.META_PIXEL_ID && `MetaPixel(${env.META_PIXEL_ID})`,
       env.GOOGLE_ADS_CONVERSION_ID && `GoogleAds(${env.GOOGLE_ADS_CONVERSION_ID})`,
-      env.GA4_MEASUREMENT_ID && !env.GTM_CONTAINER_ID && `GA4(${env.GA4_MEASUREMENT_ID})`,
+      env.GA4_MEASUREMENT_ID && `GA4(${env.GA4_MEASUREMENT_ID})`,
       env.TIKTOK_PIXEL_ID && `TikTok(${env.TIKTOK_PIXEL_ID})`,
       env.CALENDLY_BOOKING_URL && `Calendly(${env.CALENDLY_BOOKING_URL.split('/').slice(-2).join('/')})`,
     ].filter(Boolean).join(', ');
