@@ -124,12 +124,18 @@ jobs:
         # step entirely and just uploaded a pre-built directory — that's what
         # made netlify.toml's [build] section dead code under the old
         # pipeline. Verified locally with `netlify build --offline`.
+        #
+        # --site uses the site NAME, not NETLIFY_SITE_ID (the UUID) — the
+        # --debug output from the previous failed run showed the crash
+        # happening inside the CLI's getSiteByName() resolver, meaning --site
+        # is resolved as a name lookup regardless of whether the value looks
+        # like a UUID. NETLIFY_SITE_ID stays the UUID for the REST API call
+        # in the step above, which does need the ID.
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         run: |
           netlify deploy \
-            --site="$NETLIFY_SITE_ID" \
+            --site="panamarealestateguide" \
             --auth="$NETLIFY_AUTH_TOKEN" \
             --prod \
             --debug \
