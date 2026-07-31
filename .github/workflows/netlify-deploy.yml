@@ -5,10 +5,7 @@ on:
     branches: [main]
   workflow_dispatch:
   schedule:
-    # Once a day at 06:00 UTC (01:00 Panama) — refreshes Airtable data + signed
-    # image URLs. Was '0 */6 * * *' (every 6h, 4×/day) but with AIRTABLE_TOKEN
-    # not set the cron just re-published identical bytes, generating 4 cron-only
-    # Netlify deploys per day. One refresh per day is enough.
+    # Once a day at 06:00 UTC (01:00 Panama).
     - cron: '0 6 * * *'
 
 permissions:
@@ -29,118 +26,32 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Sync Airtable -> static JSON + images (optional)
-        env:
-          AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
-        run: |
-          if [ -z "$AIRTABLE_TOKEN" ]; then
-            echo "AIRTABLE_TOKEN not set — skipping Airtable sync (site will fall back to data.js)"
-          else
-            node scripts/sync-airtable.mjs
-          fi
-
-      - name: Sync YouTube channel feed -> project/youtube-videos.json
-        # Pulls the 15 most recent videos from the @panamarealestateguidetv RSS
-        # feed and merges into the committed JSON. Idempotent: only modifies
-        # the file when titles/descriptions/project mapping change.
-        run: node scripts/sync-youtube-videos.mjs
-
-      - name: Split data.js -> data-light.js + per-article body files
-        # Generates project/data-light.js (~60KB) + project/bodies/articles/*.js
-        # (~20KB each). HTML shells load the light version + their per-slug body
-        # instead of the full 1.8MB data.js. Both outputs are gitignored.
-        run: node scripts/build-data-split.mjs
-
-      - name: Pre-compile JSX (.jsx -> .js, drops Babel-standalone from browser)
-        # scripts/build-jsx.mjs runs npx esbuild against every project/**/*.jsx
-        # and writes side-by-side .js outputs. HTML shells reference .js directly
-        # so the browser never loads Babel-standalone (~600 KB saved per pageview).
-        run: node scripts/build-jsx.mjs
-
-      - name: Inject per-project meta + schema into /projects/*.html
-        run: node scripts/inject-project-meta.mjs
-
-      - name: Generate per-video pages under /videos/
-        run: node scripts/inject-video-meta.mjs
-
-      - name: Build video sitemap (project/sitemap-videos.xml)
-        run: node scripts/build-video-sitemap.mjs
-
-      - name: Generate news shells + inject news SEO meta (canonical/hreflang/title)
-        # scripts/build-news-shells.mjs generates the per-language HTML shells for
-        # translated news that lack files (the /news/*.html GSC 404s) and injects
-        # canonical + hreflang + title/description for every news page. MUST run
-        # before build-sitemap.mjs (disk-based) so the new shells are listed.
-        run: node scripts/build-news-shells.mjs
-
-      - name: Build main sitemap.xml (lastmod=today aggregators + per-article dates)
-        # scripts/build-sitemap.mjs reads PANAMA_DATA.articles + .news + the
-        # /projects/*.html listing and writes project/sitemap.xml with fresh
-        # <lastmod> values so Google re-crawls quickly when content changes.
-        run: node scripts/build-sitemap.mjs
-
-      - name: Inject per-article meta + schema into /articles/*.html
-        run: node scripts/inject-article-meta.mjs
-
-      - name: Translate articles to ES/PT/DE (Claude API, incremental, no-op if key missing)
-        # Reads project/data.js, calls Anthropic API for each article x language
-        # whose source SHA has changed since the last cache hit. Writes per-lang
-        # HTML shells + body JS files into project/<lang>/articles/.
-        # Skips silently if ANTHROPIC_API_KEY is not set in repo secrets.
-        # continue-on-error: this is an enhancement step. If it fails (rate limit,
-        # credit exhausted, API outage, parser bug), the deploy must still proceed
-        # so the rest of the site reaches production. Translation is non-blocking.
-        continue-on-error: true
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node scripts/translate-content.mjs
-
-      - name: Inject hreflang link tags into every article and project shell
-        # For each /articles/*.html and /projects/*.html, detects which per-lang
-        # translations exist and emits <link rel="alternate" hreflang="..."> for
-        # each plus x-default. Idempotent (wrapped in HTML comment sentinels).
-        run: node scripts/inject-hreflang.mjs
-
-      - name: Inject notranslate meta into /es/ /pt/ /de/ HTML shells
-        # Stops Chrome's in-page translator from hijacking our manually translated
-        # nav/h1/excerpt and replacing it with mediocre machine output. Adds
-        # <meta name="google" content="notranslate"> + translate="no" on <html>.
-        # Idempotent — safe on every re-run.
-        run: node scripts/inject-notranslate.mjs
-
-      - name: Build i18n-data.js (chrome labels + per-article meta extracted from translated HTML)
-        # Reads state/chrome-i18n.json (nav, footer, CTA, category, author-bio
-        # translations for EN/ES/PT/DE) and crawls every project/{es,pt,de}/articles/*.html
-        # to extract the translated <title> + meta description per slug. Bundles into
-        # project/i18n-data.js so article-renderer.js + detail-chrome.js render
-        # h1/excerpt/category/nav/footer in the user's language.
-        run: node scripts/build-i18n-data.mjs
-
-
-      - name: Inject tracking tags (only if env vars are set)
-        env:
-          GTM_CONTAINER_ID: ${{ secrets.GTM_CONTAINER_ID }}
-          META_PIXEL_ID: ${{ secrets.META_PIXEL_ID }}
-          GA4_MEASUREMENT_ID: ${{ secrets.GA4_MEASUREMENT_ID }}
-          TIKTOK_PIXEL_ID: ${{ secrets.TIKTOK_PIXEL_ID }}
-          GOOGLE_ADS_CONVERSION_ID: ${{ secrets.GOOGLE_ADS_CONVERSION_ID }}
-          GOOGLE_ADS_CONVERSION_LABEL_LEAD: ${{ secrets.GOOGLE_ADS_CONVERSION_LABEL_LEAD }}
-          GOOGLE_ADS_CONVERSION_LABEL_WHATSAPP: ${{ secrets.GOOGLE_ADS_CONVERSION_LABEL_WHATSAPP }}
-          GOOGLE_ADS_CONVERSION_LABEL_CALENDLY: ${{ secrets.GOOGLE_ADS_CONVERSION_LABEL_CALENDLY }}
-          CALENDLY_BOOKING_URL: ${{ secrets.CALENDLY_BOOKING_URL }}
-        run: node scripts/inject-tags.mjs
+      # Cutover (2026-07-31): production now builds and publishes the v2
+      # Next.js/Supabase app, not the v1 static site. netlify.toml's [build]
+      # (base=v2, command, publish, @netlify/plugin-nextjs) is now the
+      # source of truth for the build — `netlify deploy` (no --dir) runs it
+      # rather than this workflow manually invoking v1's build-*/inject-*
+      # scripts and pushing a pre-built `project/` directory (the previous
+      # approach, which this workflow used until today, and which is also
+      # why the first deploy after the cutover PR merged failed: netlify.toml
+      # now declares @netlify/plugin-nextjs, and the old --dir=project
+      # invocation never installed it anywhere). v1's source files and
+      # scripts stay in the repo, just unused by this workflow now.
+      - name: Install v2 dependencies
+        working-directory: v2
+        run: npm ci
 
       - name: Install Netlify CLI
         run: npm install -g netlify-cli@17
 
       # Push runtime env vars into Netlify so the Functions (lead-submit.mjs,
       # calendly-webhook.mjs) can read META_CAPI_TOKEN, CRM_API_*, CALENDLY_*.
-      # These are runtime env (not build env) — the inject-tags step above only
-      # uses the *_CONVERSION_*/PIXEL_ID secrets at build time.
+      # Unrelated to the v1/v2 cutover — these serverless functions are
+      # shared infrastructure, not part of either static/app build.
       - name: Sync function env vars to Netlify (via API)
         # Non-fatal: this only keeps serverless-function env vars in sync. The
-        # static-site deploy below does not depend on it, and account_slug
-        # resolution can transiently fail — never let it block production.
+        # deploy below does not depend on it, and account_slug resolution can
+        # transiently fail — never let it block production.
         continue-on-error: true
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
@@ -198,15 +109,20 @@ jobs:
           set_env CRM_API_KEY                  "$CRM_API_KEY"
           set_env CALENDLY_WEBHOOK_SIGNING_KEY "$CALENDLY_WEBHOOK_SIGNING_KEY"
 
-      - name: Deploy project/ to Netlify (production)
+      - name: Build + deploy v2 to Netlify (production)
+        # No --dir, no --no-build: `netlify deploy` builds by default, which
+        # runs netlify.toml's [build] (base=v2, command="npm run build",
+        # publish=".next") plus @netlify/plugin-nextjs, then deploys the
+        # result. The previous workflow's `--dir=project` skipped this build
+        # step entirely and just uploaded a pre-built directory — that's what
+        # made netlify.toml's [build] section dead code under the old
+        # pipeline. Verified locally with `netlify build --offline`.
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         run: |
           netlify deploy \
-            --dir=project \
             --site="$NETLIFY_SITE_ID" \
             --auth="$NETLIFY_AUTH_TOKEN" \
             --prod \
             --message="GH Actions: ${{ github.sha }} on ${{ github.ref_name }}"
-
