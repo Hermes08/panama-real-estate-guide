@@ -19,7 +19,17 @@ export async function generateMetadata({
   const { category, slug } = await params;
   const article = await getArticleFull(category, slug);
   if (!article) return {};
-  return { title: article.title, description: article.dek ?? undefined };
+  return {
+    title: article.title,
+    description: article.dek ?? undefined,
+    alternates: { canonical: `/${category}/${slug}` },
+    openGraph: {
+      title: article.title,
+      description: article.dek ?? undefined,
+      url: `/${category}/${slug}`,
+      type: "article",
+    },
+  };
 }
 
 /* Slug function shared by the heading renderer and the TOC extraction below,
@@ -51,8 +61,49 @@ export default async function ArticlePage({
   const sections = article.body ? extractHeadings(article.body) : [];
   const reviewedForAccuracy = Boolean(article.reviewer && article.reviewedOn);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        headline: article.title,
+        description: article.dek ?? undefined,
+        url: `https://panamarealestateguide.com/${category}/${slug}`,
+        ...(article.author && { author: { "@type": "Person", name: article.author.name } }),
+        ...(reviewedForAccuracy && article.reviewer && {
+          reviewedBy: { "@type": "Person", name: article.reviewer.name },
+        }),
+        ...(article.reviewedOn && { dateModified: article.reviewedOn }),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://panamarealestateguide.com/" },
+          { "@type": "ListItem", position: 2, name: cat?.name ?? category, item: `https://panamarealestateguide.com/${category}` },
+          { "@type": "ListItem", position: 3, name: article.title },
+        ],
+      },
+      ...(article.faqs.length > 0
+        ? [
+            {
+              "@type": "FAQPage",
+              mainEntity: article.faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            },
+          ]
+        : []),
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ── Hero band ────────────────────────────────────────────────────── */}
       <section className="hero-band pb-24">
         <div className="wrap pt-[clamp(32px,4.5vw,52px)]">

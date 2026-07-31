@@ -18,9 +18,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const area = getArea(slug);
   if (!area) return {};
+  const title = `${area.name} property guide — prices, projects, title risk`;
+  const description = `${area.projectCount} development${area.projectCount === 1 ? "" : "s"} in ${area.name}, ${area.region}, from ${usd(area.priceFromUsd)}.`;
   return {
-    title: `${area.name} property guide — prices, projects, title risk`,
-    description: `${area.projectCount} development${area.projectCount === 1 ? "" : "s"} in ${area.name}, ${area.region}, from ${usd(area.priceFromUsd)}.`,
+    title,
+    description,
+    alternates: { canonical: `/areas/${slug}` },
+    openGraph: { title, description, url: `/areas/${slug}`, type: "website" },
   };
 }
 
@@ -49,8 +53,49 @@ export default async function AreaPage({
     area.climate ? { k: "Climate", v: area.climate } : null,
   ].filter((s): s is { k: string; v: string } => s !== null);
 
+  const areaFaqs = editorial?.faqs ?? [];
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Place",
+        name: area.name,
+        url: `https://panamarealestateguide.com/areas/${slug}`,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: area.name,
+          addressRegion: area.region,
+          addressCountry: "PA",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://panamarealestateguide.com/" },
+          { "@type": "ListItem", position: 2, name: area.name },
+        ],
+      },
+      ...(areaFaqs.length > 0
+        ? [
+            {
+              "@type": "FAQPage",
+              mainEntity: areaFaqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            },
+          ]
+        : []),
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ── Hero band ────────────────────────────────────────────────────── */}
       <section className="hero-band">
         <div className="wrap py-[clamp(40px,6vw,68px)]">
