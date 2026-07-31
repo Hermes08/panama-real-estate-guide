@@ -1,0 +1,2398 @@
+{
+  "areas": [
+    {
+      "slug": "costa-del-este",
+      "name": "Costa del Este",
+      "region": "Panama City",
+      "projectCount": 6,
+      "priceFromUsd": 280200
+    },
+    {
+      "slug": "santa-maria",
+      "name": "Santa María",
+      "region": "Panama City",
+      "projectCount": 5,
+      "priceFromUsd": 449880
+    },
+    {
+      "slug": "boquete",
+      "name": "Boquete",
+      "region": "Chiriquí Highlands",
+      "projectCount": 3,
+      "priceFromUsd": 121223
+    },
+    {
+      "slug": "marbella",
+      "name": "Marbella",
+      "region": "Panama City",
+      "projectCount": 3,
+      "priceFromUsd": 118000
+    },
+    {
+      "slug": "amador",
+      "name": "Amador",
+      "region": "Panama City",
+      "projectCount": 2,
+      "priceFromUsd": 117600
+    },
+    {
+      "slug": "playa-venao",
+      "name": "Playa Venao",
+      "region": "Pacific Coast",
+      "projectCount": 2,
+      "priceFromUsd": 320000
+    },
+    {
+      "slug": "punta-pacifica",
+      "name": "Punta Pacífica",
+      "region": "Panama City",
+      "projectCount": 2,
+      "priceFromUsd": 141600
+    },
+    {
+      "slug": "sora",
+      "name": "Sora",
+      "region": "Panamá Oeste Highlands",
+      "projectCount": 1,
+      "priceFromUsd": 399000
+    },
+    {
+      "slug": "bijao",
+      "name": "Bijao",
+      "region": "Pacific Coast",
+      "projectCount": 1,
+      "priceFromUsd": 775554
+    },
+    {
+      "slug": "playa-bonita",
+      "name": "Playa Bonita",
+      "region": "Pacific Coast",
+      "projectCount": 1,
+      "priceFromUsd": 320000
+    },
+    {
+      "slug": "buenaventura",
+      "name": "Buenaventura",
+      "region": "Pacific Coast",
+      "projectCount": 1,
+      "priceFromUsd": 815000
+    },
+    {
+      "slug": "obarrio",
+      "name": "Obarrio",
+      "region": "Panama City",
+      "projectCount": 1,
+      "priceFromUsd": 311550
+    },
+    {
+      "slug": "playa-caracol",
+      "name": "Playa Caracol",
+      "region": "Pacific Coast",
+      "projectCount": 1,
+      "priceFromUsd": 195000
+    },
+    {
+      "slug": "rio-hato",
+      "name": "Río Hato",
+      "region": "Pacific Coast",
+      "projectCount": 1,
+      "priceFromUsd": 450000
+    },
+    {
+      "slug": "portobelo",
+      "name": "Portobelo",
+      "region": "Caribbean",
+      "projectCount": 1,
+      "priceFromUsd": 210000
+    }
+  ],
+  "projects": [
+    {
+      "slug": "boquete-country-club",
+      "name": "Boquete Country Club",
+      "areaSlug": "boquete",
+      "published": false,
+      "status": "delivered",
+      "priceFromUsd": 121223,
+      "priceToUsd": 582080,
+      "bedsMin": 2,
+      "bedsMax": 3,
+      "sizeFromM2": 157.11203,
+      "descriptionEn": "Boquete Country Club is an exclusive residential community located just five minutes from the town of Boquete. The BCC community sits atop a plateau at an elevation of 3,600 feet, featuring a topography that slopes from north to south; this layout affords every residential lot, condominium, and villa views of the Pacific Ocean and Volcán Barú, as well as spectacular views of both the sunrise and sunset. The Boquete Country Club community will comprise a total of 135 single-family residential lots ranging in size from 1,000 m² to 2,000 m², 18 lots designated for small condominium complexes, and a number of lots allocated for commercial areas to provide basic services to the community. Currently, the infrastructure for the majority of these lots has already been completed.",
+      "amenities": [
+        "piscina",
+        "jacuzzi",
+        "sauna",
+        "gimnasio"
+      ],
+      "websiteUrl": null,
+      "rawLocation": "Boquete",
+      "models": [
+        {
+          "name": "Casa Hacienda ",
+          "beds": 2,
+          "baths": 2,
+          "sizeM2": 180200,
+          "priceFromUsd": null
+        },
+        {
+          "name": "PH Residencial Blue Sky ",
+          "beds": 2,
+          "baths": 2,
+          "sizeM2": 157.11203,
+          "priceFromUsd": null
+        },
+        {
+          "name": "P.H Residencial Mountain View ",
+          "beds": 3,
+          "baths": 3.5,
+          "sizeM2": 277,
+          "priceFromUsd": null
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/boquete-country-club/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/boquete-country-club/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/boquete-country-club/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/boquete-country-club/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/boquete-country-club/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "nautilus-punta-pacifica",
+      "name": "Nautilus",
+      "areaSlug": "amador",
+      "published": false,
+      "status": "under-construction",
+      "priceFromUsd": 117600,
+      "priceToUsd": 471600,
+      "bedsMin": 1,
+      "bedsMax": 2,
+      "sizeFromM2": 23.55,
+      "descriptionEn": "Nautilus has a rental license\nin the short term, offering the potential for high\nincome that today's investors demand,\nalong with the flexibility that homeowners value.\nEnjoy a projected ROI of 10%*,\nbacked by an in-house and professional service\nproperty management.\nUse your property whenever you want and our team\nwill be in charge of keeping her busy and generating\nincome while you're away. Ideal for investors,\ntemporary residents and for those seeking\na profitable project by the sea.",
+      "amenities": [
+        "NAUTILUS BEACH CLUB",
+        "NAUTILUS ADVENTURE CENTER",
+        "BAR Y RESTAURANTE FRENTE AL MAR",
+        "PISCINA INFINITA EN LA AZOTEA",
+        "SPA DE LUJO",
+        "GIMNASIO",
+        "LOUNGE PARA RESIDENTES EN LA AZOTEA",
+        "SKY DECK",
+        "ESPACIO DE CO-WORKING",
+        "CONCIERGE BILINGÜE 24/7",
+        "SERVICIO DE VALET PARKING"
+      ],
+      "websiteUrl": null,
+      "rawLocation": "Amador",
+      "models": [
+        {
+          "name": "Modelo E ",
+          "beds": 1,
+          "baths": 1,
+          "sizeM2": 43.42,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelo A ",
+          "beds": 1,
+          "baths": 1.5,
+          "sizeM2": 73.14,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelo C ",
+          "beds": 1,
+          "baths": 2,
+          "sizeM2": 75.6,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelo F ",
+          "beds": 1,
+          "baths": 1,
+          "sizeM2": 43.42,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelo G ",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 23.56,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelo L ",
+          "beds": 1,
+          "baths": 1,
+          "sizeM2": 48.16,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelo J ",
+          "beds": 2,
+          "baths": 2.5,
+          "sizeM2": 91.41,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelo K ",
+          "beds": 1,
+          "baths": 1,
+          "sizeM2": 40.42,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelo H ",
+          "beds": 1,
+          "baths": 2,
+          "sizeM2": 75.6,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelo B ",
+          "beds": 1,
+          "baths": 1,
+          "sizeM2": 52.8,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelo M ",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 23.55,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelo I ",
+          "beds": 1,
+          "baths": 1,
+          "sizeM2": 52.92,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelo D ",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 23.56,
+          "priceFromUsd": null
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/nautilus-punta-pacifica/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/nautilus-punta-pacifica/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/nautilus-punta-pacifica/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/nautilus-punta-pacifica/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/nautilus-punta-pacifica/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "corotu-santa-maria",
+      "name": "Corotú",
+      "areaSlug": "santa-maria",
+      "published": false,
+      "status": "under-construction",
+      "priceFromUsd": 449880,
+      "priceToUsd": 633619,
+      "bedsMin": 2,
+      "bedsMax": 3,
+      "sizeFromM2": 99,
+      "descriptionEn": "corotú, a reinterpretation of\nmodern life in panama. located\nin a luxury residential complex,\nwith a magnificent environment surrounded\nof green and contemporary architecture;\na fresh and pleasant atmosphere that\nallows you to live a lifestyle like no other.\nwe want whoever inhabits the project\nis surrounded by details that make it\nfeel sheltered, an exclusive club\nwhere you won't need anything.\n\nIts design is timeless and is composed\nwith 47 floors, 199 apartments and 5,270 m2\nof amenities designed for all\nages. a place where comfort\nand the community become\nthe fundamental pillars of life.",
+      "amenities": [
+        "CANCHA DE PÁDEL",
+        "PISCINA",
+        "GIMNASIO (CON ÁREA DE SPINNING)",
+        "CANCHA DE FUTBOLITO",
+        "BASKETBALL HOOP",
+        "ROOFED TERRACE",
+        "PISCINA DE NIÑOS",
+        "SPLASH PARK",
+        "JACUZZI (PISO 40)",
+        "GARDEN LOUNGE",
+        "COWORKING",
+        "Columna Derecha:",
+        "SOLARIUM",
+        "BBQ CABANAS",
+        "OUTDOOR LOUNGE",
+        "JUICE BAR",
+        "SAUNA",
+        "BAÑO TURCO",
+        "SALÓN DE EVENTOS",
+        "PET SPA",
+        "SKY LOUNGE & SKY TERRACE",
+        "KIDS CLUB",
+        "TEENAGE LOUNGE"
+      ],
+      "websiteUrl": null,
+      "rawLocation": "Santa María, Ciudad de Panamá",
+      "models": [
+        {
+          "name": "Apto A",
+          "beds": 3,
+          "baths": 3.5,
+          "sizeM2": 159,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Apto C",
+          "beds": 3,
+          "baths": 2.5,
+          "sizeM2": 146,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Apto D",
+          "beds": 2,
+          "baths": 2,
+          "sizeM2": 99,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Apto E",
+          "beds": 2,
+          "baths": 2,
+          "sizeM2": 141,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Apto B",
+          "beds": 3,
+          "baths": 3.5,
+          "sizeM2": 160,
+          "priceFromUsd": null
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/corotu-santa-maria/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/corotu-santa-maria/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/corotu-santa-maria/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/corotu-santa-maria/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/corotu-santa-maria/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "pino-alto-boquete",
+      "name": "Pino Alto Boquete",
+      "areaSlug": "boquete",
+      "published": true,
+      "status": "preselling",
+      "priceFromUsd": 245000,
+      "priceToUsd": 395000,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 100,
+      "descriptionEn": "Pino Alto is the premier answer for those seeking boquete panama real estate that matches a high-end lifestyle.",
+      "amenities": [
+        "Golf Ejecutivo de 9 Hoyos",
+        "Spa de Bienestar de Lujo",
+        "Senderos Privados junto al Río",
+        "Casa Club Comunitaria"
+      ],
+      "websiteUrl": "https://panamarealestatesale.com/es/proyectos/pino-alto-boquete",
+      "rawLocation": "Boquete, Chiriquí",
+      "models": [
+        {
+          "name": "Country Club Unit",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 150,
+          "priceFromUsd": 395000
+        },
+        {
+          "name": "2 Bedroom Condo",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 100,
+          "priceFromUsd": 245000
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/pino-alto-boquete/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/pino-alto-boquete/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/pino-alto-boquete/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/pino-alto-boquete/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/pino-alto-boquete/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "empire-residences-santa-maria",
+      "name": "Empire Residences",
+      "areaSlug": "santa-maria",
+      "published": true,
+      "status": "delivered",
+      "priceFromUsd": 1030000,
+      "priceToUsd": 1450000,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 322,
+      "descriptionEn": "A 48-story architectural masterpiece in Santa Maria Golf & Country Club with exclusive half-floor residences.",
+      "amenities": [
+        "Campo de Golf Santa María",
+        "Residencias de Medio Piso",
+        "Ultra Lujo",
+        "Club de Campo"
+      ],
+      "websiteUrl": "https://panamarealestatesale.com/es/proyectos/empire-residences-santa-maria",
+      "rawLocation": "Santa María, Ciudad de Panamá",
+      "models": [
+        {
+          "name": "Empire Penthouse Collection",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 425,
+          "priceFromUsd": 1450000
+        },
+        {
+          "name": "Empire Modelo C - 4 Rec Estate",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 368,
+          "priceFromUsd": 1185000
+        },
+        {
+          "name": "Empire Modelo A - 3 Rec Clásico",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 322,
+          "priceFromUsd": 1030000
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/empire-residences-santa-maria/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/empire-residences-santa-maria/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/empire-residences-santa-maria/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/empire-residences-santa-maria/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/empire-residences-santa-maria/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "bioma-costa-del-este",
+      "name": "Bioma Costa del Este",
+      "areaSlug": "costa-del-este",
+      "published": true,
+      "status": "preselling",
+      "priceFromUsd": 342000,
+      "priceToUsd": 695000,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 65,
+      "descriptionEn": "A revolutionary 58-story residential tower redefining smart urban living with three unique ecosystems.",
+      "amenities": [
+        "Smart Home Technology",
+        "3 Ecosistemas Temáticos",
+        "Rooftop",
+        "Sky Lounge"
+      ],
+      "websiteUrl": "https://panamarealestatesale.com/es/proyectos/bioma-costa-del-este",
+      "rawLocation": "Costa del Este, Ciudad de Panamá",
+      "models": [
+        {
+          "name": "Bioma Modelo E - 114m²",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 114,
+          "priceFromUsd": 498000
+        },
+        {
+          "name": "Bioma Modelo G - Penthouse 156m²",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 156,
+          "priceFromUsd": 695000
+        },
+        {
+          "name": "Bioma Modelo F - 130m²",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 130,
+          "priceFromUsd": 580000
+        },
+        {
+          "name": "Bioma Modelo A - 65m²",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 65,
+          "priceFromUsd": 342000
+        },
+        {
+          "name": "Bioma Modelo D - 100m²",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 100,
+          "priceFromUsd": 435000
+        },
+        {
+          "name": "Bioma Modelo C - 97m²",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 97,
+          "priceFromUsd": 417000
+        },
+        {
+          "name": "Bioma Modelo B - 89m²",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 89,
+          "priceFromUsd": 372000
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/bioma-costa-del-este/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/bioma-costa-del-este/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/bioma-costa-del-este/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/bioma-costa-del-este/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/bioma-costa-del-este/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "altos-del-maria",
+      "name": "Altos del María",
+      "areaSlug": "sora",
+      "published": true,
+      "status": "delivered",
+      "priceFromUsd": 399000,
+      "priceToUsd": 429000,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 145,
+      "descriptionEn": "Panama's premier mountain sanctuary, where 1,600 exclusive homes nestle among pristine cloud forests.",
+      "amenities": [
+        "Bosque Nuboso",
+        "Lagos",
+        "Senderos",
+        "Club House",
+        "1600 hectáreas"
+      ],
+      "websiteUrl": "https://panamarealestatesale.com/es/proyectos/altos-del-maria",
+      "rawLocation": "Sora, Panamá",
+      "models": [
+        {
+          "name": "Mediterranean Villa",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 275,
+          "priceFromUsd": 399000
+        },
+        {
+          "name": "Dianela Model",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 145,
+          "priceFromUsd": 429000
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/altos-del-maria/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/altos-del-maria/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/altos-del-maria/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/altos-del-maria/04.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "madero-costa-del-este",
+      "name": "Madero",
+      "areaSlug": "costa-del-este",
+      "published": false,
+      "status": "preselling",
+      "priceFromUsd": 527324,
+      "priceToUsd": 674974,
+      "bedsMin": 3,
+      "bedsMax": 4,
+      "sizeFromM2": 182,
+      "descriptionEn": "Madero is situated in the heart of Costa del Este, one of the most vibrant and exclusive areas of Panama City. Its strategic location allows you to enjoy a modern setting featuring impeccable urban planning, surrounded by green spaces, parks, and trails that invite an active and healthy lifestyle.\n\nFurthermore, its proximity to restaurants, the Town Center, pharmacies, schools, supermarkets, and other essential services ensures maximum convenience and accessibility for your family. Everything you need is just minutes from your home.",
+      "amenities": [
+        "piscina infinita",
+        "gimnasio equipado",
+        "canchas de pádel y fulbito",
+        "sauna",
+        "salón de eventos",
+        "Poker Room",
+        "y áreas recreativas para niños/adolescentes"
+      ],
+      "websiteUrl": null,
+      "rawLocation": "Costa del este, Ciudad de Panana",
+      "models": [
+        {
+          "name": "Tipo C",
+          "beds": 3,
+          "baths": null,
+          "sizeM2": 182,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Tipo B",
+          "beds": 4,
+          "baths": null,
+          "sizeM2": 231,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Tipo A",
+          "beds": 3,
+          "baths": null,
+          "sizeM2": 183,
+          "priceFromUsd": null
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/madero-costa-del-este/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/madero-costa-del-este/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/madero-costa-del-este/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/madero-costa-del-este/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/madero-costa-del-este/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "nogal-costa-del-este",
+      "name": "Nogal",
+      "areaSlug": "costa-del-este",
+      "published": false,
+      "status": "under-construction",
+      "priceFromUsd": 485600,
+      "priceToUsd": 524448,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": null,
+      "descriptionEn": "Designed by visionary architects and built by the most renowned developers in Panama, Nogal is an innovative work that highlights the aesthetics of Mallol & Mallol and the excellence of Empresas Bern.\n\nNogal presents a metropolitan-natural combination, creating a fresh and free concept, built for those seeking a balanced connection with nature and the good life.\n\nStart your life in Nogal, a space your way!",
+      "amenities": [
+        "Jacuzzi",
+        "Spa",
+        "salón de evento",
+        "piscina",
+        "coworking",
+        "juegos infantiles",
+        "jogging track",
+        "terraza con bar",
+        "cine",
+        "lounge de juego",
+        "gimnasio"
+      ],
+      "websiteUrl": null,
+      "rawLocation": "Costa del este, Ciudad de Panmá",
+      "models": [
+        {
+          "name": "Planta 130m²",
+          "beds": null,
+          "baths": null,
+          "sizeM2": null,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Planta 121m²",
+          "beds": null,
+          "baths": null,
+          "sizeM2": null,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Planta 100m²",
+          "beds": null,
+          "baths": null,
+          "sizeM2": null,
+          "priceFromUsd": null
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/nogal-costa-del-este/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/nogal-costa-del-este/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/nogal-costa-del-este/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/nogal-costa-del-este/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/nogal-costa-del-este/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "aurum-costa-del-este",
+      "name": "Aurum",
+      "areaSlug": "costa-del-este",
+      "published": false,
+      "status": "preselling",
+      "priceFromUsd": 323700,
+      "priceToUsd": 344214,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 832,
+      "descriptionEn": "In a city that evolves constantly, Aurum rises as an icon of strength and distinction.\nLocated in the exclusive Costa del Este area, this residential project combines a prime location with impressive architecture and timeless design.\nIt embodies security, elegance, prestige, and functionality, offering meticulously designed spaces for those who value excellence and lasting quality.\nSurrounded by nature, parks, and the conveniences of a master-planned community, Aurum will stand as a symbol of trust and style that will transcend generations.",
+      "amenities": [
+        "Terraza abierta",
+        "Salón de fiestas",
+        "Piscina",
+        "Parque para niños",
+        "Spa",
+        "Gimnasio",
+        "Areas verdes",
+        "Cine"
+      ],
+      "websiteUrl": null,
+      "rawLocation": "Costa del este, Ciudad de Panmá",
+      "models": [
+        {
+          "name": "Modelos A & B",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 882,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelo C, D, E & H",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 832,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelos F & G\n",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 1002,
+          "priceFromUsd": null
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/aurum-costa-del-este/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/aurum-costa-del-este/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/aurum-costa-del-este/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/aurum-costa-del-este/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/aurum-costa-del-este/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "guayacan-santa-maria",
+      "name": "Guayacan",
+      "areaSlug": "santa-maria",
+      "published": false,
+      "status": "under-construction",
+      "priceFromUsd": 1306840,
+      "priceToUsd": 2671400,
+      "bedsMin": 3,
+      "bedsMax": 4,
+      "sizeFromM2": null,
+      "descriptionEn": "Just as our well-being begins within us, the modern and elegant\nGuayacán's design is conceived from the inside out, taking into account\nthe residents at the center of this architectural proposal. Your unique\nFour-bedroom layout offers both comfort and flexibility\nto grow in a family and harmonious environment. Guayacán aspires to offer\nhomes characterized by their tranquility, in a peaceful environment, within\n\nfrom one of the most privileged areas of Panama City.",
+      "amenities": [
+        "• Piscina infantil",
+        "• Piscina adultos",
+        "• Salón infantil",
+        "• Salón gourmet",
+        "• Sun deck",
+        "• Yoga deck",
+        "• Lap pool",
+        "• Gimnasio / Spinning room",
+        "• Teen’s lounge",
+        "• Parque infantil",
+        "• Mini fútbol",
+        "• Pádel",
+        "• Terraza abierta",
+        "• Splash park"
+      ],
+      "websiteUrl": null,
+      "rawLocation": "Santa María, Ciudad de Panamá",
+      "models": [
+        {
+          "name": "Tipo A, B (3 recamaras)",
+          "beds": 3,
+          "baths": 3.5,
+          "sizeM2": null,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Tipo A, B (4 recamaras)",
+          "beds": 4,
+          "baths": 4.5,
+          "sizeM2": null,
+          "priceFromUsd": null
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/guayacan-santa-maria/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/guayacan-santa-maria/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/guayacan-santa-maria/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/guayacan-santa-maria/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/guayacan-santa-maria/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "seaside-calle-uruguay-calle 47",
+      "name": "Seaside",
+      "areaSlug": "marbella",
+      "published": false,
+      "status": "under-construction",
+      "priceFromUsd": 253400,
+      "priceToUsd": 466690,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 56,
+      "descriptionEn": "Discover Seaside, an innovative Condo Suites project designed for investors looking for:\n\nStrategic Location: Calle Uruguay is a central and popular area, close to restaurants, bars and tourist attractions, which attracts tourists and business travelers.\n\nHigh Demand: The growing influx of tourists and the mobility of executives mean that the demand for short-term rentals is high.\n\nPotential Yield: Short rentals tend to generate higher income compared to long-term rentals, especially in tourist areas.\n\nUrban Growth: The renovation of the area has increased its attractiveness, which can result in a long-term appreciation of the property.\n\nFlexibility: The possibility of using your property during periods without tenants, having a place to relax and unwind.\n\nInfrastructure: The area has good transport links and services, which makes it even more attractive for tenants.",
+      "amenities": [
+        "Cine",
+        "Espacio para Yoga y Pilates",
+        "Cuarto de juegos",
+        "Gimnasio",
+        "Piscina",
+        "Jacuzzi",
+        "Coworking",
+        "Club house"
+      ],
+      "websiteUrl": null,
+      "rawLocation": "Calle 47, y Calle Uruguay",
+      "models": [
+        {
+          "name": "MODELO A, B, C, D, E, H ",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 64,
+          "priceFromUsd": null
+        },
+        {
+          "name": "MODELO F, G ",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 56,
+          "priceFromUsd": null
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/seaside-calle-uruguay-calle 47/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/seaside-calle-uruguay-calle 47/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/seaside-calle-uruguay-calle 47/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/seaside-calle-uruguay-calle 47/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/seaside-calle-uruguay-calle 47/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "veranera-bijao",
+      "name": "Veranera Bijao",
+      "areaSlug": "bijao",
+      "published": false,
+      "status": "delivered",
+      "priceFromUsd": 775554,
+      "priceToUsd": 930573,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 978,
+      "descriptionEn": "At Veranera, you will enjoy a natural setting and exclusive access to amenities designed for your well-being. We offer spacious 4-bedroom homes—featuring walk-in closets and 4 bathrooms—situated on lots exceeding 1,000 square meters. Furthermore, you will benefit from finishes of the highest quality, along with understated and refined architectural details crafted to highlight every space with both elegance and functionality.",
+      "amenities": [
+        "Club de Golf",
+        "Beach Club",
+        "Restaurantes Gourmet",
+        "Club deportivo",
+        "Cancha de Padel",
+        "Cancha de Squash",
+        "Cancha de Tenis",
+        "Spa",
+        "Gimnasio"
+      ],
+      "websiteUrl": null,
+      "rawLocation": "BIjao",
+      "models": [
+        {
+          "name": "Parcela 2",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 1049,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Parcela 7-8",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 1652,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Parcela 1",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 1001,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Parcela 5",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 1021,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Parcela 4",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 1168,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Parcela 3",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 1020,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Parcela 6",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 978,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Parcela 9",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 1681,
+          "priceFromUsd": null
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/veranera-bijao/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/veranera-bijao/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/veranera-bijao/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/veranera-bijao/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/veranera-bijao/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "the-westin-residences-playa-bonita",
+      "name": "The Westin Residences",
+      "areaSlug": "playa-bonita",
+      "published": true,
+      "status": "delivered",
+      "priceFromUsd": 320000,
+      "priceToUsd": 650000,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 80,
+      "descriptionEn": "Westin Residences at Playa Bonita represents the peak of panama beachfront living. Branded Residences with full Marriott services.",
+      "amenities": [
+        "Frente al Mar Privado",
+        "Spa Sensorial de Westin",
+        "Múltiples Piscinas Infinity",
+        "Servicio de Conserje 24/7"
+      ],
+      "websiteUrl": "https://panamarealestatesale.com/es/proyectos/the-westin-residences-playa-bonita",
+      "rawLocation": "Playa Bonita, Panamá",
+      "models": [
+        {
+          "name": "2 Bedroom + Study",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 128,
+          "priceFromUsd": 450000
+        },
+        {
+          "name": "1-2 Bedroom Residences",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 80,
+          "priceFromUsd": 320000
+        },
+        {
+          "name": "Premium Unit / Penthouse",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 209,
+          "priceFromUsd": 650000
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/the-westin-residences-playa-bonita/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/the-westin-residences-playa-bonita/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/the-westin-residences-playa-bonita/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/the-westin-residences-playa-bonita/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/the-westin-residences-playa-bonita/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "towncenter-boquete",
+      "name": "Towncenter Boquete",
+      "areaSlug": "boquete",
+      "published": true,
+      "status": "delivered",
+      "priceFromUsd": 214600,
+      "priceToUsd": 625000,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 66,
+      "descriptionEn": "Sophisticated mixed-use living in the heart of Boquete with tourism-licensed units.",
+      "amenities": [
+        "Licencia Turística",
+        "Uso Mixto",
+        "Centro de Boquete",
+        "Vista a las Montañas"
+      ],
+      "websiteUrl": "https://panamarealestatesale.com/es/proyectos/towncenter-boquete",
+      "rawLocation": "Boquete, Chiriquí",
+      "models": [
+        {
+          "name": "Caldera - 1 Rec Compacto",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 66,
+          "priceFromUsd": 214600
+        },
+        {
+          "name": "Jaramillo - 2 Rec Estándar",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 90,
+          "priceFromUsd": 267000
+        },
+        {
+          "name": "Volcan - 3 Rec Premium",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 119,
+          "priceFromUsd": 325000
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/towncenter-boquete/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/towncenter-boquete/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/towncenter-boquete/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/towncenter-boquete/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/towncenter-boquete/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "alamar-buenaventura",
+      "name": "Alamar",
+      "areaSlug": "buenaventura",
+      "published": false,
+      "status": "under-construction",
+      "priceFromUsd": 815000,
+      "priceToUsd": 1300000,
+      "bedsMin": 3,
+      "bedsMax": 4,
+      "sizeFromM2": 165,
+      "descriptionEn": "Alamar is located in the privileged community\nfrom Buenaventura, on the Pacific Riviera of Panama,\nwhere 3 kilometers of beach, a hotel, a club\nbeach, an educational center, a zoo, a field\ngolf, restaurants and shops create a paradise\nonly. Located just 10 minutes from the Airport\nScarlett Martínez International and two hours by car\nfrom Panama City, Alamar is the gateway to\nentrance to a life surrounded by serenity and comfort in\nthe pacific coast.",
+      "amenities": [
+        "Restaurant & Beach Club",
+        "Beach Bar",
+        "Flowrider",
+        "Skate Park",
+        "Interactive Park",
+        "Yoga Deck",
+        "Private Pool",
+        "Reading Area",
+        "Jogging Track",
+        "Commercial Area",
+        "Dog Park"
+      ],
+      "websiteUrl": null,
+      "rawLocation": "Buenaventura",
+      "models": [
+        {
+          "name": "Torre 600, Apto Tipo 3 ",
+          "beds": 3,
+          "baths": 3.5,
+          "sizeM2": 203,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Torre 700, Apto Tipo 1-2 ",
+          "beds": 4,
+          "baths": 4.5,
+          "sizeM2": 304,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Torre 600, Apto Tipo 1 ",
+          "beds": 4,
+          "baths": 4.5,
+          "sizeM2": 244,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Torre 600 Apto Tipo 2",
+          "beds": 3,
+          "baths": 2.5,
+          "sizeM2": 165,
+          "priceFromUsd": null
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/alamar-buenaventura/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/alamar-buenaventura/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/alamar-buenaventura/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/alamar-buenaventura/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/alamar-buenaventura/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "silverbay-panama",
+      "name": "SilverBay",
+      "areaSlug": "marbella",
+      "published": true,
+      "status": "preselling",
+      "priceFromUsd": 118000,
+      "priceToUsd": 180000,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 37,
+      "descriptionEn": "Discover SilverBay, the boutique residential project redefining intelligent investment in Marbella.",
+      "amenities": [
+        "Rooftop Pool",
+        "Gym",
+        "Co-working",
+        "Concierge"
+      ],
+      "websiteUrl": "https://panamarealestatesale.com/es/proyectos/silverbay-panama",
+      "rawLocation": "Marbella, Ciudad de Panamá",
+      "models": [
+        {
+          "name": "SilverBay Modelo A",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 62,
+          "priceFromUsd": 180000
+        },
+        {
+          "name": "SilverBay Modelo E (Studio)",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 37,
+          "priceFromUsd": 118000
+        },
+        {
+          "name": "SilverBay Modelo B",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 54,
+          "priceFromUsd": 155000
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/silverbay-panama/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/silverbay-panama/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/silverbay-panama/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/silverbay-panama/04.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "cavarossa-amador",
+      "name": "Cavarossa",
+      "areaSlug": "amador",
+      "published": true,
+      "status": "preselling",
+      "priceFromUsd": 281200,
+      "priceToUsd": 462000,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 60,
+      "descriptionEn": "Where Italian sea meets Panama's Pacific shore. Cavarossa is a sophisticated residential treasure on the Amador Causeway.",
+      "amenities": [
+        "Vista Panorámica al Canal",
+        "Diseño Italiano",
+        "Amenidades de Resort",
+        "Ubicación Única"
+      ],
+      "websiteUrl": "https://panamarealestatesale.com/es/proyectos/cavarossa-amador",
+      "rawLocation": "Calzada de Amador, Ciudad de Panamá",
+      "models": [
+        {
+          "name": "Cavarossa Modelo B",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 106,
+          "priceFromUsd": 462000
+        },
+        {
+          "name": "Cavarossa Modelo E/F",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 94,
+          "priceFromUsd": 434000
+        },
+        {
+          "name": "Cavarossa Modelo A",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 60,
+          "priceFromUsd": 281000
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/cavarossa-amador/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/cavarossa-amador/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/cavarossa-amador/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/cavarossa-amador/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/cavarossa-amador/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "celeste-santa-maria",
+      "name": "Celeste",
+      "areaSlug": "santa-maria",
+      "published": false,
+      "status": "under-construction",
+      "priceFromUsd": 623580,
+      "priceToUsd": 915757,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 190,
+      "descriptionEn": "Celeste is a residential tower within the prestigious\nSanta María complex, located in the heart of the City\nfrom Panama.\nWith unique attributes, an efficient design and a commitment\nWith the highest aesthetic standards, this place is\ndestined to become a symbol of well-being and\nexcellence throughout the region.",
+      "amenities": [
+        "TEENS LOUNGE",
+        "JACUZZI",
+        "GYM",
+        "KIDDIE POOL",
+        "LAP POOL",
+        "SPLASH PARK",
+        "WINE BAR",
+        "ZEN GARDEN & YOGA DECK",
+        "TEEN'S LOUNGE (aparece por segunda vez con un icono de dados)",
+        "COWORKING",
+        "GOURMET ROOM",
+        "SKY LOUNGE",
+        "PADDLE COURT",
+        "KIDS PLAYROOM"
+      ],
+      "websiteUrl": null,
+      "rawLocation": "Santa María, Ciudad de Panamá",
+      "models": [
+        {
+          "name": "Modelo A",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 249,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelo B",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 210,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelo C",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 190,
+          "priceFromUsd": null
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/celeste-santa-maria/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/celeste-santa-maria/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/celeste-santa-maria/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/celeste-santa-maria/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/celeste-santa-maria/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "uptown-calle-uruguay-marbella",
+      "name": "Uptown",
+      "areaSlug": "marbella",
+      "published": false,
+      "status": "under-construction",
+      "priceFromUsd": 192500,
+      "priceToUsd": 634695,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 71,
+      "descriptionEn": "\nVersatile investment in Panama City’s prime district.\nMixed-use zoning: condo suites + retail + plazas\nCommercial license for short-term rentals (Airbnb, Expedia, etc.)\nFurnished units, designed for coliving and community living",
+      "amenities": [
+        "Teatro",
+        "Gym",
+        "Spa comercial",
+        "Teatro",
+        "Piscina",
+        "Chef Kitchen",
+        "Salon de Eventos"
+      ],
+      "websiteUrl": null,
+      "rawLocation": "Cale Uruguay, Marbella",
+      "models": [
+        {
+          "name": "Unidad",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 71,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Unidad ",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 135,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Unidad",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 90,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Unidad",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 93,
+          "priceFromUsd": null
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/uptown-calle-uruguay-marbella/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/uptown-calle-uruguay-marbella/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/uptown-calle-uruguay-marbella/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/uptown-calle-uruguay-marbella/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/uptown-calle-uruguay-marbella/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "tagua-costa-del-este",
+      "name": "Tagua",
+      "areaSlug": "costa-del-este",
+      "published": false,
+      "status": "under-construction",
+      "priceFromUsd": 1209784,
+      "priceToUsd": 1391550,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 345,
+      "descriptionEn": "Living in Tagua offers countless benefits.\nThis project, designed specifically for\nevery member of the family, offers a wide\nvariety of amenities for both adults and children,\nmaking it the ideal choice for those\nseeking to be part of an exclusive\nand vibrant community. With thousands of\nactivities available at any time of day,\nyour family can enjoy an\nunparalleled lifestyle, filled with comfort and tranquility.",
+      "amenities": [
+        "piscina infinita",
+        "gimnasio profesional con vista al mar",
+        "spa",
+        "espacios de coworking",
+        "simulador de golf",
+        "sala de cine",
+        "c"
+      ],
+      "websiteUrl": null,
+      "rawLocation": "Costa del este, Ciudad de Panana",
+      "models": [
+        {
+          "name": "Apto B",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 345,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Apto A",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 380,
+          "priceFromUsd": null
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/tagua-costa-del-este/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/tagua-costa-del-este/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/tagua-costa-del-este/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/tagua-costa-del-este/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/tagua-costa-del-este/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "mova-bb-italy",
+      "name": "Mova by B&B Italy",
+      "areaSlug": "obarrio",
+      "published": true,
+      "status": "preselling",
+      "priceFromUsd": 311550,
+      "priceToUsd": 650000,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 68,
+      "descriptionEn": "In the pulsing heart of Obarrio emerges MOVA—a visionary mixed-use development that redefines luxury urban living with B&B Italia.",
+      "amenities": [
+        "Diseño B&B Italia",
+        "Uso Mixto",
+        "Amenidades Premium",
+        "Corazón Urbano"
+      ],
+      "websiteUrl": "https://panamarealestatesale.com/es/proyectos/mova-bb-italy",
+      "rawLocation": "Obarrio, Ciudad de Panamá",
+      "models": [
+        {
+          "name": "Mova 3 Recámaras",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 140,
+          "priceFromUsd": 650000
+        },
+        {
+          "name": "Mova 2 Recámaras",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 98,
+          "priceFromUsd": 450000
+        },
+        {
+          "name": "Mova 1 Recámara",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 68,
+          "priceFromUsd": 311550
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/mova-bb-italy/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/mova-bb-italy/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/mova-bb-italy/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/mova-bb-italy/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/mova-bb-italy/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "margaritaville-playa-caracol",
+      "name": "Margaritaville Panamá",
+      "areaSlug": "playa-caracol",
+      "published": true,
+      "status": "preselling",
+      "priceFromUsd": 195000,
+      "priceToUsd": 285000,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 65,
+      "descriptionEn": "Margaritaville Beach Resort Panama brings the world-famous brand to Playa Caracol. Turnkey vacation home investment.",
+      "amenities": [
+        "Lagoon Pool",
+        "Fins Up! Beach Club",
+        "Fitness Center",
+        "Restaurantes de Marca"
+      ],
+      "websiteUrl": "https://panamarealestatesale.com/es/proyectos/margaritaville-playa-caracol",
+      "rawLocation": "Chame, Playa Caracol",
+      "models": [
+        {
+          "name": "Chill Suite",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 65,
+          "priceFromUsd": 195000
+        },
+        {
+          "name": "Party Pad",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 95,
+          "priceFromUsd": 285000
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/margaritaville-playa-caracol/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/margaritaville-playa-caracol/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/margaritaville-playa-caracol/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/margaritaville-playa-caracol/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/margaritaville-playa-caracol/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "vervana-phase-II-playa-venado",
+      "name": "Vervana Phase II",
+      "areaSlug": "playa-venao",
+      "published": false,
+      "status": "under-construction",
+      "priceFromUsd": 625000,
+      "priceToUsd": 675000,
+      "bedsMin": 2,
+      "bedsMax": 2,
+      "sizeFromM2": null,
+      "descriptionEn": "Located in a 3-story building 10 meters above\nAchotines Bay and 20 meters from the high tide\nline, these residences offer uninterrupted Pacific\nOcean views and direct access to 120 meters of\npristine, secluded beachfront.",
+      "amenities": [
+        "Playa privada / retirada",
+        "Piscina infinita",
+        "Restaurante",
+        "Terraza / Solárium",
+        "Seguridad 24/7",
+        "Gimnasio / Centro de fitness",
+        "Vestíbulo / Lobby",
+        "Salón para propietarios"
+      ],
+      "websiteUrl": null,
+      "rawLocation": "Playa Venado",
+      "models": [
+        {
+          "name": "Villa Tierra",
+          "beds": null,
+          "baths": null,
+          "sizeM2": null,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Villa Aire",
+          "beds": 2,
+          "baths": null,
+          "sizeM2": null,
+          "priceFromUsd": null
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/vervana-phase-II-playa-venado/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/vervana-phase-II-playa-venado/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/vervana-phase-II-playa-venado/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/vervana-phase-II-playa-venado/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/vervana-phase-II-playa-venado/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "buenaventura-resort-cocle",
+      "name": "Buenaventura Resort",
+      "areaSlug": "rio-hato",
+      "published": true,
+      "status": "delivered",
+      "priceFromUsd": 450000,
+      "priceToUsd": 1200000,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 250,
+      "descriptionEn": "Buenaventura is the most exclusive beach community in Panama, often compared to Coronado but on an ultra-luxury scale.",
+      "amenities": [
+        "Campo de Golf de Campeonato",
+        "7+ Complejos de Piscinas",
+        "Centro Ecuestre",
+        "Club de Yates Privado"
+      ],
+      "websiteUrl": "https://panamarealestatesale.com/es/proyectos/buenaventura-resort-cocle",
+      "rawLocation": "Rio Hato, Coclé",
+      "models": [
+        {
+          "name": "Marina Loft",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 250,
+          "priceFromUsd": 450000
+        },
+        {
+          "name": "Lakeside Estate",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 650,
+          "priceFromUsd": 1200000
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/buenaventura-resort-cocle/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/buenaventura-resort-cocle/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/buenaventura-resort-cocle/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/buenaventura-resort-cocle/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/buenaventura-resort-cocle/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "venao-living-playa-venao-pedasí",
+      "name": "Venao Living",
+      "areaSlug": "playa-venao",
+      "published": false,
+      "status": "under-construction",
+      "priceFromUsd": 320000,
+      "priceToUsd": 350000,
+      "bedsMin": 4,
+      "bedsMax": 4,
+      "sizeFromM2": 176,
+      "descriptionEn": "A single-family home development surrounded by tropical vegetation, located near international schools, a gas station, and—coming soon—a private clinic, adding convenience to its natural setting. Venao Living is ideal for those who value serene luxury and natural beauty.",
+      "amenities": [
+        "el acceso a un club de playa con piscinas y toboganes",
+        "una laguna de agua salada",
+        "un completo gimnasio y una ubicación estratégica cerca de áreas de surf",
+        "restaurantes",
+        "escuelas internacionales y una futura clínica privada"
+      ],
+      "websiteUrl": null,
+      "rawLocation": "Playa Venao, Pedasí",
+      "models": [
+        {
+          "name": "Casa unifamiliar ",
+          "beds": 4,
+          "baths": null,
+          "sizeM2": 176,
+          "priceFromUsd": null
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/venao-living-playa-venao-pedasí/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/venao-living-playa-venao-pedasí/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/venao-living-playa-venao-pedasí/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/venao-living-playa-venao-pedasí/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/venao-living-playa-venao-pedasí/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "mantra-punta-pacifica",
+      "name": "Mantra",
+      "areaSlug": "punta-pacifica",
+      "published": false,
+      "status": "under-construction",
+      "priceFromUsd": 141600,
+      "priceToUsd": 474900,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 30.26,
+      "descriptionEn": "Mantra Punta Pacifica is a high-end building located in the heart of Panama's medical district, designed specifically for investors interested in short-term rentals.",
+      "amenities": [
+        "SPA DE LUJO",
+        "YOGA AL AIRE LIBRE",
+        "CENTRO DE FITNESS Y PILATES",
+        "RESTAURANTE & BAR ROOFTOP",
+        "PISCINA INFINITA CON VISTA AL MAR VALET PARKING",
+        "LOUNGE FRENTE A LA PISCINA",
+        "THE SNUG – SALA DE CINE",
+        "ESPACIO DE CO-WORKING",
+        "• LOUNGE PARA RESIDENTES",
+        "CONCIERGE BILINGÜE 24/7",
+        "CENTRO DE BIENESTAR"
+      ],
+      "websiteUrl": null,
+      "rawLocation": "Punta Pacifica",
+      "models": [
+        {
+          "name": "Model K 27.41m²",
+          "beds": null,
+          "baths": null,
+          "sizeM2": null,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Model D 31.73m²",
+          "beds": null,
+          "baths": null,
+          "sizeM2": null,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Model A-J ",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 30.26,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Model G 28.73m²",
+          "beds": null,
+          "baths": null,
+          "sizeM2": null,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Model C 72.42m²",
+          "beds": null,
+          "baths": null,
+          "sizeM2": null,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Model H 75.12m²",
+          "beds": null,
+          "baths": null,
+          "sizeM2": null,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Model E-F 48.27m²",
+          "beds": null,
+          "baths": null,
+          "sizeM2": null,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Model B-I ",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 68.44,
+          "priceFromUsd": null
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/mantra-punta-pacifica/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/mantra-punta-pacifica/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/mantra-punta-pacifica/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/mantra-punta-pacifica/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/mantra-punta-pacifica/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "playa-escondida-resort-colon",
+      "name": "Playa Escondida Resort",
+      "areaSlug": "portobelo",
+      "published": true,
+      "status": "under-construction",
+      "priceFromUsd": 210000,
+      "priceToUsd": 450000,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 120,
+      "descriptionEn": "Playa Escondida is a low-density Caribbean sanctuary near Portobelo. Finest panama oceanfront real estate on the Caribbean coast.",
+      "amenities": [
+        "Playa Privada Caribeña",
+        "Marina",
+        "Baja Densidad",
+        "Acceso al Arrecife"
+      ],
+      "websiteUrl": "https://panamarealestatesale.com/es/proyectos/playa-escondida-resort-colon",
+      "rawLocation": "Costa Caribe, Portobelo",
+      "models": [
+        {
+          "name": "Skyline Penthouse",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 250,
+          "priceFromUsd": 450000
+        },
+        {
+          "name": "Seaside Villa",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 120,
+          "priceFromUsd": 210000
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/playa-escondida-resort-colon/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/playa-escondida-resort-colon/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/playa-escondida-resort-colon/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/playa-escondida-resort-colon/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/playa-escondida-resort-colon/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "allure-punta-pacifica",
+      "name": "Allure Punta Pacifica",
+      "areaSlug": "punta-pacifica",
+      "published": true,
+      "status": "delivered",
+      "priceFromUsd": 450000,
+      "priceToUsd": 950000,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 115,
+      "descriptionEn": "Allure Punta Pacifica is an intimate 10-story tower redefining waterfront luxury with nature-inspired design.",
+      "amenities": [
+        "Vista al Mar",
+        "Diseño Orgánico",
+        "Pool Deck",
+        "Seguridad 24/7"
+      ],
+      "websiteUrl": "https://panamarealestatesale.com/es/proyectos/allure-punta-pacifica",
+      "rawLocation": "Punta Pacífica, Ciudad de Panamá",
+      "models": [
+        {
+          "name": "Allure Modelo 5",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 115,
+          "priceFromUsd": 450000
+        },
+        {
+          "name": "Allure Grand Residence",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 271,
+          "priceFromUsd": 950000
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/allure-punta-pacifica/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/allure-punta-pacifica/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/allure-punta-pacifica/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/allure-punta-pacifica/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/allure-punta-pacifica/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "the-woods-santa-maria",
+      "name": "The Woods",
+      "areaSlug": "santa-maria",
+      "published": false,
+      "status": "preselling",
+      "priceFromUsd": 1058058,
+      "priceToUsd": 1401498,
+      "bedsMin": 3,
+      "bedsMax": 4,
+      "sizeFromM2": 318,
+      "descriptionEn": "At The Woods, quality and design\nare in every detail, making\nyour home an incomparable space\nto create unforgettable moments.\nWe convert these spaces into\nthe perfect setting to create\nmemorable moments. Here,\nyou can enjoy with finishes\nluxury, carefully upgraded\nto offer you the maximum experience\nwith your family",
+      "amenities": [
+        "Garita de seguridad",
+        "– Parque central",
+        "– Parque sensorial",
+        "– Parques lineales",
+        "– Sendero con vista al lago",
+        "– Planta eléctrica total"
+      ],
+      "websiteUrl": null,
+      "rawLocation": "Santa María, Ciudad de Panamá",
+      "models": [
+        {
+          "name": "Modelo Duplex C",
+          "beds": 4,
+          "baths": null,
+          "sizeM2": 412,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelo Duplex B1",
+          "beds": 3,
+          "baths": null,
+          "sizeM2": 318,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelo Duplex A",
+          "beds": 3,
+          "baths": null,
+          "sizeM2": 400,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Modelo Duplex B4",
+          "beds": 3,
+          "baths": null,
+          "sizeM2": 338,
+          "priceFromUsd": null
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/the-woods-santa-maria/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/the-woods-santa-maria/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/the-woods-santa-maria/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/the-woods-santa-maria/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/the-woods-santa-maria/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    },
+    {
+      "slug": "generation-tower-costa-del-este",
+      "name": "Generation Tower",
+      "areaSlug": "costa-del-este",
+      "published": false,
+      "status": "under-construction",
+      "priceFromUsd": 280200,
+      "priceToUsd": 325132,
+      "bedsMin": null,
+      "bedsMax": null,
+      "sizeFromM2": 53,
+      "descriptionEn": "Generation Tower is a unique and innovative concept in the most exclusive location in Panama, Costa del Este. The property will function as a condominium for short or long stays and will be delivered fully furnished. An ideal place for tourists, executives, conferences and people looking for a permanent residence with all the benefits of living in an active community.",
+      "amenities": [
+        "Infinity pool",
+        "Wellness center",
+        "Sky bar",
+        "Roof top",
+        "Teatro al aire libre",
+        "Spa",
+        "Jogging track Coworking lounge",
+        "Gimnasio",
+        "Lavandería común",
+        "Centro de juegos",
+        "Sun deck",
+        "Espacios para BBQ",
+        "Meet & Greet lounge"
+      ],
+      "websiteUrl": null,
+      "rawLocation": "Costa del este, Ciudad de Panana",
+      "models": [
+        {
+          "name": "Unidades",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 68,
+          "priceFromUsd": null
+        },
+        {
+          "name": "Unidades",
+          "beds": null,
+          "baths": null,
+          "sizeM2": 53,
+          "priceFromUsd": null
+        }
+      ],
+      "photos": [
+        {
+          "src": "/projects/generation-tower-costa-del-este/01.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/generation-tower-costa-del-este/02.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/generation-tower-costa-del-este/03.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/generation-tower-costa-del-este/04.webp",
+          "alt": null
+        },
+        {
+          "src": "/projects/generation-tower-costa-del-este/05.webp",
+          "alt": null
+        }
+      ],
+      "dataSource": "developer-listed"
+    }
+  ]
+}
