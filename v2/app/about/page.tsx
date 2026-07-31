@@ -113,7 +113,7 @@ export default function AboutPage() {
 
           <div className="mt-12 rounded-md bg-brand-800 text-white p-[clamp(24px,4vw,40px)] flex flex-wrap items-center justify-between gap-6">
             <div>
-              <h2 className="font-display text-[clamp(20px,2.6vw,26px)] font-bold tracking-[-0.019em] max-w-[26ch] leading-tight">
+              <h2 className="font-display text-[clamp(20px,2.6vw,26px)] font-bold tracking-[-0.019em] text-white max-w-[26ch] leading-tight">
                 Think we got something wrong?
               </h2>
               <p className="mt-2.5 text-white/85 max-w-[52ch]">

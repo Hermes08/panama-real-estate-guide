@@ -1,0 +1,108 @@
+{
+  "expectations": [
+    {
+      "text": "Opens with a specific fact or number in the first sentence rather than throat-clearing scene-setting",
+      "passed": true,
+      "evidence": "Opening paragraph, sentence 1: 'Panama's possessory-rights law does not ask a seller for a deed.' — a specific, non-generic legal claim, not scene-setting ('nestled in the tropics...' style openers are avoided entirely). Sentence 2 immediately supplies the number: 'It asks for five years.' The paragraph is fully specific by the third sentence, citing Law 80 of 2009 and Gaceta Oficial Nº 26,438 directly. No throat-clearing anywhere in the lead."
+    },
+    {
+      "text": "Includes a Key Takeaways section with 4-6 bullets, each carrying a source",
+      "passed": true,
+      "evidence": "output.md lines 11-18: '## Key Takeaways' contains exactly 6 bullets. Each ends with an inline source attribution, e.g. bullet 2: '(ecolex.org legislation record, accessed July 2026)'; bullet 4: '(multiple legal-registry sources, accessed July 2026; ANATI's own \"marco legal\" page returned an access error...)'; bullet 5 names two firms inline (Casa Solution, RELO Firm); bullet 6: '(Panama conveyancing guides, accessed July 2026...)'. All 6/6 bullets carry a named source or explicit source-limitation note."
+    },
+    {
+      "text": "Explains the practical difference between titled land and Rights of Possession (ANATI-administered) with correct, non-generic detail",
+      "passed": true,
+      "evidence": "Dedicated H2 sections 'What titled land actually is' and 'What Rights of Possession actually is' (lines 22-28) plus a 7-row comparison table (lines 30-40) covering registration status, basis of claim, mortgageability, title insurance, resale market, governing law (Law 80/2009 coastal vs. Law 37/1962 + Agricultural Code inland), and which institution administers each (Registro Público vs. ANATI). Detail is specific (finca numbers, five-year occupation test, named statutes) rather than generic 'titled is safer' boilerplate."
+    },
+    {
+      "text": "Includes a section equivalent to 'when the honest answer is don't' — a case where the guide recommends against a Rights of Possession purchase or flags real risk",
+      "passed": true,
+      "evidence": "output.md line 71: '## When the honest answer is don't' — explicitly lists walk-away conditions (no finca number and no documented explanation, boundary/surveyor mismatch, unresolved competing occupant claims, missing signed heir/co-owner waivers) and states 'If your plan requires financing, a fast resale, or absentee ownership for long stretches, ROP land does not fit that plan regardless of price.'"
+    },
+    {
+      "text": "Sources are numbered/listed with named primary institutions (ANATI and/or Registro Público and/or Gaceta Oficial), not just 'various sources' or broker sites",
+      "passed": true,
+      "evidence": "Lines 77-88: a numbered list (1-8) with full URLs. Source #1 cites the Gaceta Oficial number directly (Nº 26,438) via Ecolex. The closing italicized line explicitly names both primary institutions: 'Registro Público de Panamá (registro-publico.gob.pa / rp.gob.pa) and ANATI (anati.gob.pa) are the primary institutions of record for this topic.' Note: per the transcript, direct fetches to anati.gob.pa (403 errors, 4 attempts) and registro-publico.gob.pa's query pages (connection error / unparseable PDF) all failed, so the numbered entries themselves are aggregator/law-firm/relocation-firm sources rather than direct government citations — this is disclosed transparently rather than hidden, which is why the expectation as worded (institutions named, not silently substituted) is satisfied, even though no entry is a live ANATI or Registro Público URL."
+    },
+    {
+      "text": "Spanish/legal terms (finca, ANATI, Registro Público, derechos posesorios) are defined on first use",
+      "passed": true,
+      "evidence": "'Rights of Possession (*derecho posesorio*) is a claim to occupy and use land the state still holds, built entirely on the fact of occupation rather than on registration' (line 28) — defined in the same sentence as first substantive use. 'ANATI, the agency that processes ROP-to-title conversions, was created by Law 59 of October 8, 2010...' (Key Takeaways bullet 4, line 16) is the first substantive prose use and is defined there (an earlier appearance of the string 'ANATI' in bullet 1 is only inside a source-attribution parenthetical, not prose use). 'finca number' and 'Registro Público' are introduced together in Key Takeaways bullet 1: 'Titled land is registered ownership under a unique finca number in the Registro Público' — the sentence itself functions as the definition (finca number = the registered identifier; Registro Público = where it's recorded), reinforced again in 'What titled land actually is.'"
+    },
+    {
+      "text": "At least 3 FAQs are present",
+      "passed": true,
+      "evidence": "'## FAQ' section (lines 90-111) contains 7 questions: legality of buying ROP, convertibility to title, mortgage availability, how to verify titled status, conversion timeline, abandonment/absence risk, and price comparison."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {
+      "Read": 5,
+      "ToolSearch": 1,
+      "Bash": 5,
+      "WebSearch": 16,
+      "WebFetch": 21,
+      "Write": 3
+    },
+    "total_tool_calls": 51,
+    "total_steps": 20,
+    "errors_encountered": 14,
+    "output_chars": 15417,
+    "transcript_chars": 14188
+  },
+  "timing": {
+    "total_duration_seconds": 561.047,
+    "total_tokens": 120736,
+    "duration_ms": 561047
+  },
+  "claims": [
+    {
+      "claim": "Law 80 of December 31, 2009 (Gaceta Oficial Nº 26,438) is the governing statute for possessory rights and titling in coastal/island zones",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Transcript Phase 4 documents the ecolex.org fetch that supplied this exact gazette number and date, used consistently in the output's opening paragraph, Key Takeaways bullet 2, and Source #1."
+    },
+    {
+      "claim": "Neither ANATI's nor the Registro Público's own websites could be directly verified during this research pass",
+      "type": "process",
+      "verified": true,
+      "evidence": "Transcript's fetch-attempt table (lines 142-150) logs 4 distinct 403 errors from anati.gob.pa and unparseable/connection-error results from registro-publico.gob.pa and rp.gob.pa. This is disclosed in the output's 'Sourcing note' callout and the italicized line under Sources."
+    },
+    {
+      "claim": "Real Reddit/r/Panama content was mined for UGC as the skill instructs",
+      "type": "process",
+      "verified": false,
+      "evidence": "Transcript Phase 3 states explicitly: 'no Reddit content was actually read for this guide, despite the brief asking me to mine it,' after both WebFetch (blocked) and WebSearch's reddit.com domain filter (rejected) failed. Expat-community blogs (livinginpanama.com, livinginbocasdeltoro.com) were substituted and disclosed as a substitution, not presented as Reddit sourcing — so the substitution itself is handled honestly, but the underlying skill requirement to mine Reddit was not met this run."
+    },
+    {
+      "claim": "The commonly-cited '90% of land outside Panama City is untitled' statistic was deliberately excluded because it couldn't be independently verified",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Transcript's 'Judgment call on the 90% figure' (lines 182-190) documents 3 failed direct-fetch attempts against the State Department source and explains the decision to keep only the qualitative claim. The output (Source #8 and body text) indeed contains no '90%' figure, only 'much of Panama's land, especially outside Panama City, lacks formal titles.'"
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Sources are numbered/listed with named primary institutions (ANATI and/or Registro Público and/or Gaceta Oficial), not just 'various sources' or broker sites",
+        "reason": "This run passes the assertion by naming ANATI, Registro Público, and Gaceta Oficial in prose/disclosure text, but every actual numbered source entry is a legal aggregator, law firm, or relocation firm — none is a live anati.gob.pa, registro-publico.gob.pa, or gacetaoficial.gob.pa URL, because all direct attempts failed (403s / connection errors, per the transcript). A weaker executor that never attempted the primary sites at all, then added the same disclaimer paragraph, would pass this exact assertion identically. Consider tightening to require at least one live government-domain URL in the numbered list, or explicitly splitting this into two assertions: 'primary institutions are named' (weak, met here) vs. 'at least one primary-institution URL is directly cited' (stronger, not met here)."
+      },
+      {
+        "reason": "The panama-writer skill's UGC-mining step specifically calls for Reddit/forum mining, and this run documents that it could not access Reddit at all (WebFetch blocked, WebSearch's domain filter rejected) and substituted expat-community blogs instead. No expectation in this eval checks whether genuine Reddit/forum UGC was actually used vs. substituted — a run where Reddit mining entirely fails still passes all 7 assertions here. Worth adding an assertion that verifies real forum/Reddit content was used, or that explicitly credits transparent, disclosed substitution as an acceptable fallback (since this run did disclose it honestly rather than fabricate Reddit quotes)."
+      }
+    ],
+    "overall": "All 7 expectations pass, and the underlying work is genuinely substantive — specific statute citations, a real first-person UGC failure story, an honest walk-away section, and transparent disclosure everywhere a primary source couldn't be reached. The main risk this eval doesn't fully surface: the guide's core legal claims (five-year occupation test, ANATI's creation, titling process steps, conversion timelines) rest entirely on secondary sources because neither ANATI nor the Registro Público could be reached this run, and the skill's Reddit-mining requirement wasn't actually fulfilled (blogs were substituted). Both gaps are disclosed responsibly in-output rather than hidden, which is itself a positive signal about the skill's honesty norms, but graders should note the assertions currently reward disclosure of a gap rather than closure of it."
+  }
+}

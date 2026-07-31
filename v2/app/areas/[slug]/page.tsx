@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { areas, getArea, getProjectsForArea, usd } from "@/lib/content";
+import { getAreaEditorialFull } from "@/lib/editorial";
 import { Button, TitleBadge, SourceNote } from "@/components/ui";
 import { ProjectCard } from "@/components/project-card";
 
@@ -32,7 +33,11 @@ export default async function AreaPage({
   const area = getArea(slug);
   if (!area) notFound();
 
+  const editorial = await getAreaEditorialFull(slug);
   const areaProjects = getProjectsForArea(slug);
+  const positioning = editorial?.positioning ?? area.positioning;
+  const titleStatus = editorial?.titleStatus ?? area.titleStatus;
+  const titleNote = editorial?.titleNote ?? area.titleNote;
 
   const specs = [
     { k: "Entry price", v: usd(area.priceFromUsd) },
@@ -65,9 +70,9 @@ export default async function AreaPage({
             {area.region}
           </p>
           <h1 className="h1-article !text-white max-w-[18ch]">{area.name}</h1>
-          {area.positioning && (
+          {positioning && (
             <p className="dek !text-white/90 mt-5 max-w-[62ch]">
-              {area.positioning}
+              {positioning}
             </p>
           )}
 
@@ -98,11 +103,11 @@ export default async function AreaPage({
         <div className="wrap">
           <div
             className={`rounded-md border-l-4 p-6 max-w-[76ch] ${
-              area.titleStatus === "rop"
+              titleStatus === "rop"
                 ? "bg-negative-50 border-negative"
-                : area.titleStatus === "mixed"
+                : titleStatus === "mixed"
                   ? "bg-accent-50 border-star"
-                  : area.titleStatus === "titled"
+                  : titleStatus === "titled"
                     ? "bg-positive-50 border-positive"
                     : "bg-paper-warm border-line"
             }`}
@@ -111,10 +116,10 @@ export default async function AreaPage({
               Before you shortlist anything here
             </p>
             <div className="mt-3">
-              <TitleBadge status={area.titleStatus} />
+              <TitleBadge status={titleStatus} />
             </div>
-            <p className="mt-3.5 text-[16px] leading-relaxed text-body max-w-[62ch]">
-              {area.titleNote ??
+            <p className="mt-3.5 text-[16px] leading-relaxed text-body max-w-[62ch] whitespace-pre-line">
+              {titleNote ??
                 `We have not yet checked whether land in ${area.name} is titled or held as Rights of Possession. Until we have, treat every listing here as unverified and ask the seller for a finca number before you pay anything.`}
             </p>
             <Link
@@ -126,6 +131,55 @@ export default async function AreaPage({
           </div>
         </div>
       </section>
+
+      {/* ── What it costs to live here ────────────────────────────────────── */}
+      {editorial?.costOfLivingNote && (
+        <section className="py-[clamp(32px,4vw,52px)] border-t border-line">
+          <div className="wrap">
+            <h2 className="h2-section max-w-[24ch]">
+              What it costs to live in {area.name}
+            </h2>
+            <p className="mt-5 text-[16px] leading-relaxed text-body max-w-[70ch] whitespace-pre-line">
+              {editorial.costOfLivingNote}
+            </p>
+          </div>
+        </section>
+      )}
+
+      {/* ── Who it suits, and who it doesn't ────────────────────────────── */}
+      {(editorial?.suits || editorial?.drawbacks) && (
+        <section className="py-[clamp(32px,4vw,52px)] border-t border-line">
+          <div className="wrap">
+            <h2 className="h2-section max-w-[24ch]">
+              {`Who ${area.name} suits — and who it doesn’t`}
+            </h2>
+            {editorial.suits && (
+              <p className="mt-5 text-[16px] leading-relaxed text-body max-w-[70ch] whitespace-pre-line">
+                {editorial.suits}
+              </p>
+            )}
+            {editorial.drawbacks && (
+              <p className="mt-4 text-[16px] leading-relaxed text-body max-w-[70ch] whitespace-pre-line">
+                {editorial.drawbacks}
+              </p>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* ── Getting there and getting around ────────────────────────────── */}
+      {editorial?.gettingAroundNote && (
+        <section className="py-[clamp(32px,4vw,52px)] border-t border-line">
+          <div className="wrap">
+            <h2 className="h2-section max-w-[24ch]">
+              Getting there and getting around
+            </h2>
+            <p className="mt-5 text-[16px] leading-relaxed text-body max-w-[70ch] whitespace-pre-line">
+              {editorial.gettingAroundNote}
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* ── Projects — realtor.com listing mechanics ─────────────────────── */}
       <section className="bg-paper-warm border-y border-line py-[clamp(52px,7vw,80px)]">
@@ -152,11 +206,59 @@ export default async function AreaPage({
 
           <div className="mt-5">
             <SourceNote>
-              Prices as listed by developers · title status not yet checked
+              Prices as listed by developers ·{" "}
+              {titleStatus === "unknown"
+                ? "title status not yet checked"
+                : "see title status above"}
             </SourceNote>
           </div>
         </div>
       </section>
+
+      {/* ── FAQ ──────────────────────────────────────────────────────────── */}
+      {editorial && editorial.faqs.length > 0 && (
+        <section className="py-[clamp(48px,6vw,72px)]">
+          <div className="wrap">
+            <h2 className="h2-section max-w-[24ch]">FAQ</h2>
+            <div className="mt-8 flex flex-col gap-3 max-w-[70ch]">
+              {editorial.faqs.map((f, i) => (
+                <div key={i} className="rounded-md border border-line p-5">
+                  <p className="font-display text-[15.5px] font-bold text-ink">
+                    {f.q}
+                  </p>
+                  <p className="mt-2 text-[15px] leading-relaxed text-body">
+                    {f.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+            {editorial.sources.length > 0 && (
+              <div className="max-w-[70ch] mt-10 border-t border-line pt-6">
+                <p className="font-display text-[14px] font-bold uppercase tracking-[0.077em] text-ink">
+                  Sources
+                </p>
+                <ol className="mt-3 text-[15px] space-y-1">
+                  {editorial.sources.map((s, i) => (
+                    <li key={i}>
+                      <a
+                        href={s.url}
+                        rel="nofollow noopener"
+                        target="_blank"
+                        className="text-link no-underline hover:underline"
+                      >
+                        {s.label}
+                      </a>
+                      {s.checkedOn && (
+                        <span className="text-faint"> — checked {s.checkedOn}</span>
+                      )}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* ── Lead capture ────────────────────────────────────────────────── */}
       <section className="py-[clamp(52px,7vw,80px)]">

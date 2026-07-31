@@ -1,9 +1,9 @@
 import Link from "next/link";
-import Image from "next/image";
 import { areas, articles, projects } from "@/lib/content";
 import { Button, SectionHead } from "@/components/ui";
 import { ProjectCard } from "@/components/project-card";
 import { EntryPriceChart } from "@/components/entry-price-chart";
+import { HeroPriceCollage } from "@/components/hero-price-collage";
 
 // Cheapest first, and one per area so the grid shows the spread of the
 // catalogue rather than six towers from whichever area has the most.
@@ -52,18 +52,11 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* EasyStreetCap's hero shape: text left, one real photograph right,
-              no overlay. */}
+          {/* EasyStreetCap's hero shape: text left, one real photograph right.
+              The photo now carries real per-neighborhood asking prices,
+              sourced and dated same as everywhere else on the site. */}
           <div className="relative">
-            <Image
-              src="/hero-panama-collage.png"
-              alt="A modern villa with a pool set among palms, alongside property views from Panamá City, Coronado, El Valle, and Boquete."
-              width={1254}
-              height={1254}
-              priority
-              sizes="(max-width: 980px) 100vw, 46vw"
-              className="w-full h-auto"
-            />
+            <HeroPriceCollage />
           </div>
         </div>
       </section>

@@ -404,3 +404,162 @@
     }
   }
 }
+
+/* =============================================================================
+   Hero price collage — ported 1:1 from the Claude Design project
+   ("Panama Price Animation.html", embed/standalone-src.html), down to the
+   keyframe percentages and cqw sizing. Pure CSS, no JS, so it degrades to a
+   still photo with prefers-reduced-motion.
+   ============================================================================= */
+
+@keyframes heroKen {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.035) translate(-0.6%, -0.4%); }
+}
+
+@keyframes heroPillIn {
+  0% { opacity: 0; transform: translateY(10px) scale(0.94); }
+  100% { opacity: 1; transform: none; }
+}
+
+@keyframes heroFloat {
+  0% { transform: translateY(-3px); }
+  100% { transform: translateY(3px); }
+}
+
+@keyframes heroOldPrice {
+  0%, 15% { opacity: 1; transform: none; }
+  20% { opacity: 1; transform: translateY(0); }
+  25% { opacity: 0; transform: translateY(-16px) rotate(-2deg); }
+  93% { opacity: 0; transform: translateY(-16px) rotate(-2deg); }
+  97%, 100% { opacity: 1; transform: none; }
+}
+
+@keyframes heroStrike {
+  0%, 12% { transform: scaleX(0); opacity: 0.9; }
+  18%, 23% { transform: scaleX(1); opacity: 0.9; }
+  27% { transform: scaleX(1); opacity: 0; }
+  100% { transform: scaleX(0); opacity: 0; }
+}
+
+@keyframes heroNewPrice {
+  0%, 25% { opacity: 0; transform: translateY(18px) scale(0.9); }
+  30% { opacity: 1; transform: translateY(-3px) scale(1.06); }
+  34% { opacity: 1; transform: translateY(0) scale(1); }
+  90% { opacity: 1; transform: translateY(0) scale(1); }
+  94%, 100% { opacity: 0; transform: translateY(18px) scale(0.9); }
+}
+
+@keyframes heroBadge {
+  0%, 31% { opacity: 0; transform: scale(0.5); }
+  36% { opacity: 1; transform: scale(1.15); }
+  40% { opacity: 1; transform: scale(1); }
+  90% { opacity: 1; transform: scale(1); }
+  93%, 100% { opacity: 0; transform: scale(0.5); }
+}
+
+@keyframes heroPulse {
+  0%, 21% { box-shadow: 0 0 0 0 rgba(126, 190, 80, 0); }
+  26% { box-shadow: 0 0 0 10px rgba(126, 190, 80, 0.28); }
+  34%, 100% { box-shadow: 0 0 0 22px rgba(126, 190, 80, 0); }
+}
+
+@layer components {
+  .hero-price-photo {
+    animation: heroKen 24s ease-in-out infinite alternate;
+  }
+
+  .hero-price-pill-wrap {
+    /* Duration only — the original never delays the float, just varies its
+       period per pill so the four drift out of phase naturally. */
+    animation-name: heroFloat;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  .hero-price-pill {
+    animation:
+      heroPillIn 0.7s cubic-bezier(0.2, 0.9, 0.25, 1.2) both,
+      heroPulse var(--cyc, 11s) linear infinite;
+    display: flex;
+    align-items: center;
+    gap: 1.1cqw;
+    background: var(--pill, #e9f5e3);
+    border-radius: 999px;
+    padding: 1.25cqw 1.9cqw;
+    box-sizing: border-box;
+  }
+
+  .hero-price-value {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .hero-price-old {
+    display: inline-block;
+    font-size: 2.05cqw;
+    font-weight: 800;
+    color: var(--deep, #1f6b2b);
+    letter-spacing: -0.01em;
+    animation: heroOldPrice var(--cyc, 11s) ease-in-out infinite backwards;
+  }
+
+  .hero-price-strike {
+    position: absolute;
+    left: -0.3cqw;
+    right: -0.3cqw;
+    top: 52%;
+    height: 0.22cqw;
+    border-radius: 2px;
+    background: #7f8c80;
+    transform-origin: left center;
+    animation: heroStrike var(--cyc, 11s) cubic-bezier(0.2, 0.8, 0.2, 1) infinite backwards;
+  }
+
+  .hero-price-new {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -1.05cqw;
+    font-size: 2.05cqw;
+    font-weight: 800;
+    color: var(--deep, #1f6b2b);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    animation: heroNewPrice var(--cyc, 11s) cubic-bezier(0.2, 0.9, 0.25, 1.2) infinite backwards;
+  }
+
+  .hero-price-name {
+    font-size: 1.75cqw;
+    font-weight: 600;
+    color: #7b8479;
+    white-space: nowrap;
+  }
+
+  .hero-price-badge {
+    margin-left: auto;
+    font-size: 1.25cqw;
+    font-weight: 800;
+    color: #fff;
+    background: var(--accent-deep, #2f8f3f);
+    border-radius: 999px;
+    padding: 0.35cqw 0.8cqw;
+    white-space: nowrap;
+    animation: heroBadge var(--cyc, 11s) cubic-bezier(0.2, 0.9, 0.25, 1.2) infinite backwards;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-price-photo,
+  .hero-price-pill-wrap,
+  .hero-price-pill,
+  .hero-price-old,
+  .hero-price-strike,
+  .hero-price-new,
+  .hero-price-badge {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "bioma-project-page",
+  "prompt": "Write the project page for Bioma Costa del Este",
+  "assertions": [
+    "Output is delivered as separate structured fields (title, meta_description, hook, body, suits, drawbacks, location_note, buying_note, faqs, sources) rather than one undifferentiated blob of markdown",
+    "Includes a per-unit price and floor-plan table (beds, baths, m²/sq ft, price)",
+    "The hook paragraph names one specific, verifiable fact about Bioma Costa del Este (a permit, license, developer track record, or price anomaly) rather than generic marketing language",
+    "At least one drawback is named and is attributed to a source other than the developer (UGC, forum, or reasoned risk) rather than a generic hedge like 'may not suit everyone'",
+    "At least 3 FAQs are present, phrased as real buyer questions",
+    "At least one figure (price, tax, or fee) carries a named source and a check date/month, not just a bare number",
+    "No unsourced currency-conversion phrasing (e.g. '$X USD (approximately...)')",
+    "Body prose (excluding the price table) is substantive, not a thin 150-word placeholder"
+  ]
+}

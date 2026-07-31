@@ -1,0 +1,108 @@
+{
+  "expectations": [
+    {
+      "text": "Opens with a specific fact or number in the first sentence rather than throat-clearing scene-setting",
+      "passed": false,
+      "evidence": "output.md opens (after title/meta) with '## The short answer' followed by: 'In Panama, \"I own the land\" can mean two very different things depending on how the property is held:' — this is generic framing with no specific fact or number. The first number that appears anywhere in the body (finca number, 10km border zone, etc.) shows up several sentences/bullets later, not in the opening sentence."
+    },
+    {
+      "text": "Includes a Key Takeaways section with 4-6 bullets, each carrying a source",
+      "passed": false,
+      "evidence": "No 'Key Takeaways' heading exists anywhere in output.md (confirmed via grep, no match for 'key takeaway'). The closest analog is the 'The short answer' section, which has 2 bullets (titled vs. ROP definitions), not 4-6, and neither bullet nor any other line in output.md carries an inline source/citation — grep for 'sources', 'references', 'citation', '[1]' in output.md returns zero matches. Sourcing exists only in the internal transcript.md (explicitly marked as not part of the reader-facing guide) and even there it's broker/law-firm sites, not attributed per-bullet."
+    },
+    {
+      "text": "Explains the practical difference between titled land and Rights of Possession (ANATI-administered) with correct, non-generic detail",
+      "passed": true,
+      "evidence": "output.md gives specific, non-generic mechanics: titled land tied to a finca/folio number in the Registro Público, verifiable via a 'certificación registral'; ROP is a transferable possessory interest historically rooted in 1960s-70s land reform, documented via 'traspaso de derechos posesorios' and notified to ANATI; a numbered 5-step ANATI conversion ('titulación') process with site inspection, public notice period, and a 6-12 month typical timeline; a comparison table covering financing, tax, boundary certainty, resale liquidity, and reclamation risk. This is specific and structurally correct, not a generic 'titled=good, ROP=risky' gloss."
+    },
+    {
+      "text": "Includes a section equivalent to 'when the honest answer is don't' — a case where the guide recommends against a Rights of Possession purchase or flags real risk",
+      "passed": true,
+      "evidence": "The 'Why this matters more than it sounds like it should' section explicitly flags real, concrete risks: government reclamation risk ('the possession right can be extinguished or restricted, sometimes with no compensation... highest in ecologically sensitive coastal areas and land adjacent to comarca boundaries'), competing possessory claims, and the due-diligence checklist warns 'the seller's assurance that \"it can be titled\" is not the same as ANATI confirming it.' It stops short of a single dedicated 'don't buy this' callout box, but the risk-flagging is substantive and specific rather than boilerplate, satisfying the 'flags real risk' branch of the expectation."
+    },
+    {
+      "text": "Sources are numbered/listed with named primary institutions (ANATI and/or Registro Público and/or Gaceta Oficial), not just 'various sources' or broker sites",
+      "passed": false,
+      "evidence": "output.md (the reader-facing deliverable) contains no sources/references list at all. The only source list exists in transcript.md, which states on line 3 it 'is not part of the reader-facing guide.' Even that internal list is composed almost entirely of real-estate brokerage and law-firm sites (casasolution.com, panamaadvisoryinternationalgroup.com, kraemerlaw.com, relofirm.com, etc.); transcript.md explicitly admits: 'No primary government source (e.g., an official ANATI or Registro Público page, or the specific enabling legislation text) was directly fetched — all research was via search-engine snippets and one law-firm page fetch.'"
+    },
+    {
+      "text": "Spanish/legal terms (finca, ANATI, Registro Público, derechos posesorios) are defined on first use",
+      "passed": true,
+      "evidence": "All four terms are defined inline at first mention: 'a unique title number (finca number) that functions like a deed'; 'registered in Panama's Public Registry (Registro Público)'; 'Rights of Possession (derecho posesorio, often shortened to ROP)'; and ANATI is spelled out on first use as 'notified to the Autoridad Nacional de Administración de Tierras (ANATI), the national land authority that succeeded the old Reforma Agraria office.'"
+    },
+    {
+      "text": "At least 3 FAQs are present",
+      "passed": true,
+      "evidence": "The 'Frequently asked questions' section in output.md contains 6 Q&A pairs: 'Is Rights of Possession legal?', 'Can foreigners buy Rights of Possession property?', 'Can I get a mortgage on ROP land?', 'How do I know if a listing is titled or ROP?', 'Does ROP convert to title automatically over time?', 'Is ROP cheaper than titled land for a reason, or is it just a bargain?'"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 3,
+    "total": 7,
+    "pass_rate": 0.5714285714285714
+  },
+  "execution_metrics": {
+    "tool_calls": {
+      "ToolSearch": 1,
+      "Bash": 3,
+      "WebSearch": 5,
+      "WebFetch": 1,
+      "Write": 3
+    },
+    "total_tool_calls": 13,
+    "total_steps": 9,
+    "errors_encountered": 0,
+    "output_chars": 16659,
+    "transcript_chars": 10161
+  },
+  "timing": {
+    "total_tokens": 68489,
+    "duration_ms": 205470,
+    "executor_duration_seconds": 205.47,
+    "total_duration_seconds": 205.47
+  },
+  "claims": [
+    {
+      "claim": "Only one full page fetch (kraemerlaw.com) was performed; the rest of the research was search-result snippets",
+      "type": "process",
+      "verified": true,
+      "evidence": "metrics.json shows WebFetch: 1 and WebSearch: 5, consistent with transcript.md's own account in Step 3 and the closing note: 'all research was via search-engine snippets and one law-firm page fetch.'"
+    },
+    {
+      "claim": "No primary government source (ANATI, Registro Público, Gaceta Oficial) was fetched or cited",
+      "type": "factual",
+      "verified": true,
+      "evidence": "transcript.md explicitly states this as a limitation, and no .gob.pa or gacetaoficial.gob.pa domain appears anywhere in the 'Sources consulted' list or in output.md."
+    },
+    {
+      "claim": "The specific legal basis/law number for possessory rights was deliberately left uncited because sources were inconsistent",
+      "type": "process",
+      "verified": true,
+      "evidence": "transcript.md Step 4: 'did not have a primary/official source to confirm the exact current statute number, so the guide describes the legal mechanism and agency without asserting a specific law number I couldn't verify.' Confirmed: output.md never cites a specific law number for ROP itself (though it does cite 'Law 2 of 2006' style framing is absent too — output.md gives no statute numbers at all)."
+    },
+    {
+      "claim": "The guide resolved a contradiction about foreigners and ROP conversion via a second verification search rather than asserting an unverified citizenship restriction",
+      "type": "process",
+      "verified": true,
+      "evidence": "transcript.md Step 4, search 6, describes finding a source implying ROP conversion is Panamanian-only, then cross-checking and deciding not to assert that restriction. output.md's FAQ 'Can foreigners buy Rights of Possession property?' reflects the resolved, non-restrictive answer, consistent with the transcript's account."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Includes a section equivalent to 'when the honest answer is don't' — a case where the guide recommends against a Rights of Possession purchase or flags real risk",
+        "reason": "The 'or flags real risk' clause makes this assertion easy to satisfy for almost any competent legal-explainer guide, since risk disclosure is table stakes for this topic. Consider splitting into two separate, stricter assertions: one checking for a genuinely concentrated 'don't do this' recommendation tied to a specific buyer scenario (e.g., 'don't buy ROP on unconverted comarca-adjacent coastal land if you need financing'), and a separate one for general risk disclosure — otherwise a guide that only vaguely gestures at risk throughout, without ever telling a reader to walk away, passes on a technicality."
+      },
+      {
+        "reason": "None of the 7 expectations check whether the guide is anchored in this site's specific existing content/inventory (e.g., referencing real project names or areas already covered on panamarealestateguide.com, matching an established house voice/template). Since this is explicitly a 'without_skill' baseline being compared against a 'with_skill' run, an assertion that distinguishes site-specific grounding (which a skill pulling site context would provide) from generic web-research content would make the eval more discriminating for its actual purpose — measuring what the skill adds."
+      }
+    ],
+    "overall": "5 of 7 assertions are well-targeted and discriminating (terms-defined, FAQ count, source-institution requirement, ANATI-detail requirement). The source-institution assertion (#5) and the opening-hook assertion (#1) did their job well here — both cleanly failed a genuinely research-thin, no-citations-in-output draft. The 'flags real risk' assertion (#4) is looser than intended and should be tightened per the suggestion above."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "eval_id": 2,
+  "eval_name": "boquete-area-page",
+  "prompt": "We need the Boquete area page written",
+  "assertions": [
+    "Includes a dedicated, sourced section addressing title status / titled land vs Rights of Possession risk specific to Boquete",
+    "Includes at least one concrete cost-of-living or cost-to-buy figure with a named source",
+    "Includes an explicit 'who this suits / who it doesn't' section naming a type of buyer it is NOT good for",
+    "Includes practical access information (distance/time to nearest airport, road quality, whether a car is required)",
+    "At least 3 FAQs are present",
+    "The page does not spend more than a sentence or two on scenery/atmosphere description disconnected from a purchase question (avoids travel-writing drift)"
+  ]
+}

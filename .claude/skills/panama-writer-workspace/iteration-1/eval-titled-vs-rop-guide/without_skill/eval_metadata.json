@@ -1,0 +1,14 @@
+{
+  "eval_id": 3,
+  "eval_name": "titled-vs-rop-guide",
+  "prompt": "Draft the guide on titled land vs Rights of Possession in Panama",
+  "assertions": [
+    "Opens with a specific fact or number in the first sentence rather than throat-clearing scene-setting",
+    "Includes a Key Takeaways section with 4-6 bullets, each carrying a source",
+    "Explains the practical difference between titled land and Rights of Possession (ANATI-administered) with correct, non-generic detail",
+    "Includes a section equivalent to 'when the honest answer is don't' — a case where the guide recommends against a Rights of Possession purchase or flags real risk",
+    "Sources are numbered/listed with named primary institutions (ANATI and/or Registro Público and/or Gaceta Oficial), not just 'various sources' or broker sites",
+    "Spanish/legal terms (finca, ANATI, Registro Público, derechos posesorios) are defined on first use",
+    "At least 3 FAQs are present"
+  ]
+}

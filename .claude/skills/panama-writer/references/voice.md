@@ -112,6 +112,32 @@ noise.
 
 ---
 
+## Punctuation tells
+
+The vocabulary can be right and a page will still read as AI-written, because
+the fingerprint is punctuation, not word choice. Two habits give it away:
+
+**The em dash as connective tissue.** "It's not the cheapest option — it's the
+most reliable one." "The tower is small — just 40 units — but well-located."
+Default to periods. Two related ideas are usually two sentences, not one
+sentence stitched together with a dash. Reserve the em dash for a genuine
+interruption that could be deleted without losing the sentence's meaning, and
+use it rarely — a page with one per paragraph reads as templated no matter how
+much the words around it vary.
+
+**The trailing dash for punch.** Ending a sentence with "— and that's the real
+risk" or "— not the other way around" is a rhetorical tic, not a rhythm
+choice. So is the "it's not X, it's Y" contrastive frame in general, however
+it's worded. Say the thing directly instead: "That's the real risk" or "The
+risk runs the other way," full stop, new sentence.
+
+**What this does not change.** This is about how sentences connect, not about
+structure. Key Takeaways boxes, tables, numbered sources, FAQ blocks, bolded
+direct-answer openers — all of that stays, and matters more, not less, for
+showing up in AI-generated search answers, which lift structured, scannable,
+directly-stated claims over prose they have to parse. Humanize the sentences.
+Do not flatten the structure that makes a claim easy to lift.
+
 ## Panama-specific adaptations
 
 **Every figure carries a source and the month it was checked.** Not a footnote —

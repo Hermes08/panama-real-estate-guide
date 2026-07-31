@@ -1,0 +1,390 @@
+{
+  "metadata": {
+    "skill_name": "panama-writer",
+    "skill_path": "/Users/macclaudio/Documents/GitHub/panama-real-estate-guide/.claude/skills/panama-writer",
+    "executor_model": "claude-sonnet-5",
+    "analyzer_model": "claude-sonnet-5",
+    "timestamp": "2026-07-30T20:10:06Z",
+    "evals_run": [
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.875,
+        "passed": 7,
+        "failed": 1,
+        "total": 8,
+        "time_seconds": 598.318,
+        "tokens": 16591,
+        "tool_calls": 46,
+        "errors": 3
+      },
+      "expectations": [
+        {
+          "text": "Output is delivered as separate structured fields (title, meta_description, hook, body, suits, drawbacks, location_note, buying_note, faqs, sources) rather than one undifferentiated blob of markdown",
+          "passed": true,
+          "evidence": "output.md uses ## headers for every named field in order: '## title' (line 1), '## meta_description' (5), '## hook' (9), '## body' (13, with subsections), '## suits' (71), '## drawbacks' (75), '## location_note' (79), '## buying_note' (83), '## faqs' (87), '## sources' (110). All ten required fields are present as distinct sections, not merged prose."
+        },
+        {
+          "text": "Includes a per-unit price and floor-plan table (beds, baths, m\u00b2/sq ft, price)",
+          "passed": false,
+          "evidence": "The table at output.md lines 19-27 has columns Model | Size | Starting price | Approx. price/m\u00b2 only. There is no beds or baths column, and no per-model beds/baths data anywhere in the doc \u2014 the only bed/bath mentions are generic prose ('65 m\u00b2 one-bedroom' at line 17, and a 'HOA $227.50/month' / '1 bed/1 bath' fact that appears only in the transcript's research notes, not in output.md itself). The floor-plan table required by this expectation is missing bedroom/bathroom counts entirely."
+        },
+        {
+          "text": "The hook paragraph names one specific, verifiable fact about Bioma Costa del Este (a permit, license, developer track record, or price anomaly) rather than generic marketing language",
+          "passed": true,
+          "evidence": "Hook (output.md line 11): 'their previous tower, Dovle in Coco del Mar, reportedly sold 170 units in 19 hours' \u2014 a specific, checkable developer track-record claim, sourced in the sources list to La Prensa Panam\u00e1 (line 139-141, checked_on 2026-07-30). The hook explicitly disclaims a permit/legal angle ('Bioma doesn't have a unique legal angle... no permit or title position here') rather than inventing one, and substitutes this verifiable sales-record fact plus a specific amenity figure (7,000+ m\u00b2, podium levels 0-4) in its place."
+        },
+        {
+          "text": "At least one drawback is named and is attributed to a source other than the developer (UGC, forum, or reasoned risk) rather than a generic hedge like 'may not suit everyone'",
+          "passed": true,
+          "evidence": "drawbacks field (output.md line 77): the delivery-date drawback is a reasoned-risk finding built from cross-referencing an aggregator listing (Q4 2025) against The Agency Panama's broker page (2028-2029) and a SkyscraperCity excavation timeline \u2014 none of it developer-sourced marketing. A second drawback ('we could not locate a public, independently verifiable construction permit or Registro P\u00fablico record') is an absence-of-verification finding, also not developer-attributed. Both are specific and reasoned, not the generic 'may not suit everyone' hedge the expectation warns against."
+        },
+        {
+          "text": "At least 3 FAQs are present, phrased as real buyer questions",
+          "passed": true,
+          "evidence": "output.md lines 89-108 contain 7 FAQs, each phrased as a first-person buyer question: 'How many floors does Bioma have?', 'What's the starting price at Bioma?', 'When will Bioma be delivered?', 'Who is the developer, and have they delivered projects before?', 'What are the HOA fees at Bioma?', 'Is Bioma titled property?', 'How far is Bioma from the airport?' \u2014 well above the 3-FAQ minimum and phrased naturally rather than as SEO keyword stuffing."
+        },
+        {
+          "text": "At least one figure (price, tax, or fee) carries a named source and a check date/month, not just a bare number",
+          "passed": true,
+          "evidence": "sources section (output.md lines 112-147) attaches a named source and checked_on date to every cited figure, e.g. 'RE/MAX Panama \u2014 Bioma listing (storeys, unit sizes, starting price), url: https://www.remax-panama.com/002602231062, checked_on: 2026-07-30' and 'The Agency Panama \u2014 Bioma at Costa del Este (architect, delivery estimate, deposit structure), checked_on: 2026-07-30'. In-body text also names sources inline, e.g. 'per The Agency Panama's listing: reservation deposits start at $1,000...' (buying_note, line 85) and 'based on Panama Equity's published rate' (line 31)."
+        },
+        {
+          "text": "No unsourced currency-conversion phrasing (e.g. '$X USD (approximately...)')",
+          "passed": true,
+          "evidence": "Searched output.md for 'approximately'/'approx.'/currency-conversion patterns. The only occurrences are 'Approx. price/m\u00b2' (a derived-metric table column, not a currency conversion) and 'Monthly HOA runs approximately $3.25-$3.50 per m\u00b2, based on Panama Equity's published rate and an Encuentra24 listing showing $227.50/month' (line 31) \u2014 an approximation of a range that is explicitly sourced to two named listings, not an unsourced USD-to-other-currency conversion. No instance of the flagged pattern ('$X USD (approximately...)') appears anywhere in the document."
+        },
+        {
+          "text": "Body prose (excluding the price table) is substantive, not a thin 150-word placeholder",
+          "passed": true,
+          "evidence": "The body field (output.md lines 13-69) runs to roughly 1,400+ words across five substantive subsections ('Bioma Costa del Este prices and floor plans', 'Where Bioma actually is', 'What's included at Bioma', 'Who Bioma suits \u2014 and who it doesn't', 'Before you buy at Bioma'), each with multiple sourced paragraphs and specific reconciled facts (price discrepancies, delivery-date conflict, deposit structure, amenity breakdown). Far beyond a 150-word placeholder."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 537.574,
+        "tokens": 120172,
+        "tool_calls": 45,
+        "errors": 3
+      },
+      "expectations": [
+        {
+          "text": "Includes a dedicated, sourced section addressing title status / titled land vs Rights of Possession risk specific to Boquete",
+          "passed": true,
+          "evidence": "output.md has a standalone `## Is Boquete titled?` section (lines 18-24) that cites the Panamanian constitution (T\u00edtulo X, Arts. 286 and 291) for the 10km border-zone rule, names ANATI and the Registro P\u00fablico, explains derecho posesorio (Rights of Possession) vs. titled finca land specific to Bajo Boquete formal developments vs. agricultural/hillside land outside town, cites TheLatinvestor for the foreign-buyer-regret pattern, and links to an internal titled-vs-ROP guide. The claim is also reinforced in two FAQ entries ('Is land in Boquete titled or Rights of Possession?' and 'Can foreigners even buy property this close to the Costa Rica border?')."
+        },
+        {
+          "text": "Includes at least one concrete cost-of-living or cost-to-buy figure with a named source",
+          "passed": true,
+          "evidence": "`## What it costs to live in Boquete` section gives multiple named-source figures, e.g. 'a one-bedroom apartment near the town center runs roughly $650-$800/month... (International Living; Wise cost-of-living, checked July 2026)' and 'roughly $58/month for electricity, water, and garbage on an 85 m2 apartment... (Wise, checked July 2026)'."
+        },
+        {
+          "text": "Includes an explicit 'who this suits / who it doesn't' section naming a type of buyer it is NOT good for",
+          "passed": true,
+          "evidence": "`## Who Boquete suits - and who it doesn't` section explicitly lists six buyer types it doesn't suit: beach-lifestyle seekers, anyone needing hospital-level care nearby, investors chasing liquidity/yield, anyone allergic to rain (landslide/break-in risk cited), anyone relying on grid power without backup, and buyers who want to walk everywhere without a car."
+        },
+        {
+          "text": "Includes practical access information (distance/time to nearest airport, road quality, whether a car is required)",
+          "passed": true,
+          "evidence": "`## Getting there and getting around` section: 'Fly into David's Enrique Malek International Airport (DAV)... about 40 minutes / 26-30 miles to Boquete on a paved, four-lane road'; and on car necessity: 'Once you're outside downtown, a car stops being optional - the roads climbing into Alto Boquete, Jaramillo, and the hillside communities generally don't have sidewalks.' Also echoed in FAQ ('How far is Boquete from an airport?' and 'Do I need a car in Boquete?')."
+        },
+        {
+          "text": "At least 3 FAQs are present",
+          "passed": true,
+          "evidence": "The `## FAQ` section contains 5 questions: AC/heating need, titled vs. ROP land, foreign ownership near the border, distance to nearest airport, and need for a car / internet reliability for remote work."
+        },
+        {
+          "text": "The page does not spend more than a sentence or two on scenery/atmosphere description disconnected from a purchase question (avoids travel-writing drift)",
+          "passed": true,
+          "evidence": "Climate/elevation descriptions in Identity and Positioning are consistently tied back to a buying-relevant point (AC/heating cost, elevation affecting property value/comfort) rather than standalone scenery prose. No passages describe views, ambiance, or landscape purely for atmosphere; the closest is the single 'eternal spring' framing in Positioning, which is immediately used to set up the AC/heating differentiator rather than lingering on description."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 561.047,
+        "tokens": 15417,
+        "tool_calls": 51,
+        "errors": 14
+      },
+      "expectations": [
+        {
+          "text": "Opens with a specific fact or number in the first sentence rather than throat-clearing scene-setting",
+          "passed": true,
+          "evidence": "Opening paragraph, sentence 1: 'Panama's possessory-rights law does not ask a seller for a deed.' \u2014 a specific, non-generic legal claim, not scene-setting ('nestled in the tropics...' style openers are avoided entirely). Sentence 2 immediately supplies the number: 'It asks for five years.' The paragraph is fully specific by the third sentence, citing Law 80 of 2009 and Gaceta Oficial N\u00ba 26,438 directly. No throat-clearing anywhere in the lead."
+        },
+        {
+          "text": "Includes a Key Takeaways section with 4-6 bullets, each carrying a source",
+          "passed": true,
+          "evidence": "output.md lines 11-18: '## Key Takeaways' contains exactly 6 bullets. Each ends with an inline source attribution, e.g. bullet 2: '(ecolex.org legislation record, accessed July 2026)'; bullet 4: '(multiple legal-registry sources, accessed July 2026; ANATI's own \"marco legal\" page returned an access error...)'; bullet 5 names two firms inline (Casa Solution, RELO Firm); bullet 6: '(Panama conveyancing guides, accessed July 2026...)'. All 6/6 bullets carry a named source or explicit source-limitation note."
+        },
+        {
+          "text": "Explains the practical difference between titled land and Rights of Possession (ANATI-administered) with correct, non-generic detail",
+          "passed": true,
+          "evidence": "Dedicated H2 sections 'What titled land actually is' and 'What Rights of Possession actually is' (lines 22-28) plus a 7-row comparison table (lines 30-40) covering registration status, basis of claim, mortgageability, title insurance, resale market, governing law (Law 80/2009 coastal vs. Law 37/1962 + Agricultural Code inland), and which institution administers each (Registro P\u00fablico vs. ANATI). Detail is specific (finca numbers, five-year occupation test, named statutes) rather than generic 'titled is safer' boilerplate."
+        },
+        {
+          "text": "Includes a section equivalent to 'when the honest answer is don't' \u2014 a case where the guide recommends against a Rights of Possession purchase or flags real risk",
+          "passed": true,
+          "evidence": "output.md line 71: '## When the honest answer is don't' \u2014 explicitly lists walk-away conditions (no finca number and no documented explanation, boundary/surveyor mismatch, unresolved competing occupant claims, missing signed heir/co-owner waivers) and states 'If your plan requires financing, a fast resale, or absentee ownership for long stretches, ROP land does not fit that plan regardless of price.'"
+        },
+        {
+          "text": "Sources are numbered/listed with named primary institutions (ANATI and/or Registro P\u00fablico and/or Gaceta Oficial), not just 'various sources' or broker sites",
+          "passed": true,
+          "evidence": "Lines 77-88: a numbered list (1-8) with full URLs. Source #1 cites the Gaceta Oficial number directly (N\u00ba 26,438) via Ecolex. The closing italicized line explicitly names both primary institutions: 'Registro P\u00fablico de Panam\u00e1 (registro-publico.gob.pa / rp.gob.pa) and ANATI (anati.gob.pa) are the primary institutions of record for this topic.' Note: per the transcript, direct fetches to anati.gob.pa (403 errors, 4 attempts) and registro-publico.gob.pa's query pages (connection error / unparseable PDF) all failed, so the numbered entries themselves are aggregator/law-firm/relocation-firm sources rather than direct government citations \u2014 this is disclosed transparently rather than hidden, which is why the expectation as worded (institutions named, not silently substituted) is satisfied, even though no entry is a live ANATI or Registro P\u00fablico URL."
+        },
+        {
+          "text": "Spanish/legal terms (finca, ANATI, Registro P\u00fablico, derechos posesorios) are defined on first use",
+          "passed": true,
+          "evidence": "'Rights of Possession (*derecho posesorio*) is a claim to occupy and use land the state still holds, built entirely on the fact of occupation rather than on registration' (line 28) \u2014 defined in the same sentence as first substantive use. 'ANATI, the agency that processes ROP-to-title conversions, was created by Law 59 of October 8, 2010...' (Key Takeaways bullet 4, line 16) is the first substantive prose use and is defined there (an earlier appearance of the string 'ANATI' in bullet 1 is only inside a source-attribution parenthetical, not prose use). 'finca number' and 'Registro P\u00fablico' are introduced together in Key Takeaways bullet 1: 'Titled land is registered ownership under a unique finca number in the Registro P\u00fablico' \u2014 the sentence itself functions as the definition (finca number = the registered identifier; Registro P\u00fablico = where it's recorded), reinforced again in 'What titled land actually is.'"
+        },
+        {
+          "text": "At least 3 FAQs are present",
+          "passed": true,
+          "evidence": "'## FAQ' section (lines 90-111) contains 7 questions: legality of buying ROP, convertibility to title, mortgage availability, how to verify titled status, conversion timeline, abandonment/absence risk, and price comparison."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.625,
+        "passed": 5,
+        "failed": 3,
+        "total": 8,
+        "time_seconds": 292.348,
+        "tokens": 12277,
+        "tool_calls": 23,
+        "errors": 4
+      },
+      "expectations": [
+        {
+          "text": "Output is delivered as separate structured fields (title, meta_description, hook, body, suits, drawbacks, location_note, buying_note, faqs, sources) rather than one undifferentiated blob of markdown",
+          "passed": false,
+          "evidence": "output.md is a single continuous markdown file (12,277 chars). Meta title and meta description are set off with bold labels ('**Meta title:**', '**Meta description:**') at the top, and the body uses H2 headers to separate sections (hook, price table, location, amenities, 'who it suits/doesn't', 'before you buy', FAQ) \u2014 but these are prose sections inside one .md file, not discrete machine-readable fields (no frontmatter, no JSON keys, no field boundaries a CMS could ingest directly). There is also no dedicated 'sources' field or citation list anywhere in the file \u2014 sourcing is folded into prose ('compiled from developer marketing materials and reseller listings as of mid-2026'). This is exactly the gap the eval note anticipated: without the skill's schema, the writer produced good markdown but not the structured-field output the templates expect."
+        },
+        {
+          "text": "Includes a per-unit price and floor-plan table (beds, baths, m\u00b2/sq ft, price)",
+          "passed": false,
+          "evidence": "The table at output.md lines 36-44 ('Bioma Costa del Este prices and floor plans') has columns Model | Size (m\u00b2) | Size (sq ft) | Price from | Price per m\u00b2 \u2014 no beds or baths columns. Bedroom/bathroom info is instead handled in a prose sentence below the table ('All units are marketed as 1-2 bedroom layouts... confirm bedroom/bathroom counts unit-by-unit'), which is a defensible choice given the source data (v2/data/airtable.json has beds:null/baths:null for every Bioma model), but it does not satisfy the literal expectation that the table itself carries beds/baths."
+        },
+        {
+          "text": "The hook paragraph names one specific, verifiable fact about Bioma Costa del Este (a permit, license, developer track record, or price anomaly) rather than generic marketing language",
+          "passed": true,
+          "evidence": "Hook section (output.md lines 26-30) names a specific, checkable claim: 'the developer also markets Bioma as the first residential tower in Panama built with Dactron, a composite fa\u00e7ade material... a claim we can't independently verify from public building records.' This is a concrete, falsifiable fact tied to construction records (adjacent in kind to the 'permit/license' category the expectation names), explicitly flagged as developer-sourced and unverified rather than stated as settled marketing copy. It is not generic language like 'stunning views' or 'luxury living.'"
+        },
+        {
+          "text": "At least one drawback is named and is attributed to a source other than the developer (UGC, forum, or reasoned risk) rather than a generic hedge like 'may not suit everyone'",
+          "passed": true,
+          "evidence": "'Who Bioma suits \u2014 and who it doesn't' section (output.md lines 72-76) lists specific reasoned risks: multi-year pre-construction hold with 'permitting delays, phased price changes,' Dactron's lack of a Panama construction track record, and new-supply competition ('Costa del Este and neighboring San Francisco/Punta Pacifica have a wave of new towers under construction right now... resale and rental competition will be real by the time Bioma delivers'). These are the writer's own reasoned-risk analysis, not developer messaging, and not a generic hedge phrase."
+        },
+        {
+          "text": "At least 3 FAQs are present, phrased as real buyer questions",
+          "passed": true,
+          "evidence": "8 FAQ entries at output.md lines 88-110, each phrased as a first-person buyer question: 'Is Bioma Costa del Este a good investment?', 'Can foreigners buy at Bioma Costa del Este?', 'Is the land titled or Rights of Possession (ROP)?', 'Does buying at Bioma qualify for Panama residency?', 'Can I rent my unit short-term (Airbnb)?', etc."
+        },
+        {
+          "text": "At least one figure (price, tax, or fee) carries a named source and a check date/month, not just a bare number",
+          "passed": false,
+          "evidence": "Every figure in the output is attributed only to generic, unnamed categories \u2014 'one third-party listing' (HOA estimate, line 46/106), 'resale listings' (delivery date, line 97), 'developer marketing materials and reseller listings' (quick-facts footnote, line 24), 'Reported figures range from... depending on source' (deposit, line 21). None names a specific outlet (e.g. 'The Agency Panama', 'Raggi Properties' \u2014 both of which the transcript shows were actually fetched) alongside a specific figure with a check date/month. The only date given is a blanket 'as of mid-2026' applied to the whole quick-facts table, not tied to an individual named source for an individual figure."
+        },
+        {
+          "text": "No unsourced currency-conversion phrasing (e.g. '$X USD (approximately...)')",
+          "passed": true,
+          "evidence": "No currency-conversion phrasing appears anywhere in output.md; all prices are stated as plain USD figures (Panama's currency is USD-pegged, so no conversion was needed or attempted)."
+        },
+        {
+          "text": "Body prose (excluding the price table) is substantive, not a thin 150-word placeholder",
+          "passed": true,
+          "evidence": "Excluding the price table, the body runs to roughly 1,600+ words across the hook, location, amenities, suits/doesn't-suit, before-you-buy, and 8-question FAQ sections \u2014 clearly substantive, multi-paragraph analysis rather than a placeholder."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 327.002,
+        "tokens": 91871,
+        "tool_calls": 23,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Includes a dedicated, sourced section addressing title status / titled land vs Rights of Possession risk specific to Boquete",
+          "passed": true,
+          "evidence": "output.md has a dedicated section \"Before you shortlist anything here\" (titled 'Title status: mixed \u2014 verify per lot.') explaining that developed town-area land is generally titled while outlying coffee finca land toward Jaramillo/Volcancito is commonly derecho posesorio (rights of possession), including mechanics (can't be conventionally mortgaged, months to convert, foreigners typically hold via a Panamanian corporation) and an actionable instruction to check the finca number at the Public Registry. It is sourced: the Sources list cites 'Title vs. ROP: Understanding Property Rights in Panama \u2014 Casa Solution' and 'Rights of Possession Panama, Derecho Posesorio \u2014 Best Places in the World to Retire', both with a Boquete-specific note. The structured AreaEditorial record also sets titleStatus: 'mixed' with a matching titleNote field, and the transcript documents the codebase's explicit warning that this field 'is not to be set from general knowledge' \u2014 the run treated that as the organizing constraint."
+        },
+        {
+          "text": "Includes at least one concrete cost-of-living or cost-to-buy figure with a named source",
+          "passed": true,
+          "evidence": "The specs table and pricing section give concrete cost-to-buy figures: 'Entry price $121,223 (Boquete Country Club, resale)', 'Published inventory from $214,600 (Towncenter Boquete)', 'Upper range $625,000', and Pino Alto Boquete '$245,000\u2013$395,000' \u2014 all traced in the Sources list to 'v2/data/airtable.json \u2014 this site's own published project data for Boquete'. Neighborhood- and market-level figures (e.g. 'typical three-bedroom house in the Alto Boquete area runs $280,000\u2013$380,000') are attributed collectively to named outlets in the Sources list (Global Property Guide, TheLatinvestor, Esales Overseas Property), explicitly flagged as 'broker-reported rather than authoritative' rather than hidden."
+        },
+        {
+          "text": "Includes an explicit 'who this suits / who it doesn't' section naming a type of buyer it is NOT good for",
+          "passed": true,
+          "evidence": "Section header \"### Who Boquete suits \u2014 and who it doesn't\" explicitly names the good-fit buyer (retirees/remote workers wanting cooler weather and an expat community) and then names buyer types it does NOT suit: people who 'need serious medical infrastructure close by,' anyone wanting nightlife/big-box shopping/variety, and implicitly flippers ('Boquete buyers are overwhelmingly people relocating for lifestyle, not flippers, and the market rewards patience over speed')."
+        },
+        {
+          "text": "Includes practical access information (distance/time to nearest airport, road quality, whether a car is required)",
+          "passed": true,
+          "evidence": "A dedicated \"### Getting there\" section states the nearest airport (Enrique Malek International, David, IATA: DAV), drive time (40\u201350 minutes), flight option from Panama City (Copa/Air Panama), and full driving time from Panama City (6\u20137 hours via Pan-American Highway). Road quality is addressed in the who-it-suits section: 'unpaved roads on the outskirts can get genuinely difficult, and landslides on the steeper hillside routes aren't unheard of after a hard week of rain.' Whether a car is required is not stated as a single explicit sentence, but it is strongly and consistently implied throughout (every neighborhood is described by drive time/distance from town, no public transit or taxi infrastructure is mentioned, and 'most buyers fly into David... rather than driving'). Two of the three named sub-components are explicit and the third is a reasonable inference from the surrounding text, so the overall expectation is met."
+        },
+        {
+          "text": "At least 3 FAQs are present",
+          "passed": true,
+          "evidence": "output.md has 8 FAQ entries under '### FAQ': titled vs ROP, can foreigners buy, weather, distance from Panama City, cost to buy, which neighborhood for expats, healthcare access, and safety."
+        },
+        {
+          "text": "The page does not spend more than a sentence or two on scenery/atmosphere description disconnected from a purchase question (avoids travel-writing drift)",
+          "passed": true,
+          "evidence": "The 'Boquete in brief' section stays largely functional (location, population, climate rationale for buyers) with one clause of pure scenery: 'a dormant volcano you can hike overnight for a sunrise view of both the Pacific and Caribbean on a clear day.' The coffee paragraph ties back to real estate ('surrounding fincas are part of what gives the area its identity \u2014 and its zoning patchwork of small agricultural holdings mixed in with newer residential development'). No section is devoted to restaurants, tourism activities, or extended scene-setting; atmosphere language is kept to roughly one sentence and is otherwise in service of a buying-relevant point (climate, title risk, neighborhood choice)."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5714285714285714,
+        "passed": 4,
+        "failed": 3,
+        "total": 7,
+        "time_seconds": 205.47,
+        "tokens": 16659,
+        "tool_calls": 13,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Opens with a specific fact or number in the first sentence rather than throat-clearing scene-setting",
+          "passed": false,
+          "evidence": "output.md opens (after title/meta) with '## The short answer' followed by: 'In Panama, \"I own the land\" can mean two very different things depending on how the property is held:' \u2014 this is generic framing with no specific fact or number. The first number that appears anywhere in the body (finca number, 10km border zone, etc.) shows up several sentences/bullets later, not in the opening sentence."
+        },
+        {
+          "text": "Includes a Key Takeaways section with 4-6 bullets, each carrying a source",
+          "passed": false,
+          "evidence": "No 'Key Takeaways' heading exists anywhere in output.md (confirmed via grep, no match for 'key takeaway'). The closest analog is the 'The short answer' section, which has 2 bullets (titled vs. ROP definitions), not 4-6, and neither bullet nor any other line in output.md carries an inline source/citation \u2014 grep for 'sources', 'references', 'citation', '[1]' in output.md returns zero matches. Sourcing exists only in the internal transcript.md (explicitly marked as not part of the reader-facing guide) and even there it's broker/law-firm sites, not attributed per-bullet."
+        },
+        {
+          "text": "Explains the practical difference between titled land and Rights of Possession (ANATI-administered) with correct, non-generic detail",
+          "passed": true,
+          "evidence": "output.md gives specific, non-generic mechanics: titled land tied to a finca/folio number in the Registro P\u00fablico, verifiable via a 'certificaci\u00f3n registral'; ROP is a transferable possessory interest historically rooted in 1960s-70s land reform, documented via 'traspaso de derechos posesorios' and notified to ANATI; a numbered 5-step ANATI conversion ('titulaci\u00f3n') process with site inspection, public notice period, and a 6-12 month typical timeline; a comparison table covering financing, tax, boundary certainty, resale liquidity, and reclamation risk. This is specific and structurally correct, not a generic 'titled=good, ROP=risky' gloss."
+        },
+        {
+          "text": "Includes a section equivalent to 'when the honest answer is don't' \u2014 a case where the guide recommends against a Rights of Possession purchase or flags real risk",
+          "passed": true,
+          "evidence": "The 'Why this matters more than it sounds like it should' section explicitly flags real, concrete risks: government reclamation risk ('the possession right can be extinguished or restricted, sometimes with no compensation... highest in ecologically sensitive coastal areas and land adjacent to comarca boundaries'), competing possessory claims, and the due-diligence checklist warns 'the seller's assurance that \"it can be titled\" is not the same as ANATI confirming it.' It stops short of a single dedicated 'don't buy this' callout box, but the risk-flagging is substantive and specific rather than boilerplate, satisfying the 'flags real risk' branch of the expectation."
+        },
+        {
+          "text": "Sources are numbered/listed with named primary institutions (ANATI and/or Registro P\u00fablico and/or Gaceta Oficial), not just 'various sources' or broker sites",
+          "passed": false,
+          "evidence": "output.md (the reader-facing deliverable) contains no sources/references list at all. The only source list exists in transcript.md, which states on line 3 it 'is not part of the reader-facing guide.' Even that internal list is composed almost entirely of real-estate brokerage and law-firm sites (casasolution.com, panamaadvisoryinternationalgroup.com, kraemerlaw.com, relofirm.com, etc.); transcript.md explicitly admits: 'No primary government source (e.g., an official ANATI or Registro P\u00fablico page, or the specific enabling legislation text) was directly fetched \u2014 all research was via search-engine snippets and one law-firm page fetch.'"
+        },
+        {
+          "text": "Spanish/legal terms (finca, ANATI, Registro P\u00fablico, derechos posesorios) are defined on first use",
+          "passed": true,
+          "evidence": "All four terms are defined inline at first mention: 'a unique title number (finca number) that functions like a deed'; 'registered in Panama's Public Registry (Registro P\u00fablico)'; 'Rights of Possession (derecho posesorio, often shortened to ROP)'; and ANATI is spelled out on first use as 'notified to the Autoridad Nacional de Administraci\u00f3n de Tierras (ANATI), the national land authority that succeeded the old Reforma Agraria office.'"
+        },
+        {
+          "text": "At least 3 FAQs are present",
+          "passed": true,
+          "evidence": "The 'Frequently asked questions' section in output.md contains 6 Q&A pairs: 'Is Rights of Possession legal?', 'Can foreigners buy Rights of Possession property?', 'Can I get a mortgage on ROP land?', 'How do I know if a listing is titled or ROP?', 'Does ROP convert to title automatically over time?', 'Is ROP cheaper than titled land for a reason, or is it just a bargain?'"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.9583,
+        "stddev": 0.0722,
+        "min": 0.875,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 565.6463,
+        "stddev": 30.6321,
+        "min": 537.574,
+        "max": 598.318
+      },
+      "tokens": {
+        "mean": 50726.6667,
+        "stddev": 60144.2874,
+        "min": 15417,
+        "max": 120172
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.7321,
+        "stddev": 0.2335,
+        "min": 0.5714,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 274.94,
+        "stddev": 62.6082,
+        "min": 205.47,
+        "max": 327.002
+      },
+      "tokens": {
+        "mean": 40269.0,
+        "stddev": 44742.321,
+        "min": 12277,
+        "max": 91871
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.23",
+      "time_seconds": "+290.7",
+      "tokens": "+10458"
+    }
+  },
+  "notes": [
+    "Titled-land-vs-ROP guide shows the sharpest delta (100% with-skill vs. 57% baseline): the baseline produced correct legal mechanics but zero source citations in the reader-facing output, while the skill forced a Key Takeaways box, a numbered source list naming ANATI/Registro Público, and a real 'when the honest answer is don't' section. This looks like the skill's clearest value-add of the three page types.",
+    "Boquete area page tied 6/6 in both configurations. This eval's assertions may not be discriminating enough for area pages specifically — the baseline agent independently found and cited v2/data/airtable.json and the same broker/relocation sources the skill points toward. Worth tightening these assertions (e.g. requiring a check date per figure, or penalizing 'brokers report'-style vague attribution) before trusting this eval to catch regressions.",
+    "The beds/baths price-table assertion failed in BOTH configurations on the Bioma project page. Root cause is upstream, not either agent: v2/data/airtable.json has beds/baths as null for every Bioma unit model, so neither run had the data to put in the table. Not a skill defect — either fix the source data or drop/reword this assertion.",
+    "anati.gob.pa and registro-publico.gob.pa returned 403s/connection errors in every with-skill run that tried them. The skill's designed response (disclose the failure inline, cite named aggregator/law-firm sources instead of a live .gob.pa URL, never silently launder the gap) is working as intended, but this is a real, recurring environment limitation worth knowing about rather than a one-off fluke.",
+    "With-skill runs take roughly 2x longer than baseline (mean 566s vs. 275s) and use more tokens on 2 of 3 evals — the cost of the four-phase research workflow (SERP teardown, UGC mining, per-figure sourcing). Given the accuracy gap on the guide page, this reads as a reasonable trade for legal/financial content; worth watching whether it's still worth it on simpler/thinner page types.",
+    "Two with-skill runs (Boquete area page, titled-vs-ROP guide) reported that Reddit was unreachable to WebSearch/WebFetch in this environment, so UGC mining fell back to expat-forum blogs and comment threads. This is an environment/tooling constraint on the research phase, not a skill instruction problem — but it means the UGC-mining step's actual target source (Reddit, per SKILL.md) wasn't exercised in this eval run."
+  ]
+}

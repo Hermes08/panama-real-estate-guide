@@ -10,6 +10,7 @@ import {
   m2,
   statusLabel,
 } from "@/lib/content";
+import { getProjectEditorial } from "@/lib/editorial";
 import { Button, TitleBadge, SourceNote } from "@/components/ui";
 import { mediaUrl, absoluteMedia } from "@/lib/media";
 
@@ -86,6 +87,7 @@ export default async function ProjectPage({
   const p = getProject(slug);
   if (!p) notFound();
 
+  const editorial = await getProjectEditorial(slug);
   const area = getArea(p.areaSlug);
   const siblings = projects
     .filter((x) => x.areaSlug === p.areaSlug && x.slug !== p.slug)
@@ -131,6 +133,18 @@ export default async function ProjectPage({
           { "@type": "ListItem", position: 3, name: p.name },
         ],
       },
+      ...(editorial && editorial.faqs.length > 0
+        ? [
+            {
+              "@type": "FAQPage",
+              mainEntity: editorial.faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            },
+          ]
+        : []),
     ],
   };
 
@@ -271,6 +285,14 @@ export default async function ProjectPage({
             ))}
           </dl>
 
+          {/* The hook — the one specific fact that stops this reading like a
+              syndicated listing. Absent until a human has researched it. */}
+          {editorial?.hook && (
+            <p className="mt-6 text-[17px] leading-relaxed text-body max-w-[70ch]">
+              {editorial.hook}
+            </p>
+          )}
+
           {/* H2 #1 — prices and floor plans. The single most searched thing
               about any named development, and our most unique content. */}
           {p.models.length > 0 && (
@@ -319,8 +341,21 @@ export default async function ProjectPage({
                 <SourceNote>
                   {prices.length} of {p.models.length} unit types priced · as
                   listed by the developer
+                  {editorial?.priceCheckedOn && ` · checked ${editorial.priceCheckedOn}`}
                 </SourceNote>
               </div>
+            </section>
+          )}
+
+          {/* Where the project actually is — context, not coordinates. */}
+          {editorial?.locationNote && (
+            <section className="mt-12">
+              <h2 className="h2-section !text-[clamp(23px,2.6vw,28px)]">
+                Where {p.name} actually is
+              </h2>
+              <p className="mt-5 text-[16px] leading-relaxed text-body max-w-[70ch] whitespace-pre-line">
+                {editorial.locationNote}
+              </p>
             </section>
           )}
 
@@ -347,6 +382,26 @@ export default async function ProjectPage({
             </section>
           )}
 
+          {/* Who it suits, and who it doesn't — the section brokers can't
+              write, because they earn on the sale either way. */}
+          {(editorial?.suits || editorial?.drawbacks) && (
+            <section className="mt-12">
+              <h2 className="h2-section !text-[clamp(23px,2.6vw,28px)]">
+                {`Who ${p.name} suits — and who it doesn’t`}
+              </h2>
+              {editorial.suits && (
+                <p className="mt-5 text-[16px] leading-relaxed text-body max-w-[70ch] whitespace-pre-line">
+                  {editorial.suits}
+                </p>
+              )}
+              {editorial.drawbacks && (
+                <p className="mt-4 text-[16px] leading-relaxed text-body max-w-[70ch] whitespace-pre-line">
+                  {editorial.drawbacks}
+                </p>
+              )}
+            </section>
+          )}
+
           {/* H2 #3 — before you buy. The site's whole differentiator, on the
               page where a buyer is closest to committing money. */}
           <section className="mt-12">
@@ -354,13 +409,11 @@ export default async function ProjectPage({
               Before you buy at {p.name}
             </h2>
             <div className="mt-5 rounded-md border-l-4 border-line bg-paper-warm p-6 max-w-[70ch]">
-              <TitleBadge status="unknown" />
-              <p className="mt-3.5 text-[16px] leading-relaxed text-body">
-                We have not independently checked the title status, permits, or
-                delivery record for this project. Everything on this page comes
-                from the developer. Ask for the finca number and have an
-                attorney pull the Registro Público entry before you pay a
-                deposit of any size.
+              <TitleBadge status={editorial?.titleStatus ?? "unknown"} />
+              <p className="mt-3.5 text-[16px] leading-relaxed text-body whitespace-pre-line">
+                {editorial?.buyingNote ??
+                  editorial?.titleNote ??
+                  "We have not independently checked the title status, permits, or delivery record for this project. Everything on this page comes from the developer. Ask for the finca number and have an attorney pull the Registro Público entry before you pay a deposit of any size."}
               </p>
               <Link
                 href="/buying/titled-vs-rights-of-possession"
@@ -370,6 +423,27 @@ export default async function ProjectPage({
               </Link>
             </div>
           </section>
+
+          {/* FAQ — 5–8 real questions, matching the FAQPage schema above. */}
+          {editorial && editorial.faqs.length > 0 && (
+            <section className="mt-12">
+              <h2 className="h2-section !text-[clamp(23px,2.6vw,28px)]">
+                FAQ
+              </h2>
+              <div className="mt-5 flex flex-col gap-3">
+                {editorial.faqs.map((f, i) => (
+                  <div key={i} className="rounded-md border border-line p-5">
+                    <p className="font-display text-[15.5px] font-bold text-ink">
+                      {f.q}
+                    </p>
+                    <p className="mt-2 text-[15px] leading-relaxed text-body">
+                      {f.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
         </div>
 
         {/* ── Sticky lead card — the conversion surface ──────────────────── */}
